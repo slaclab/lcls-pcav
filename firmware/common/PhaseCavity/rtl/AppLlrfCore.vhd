@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2019-10-12
+-- Last update: 2019-10-14
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -67,8 +67,9 @@ entity AppLlrfCore is
       debug          : out sampleDataVectorArray(1 downto 0, 3 downto 0);
       debugValids    : out Slv4Array(1 downto 0);
       -- Diagnostic ports (diagnosticBus)
-      diagn          : out Slv32Array(30 downto 0);
-      diagnValids    : out slv       (30 downto 0);
+      diagn          : out Slv32Array(31 downto 0);
+      diagnValids    : out slv       (31 downto 0);
+      diagnStrobe    : out sl;
       -- Waveform interface
       --wfAddr         : out slv11Array(1 downto 0);
       --wfData         : in  slv32Array(1 downto 0);
@@ -247,7 +248,6 @@ architecture mapping of AppLlrfCore is
    signal userdaccontrol204 : slv(15 downto 0) := (others=>'0');
 
    signal trigPulse204    : slv(NUM_OF_TRIG_PULSES_G-1 downto 0);
-   signal trigGate204     : slv(trigGate'range);
 
    constant SLAVE_AXI_CONFIG_C : AxiStreamConfigType := (
      TSTRB_EN_C    => false,
@@ -259,10 +259,12 @@ architecture mapping of AppLlrfCore is
      TUSER_MODE_C  => TUSER_NORMAL_C);
    
    type RegType is record
-     data     : Slv32Array(30 downto 0);
+     count    : slv       (23 downto 0);
+     data     : Slv32Array(31 downto 0);
    end record;
 
    constant REG_INIT_C : RegType := (
+     count    => (others=>'0'),
      data     => (others=>(others=>'0')) );
 
    signal r    : RegType := REG_INIT_C;
@@ -526,6 +528,27 @@ begin
        dout(39 downto 36)=> phaseAmpChannel204,
        dout(40)          => phaseAmpTlast204,
        dout(41)          => phaseAmpSync204 );
+
+
+   SYNC_DAC_LS : for i in 2 downto 0 generate
+      SYNC_DAC : entity work.SynchronizerFifo
+         generic map (
+            TPD_G        => TPD_G,
+            DATA_WIDTH_G => 16)
+         port map (
+            rst    => '0',
+            -- Write Ports (wr_clk domain)
+            wr_clk => dspClk204,
+            wr_en  => dacLsValid204,
+            din    => dacLs204(i),
+            -- Read Ports (rd_clk domain)
+            rd_clk => jesdClk(0),
+            dout   => dacLs185(i));
+      -- output assignment
+      -- combine both into 32-bit word
+      dacLs(i)      <= dacLs185(i) & dacLs185(i);
+      dacLsValid(i) <= '1';
+   end generate SYNC_DAC_LS;
    
    NOGEN_MODEL : if not GEN_MODEL_C generate
 
@@ -572,7 +595,7 @@ begin
 
    streamMaster <= AXI_STREAM_MASTER_INIT_C;
    
-   comb : process ( r, jesdClkRst, debugSync185 ) is
+   comb : process ( r, jesdRst, debugSync185 ) is
      variable v : RegType;
      variable j : integer;
    begin
@@ -582,11 +605,11 @@ begin
        v.count := r.count+1;
      end if;
        
-     for i in 0 to 30 loop
+     for i in 0 to 31 loop
        v.data(i) := toSlv(i,4) & r.count;
      end loop;
      
-     if jesdClkRst(0) = '1' then
+     if jesdRst(0) = '1' then
        v := REG_INIT_C;
      end if;
 

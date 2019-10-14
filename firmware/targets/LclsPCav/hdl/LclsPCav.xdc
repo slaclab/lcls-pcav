@@ -30,6 +30,9 @@ create_generated_clock -name jesd1_370MHz [get_pins {U_AppTop/U_AmcBay[1].U_Jesd
 
 create_generated_clock -name ddrClk [get_pins U_Core/U_Core/U_DdrMem/MigCore_Inst/inst/u_ddr3_infrastructure/gen_mmcme3.u_mmcme_adv_inst/CLKOUT5]
 
+#create_clock -name timingRef  -period  2.691  [get_ports {timingRefClkInP}]
+create_clock -name timingRef  -period  4.201  [get_ports {timingRefClkInP}]
+
 set_clock_groups -asynchronous \
                  -group [get_clocks -include_generated_clocks {recTimingClk}] \
                  -group [get_clocks -include_generated_clocks {dspClk204}] \

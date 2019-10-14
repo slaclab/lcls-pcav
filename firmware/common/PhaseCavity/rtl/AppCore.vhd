@@ -217,6 +217,9 @@ architecture mapping of AppCore is
    signal timingMessage        : TimingMessageType;
    signal timingMessageSlv     : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
    signal timingMessageSlvO    : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
+
+   signal streamMaster         : AxiStreamMasterType;
+   signal streamSlave          : AxiStreamSlaveType;
    
    constant DEBUG_C : boolean := true;
 
@@ -393,7 +396,7 @@ begin
        generic map ( FWFT_EN_G     => true,
                      DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C,
                      ADDR_WIDTH_G  => 4 )
-       port map    ( rst           => jesdClkRst(0),
+       port map    ( rst           => jesdRst(0),
                      -- Write Ports (wr_clk domain)
                      wr_clk        => timingClk,
                      wr_en         => s_trigPulse(0),
@@ -409,15 +412,15 @@ begin
        port map (
          -- Diagnostic data interface
          diagnosticClk   => jesdClk   (0),
-         diagnosticRst   => jesdClkRst(0),
+         diagnosticRst   => jesdRst(0),
          diagnosticBus   => s_diagnosticBus,
          -- AXI Lite interface
          axilClk         => axilClk,
          axilRst         => axilRst,
-         axilReadMaster  => axilReadMasters (BSS_INDEX_C),
-         axilReadSlave   => axilReadSlaves  (BSS_INDEX_C),
-         axilWriteMaster => axilWriteMasters(BSS_INDEX_C),
-         axilWriteSlave  => axilWriteSlaves (BSS_INDEX_C),
+         axilReadMaster  => axilReadMasters (BSSS_INDEX_C),
+         axilReadSlave   => axilReadSlaves  (BSSS_INDEX_C),
+         axilWriteMaster => axilWriteMasters(BSSS_INDEX_C),
+         axilWriteSlave  => axilWriteSlaves (BSSS_INDEX_C),
          -- Timing ETH MSG Interface (axilClk domain)
          ibEthMsgMaster  => AXI_STREAM_MASTER_INIT_C,
          ibEthMsgSlave   => open,
@@ -428,7 +431,7 @@ begin
    end generate;
 
    diagnosticClk <= jesdClk   (0);
-   diagnosticRst <= jesdClkRst(0);
+   diagnosticRst <= jesdRst(0);
    diagnosticBus <= s_diagnosticBus;
    
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)

@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-09-25
--- Last update: 2018-02-06
+-- Last update: 2019-10-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -284,7 +284,7 @@ begin
      axiSlaveRegisterR(ep, x"020", 0, ssync.packets);
      axiSlaveRegisterR(ep, x"020",31, ssync.pause);
      for i in 0 to NUM_EDEFS_G-1 loop
-       axiSlaveRegisterR(ep, toSlv(64+4*i,12), 0, eventSel(i));
+       axiSlaveRegisterR(ep, toSlv(64+4*i,12), 0, v.config.eventSel(i));
      end loop;
        
      axiSlaveDefault (ep, v.axilWriteS, v.axilReadS);
