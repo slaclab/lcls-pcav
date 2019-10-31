@@ -45,6 +45,11 @@ set_clock_groups -asynchronous \
                  -group [get_clocks -include_generated_clocks {jesd1_185MHz}] \
                  -group [get_clocks -include_generated_clocks {jesd0_370MHz}]
 
+#  DiagnosticBus <-> BSA
+set_clock_groups -asynchronous \
+                 -group [get_clocks -include_generated_clocks {dspClk204}] \
+                 -group [get_clocks -include_generated_clocks {ddrClkIn}]
+
 #set_clock_groups -asynchronous \
 #                 -group [get_clocks {recTimingClk}] \
 #                 -group [get_clocks -of_objects [get_pins -hier -filter {NAME =~ */U_RTM/U_PLL/PllGen.U_Pll/CLKOUT1}]]

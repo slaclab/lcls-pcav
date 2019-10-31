@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- File       : LclsPCav.vhd
+-- File       : Lcls2PCav.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
 -- Last update: 2019-10-15
@@ -29,7 +29,7 @@ use work.TimingPkg.all;
 use work.AmcCarrierPkg.all;
 use work.AppTopPkg.all;
 
-entity LclsPCav is
+entity Lcls2PCav is
    generic (
       TPD_G        : time := 1 ns;
       BUILD_INFO_G : BuildInfoType);
@@ -143,9 +143,9 @@ entity LclsPCav is
       -- SYSMON Ports
       vPIn             : in    sl;
       vNIn             : in    sl);
-end LclsPCav;
+end Lcls2PCav;
 
-architecture top_level of LclsPCav is
+architecture top_level of Lcls2PCav is
 
    -- AXI-Lite Interface (axilClk domain)
    signal axilClk              : sl;
@@ -316,13 +316,13 @@ begin
       generic map (
          TPD_G           => TPD_G,
          BUILD_INFO_G    => BUILD_INFO_G,
-         DISABLE_BSA_G   => true,         -- true = doesn't build the BSA engine
+         DISABLE_BSA_G   => false,         -- true = doesn't build the BSA engine
          DISABLE_BLD_G   => true,         -- true = doesn't build the BLD engine
          DISABLE_MPS_G   => true,         -- true = doesn't build MPS engine
          RTM_ETH_G       => false,        -- false = 10GbE over backplane
          CORE_TRIGGERS_G => 8,
          AXIL_RINGB_G    => false,        -- false = no AxiLiteRingBuffer from TimingCore
-         CLKSEL_MODE_G   => "LCLSI",
+         CLKSEL_MODE_G   => "LCLSII",
          APP_TYPE_G      => APP_NULL_TYPE_C)  -- Configured by application (refer to AmcCarrierPkg for list of all application types
       port map (
          ----------------------

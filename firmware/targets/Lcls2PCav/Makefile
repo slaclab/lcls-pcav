@@ -57,8 +57,8 @@ export RTM_TYPE = RtmDigitalDebug
 export RTM_INTF = Version2
 
 # DEFAULT_TIMING select LCLS-I or LCLS-II
-export DEFAULT_TIMING = LCLS-I
-#export DEFAULT_TIMING = LCLS-II
+#export DEFAULT_TIMING = LCLS-I
+export DEFAULT_TIMING = LCLS-II
 
 ##########################################################################################
 # Applications must define the application common path where AppCore.vhd exists

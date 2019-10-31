@@ -44,7 +44,9 @@ mmio: &mmio
         AppCore:
           children:
             BLD:
-              instantiate: false
+              instantiate: true
+              metadata:
+                numEdefs: &numEdefs 2
             BSSS:
               instantiate: true
               metadata:

@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2019-10-12
+-- Last update: 2019-10-19
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -154,7 +154,7 @@ end AppCore;
 
 architecture mapping of AppCore is
 
-   constant NUM_AXI_MASTERS_C : natural := 8;
+   constant NUM_AXI_MASTERS_C : natural := 9;
 
    constant AXI_CONFIG_C : AxiLiteCrossbarMasterConfigArray(NUM_AXI_MASTERS_C-1 downto 0) := genAxiLiteConfig(NUM_AXI_MASTERS_C, AXI_BASE_ADDR_G, 28, 24);  -- [0x8FFFFFFF:0x80000000]
 
@@ -166,6 +166,7 @@ architecture mapping of AppCore is
    constant SYSGEN_INDEX_C    : natural := 5;
    constant MMCM_DRP_INDEX_C  : natural := 6;
    constant BSSS_INDEX_C      : natural := 7;
+   constant BLD_INDEX_C       : natural := 8;
 
    signal axilWriteMasters : AxiLiteWriteMasterArray(NUM_AXI_MASTERS_C-1 downto 0);
    signal axilWriteSlaves  : AxiLiteWriteSlaveArray (NUM_AXI_MASTERS_C-1 downto 0);
@@ -183,6 +184,7 @@ architecture mapping of AppCore is
    -----------------Timing--------------------------
    constant TRIG_SIZE_C : integer := 16;
    signal s_trigPulse   : slv((TRIG_SIZE_C/2)-1 downto 0);
+   signal s_trigStrobe  : slv((TRIG_SIZE_C/2)-1 downto 0);
    signal s_trigIndex   : slv((TRIG_SIZE_C/2)-1 downto 0);
    signal s_trigMode    : slv(1 downto 0);
    signal s_trigClock   : sl;
@@ -213,7 +215,11 @@ architecture mapping of AppCore is
    attribute IODELAY_GROUP                          : string;
    attribute IODELAY_GROUP of U_IDELAYCTRL : label is IODELAY_GROUP_C;
 
-   signal s_diagnosticBus      : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
+   signal diagnClk             : sl;
+   signal diagnRst             : sl;
+   signal diagnAck             : sl;
+   signal diagnDepth           : slv(3 downto 0);
+   signal diagnBus             : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
    signal timingMessage        : TimingMessageType;
    signal timingMessageSlv     : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
    signal timingMessageSlvO    : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
@@ -302,6 +308,7 @@ begin
          strobe_i       => timingBus.strobe,
          trig_i         => timingTrig.trigPulse((2*i+1) downto 2*i),
          trig_o         => s_trigPulse(i),
+         trigStrobe_o   => s_trigStrobe(i),
          trigIndex_o    => s_trigIndex(i));
    end generate GEN_TRIG_MUX;
 
@@ -357,9 +364,10 @@ begin
          dacLs       => s_dacLs,
          debug       => s_debugValues,
          debugValids => s_debugValids,
-         diagn       => s_diagnosticBus.data,
+         diagnClk    => diagnClk,
+         diagn       => diagnBus.data,
          diagnValids => open,
-         diagnStrobe => s_diagnosticBus.Strobe,
+         diagnStrobe => diagnBus.strobe,
          -- Timing and waveform
          --wfAddr         => s_wfAddr,
          --wfData         => s_wfData,
@@ -378,10 +386,10 @@ begin
          axiWriteSlave  => axilWriteSlaves (SYSGEN_INDEX_C),
 
          -- Streaming port
-         streamClk      => axilClk,
-         streamRst      => axilRst,
-         streamMaster   => streamMaster,
-         streamSlave    => streamSlave );
+         streamClk      => '0',
+         streamRst      => '1',
+         streamMaster   => open,
+         streamSlave    => AXI_STREAM_SLAVE_FORCE_C );
 
    GEN_LCLS_I : if APP_TIMING_MODE_C = 1 generate
      V2FV1 : entity work.EvrV2FromV1
@@ -390,49 +398,77 @@ begin
                   timingIn  => timingBus,
                   timingOut => timingMessage );
 
-     timingMessageSlv <= toSlv(timingMessage);
+     streamMaster                 <= AXI_STREAM_MASTER_INIT_C;
+     axilReadSlaves (BLD_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
+     axilWriteSlaves(BLD_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
+   end generate;
      
-     V2FIFO : entity work.FifoAsync
-       generic map ( FWFT_EN_G     => true,
-                     DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C,
-                     ADDR_WIDTH_G  => 4 )
-       port map    ( rst           => jesdRst(0),
-                     -- Write Ports (wr_clk domain)
-                     wr_clk        => timingClk,
-                     wr_en         => s_trigPulse(0),
-                     din           => timingMessageSlv,
-                     -- Read Ports (rd_clk domain)
-                     rd_clk        => jesdClk(0),
-                     rd_en         => s_diagnosticBus.strobe,
-                     dout          => timingMessageSlvO );
+   GEN_LCLS_II : if APP_TIMING_MODE_C = 2 generate
+     timingMessage <= timingBus.message;
 
-     s_diagnosticBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
-
-     BSSS : entity work.BsssAxiStream
+     U_BLD : entity work.BldWrapper
+       generic map ( NUM_EDEFS_G => 2 )
        port map (
          -- Diagnostic data interface
-         diagnosticClk   => jesdClk   (0),
-         diagnosticRst   => jesdRst(0),
-         diagnosticBus   => s_diagnosticBus,
+         diagnosticClk   => diagnClk,
+         diagnosticRst   => diagnRst,
+         diagnosticBus   => diagnBus,
          -- AXI Lite interface
          axilClk         => axilClk,
          axilRst         => axilRst,
-         axilReadMaster  => axilReadMasters (BSSS_INDEX_C),
-         axilReadSlave   => axilReadSlaves  (BSSS_INDEX_C),
-         axilWriteMaster => axilWriteMasters(BSSS_INDEX_C),
-         axilWriteSlave  => axilWriteSlaves (BSSS_INDEX_C),
+         axilReadMaster  => axilReadMasters (BLD_INDEX_C),
+         axilReadSlave   => axilReadSlaves  (BLD_INDEX_C),
+         axilWriteMaster => axilWriteMasters(BLD_INDEX_C),
+         axilWriteSlave  => axilWriteSlaves (BLD_INDEX_C),
          -- Timing ETH MSG Interface (axilClk domain)
          ibEthMsgMaster  => AXI_STREAM_MASTER_INIT_C,
          ibEthMsgSlave   => open,
-         obEthMsgMaster  => obBpMsgServerMaster,
-         obEthMsgSlave   => obBpMsgServerSlave );
+         obEthMsgMaster  => streamMaster,
+         obEthMsgSlave   => streamSlave );
 
-     streamSlave <= AXI_STREAM_SLAVE_FORCE_C;
    end generate;
 
-   diagnosticClk <= jesdClk   (0);
-   diagnosticRst <= jesdRst(0);
-   diagnosticBus <= s_diagnosticBus;
+   timingMessageSlv <= toSlv(timingMessage);
+   
+   V2FIFO : entity work.FifoAsync
+     generic map ( FWFT_EN_G     => true,
+                   DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C,
+                   ADDR_WIDTH_G  => 4 )
+     port map    ( rst           => diagnRst,
+                   -- Write Ports (wr_clk domain)
+                   wr_clk        => timingClk,
+                   wr_en         => s_trigStrobe(0),
+                   din           => timingMessageSlv,
+                   -- Read Ports (rd_clk domain)
+                   rd_clk        => diagnClk,
+                   rd_en         => diagnBus.strobe,
+                   dout          => timingMessageSlvO );
+
+   diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
+
+   BSSS : entity work.BsssWrapper
+     generic map ( NUM_EDEFS_G => 8 )
+     port map (
+       -- Diagnostic data interface
+       diagnosticClk   => diagnClk,
+       diagnosticRst   => diagnRst,
+       diagnosticBus   => diagnBus,
+       -- AXI Lite interface
+       axilClk         => axilClk,
+       axilRst         => axilRst,
+       axilReadMaster  => axilReadMasters (BSSS_INDEX_C),
+       axilReadSlave   => axilReadSlaves  (BSSS_INDEX_C),
+       axilWriteMaster => axilWriteMasters(BSSS_INDEX_C),
+       axilWriteSlave  => axilWriteSlaves (BSSS_INDEX_C),
+       -- Timing ETH MSG Interface (axilClk domain)
+       ibEthMsgMaster  => streamMaster,
+       ibEthMsgSlave   => streamSlave,
+       obEthMsgMaster  => obBpMsgServerMaster,
+       obEthMsgSlave   => obBpMsgServerSlave );
+
+   diagnosticClk <= diagnClk;
+   diagnosticRst <= diagnRst;
+   diagnosticBus <= diagnBus;
    
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)
    -- Clock trigger divider - LCLS II recovered timing clock*(9/100)
@@ -460,12 +496,15 @@ begin
        -- AXI-Lite Port
        axilClk         => axilClk,
        axilRst         => axilRst,
-       axilReadMaster  => axilReadMasters (MMCM_DRP_INDEX_C),
-       axilReadSlave   => axilReadSlaves  (MMCM_DRP_INDEX_C),
-       axilWriteMaster => axilWriteMasters(MMCM_DRP_INDEX_C),
-       axilWriteSlave  => axilWriteSlaves (MMCM_DRP_INDEX_C)
+       axilReadMaster  => AXI_LITE_READ_MASTER_INIT_C,
+       axilReadSlave   => open,
+       axilWriteMaster => AXI_LITE_WRITE_MASTER_INIT_C,
+       axilWriteSlave  => open
        );
 
+   axilReadSlaves  (MMCM_DRP_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
+   axilWriteSlaves (MMCM_DRP_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
+   
    -----------------------
    -- AMC BAY[0] Interface
    -----------------------
@@ -574,7 +613,7 @@ begin
        DIVCLK_DIVIDE_G  => 1,
        CLKFBOUT_MULT_G  => 6,
        CLKOUT0_DIVIDE_G => 6,
-       CLKOUT1_DIVIDE_G => 6)         -- drives the RTM's jitter clean input clock port
+       CLKOUT1_DIVIDE_G => 3)         -- drives the RTM's jitter clean input clock port
      port map (
        -- Digital I/O interface
        dout            => s_dOut(7 downto 0),

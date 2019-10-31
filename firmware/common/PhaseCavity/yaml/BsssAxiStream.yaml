@@ -16,6 +16,8 @@ BsssAxiStream: &BsssAxiStream
   size: 0x8000
   class: MMIODev
   configPrio: 1
+  metadata:
+    numEdefs: &numEdefs 16
   ########
   children:
   ########
@@ -49,9 +51,7 @@ BsssAxiStream: &BsssAxiStream
       class: IntField
       at:
         offset: 0x8
-        stride: 2
-        nelms: 31
-      sizeBits: 2
+      sizeBits: 62
       mode: RW
       description: "Maximum channel severity"
     #########################################################
@@ -136,3 +136,85 @@ BsssAxiStream: &BsssAxiStream
       sizeBits: 20
       mode: RO
       description: "Packet count"
+    #########################################################
+    EdefEnable:
+      at:
+        offset: 0x47
+        nelms: *numEdefs
+        stride: 8
+      class: IntField
+      name: Enable
+      sizeBits: 1
+      lsBit: 7
+      mode: RW
+      description: Enable EDEF
+    #########################################################  
+    EdefRateLimit:
+      at:
+        offset: 0x44
+        nelms: *numEdefs
+        stride: 8
+      class: IntField
+      name: RateLimit
+      sizeBits: 5
+      lsBit: 0
+      mode: RW
+      enums:
+        - name: Limit_1p9_kHz
+          class: Enum
+          value: 19
+        - name: Limit_950_Hz
+          class: Enum
+          value: 20
+        - name: Limit_476_Hz
+          class: Enum
+          value: 21
+        - name: Limit_238_Hz
+          class: Enum
+          value: 22
+        - name: Limit_119_Hz
+          class: Enum
+          value: 23
+        - name: Limit_59_Hz
+          class: Enum
+          value: 24
+        - name: Limit_29_Hz
+          class: Enum
+          value: 25
+        - name: Limit_14_Hz
+          class: Enum
+          value: 26
+        - name: Limit_7_Hz
+          class: Enum
+          value: 27
+        - name: Limit_3p7_Hz
+          class: Enum
+          value: 28
+        - name: Limit_1p8_Hz
+          class: Enum
+          value: 29
+      description: Rate Limit
+    #########################################################  
+    EdefRateSel:
+      at:
+        offset: 0x40
+        nelms: *numEdefs
+        stride: 8
+      class: IntField
+      name: RateSelect
+      sizeBits: 13
+      lsBit: 0
+      mode: RW
+      description: Rate select
+    #########################################################  
+    EdefDestSel:
+      at:
+        offset: 0x41
+        nelms: *numEdefs
+        stride: 8
+      class: IntField
+      name: DestSelect
+      sizeBits: 19
+      lsBit: 5
+      mode: RW
+      description: Destination select

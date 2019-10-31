@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2019-10-14
+-- Last update: 2019-10-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -67,6 +67,8 @@ entity AppLlrfCore is
       debug          : out sampleDataVectorArray(1 downto 0, 3 downto 0);
       debugValids    : out Slv4Array(1 downto 0);
       -- Diagnostic ports (diagnosticBus)
+      diagnClk       : out sl;
+      diagnRst       : out sl;
       diagn          : out Slv32Array(31 downto 0);
       diagnValids    : out slv       (31 downto 0);
       diagnStrobe    : out sl;
@@ -213,6 +215,10 @@ architecture mapping of AppLlrfCore is
    signal daqtrig           : sl;
    signal trigDaqOutSync    : sl;
    signal trigDaqOut_s      : slv(7 downto 0);
+   signal dstrobe           : sl;
+   signal modelReg          : Slv32Array(0 downto 0);
+   signal trigRateOut       : SlVectorArray(3 downto 0,31 downto 0);
+   signal trigRateOutV      : Slv32Array(3 downto 0);
    
    signal trigPulseSync    : slv(NUM_OF_TRIG_PULSES_G-1 downto 0);
    signal trigPulseSyncPos : slv(NUM_OF_TRIG_PULSES_G-1 downto 0);
@@ -552,8 +558,37 @@ begin
    
    NOGEN_MODEL : if not GEN_MODEL_C generate
 
-     readSlave (MODEL_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
-     writeSlave(MODEL_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
+     U_TrigRate : entity work.SyncTrigRateVector
+       generic map ( COMMON_CLK_G   => true,
+                     ONE_SHOT_G     => true,
+                     REF_CLK_FREQ_G => 156.25E+6,
+                     WIDTH_G        => 4 )
+       port map ( trigIn(0)    => trigPulse(0),
+                  trigIn(1)    => phaseAmpSync357,
+                  trigIn(2)    => phaseAmpSync204,
+                  trigIn(3)    => dstrobe,
+                  trigRateOut  => trigRateOut,
+                  locClk       => axiClk,
+                  refClk       => axiClk );
+
+     trigRateOutV(0) <= muxSlVectorArray(trigRateOut, 0);
+     trigRateOutV(1) <= muxSlVectorArray(trigRateOut, 1);
+     trigRateOutV(2) <= muxSlVectorArray(trigRateOut, 2);
+     trigRateOutV(3) <= muxSlVectorArray(trigRateOut, 3);
+     
+     U_AxiLiteRegs : entity work.AxiLiteRegs
+       generic map ( NUM_WRITE_REG_G => 1,
+                     NUM_READ_REG_G  => 4 )
+       port map ( axiClk         => axiClk,
+                  axiClkRst      => axiRst,
+                  axiReadMaster  => readMaster (MODEL_INDEX_C),
+                  axiReadSlave   => readSlave  (MODEL_INDEX_C),
+                  axiWriteMaster => writeMaster(MODEL_INDEX_C),
+                  axiWriteSlave  => writeSlave (MODEL_INDEX_C),
+                  writeRegister  => modelReg,
+                  readRegister   => trigRateOutV );
+
+     diagnRst <= modelReg(0)(0);
 
      U_FRAMER : entity work.llrfFramer
        port map (
@@ -590,37 +625,39 @@ begin
      trigDaqOut(0)     <= debugSync185;
 
      diagnValids       <= (others=>'0');
-     diagnStrobe       <= debugSync185;
+     dstrobe           <= phaseAmpTlast204 and phaseAmpSync204;
+     diagnStrobe       <= dstrobe;
+     diagnClk          <= dspClk204;
    end generate;
 
    streamMaster <= AXI_STREAM_MASTER_INIT_C;
    
-   comb : process ( r, jesdRst, debugSync185 ) is
+   comb : process ( r, jesdRst, dstrobe ) is
      variable v : RegType;
      variable j : integer;
    begin
      v := r;
 
-     if debugSync185 = '1' then
+     if dstrobe = '1' then
        v.count := r.count+1;
      end if;
        
      for i in 0 to 31 loop
        v.data(i) := toSlv(i,4) & r.count;
      end loop;
-     
+
      if jesdRst(0) = '1' then
        v := REG_INIT_C;
      end if;
-
-     rin <= r;
+     
+     rin <= v;
 
      diagn <= r.data;
    end process;
 
-   seq : process ( jesdClk ) is
+   seq : process ( dspClk204 ) is
    begin
-     if rising_edge(jesdClk(0)) then
+     if rising_edge(dspClk204) then
        r <= rin;
      end if;
    end process;
