@@ -1,0 +1,6 @@
+% RAW ADC channel select
+% channel 0-5 are Bay0 ADC
+% channel 6-11 are Bay1 ADC
+% Channel 9 is the DAC monitor ADC
+% Channel 10-11 are DC coupled.  
+% Channel 12 is HS DAC output

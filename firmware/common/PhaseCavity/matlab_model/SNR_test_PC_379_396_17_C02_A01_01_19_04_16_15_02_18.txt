@@ -1,0 +1,8 @@
+Model, PC_379_396_17_C02_A01
+SN, 01
+Date, 19_04_16_15_02_18
+Reference channel, 1
+Signal channel, 7
+SNR, 0.661
+Noise floor, -105.367
+Signal Pwr, -62.562
