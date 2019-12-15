@@ -21,10 +21,10 @@ AmcCarrierBsa: &AmcCarrierBsa
   size: 0x40000
   #########
   children:
-#    BsaBufferControl:
-#      <<: *BsaBufferControl
-#      at:
-#        offset: 0x00000000
+    BsaBufferControl:
+      <<: *BsaBufferControl
+      at:
+        offset: 0x00000000
     BsaWaveformEngine:
       <<: *BsaWaveformEngine
       at:

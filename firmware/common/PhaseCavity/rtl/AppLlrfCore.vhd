@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2019-10-15
+-- Last update: 2019-12-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -410,7 +410,7 @@ begin
        adc1_3                => adc357(1, 3),
        adc1_4                => adc357(1, 4),
        adc1_5                => adc357(1, 5),
-       sync(0)               => trigPulse(0),
+       sync(0)               => trigPulseSync(0),
        -- DDC I/Q interface (jesdClk2x domain)
        ddci                  => ddcI357,
        ddcq                  => ddcQ357,
@@ -563,7 +563,7 @@ begin
                      ONE_SHOT_G     => true,
                      REF_CLK_FREQ_G => 156.25E+6,
                      WIDTH_G        => 4 )
-       port map ( trigIn(0)    => trigPulse(0),
+       port map ( trigIn(0)    => trigPulseSync(0),
                   trigIn(1)    => phaseAmpSync357,
                   trigIn(2)    => phaseAmpSync204,
                   trigIn(3)    => dstrobe,
