@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2019-12-12
+-- Last update: 2019-12-19
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -620,10 +620,15 @@ begin
          dout(31 downto 0) => debug185,
 	 dout(32)          => debugSync185);
 
-     debug(0, 0)       <= debug185;
-     debugValids(0)(0) <= debugValid185;
-     trigDaqOut(0)     <= debugSync185;
-
+     --
+     --  Duplicate data and trigger to each DAQ MUX
+     --
+     GEN_DAQ : for i in 1 downto 0 generate
+       debug(i, 0)       <= debug185;
+       debugValids(i)(0) <= debugValid185;
+       trigDaqOut(i)     <= debugSync185;
+     end generate;
+     
      diagnValids       <= (others=>'0');
      dstrobe           <= phaseAmpTlast204 and phaseAmpSync204;
      diagnStrobe       <= dstrobe;
