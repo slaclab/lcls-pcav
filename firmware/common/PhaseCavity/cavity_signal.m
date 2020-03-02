@@ -2,7 +2,6 @@ close all;
 %clear all; clc;
 
 fc = 2851.3e6;    % Cavity resonate freq
-% fc = 2856e6;      % Cavity resonate freq
 f_prl = 2856e6;   % PRL freq
 wc = 2*pi*fc;
 q  = 6000;        % Cavity Q
@@ -83,28 +82,7 @@ P.Title.String = 'Ext RF filter';
 P.Grid = 'on';
 bodeplot(ext_bpf, ext_bpfz, 'x',P);
 
-% T_test = (1/(100e9));
-% ext_bpf_bw = [lp_w hp_w];
-% [z_bpf_Num, z_bpf_Den] = butter(6, ext_bpf_bw./(2*pi*10000e9), 'bandpass');
 
-% z_bpf_tf = tf(z_bpf_Num, z_bpf_Den);
-% opt = c2dOptions('Method','matched','FractDelayApproxOrder', 3);
-% ext_bpfz = c2d(ext_bpf, (T_test), opt);
-% bpf_ss = ss(ext_bpf);
-% bpf_test = c2d(bpf_ss, (T_test), 'matched');
-% P = bodeoptions('cstprefs');
-% P.Xlim = [2.7, 3.0];
-% P.FreqUnits = 'GHz';
-% P.Title.String = 'Ext RF filter';
-% P.Grid = 'on';
-% figure()
-% bodeplot(ext_bpf, bpf_test, 'x', P);
-
-% Q = bodeoptions('cstprefs');
-% Q.FreqUnits = 'GHz';
-% Q.Grid = 'on';
-% figure()
-% bodeplot(z_bpf_tf, Q);
 
 % figure()
 % Q = bodeoptions('cstprefs');
@@ -160,13 +138,6 @@ RF_bpf_bw = [RF_bpf_f1*2*pi RF_bpf_f2*2*pi];
 RF_bpf = tf(RF_bpf_Num, RF_bpf_Den);
 RF_bpfz = c2d(RF_bpf, Ts, 'match');
 
-% figure()
-% P = bodeoptions('cstprefs');
-% P.FreqUnits = 'GHz';
-% P.Title.String = 'ATCA RF filter';
-% P.Grid = 'on';
-% bodeplot(RF_bpf, RF_bpfz, 'x',P); 
-
 % ATCA IF bandpass filter, simulated as a 3rd order bpf
 IF_bpf_f1 = 60e6;
 IF_bpf_f2 = 110e6;
@@ -177,29 +148,14 @@ IF_bpf_bw = [IF_bpf_w1 IF_bpf_w2];
 IF_bpf  = tf(IF_bpf_Num, IF_bpf_Den);
 IF_bpz = c2d(IF_bpf, Ts, 'match');
 
-% figure()
-% P = bodeoptions('cstprefs');
-% P.FreqUnits = 'MHz';
-% P.Title.String = 'ATCA IF filter';
-% P.Xlim = [1, 3e2];
-% P.Grid = 'on';
-% bodeplot(IF_bpf, IF_bpz, 'x',P);
-
-% figure()
-% bode(atca_lp); grid on
-% figure()
-% bode(atca_hp); grid on
-% Passing signal through the RF filters
-% hp_out = filter(atca_hp.Num{1}, atca_hp.Den{1}, cav_ring);
-% lp_out = filter(atca_lp.Num{1}, atca_lp.Den{1}, hp_out);
-
 % =======================================================================
 % Varying the beam arrival (t_delay) to see phase changes or varying the cavity 
 % frequency.  This will be put into a loop so the affect can be observed
 % Assumming copper thermal expansion to be ~2e-5/degC UND temp swing at 
 % +/-0.1degC
 % =======================================================================
-freqOtime = 2;    % Choosing between freq sweep or arrival sweep
+freqOtime = 3;    % Choosing between freq sweep or arrival sweep
+% 3 - nothing
 % 2 - jitter
 % 1 - freq
 % 0 - time
@@ -232,6 +188,12 @@ case 2  % trigger jitter
     IF_jit_ary = zeros(length(jit_ary), length(adc_t));
     PRL_jit_ary = zeros(length(jit_ary), length(adc_t));
     loop_size = length(jit_ary);
+case 3
+    t_delay_ary = 0;
+    fc_ary = 0;
+    loop_size = 1;
+    jit_t_ary = zeros(length(jit_ary), length(adc_t));
+
 end
 % figure(); plot(jit_t_ary); grid on;
 
@@ -242,23 +204,6 @@ cav_phi = zeros(1, loop_size);
 diff_phi = zeros(1, loop_size);
 
 for i = 1:loop_size
-% Math representation of the cavity ring output 
-    % if freqOtime
-    %     % Step in freq
-    %     rf = cos(2*pi*(fc+fc_ary(i))*(t-t_delay));  % 2851MHz ring
-    %     y = exp(-(t-t_delay)/tau);      % Cavity exp decay
-    %     Ustep = (t >= t_delay);         % Unity step
-    %     cav_ring = rf .* Ustep .* y;    % Creating the cavity ring
-    %     freq_err = fc_ary(i)
-    % else
-    %     % Step in arrival
-    %     rf = cos(2*pi*fc*(t-(t_delay+t_delay_ary(i))));  % 2851MHz ring
-    %     y = exp(-(t-(t_delay+t_delay_ary(i)))/tau);      % Cavity exp decay
-    %     Ustep = (t >= (t_delay+t_delay_ary(i)));         % Unity step
-    %     cav_ring = rf .* Ustep .* y;    % Creating the cavity ring
-    %     time_delay = (t_delay+t_delay_ary(i))
-    % end
-
     switch freqOtime
     case 0
         % Step in arrival
@@ -283,7 +228,12 @@ for i = 1:loop_size
         jitter_amt = jit_ary(i);
         jitter_t = (t_start+jitter_amt):(1/fadc):(t_stop+jitter_amt);
         jit_t_ary(i,:) = jitter_t;
-        
+    case 3
+        rf = cos(2*pi*fc*(t-t_delay));
+        y = exp(-(t-t_delay)/tau);      % Cavity exp decay
+        Ustep = (t >= t_delay);         % Unity step
+        cav_ring = rf .* Ustep .* y;    % Creating the cavity ring
+
     end
 
     % =========================================================================
@@ -305,31 +255,6 @@ for i = 1:loop_size
     IF_PRL = filter(IF_bpz.Num{1}, IF_bpz.Den{1}, PRL_mixer);
     IF_PRL_norm = IF_PRL./(max(IF_PRL));
 
-    % Plot a bunch stuff for sanity check
-    % figure()
-    % plot(t, cav_ring, 'x'); grid on;
-    % title('Simulated cavity output')
-    % xlabel('Time (s)')
-    % figure()
-    % meanfreq(cav_ring, fs); grid on
-
-    % figure()
-    % plot(t, ext_bpf_out, 'x'); grid on;
-    % title('Ext bpf output')
-    % xlabel('Time (s)')
-    % figure()
-    % meanfreq(ext_bpf_out, fs); grid on
-
-    % figure()
-    % plot(t, lp_out); grid on;
-    % title('RF after 2nd order butterworth BPF')
-    % xlabel('Time (s)')
-
-    % figure()
-    % plot(t, mixer); grid on;
-    % title('Mixer IF output signal');
-    % xlabel('Time (s)')
-
     % figure()
     % plot(t, IF_rf_norm); grid on
     % title('Cavity IF after 3rd order butterworth BPF')
@@ -350,11 +275,13 @@ for i = 1:loop_size
     % PRL_adc = downsample(IF_PRL_norm, fs2fadc);
     IF_adc_inp = interp1(t, IF_rf_norm, adc_t, 'makima');
     PRL_adc_inp = interp1(t, IF_PRL_norm, adc_t, 'makima');
-
-    IF_adc_jit = interp1(t, IF_rf_norm, jitter_t, 'makima');
-    PRL_adc_jit = interp1(t, IF_PRL_norm, jitter_t, 'makima');
-    IF_jit_ary(i,:) = IF_adc_jit;
-    PRL_jit_ary(i,:) = PRL_adc_jit;
+    
+    if freqOtime == 2
+        IF_adc_jit = interp1(t, IF_rf_norm, jitter_t, 'makima');
+        PRL_adc_jit = interp1(t, IF_PRL_norm, jitter_t, 'makima');
+        IF_jit_ary(i,:) = IF_adc_jit;
+        PRL_jit_ary(i,:) = PRL_adc_jit;
+    end
 
     % T = llrf_demod_types('fixed');
     % input_fixed = cast(PRL_adc, 'like', T.x);
@@ -390,8 +317,10 @@ for i = 1:loop_size
     ED_out = filtfilt(ED_lpf_Num, ED_lpf_Den, IF_abs);
     ED_norm = ED_out/(max(ED_out));
     IF_shaped = ED_norm .* IF_adc_inp;    
-    IF_jit_shaped = ED_norm .* IF_jit_ary(i,:);
-
+    if freqOtime == 2
+        IF_jit_shaped = ED_norm .* IF_jit_ary(i,:);
+    end
+    
     % figure()
     % plot(adc_t, IF_jit_shaped); grid on
     % title("Shaped cavity signal");
@@ -407,13 +336,17 @@ for i = 1:loop_size
         window_thres = [t_delay, 4e-6];
     case 2  % trigger jitter
         window_thres = [0+jitter_amt, 9e-6+jitter_amt];
+    case 3
+        window_thres = [t_delay, 4e-6];    
     end
 
     window_ind(1) = find(adc_t >= window_thres(1), 1);
     window_ind(2) = find(adc_t >= window_thres(2), 1);
-
-    window_jit(1) = find(jitter_t >= window_thres(1), 1);
-    window_jit(2) = find(jitter_t >= window_thres(2), 1);
+    
+    if freqOtime == 2
+        window_jit(1) = find(jitter_t >= window_thres(1), 1);
+        window_jit(2) = find(jitter_t >= window_thres(2), 1);
+    end
 
     % % Sanity checking plots
     % figure()
@@ -438,8 +371,9 @@ for i = 1:loop_size
     noise_amp = (10^(noise_SNR/20))*(max(IF_shaped));
     AWG = rand(1, length(adc_t))*noise_amp;
     IF_noised = IF_shaped + AWG;
-    IF_jit_noised = IF_jit_shaped + AWG;
-
+    if freqOtime == 2
+        IF_jit_noised = IF_jit_shaped + AWG;
+    end
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % DDC LO setup
     Cav_DDC_f = 4.7252e6;    % Cavity RF freq = 2851.3MHz, LO = 2771, and IF is 80.3MHz 
