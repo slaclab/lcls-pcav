@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2019-12-19
+-- Last update: 2020-02-03
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -217,11 +217,10 @@ architecture mapping of AppLlrfCore is
    signal trigDaqOut_s      : slv(7 downto 0);
    signal dstrobe           : sl;
    signal modelReg          : Slv32Array(0 downto 0);
-   signal trigRateOut       : SlVectorArray(3 downto 0,31 downto 0);
-   signal trigRateOutV      : Slv32Array(3 downto 0);
+   signal trigRateOut       : SlVectorArray(4 downto 0,31 downto 0);
+   signal trigRateOutV      : Slv32Array   (4 downto 0);
    
    signal trigPulseSync    : slv(NUM_OF_TRIG_PULSES_G-1 downto 0);
-   signal trigPulseSyncPos : slv(NUM_OF_TRIG_PULSES_G-1 downto 0);
 --   signal adcValidSync     : Slv6Array(1 downto 0);
 
    constant DEMOD_INDEX_C     : natural := 0;
@@ -337,18 +336,15 @@ begin
    ----------------------
    SYNC_TRIG :
    for i in NUM_OF_TRIG_PULSES_G-1 downto 0 generate      
-     U_TimingTrigSync: entity work.TimingTrigSync
+     U_TimingTrigSync: entity work.SynchronizerOneShot
        generic map (
-         TPD_G => TPD_G)
+         TPD_G         => TPD_G,
+         PULSE_WIDTH_G => 1 )
        port map (
-         clk       => jesdClk  (1),
-         rst       => jesdRst  (1),
-         clk2x     => jesdClk2x(1),
-         rst2x     => jesdRst2x(1),
-         trig_i    => trigPulse(i),
-         trig_o    => trigPulseSync(i),
-         trigPos_o => trigPulseSyncPos(i));
-
+         clk       => jesdClk2x(1),
+         rst       => jesdRst2x(1),
+         dataIn    => trigPulse(i),
+         dataOut   => trigPulseSync(i) );
    end generate SYNC_TRIG;
       
    ---------------------------
@@ -562,11 +558,12 @@ begin
        generic map ( COMMON_CLK_G   => true,
                      ONE_SHOT_G     => true,
                      REF_CLK_FREQ_G => 156.25E+6,
-                     WIDTH_G        => 4 )
-       port map ( trigIn(0)    => trigPulseSync(0),
-                  trigIn(1)    => phaseAmpSync357,
-                  trigIn(2)    => phaseAmpSync204,
-                  trigIn(3)    => dstrobe,
+                     WIDTH_G        => 5 )
+       port map ( trigIn(0)    => trigPulse    (0),
+                  trigIn(1)    => trigPulseSync(0),
+                  trigIn(2)    => phaseAmpSync357,
+                  trigIn(3)    => phaseAmpSync204,
+                  trigIn(4)    => dstrobe,
                   trigRateOut  => trigRateOut,
                   locClk       => axiClk,
                   refClk       => axiClk );
@@ -575,10 +572,11 @@ begin
      trigRateOutV(1) <= muxSlVectorArray(trigRateOut, 1);
      trigRateOutV(2) <= muxSlVectorArray(trigRateOut, 2);
      trigRateOutV(3) <= muxSlVectorArray(trigRateOut, 3);
+     trigRateOutV(4) <= muxSlVectorArray(trigRateOut, 4);
      
      U_AxiLiteRegs : entity work.AxiLiteRegs
        generic map ( NUM_WRITE_REG_G => 1,
-                     NUM_READ_REG_G  => 4 )
+                     NUM_READ_REG_G  => 5 )
        port map ( axiClk         => axiClk,
                   axiClkRst      => axiRst,
                   axiReadMaster  => readMaster (MODEL_INDEX_C),

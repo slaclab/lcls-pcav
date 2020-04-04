@@ -17,4 +17,3 @@ AppMps: &AppMps
   description: AmcCarrier BSA Module
   size: 0x01000000
   #########
-  children:

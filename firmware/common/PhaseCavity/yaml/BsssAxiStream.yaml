@@ -100,9 +100,24 @@ BsssAxiStream: &BsssAxiStream
         - name: END
           class: Enum
           value: 9
-        - name: INVALID
+        - name: INVALID_10
           class: Enum
           value: 10
+        - name: INVALID_11
+          class: Enum
+          value: 11
+        - name: INVALID_12
+          class: Enum
+          value: 12
+        - name: INVALID_13
+          class: Enum
+          value: 13
+        - name: INVALID_14
+          class: Enum
+          value: 14
+        - name: INVALID_15
+          class: Enum
+          value: 15
       description: "Current packet fill state"
     #########################################################
     currPulseIdL:
@@ -160,6 +175,63 @@ BsssAxiStream: &BsssAxiStream
       lsBit: 0
       mode: RW
       enums:
+        - name: INVALID_0
+          class: Enum
+          value: 0
+        - name: INVALID_1
+          class: Enum
+          value: 1
+        - name: INVALID_2
+          class: Enum
+          value: 2
+        - name: INVALID_3
+          class: Enum
+          value: 3
+        - name: INVALID_4
+          class: Enum
+          value: 4
+        - name: INVALID_5
+          class: Enum
+          value: 5
+        - name: INVALID_6
+          class: Enum
+          value: 6
+        - name: INVALID_7
+          class: Enum
+          value: 7
+        - name: INVALID_8
+          class: Enum
+          value: 8
+        - name: INVALID_9
+          class: Enum
+          value: 9
+        - name: INVALID_10
+          class: Enum
+          value: 10
+        - name: INVALID_11
+          class: Enum
+          value: 11
+        - name: INVALID_12
+          class: Enum
+          value: 12
+        - name: INVALID_13
+          class: Enum
+          value: 13
+        - name: INVALID_14
+          class: Enum
+          value: 14
+        - name: INVALID_15
+          class: Enum
+          value: 15
+        - name: INVALID_16
+          class: Enum
+          value: 16
+        - name: INVALID_17
+          class: Enum
+          value: 17
+        - name: INVALID_18
+          class: Enum
+          value: 18
         - name: Limit_1p9_kHz
           class: Enum
           value: 19
@@ -193,6 +265,12 @@ BsssAxiStream: &BsssAxiStream
         - name: Limit_1p8_Hz
           class: Enum
           value: 29
+        - name: Limit_0p9_Hz
+          class: Enum
+          value: 30
+        - name: Limit_0p5_Hz
+          class: Enum
+          value: 31
       description: Rate Limit
     #########################################################  
     EdefRateSel:
