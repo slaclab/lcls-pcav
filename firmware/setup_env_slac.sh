@@ -9,7 +9,7 @@
 ##############################################################################
 
 # Setup the Xilinx software and licensing
-source /afs/slac.stanford.edu/g/reseng/xilinx/vivado_2017.4/Vivado/2017.4/settings64.sh
+source /afs/slac.stanford.edu/g/reseng/xilinx/vivado_2018.3/Vivado/2018.3/settings64.sh
 
 # Setup System Generator Environment
-source /afs/slac.stanford.edu/g/reseng/xilinx/vivado_2017.4/Vivado/2017.4/.settings64-sysgen.sh
+source /afs/slac.stanford.edu/g/reseng/xilinx/vivado_2018.3/Vivado/2018.3/.settings64-sysgen.sh
