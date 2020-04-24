@@ -59,3 +59,9 @@ pulse = pulse(:)*1e9;
 simin.time = times;
 simin.signals.values = pulse;
 simin.signals.dimensions=1;
+
+
+%%
+simin_dt.time = rise_times(:);
+simin_dt.signals.values = delta_t(:);
+simin_dt.signals.dimensions = 1;
