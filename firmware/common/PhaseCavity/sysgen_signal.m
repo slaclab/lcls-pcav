@@ -28,6 +28,9 @@ SIM_y_if = exp(-(adc_t-t_delay)/tau_if);   % Cavity exp decay
 SIM_Ustep = (adc_t >= t_delay);            % Delaying the start
 SIM_cav_ring_if = SIM_IF .* SIM_Ustep .* SIM_y_if;
 
+% SIM_cav_ring_if = SIM_IF;   % Simplified PRL signal in the adc for simulink
+
+
 SYS_PRL = [adc_t', SIM_PRL'];
 SYS_CAV = [adc_t', SIM_cav_ring_if'];
 
