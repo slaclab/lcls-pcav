@@ -23,17 +23,22 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-use work.StdRtlPkg.all;
-use work.AxiStreamPkg.all;
-use work.AxiLitePkg.all;
-use work.TimingPkg.all;
-use work.AmcCarrierPkg.all;
-use work.jesd204bpkg.all;
-use work.AppTopPkg.all;
---use work.AppCorePkg.all;
---use work.AppCoreTimingPkg.all;
-use work.EthMacPkg.all;
-use work.AppOpts.all;
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiStreamPkg.all;
+use surf.AxiLitePkg.all;
+use surf.jesd204bpkg.all;
+use surf.EthMacPkg.all;
+
+library lcls_timing_core;
+use lcls_timing_core.TimingPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
+use amc_carrier_core.AppTopPkg.all;
+
+library xil_defaultlib;
+use xil_defaultlib.AppOpts.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -52,8 +57,6 @@ entity AppCore is
       jesdRst             : in    slv(1 downto 0);
       jesdClk2x           : in    slv(1 downto 0);
       jesdRst2x           : in    slv(1 downto 0);
-      jesdUsrClk          : in    slv(1 downto 0);
-      jesdUsrRst          : in    slv(1 downto 0);
       -- DaqMux/Trig Interface (timingClk domain)
       freezeHw            : out   slv(1 downto 0);
       timingTrig          : in    TimingTrigType;
@@ -62,7 +65,9 @@ entity AppCore is
       -- JESD SYNC Interface (jesdClk[1:0] domain)
       jesdSysRef          : out   slv(1 downto 0);
       jesdRxSync          : in    slv(1 downto 0);
-      jesdTxSync          : out   slv(1 downto 0);
+      jesdTxSync          : out   Slv7Array(1 downto 0);
+	   jesdUsrClk          : in    slv(1 downto 0);
+      jesdUsrRst          : in    slv(1 downto 0);
       -- ADC/DAC/Debug Interface (jesdClk[1:0] domain)
       adcValids           : in    Slv7Array(1 downto 0);
       adcValues           : in    sampleDataVectorArray(1 downto 0, 6 downto 0);
@@ -149,8 +154,7 @@ entity AppCore is
       rtmHsTxN            : out   sl := '1';
       -- RTM's Clock Reference
       genClkP             : in    sl;
-      genClkN             : in    sl);
-end AppCore;
+      genClkN             : in    sl);end AppCore;
 
 architecture mapping of AppCore is
 
@@ -276,7 +280,7 @@ begin
    ---------------------
    -- AXI-Lite Crossbar
    ---------------------
-   U_XBAR : entity work.AxiLiteCrossbar
+   U_XBAR : entity surf.AxiLiteCrossbar
       generic map (
          TPD_G              => TPD_G,
          NUM_SLAVE_SLOTS_G  => 1,
@@ -298,7 +302,7 @@ begin
    -- LCLS ACCEL/STBY Trigger MUX
    --------------------
    GEN_TRIG_MUX : for i in (TRIG_SIZE_C/2)-1 downto 0 generate
-      U_TimingTrigMux: entity work.TimingTrigMux
+      U_TimingTrigMux: entity xil_defaultlib.TimingTrigMux
       generic map (
          TPD_G => TPD_G)
       port map (
@@ -319,7 +323,7 @@ begin
    GEN_WAVEFORMS : for i in 1 downto 0 generate
       -- Dual port RAM accessible from axiLite
       -- waveform input to the System Generator
-      U_Waveform : entity work.AxiDualPortRam
+      U_Waveform : entity surf.AxiDualPortRam
          generic map (
             TPD_G        => TPD_G,
             --BRAM_EN_G    => true,
@@ -348,7 +352,7 @@ begin
    ----------------
    -- SYSGEN Module
    ----------------
-   U_SysGen : entity work.AppLlrfCore
+   U_SysGen : entity xil_defaultlib.AppLlrfCore
       generic map (
          TPD_G                => TPD_G,
          AXI_BASE_ADDR_G      => AXI_CONFIG_C(SYSGEN_INDEX_C).baseAddr,
@@ -392,7 +396,7 @@ begin
          streamSlave    => AXI_STREAM_SLAVE_FORCE_C );
 
    GEN_LCLS_I : if APP_TIMING_MODE_C = 1 generate
-     V2FV1 : entity work.EvrV2FromV1
+     V2FV1 : entity lcls_timing_core.EvrV2FromV1
        port map ( clk       => timingClk,
                   disable   => '0',
                   timingIn  => timingBus,
@@ -406,7 +410,7 @@ begin
    GEN_LCLS_II : if APP_TIMING_MODE_C = 2 generate
      timingMessage <= timingBus.message;
 
-     U_BLD : entity work.BldWrapper
+     U_BLD : entity xil_defaultlib.BldWrapper
        generic map ( NUM_EDEFS_G => 2 )
        port map (
          -- Diagnostic data interface
@@ -430,7 +434,7 @@ begin
 
    timingMessageSlv <= toSlv(timingMessage);
    
-   V2FIFO : entity work.FifoAsync
+   V2FIFO : entity surf.FifoAsync
      generic map ( FWFT_EN_G     => true,
                    DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C,
                    ADDR_WIDTH_G  => 4 )
@@ -446,7 +450,7 @@ begin
 
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
 
-   BSSS : entity work.BsssWrapper
+   BSSS : entity xil_defaultlib.BsssWrapper
      generic map ( NUM_EDEFS_G => 8 )
      port map (
        -- Diagnostic data interface
@@ -472,7 +476,7 @@ begin
    
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)
    -- Clock trigger divider - LCLS II recovered timing clock*(9/100)
-   U_ClockManager : entity work.ClockManagerUltraScale
+   U_ClockManager : entity surf.ClockManagerUltraScale
      generic map (
        TPD_G              => 1 ns,
        TYPE_G             => "MMCM",
@@ -508,7 +512,7 @@ begin
    -----------------------
    -- AMC BAY[0] Interface
    -----------------------
-   U_AMC0 : entity work.AmcMrLlrfDownConvertCore
+   U_AMC0 : entity amc_carrier_core.AmcMrLlrfDownConvertCore
       generic map (
          TPD_G            => TPD_G,
          AXI_BASE_ADDR_G  => AXI_CONFIG_C(AMC0_INDEX_C).baseAddr)
@@ -553,7 +557,7 @@ begin
    -----------------------
    -- AMC BAY[1] Interface
    -----------------------
-   U_AMC1 : entity work.AmcMrLlrfUpConvertCore
+   U_AMC1 : entity amc_carrier_core.AmcMrLlrfUpConvertCore
       generic map (
          TPD_G              => TPD_G,
          IODELAY_GROUP_G    => IODELAY_GROUP_C,
@@ -605,7 +609,7 @@ begin
 --   ----------------
 --   -- RTM Interface
 --   ----------------
-   U_RTM : entity work.RtmDigitalDebugV2
+   U_RTM : entity amc_carrier_core.RtmDigitalDebugV2
      generic map (
        TPD_G            => TPD_G,
        REG_DOUT_EN_G    => x"FF", -- '1' = registered, '0' = unregistered

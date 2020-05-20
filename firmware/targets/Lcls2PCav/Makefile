@@ -1,10 +1,7 @@
-export GIT_BYPASS = 1
-
 ##########################################################################################
 # Applications must define the 32-bitFirmware Version Number
 ##########################################################################################
-# PRJ_VERSION = 0x00000001  Initial version based on MR LLRF
-export PRJ_VERSION = 0x00000002
+export PRJ_VERSION = 0x03030000
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build
@@ -72,7 +69,7 @@ export COMMON_FILE = PhaseCavity
 #     If REMOVE_UNUSED_CODE = 0, all source code is kept after importing to Vivado project
 #     If REMOVE_UNUSED_CODE = 1, all unused source code is removed from Vivado project
 ##########################################################################################
-export REMOVE_UNUSED_CODE = 1
+export REMOVE_UNUSED_CODE = 0
 
 ##########################################################################################
 ############################  DO NOT EDIT THE CODE BELOW  ################################

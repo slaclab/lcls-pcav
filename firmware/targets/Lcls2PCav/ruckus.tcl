@@ -14,5 +14,8 @@ loadSource -path $::env(TOP_DIR)/submodules/amc-carrier-core/AppHardware/RtmDigi
 loadSource -path "$::DIR_PATH/../../submodules/amc-carrier-core/AmcCarrierCore/debug/dcp/Impl/images/UdpDebugBridge.dcp"
 
 # Load target's source code and constraints
-loadSource      -dir  "$::DIR_PATH/hdl/"
-loadConstraints -dir  "$::DIR_PATH/hdl/"
+loadSource      -dir  "$::DIR_PATH/hdl"
+loadConstraints -dir  "$::DIR_PATH/hdl"
+
+# Set the AppCore to amc_carrier_core at the end of target's ruckus.tcl file
+set_property library amc_carrier_core [get_files AppCore.vhd]

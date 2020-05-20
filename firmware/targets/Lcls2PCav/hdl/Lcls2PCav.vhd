@@ -21,13 +21,19 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-use work.StdRtlPkg.all;
-use work.AxiStreamPkg.all;
-use work.SsiPkg.all;
-use work.AxiLitePkg.all;
-use work.TimingPkg.all;
-use work.AmcCarrierPkg.all;
-use work.AppTopPkg.all;
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiStreamPkg.all;
+use surf.AxiLitePkg.all;
+use surf.SsiPkg.all;
+use surf.jesd204bpkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
+use amc_carrier_core.AppTopPkg.all;
+
+library lcls_timing_core;
+use lcls_timing_core.TimingPkg.all;
 
 entity Lcls2PCav is
    generic (
@@ -200,7 +206,7 @@ architecture top_level of Lcls2PCav is
 
 begin
 
-   U_AppTop : entity work.AppTop
+   U_AppTop : entity amc_carrier_core.AppTop
       generic map (
          TPD_G                => TPD_G,
          MR_LCLS_APP_G        => true,  -- Configured by application         
@@ -312,7 +318,7 @@ begin
          genClkP              => genClkP,
          genClkN              => genClkN);
 
-   U_Core : entity work.AmcCarrierCoreAdv
+   U_Core : entity amc_carrier_core.AmcCarrierCoreAdv
       generic map (
          TPD_G           => TPD_G,
          BUILD_INFO_G    => BUILD_INFO_G,
