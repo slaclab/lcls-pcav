@@ -14,6 +14,11 @@ t_stop  = 10e-6;     % x axis stop time
 t_delay = 0.5e-6;   % Delaying the start of the pulse
 adc_t = (t_start):(1/fadc):(t_stop);   % ADC CLK x axis
 
+cav1p1_addr = 204;
+cav1p2_addr = cav1p1_addr * 2;
+cav2p1_addr = cav1p1_addr * 3;
+cav2p2_addr = cav1p1_addr * 4;
+
 jitter_amt = 100e-12;
 jitter_t = (t_start+jitter_amt):(1/fadc):(t_stop+jitter_amt);
 

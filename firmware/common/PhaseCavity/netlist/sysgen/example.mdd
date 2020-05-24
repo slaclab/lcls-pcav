@@ -1,0 +1,8 @@
+OPTION psf_version = 2.1;
+BEGIN driver example
+ OPTION supported_peripherals = (example_v1_0);
+ OPTION driver_state = ACTIVE;
+ OPTION copyfiles = all;
+ OPTION name = example;
+ OPTION version = 1.0;
+END driver
