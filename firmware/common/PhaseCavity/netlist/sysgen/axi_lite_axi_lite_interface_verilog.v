@@ -37,7 +37,6 @@
 `include "conv_pkg.v"
 module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C_S_AXI_ADDR_WIDTH = 12, C_S_NUM_OFFSETS = 16)(
   output wire[31:0] scratchpad,
-  input wire[31:0] status_0,
   input wire[17:0] cav1_p1_amp_out,
   input wire[17:0] cav1_p1_comparison_i,
   input wire[17:0] cav1_p1_comparison_phase,
@@ -52,6 +51,7 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav1_p1_integrated_i,
   input wire[17:0] cav1_p1_integrated_q,
   input wire[17:0] cav1_p1_phase_out,
+  input wire[31:0] status_0,
   output wire axi_lite_clk,
   input wire axi_lite_aclk,
   input wire axi_lite_aresetn,
@@ -113,35 +113,35 @@ assign axi_lite_s_axi_rresp  = axi_rresp;
 assign slv_wire_array[0] = slv_reg_array[0];
 assign scratchpad[31:0] = slv_wire_array[0][31:0];
 // map output 1
-assign slv_wire_array[1] = status_0[31:0];
+assign slv_wire_array[1] = {14'h0, cav1_p1_amp_out[17:0]};
 // map output 2
-assign slv_wire_array[2] = {14'h0, cav1_p1_amp_out[17:0]};
+assign slv_wire_array[2] = {14'h0, cav1_p1_comparison_i[17:0]};
 // map output 3
-assign slv_wire_array[3] = {14'h0, cav1_p1_comparison_i[17:0]};
+assign slv_wire_array[3] = {14'h0, cav1_p1_comparison_phase[17:0]};
 // map output 4
-assign slv_wire_array[4] = {14'h0, cav1_p1_comparison_phase[17:0]};
+assign slv_wire_array[4] = {14'h0, cav1_p1_comparison_q[17:0]};
 // map output 5
-assign slv_wire_array[5] = {14'h0, cav1_p1_comparison_q[17:0]};
+assign slv_wire_array[5] = {6'h0, cav1_p1_dc_freq[25:0]};
 // map output 6
-assign slv_wire_array[6] = {6'h0, cav1_p1_dc_freq[25:0]};
+assign slv_wire_array[6] = {3'h0, cav1_p1_dc_img[28:0]};
 // map output 7
-assign slv_wire_array[7] = {3'h0, cav1_p1_dc_img[28:0]};
+assign slv_wire_array[7] = {3'h0, cav1_p1_dc_real[28:0]};
 // map output 8
-assign slv_wire_array[8] = {3'h0, cav1_p1_dc_real[28:0]};
+assign slv_wire_array[8] = {14'h0, cav1_p1_if_amp[17:0]};
 // map output 9
-assign slv_wire_array[9] = {14'h0, cav1_p1_if_amp[17:0]};
+assign slv_wire_array[9] = {14'h0, cav1_p1_if_i[17:0]};
 // map output 10
-assign slv_wire_array[10] = {14'h0, cav1_p1_if_i[17:0]};
+assign slv_wire_array[10] = {14'h0, cav1_p1_if_phase[17:0]};
 // map output 11
-assign slv_wire_array[11] = {14'h0, cav1_p1_if_phase[17:0]};
+assign slv_wire_array[11] = {14'h0, cav1_p1_if_q[17:0]};
 // map output 12
-assign slv_wire_array[12] = {14'h0, cav1_p1_if_q[17:0]};
+assign slv_wire_array[12] = {14'h0, cav1_p1_integrated_i[17:0]};
 // map output 13
-assign slv_wire_array[13] = {14'h0, cav1_p1_integrated_i[17:0]};
+assign slv_wire_array[13] = {14'h0, cav1_p1_integrated_q[17:0]};
 // map output 14
-assign slv_wire_array[14] = {14'h0, cav1_p1_integrated_q[17:0]};
+assign slv_wire_array[14] = {14'h0, cav1_p1_phase_out[17:0]};
 // map output 15
-assign slv_wire_array[15] = {14'h0, cav1_p1_phase_out[17:0]};
+assign slv_wire_array[15] = status_0[31:0];
   initial
   begin
     slv_reg_array[1023] = 32'd0;
@@ -150,21 +150,21 @@ assign slv_wire_array[15] = {14'h0, cav1_p1_phase_out[17:0]};
   begin
     case(axi_awaddr)
       12'd4092 : dec_w = 0;
-      12'd1016 : dec_w = 1;
-      12'd256 : dec_w = 2;
-      12'd260 : dec_w = 3;
-      12'd268 : dec_w = 4;
-      12'd264 : dec_w = 5;
-      12'd240 : dec_w = 6;
-      12'd228 : dec_w = 7;
-      12'd224 : dec_w = 8;
-      12'd204 : dec_w = 9;
-      12'd212 : dec_w = 10;
-      12'd208 : dec_w = 11;
-      12'd216 : dec_w = 12;
-      12'd244 : dec_w = 13;
-      12'd248 : dec_w = 14;
-      12'd252 : dec_w = 15;
+      12'd256 : dec_w = 1;
+      12'd260 : dec_w = 2;
+      12'd268 : dec_w = 3;
+      12'd264 : dec_w = 4;
+      12'd240 : dec_w = 5;
+      12'd228 : dec_w = 6;
+      12'd224 : dec_w = 7;
+      12'd204 : dec_w = 8;
+      12'd212 : dec_w = 9;
+      12'd208 : dec_w = 10;
+      12'd216 : dec_w = 11;
+      12'd244 : dec_w = 12;
+      12'd248 : dec_w = 13;
+      12'd252 : dec_w = 14;
+      12'd1016 : dec_w = 15;
       default : dec_w = 0;
     endcase
   end
@@ -172,21 +172,21 @@ assign slv_wire_array[15] = {14'h0, cav1_p1_phase_out[17:0]};
   begin
     case(axi_araddr)
       12'd4092 : dec_r = 0;
-      12'd1016 : dec_r = 1;
-      12'd256 : dec_r = 2;
-      12'd260 : dec_r = 3;
-      12'd268 : dec_r = 4;
-      12'd264 : dec_r = 5;
-      12'd240 : dec_r = 6;
-      12'd228 : dec_r = 7;
-      12'd224 : dec_r = 8;
-      12'd204 : dec_r = 9;
-      12'd212 : dec_r = 10;
-      12'd208 : dec_r = 11;
-      12'd216 : dec_r = 12;
-      12'd244 : dec_r = 13;
-      12'd248 : dec_r = 14;
-      12'd252 : dec_r = 15;
+      12'd256 : dec_r = 1;
+      12'd260 : dec_r = 2;
+      12'd268 : dec_r = 3;
+      12'd264 : dec_r = 4;
+      12'd240 : dec_r = 5;
+      12'd228 : dec_r = 6;
+      12'd224 : dec_r = 7;
+      12'd204 : dec_r = 8;
+      12'd212 : dec_r = 9;
+      12'd208 : dec_r = 10;
+      12'd216 : dec_r = 11;
+      12'd244 : dec_r = 12;
+      12'd248 : dec_r = 13;
+      12'd252 : dec_r = 14;
+      12'd1016 : dec_r = 15;
       default : dec_r = 0;
     endcase
   end

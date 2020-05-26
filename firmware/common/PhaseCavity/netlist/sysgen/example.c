@@ -87,14 +87,6 @@ u32 example_scratchpad_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 4092);
     return Data;
 }
-u32 example_status_0_read(example *InstancePtr) {
-
-    u32 Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_BaseAddress, 1016);
-    return Data;
-}
 int example_cav1_p1_amp_out_read(example *InstancePtr) {
 
     int Data;
@@ -205,6 +197,14 @@ int example_cav1_p1_phase_out_read(example *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
 
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 252);
+    return Data;
+}
+u32 example_status_0_read(example *InstancePtr) {
+
+    u32 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 1016);
     return Data;
 }
 void example_cav2_nco_phase_adj_write(example *InstancePtr, u32 Data) {
@@ -497,7 +497,7 @@ int example_cav2_p1_comparison_phase_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_cav2_p1_comparison_phase_BaseAddress, 676);
     return Data;
 }
-int example_cav1_p1_comparison_q_x0_read(example *InstancePtr) {
+int example_cav1_p1_comparison_q1_read(example *InstancePtr) {
 
     int Data;
     Xil_AssertVoid(InstancePtr != NULL);
