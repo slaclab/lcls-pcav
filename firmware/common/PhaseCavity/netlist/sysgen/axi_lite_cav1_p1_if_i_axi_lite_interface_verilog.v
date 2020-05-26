@@ -35,28 +35,28 @@
 //-----------------------------------------------------------------
 
 `include "conv_pkg.v"
-module dsp_cav2_p1_comparison_q_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C_S_AXI_ADDR_WIDTH = 10, C_S_NUM_OFFSETS = 1)(
-  input wire[17:0] cav1_p1_comparison_q_x0,
-  output wire dsp_clk,
-  input wire dsp_cav2_p1_comparison_q_aclk,
-  input wire dsp_cav2_p1_comparison_q_aresetn,
-  input  wire [C_S_AXI_ADDR_WIDTH - 1:0] dsp_cav2_p1_comparison_q_s_axi_awaddr,
-  input  wire dsp_cav2_p1_comparison_q_s_axi_awvalid,
-  output wire dsp_cav2_p1_comparison_q_s_axi_awready,
-  input  wire [C_S_AXI_DATA_WIDTH-1:0] dsp_cav2_p1_comparison_q_s_axi_wdata,
-  input  wire [C_S_AXI_DATA_WIDTH/8-1:0] dsp_cav2_p1_comparison_q_s_axi_wstrb,
-  input  wire dsp_cav2_p1_comparison_q_s_axi_wvalid,
-  output wire dsp_cav2_p1_comparison_q_s_axi_wready,
-  output wire [1:0] dsp_cav2_p1_comparison_q_s_axi_bresp,
-  output wire dsp_cav2_p1_comparison_q_s_axi_bvalid,
-  input  wire dsp_cav2_p1_comparison_q_s_axi_bready,
-  input  wire [C_S_AXI_ADDR_WIDTH - 1:0] dsp_cav2_p1_comparison_q_s_axi_araddr,
-  input  wire dsp_cav2_p1_comparison_q_s_axi_arvalid,
-  output wire dsp_cav2_p1_comparison_q_s_axi_arready,
-  output wire [C_S_AXI_DATA_WIDTH-1:0] dsp_cav2_p1_comparison_q_s_axi_rdata,
-  output wire [1:0] dsp_cav2_p1_comparison_q_s_axi_rresp,
-  output wire dsp_cav2_p1_comparison_q_s_axi_rvalid,
-  input  wire dsp_cav2_p1_comparison_q_s_axi_rready
+module axi_lite_cav1_p1_if_i_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C_S_AXI_ADDR_WIDTH = 8, C_S_NUM_OFFSETS = 1)(
+  input wire[17:0] cav1_p1_if_i,
+  output wire axi_lite_clk,
+  input wire axi_lite_cav1_p1_if_i_aclk,
+  input wire axi_lite_cav1_p1_if_i_aresetn,
+  input  wire [C_S_AXI_ADDR_WIDTH - 1:0] axi_lite_cav1_p1_if_i_s_axi_awaddr,
+  input  wire axi_lite_cav1_p1_if_i_s_axi_awvalid,
+  output wire axi_lite_cav1_p1_if_i_s_axi_awready,
+  input  wire [C_S_AXI_DATA_WIDTH-1:0] axi_lite_cav1_p1_if_i_s_axi_wdata,
+  input  wire [C_S_AXI_DATA_WIDTH/8-1:0] axi_lite_cav1_p1_if_i_s_axi_wstrb,
+  input  wire axi_lite_cav1_p1_if_i_s_axi_wvalid,
+  output wire axi_lite_cav1_p1_if_i_s_axi_wready,
+  output wire [1:0] axi_lite_cav1_p1_if_i_s_axi_bresp,
+  output wire axi_lite_cav1_p1_if_i_s_axi_bvalid,
+  input  wire axi_lite_cav1_p1_if_i_s_axi_bready,
+  input  wire [C_S_AXI_ADDR_WIDTH - 1:0] axi_lite_cav1_p1_if_i_s_axi_araddr,
+  input  wire axi_lite_cav1_p1_if_i_s_axi_arvalid,
+  output wire axi_lite_cav1_p1_if_i_s_axi_arready,
+  output wire [C_S_AXI_DATA_WIDTH-1:0] axi_lite_cav1_p1_if_i_s_axi_rdata,
+  output wire [1:0] axi_lite_cav1_p1_if_i_s_axi_rresp,
+  output wire axi_lite_cav1_p1_if_i_s_axi_rvalid,
+  input  wire axi_lite_cav1_p1_if_i_s_axi_rready
 );
 function integer clogb2 (input integer bit_depth);
 begin
@@ -86,46 +86,46 @@ reg [DEC_SIZE-1:0] dec_r;
 reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
 integer byte_index;
 integer offset_index;
-assign dsp_cav2_p1_comparison_q_s_axi_awready = axi_awready;
-assign dsp_cav2_p1_comparison_q_s_axi_wready  = axi_wready;
-assign dsp_cav2_p1_comparison_q_s_axi_bresp  = axi_bresp;
-assign dsp_cav2_p1_comparison_q_s_axi_bvalid = axi_bvalid;
-assign dsp_cav2_p1_comparison_q_s_axi_arready = axi_arready;
-assign dsp_cav2_p1_comparison_q_s_axi_rdata  = axi_rdata;
-assign dsp_cav2_p1_comparison_q_s_axi_rvalid = axi_rvalid;
-assign dsp_cav2_p1_comparison_q_s_axi_rresp  = axi_rresp;
+assign axi_lite_cav1_p1_if_i_s_axi_awready = axi_awready;
+assign axi_lite_cav1_p1_if_i_s_axi_wready  = axi_wready;
+assign axi_lite_cav1_p1_if_i_s_axi_bresp  = axi_bresp;
+assign axi_lite_cav1_p1_if_i_s_axi_bvalid = axi_bvalid;
+assign axi_lite_cav1_p1_if_i_s_axi_arready = axi_arready;
+assign axi_lite_cav1_p1_if_i_s_axi_rdata  = axi_rdata;
+assign axi_lite_cav1_p1_if_i_s_axi_rvalid = axi_rvalid;
+assign axi_lite_cav1_p1_if_i_s_axi_rresp  = axi_rresp;
 // map output 0
-assign slv_wire_array[0] = {14'h0, cav1_p1_comparison_q_x0[17:0]};
+assign slv_wire_array[0] = {14'h0, cav1_p1_if_i[17:0]};
   initial
   begin
   end
   always @(axi_awaddr)
   begin
     case(axi_awaddr)
-      10'd672 : dec_w = 0;
+      8'd212 : dec_w = 0;
       default : dec_w = 0;
     endcase
   end
   always @(axi_araddr)
   begin
     case(axi_araddr)
-      10'd672 : dec_r = 0;
+      8'd212 : dec_r = 0;
       default : dec_r = 0;
     endcase
   end
-  always @( posedge dsp_cav2_p1_comparison_q_aclk )
+  always @( posedge axi_lite_cav1_p1_if_i_aclk )
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
         axi_awready <= 1'b0;
         axi_awaddr <= 0;
       end
     else
       begin
-        if (~axi_awready && dsp_cav2_p1_comparison_q_s_axi_awvalid && dsp_cav2_p1_comparison_q_s_axi_wvalid)
+        if (~axi_awready && axi_lite_cav1_p1_if_i_s_axi_awvalid && axi_lite_cav1_p1_if_i_s_axi_wvalid)
           begin
             axi_awready <= 1'b1;
-            axi_awaddr <= dsp_cav2_p1_comparison_q_s_axi_awaddr;
+            axi_awaddr <= axi_lite_cav1_p1_if_i_s_axi_awaddr;
           end
         else
           begin
@@ -133,15 +133,15 @@ assign slv_wire_array[0] = {14'h0, cav1_p1_comparison_q_x0[17:0]};
           end
       end
   end
-  always @( posedge dsp_cav2_p1_comparison_q_aclk )
+  always @( posedge axi_lite_cav1_p1_if_i_aclk )
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
         axi_wready <= 1'b0;
       end
     else
       begin
-        if (~axi_wready && dsp_cav2_p1_comparison_q_s_axi_wvalid && dsp_cav2_p1_comparison_q_s_axi_awvalid)
+        if (~axi_wready && axi_lite_cav1_p1_if_i_s_axi_wvalid && axi_lite_cav1_p1_if_i_s_axi_awvalid)
           begin
             axi_wready <= 1'b1;
           end
@@ -151,58 +151,58 @@ assign slv_wire_array[0] = {14'h0, cav1_p1_comparison_q_x0[17:0]};
           end
       end
   end
-  assign slv_reg_wren = axi_wready && dsp_cav2_p1_comparison_q_s_axi_wvalid && axi_awready && dsp_cav2_p1_comparison_q_s_axi_awvalid;
-  always @( posedge dsp_cav2_p1_comparison_q_aclk )
+  assign slv_reg_wren = axi_wready && axi_lite_cav1_p1_if_i_s_axi_wvalid && axi_awready && axi_lite_cav1_p1_if_i_s_axi_awvalid;
+  always @( posedge axi_lite_cav1_p1_if_i_aclk )
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
       end
     else begin
       if (slv_reg_wren)
         begin
           for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-            if ( dsp_cav2_p1_comparison_q_s_axi_wstrb[byte_index] == 1 ) begin
-              slv_reg_array[dec_w][(byte_index*8) +: 8] <= dsp_cav2_p1_comparison_q_s_axi_wdata[(byte_index*8) +: 8];
+            if ( axi_lite_cav1_p1_if_i_s_axi_wstrb[byte_index] == 1 ) begin
+              slv_reg_array[dec_w][(byte_index*8) +: 8] <= axi_lite_cav1_p1_if_i_s_axi_wdata[(byte_index*8) +: 8];
             end
         end
     end
   end
-  always @( posedge dsp_cav2_p1_comparison_q_aclk )
+  always @( posedge axi_lite_cav1_p1_if_i_aclk )
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
         axi_bvalid  <= 0;
         axi_bresp   <= 2'b0;
       end
     else
       begin
-        if (axi_awready && dsp_cav2_p1_comparison_q_s_axi_awvalid && ~axi_bvalid && axi_wready && dsp_cav2_p1_comparison_q_s_axi_wvalid)
+        if (axi_awready && axi_lite_cav1_p1_if_i_s_axi_awvalid && ~axi_bvalid && axi_wready && axi_lite_cav1_p1_if_i_s_axi_wvalid)
           begin
             axi_bvalid <= 1'b1;
             axi_bresp  <= 2'b0; 
           end
         else
           begin
-            if (dsp_cav2_p1_comparison_q_s_axi_bready && axi_bvalid)
+            if (axi_lite_cav1_p1_if_i_s_axi_bready && axi_bvalid)
               begin
                 axi_bvalid <= 1'b0;
               end
           end
       end
   end
-  always @( posedge dsp_cav2_p1_comparison_q_aclk )
+  always @( posedge axi_lite_cav1_p1_if_i_aclk )
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
         axi_arready <= 1'b0;
         axi_araddr  <= {ADDR_MSB{1'b0}};
       end
     else
       begin
-        if (~axi_arready && dsp_cav2_p1_comparison_q_s_axi_arvalid)
+        if (~axi_arready && axi_lite_cav1_p1_if_i_s_axi_arvalid)
           begin
             axi_arready <= 1'b1;
-            axi_araddr  <= dsp_cav2_p1_comparison_q_s_axi_araddr;
+            axi_araddr  <= axi_lite_cav1_p1_if_i_s_axi_araddr;
           end
         else
           begin
@@ -212,9 +212,9 @@ assign slv_wire_array[0] = {14'h0, cav1_p1_comparison_q_x0[17:0]};
   end
 
   // AXI read response (inferred flops)
-  always @( posedge dsp_cav2_p1_comparison_q_aclk )
+  always @( posedge axi_lite_cav1_p1_if_i_aclk )
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
         axi_rvalid <= 1'b0;
         axi_rresp  <= 2'b0;
@@ -226,17 +226,17 @@ assign slv_wire_array[0] = {14'h0, cav1_p1_comparison_q_x0[17:0]};
             axi_rvalid <= 1'b1;
             axi_rresp  <= 2'b0; 
           end
-        else if (axi_rvalid && dsp_cav2_p1_comparison_q_s_axi_rready)
+        else if (axi_rvalid && axi_lite_cav1_p1_if_i_s_axi_rready)
           begin
             axi_rvalid <= 1'b0;
             axi_rresp  <= 2'b0; 
           end
       end
   end
-  assign slv_reg_rden = axi_arready & dsp_cav2_p1_comparison_q_s_axi_arvalid & ~axi_rvalid;
-  always @(dsp_cav2_p1_comparison_q_aresetn, slv_reg_rden, axi_araddr, slv_wire_array, dec_r)
+  assign slv_reg_rden = axi_arready & axi_lite_cav1_p1_if_i_s_axi_arvalid & ~axi_rvalid;
+  always @(axi_lite_cav1_p1_if_i_aresetn, slv_reg_rden, axi_araddr, slv_wire_array, dec_r)
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
         reg_data_out <= {C_S_AXI_DATA_WIDTH{1'b0}};
       end
@@ -246,9 +246,9 @@ assign slv_wire_array[0] = {14'h0, cav1_p1_comparison_q_x0[17:0]};
       end
   end
   // flop for AXI read data
-  always @( posedge dsp_cav2_p1_comparison_q_aclk )
+  always @( posedge axi_lite_cav1_p1_if_i_aclk )
   begin
-    if ( dsp_cav2_p1_comparison_q_aresetn == 1'b0 )
+    if ( axi_lite_cav1_p1_if_i_aresetn == 1'b0 )
       begin
         axi_rdata  <= 0;
       end
@@ -261,7 +261,7 @@ assign slv_wire_array[0] = {14'h0, cav1_p1_comparison_q_x0[17:0]};
       end
   end
 
-  assign dsp_clk = dsp_cav2_p1_comparison_q_aclk;
+  assign axi_lite_clk = axi_lite_cav1_p1_if_i_aclk;
 
 endmodule
 

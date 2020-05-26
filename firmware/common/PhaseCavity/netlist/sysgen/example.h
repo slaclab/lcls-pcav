@@ -33,21 +33,7 @@ typedef struct {
     u32 example_BaseAddress;
     u32 example_cav1_nco_phase_adj_BaseAddress;
     u32 example_cav1_nco_phase_reset_BaseAddress;
-    u32 example_cav1_p1_amp_out_BaseAddress;
     u32 example_cav1_p1_chan_sel_BaseAddress;
-    u32 example_cav1_p1_comparison_i_BaseAddress;
-    u32 example_cav1_p1_comparison_phase_BaseAddress;
-    u32 example_cav1_p1_comparison_q_BaseAddress;
-    u32 example_cav1_p1_dc_freq_BaseAddress;
-    u32 example_cav1_p1_dc_img_BaseAddress;
-    u32 example_cav1_p1_dc_real_BaseAddress;
-    u32 example_cav1_p1_if_amp_BaseAddress;
-    u32 example_cav1_p1_if_i_BaseAddress;
-    u32 example_cav1_p1_if_phase_BaseAddress;
-    u32 example_cav1_p1_if_q_BaseAddress;
-    u32 example_cav1_p1_integrated_i_BaseAddress;
-    u32 example_cav1_p1_integrated_q_BaseAddress;
-    u32 example_cav1_p1_phase_out_BaseAddress;
     u32 example_cav1_p1_window_start_BaseAddress;
     u32 example_cav1_p1_window_stop_BaseAddress;
     u32 example_cav1_p2_amp_out_BaseAddress;
@@ -120,21 +106,7 @@ typedef struct {
     u32 example_BaseAddress;
     u32 example_cav1_nco_phase_adj_BaseAddress;
     u32 example_cav1_nco_phase_reset_BaseAddress;
-    u32 example_cav1_p1_amp_out_BaseAddress;
     u32 example_cav1_p1_chan_sel_BaseAddress;
-    u32 example_cav1_p1_comparison_i_BaseAddress;
-    u32 example_cav1_p1_comparison_phase_BaseAddress;
-    u32 example_cav1_p1_comparison_q_BaseAddress;
-    u32 example_cav1_p1_dc_freq_BaseAddress;
-    u32 example_cav1_p1_dc_img_BaseAddress;
-    u32 example_cav1_p1_dc_real_BaseAddress;
-    u32 example_cav1_p1_if_amp_BaseAddress;
-    u32 example_cav1_p1_if_i_BaseAddress;
-    u32 example_cav1_p1_if_phase_BaseAddress;
-    u32 example_cav1_p1_if_q_BaseAddress;
-    u32 example_cav1_p1_integrated_i_BaseAddress;
-    u32 example_cav1_p1_integrated_q_BaseAddress;
-    u32 example_cav1_p1_phase_out_BaseAddress;
     u32 example_cav1_p1_window_start_BaseAddress;
     u32 example_cav1_p1_window_stop_BaseAddress;
     u32 example_cav1_p2_amp_out_BaseAddress;
@@ -261,98 +233,6 @@ u32 example_scratchpad_read(example *InstancePtr);
 */
 u32 example_status_0_read(example *InstancePtr);
 /**
-* Write to cav2_nco_phase_adj gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_nco_phase_adj instance to operate on.
-* @param	Data is value to be written to gateway cav2_nco_phase_adj.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_cav2_nco_phase_adj_write(example *InstancePtr, u32 Data);
-/**
-* Read from cav2_nco_phase_adj gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_nco_phase_adj instance to operate on.
-*
-* @return	u32
-*
-* @note    .
-*
-*/
-u32 example_cav2_nco_phase_adj_read(example *InstancePtr);
-/**
-* Write to cav1_nco_phase_adj gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_nco_phase_adj instance to operate on.
-* @param	Data is value to be written to gateway cav1_nco_phase_adj.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_cav1_nco_phase_adj_write(example *InstancePtr, u32 Data);
-/**
-* Read from cav1_nco_phase_adj gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_nco_phase_adj instance to operate on.
-*
-* @return	u32
-*
-* @note    .
-*
-*/
-u32 example_cav1_nco_phase_adj_read(example *InstancePtr);
-/**
-* Write to cav2_nco_phase_reset gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_nco_phase_reset instance to operate on.
-* @param	Data is value to be written to gateway cav2_nco_phase_reset.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_cav2_nco_phase_reset_write(example *InstancePtr, u32 Data);
-/**
-* Read from cav2_nco_phase_reset gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_nco_phase_reset instance to operate on.
-*
-* @return	u32
-*
-* @note    .
-*
-*/
-u32 example_cav2_nco_phase_reset_read(example *InstancePtr);
-/**
-* Write to cav1_nco_phase_reset gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_nco_phase_reset instance to operate on.
-* @param	Data is value to be written to gateway cav1_nco_phase_reset.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_cav1_nco_phase_reset_write(example *InstancePtr, u32 Data);
-/**
-* Read from cav1_nco_phase_reset gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_nco_phase_reset instance to operate on.
-*
-* @return	u32
-*
-* @note    .
-*
-*/
-u32 example_cav1_nco_phase_reset_read(example *InstancePtr);
-/**
 * Read from cav1_p1_amp_out gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav1_p1_amp_out instance to operate on.
@@ -363,29 +243,6 @@ u32 example_cav1_nco_phase_reset_read(example *InstancePtr);
 *
 */
 int example_cav1_p1_amp_out_read(example *InstancePtr);
-/**
-* Write to cav1_p1_chan_sel gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_p1_chan_sel instance to operate on.
-* @param	Data is value to be written to gateway cav1_p1_chan_sel.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_cav1_p1_chan_sel_write(example *InstancePtr, u8 Data);
-/**
-* Read from cav1_p1_chan_sel gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_p1_chan_sel instance to operate on.
-*
-* @return	u8
-*
-* @note    .
-*
-*/
-u8 example_cav1_p1_chan_sel_read(example *InstancePtr);
 /**
 * Read from cav1_p1_comparison_i gateway of example. Assignments are LSB-justified.
 *
@@ -409,16 +266,16 @@ int example_cav1_p1_comparison_i_read(example *InstancePtr);
 */
 int example_cav1_p1_comparison_phase_read(example *InstancePtr);
 /**
-* Read from cav1_p1_comparison_q_x0 gateway of example. Assignments are LSB-justified.
+* Read from cav1_p1_comparison_q gateway of example. Assignments are LSB-justified.
 *
-* @param	InstancePtr is the cav1_p1_comparison_q_x0 instance to operate on.
+* @param	InstancePtr is the cav1_p1_comparison_q instance to operate on.
 *
 * @return	int
 *
 * @note    .
 *
 */
-int example_cav1_p1_comparison_q_x0_read(example *InstancePtr);
+int example_cav1_p1_comparison_q_read(example *InstancePtr);
 /**
 * Read from cav1_p1_dc_freq gateway of example. Assignments are LSB-justified.
 *
@@ -529,6 +386,121 @@ int example_cav1_p1_integrated_q_read(example *InstancePtr);
 *
 */
 int example_cav1_p1_phase_out_read(example *InstancePtr);
+/**
+* Write to cav2_nco_phase_adj gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_nco_phase_adj instance to operate on.
+* @param	Data is value to be written to gateway cav2_nco_phase_adj.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_nco_phase_adj_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_nco_phase_adj gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_nco_phase_adj instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_nco_phase_adj_read(example *InstancePtr);
+/**
+* Write to cav1_nco_phase_adj gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_nco_phase_adj instance to operate on.
+* @param	Data is value to be written to gateway cav1_nco_phase_adj.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav1_nco_phase_adj_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav1_nco_phase_adj gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_nco_phase_adj instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav1_nco_phase_adj_read(example *InstancePtr);
+/**
+* Write to cav2_nco_phase_reset gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_nco_phase_reset instance to operate on.
+* @param	Data is value to be written to gateway cav2_nco_phase_reset.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_nco_phase_reset_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_nco_phase_reset gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_nco_phase_reset instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_nco_phase_reset_read(example *InstancePtr);
+/**
+* Write to cav1_nco_phase_reset gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_nco_phase_reset instance to operate on.
+* @param	Data is value to be written to gateway cav1_nco_phase_reset.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav1_nco_phase_reset_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav1_nco_phase_reset gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_nco_phase_reset instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav1_nco_phase_reset_read(example *InstancePtr);
+/**
+* Write to cav1_p1_chan_sel gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_p1_chan_sel instance to operate on.
+* @param	Data is value to be written to gateway cav1_p1_chan_sel.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav1_p1_chan_sel_write(example *InstancePtr, u8 Data);
+/**
+* Read from cav1_p1_chan_sel gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_p1_chan_sel instance to operate on.
+*
+* @return	u8
+*
+* @note    .
+*
+*/
+u8 example_cav1_p1_chan_sel_read(example *InstancePtr);
 /**
 * Write to cav1_p1_window_start gateway of example. Assignments are LSB-justified.
 *
@@ -855,16 +827,16 @@ int example_cav2_p1_comparison_i_read(example *InstancePtr);
 */
 int example_cav2_p1_comparison_phase_read(example *InstancePtr);
 /**
-* Read from cav1_p1_comparison_q gateway of example. Assignments are LSB-justified.
+* Read from cav1_p1_comparison_q_x0 gateway of example. Assignments are LSB-justified.
 *
-* @param	InstancePtr is the cav1_p1_comparison_q instance to operate on.
+* @param	InstancePtr is the cav1_p1_comparison_q_x0 instance to operate on.
 *
 * @return	int
 *
 * @note    .
 *
 */
-int example_cav1_p1_comparison_q_read(example *InstancePtr);
+int example_cav1_p1_comparison_q_x0_read(example *InstancePtr);
 /**
 * Read from cav2_p1_dc_freq gateway of example. Assignments are LSB-justified.
 *

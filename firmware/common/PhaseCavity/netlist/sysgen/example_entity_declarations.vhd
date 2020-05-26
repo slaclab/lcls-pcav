@@ -37,6 +37,110 @@
 library work;
 use work.conv_pkg.all;
 
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+
+
+entity example_xlAsynRegister is
+
+   generic (d_width          : integer := 5;          -- Width of d input
+            init_value       : bit_vector := b"00");  -- Binary init value string
+
+   port (d     : in std_logic_vector (d_width-1 downto 0);
+         rst   : in std_logic_vector(0 downto 0) := "0";
+         en    : in std_logic_vector(0 downto 0) := "1";
+         d_ce  : in std_logic;
+         d_clk : in std_logic;
+         q_ce  : in std_logic;
+         q_clk : in std_logic;
+         q     : out std_logic_vector (d_width-1 downto 0));
+
+end example_xlAsynRegister;
+
+architecture behavior of example_xlAsynRegister is
+
+   component synth_reg_w_init
+      generic (width      : integer;
+               init_index : integer;
+               init_value : bit_vector;
+               latency    : integer);
+      port (i   : in std_logic_vector(width-1 downto 0);
+            ce  : in std_logic;
+            clr : in std_logic;
+            clk : in std_logic;
+            o   : out std_logic_vector(width-1 downto 0));
+   end component; -- end synth_reg_w_init
+
+   signal internal_d_clr      : std_logic;
+   signal internal_d_ce       : std_logic;
+   signal internal_q_clr      : std_logic;
+   signal internal_q_ce       : std_logic;
+
+   signal d1_net              : std_logic_vector (d_width-1 downto 0);
+   signal d2_net              : std_logic_vector (d_width-1 downto 0);
+   signal d3_net              : std_logic_vector (d_width-1 downto 0);
+
+begin
+
+   internal_d_clr <= rst(0) and d_ce;
+   internal_d_ce  <= en(0) and d_ce;
+   -- drive default values on enable and clear ports
+   internal_q_clr <= '0' and q_ce;
+   internal_q_ce  <= '1' and q_ce;
+
+   -- Synthesizable behavioral model
+   synth_reg_inst_0 : synth_reg_w_init
+      generic map (width      => d_width,
+                   init_index => 2,
+                   init_value => init_value,
+                   latency    => 1)
+      port map (i   => d,
+                ce  => internal_d_ce,
+                clr => internal_d_clr,
+                clk => d_clk,
+                o   => d1_net);
+
+   synth_reg_inst_1 : synth_reg_w_init
+      generic map (width      => d_width,
+                   init_index => 2,
+                   init_value => init_value,
+                   latency    => 1)
+      port map (i   => d1_net,
+                ce  => internal_q_ce,
+                clr => internal_q_clr,
+                clk => q_clk,
+                o   => d2_net);
+
+   synth_reg_inst_2 : synth_reg_w_init
+      generic map (width      => d_width,
+                   init_index => 2,
+                   init_value => init_value,
+                   latency    => 1)
+      port map (i   => d2_net,
+                ce  => internal_q_ce,
+                clr => internal_q_clr,
+                clk => q_clk,
+                o   => d3_net);
+
+   synth_reg_inst_3 : synth_reg_w_init
+      generic map (width      => d_width,
+                   init_index => 2,
+                   init_value => init_value,
+                   latency    => 1)
+      port map (i   => d3_net,
+                ce  => internal_q_ce,
+                clr => internal_q_clr,
+                clk => q_clk,
+                o   => q);
+
+end architecture behavior;
+
+
+library work;
+use work.conv_pkg.all;
+
 ---------------------------------------------------------------------
 --
 --  Filename      : xlregister.vhd
@@ -129,293 +233,6 @@ architecture behavior of sysgen_constant_0dde287d44
 is
 begin
   op <= "00000000000000000000000000000001";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_abs_1b92676e73 is
-  port (
-    a : in std_logic_vector((19 - 1) downto 0);
-    op : out std_logic_vector((20 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_abs_1b92676e73;
-architecture behavior of sysgen_abs_1b92676e73
-is
-  signal a_16_25: signed((19 - 1) downto 0);
-  type array_type_op_mem_48_20 is array (0 to (1 - 1)) of signed((20 - 1) downto 0);
-  signal op_mem_48_20: array_type_op_mem_48_20 := (
-    0 => "00000000000000000000");
-  signal op_mem_48_20_front_din: signed((20 - 1) downto 0);
-  signal op_mem_48_20_back: signed((20 - 1) downto 0);
-  signal op_mem_48_20_push_front_pop_back_en: std_logic;
-  signal cast_34_28: signed((20 - 1) downto 0);
-  signal internal_ip_34_13_neg: signed((20 - 1) downto 0);
-  signal rel_31_8: boolean;
-  signal internal_ip_join_31_5: signed((20 - 1) downto 0);
-  signal internal_ip_join_28_1: signed((20 - 1) downto 0);
-begin
-  a_16_25 <= std_logic_vector_to_signed(a);
-  op_mem_48_20_back <= op_mem_48_20(0);
-  proc_op_mem_48_20: process (clk)
-  is
-    variable i: integer;
-  begin
-    if (clk'event and (clk = '1')) then
-      if ((ce = '1') and (op_mem_48_20_push_front_pop_back_en = '1')) then
-        op_mem_48_20(0) <= op_mem_48_20_front_din;
-      end if;
-    end if;
-  end process proc_op_mem_48_20;
-  cast_34_28 <= s2s_cast(a_16_25, 17, 20, 17);
-  internal_ip_34_13_neg <=  -cast_34_28;
-  rel_31_8 <= a_16_25 >= std_logic_vector_to_signed("0000000000000000000");
-  proc_if_31_5: process (a_16_25, internal_ip_34_13_neg, rel_31_8)
-  is
-  begin
-    if rel_31_8 then
-      internal_ip_join_31_5 <= s2s_cast(a_16_25, 17, 20, 17);
-    else 
-      internal_ip_join_31_5 <= internal_ip_34_13_neg;
-    end if;
-  end process proc_if_31_5;
-  proc_if_28_1: process (internal_ip_join_31_5)
-  is
-  begin
-    if false then
-      internal_ip_join_28_1 <= std_logic_vector_to_signed("00000000000000000000");
-    else 
-      internal_ip_join_28_1 <= internal_ip_join_31_5;
-    end if;
-  end process proc_if_28_1;
-  op_mem_48_20_front_din <= internal_ip_join_28_1;
-  op_mem_48_20_push_front_pop_back_en <= '1';
-  op <= signed_to_std_logic_vector(op_mem_48_20_back);
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
----------------------------------------------------------------------
---
---  Filename      : xlceprobe.vhd
---
---  Description   : VHDL description of system clock enable probe.
---                  This block assigns the clock enable signal to
---                  the output port.
---  Mod. History  : Added beffer so the the ce nets would not get renamed
---
----------------------------------------------------------------------
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-
--- synthesis translate_off
-library unisim;
-use unisim.vcomponents.all;
--- synthesis translate_on
-
-
-entity example_xlceprobe is
-    generic (d_width  : integer := 8;
-             q_width  : integer := 1);
-    port (d       : in std_logic_vector (d_width-1 downto 0);
-          ce      : in std_logic;
-          clk     : in std_logic;
-          q       : out std_logic_vector (q_width-1 downto 0));
-end example_xlceprobe;
-
-architecture behavior of example_xlceprobe is
-    component BUF
-        port(
-            O  :        out   STD_ULOGIC;
-            I  :        in    STD_ULOGIC);
-    end component;
-    attribute syn_black_box of BUF : component is true;
-    attribute fpga_dont_touch of BUF : component is "true";
-    signal ce_vec : std_logic_vector(0 downto 0);
-begin
-    buf_comp : buf port map(i => ce, o => ce_vec(0));
-     -- use the clock enable signal to drive the output port
-    q <= ce_vec;
-end architecture behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_a6ce73fb97 is
-  port (
-    op : out std_logic_vector((32 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_a6ce73fb97;
-architecture behavior of sysgen_constant_a6ce73fb97
-is
-begin
-  op <= "00000000000000000000000001111110";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-
-
-entity example_xldelay is
-   generic(width        : integer := -1;
-           latency      : integer := -1;
-           reg_retiming : integer :=  0;
-           reset        : integer :=  0);
-   port(d       : in std_logic_vector (width-1 downto 0);
-        ce      : in std_logic;
-        clk     : in std_logic;
-        en      : in std_logic;
-        rst     : in std_logic;
-        q       : out std_logic_vector (width-1 downto 0));
-
-end example_xldelay;
-
-architecture behavior of example_xldelay is
-   component synth_reg
-      generic (width       : integer;
-               latency     : integer);
-      port (i       : in std_logic_vector(width-1 downto 0);
-            ce      : in std_logic;
-            clr     : in std_logic;
-            clk     : in std_logic;
-            o       : out std_logic_vector(width-1 downto 0));
-   end component; -- end component synth_reg
-
-   component synth_reg_reg
-      generic (width       : integer;
-               latency     : integer);
-      port (i       : in std_logic_vector(width-1 downto 0);
-            ce      : in std_logic;
-            clr     : in std_logic;
-            clk     : in std_logic;
-            o       : out std_logic_vector(width-1 downto 0));
-   end component;
-
-   signal internal_ce  : std_logic;
-
-begin
-   internal_ce  <= ce and en;
-
-   srl_delay: if ((reg_retiming = 0) and (reset = 0)) or (latency < 1) generate
-     synth_reg_srl_inst : synth_reg
-       generic map (
-         width   => width,
-         latency => latency)
-       port map (
-         i   => d,
-         ce  => internal_ce,
-         clr => '0',
-         clk => clk,
-         o   => q);
-   end generate srl_delay;
-
-   reg_delay: if ((reg_retiming = 1) or (reset = 1)) and (latency >= 1) generate
-     synth_reg_reg_inst : synth_reg_reg
-       generic map (
-         width   => width,
-         latency => latency)
-       port map (
-         i   => d,
-         ce  => internal_ce,
-         clr => rst,
-         clk => clk,
-         o   => q);
-   end generate reg_delay;
-end architecture behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_ebbc84a2b1 is
-  port (
-    op : out std_logic_vector((26 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_ebbc84a2b1;
-architecture behavior of sysgen_constant_ebbc84a2b1
-is
-begin
-  op <= "00000000000000000000000001";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_578d5a08da is
-  port (
-    op : out std_logic_vector((18 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_578d5a08da;
-architecture behavior of sysgen_constant_578d5a08da
-is
-begin
-  op <= "011111111111111111";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_589172b339 is
-  port (
-    op : out std_logic_vector((1 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_589172b339;
-architecture behavior of sysgen_constant_589172b339
-is
-begin
-  op <= "1";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_ff2f539dd4 is
-  port (
-    op : out std_logic_vector((4 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_ff2f539dd4;
-architecture behavior of sysgen_constant_ff2f539dd4
-is
-begin
-  op <= "1011";
 end behavior;
 
 library work;
@@ -634,6 +451,293 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_abs_1b92676e73 is
+  port (
+    a : in std_logic_vector((19 - 1) downto 0);
+    op : out std_logic_vector((20 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_abs_1b92676e73;
+architecture behavior of sysgen_abs_1b92676e73
+is
+  signal a_16_25: signed((19 - 1) downto 0);
+  type array_type_op_mem_48_20 is array (0 to (1 - 1)) of signed((20 - 1) downto 0);
+  signal op_mem_48_20: array_type_op_mem_48_20 := (
+    0 => "00000000000000000000");
+  signal op_mem_48_20_front_din: signed((20 - 1) downto 0);
+  signal op_mem_48_20_back: signed((20 - 1) downto 0);
+  signal op_mem_48_20_push_front_pop_back_en: std_logic;
+  signal cast_34_28: signed((20 - 1) downto 0);
+  signal internal_ip_34_13_neg: signed((20 - 1) downto 0);
+  signal rel_31_8: boolean;
+  signal internal_ip_join_31_5: signed((20 - 1) downto 0);
+  signal internal_ip_join_28_1: signed((20 - 1) downto 0);
+begin
+  a_16_25 <= std_logic_vector_to_signed(a);
+  op_mem_48_20_back <= op_mem_48_20(0);
+  proc_op_mem_48_20: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (op_mem_48_20_push_front_pop_back_en = '1')) then
+        op_mem_48_20(0) <= op_mem_48_20_front_din;
+      end if;
+    end if;
+  end process proc_op_mem_48_20;
+  cast_34_28 <= s2s_cast(a_16_25, 17, 20, 17);
+  internal_ip_34_13_neg <=  -cast_34_28;
+  rel_31_8 <= a_16_25 >= std_logic_vector_to_signed("0000000000000000000");
+  proc_if_31_5: process (a_16_25, internal_ip_34_13_neg, rel_31_8)
+  is
+  begin
+    if rel_31_8 then
+      internal_ip_join_31_5 <= s2s_cast(a_16_25, 17, 20, 17);
+    else 
+      internal_ip_join_31_5 <= internal_ip_34_13_neg;
+    end if;
+  end process proc_if_31_5;
+  proc_if_28_1: process (internal_ip_join_31_5)
+  is
+  begin
+    if false then
+      internal_ip_join_28_1 <= std_logic_vector_to_signed("00000000000000000000");
+    else 
+      internal_ip_join_28_1 <= internal_ip_join_31_5;
+    end if;
+  end process proc_if_28_1;
+  op_mem_48_20_front_din <= internal_ip_join_28_1;
+  op_mem_48_20_push_front_pop_back_en <= '1';
+  op <= signed_to_std_logic_vector(op_mem_48_20_back);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+---------------------------------------------------------------------
+--
+--  Filename      : xlceprobe.vhd
+--
+--  Description   : VHDL description of system clock enable probe.
+--                  This block assigns the clock enable signal to
+--                  the output port.
+--  Mod. History  : Added beffer so the the ce nets would not get renamed
+--
+---------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+
+-- synthesis translate_off
+library unisim;
+use unisim.vcomponents.all;
+-- synthesis translate_on
+
+
+entity example_xlceprobe is
+    generic (d_width  : integer := 8;
+             q_width  : integer := 1);
+    port (d       : in std_logic_vector (d_width-1 downto 0);
+          ce      : in std_logic;
+          clk     : in std_logic;
+          q       : out std_logic_vector (q_width-1 downto 0));
+end example_xlceprobe;
+
+architecture behavior of example_xlceprobe is
+    component BUF
+        port(
+            O  :        out   STD_ULOGIC;
+            I  :        in    STD_ULOGIC);
+    end component;
+    attribute syn_black_box of BUF : component is true;
+    attribute fpga_dont_touch of BUF : component is "true";
+    signal ce_vec : std_logic_vector(0 downto 0);
+begin
+    buf_comp : buf port map(i => ce, o => ce_vec(0));
+     -- use the clock enable signal to drive the output port
+    q <= ce_vec;
+end architecture behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_ebbc84a2b1 is
+  port (
+    op : out std_logic_vector((26 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_ebbc84a2b1;
+architecture behavior of sysgen_constant_ebbc84a2b1
+is
+begin
+  op <= "00000000000000000000000001";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_578d5a08da is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_578d5a08da;
+architecture behavior of sysgen_constant_578d5a08da
+is
+begin
+  op <= "011111111111111111";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_a6ce73fb97 is
+  port (
+    op : out std_logic_vector((32 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_a6ce73fb97;
+architecture behavior of sysgen_constant_a6ce73fb97
+is
+begin
+  op <= "00000000000000000000000001111110";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+
+
+entity example_xldelay is
+   generic(width        : integer := -1;
+           latency      : integer := -1;
+           reg_retiming : integer :=  0;
+           reset        : integer :=  0);
+   port(d       : in std_logic_vector (width-1 downto 0);
+        ce      : in std_logic;
+        clk     : in std_logic;
+        en      : in std_logic;
+        rst     : in std_logic;
+        q       : out std_logic_vector (width-1 downto 0));
+
+end example_xldelay;
+
+architecture behavior of example_xldelay is
+   component synth_reg
+      generic (width       : integer;
+               latency     : integer);
+      port (i       : in std_logic_vector(width-1 downto 0);
+            ce      : in std_logic;
+            clr     : in std_logic;
+            clk     : in std_logic;
+            o       : out std_logic_vector(width-1 downto 0));
+   end component; -- end component synth_reg
+
+   component synth_reg_reg
+      generic (width       : integer;
+               latency     : integer);
+      port (i       : in std_logic_vector(width-1 downto 0);
+            ce      : in std_logic;
+            clr     : in std_logic;
+            clk     : in std_logic;
+            o       : out std_logic_vector(width-1 downto 0));
+   end component;
+
+   signal internal_ce  : std_logic;
+
+begin
+   internal_ce  <= ce and en;
+
+   srl_delay: if ((reg_retiming = 0) and (reset = 0)) or (latency < 1) generate
+     synth_reg_srl_inst : synth_reg
+       generic map (
+         width   => width,
+         latency => latency)
+       port map (
+         i   => d,
+         ce  => internal_ce,
+         clr => '0',
+         clk => clk,
+         o   => q);
+   end generate srl_delay;
+
+   reg_delay: if ((reg_retiming = 1) or (reset = 1)) and (latency >= 1) generate
+     synth_reg_reg_inst : synth_reg_reg
+       generic map (
+         width   => width,
+         latency => latency)
+       port map (
+         i   => d,
+         ce  => internal_ce,
+         clr => rst,
+         clk => clk,
+         o   => q);
+   end generate reg_delay;
+end architecture behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_589172b339 is
+  port (
+    op : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_589172b339;
+architecture behavior of sysgen_constant_589172b339
+is
+begin
+  op <= "1";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_ff2f539dd4 is
+  port (
+    op : out std_logic_vector((4 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_ff2f539dd4;
+architecture behavior of sysgen_constant_ff2f539dd4
+is
+begin
+  op <= "1011";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_relational_e6d9f3f14a is
   port (
     a : in std_logic_vector((4 - 1) downto 0);
@@ -680,176 +784,24 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity dsp_cav2_p1_amp_out_axi_lite_interface is 
-    port(
-        cav2_p1_amp_out : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_amp_out_aclk : in std_logic;
-        dsp_cav2_p1_amp_out_aresetn : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_awready : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_wready : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_bready : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_arready : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_rready : in std_logic
-    );
-end dsp_cav2_p1_amp_out_axi_lite_interface;
-architecture structural of dsp_cav2_p1_amp_out_axi_lite_interface is 
-component dsp_cav2_p1_amp_out_axi_lite_interface_verilog is
-    port(
-        cav2_p1_amp_out : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_amp_out_aclk : in std_logic;
-        dsp_cav2_p1_amp_out_aresetn : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_awready : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_wready : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_bready : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_amp_out_s_axi_arready : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_amp_out_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_amp_out_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav2_p1_amp_out_axi_lite_interface_verilog
-    port map(
-    cav2_p1_amp_out => cav2_p1_amp_out,
-    dsp_clk => dsp_clk,
-    dsp_cav2_p1_amp_out_aclk => dsp_cav2_p1_amp_out_aclk,
-    dsp_cav2_p1_amp_out_aresetn => dsp_cav2_p1_amp_out_aresetn,
-    dsp_cav2_p1_amp_out_s_axi_awaddr => dsp_cav2_p1_amp_out_s_axi_awaddr,
-    dsp_cav2_p1_amp_out_s_axi_awvalid => dsp_cav2_p1_amp_out_s_axi_awvalid,
-    dsp_cav2_p1_amp_out_s_axi_awready => dsp_cav2_p1_amp_out_s_axi_awready,
-    dsp_cav2_p1_amp_out_s_axi_wdata => dsp_cav2_p1_amp_out_s_axi_wdata,
-    dsp_cav2_p1_amp_out_s_axi_wstrb => dsp_cav2_p1_amp_out_s_axi_wstrb,
-    dsp_cav2_p1_amp_out_s_axi_wvalid => dsp_cav2_p1_amp_out_s_axi_wvalid,
-    dsp_cav2_p1_amp_out_s_axi_wready => dsp_cav2_p1_amp_out_s_axi_wready,
-    dsp_cav2_p1_amp_out_s_axi_bresp => dsp_cav2_p1_amp_out_s_axi_bresp,
-    dsp_cav2_p1_amp_out_s_axi_bvalid => dsp_cav2_p1_amp_out_s_axi_bvalid,
-    dsp_cav2_p1_amp_out_s_axi_bready => dsp_cav2_p1_amp_out_s_axi_bready,
-    dsp_cav2_p1_amp_out_s_axi_araddr => dsp_cav2_p1_amp_out_s_axi_araddr,
-    dsp_cav2_p1_amp_out_s_axi_arvalid => dsp_cav2_p1_amp_out_s_axi_arvalid,
-    dsp_cav2_p1_amp_out_s_axi_arready => dsp_cav2_p1_amp_out_s_axi_arready,
-    dsp_cav2_p1_amp_out_s_axi_rdata => dsp_cav2_p1_amp_out_s_axi_rdata,
-    dsp_cav2_p1_amp_out_s_axi_rresp => dsp_cav2_p1_amp_out_s_axi_rresp,
-    dsp_cav2_p1_amp_out_s_axi_rvalid => dsp_cav2_p1_amp_out_s_axi_rvalid,
-    dsp_cav2_p1_amp_out_s_axi_rready => dsp_cav2_p1_amp_out_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav2_p1_chan_sel_axi_lite_interface is 
-    port(
-        cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_chan_sel_aclk : in std_logic;
-        dsp_cav2_p1_chan_sel_aresetn : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_awready : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_wready : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_bready : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_arready : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_rready : in std_logic
-    );
-end dsp_cav2_p1_chan_sel_axi_lite_interface;
-architecture structural of dsp_cav2_p1_chan_sel_axi_lite_interface is 
-component dsp_cav2_p1_chan_sel_axi_lite_interface_verilog is
-    port(
-        cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_chan_sel_aclk : in std_logic;
-        dsp_cav2_p1_chan_sel_aresetn : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_awready : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_wready : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_bready : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_arready : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_chan_sel_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_chan_sel_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav2_p1_chan_sel_axi_lite_interface_verilog
-    port map(
-    cav2_p1_chan_sel => cav2_p1_chan_sel,
-    dsp_clk => dsp_clk,
-    dsp_cav2_p1_chan_sel_aclk => dsp_cav2_p1_chan_sel_aclk,
-    dsp_cav2_p1_chan_sel_aresetn => dsp_cav2_p1_chan_sel_aresetn,
-    dsp_cav2_p1_chan_sel_s_axi_awaddr => dsp_cav2_p1_chan_sel_s_axi_awaddr,
-    dsp_cav2_p1_chan_sel_s_axi_awvalid => dsp_cav2_p1_chan_sel_s_axi_awvalid,
-    dsp_cav2_p1_chan_sel_s_axi_awready => dsp_cav2_p1_chan_sel_s_axi_awready,
-    dsp_cav2_p1_chan_sel_s_axi_wdata => dsp_cav2_p1_chan_sel_s_axi_wdata,
-    dsp_cav2_p1_chan_sel_s_axi_wstrb => dsp_cav2_p1_chan_sel_s_axi_wstrb,
-    dsp_cav2_p1_chan_sel_s_axi_wvalid => dsp_cav2_p1_chan_sel_s_axi_wvalid,
-    dsp_cav2_p1_chan_sel_s_axi_wready => dsp_cav2_p1_chan_sel_s_axi_wready,
-    dsp_cav2_p1_chan_sel_s_axi_bresp => dsp_cav2_p1_chan_sel_s_axi_bresp,
-    dsp_cav2_p1_chan_sel_s_axi_bvalid => dsp_cav2_p1_chan_sel_s_axi_bvalid,
-    dsp_cav2_p1_chan_sel_s_axi_bready => dsp_cav2_p1_chan_sel_s_axi_bready,
-    dsp_cav2_p1_chan_sel_s_axi_araddr => dsp_cav2_p1_chan_sel_s_axi_araddr,
-    dsp_cav2_p1_chan_sel_s_axi_arvalid => dsp_cav2_p1_chan_sel_s_axi_arvalid,
-    dsp_cav2_p1_chan_sel_s_axi_arready => dsp_cav2_p1_chan_sel_s_axi_arready,
-    dsp_cav2_p1_chan_sel_s_axi_rdata => dsp_cav2_p1_chan_sel_s_axi_rdata,
-    dsp_cav2_p1_chan_sel_s_axi_rresp => dsp_cav2_p1_chan_sel_s_axi_rresp,
-    dsp_cav2_p1_chan_sel_s_axi_rvalid => dsp_cav2_p1_chan_sel_s_axi_rvalid,
-    dsp_cav2_p1_chan_sel_s_axi_rready => dsp_cav2_p1_chan_sel_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
 entity axi_lite_axi_lite_interface is 
     port(
         scratchpad : out std_logic_vector(31 downto 0);
         status_0 : in std_logic_vector(31 downto 0);
+        cav1_p1_amp_out : in std_logic_vector(17 downto 0);
+        cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
+        cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
+        cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
+        cav1_p1_dc_freq : in std_logic_vector(25 downto 0);
+        cav1_p1_dc_img : in std_logic_vector(28 downto 0);
+        cav1_p1_dc_real : in std_logic_vector(28 downto 0);
+        cav1_p1_if_amp : in std_logic_vector(17 downto 0);
+        cav1_p1_if_i : in std_logic_vector(17 downto 0);
+        cav1_p1_if_phase : in std_logic_vector(17 downto 0);
+        cav1_p1_if_q : in std_logic_vector(17 downto 0);
+        cav1_p1_integrated_i : in std_logic_vector(17 downto 0);
+        cav1_p1_integrated_q : in std_logic_vector(17 downto 0);
+        cav1_p1_phase_out : in std_logic_vector(17 downto 0);
         axi_lite_clk : out std_logic;
         axi_lite_aclk : in std_logic;
         axi_lite_aresetn : in std_logic;
@@ -877,6 +829,20 @@ component axi_lite_axi_lite_interface_verilog is
     port(
         scratchpad : out std_logic_vector(31 downto 0);
         status_0 : in std_logic_vector(31 downto 0);
+        cav1_p1_amp_out : in std_logic_vector(17 downto 0);
+        cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
+        cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
+        cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
+        cav1_p1_dc_freq : in std_logic_vector(25 downto 0);
+        cav1_p1_dc_img : in std_logic_vector(28 downto 0);
+        cav1_p1_dc_real : in std_logic_vector(28 downto 0);
+        cav1_p1_if_amp : in std_logic_vector(17 downto 0);
+        cav1_p1_if_i : in std_logic_vector(17 downto 0);
+        cav1_p1_if_phase : in std_logic_vector(17 downto 0);
+        cav1_p1_if_q : in std_logic_vector(17 downto 0);
+        cav1_p1_integrated_i : in std_logic_vector(17 downto 0);
+        cav1_p1_integrated_q : in std_logic_vector(17 downto 0);
+        cav1_p1_phase_out : in std_logic_vector(17 downto 0);
         axi_lite_clk : out std_logic;
         axi_lite_aclk : in std_logic;
         axi_lite_aresetn : in std_logic;
@@ -904,6 +870,20 @@ inst : axi_lite_axi_lite_interface_verilog
     port map(
     scratchpad => scratchpad,
     status_0 => status_0,
+    cav1_p1_amp_out => cav1_p1_amp_out,
+    cav1_p1_comparison_i => cav1_p1_comparison_i,
+    cav1_p1_comparison_phase => cav1_p1_comparison_phase,
+    cav1_p1_comparison_q => cav1_p1_comparison_q,
+    cav1_p1_dc_freq => cav1_p1_dc_freq,
+    cav1_p1_dc_img => cav1_p1_dc_img,
+    cav1_p1_dc_real => cav1_p1_dc_real,
+    cav1_p1_if_amp => cav1_p1_if_amp,
+    cav1_p1_if_i => cav1_p1_if_i,
+    cav1_p1_if_phase => cav1_p1_if_phase,
+    cav1_p1_if_q => cav1_p1_if_q,
+    cav1_p1_integrated_i => cav1_p1_integrated_i,
+    cav1_p1_integrated_q => cav1_p1_integrated_q,
+    cav1_p1_phase_out => cav1_p1_phase_out,
     axi_lite_clk => axi_lite_clk,
     axi_lite_aclk => axi_lite_aclk,
     axi_lite_aresetn => axi_lite_aresetn,
@@ -1104,89 +1084,6 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity dsp_cav1_p1_amp_out_axi_lite_interface is 
-    port(
-        cav1_p1_amp_out : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_amp_out_aclk : in std_logic;
-        dsp_cav1_p1_amp_out_aresetn : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_awready : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_wready : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_bready : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_arready : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_amp_out_axi_lite_interface;
-architecture structural of dsp_cav1_p1_amp_out_axi_lite_interface is 
-component dsp_cav1_p1_amp_out_axi_lite_interface_verilog is
-    port(
-        cav1_p1_amp_out : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_amp_out_aclk : in std_logic;
-        dsp_cav1_p1_amp_out_aresetn : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_awready : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_wready : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_bready : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_amp_out_s_axi_arready : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_amp_out_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_amp_out_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_amp_out_axi_lite_interface_verilog
-    port map(
-    cav1_p1_amp_out => cav1_p1_amp_out,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_amp_out_aclk => dsp_cav1_p1_amp_out_aclk,
-    dsp_cav1_p1_amp_out_aresetn => dsp_cav1_p1_amp_out_aresetn,
-    dsp_cav1_p1_amp_out_s_axi_awaddr => dsp_cav1_p1_amp_out_s_axi_awaddr,
-    dsp_cav1_p1_amp_out_s_axi_awvalid => dsp_cav1_p1_amp_out_s_axi_awvalid,
-    dsp_cav1_p1_amp_out_s_axi_awready => dsp_cav1_p1_amp_out_s_axi_awready,
-    dsp_cav1_p1_amp_out_s_axi_wdata => dsp_cav1_p1_amp_out_s_axi_wdata,
-    dsp_cav1_p1_amp_out_s_axi_wstrb => dsp_cav1_p1_amp_out_s_axi_wstrb,
-    dsp_cav1_p1_amp_out_s_axi_wvalid => dsp_cav1_p1_amp_out_s_axi_wvalid,
-    dsp_cav1_p1_amp_out_s_axi_wready => dsp_cav1_p1_amp_out_s_axi_wready,
-    dsp_cav1_p1_amp_out_s_axi_bresp => dsp_cav1_p1_amp_out_s_axi_bresp,
-    dsp_cav1_p1_amp_out_s_axi_bvalid => dsp_cav1_p1_amp_out_s_axi_bvalid,
-    dsp_cav1_p1_amp_out_s_axi_bready => dsp_cav1_p1_amp_out_s_axi_bready,
-    dsp_cav1_p1_amp_out_s_axi_araddr => dsp_cav1_p1_amp_out_s_axi_araddr,
-    dsp_cav1_p1_amp_out_s_axi_arvalid => dsp_cav1_p1_amp_out_s_axi_arvalid,
-    dsp_cav1_p1_amp_out_s_axi_arready => dsp_cav1_p1_amp_out_s_axi_arready,
-    dsp_cav1_p1_amp_out_s_axi_rdata => dsp_cav1_p1_amp_out_s_axi_rdata,
-    dsp_cav1_p1_amp_out_s_axi_rresp => dsp_cav1_p1_amp_out_s_axi_rresp,
-    dsp_cav1_p1_amp_out_s_axi_rvalid => dsp_cav1_p1_amp_out_s_axi_rvalid,
-    dsp_cav1_p1_amp_out_s_axi_rready => dsp_cav1_p1_amp_out_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
 entity dsp_cav1_p1_chan_sel_axi_lite_interface is 
     port(
         cav1_p1_chan_sel : out std_logic_vector(3 downto 0);
@@ -1262,1085 +1159,6 @@ inst : dsp_cav1_p1_chan_sel_axi_lite_interface_verilog
     dsp_cav1_p1_chan_sel_s_axi_rresp => dsp_cav1_p1_chan_sel_s_axi_rresp,
     dsp_cav1_p1_chan_sel_s_axi_rvalid => dsp_cav1_p1_chan_sel_s_axi_rvalid,
     dsp_cav1_p1_chan_sel_s_axi_rready => dsp_cav1_p1_chan_sel_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_comparison_i_axi_lite_interface is 
-    port(
-        cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_comparison_i_aclk : in std_logic;
-        dsp_cav1_p1_comparison_i_aresetn : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_awready : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_wready : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_bready : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_arready : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_comparison_i_axi_lite_interface;
-architecture structural of dsp_cav1_p1_comparison_i_axi_lite_interface is 
-component dsp_cav1_p1_comparison_i_axi_lite_interface_verilog is
-    port(
-        cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_comparison_i_aclk : in std_logic;
-        dsp_cav1_p1_comparison_i_aresetn : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_awready : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_wready : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_bready : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_arready : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_i_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_comparison_i_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_comparison_i_axi_lite_interface_verilog
-    port map(
-    cav1_p1_comparison_i => cav1_p1_comparison_i,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_comparison_i_aclk => dsp_cav1_p1_comparison_i_aclk,
-    dsp_cav1_p1_comparison_i_aresetn => dsp_cav1_p1_comparison_i_aresetn,
-    dsp_cav1_p1_comparison_i_s_axi_awaddr => dsp_cav1_p1_comparison_i_s_axi_awaddr,
-    dsp_cav1_p1_comparison_i_s_axi_awvalid => dsp_cav1_p1_comparison_i_s_axi_awvalid,
-    dsp_cav1_p1_comparison_i_s_axi_awready => dsp_cav1_p1_comparison_i_s_axi_awready,
-    dsp_cav1_p1_comparison_i_s_axi_wdata => dsp_cav1_p1_comparison_i_s_axi_wdata,
-    dsp_cav1_p1_comparison_i_s_axi_wstrb => dsp_cav1_p1_comparison_i_s_axi_wstrb,
-    dsp_cav1_p1_comparison_i_s_axi_wvalid => dsp_cav1_p1_comparison_i_s_axi_wvalid,
-    dsp_cav1_p1_comparison_i_s_axi_wready => dsp_cav1_p1_comparison_i_s_axi_wready,
-    dsp_cav1_p1_comparison_i_s_axi_bresp => dsp_cav1_p1_comparison_i_s_axi_bresp,
-    dsp_cav1_p1_comparison_i_s_axi_bvalid => dsp_cav1_p1_comparison_i_s_axi_bvalid,
-    dsp_cav1_p1_comparison_i_s_axi_bready => dsp_cav1_p1_comparison_i_s_axi_bready,
-    dsp_cav1_p1_comparison_i_s_axi_araddr => dsp_cav1_p1_comparison_i_s_axi_araddr,
-    dsp_cav1_p1_comparison_i_s_axi_arvalid => dsp_cav1_p1_comparison_i_s_axi_arvalid,
-    dsp_cav1_p1_comparison_i_s_axi_arready => dsp_cav1_p1_comparison_i_s_axi_arready,
-    dsp_cav1_p1_comparison_i_s_axi_rdata => dsp_cav1_p1_comparison_i_s_axi_rdata,
-    dsp_cav1_p1_comparison_i_s_axi_rresp => dsp_cav1_p1_comparison_i_s_axi_rresp,
-    dsp_cav1_p1_comparison_i_s_axi_rvalid => dsp_cav1_p1_comparison_i_s_axi_rvalid,
-    dsp_cav1_p1_comparison_i_s_axi_rready => dsp_cav1_p1_comparison_i_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_comparison_phase_axi_lite_interface is 
-    port(
-        cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_comparison_phase_aclk : in std_logic;
-        dsp_cav1_p1_comparison_phase_aresetn : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_awready : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_wready : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_bready : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_arready : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_comparison_phase_axi_lite_interface;
-architecture structural of dsp_cav1_p1_comparison_phase_axi_lite_interface is 
-component dsp_cav1_p1_comparison_phase_axi_lite_interface_verilog is
-    port(
-        cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_comparison_phase_aclk : in std_logic;
-        dsp_cav1_p1_comparison_phase_aresetn : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_awready : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_wready : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_bready : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_arready : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_phase_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_comparison_phase_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_comparison_phase_axi_lite_interface_verilog
-    port map(
-    cav1_p1_comparison_phase => cav1_p1_comparison_phase,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_comparison_phase_aclk => dsp_cav1_p1_comparison_phase_aclk,
-    dsp_cav1_p1_comparison_phase_aresetn => dsp_cav1_p1_comparison_phase_aresetn,
-    dsp_cav1_p1_comparison_phase_s_axi_awaddr => dsp_cav1_p1_comparison_phase_s_axi_awaddr,
-    dsp_cav1_p1_comparison_phase_s_axi_awvalid => dsp_cav1_p1_comparison_phase_s_axi_awvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_awready => dsp_cav1_p1_comparison_phase_s_axi_awready,
-    dsp_cav1_p1_comparison_phase_s_axi_wdata => dsp_cav1_p1_comparison_phase_s_axi_wdata,
-    dsp_cav1_p1_comparison_phase_s_axi_wstrb => dsp_cav1_p1_comparison_phase_s_axi_wstrb,
-    dsp_cav1_p1_comparison_phase_s_axi_wvalid => dsp_cav1_p1_comparison_phase_s_axi_wvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_wready => dsp_cav1_p1_comparison_phase_s_axi_wready,
-    dsp_cav1_p1_comparison_phase_s_axi_bresp => dsp_cav1_p1_comparison_phase_s_axi_bresp,
-    dsp_cav1_p1_comparison_phase_s_axi_bvalid => dsp_cav1_p1_comparison_phase_s_axi_bvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_bready => dsp_cav1_p1_comparison_phase_s_axi_bready,
-    dsp_cav1_p1_comparison_phase_s_axi_araddr => dsp_cav1_p1_comparison_phase_s_axi_araddr,
-    dsp_cav1_p1_comparison_phase_s_axi_arvalid => dsp_cav1_p1_comparison_phase_s_axi_arvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_arready => dsp_cav1_p1_comparison_phase_s_axi_arready,
-    dsp_cav1_p1_comparison_phase_s_axi_rdata => dsp_cav1_p1_comparison_phase_s_axi_rdata,
-    dsp_cav1_p1_comparison_phase_s_axi_rresp => dsp_cav1_p1_comparison_phase_s_axi_rresp,
-    dsp_cav1_p1_comparison_phase_s_axi_rvalid => dsp_cav1_p1_comparison_phase_s_axi_rvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_rready => dsp_cav1_p1_comparison_phase_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_comparison_q_axi_lite_interface is 
-    port(
-        cav1_p1_comparison_q_x0 : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_comparison_q_aclk : in std_logic;
-        dsp_cav1_p1_comparison_q_aresetn : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_awready : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_wready : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_bready : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_arready : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_comparison_q_axi_lite_interface;
-architecture structural of dsp_cav1_p1_comparison_q_axi_lite_interface is 
-component dsp_cav1_p1_comparison_q_axi_lite_interface_verilog is
-    port(
-        cav1_p1_comparison_q_x0 : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_comparison_q_aclk : in std_logic;
-        dsp_cav1_p1_comparison_q_aresetn : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_awaddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_awready : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_wready : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_bready : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_araddr : in std_logic_vector(9-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_arready : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_comparison_q_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_comparison_q_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_comparison_q_axi_lite_interface_verilog
-    port map(
-    cav1_p1_comparison_q_x0 => cav1_p1_comparison_q_x0,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_comparison_q_aclk => dsp_cav1_p1_comparison_q_aclk,
-    dsp_cav1_p1_comparison_q_aresetn => dsp_cav1_p1_comparison_q_aresetn,
-    dsp_cav1_p1_comparison_q_s_axi_awaddr => dsp_cav1_p1_comparison_q_s_axi_awaddr,
-    dsp_cav1_p1_comparison_q_s_axi_awvalid => dsp_cav1_p1_comparison_q_s_axi_awvalid,
-    dsp_cav1_p1_comparison_q_s_axi_awready => dsp_cav1_p1_comparison_q_s_axi_awready,
-    dsp_cav1_p1_comparison_q_s_axi_wdata => dsp_cav1_p1_comparison_q_s_axi_wdata,
-    dsp_cav1_p1_comparison_q_s_axi_wstrb => dsp_cav1_p1_comparison_q_s_axi_wstrb,
-    dsp_cav1_p1_comparison_q_s_axi_wvalid => dsp_cav1_p1_comparison_q_s_axi_wvalid,
-    dsp_cav1_p1_comparison_q_s_axi_wready => dsp_cav1_p1_comparison_q_s_axi_wready,
-    dsp_cav1_p1_comparison_q_s_axi_bresp => dsp_cav1_p1_comparison_q_s_axi_bresp,
-    dsp_cav1_p1_comparison_q_s_axi_bvalid => dsp_cav1_p1_comparison_q_s_axi_bvalid,
-    dsp_cav1_p1_comparison_q_s_axi_bready => dsp_cav1_p1_comparison_q_s_axi_bready,
-    dsp_cav1_p1_comparison_q_s_axi_araddr => dsp_cav1_p1_comparison_q_s_axi_araddr,
-    dsp_cav1_p1_comparison_q_s_axi_arvalid => dsp_cav1_p1_comparison_q_s_axi_arvalid,
-    dsp_cav1_p1_comparison_q_s_axi_arready => dsp_cav1_p1_comparison_q_s_axi_arready,
-    dsp_cav1_p1_comparison_q_s_axi_rdata => dsp_cav1_p1_comparison_q_s_axi_rdata,
-    dsp_cav1_p1_comparison_q_s_axi_rresp => dsp_cav1_p1_comparison_q_s_axi_rresp,
-    dsp_cav1_p1_comparison_q_s_axi_rvalid => dsp_cav1_p1_comparison_q_s_axi_rvalid,
-    dsp_cav1_p1_comparison_q_s_axi_rready => dsp_cav1_p1_comparison_q_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_dc_freq_axi_lite_interface is 
-    port(
-        cav1_p1_dc_freq : in std_logic_vector(25 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_dc_freq_aclk : in std_logic;
-        dsp_cav1_p1_dc_freq_aresetn : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_awready : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_wready : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_bready : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_arready : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_dc_freq_axi_lite_interface;
-architecture structural of dsp_cav1_p1_dc_freq_axi_lite_interface is 
-component dsp_cav1_p1_dc_freq_axi_lite_interface_verilog is
-    port(
-        cav1_p1_dc_freq : in std_logic_vector(25 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_dc_freq_aclk : in std_logic;
-        dsp_cav1_p1_dc_freq_aresetn : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_awready : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_wready : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_bready : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_arready : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_freq_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_dc_freq_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_dc_freq_axi_lite_interface_verilog
-    port map(
-    cav1_p1_dc_freq => cav1_p1_dc_freq,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_dc_freq_aclk => dsp_cav1_p1_dc_freq_aclk,
-    dsp_cav1_p1_dc_freq_aresetn => dsp_cav1_p1_dc_freq_aresetn,
-    dsp_cav1_p1_dc_freq_s_axi_awaddr => dsp_cav1_p1_dc_freq_s_axi_awaddr,
-    dsp_cav1_p1_dc_freq_s_axi_awvalid => dsp_cav1_p1_dc_freq_s_axi_awvalid,
-    dsp_cav1_p1_dc_freq_s_axi_awready => dsp_cav1_p1_dc_freq_s_axi_awready,
-    dsp_cav1_p1_dc_freq_s_axi_wdata => dsp_cav1_p1_dc_freq_s_axi_wdata,
-    dsp_cav1_p1_dc_freq_s_axi_wstrb => dsp_cav1_p1_dc_freq_s_axi_wstrb,
-    dsp_cav1_p1_dc_freq_s_axi_wvalid => dsp_cav1_p1_dc_freq_s_axi_wvalid,
-    dsp_cav1_p1_dc_freq_s_axi_wready => dsp_cav1_p1_dc_freq_s_axi_wready,
-    dsp_cav1_p1_dc_freq_s_axi_bresp => dsp_cav1_p1_dc_freq_s_axi_bresp,
-    dsp_cav1_p1_dc_freq_s_axi_bvalid => dsp_cav1_p1_dc_freq_s_axi_bvalid,
-    dsp_cav1_p1_dc_freq_s_axi_bready => dsp_cav1_p1_dc_freq_s_axi_bready,
-    dsp_cav1_p1_dc_freq_s_axi_araddr => dsp_cav1_p1_dc_freq_s_axi_araddr,
-    dsp_cav1_p1_dc_freq_s_axi_arvalid => dsp_cav1_p1_dc_freq_s_axi_arvalid,
-    dsp_cav1_p1_dc_freq_s_axi_arready => dsp_cav1_p1_dc_freq_s_axi_arready,
-    dsp_cav1_p1_dc_freq_s_axi_rdata => dsp_cav1_p1_dc_freq_s_axi_rdata,
-    dsp_cav1_p1_dc_freq_s_axi_rresp => dsp_cav1_p1_dc_freq_s_axi_rresp,
-    dsp_cav1_p1_dc_freq_s_axi_rvalid => dsp_cav1_p1_dc_freq_s_axi_rvalid,
-    dsp_cav1_p1_dc_freq_s_axi_rready => dsp_cav1_p1_dc_freq_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_dc_img_axi_lite_interface is 
-    port(
-        cav1_p1_dc_img : in std_logic_vector(28 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_dc_img_aclk : in std_logic;
-        dsp_cav1_p1_dc_img_aresetn : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_awready : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_wready : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_bready : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_arready : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_dc_img_axi_lite_interface;
-architecture structural of dsp_cav1_p1_dc_img_axi_lite_interface is 
-component dsp_cav1_p1_dc_img_axi_lite_interface_verilog is
-    port(
-        cav1_p1_dc_img : in std_logic_vector(28 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_dc_img_aclk : in std_logic;
-        dsp_cav1_p1_dc_img_aresetn : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_awready : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_wready : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_bready : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_dc_img_s_axi_arready : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_img_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_dc_img_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_dc_img_axi_lite_interface_verilog
-    port map(
-    cav1_p1_dc_img => cav1_p1_dc_img,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_dc_img_aclk => dsp_cav1_p1_dc_img_aclk,
-    dsp_cav1_p1_dc_img_aresetn => dsp_cav1_p1_dc_img_aresetn,
-    dsp_cav1_p1_dc_img_s_axi_awaddr => dsp_cav1_p1_dc_img_s_axi_awaddr,
-    dsp_cav1_p1_dc_img_s_axi_awvalid => dsp_cav1_p1_dc_img_s_axi_awvalid,
-    dsp_cav1_p1_dc_img_s_axi_awready => dsp_cav1_p1_dc_img_s_axi_awready,
-    dsp_cav1_p1_dc_img_s_axi_wdata => dsp_cav1_p1_dc_img_s_axi_wdata,
-    dsp_cav1_p1_dc_img_s_axi_wstrb => dsp_cav1_p1_dc_img_s_axi_wstrb,
-    dsp_cav1_p1_dc_img_s_axi_wvalid => dsp_cav1_p1_dc_img_s_axi_wvalid,
-    dsp_cav1_p1_dc_img_s_axi_wready => dsp_cav1_p1_dc_img_s_axi_wready,
-    dsp_cav1_p1_dc_img_s_axi_bresp => dsp_cav1_p1_dc_img_s_axi_bresp,
-    dsp_cav1_p1_dc_img_s_axi_bvalid => dsp_cav1_p1_dc_img_s_axi_bvalid,
-    dsp_cav1_p1_dc_img_s_axi_bready => dsp_cav1_p1_dc_img_s_axi_bready,
-    dsp_cav1_p1_dc_img_s_axi_araddr => dsp_cav1_p1_dc_img_s_axi_araddr,
-    dsp_cav1_p1_dc_img_s_axi_arvalid => dsp_cav1_p1_dc_img_s_axi_arvalid,
-    dsp_cav1_p1_dc_img_s_axi_arready => dsp_cav1_p1_dc_img_s_axi_arready,
-    dsp_cav1_p1_dc_img_s_axi_rdata => dsp_cav1_p1_dc_img_s_axi_rdata,
-    dsp_cav1_p1_dc_img_s_axi_rresp => dsp_cav1_p1_dc_img_s_axi_rresp,
-    dsp_cav1_p1_dc_img_s_axi_rvalid => dsp_cav1_p1_dc_img_s_axi_rvalid,
-    dsp_cav1_p1_dc_img_s_axi_rready => dsp_cav1_p1_dc_img_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_dc_real_axi_lite_interface is 
-    port(
-        cav1_p1_dc_real : in std_logic_vector(28 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_dc_real_aclk : in std_logic;
-        dsp_cav1_p1_dc_real_aresetn : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_awready : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_wready : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_bready : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_arready : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_dc_real_axi_lite_interface;
-architecture structural of dsp_cav1_p1_dc_real_axi_lite_interface is 
-component dsp_cav1_p1_dc_real_axi_lite_interface_verilog is
-    port(
-        cav1_p1_dc_real : in std_logic_vector(28 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_dc_real_aclk : in std_logic;
-        dsp_cav1_p1_dc_real_aresetn : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_awready : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_wready : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_bready : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_dc_real_s_axi_arready : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_dc_real_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_dc_real_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_dc_real_axi_lite_interface_verilog
-    port map(
-    cav1_p1_dc_real => cav1_p1_dc_real,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_dc_real_aclk => dsp_cav1_p1_dc_real_aclk,
-    dsp_cav1_p1_dc_real_aresetn => dsp_cav1_p1_dc_real_aresetn,
-    dsp_cav1_p1_dc_real_s_axi_awaddr => dsp_cav1_p1_dc_real_s_axi_awaddr,
-    dsp_cav1_p1_dc_real_s_axi_awvalid => dsp_cav1_p1_dc_real_s_axi_awvalid,
-    dsp_cav1_p1_dc_real_s_axi_awready => dsp_cav1_p1_dc_real_s_axi_awready,
-    dsp_cav1_p1_dc_real_s_axi_wdata => dsp_cav1_p1_dc_real_s_axi_wdata,
-    dsp_cav1_p1_dc_real_s_axi_wstrb => dsp_cav1_p1_dc_real_s_axi_wstrb,
-    dsp_cav1_p1_dc_real_s_axi_wvalid => dsp_cav1_p1_dc_real_s_axi_wvalid,
-    dsp_cav1_p1_dc_real_s_axi_wready => dsp_cav1_p1_dc_real_s_axi_wready,
-    dsp_cav1_p1_dc_real_s_axi_bresp => dsp_cav1_p1_dc_real_s_axi_bresp,
-    dsp_cav1_p1_dc_real_s_axi_bvalid => dsp_cav1_p1_dc_real_s_axi_bvalid,
-    dsp_cav1_p1_dc_real_s_axi_bready => dsp_cav1_p1_dc_real_s_axi_bready,
-    dsp_cav1_p1_dc_real_s_axi_araddr => dsp_cav1_p1_dc_real_s_axi_araddr,
-    dsp_cav1_p1_dc_real_s_axi_arvalid => dsp_cav1_p1_dc_real_s_axi_arvalid,
-    dsp_cav1_p1_dc_real_s_axi_arready => dsp_cav1_p1_dc_real_s_axi_arready,
-    dsp_cav1_p1_dc_real_s_axi_rdata => dsp_cav1_p1_dc_real_s_axi_rdata,
-    dsp_cav1_p1_dc_real_s_axi_rresp => dsp_cav1_p1_dc_real_s_axi_rresp,
-    dsp_cav1_p1_dc_real_s_axi_rvalid => dsp_cav1_p1_dc_real_s_axi_rvalid,
-    dsp_cav1_p1_dc_real_s_axi_rready => dsp_cav1_p1_dc_real_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_if_amp_axi_lite_interface is 
-    port(
-        cav1_p1_if_amp : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_amp_aclk : in std_logic;
-        dsp_cav1_p1_if_amp_aresetn : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_if_amp_axi_lite_interface;
-architecture structural of dsp_cav1_p1_if_amp_axi_lite_interface is 
-component dsp_cav1_p1_if_amp_axi_lite_interface_verilog is
-    port(
-        cav1_p1_if_amp : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_amp_aclk : in std_logic;
-        dsp_cav1_p1_if_amp_aresetn : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_amp_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_amp_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_amp_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_if_amp_axi_lite_interface_verilog
-    port map(
-    cav1_p1_if_amp => cav1_p1_if_amp,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_if_amp_aclk => dsp_cav1_p1_if_amp_aclk,
-    dsp_cav1_p1_if_amp_aresetn => dsp_cav1_p1_if_amp_aresetn,
-    dsp_cav1_p1_if_amp_s_axi_awaddr => dsp_cav1_p1_if_amp_s_axi_awaddr,
-    dsp_cav1_p1_if_amp_s_axi_awvalid => dsp_cav1_p1_if_amp_s_axi_awvalid,
-    dsp_cav1_p1_if_amp_s_axi_awready => dsp_cav1_p1_if_amp_s_axi_awready,
-    dsp_cav1_p1_if_amp_s_axi_wdata => dsp_cav1_p1_if_amp_s_axi_wdata,
-    dsp_cav1_p1_if_amp_s_axi_wstrb => dsp_cav1_p1_if_amp_s_axi_wstrb,
-    dsp_cav1_p1_if_amp_s_axi_wvalid => dsp_cav1_p1_if_amp_s_axi_wvalid,
-    dsp_cav1_p1_if_amp_s_axi_wready => dsp_cav1_p1_if_amp_s_axi_wready,
-    dsp_cav1_p1_if_amp_s_axi_bresp => dsp_cav1_p1_if_amp_s_axi_bresp,
-    dsp_cav1_p1_if_amp_s_axi_bvalid => dsp_cav1_p1_if_amp_s_axi_bvalid,
-    dsp_cav1_p1_if_amp_s_axi_bready => dsp_cav1_p1_if_amp_s_axi_bready,
-    dsp_cav1_p1_if_amp_s_axi_araddr => dsp_cav1_p1_if_amp_s_axi_araddr,
-    dsp_cav1_p1_if_amp_s_axi_arvalid => dsp_cav1_p1_if_amp_s_axi_arvalid,
-    dsp_cav1_p1_if_amp_s_axi_arready => dsp_cav1_p1_if_amp_s_axi_arready,
-    dsp_cav1_p1_if_amp_s_axi_rdata => dsp_cav1_p1_if_amp_s_axi_rdata,
-    dsp_cav1_p1_if_amp_s_axi_rresp => dsp_cav1_p1_if_amp_s_axi_rresp,
-    dsp_cav1_p1_if_amp_s_axi_rvalid => dsp_cav1_p1_if_amp_s_axi_rvalid,
-    dsp_cav1_p1_if_amp_s_axi_rready => dsp_cav1_p1_if_amp_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_if_i_axi_lite_interface is 
-    port(
-        cav1_p1_if_i : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_i_aclk : in std_logic;
-        dsp_cav1_p1_if_i_aresetn : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_if_i_axi_lite_interface;
-architecture structural of dsp_cav1_p1_if_i_axi_lite_interface is 
-component dsp_cav1_p1_if_i_axi_lite_interface_verilog is
-    port(
-        cav1_p1_if_i : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_i_aclk : in std_logic;
-        dsp_cav1_p1_if_i_aresetn : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_i_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_i_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_i_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_if_i_axi_lite_interface_verilog
-    port map(
-    cav1_p1_if_i => cav1_p1_if_i,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_if_i_aclk => dsp_cav1_p1_if_i_aclk,
-    dsp_cav1_p1_if_i_aresetn => dsp_cav1_p1_if_i_aresetn,
-    dsp_cav1_p1_if_i_s_axi_awaddr => dsp_cav1_p1_if_i_s_axi_awaddr,
-    dsp_cav1_p1_if_i_s_axi_awvalid => dsp_cav1_p1_if_i_s_axi_awvalid,
-    dsp_cav1_p1_if_i_s_axi_awready => dsp_cav1_p1_if_i_s_axi_awready,
-    dsp_cav1_p1_if_i_s_axi_wdata => dsp_cav1_p1_if_i_s_axi_wdata,
-    dsp_cav1_p1_if_i_s_axi_wstrb => dsp_cav1_p1_if_i_s_axi_wstrb,
-    dsp_cav1_p1_if_i_s_axi_wvalid => dsp_cav1_p1_if_i_s_axi_wvalid,
-    dsp_cav1_p1_if_i_s_axi_wready => dsp_cav1_p1_if_i_s_axi_wready,
-    dsp_cav1_p1_if_i_s_axi_bresp => dsp_cav1_p1_if_i_s_axi_bresp,
-    dsp_cav1_p1_if_i_s_axi_bvalid => dsp_cav1_p1_if_i_s_axi_bvalid,
-    dsp_cav1_p1_if_i_s_axi_bready => dsp_cav1_p1_if_i_s_axi_bready,
-    dsp_cav1_p1_if_i_s_axi_araddr => dsp_cav1_p1_if_i_s_axi_araddr,
-    dsp_cav1_p1_if_i_s_axi_arvalid => dsp_cav1_p1_if_i_s_axi_arvalid,
-    dsp_cav1_p1_if_i_s_axi_arready => dsp_cav1_p1_if_i_s_axi_arready,
-    dsp_cav1_p1_if_i_s_axi_rdata => dsp_cav1_p1_if_i_s_axi_rdata,
-    dsp_cav1_p1_if_i_s_axi_rresp => dsp_cav1_p1_if_i_s_axi_rresp,
-    dsp_cav1_p1_if_i_s_axi_rvalid => dsp_cav1_p1_if_i_s_axi_rvalid,
-    dsp_cav1_p1_if_i_s_axi_rready => dsp_cav1_p1_if_i_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_if_phase_axi_lite_interface is 
-    port(
-        cav1_p1_if_phase : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_phase_aclk : in std_logic;
-        dsp_cav1_p1_if_phase_aresetn : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_if_phase_axi_lite_interface;
-architecture structural of dsp_cav1_p1_if_phase_axi_lite_interface is 
-component dsp_cav1_p1_if_phase_axi_lite_interface_verilog is
-    port(
-        cav1_p1_if_phase : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_phase_aclk : in std_logic;
-        dsp_cav1_p1_if_phase_aresetn : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_phase_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_phase_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_phase_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_if_phase_axi_lite_interface_verilog
-    port map(
-    cav1_p1_if_phase => cav1_p1_if_phase,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_if_phase_aclk => dsp_cav1_p1_if_phase_aclk,
-    dsp_cav1_p1_if_phase_aresetn => dsp_cav1_p1_if_phase_aresetn,
-    dsp_cav1_p1_if_phase_s_axi_awaddr => dsp_cav1_p1_if_phase_s_axi_awaddr,
-    dsp_cav1_p1_if_phase_s_axi_awvalid => dsp_cav1_p1_if_phase_s_axi_awvalid,
-    dsp_cav1_p1_if_phase_s_axi_awready => dsp_cav1_p1_if_phase_s_axi_awready,
-    dsp_cav1_p1_if_phase_s_axi_wdata => dsp_cav1_p1_if_phase_s_axi_wdata,
-    dsp_cav1_p1_if_phase_s_axi_wstrb => dsp_cav1_p1_if_phase_s_axi_wstrb,
-    dsp_cav1_p1_if_phase_s_axi_wvalid => dsp_cav1_p1_if_phase_s_axi_wvalid,
-    dsp_cav1_p1_if_phase_s_axi_wready => dsp_cav1_p1_if_phase_s_axi_wready,
-    dsp_cav1_p1_if_phase_s_axi_bresp => dsp_cav1_p1_if_phase_s_axi_bresp,
-    dsp_cav1_p1_if_phase_s_axi_bvalid => dsp_cav1_p1_if_phase_s_axi_bvalid,
-    dsp_cav1_p1_if_phase_s_axi_bready => dsp_cav1_p1_if_phase_s_axi_bready,
-    dsp_cav1_p1_if_phase_s_axi_araddr => dsp_cav1_p1_if_phase_s_axi_araddr,
-    dsp_cav1_p1_if_phase_s_axi_arvalid => dsp_cav1_p1_if_phase_s_axi_arvalid,
-    dsp_cav1_p1_if_phase_s_axi_arready => dsp_cav1_p1_if_phase_s_axi_arready,
-    dsp_cav1_p1_if_phase_s_axi_rdata => dsp_cav1_p1_if_phase_s_axi_rdata,
-    dsp_cav1_p1_if_phase_s_axi_rresp => dsp_cav1_p1_if_phase_s_axi_rresp,
-    dsp_cav1_p1_if_phase_s_axi_rvalid => dsp_cav1_p1_if_phase_s_axi_rvalid,
-    dsp_cav1_p1_if_phase_s_axi_rready => dsp_cav1_p1_if_phase_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_if_q_axi_lite_interface is 
-    port(
-        cav1_p1_if_q : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_q_aclk : in std_logic;
-        dsp_cav1_p1_if_q_aresetn : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_if_q_axi_lite_interface;
-architecture structural of dsp_cav1_p1_if_q_axi_lite_interface is 
-component dsp_cav1_p1_if_q_axi_lite_interface_verilog is
-    port(
-        cav1_p1_if_q : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_if_q_aclk : in std_logic;
-        dsp_cav1_p1_if_q_aresetn : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_awready : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_wready : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_bready : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_if_q_s_axi_arready : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_if_q_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_if_q_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_if_q_axi_lite_interface_verilog
-    port map(
-    cav1_p1_if_q => cav1_p1_if_q,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_if_q_aclk => dsp_cav1_p1_if_q_aclk,
-    dsp_cav1_p1_if_q_aresetn => dsp_cav1_p1_if_q_aresetn,
-    dsp_cav1_p1_if_q_s_axi_awaddr => dsp_cav1_p1_if_q_s_axi_awaddr,
-    dsp_cav1_p1_if_q_s_axi_awvalid => dsp_cav1_p1_if_q_s_axi_awvalid,
-    dsp_cav1_p1_if_q_s_axi_awready => dsp_cav1_p1_if_q_s_axi_awready,
-    dsp_cav1_p1_if_q_s_axi_wdata => dsp_cav1_p1_if_q_s_axi_wdata,
-    dsp_cav1_p1_if_q_s_axi_wstrb => dsp_cav1_p1_if_q_s_axi_wstrb,
-    dsp_cav1_p1_if_q_s_axi_wvalid => dsp_cav1_p1_if_q_s_axi_wvalid,
-    dsp_cav1_p1_if_q_s_axi_wready => dsp_cav1_p1_if_q_s_axi_wready,
-    dsp_cav1_p1_if_q_s_axi_bresp => dsp_cav1_p1_if_q_s_axi_bresp,
-    dsp_cav1_p1_if_q_s_axi_bvalid => dsp_cav1_p1_if_q_s_axi_bvalid,
-    dsp_cav1_p1_if_q_s_axi_bready => dsp_cav1_p1_if_q_s_axi_bready,
-    dsp_cav1_p1_if_q_s_axi_araddr => dsp_cav1_p1_if_q_s_axi_araddr,
-    dsp_cav1_p1_if_q_s_axi_arvalid => dsp_cav1_p1_if_q_s_axi_arvalid,
-    dsp_cav1_p1_if_q_s_axi_arready => dsp_cav1_p1_if_q_s_axi_arready,
-    dsp_cav1_p1_if_q_s_axi_rdata => dsp_cav1_p1_if_q_s_axi_rdata,
-    dsp_cav1_p1_if_q_s_axi_rresp => dsp_cav1_p1_if_q_s_axi_rresp,
-    dsp_cav1_p1_if_q_s_axi_rvalid => dsp_cav1_p1_if_q_s_axi_rvalid,
-    dsp_cav1_p1_if_q_s_axi_rready => dsp_cav1_p1_if_q_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_integrated_i_axi_lite_interface is 
-    port(
-        cav1_p1_integrated_i : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_integrated_i_aclk : in std_logic;
-        dsp_cav1_p1_integrated_i_aresetn : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_awready : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_wready : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_bready : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_arready : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_integrated_i_axi_lite_interface;
-architecture structural of dsp_cav1_p1_integrated_i_axi_lite_interface is 
-component dsp_cav1_p1_integrated_i_axi_lite_interface_verilog is
-    port(
-        cav1_p1_integrated_i : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_integrated_i_aclk : in std_logic;
-        dsp_cav1_p1_integrated_i_aresetn : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_awready : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_wready : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_bready : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_arready : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_i_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_integrated_i_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_integrated_i_axi_lite_interface_verilog
-    port map(
-    cav1_p1_integrated_i => cav1_p1_integrated_i,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_integrated_i_aclk => dsp_cav1_p1_integrated_i_aclk,
-    dsp_cav1_p1_integrated_i_aresetn => dsp_cav1_p1_integrated_i_aresetn,
-    dsp_cav1_p1_integrated_i_s_axi_awaddr => dsp_cav1_p1_integrated_i_s_axi_awaddr,
-    dsp_cav1_p1_integrated_i_s_axi_awvalid => dsp_cav1_p1_integrated_i_s_axi_awvalid,
-    dsp_cav1_p1_integrated_i_s_axi_awready => dsp_cav1_p1_integrated_i_s_axi_awready,
-    dsp_cav1_p1_integrated_i_s_axi_wdata => dsp_cav1_p1_integrated_i_s_axi_wdata,
-    dsp_cav1_p1_integrated_i_s_axi_wstrb => dsp_cav1_p1_integrated_i_s_axi_wstrb,
-    dsp_cav1_p1_integrated_i_s_axi_wvalid => dsp_cav1_p1_integrated_i_s_axi_wvalid,
-    dsp_cav1_p1_integrated_i_s_axi_wready => dsp_cav1_p1_integrated_i_s_axi_wready,
-    dsp_cav1_p1_integrated_i_s_axi_bresp => dsp_cav1_p1_integrated_i_s_axi_bresp,
-    dsp_cav1_p1_integrated_i_s_axi_bvalid => dsp_cav1_p1_integrated_i_s_axi_bvalid,
-    dsp_cav1_p1_integrated_i_s_axi_bready => dsp_cav1_p1_integrated_i_s_axi_bready,
-    dsp_cav1_p1_integrated_i_s_axi_araddr => dsp_cav1_p1_integrated_i_s_axi_araddr,
-    dsp_cav1_p1_integrated_i_s_axi_arvalid => dsp_cav1_p1_integrated_i_s_axi_arvalid,
-    dsp_cav1_p1_integrated_i_s_axi_arready => dsp_cav1_p1_integrated_i_s_axi_arready,
-    dsp_cav1_p1_integrated_i_s_axi_rdata => dsp_cav1_p1_integrated_i_s_axi_rdata,
-    dsp_cav1_p1_integrated_i_s_axi_rresp => dsp_cav1_p1_integrated_i_s_axi_rresp,
-    dsp_cav1_p1_integrated_i_s_axi_rvalid => dsp_cav1_p1_integrated_i_s_axi_rvalid,
-    dsp_cav1_p1_integrated_i_s_axi_rready => dsp_cav1_p1_integrated_i_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_integrated_q_axi_lite_interface is 
-    port(
-        cav1_p1_integrated_q : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_integrated_q_aclk : in std_logic;
-        dsp_cav1_p1_integrated_q_aresetn : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_awready : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_wready : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_bready : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_arready : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_integrated_q_axi_lite_interface;
-architecture structural of dsp_cav1_p1_integrated_q_axi_lite_interface is 
-component dsp_cav1_p1_integrated_q_axi_lite_interface_verilog is
-    port(
-        cav1_p1_integrated_q : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_integrated_q_aclk : in std_logic;
-        dsp_cav1_p1_integrated_q_aresetn : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_awready : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_wready : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_bready : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_arready : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_integrated_q_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_integrated_q_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_integrated_q_axi_lite_interface_verilog
-    port map(
-    cav1_p1_integrated_q => cav1_p1_integrated_q,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_integrated_q_aclk => dsp_cav1_p1_integrated_q_aclk,
-    dsp_cav1_p1_integrated_q_aresetn => dsp_cav1_p1_integrated_q_aresetn,
-    dsp_cav1_p1_integrated_q_s_axi_awaddr => dsp_cav1_p1_integrated_q_s_axi_awaddr,
-    dsp_cav1_p1_integrated_q_s_axi_awvalid => dsp_cav1_p1_integrated_q_s_axi_awvalid,
-    dsp_cav1_p1_integrated_q_s_axi_awready => dsp_cav1_p1_integrated_q_s_axi_awready,
-    dsp_cav1_p1_integrated_q_s_axi_wdata => dsp_cav1_p1_integrated_q_s_axi_wdata,
-    dsp_cav1_p1_integrated_q_s_axi_wstrb => dsp_cav1_p1_integrated_q_s_axi_wstrb,
-    dsp_cav1_p1_integrated_q_s_axi_wvalid => dsp_cav1_p1_integrated_q_s_axi_wvalid,
-    dsp_cav1_p1_integrated_q_s_axi_wready => dsp_cav1_p1_integrated_q_s_axi_wready,
-    dsp_cav1_p1_integrated_q_s_axi_bresp => dsp_cav1_p1_integrated_q_s_axi_bresp,
-    dsp_cav1_p1_integrated_q_s_axi_bvalid => dsp_cav1_p1_integrated_q_s_axi_bvalid,
-    dsp_cav1_p1_integrated_q_s_axi_bready => dsp_cav1_p1_integrated_q_s_axi_bready,
-    dsp_cav1_p1_integrated_q_s_axi_araddr => dsp_cav1_p1_integrated_q_s_axi_araddr,
-    dsp_cav1_p1_integrated_q_s_axi_arvalid => dsp_cav1_p1_integrated_q_s_axi_arvalid,
-    dsp_cav1_p1_integrated_q_s_axi_arready => dsp_cav1_p1_integrated_q_s_axi_arready,
-    dsp_cav1_p1_integrated_q_s_axi_rdata => dsp_cav1_p1_integrated_q_s_axi_rdata,
-    dsp_cav1_p1_integrated_q_s_axi_rresp => dsp_cav1_p1_integrated_q_s_axi_rresp,
-    dsp_cav1_p1_integrated_q_s_axi_rvalid => dsp_cav1_p1_integrated_q_s_axi_rvalid,
-    dsp_cav1_p1_integrated_q_s_axi_rready => dsp_cav1_p1_integrated_q_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav1_p1_phase_out_axi_lite_interface is 
-    port(
-        cav1_p1_phase_out : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_phase_out_aclk : in std_logic;
-        dsp_cav1_p1_phase_out_aresetn : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_awready : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_wready : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_bready : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_arready : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_rready : in std_logic
-    );
-end dsp_cav1_p1_phase_out_axi_lite_interface;
-architecture structural of dsp_cav1_p1_phase_out_axi_lite_interface is 
-component dsp_cav1_p1_phase_out_axi_lite_interface_verilog is
-    port(
-        cav1_p1_phase_out : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav1_p1_phase_out_aclk : in std_logic;
-        dsp_cav1_p1_phase_out_aresetn : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_awaddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_awvalid : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_awready : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_wvalid : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_wready : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_bvalid : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_bready : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_araddr : in std_logic_vector(8-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_arvalid : in std_logic;
-        dsp_cav1_p1_phase_out_s_axi_arready : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav1_p1_phase_out_s_axi_rvalid : out std_logic;
-        dsp_cav1_p1_phase_out_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav1_p1_phase_out_axi_lite_interface_verilog
-    port map(
-    cav1_p1_phase_out => cav1_p1_phase_out,
-    dsp_clk => dsp_clk,
-    dsp_cav1_p1_phase_out_aclk => dsp_cav1_p1_phase_out_aclk,
-    dsp_cav1_p1_phase_out_aresetn => dsp_cav1_p1_phase_out_aresetn,
-    dsp_cav1_p1_phase_out_s_axi_awaddr => dsp_cav1_p1_phase_out_s_axi_awaddr,
-    dsp_cav1_p1_phase_out_s_axi_awvalid => dsp_cav1_p1_phase_out_s_axi_awvalid,
-    dsp_cav1_p1_phase_out_s_axi_awready => dsp_cav1_p1_phase_out_s_axi_awready,
-    dsp_cav1_p1_phase_out_s_axi_wdata => dsp_cav1_p1_phase_out_s_axi_wdata,
-    dsp_cav1_p1_phase_out_s_axi_wstrb => dsp_cav1_p1_phase_out_s_axi_wstrb,
-    dsp_cav1_p1_phase_out_s_axi_wvalid => dsp_cav1_p1_phase_out_s_axi_wvalid,
-    dsp_cav1_p1_phase_out_s_axi_wready => dsp_cav1_p1_phase_out_s_axi_wready,
-    dsp_cav1_p1_phase_out_s_axi_bresp => dsp_cav1_p1_phase_out_s_axi_bresp,
-    dsp_cav1_p1_phase_out_s_axi_bvalid => dsp_cav1_p1_phase_out_s_axi_bvalid,
-    dsp_cav1_p1_phase_out_s_axi_bready => dsp_cav1_p1_phase_out_s_axi_bready,
-    dsp_cav1_p1_phase_out_s_axi_araddr => dsp_cav1_p1_phase_out_s_axi_araddr,
-    dsp_cav1_p1_phase_out_s_axi_arvalid => dsp_cav1_p1_phase_out_s_axi_arvalid,
-    dsp_cav1_p1_phase_out_s_axi_arready => dsp_cav1_p1_phase_out_s_axi_arready,
-    dsp_cav1_p1_phase_out_s_axi_rdata => dsp_cav1_p1_phase_out_s_axi_rdata,
-    dsp_cav1_p1_phase_out_s_axi_rresp => dsp_cav1_p1_phase_out_s_axi_rresp,
-    dsp_cav1_p1_phase_out_s_axi_rvalid => dsp_cav1_p1_phase_out_s_axi_rvalid,
-    dsp_cav1_p1_phase_out_s_axi_rready => dsp_cav1_p1_phase_out_s_axi_rready
 );
 end structural;
 library work;
@@ -3926,6 +2744,172 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity dsp_cav2_p1_amp_out_axi_lite_interface is 
+    port(
+        cav2_p1_amp_out : in std_logic_vector(17 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_amp_out_aclk : in std_logic;
+        dsp_cav2_p1_amp_out_aresetn : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_awready : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_wready : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_bready : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_arready : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_rready : in std_logic
+    );
+end dsp_cav2_p1_amp_out_axi_lite_interface;
+architecture structural of dsp_cav2_p1_amp_out_axi_lite_interface is 
+component dsp_cav2_p1_amp_out_axi_lite_interface_verilog is
+    port(
+        cav2_p1_amp_out : in std_logic_vector(17 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_amp_out_aclk : in std_logic;
+        dsp_cav2_p1_amp_out_aresetn : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_awready : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_wready : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_bready : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_amp_out_s_axi_arready : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_amp_out_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_amp_out_s_axi_rready : in std_logic
+    );
+end component;
+begin
+inst : dsp_cav2_p1_amp_out_axi_lite_interface_verilog
+    port map(
+    cav2_p1_amp_out => cav2_p1_amp_out,
+    dsp_clk => dsp_clk,
+    dsp_cav2_p1_amp_out_aclk => dsp_cav2_p1_amp_out_aclk,
+    dsp_cav2_p1_amp_out_aresetn => dsp_cav2_p1_amp_out_aresetn,
+    dsp_cav2_p1_amp_out_s_axi_awaddr => dsp_cav2_p1_amp_out_s_axi_awaddr,
+    dsp_cav2_p1_amp_out_s_axi_awvalid => dsp_cav2_p1_amp_out_s_axi_awvalid,
+    dsp_cav2_p1_amp_out_s_axi_awready => dsp_cav2_p1_amp_out_s_axi_awready,
+    dsp_cav2_p1_amp_out_s_axi_wdata => dsp_cav2_p1_amp_out_s_axi_wdata,
+    dsp_cav2_p1_amp_out_s_axi_wstrb => dsp_cav2_p1_amp_out_s_axi_wstrb,
+    dsp_cav2_p1_amp_out_s_axi_wvalid => dsp_cav2_p1_amp_out_s_axi_wvalid,
+    dsp_cav2_p1_amp_out_s_axi_wready => dsp_cav2_p1_amp_out_s_axi_wready,
+    dsp_cav2_p1_amp_out_s_axi_bresp => dsp_cav2_p1_amp_out_s_axi_bresp,
+    dsp_cav2_p1_amp_out_s_axi_bvalid => dsp_cav2_p1_amp_out_s_axi_bvalid,
+    dsp_cav2_p1_amp_out_s_axi_bready => dsp_cav2_p1_amp_out_s_axi_bready,
+    dsp_cav2_p1_amp_out_s_axi_araddr => dsp_cav2_p1_amp_out_s_axi_araddr,
+    dsp_cav2_p1_amp_out_s_axi_arvalid => dsp_cav2_p1_amp_out_s_axi_arvalid,
+    dsp_cav2_p1_amp_out_s_axi_arready => dsp_cav2_p1_amp_out_s_axi_arready,
+    dsp_cav2_p1_amp_out_s_axi_rdata => dsp_cav2_p1_amp_out_s_axi_rdata,
+    dsp_cav2_p1_amp_out_s_axi_rresp => dsp_cav2_p1_amp_out_s_axi_rresp,
+    dsp_cav2_p1_amp_out_s_axi_rvalid => dsp_cav2_p1_amp_out_s_axi_rvalid,
+    dsp_cav2_p1_amp_out_s_axi_rready => dsp_cav2_p1_amp_out_s_axi_rready
+);
+end structural;
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity dsp_cav2_p1_chan_sel_axi_lite_interface is 
+    port(
+        cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_chan_sel_aclk : in std_logic;
+        dsp_cav2_p1_chan_sel_aresetn : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_awready : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_wready : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_bready : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_arready : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_rready : in std_logic
+    );
+end dsp_cav2_p1_chan_sel_axi_lite_interface;
+architecture structural of dsp_cav2_p1_chan_sel_axi_lite_interface is 
+component dsp_cav2_p1_chan_sel_axi_lite_interface_verilog is
+    port(
+        cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_chan_sel_aclk : in std_logic;
+        dsp_cav2_p1_chan_sel_aresetn : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_awready : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_wready : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_bready : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_arready : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_chan_sel_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_chan_sel_s_axi_rready : in std_logic
+    );
+end component;
+begin
+inst : dsp_cav2_p1_chan_sel_axi_lite_interface_verilog
+    port map(
+    cav2_p1_chan_sel => cav2_p1_chan_sel,
+    dsp_clk => dsp_clk,
+    dsp_cav2_p1_chan_sel_aclk => dsp_cav2_p1_chan_sel_aclk,
+    dsp_cav2_p1_chan_sel_aresetn => dsp_cav2_p1_chan_sel_aresetn,
+    dsp_cav2_p1_chan_sel_s_axi_awaddr => dsp_cav2_p1_chan_sel_s_axi_awaddr,
+    dsp_cav2_p1_chan_sel_s_axi_awvalid => dsp_cav2_p1_chan_sel_s_axi_awvalid,
+    dsp_cav2_p1_chan_sel_s_axi_awready => dsp_cav2_p1_chan_sel_s_axi_awready,
+    dsp_cav2_p1_chan_sel_s_axi_wdata => dsp_cav2_p1_chan_sel_s_axi_wdata,
+    dsp_cav2_p1_chan_sel_s_axi_wstrb => dsp_cav2_p1_chan_sel_s_axi_wstrb,
+    dsp_cav2_p1_chan_sel_s_axi_wvalid => dsp_cav2_p1_chan_sel_s_axi_wvalid,
+    dsp_cav2_p1_chan_sel_s_axi_wready => dsp_cav2_p1_chan_sel_s_axi_wready,
+    dsp_cav2_p1_chan_sel_s_axi_bresp => dsp_cav2_p1_chan_sel_s_axi_bresp,
+    dsp_cav2_p1_chan_sel_s_axi_bvalid => dsp_cav2_p1_chan_sel_s_axi_bvalid,
+    dsp_cav2_p1_chan_sel_s_axi_bready => dsp_cav2_p1_chan_sel_s_axi_bready,
+    dsp_cav2_p1_chan_sel_s_axi_araddr => dsp_cav2_p1_chan_sel_s_axi_araddr,
+    dsp_cav2_p1_chan_sel_s_axi_arvalid => dsp_cav2_p1_chan_sel_s_axi_arvalid,
+    dsp_cav2_p1_chan_sel_s_axi_arready => dsp_cav2_p1_chan_sel_s_axi_arready,
+    dsp_cav2_p1_chan_sel_s_axi_rdata => dsp_cav2_p1_chan_sel_s_axi_rdata,
+    dsp_cav2_p1_chan_sel_s_axi_rresp => dsp_cav2_p1_chan_sel_s_axi_rresp,
+    dsp_cav2_p1_chan_sel_s_axi_rvalid => dsp_cav2_p1_chan_sel_s_axi_rvalid,
+    dsp_cav2_p1_chan_sel_s_axi_rready => dsp_cav2_p1_chan_sel_s_axi_rready
+);
+end structural;
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity dsp_cav2_p1_comparison_i_axi_lite_interface is 
     port(
         cav2_p1_comparison_i : in std_logic_vector(17 downto 0);
@@ -4001,172 +2985,6 @@ inst : dsp_cav2_p1_comparison_i_axi_lite_interface_verilog
     dsp_cav2_p1_comparison_i_s_axi_rresp => dsp_cav2_p1_comparison_i_s_axi_rresp,
     dsp_cav2_p1_comparison_i_s_axi_rvalid => dsp_cav2_p1_comparison_i_s_axi_rvalid,
     dsp_cav2_p1_comparison_i_s_axi_rready => dsp_cav2_p1_comparison_i_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav2_p1_comparison_phase_axi_lite_interface is 
-    port(
-        cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_comparison_phase_aclk : in std_logic;
-        dsp_cav2_p1_comparison_phase_aresetn : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_awready : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_wready : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_bready : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_arready : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_rready : in std_logic
-    );
-end dsp_cav2_p1_comparison_phase_axi_lite_interface;
-architecture structural of dsp_cav2_p1_comparison_phase_axi_lite_interface is 
-component dsp_cav2_p1_comparison_phase_axi_lite_interface_verilog is
-    port(
-        cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_comparison_phase_aclk : in std_logic;
-        dsp_cav2_p1_comparison_phase_aresetn : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_awready : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_wready : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_bready : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_arready : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_phase_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_comparison_phase_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav2_p1_comparison_phase_axi_lite_interface_verilog
-    port map(
-    cav2_p1_comparison_phase => cav2_p1_comparison_phase,
-    dsp_clk => dsp_clk,
-    dsp_cav2_p1_comparison_phase_aclk => dsp_cav2_p1_comparison_phase_aclk,
-    dsp_cav2_p1_comparison_phase_aresetn => dsp_cav2_p1_comparison_phase_aresetn,
-    dsp_cav2_p1_comparison_phase_s_axi_awaddr => dsp_cav2_p1_comparison_phase_s_axi_awaddr,
-    dsp_cav2_p1_comparison_phase_s_axi_awvalid => dsp_cav2_p1_comparison_phase_s_axi_awvalid,
-    dsp_cav2_p1_comparison_phase_s_axi_awready => dsp_cav2_p1_comparison_phase_s_axi_awready,
-    dsp_cav2_p1_comparison_phase_s_axi_wdata => dsp_cav2_p1_comparison_phase_s_axi_wdata,
-    dsp_cav2_p1_comparison_phase_s_axi_wstrb => dsp_cav2_p1_comparison_phase_s_axi_wstrb,
-    dsp_cav2_p1_comparison_phase_s_axi_wvalid => dsp_cav2_p1_comparison_phase_s_axi_wvalid,
-    dsp_cav2_p1_comparison_phase_s_axi_wready => dsp_cav2_p1_comparison_phase_s_axi_wready,
-    dsp_cav2_p1_comparison_phase_s_axi_bresp => dsp_cav2_p1_comparison_phase_s_axi_bresp,
-    dsp_cav2_p1_comparison_phase_s_axi_bvalid => dsp_cav2_p1_comparison_phase_s_axi_bvalid,
-    dsp_cav2_p1_comparison_phase_s_axi_bready => dsp_cav2_p1_comparison_phase_s_axi_bready,
-    dsp_cav2_p1_comparison_phase_s_axi_araddr => dsp_cav2_p1_comparison_phase_s_axi_araddr,
-    dsp_cav2_p1_comparison_phase_s_axi_arvalid => dsp_cav2_p1_comparison_phase_s_axi_arvalid,
-    dsp_cav2_p1_comparison_phase_s_axi_arready => dsp_cav2_p1_comparison_phase_s_axi_arready,
-    dsp_cav2_p1_comparison_phase_s_axi_rdata => dsp_cav2_p1_comparison_phase_s_axi_rdata,
-    dsp_cav2_p1_comparison_phase_s_axi_rresp => dsp_cav2_p1_comparison_phase_s_axi_rresp,
-    dsp_cav2_p1_comparison_phase_s_axi_rvalid => dsp_cav2_p1_comparison_phase_s_axi_rvalid,
-    dsp_cav2_p1_comparison_phase_s_axi_rready => dsp_cav2_p1_comparison_phase_s_axi_rready
-);
-end structural;
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity dsp_cav2_p1_comparison_q_axi_lite_interface is 
-    port(
-        cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_comparison_q_aclk : in std_logic;
-        dsp_cav2_p1_comparison_q_aresetn : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_awready : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_wready : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_bready : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_arready : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_rready : in std_logic
-    );
-end dsp_cav2_p1_comparison_q_axi_lite_interface;
-architecture structural of dsp_cav2_p1_comparison_q_axi_lite_interface is 
-component dsp_cav2_p1_comparison_q_axi_lite_interface_verilog is
-    port(
-        cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
-        dsp_clk : out std_logic;
-        dsp_cav2_p1_comparison_q_aclk : in std_logic;
-        dsp_cav2_p1_comparison_q_aresetn : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_awvalid : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_awready : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_wvalid : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_wready : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_bresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_bvalid : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_bready : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_araddr : in std_logic_vector(10-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_arvalid : in std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_arready : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_rresp : out std_logic_vector(1 downto 0);
-        dsp_cav2_p1_comparison_q_s_axi_rvalid : out std_logic;
-        dsp_cav2_p1_comparison_q_s_axi_rready : in std_logic
-    );
-end component;
-begin
-inst : dsp_cav2_p1_comparison_q_axi_lite_interface_verilog
-    port map(
-    cav1_p1_comparison_q => cav1_p1_comparison_q,
-    dsp_clk => dsp_clk,
-    dsp_cav2_p1_comparison_q_aclk => dsp_cav2_p1_comparison_q_aclk,
-    dsp_cav2_p1_comparison_q_aresetn => dsp_cav2_p1_comparison_q_aresetn,
-    dsp_cav2_p1_comparison_q_s_axi_awaddr => dsp_cav2_p1_comparison_q_s_axi_awaddr,
-    dsp_cav2_p1_comparison_q_s_axi_awvalid => dsp_cav2_p1_comparison_q_s_axi_awvalid,
-    dsp_cav2_p1_comparison_q_s_axi_awready => dsp_cav2_p1_comparison_q_s_axi_awready,
-    dsp_cav2_p1_comparison_q_s_axi_wdata => dsp_cav2_p1_comparison_q_s_axi_wdata,
-    dsp_cav2_p1_comparison_q_s_axi_wstrb => dsp_cav2_p1_comparison_q_s_axi_wstrb,
-    dsp_cav2_p1_comparison_q_s_axi_wvalid => dsp_cav2_p1_comparison_q_s_axi_wvalid,
-    dsp_cav2_p1_comparison_q_s_axi_wready => dsp_cav2_p1_comparison_q_s_axi_wready,
-    dsp_cav2_p1_comparison_q_s_axi_bresp => dsp_cav2_p1_comparison_q_s_axi_bresp,
-    dsp_cav2_p1_comparison_q_s_axi_bvalid => dsp_cav2_p1_comparison_q_s_axi_bvalid,
-    dsp_cav2_p1_comparison_q_s_axi_bready => dsp_cav2_p1_comparison_q_s_axi_bready,
-    dsp_cav2_p1_comparison_q_s_axi_araddr => dsp_cav2_p1_comparison_q_s_axi_araddr,
-    dsp_cav2_p1_comparison_q_s_axi_arvalid => dsp_cav2_p1_comparison_q_s_axi_arvalid,
-    dsp_cav2_p1_comparison_q_s_axi_arready => dsp_cav2_p1_comparison_q_s_axi_arready,
-    dsp_cav2_p1_comparison_q_s_axi_rdata => dsp_cav2_p1_comparison_q_s_axi_rdata,
-    dsp_cav2_p1_comparison_q_s_axi_rresp => dsp_cav2_p1_comparison_q_s_axi_rresp,
-    dsp_cav2_p1_comparison_q_s_axi_rvalid => dsp_cav2_p1_comparison_q_s_axi_rvalid,
-    dsp_cav2_p1_comparison_q_s_axi_rready => dsp_cav2_p1_comparison_q_s_axi_rready
 );
 end structural;
 library work;
@@ -6076,6 +4894,172 @@ inst : dsp_cav2_p2_if_phase_axi_lite_interface_verilog
     dsp_cav2_p2_if_phase_s_axi_rresp => dsp_cav2_p2_if_phase_s_axi_rresp,
     dsp_cav2_p2_if_phase_s_axi_rvalid => dsp_cav2_p2_if_phase_s_axi_rvalid,
     dsp_cav2_p2_if_phase_s_axi_rready => dsp_cav2_p2_if_phase_s_axi_rready
+);
+end structural;
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity dsp_cav2_p1_comparison_phase_axi_lite_interface is 
+    port(
+        cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_comparison_phase_aclk : in std_logic;
+        dsp_cav2_p1_comparison_phase_aresetn : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_awready : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_wready : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_bready : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_arready : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_rready : in std_logic
+    );
+end dsp_cav2_p1_comparison_phase_axi_lite_interface;
+architecture structural of dsp_cav2_p1_comparison_phase_axi_lite_interface is 
+component dsp_cav2_p1_comparison_phase_axi_lite_interface_verilog is
+    port(
+        cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_comparison_phase_aclk : in std_logic;
+        dsp_cav2_p1_comparison_phase_aresetn : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_awready : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_wready : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_bready : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_arready : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_phase_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_comparison_phase_s_axi_rready : in std_logic
+    );
+end component;
+begin
+inst : dsp_cav2_p1_comparison_phase_axi_lite_interface_verilog
+    port map(
+    cav2_p1_comparison_phase => cav2_p1_comparison_phase,
+    dsp_clk => dsp_clk,
+    dsp_cav2_p1_comparison_phase_aclk => dsp_cav2_p1_comparison_phase_aclk,
+    dsp_cav2_p1_comparison_phase_aresetn => dsp_cav2_p1_comparison_phase_aresetn,
+    dsp_cav2_p1_comparison_phase_s_axi_awaddr => dsp_cav2_p1_comparison_phase_s_axi_awaddr,
+    dsp_cav2_p1_comparison_phase_s_axi_awvalid => dsp_cav2_p1_comparison_phase_s_axi_awvalid,
+    dsp_cav2_p1_comparison_phase_s_axi_awready => dsp_cav2_p1_comparison_phase_s_axi_awready,
+    dsp_cav2_p1_comparison_phase_s_axi_wdata => dsp_cav2_p1_comparison_phase_s_axi_wdata,
+    dsp_cav2_p1_comparison_phase_s_axi_wstrb => dsp_cav2_p1_comparison_phase_s_axi_wstrb,
+    dsp_cav2_p1_comparison_phase_s_axi_wvalid => dsp_cav2_p1_comparison_phase_s_axi_wvalid,
+    dsp_cav2_p1_comparison_phase_s_axi_wready => dsp_cav2_p1_comparison_phase_s_axi_wready,
+    dsp_cav2_p1_comparison_phase_s_axi_bresp => dsp_cav2_p1_comparison_phase_s_axi_bresp,
+    dsp_cav2_p1_comparison_phase_s_axi_bvalid => dsp_cav2_p1_comparison_phase_s_axi_bvalid,
+    dsp_cav2_p1_comparison_phase_s_axi_bready => dsp_cav2_p1_comparison_phase_s_axi_bready,
+    dsp_cav2_p1_comparison_phase_s_axi_araddr => dsp_cav2_p1_comparison_phase_s_axi_araddr,
+    dsp_cav2_p1_comparison_phase_s_axi_arvalid => dsp_cav2_p1_comparison_phase_s_axi_arvalid,
+    dsp_cav2_p1_comparison_phase_s_axi_arready => dsp_cav2_p1_comparison_phase_s_axi_arready,
+    dsp_cav2_p1_comparison_phase_s_axi_rdata => dsp_cav2_p1_comparison_phase_s_axi_rdata,
+    dsp_cav2_p1_comparison_phase_s_axi_rresp => dsp_cav2_p1_comparison_phase_s_axi_rresp,
+    dsp_cav2_p1_comparison_phase_s_axi_rvalid => dsp_cav2_p1_comparison_phase_s_axi_rvalid,
+    dsp_cav2_p1_comparison_phase_s_axi_rready => dsp_cav2_p1_comparison_phase_s_axi_rready
+);
+end structural;
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity dsp_cav2_p1_comparison_q_axi_lite_interface is 
+    port(
+        cav1_p1_comparison_q_x0 : in std_logic_vector(17 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_comparison_q_aclk : in std_logic;
+        dsp_cav2_p1_comparison_q_aresetn : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_awready : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_wready : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_bready : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_arready : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_rready : in std_logic
+    );
+end dsp_cav2_p1_comparison_q_axi_lite_interface;
+architecture structural of dsp_cav2_p1_comparison_q_axi_lite_interface is 
+component dsp_cav2_p1_comparison_q_axi_lite_interface_verilog is
+    port(
+        cav1_p1_comparison_q_x0 : in std_logic_vector(17 downto 0);
+        dsp_clk : out std_logic;
+        dsp_cav2_p1_comparison_q_aclk : in std_logic;
+        dsp_cav2_p1_comparison_q_aresetn : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_awaddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_awvalid : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_awready : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_wdata : in std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_wstrb : in std_logic_vector(32/8-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_wvalid : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_wready : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_bresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_bvalid : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_bready : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_araddr : in std_logic_vector(10-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_arvalid : in std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_arready : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_rdata : out std_logic_vector(32-1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_rresp : out std_logic_vector(1 downto 0);
+        dsp_cav2_p1_comparison_q_s_axi_rvalid : out std_logic;
+        dsp_cav2_p1_comparison_q_s_axi_rready : in std_logic
+    );
+end component;
+begin
+inst : dsp_cav2_p1_comparison_q_axi_lite_interface_verilog
+    port map(
+    cav1_p1_comparison_q_x0 => cav1_p1_comparison_q_x0,
+    dsp_clk => dsp_clk,
+    dsp_cav2_p1_comparison_q_aclk => dsp_cav2_p1_comparison_q_aclk,
+    dsp_cav2_p1_comparison_q_aresetn => dsp_cav2_p1_comparison_q_aresetn,
+    dsp_cav2_p1_comparison_q_s_axi_awaddr => dsp_cav2_p1_comparison_q_s_axi_awaddr,
+    dsp_cav2_p1_comparison_q_s_axi_awvalid => dsp_cav2_p1_comparison_q_s_axi_awvalid,
+    dsp_cav2_p1_comparison_q_s_axi_awready => dsp_cav2_p1_comparison_q_s_axi_awready,
+    dsp_cav2_p1_comparison_q_s_axi_wdata => dsp_cav2_p1_comparison_q_s_axi_wdata,
+    dsp_cav2_p1_comparison_q_s_axi_wstrb => dsp_cav2_p1_comparison_q_s_axi_wstrb,
+    dsp_cav2_p1_comparison_q_s_axi_wvalid => dsp_cav2_p1_comparison_q_s_axi_wvalid,
+    dsp_cav2_p1_comparison_q_s_axi_wready => dsp_cav2_p1_comparison_q_s_axi_wready,
+    dsp_cav2_p1_comparison_q_s_axi_bresp => dsp_cav2_p1_comparison_q_s_axi_bresp,
+    dsp_cav2_p1_comparison_q_s_axi_bvalid => dsp_cav2_p1_comparison_q_s_axi_bvalid,
+    dsp_cav2_p1_comparison_q_s_axi_bready => dsp_cav2_p1_comparison_q_s_axi_bready,
+    dsp_cav2_p1_comparison_q_s_axi_araddr => dsp_cav2_p1_comparison_q_s_axi_araddr,
+    dsp_cav2_p1_comparison_q_s_axi_arvalid => dsp_cav2_p1_comparison_q_s_axi_arvalid,
+    dsp_cav2_p1_comparison_q_s_axi_arready => dsp_cav2_p1_comparison_q_s_axi_arready,
+    dsp_cav2_p1_comparison_q_s_axi_rdata => dsp_cav2_p1_comparison_q_s_axi_rdata,
+    dsp_cav2_p1_comparison_q_s_axi_rresp => dsp_cav2_p1_comparison_q_s_axi_rresp,
+    dsp_cav2_p1_comparison_q_s_axi_rvalid => dsp_cav2_p1_comparison_q_s_axi_rvalid,
+    dsp_cav2_p1_comparison_q_s_axi_rready => dsp_cav2_p1_comparison_q_s_axi_rready
 );
 end structural;
 library work;

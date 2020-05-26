@@ -43,15 +43,6 @@ entity example_stub is
     dsp_cav1_nco_phase_reset_s_axi_araddr : in std_logic_vector( 10-1 downto 0 );
     dsp_cav1_nco_phase_reset_s_axi_arvalid : in std_logic;
     dsp_cav1_nco_phase_reset_s_axi_rready : in std_logic;
-    dsp_cav1_p1_amp_out_s_axi_awaddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_amp_out_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_amp_out_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_amp_out_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_amp_out_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_amp_out_s_axi_bready : in std_logic;
-    dsp_cav1_p1_amp_out_s_axi_araddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_amp_out_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_amp_out_s_axi_rready : in std_logic;
     dsp_cav1_p1_chan_sel_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
     dsp_cav1_p1_chan_sel_s_axi_awvalid : in std_logic;
     dsp_cav1_p1_chan_sel_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
@@ -61,123 +52,6 @@ entity example_stub is
     dsp_cav1_p1_chan_sel_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
     dsp_cav1_p1_chan_sel_s_axi_arvalid : in std_logic;
     dsp_cav1_p1_chan_sel_s_axi_rready : in std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_awaddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_comparison_i_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_comparison_i_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_comparison_i_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_bready : in std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_araddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_comparison_i_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_rready : in std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_awaddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_comparison_phase_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_comparison_phase_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_comparison_phase_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_bready : in std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_araddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_comparison_phase_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_rready : in std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_awaddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_comparison_q_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_comparison_q_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_comparison_q_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_bready : in std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_araddr : in std_logic_vector( 9-1 downto 0 );
-    dsp_cav1_p1_comparison_q_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_rready : in std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_dc_freq_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_dc_freq_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_dc_freq_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_bready : in std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_dc_freq_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_rready : in std_logic;
-    dsp_cav1_p1_dc_img_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_dc_img_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_dc_img_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_dc_img_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_dc_img_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_dc_img_s_axi_bready : in std_logic;
-    dsp_cav1_p1_dc_img_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_dc_img_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_dc_img_s_axi_rready : in std_logic;
-    dsp_cav1_p1_dc_real_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_dc_real_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_dc_real_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_dc_real_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_dc_real_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_dc_real_s_axi_bready : in std_logic;
-    dsp_cav1_p1_dc_real_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_dc_real_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_dc_real_s_axi_rready : in std_logic;
-    dsp_cav1_p1_if_amp_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_amp_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_if_amp_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_amp_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_if_amp_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_if_amp_s_axi_bready : in std_logic;
-    dsp_cav1_p1_if_amp_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_amp_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_if_amp_s_axi_rready : in std_logic;
-    dsp_cav1_p1_if_i_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_i_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_if_i_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_i_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_if_i_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_if_i_s_axi_bready : in std_logic;
-    dsp_cav1_p1_if_i_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_i_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_if_i_s_axi_rready : in std_logic;
-    dsp_cav1_p1_if_phase_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_phase_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_if_phase_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_phase_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_if_phase_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_if_phase_s_axi_bready : in std_logic;
-    dsp_cav1_p1_if_phase_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_phase_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_if_phase_s_axi_rready : in std_logic;
-    dsp_cav1_p1_if_q_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_q_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_if_q_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_q_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_if_q_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_if_q_s_axi_bready : in std_logic;
-    dsp_cav1_p1_if_q_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_if_q_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_if_q_s_axi_rready : in std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_integrated_i_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_integrated_i_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_integrated_i_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_bready : in std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_integrated_i_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_rready : in std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_integrated_q_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_integrated_q_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_integrated_q_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_bready : in std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_integrated_q_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_rready : in std_logic;
-    dsp_cav1_p1_phase_out_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_phase_out_s_axi_awvalid : in std_logic;
-    dsp_cav1_p1_phase_out_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_phase_out_s_axi_wstrb : in std_logic_vector( 4-1 downto 0 );
-    dsp_cav1_p1_phase_out_s_axi_wvalid : in std_logic;
-    dsp_cav1_p1_phase_out_s_axi_bready : in std_logic;
-    dsp_cav1_p1_phase_out_s_axi_araddr : in std_logic_vector( 8-1 downto 0 );
-    dsp_cav1_p1_phase_out_s_axi_arvalid : in std_logic;
-    dsp_cav1_p1_phase_out_s_axi_rready : in std_logic;
     dsp_cav1_p1_window_start_s_axi_awaddr : in std_logic_vector( 8-1 downto 0 );
     dsp_cav1_p1_window_start_s_axi_awvalid : in std_logic;
     dsp_cav1_p1_window_start_s_axi_wdata : in std_logic_vector( 32-1 downto 0 );
@@ -742,14 +616,6 @@ entity example_stub is
     dsp_cav1_nco_phase_reset_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
     dsp_cav1_nco_phase_reset_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
     dsp_cav1_nco_phase_reset_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_amp_out_s_axi_awready : out std_logic;
-    dsp_cav1_p1_amp_out_s_axi_wready : out std_logic;
-    dsp_cav1_p1_amp_out_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_amp_out_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_amp_out_s_axi_arready : out std_logic;
-    dsp_cav1_p1_amp_out_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_amp_out_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_amp_out_s_axi_rvalid : out std_logic;
     dsp_cav1_p1_chan_sel_s_axi_awready : out std_logic;
     dsp_cav1_p1_chan_sel_s_axi_wready : out std_logic;
     dsp_cav1_p1_chan_sel_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
@@ -758,110 +624,6 @@ entity example_stub is
     dsp_cav1_p1_chan_sel_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
     dsp_cav1_p1_chan_sel_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
     dsp_cav1_p1_chan_sel_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_awready : out std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_wready : out std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_comparison_i_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_arready : out std_logic;
-    dsp_cav1_p1_comparison_i_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_comparison_i_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_comparison_i_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_awready : out std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_wready : out std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_comparison_phase_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_arready : out std_logic;
-    dsp_cav1_p1_comparison_phase_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_comparison_phase_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_comparison_phase_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_awready : out std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_wready : out std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_comparison_q_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_arready : out std_logic;
-    dsp_cav1_p1_comparison_q_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_comparison_q_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_comparison_q_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_awready : out std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_wready : out std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_dc_freq_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_arready : out std_logic;
-    dsp_cav1_p1_dc_freq_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_dc_freq_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_dc_freq_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_dc_img_s_axi_awready : out std_logic;
-    dsp_cav1_p1_dc_img_s_axi_wready : out std_logic;
-    dsp_cav1_p1_dc_img_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_dc_img_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_dc_img_s_axi_arready : out std_logic;
-    dsp_cav1_p1_dc_img_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_dc_img_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_dc_img_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_dc_real_s_axi_awready : out std_logic;
-    dsp_cav1_p1_dc_real_s_axi_wready : out std_logic;
-    dsp_cav1_p1_dc_real_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_dc_real_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_dc_real_s_axi_arready : out std_logic;
-    dsp_cav1_p1_dc_real_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_dc_real_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_dc_real_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_if_amp_s_axi_awready : out std_logic;
-    dsp_cav1_p1_if_amp_s_axi_wready : out std_logic;
-    dsp_cav1_p1_if_amp_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_amp_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_if_amp_s_axi_arready : out std_logic;
-    dsp_cav1_p1_if_amp_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_amp_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_amp_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_if_i_s_axi_awready : out std_logic;
-    dsp_cav1_p1_if_i_s_axi_wready : out std_logic;
-    dsp_cav1_p1_if_i_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_i_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_if_i_s_axi_arready : out std_logic;
-    dsp_cav1_p1_if_i_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_i_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_i_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_if_phase_s_axi_awready : out std_logic;
-    dsp_cav1_p1_if_phase_s_axi_wready : out std_logic;
-    dsp_cav1_p1_if_phase_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_phase_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_if_phase_s_axi_arready : out std_logic;
-    dsp_cav1_p1_if_phase_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_phase_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_phase_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_if_q_s_axi_awready : out std_logic;
-    dsp_cav1_p1_if_q_s_axi_wready : out std_logic;
-    dsp_cav1_p1_if_q_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_q_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_if_q_s_axi_arready : out std_logic;
-    dsp_cav1_p1_if_q_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_if_q_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_if_q_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_awready : out std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_wready : out std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_integrated_i_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_arready : out std_logic;
-    dsp_cav1_p1_integrated_i_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_integrated_i_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_integrated_i_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_awready : out std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_wready : out std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_integrated_q_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_arready : out std_logic;
-    dsp_cav1_p1_integrated_q_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_integrated_q_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_integrated_q_s_axi_rvalid : out std_logic;
-    dsp_cav1_p1_phase_out_s_axi_awready : out std_logic;
-    dsp_cav1_p1_phase_out_s_axi_wready : out std_logic;
-    dsp_cav1_p1_phase_out_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_phase_out_s_axi_bvalid : out std_logic;
-    dsp_cav1_p1_phase_out_s_axi_arready : out std_logic;
-    dsp_cav1_p1_phase_out_s_axi_rdata : out std_logic_vector( 32-1 downto 0 );
-    dsp_cav1_p1_phase_out_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
-    dsp_cav1_p1_phase_out_s_axi_rvalid : out std_logic;
     dsp_cav1_p1_window_start_s_axi_awready : out std_logic;
     dsp_cav1_p1_window_start_s_axi_wready : out std_logic;
     dsp_cav1_p1_window_start_s_axi_bresp : out std_logic_vector( 2-1 downto 0 );
@@ -1387,15 +1149,6 @@ begin
     dsp_cav1_nco_phase_reset_s_axi_araddr => dsp_cav1_nco_phase_reset_s_axi_araddr,
     dsp_cav1_nco_phase_reset_s_axi_arvalid => dsp_cav1_nco_phase_reset_s_axi_arvalid,
     dsp_cav1_nco_phase_reset_s_axi_rready => dsp_cav1_nco_phase_reset_s_axi_rready,
-    dsp_cav1_p1_amp_out_s_axi_awaddr => dsp_cav1_p1_amp_out_s_axi_awaddr,
-    dsp_cav1_p1_amp_out_s_axi_awvalid => dsp_cav1_p1_amp_out_s_axi_awvalid,
-    dsp_cav1_p1_amp_out_s_axi_wdata => dsp_cav1_p1_amp_out_s_axi_wdata,
-    dsp_cav1_p1_amp_out_s_axi_wstrb => dsp_cav1_p1_amp_out_s_axi_wstrb,
-    dsp_cav1_p1_amp_out_s_axi_wvalid => dsp_cav1_p1_amp_out_s_axi_wvalid,
-    dsp_cav1_p1_amp_out_s_axi_bready => dsp_cav1_p1_amp_out_s_axi_bready,
-    dsp_cav1_p1_amp_out_s_axi_araddr => dsp_cav1_p1_amp_out_s_axi_araddr,
-    dsp_cav1_p1_amp_out_s_axi_arvalid => dsp_cav1_p1_amp_out_s_axi_arvalid,
-    dsp_cav1_p1_amp_out_s_axi_rready => dsp_cav1_p1_amp_out_s_axi_rready,
     dsp_cav1_p1_chan_sel_s_axi_awaddr => dsp_cav1_p1_chan_sel_s_axi_awaddr,
     dsp_cav1_p1_chan_sel_s_axi_awvalid => dsp_cav1_p1_chan_sel_s_axi_awvalid,
     dsp_cav1_p1_chan_sel_s_axi_wdata => dsp_cav1_p1_chan_sel_s_axi_wdata,
@@ -1405,123 +1158,6 @@ begin
     dsp_cav1_p1_chan_sel_s_axi_araddr => dsp_cav1_p1_chan_sel_s_axi_araddr,
     dsp_cav1_p1_chan_sel_s_axi_arvalid => dsp_cav1_p1_chan_sel_s_axi_arvalid,
     dsp_cav1_p1_chan_sel_s_axi_rready => dsp_cav1_p1_chan_sel_s_axi_rready,
-    dsp_cav1_p1_comparison_i_s_axi_awaddr => dsp_cav1_p1_comparison_i_s_axi_awaddr,
-    dsp_cav1_p1_comparison_i_s_axi_awvalid => dsp_cav1_p1_comparison_i_s_axi_awvalid,
-    dsp_cav1_p1_comparison_i_s_axi_wdata => dsp_cav1_p1_comparison_i_s_axi_wdata,
-    dsp_cav1_p1_comparison_i_s_axi_wstrb => dsp_cav1_p1_comparison_i_s_axi_wstrb,
-    dsp_cav1_p1_comparison_i_s_axi_wvalid => dsp_cav1_p1_comparison_i_s_axi_wvalid,
-    dsp_cav1_p1_comparison_i_s_axi_bready => dsp_cav1_p1_comparison_i_s_axi_bready,
-    dsp_cav1_p1_comparison_i_s_axi_araddr => dsp_cav1_p1_comparison_i_s_axi_araddr,
-    dsp_cav1_p1_comparison_i_s_axi_arvalid => dsp_cav1_p1_comparison_i_s_axi_arvalid,
-    dsp_cav1_p1_comparison_i_s_axi_rready => dsp_cav1_p1_comparison_i_s_axi_rready,
-    dsp_cav1_p1_comparison_phase_s_axi_awaddr => dsp_cav1_p1_comparison_phase_s_axi_awaddr,
-    dsp_cav1_p1_comparison_phase_s_axi_awvalid => dsp_cav1_p1_comparison_phase_s_axi_awvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_wdata => dsp_cav1_p1_comparison_phase_s_axi_wdata,
-    dsp_cav1_p1_comparison_phase_s_axi_wstrb => dsp_cav1_p1_comparison_phase_s_axi_wstrb,
-    dsp_cav1_p1_comparison_phase_s_axi_wvalid => dsp_cav1_p1_comparison_phase_s_axi_wvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_bready => dsp_cav1_p1_comparison_phase_s_axi_bready,
-    dsp_cav1_p1_comparison_phase_s_axi_araddr => dsp_cav1_p1_comparison_phase_s_axi_araddr,
-    dsp_cav1_p1_comparison_phase_s_axi_arvalid => dsp_cav1_p1_comparison_phase_s_axi_arvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_rready => dsp_cav1_p1_comparison_phase_s_axi_rready,
-    dsp_cav1_p1_comparison_q_s_axi_awaddr => dsp_cav1_p1_comparison_q_s_axi_awaddr,
-    dsp_cav1_p1_comparison_q_s_axi_awvalid => dsp_cav1_p1_comparison_q_s_axi_awvalid,
-    dsp_cav1_p1_comparison_q_s_axi_wdata => dsp_cav1_p1_comparison_q_s_axi_wdata,
-    dsp_cav1_p1_comparison_q_s_axi_wstrb => dsp_cav1_p1_comparison_q_s_axi_wstrb,
-    dsp_cav1_p1_comparison_q_s_axi_wvalid => dsp_cav1_p1_comparison_q_s_axi_wvalid,
-    dsp_cav1_p1_comparison_q_s_axi_bready => dsp_cav1_p1_comparison_q_s_axi_bready,
-    dsp_cav1_p1_comparison_q_s_axi_araddr => dsp_cav1_p1_comparison_q_s_axi_araddr,
-    dsp_cav1_p1_comparison_q_s_axi_arvalid => dsp_cav1_p1_comparison_q_s_axi_arvalid,
-    dsp_cav1_p1_comparison_q_s_axi_rready => dsp_cav1_p1_comparison_q_s_axi_rready,
-    dsp_cav1_p1_dc_freq_s_axi_awaddr => dsp_cav1_p1_dc_freq_s_axi_awaddr,
-    dsp_cav1_p1_dc_freq_s_axi_awvalid => dsp_cav1_p1_dc_freq_s_axi_awvalid,
-    dsp_cav1_p1_dc_freq_s_axi_wdata => dsp_cav1_p1_dc_freq_s_axi_wdata,
-    dsp_cav1_p1_dc_freq_s_axi_wstrb => dsp_cav1_p1_dc_freq_s_axi_wstrb,
-    dsp_cav1_p1_dc_freq_s_axi_wvalid => dsp_cav1_p1_dc_freq_s_axi_wvalid,
-    dsp_cav1_p1_dc_freq_s_axi_bready => dsp_cav1_p1_dc_freq_s_axi_bready,
-    dsp_cav1_p1_dc_freq_s_axi_araddr => dsp_cav1_p1_dc_freq_s_axi_araddr,
-    dsp_cav1_p1_dc_freq_s_axi_arvalid => dsp_cav1_p1_dc_freq_s_axi_arvalid,
-    dsp_cav1_p1_dc_freq_s_axi_rready => dsp_cav1_p1_dc_freq_s_axi_rready,
-    dsp_cav1_p1_dc_img_s_axi_awaddr => dsp_cav1_p1_dc_img_s_axi_awaddr,
-    dsp_cav1_p1_dc_img_s_axi_awvalid => dsp_cav1_p1_dc_img_s_axi_awvalid,
-    dsp_cav1_p1_dc_img_s_axi_wdata => dsp_cav1_p1_dc_img_s_axi_wdata,
-    dsp_cav1_p1_dc_img_s_axi_wstrb => dsp_cav1_p1_dc_img_s_axi_wstrb,
-    dsp_cav1_p1_dc_img_s_axi_wvalid => dsp_cav1_p1_dc_img_s_axi_wvalid,
-    dsp_cav1_p1_dc_img_s_axi_bready => dsp_cav1_p1_dc_img_s_axi_bready,
-    dsp_cav1_p1_dc_img_s_axi_araddr => dsp_cav1_p1_dc_img_s_axi_araddr,
-    dsp_cav1_p1_dc_img_s_axi_arvalid => dsp_cav1_p1_dc_img_s_axi_arvalid,
-    dsp_cav1_p1_dc_img_s_axi_rready => dsp_cav1_p1_dc_img_s_axi_rready,
-    dsp_cav1_p1_dc_real_s_axi_awaddr => dsp_cav1_p1_dc_real_s_axi_awaddr,
-    dsp_cav1_p1_dc_real_s_axi_awvalid => dsp_cav1_p1_dc_real_s_axi_awvalid,
-    dsp_cav1_p1_dc_real_s_axi_wdata => dsp_cav1_p1_dc_real_s_axi_wdata,
-    dsp_cav1_p1_dc_real_s_axi_wstrb => dsp_cav1_p1_dc_real_s_axi_wstrb,
-    dsp_cav1_p1_dc_real_s_axi_wvalid => dsp_cav1_p1_dc_real_s_axi_wvalid,
-    dsp_cav1_p1_dc_real_s_axi_bready => dsp_cav1_p1_dc_real_s_axi_bready,
-    dsp_cav1_p1_dc_real_s_axi_araddr => dsp_cav1_p1_dc_real_s_axi_araddr,
-    dsp_cav1_p1_dc_real_s_axi_arvalid => dsp_cav1_p1_dc_real_s_axi_arvalid,
-    dsp_cav1_p1_dc_real_s_axi_rready => dsp_cav1_p1_dc_real_s_axi_rready,
-    dsp_cav1_p1_if_amp_s_axi_awaddr => dsp_cav1_p1_if_amp_s_axi_awaddr,
-    dsp_cav1_p1_if_amp_s_axi_awvalid => dsp_cav1_p1_if_amp_s_axi_awvalid,
-    dsp_cav1_p1_if_amp_s_axi_wdata => dsp_cav1_p1_if_amp_s_axi_wdata,
-    dsp_cav1_p1_if_amp_s_axi_wstrb => dsp_cav1_p1_if_amp_s_axi_wstrb,
-    dsp_cav1_p1_if_amp_s_axi_wvalid => dsp_cav1_p1_if_amp_s_axi_wvalid,
-    dsp_cav1_p1_if_amp_s_axi_bready => dsp_cav1_p1_if_amp_s_axi_bready,
-    dsp_cav1_p1_if_amp_s_axi_araddr => dsp_cav1_p1_if_amp_s_axi_araddr,
-    dsp_cav1_p1_if_amp_s_axi_arvalid => dsp_cav1_p1_if_amp_s_axi_arvalid,
-    dsp_cav1_p1_if_amp_s_axi_rready => dsp_cav1_p1_if_amp_s_axi_rready,
-    dsp_cav1_p1_if_i_s_axi_awaddr => dsp_cav1_p1_if_i_s_axi_awaddr,
-    dsp_cav1_p1_if_i_s_axi_awvalid => dsp_cav1_p1_if_i_s_axi_awvalid,
-    dsp_cav1_p1_if_i_s_axi_wdata => dsp_cav1_p1_if_i_s_axi_wdata,
-    dsp_cav1_p1_if_i_s_axi_wstrb => dsp_cav1_p1_if_i_s_axi_wstrb,
-    dsp_cav1_p1_if_i_s_axi_wvalid => dsp_cav1_p1_if_i_s_axi_wvalid,
-    dsp_cav1_p1_if_i_s_axi_bready => dsp_cav1_p1_if_i_s_axi_bready,
-    dsp_cav1_p1_if_i_s_axi_araddr => dsp_cav1_p1_if_i_s_axi_araddr,
-    dsp_cav1_p1_if_i_s_axi_arvalid => dsp_cav1_p1_if_i_s_axi_arvalid,
-    dsp_cav1_p1_if_i_s_axi_rready => dsp_cav1_p1_if_i_s_axi_rready,
-    dsp_cav1_p1_if_phase_s_axi_awaddr => dsp_cav1_p1_if_phase_s_axi_awaddr,
-    dsp_cav1_p1_if_phase_s_axi_awvalid => dsp_cav1_p1_if_phase_s_axi_awvalid,
-    dsp_cav1_p1_if_phase_s_axi_wdata => dsp_cav1_p1_if_phase_s_axi_wdata,
-    dsp_cav1_p1_if_phase_s_axi_wstrb => dsp_cav1_p1_if_phase_s_axi_wstrb,
-    dsp_cav1_p1_if_phase_s_axi_wvalid => dsp_cav1_p1_if_phase_s_axi_wvalid,
-    dsp_cav1_p1_if_phase_s_axi_bready => dsp_cav1_p1_if_phase_s_axi_bready,
-    dsp_cav1_p1_if_phase_s_axi_araddr => dsp_cav1_p1_if_phase_s_axi_araddr,
-    dsp_cav1_p1_if_phase_s_axi_arvalid => dsp_cav1_p1_if_phase_s_axi_arvalid,
-    dsp_cav1_p1_if_phase_s_axi_rready => dsp_cav1_p1_if_phase_s_axi_rready,
-    dsp_cav1_p1_if_q_s_axi_awaddr => dsp_cav1_p1_if_q_s_axi_awaddr,
-    dsp_cav1_p1_if_q_s_axi_awvalid => dsp_cav1_p1_if_q_s_axi_awvalid,
-    dsp_cav1_p1_if_q_s_axi_wdata => dsp_cav1_p1_if_q_s_axi_wdata,
-    dsp_cav1_p1_if_q_s_axi_wstrb => dsp_cav1_p1_if_q_s_axi_wstrb,
-    dsp_cav1_p1_if_q_s_axi_wvalid => dsp_cav1_p1_if_q_s_axi_wvalid,
-    dsp_cav1_p1_if_q_s_axi_bready => dsp_cav1_p1_if_q_s_axi_bready,
-    dsp_cav1_p1_if_q_s_axi_araddr => dsp_cav1_p1_if_q_s_axi_araddr,
-    dsp_cav1_p1_if_q_s_axi_arvalid => dsp_cav1_p1_if_q_s_axi_arvalid,
-    dsp_cav1_p1_if_q_s_axi_rready => dsp_cav1_p1_if_q_s_axi_rready,
-    dsp_cav1_p1_integrated_i_s_axi_awaddr => dsp_cav1_p1_integrated_i_s_axi_awaddr,
-    dsp_cav1_p1_integrated_i_s_axi_awvalid => dsp_cav1_p1_integrated_i_s_axi_awvalid,
-    dsp_cav1_p1_integrated_i_s_axi_wdata => dsp_cav1_p1_integrated_i_s_axi_wdata,
-    dsp_cav1_p1_integrated_i_s_axi_wstrb => dsp_cav1_p1_integrated_i_s_axi_wstrb,
-    dsp_cav1_p1_integrated_i_s_axi_wvalid => dsp_cav1_p1_integrated_i_s_axi_wvalid,
-    dsp_cav1_p1_integrated_i_s_axi_bready => dsp_cav1_p1_integrated_i_s_axi_bready,
-    dsp_cav1_p1_integrated_i_s_axi_araddr => dsp_cav1_p1_integrated_i_s_axi_araddr,
-    dsp_cav1_p1_integrated_i_s_axi_arvalid => dsp_cav1_p1_integrated_i_s_axi_arvalid,
-    dsp_cav1_p1_integrated_i_s_axi_rready => dsp_cav1_p1_integrated_i_s_axi_rready,
-    dsp_cav1_p1_integrated_q_s_axi_awaddr => dsp_cav1_p1_integrated_q_s_axi_awaddr,
-    dsp_cav1_p1_integrated_q_s_axi_awvalid => dsp_cav1_p1_integrated_q_s_axi_awvalid,
-    dsp_cav1_p1_integrated_q_s_axi_wdata => dsp_cav1_p1_integrated_q_s_axi_wdata,
-    dsp_cav1_p1_integrated_q_s_axi_wstrb => dsp_cav1_p1_integrated_q_s_axi_wstrb,
-    dsp_cav1_p1_integrated_q_s_axi_wvalid => dsp_cav1_p1_integrated_q_s_axi_wvalid,
-    dsp_cav1_p1_integrated_q_s_axi_bready => dsp_cav1_p1_integrated_q_s_axi_bready,
-    dsp_cav1_p1_integrated_q_s_axi_araddr => dsp_cav1_p1_integrated_q_s_axi_araddr,
-    dsp_cav1_p1_integrated_q_s_axi_arvalid => dsp_cav1_p1_integrated_q_s_axi_arvalid,
-    dsp_cav1_p1_integrated_q_s_axi_rready => dsp_cav1_p1_integrated_q_s_axi_rready,
-    dsp_cav1_p1_phase_out_s_axi_awaddr => dsp_cav1_p1_phase_out_s_axi_awaddr,
-    dsp_cav1_p1_phase_out_s_axi_awvalid => dsp_cav1_p1_phase_out_s_axi_awvalid,
-    dsp_cav1_p1_phase_out_s_axi_wdata => dsp_cav1_p1_phase_out_s_axi_wdata,
-    dsp_cav1_p1_phase_out_s_axi_wstrb => dsp_cav1_p1_phase_out_s_axi_wstrb,
-    dsp_cav1_p1_phase_out_s_axi_wvalid => dsp_cav1_p1_phase_out_s_axi_wvalid,
-    dsp_cav1_p1_phase_out_s_axi_bready => dsp_cav1_p1_phase_out_s_axi_bready,
-    dsp_cav1_p1_phase_out_s_axi_araddr => dsp_cav1_p1_phase_out_s_axi_araddr,
-    dsp_cav1_p1_phase_out_s_axi_arvalid => dsp_cav1_p1_phase_out_s_axi_arvalid,
-    dsp_cav1_p1_phase_out_s_axi_rready => dsp_cav1_p1_phase_out_s_axi_rready,
     dsp_cav1_p1_window_start_s_axi_awaddr => dsp_cav1_p1_window_start_s_axi_awaddr,
     dsp_cav1_p1_window_start_s_axi_awvalid => dsp_cav1_p1_window_start_s_axi_awvalid,
     dsp_cav1_p1_window_start_s_axi_wdata => dsp_cav1_p1_window_start_s_axi_wdata,
@@ -2086,14 +1722,6 @@ begin
     dsp_cav1_nco_phase_reset_s_axi_rdata => dsp_cav1_nco_phase_reset_s_axi_rdata,
     dsp_cav1_nco_phase_reset_s_axi_rresp => dsp_cav1_nco_phase_reset_s_axi_rresp,
     dsp_cav1_nco_phase_reset_s_axi_rvalid => dsp_cav1_nco_phase_reset_s_axi_rvalid,
-    dsp_cav1_p1_amp_out_s_axi_awready => dsp_cav1_p1_amp_out_s_axi_awready,
-    dsp_cav1_p1_amp_out_s_axi_wready => dsp_cav1_p1_amp_out_s_axi_wready,
-    dsp_cav1_p1_amp_out_s_axi_bresp => dsp_cav1_p1_amp_out_s_axi_bresp,
-    dsp_cav1_p1_amp_out_s_axi_bvalid => dsp_cav1_p1_amp_out_s_axi_bvalid,
-    dsp_cav1_p1_amp_out_s_axi_arready => dsp_cav1_p1_amp_out_s_axi_arready,
-    dsp_cav1_p1_amp_out_s_axi_rdata => dsp_cav1_p1_amp_out_s_axi_rdata,
-    dsp_cav1_p1_amp_out_s_axi_rresp => dsp_cav1_p1_amp_out_s_axi_rresp,
-    dsp_cav1_p1_amp_out_s_axi_rvalid => dsp_cav1_p1_amp_out_s_axi_rvalid,
     dsp_cav1_p1_chan_sel_s_axi_awready => dsp_cav1_p1_chan_sel_s_axi_awready,
     dsp_cav1_p1_chan_sel_s_axi_wready => dsp_cav1_p1_chan_sel_s_axi_wready,
     dsp_cav1_p1_chan_sel_s_axi_bresp => dsp_cav1_p1_chan_sel_s_axi_bresp,
@@ -2102,110 +1730,6 @@ begin
     dsp_cav1_p1_chan_sel_s_axi_rdata => dsp_cav1_p1_chan_sel_s_axi_rdata,
     dsp_cav1_p1_chan_sel_s_axi_rresp => dsp_cav1_p1_chan_sel_s_axi_rresp,
     dsp_cav1_p1_chan_sel_s_axi_rvalid => dsp_cav1_p1_chan_sel_s_axi_rvalid,
-    dsp_cav1_p1_comparison_i_s_axi_awready => dsp_cav1_p1_comparison_i_s_axi_awready,
-    dsp_cav1_p1_comparison_i_s_axi_wready => dsp_cav1_p1_comparison_i_s_axi_wready,
-    dsp_cav1_p1_comparison_i_s_axi_bresp => dsp_cav1_p1_comparison_i_s_axi_bresp,
-    dsp_cav1_p1_comparison_i_s_axi_bvalid => dsp_cav1_p1_comparison_i_s_axi_bvalid,
-    dsp_cav1_p1_comparison_i_s_axi_arready => dsp_cav1_p1_comparison_i_s_axi_arready,
-    dsp_cav1_p1_comparison_i_s_axi_rdata => dsp_cav1_p1_comparison_i_s_axi_rdata,
-    dsp_cav1_p1_comparison_i_s_axi_rresp => dsp_cav1_p1_comparison_i_s_axi_rresp,
-    dsp_cav1_p1_comparison_i_s_axi_rvalid => dsp_cav1_p1_comparison_i_s_axi_rvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_awready => dsp_cav1_p1_comparison_phase_s_axi_awready,
-    dsp_cav1_p1_comparison_phase_s_axi_wready => dsp_cav1_p1_comparison_phase_s_axi_wready,
-    dsp_cav1_p1_comparison_phase_s_axi_bresp => dsp_cav1_p1_comparison_phase_s_axi_bresp,
-    dsp_cav1_p1_comparison_phase_s_axi_bvalid => dsp_cav1_p1_comparison_phase_s_axi_bvalid,
-    dsp_cav1_p1_comparison_phase_s_axi_arready => dsp_cav1_p1_comparison_phase_s_axi_arready,
-    dsp_cav1_p1_comparison_phase_s_axi_rdata => dsp_cav1_p1_comparison_phase_s_axi_rdata,
-    dsp_cav1_p1_comparison_phase_s_axi_rresp => dsp_cav1_p1_comparison_phase_s_axi_rresp,
-    dsp_cav1_p1_comparison_phase_s_axi_rvalid => dsp_cav1_p1_comparison_phase_s_axi_rvalid,
-    dsp_cav1_p1_comparison_q_s_axi_awready => dsp_cav1_p1_comparison_q_s_axi_awready,
-    dsp_cav1_p1_comparison_q_s_axi_wready => dsp_cav1_p1_comparison_q_s_axi_wready,
-    dsp_cav1_p1_comparison_q_s_axi_bresp => dsp_cav1_p1_comparison_q_s_axi_bresp,
-    dsp_cav1_p1_comparison_q_s_axi_bvalid => dsp_cav1_p1_comparison_q_s_axi_bvalid,
-    dsp_cav1_p1_comparison_q_s_axi_arready => dsp_cav1_p1_comparison_q_s_axi_arready,
-    dsp_cav1_p1_comparison_q_s_axi_rdata => dsp_cav1_p1_comparison_q_s_axi_rdata,
-    dsp_cav1_p1_comparison_q_s_axi_rresp => dsp_cav1_p1_comparison_q_s_axi_rresp,
-    dsp_cav1_p1_comparison_q_s_axi_rvalid => dsp_cav1_p1_comparison_q_s_axi_rvalid,
-    dsp_cav1_p1_dc_freq_s_axi_awready => dsp_cav1_p1_dc_freq_s_axi_awready,
-    dsp_cav1_p1_dc_freq_s_axi_wready => dsp_cav1_p1_dc_freq_s_axi_wready,
-    dsp_cav1_p1_dc_freq_s_axi_bresp => dsp_cav1_p1_dc_freq_s_axi_bresp,
-    dsp_cav1_p1_dc_freq_s_axi_bvalid => dsp_cav1_p1_dc_freq_s_axi_bvalid,
-    dsp_cav1_p1_dc_freq_s_axi_arready => dsp_cav1_p1_dc_freq_s_axi_arready,
-    dsp_cav1_p1_dc_freq_s_axi_rdata => dsp_cav1_p1_dc_freq_s_axi_rdata,
-    dsp_cav1_p1_dc_freq_s_axi_rresp => dsp_cav1_p1_dc_freq_s_axi_rresp,
-    dsp_cav1_p1_dc_freq_s_axi_rvalid => dsp_cav1_p1_dc_freq_s_axi_rvalid,
-    dsp_cav1_p1_dc_img_s_axi_awready => dsp_cav1_p1_dc_img_s_axi_awready,
-    dsp_cav1_p1_dc_img_s_axi_wready => dsp_cav1_p1_dc_img_s_axi_wready,
-    dsp_cav1_p1_dc_img_s_axi_bresp => dsp_cav1_p1_dc_img_s_axi_bresp,
-    dsp_cav1_p1_dc_img_s_axi_bvalid => dsp_cav1_p1_dc_img_s_axi_bvalid,
-    dsp_cav1_p1_dc_img_s_axi_arready => dsp_cav1_p1_dc_img_s_axi_arready,
-    dsp_cav1_p1_dc_img_s_axi_rdata => dsp_cav1_p1_dc_img_s_axi_rdata,
-    dsp_cav1_p1_dc_img_s_axi_rresp => dsp_cav1_p1_dc_img_s_axi_rresp,
-    dsp_cav1_p1_dc_img_s_axi_rvalid => dsp_cav1_p1_dc_img_s_axi_rvalid,
-    dsp_cav1_p1_dc_real_s_axi_awready => dsp_cav1_p1_dc_real_s_axi_awready,
-    dsp_cav1_p1_dc_real_s_axi_wready => dsp_cav1_p1_dc_real_s_axi_wready,
-    dsp_cav1_p1_dc_real_s_axi_bresp => dsp_cav1_p1_dc_real_s_axi_bresp,
-    dsp_cav1_p1_dc_real_s_axi_bvalid => dsp_cav1_p1_dc_real_s_axi_bvalid,
-    dsp_cav1_p1_dc_real_s_axi_arready => dsp_cav1_p1_dc_real_s_axi_arready,
-    dsp_cav1_p1_dc_real_s_axi_rdata => dsp_cav1_p1_dc_real_s_axi_rdata,
-    dsp_cav1_p1_dc_real_s_axi_rresp => dsp_cav1_p1_dc_real_s_axi_rresp,
-    dsp_cav1_p1_dc_real_s_axi_rvalid => dsp_cav1_p1_dc_real_s_axi_rvalid,
-    dsp_cav1_p1_if_amp_s_axi_awready => dsp_cav1_p1_if_amp_s_axi_awready,
-    dsp_cav1_p1_if_amp_s_axi_wready => dsp_cav1_p1_if_amp_s_axi_wready,
-    dsp_cav1_p1_if_amp_s_axi_bresp => dsp_cav1_p1_if_amp_s_axi_bresp,
-    dsp_cav1_p1_if_amp_s_axi_bvalid => dsp_cav1_p1_if_amp_s_axi_bvalid,
-    dsp_cav1_p1_if_amp_s_axi_arready => dsp_cav1_p1_if_amp_s_axi_arready,
-    dsp_cav1_p1_if_amp_s_axi_rdata => dsp_cav1_p1_if_amp_s_axi_rdata,
-    dsp_cav1_p1_if_amp_s_axi_rresp => dsp_cav1_p1_if_amp_s_axi_rresp,
-    dsp_cav1_p1_if_amp_s_axi_rvalid => dsp_cav1_p1_if_amp_s_axi_rvalid,
-    dsp_cav1_p1_if_i_s_axi_awready => dsp_cav1_p1_if_i_s_axi_awready,
-    dsp_cav1_p1_if_i_s_axi_wready => dsp_cav1_p1_if_i_s_axi_wready,
-    dsp_cav1_p1_if_i_s_axi_bresp => dsp_cav1_p1_if_i_s_axi_bresp,
-    dsp_cav1_p1_if_i_s_axi_bvalid => dsp_cav1_p1_if_i_s_axi_bvalid,
-    dsp_cav1_p1_if_i_s_axi_arready => dsp_cav1_p1_if_i_s_axi_arready,
-    dsp_cav1_p1_if_i_s_axi_rdata => dsp_cav1_p1_if_i_s_axi_rdata,
-    dsp_cav1_p1_if_i_s_axi_rresp => dsp_cav1_p1_if_i_s_axi_rresp,
-    dsp_cav1_p1_if_i_s_axi_rvalid => dsp_cav1_p1_if_i_s_axi_rvalid,
-    dsp_cav1_p1_if_phase_s_axi_awready => dsp_cav1_p1_if_phase_s_axi_awready,
-    dsp_cav1_p1_if_phase_s_axi_wready => dsp_cav1_p1_if_phase_s_axi_wready,
-    dsp_cav1_p1_if_phase_s_axi_bresp => dsp_cav1_p1_if_phase_s_axi_bresp,
-    dsp_cav1_p1_if_phase_s_axi_bvalid => dsp_cav1_p1_if_phase_s_axi_bvalid,
-    dsp_cav1_p1_if_phase_s_axi_arready => dsp_cav1_p1_if_phase_s_axi_arready,
-    dsp_cav1_p1_if_phase_s_axi_rdata => dsp_cav1_p1_if_phase_s_axi_rdata,
-    dsp_cav1_p1_if_phase_s_axi_rresp => dsp_cav1_p1_if_phase_s_axi_rresp,
-    dsp_cav1_p1_if_phase_s_axi_rvalid => dsp_cav1_p1_if_phase_s_axi_rvalid,
-    dsp_cav1_p1_if_q_s_axi_awready => dsp_cav1_p1_if_q_s_axi_awready,
-    dsp_cav1_p1_if_q_s_axi_wready => dsp_cav1_p1_if_q_s_axi_wready,
-    dsp_cav1_p1_if_q_s_axi_bresp => dsp_cav1_p1_if_q_s_axi_bresp,
-    dsp_cav1_p1_if_q_s_axi_bvalid => dsp_cav1_p1_if_q_s_axi_bvalid,
-    dsp_cav1_p1_if_q_s_axi_arready => dsp_cav1_p1_if_q_s_axi_arready,
-    dsp_cav1_p1_if_q_s_axi_rdata => dsp_cav1_p1_if_q_s_axi_rdata,
-    dsp_cav1_p1_if_q_s_axi_rresp => dsp_cav1_p1_if_q_s_axi_rresp,
-    dsp_cav1_p1_if_q_s_axi_rvalid => dsp_cav1_p1_if_q_s_axi_rvalid,
-    dsp_cav1_p1_integrated_i_s_axi_awready => dsp_cav1_p1_integrated_i_s_axi_awready,
-    dsp_cav1_p1_integrated_i_s_axi_wready => dsp_cav1_p1_integrated_i_s_axi_wready,
-    dsp_cav1_p1_integrated_i_s_axi_bresp => dsp_cav1_p1_integrated_i_s_axi_bresp,
-    dsp_cav1_p1_integrated_i_s_axi_bvalid => dsp_cav1_p1_integrated_i_s_axi_bvalid,
-    dsp_cav1_p1_integrated_i_s_axi_arready => dsp_cav1_p1_integrated_i_s_axi_arready,
-    dsp_cav1_p1_integrated_i_s_axi_rdata => dsp_cav1_p1_integrated_i_s_axi_rdata,
-    dsp_cav1_p1_integrated_i_s_axi_rresp => dsp_cav1_p1_integrated_i_s_axi_rresp,
-    dsp_cav1_p1_integrated_i_s_axi_rvalid => dsp_cav1_p1_integrated_i_s_axi_rvalid,
-    dsp_cav1_p1_integrated_q_s_axi_awready => dsp_cav1_p1_integrated_q_s_axi_awready,
-    dsp_cav1_p1_integrated_q_s_axi_wready => dsp_cav1_p1_integrated_q_s_axi_wready,
-    dsp_cav1_p1_integrated_q_s_axi_bresp => dsp_cav1_p1_integrated_q_s_axi_bresp,
-    dsp_cav1_p1_integrated_q_s_axi_bvalid => dsp_cav1_p1_integrated_q_s_axi_bvalid,
-    dsp_cav1_p1_integrated_q_s_axi_arready => dsp_cav1_p1_integrated_q_s_axi_arready,
-    dsp_cav1_p1_integrated_q_s_axi_rdata => dsp_cav1_p1_integrated_q_s_axi_rdata,
-    dsp_cav1_p1_integrated_q_s_axi_rresp => dsp_cav1_p1_integrated_q_s_axi_rresp,
-    dsp_cav1_p1_integrated_q_s_axi_rvalid => dsp_cav1_p1_integrated_q_s_axi_rvalid,
-    dsp_cav1_p1_phase_out_s_axi_awready => dsp_cav1_p1_phase_out_s_axi_awready,
-    dsp_cav1_p1_phase_out_s_axi_wready => dsp_cav1_p1_phase_out_s_axi_wready,
-    dsp_cav1_p1_phase_out_s_axi_bresp => dsp_cav1_p1_phase_out_s_axi_bresp,
-    dsp_cav1_p1_phase_out_s_axi_bvalid => dsp_cav1_p1_phase_out_s_axi_bvalid,
-    dsp_cav1_p1_phase_out_s_axi_arready => dsp_cav1_p1_phase_out_s_axi_arready,
-    dsp_cav1_p1_phase_out_s_axi_rdata => dsp_cav1_p1_phase_out_s_axi_rdata,
-    dsp_cav1_p1_phase_out_s_axi_rresp => dsp_cav1_p1_phase_out_s_axi_rresp,
-    dsp_cav1_p1_phase_out_s_axi_rvalid => dsp_cav1_p1_phase_out_s_axi_rvalid,
     dsp_cav1_p1_window_start_s_axi_awready => dsp_cav1_p1_window_start_s_axi_awready,
     dsp_cav1_p1_window_start_s_axi_wready => dsp_cav1_p1_window_start_s_axi_wready,
     dsp_cav1_p1_window_start_s_axi_bresp => dsp_cav1_p1_window_start_s_axi_bresp,

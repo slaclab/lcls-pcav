@@ -7,21 +7,7 @@ int example_CfgInitialize(example *InstancePtr, example_Config *ConfigPtr) {
     InstancePtr->example_BaseAddress = ConfigPtr->example_BaseAddress;
     InstancePtr->example_cav1_nco_phase_adj_BaseAddress = ConfigPtr->example_cav1_nco_phase_adj_BaseAddress;
     InstancePtr->example_cav1_nco_phase_reset_BaseAddress = ConfigPtr->example_cav1_nco_phase_reset_BaseAddress;
-    InstancePtr->example_cav1_p1_amp_out_BaseAddress = ConfigPtr->example_cav1_p1_amp_out_BaseAddress;
     InstancePtr->example_cav1_p1_chan_sel_BaseAddress = ConfigPtr->example_cav1_p1_chan_sel_BaseAddress;
-    InstancePtr->example_cav1_p1_comparison_i_BaseAddress = ConfigPtr->example_cav1_p1_comparison_i_BaseAddress;
-    InstancePtr->example_cav1_p1_comparison_phase_BaseAddress = ConfigPtr->example_cav1_p1_comparison_phase_BaseAddress;
-    InstancePtr->example_cav1_p1_comparison_q_BaseAddress = ConfigPtr->example_cav1_p1_comparison_q_BaseAddress;
-    InstancePtr->example_cav1_p1_dc_freq_BaseAddress = ConfigPtr->example_cav1_p1_dc_freq_BaseAddress;
-    InstancePtr->example_cav1_p1_dc_img_BaseAddress = ConfigPtr->example_cav1_p1_dc_img_BaseAddress;
-    InstancePtr->example_cav1_p1_dc_real_BaseAddress = ConfigPtr->example_cav1_p1_dc_real_BaseAddress;
-    InstancePtr->example_cav1_p1_if_amp_BaseAddress = ConfigPtr->example_cav1_p1_if_amp_BaseAddress;
-    InstancePtr->example_cav1_p1_if_i_BaseAddress = ConfigPtr->example_cav1_p1_if_i_BaseAddress;
-    InstancePtr->example_cav1_p1_if_phase_BaseAddress = ConfigPtr->example_cav1_p1_if_phase_BaseAddress;
-    InstancePtr->example_cav1_p1_if_q_BaseAddress = ConfigPtr->example_cav1_p1_if_q_BaseAddress;
-    InstancePtr->example_cav1_p1_integrated_i_BaseAddress = ConfigPtr->example_cav1_p1_integrated_i_BaseAddress;
-    InstancePtr->example_cav1_p1_integrated_q_BaseAddress = ConfigPtr->example_cav1_p1_integrated_q_BaseAddress;
-    InstancePtr->example_cav1_p1_phase_out_BaseAddress = ConfigPtr->example_cav1_p1_phase_out_BaseAddress;
     InstancePtr->example_cav1_p1_window_start_BaseAddress = ConfigPtr->example_cav1_p1_window_start_BaseAddress;
     InstancePtr->example_cav1_p1_window_stop_BaseAddress = ConfigPtr->example_cav1_p1_window_stop_BaseAddress;
     InstancePtr->example_cav1_p2_amp_out_BaseAddress = ConfigPtr->example_cav1_p2_amp_out_BaseAddress;
@@ -109,6 +95,118 @@ u32 example_status_0_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 1016);
     return Data;
 }
+int example_cav1_p1_amp_out_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 256);
+    return Data;
+}
+int example_cav1_p1_comparison_i_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 260);
+    return Data;
+}
+int example_cav1_p1_comparison_phase_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 268);
+    return Data;
+}
+int example_cav1_p1_comparison_q_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 264);
+    return Data;
+}
+int example_cav1_p1_dc_freq_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 240);
+    return Data;
+}
+int example_cav1_p1_dc_img_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 228);
+    return Data;
+}
+int example_cav1_p1_dc_real_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 224);
+    return Data;
+}
+int example_cav1_p1_if_amp_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 204);
+    return Data;
+}
+int example_cav1_p1_if_i_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 212);
+    return Data;
+}
+int example_cav1_p1_if_phase_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 208);
+    return Data;
+}
+int example_cav1_p1_if_q_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 216);
+    return Data;
+}
+int example_cav1_p1_integrated_i_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 244);
+    return Data;
+}
+int example_cav1_p1_integrated_q_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 248);
+    return Data;
+}
+int example_cav1_p1_phase_out_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 252);
+    return Data;
+}
 void example_cav2_nco_phase_adj_write(example *InstancePtr, u32 Data) {
 
     Xil_AssertVoid(InstancePtr != NULL);
@@ -165,14 +263,6 @@ u32 example_cav1_nco_phase_reset_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_cav1_nco_phase_reset_BaseAddress, 284);
     return Data;
 }
-int example_cav1_p1_amp_out_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_amp_out_BaseAddress, 256);
-    return Data;
-}
 void example_cav1_p1_chan_sel_write(example *InstancePtr, u8 Data) {
 
     Xil_AssertVoid(InstancePtr != NULL);
@@ -185,110 +275,6 @@ u8 example_cav1_p1_chan_sel_read(example *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
 
     Data = example_ReadReg(InstancePtr->example_cav1_p1_chan_sel_BaseAddress, 220);
-    return Data;
-}
-int example_cav1_p1_comparison_i_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_comparison_i_BaseAddress, 260);
-    return Data;
-}
-int example_cav1_p1_comparison_phase_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_comparison_phase_BaseAddress, 268);
-    return Data;
-}
-int example_cav1_p1_comparison_q_x0_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_comparison_q_BaseAddress, 264);
-    return Data;
-}
-int example_cav1_p1_dc_freq_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_dc_freq_BaseAddress, 240);
-    return Data;
-}
-int example_cav1_p1_dc_img_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_dc_img_BaseAddress, 228);
-    return Data;
-}
-int example_cav1_p1_dc_real_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_dc_real_BaseAddress, 224);
-    return Data;
-}
-int example_cav1_p1_if_amp_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_if_amp_BaseAddress, 204);
-    return Data;
-}
-int example_cav1_p1_if_i_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_if_i_BaseAddress, 212);
-    return Data;
-}
-int example_cav1_p1_if_phase_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_if_phase_BaseAddress, 208);
-    return Data;
-}
-int example_cav1_p1_if_q_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_if_q_BaseAddress, 216);
-    return Data;
-}
-int example_cav1_p1_integrated_i_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_integrated_i_BaseAddress, 244);
-    return Data;
-}
-int example_cav1_p1_integrated_q_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_integrated_q_BaseAddress, 248);
-    return Data;
-}
-int example_cav1_p1_phase_out_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_cav1_p1_phase_out_BaseAddress, 252);
     return Data;
 }
 void example_cav1_p1_window_start_write(example *InstancePtr, u32 Data) {
@@ -511,7 +497,7 @@ int example_cav2_p1_comparison_phase_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_cav2_p1_comparison_phase_BaseAddress, 676);
     return Data;
 }
-int example_cav1_p1_comparison_q_read(example *InstancePtr) {
+int example_cav1_p1_comparison_q_x0_read(example *InstancePtr) {
 
     int Data;
     Xil_AssertVoid(InstancePtr != NULL);

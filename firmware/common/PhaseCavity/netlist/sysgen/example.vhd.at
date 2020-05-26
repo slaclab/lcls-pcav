@@ -1,1753 +1,1828 @@
 {
-  'Line_100' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/ddc_nco/dds_compiler_6_0',
-    'Instance' => 'dds_compiler_6_0',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/DDC
-NCO/DDS Compiler 6.0 '
+  'Line_1062' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/constant13',
+    'Instance' => 'constant13',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Constant13'
   },
-  'Line_1012' => {
+  'Line_1069' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/delay',
+    'Instance' => 'delay',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Delay'
+  },
+  'Line_1084' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/delay1',
+    'Instance' => 'delay1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Delay1'
+  },
+  'Line_1099' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/down_sample',
+    'Instance' => 'down_sample',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Down Sample'
+  },
+  'Line_1123' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/down_sample1',
+    'Instance' => 'down_sample1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Down Sample1'
+  },
+  'Line_1147' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register_x0',
+    'Instance' => 'register_x0',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register'
+  },
+  'Line_1160' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register1',
+    'Instance' => 'register1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register1'
+  },
+  'Line_1173' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register2',
+    'Instance' => 'register2',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register2'
+  },
+  'Line_1186' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register3',
+    'Instance' => 'register3',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register3'
+  },
+  'Line_1199' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register6',
+    'Instance' => 'register6',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register6'
+  },
+  'Line_1212' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/relational',
+    'Instance' => 'relational',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Relational'
+  },
+  'Line_1221' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/relational1',
+    'Instance' => 'relational1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Relational1'
+  },
+  'Line_126' => {
+    'CodeInstance' => 'example_struct/axi_lite/register27',
+    'Instance' => 'register27',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register27'
+  },
+  'Line_1272' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1',
+    'Instance' => 'channel_select1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1'
+  },
+  'Line_1337' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/constant13',
+    'Instance' => 'constant13',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Constant13'
+  },
+  'Line_1344' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/delay',
+    'Instance' => 'delay',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Delay'
+  },
+  'Line_1359' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/delay1',
+    'Instance' => 'delay1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Delay1'
+  },
+  'Line_1374' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/down_sample',
+    'Instance' => 'down_sample',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Down Sample'
+  },
+  'Line_139' => {
+    'CodeInstance' => 'example_struct/axi_lite/versionnumber',
+    'Instance' => 'versionnumber',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/VersionNumber'
+  },
+  'Line_1398' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/down_sample1',
+    'Instance' => 'down_sample1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Down Sample1'
+  },
+  'Line_1422' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register_x0',
+    'Instance' => 'register_x0',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register'
+  },
+  'Line_1435' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register1',
+    'Instance' => 'register1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register1'
+  },
+  'Line_1448' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register2',
+    'Instance' => 'register2',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register2'
+  },
+  'Line_146' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample11',
+    'Instance' => 'down_sample11',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample11'
+  },
+  'Line_1461' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register3',
+    'Instance' => 'register3',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register3'
+  },
+  'Line_1474' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register6',
+    'Instance' => 'register6',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register6'
+  },
+  'Line_1487' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/relational',
+    'Instance' => 'relational',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Relational'
+  },
+  'Line_1496' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/relational1',
+    'Instance' => 'relational1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Relational1'
+  },
+  'Line_1547' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3',
+    'Instance' => 'channel_select3',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3'
+  },
+  'Line_1612' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/constant13',
+    'Instance' => 'constant13',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Constant13'
+  },
+  'Line_1619' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/delay',
+    'Instance' => 'delay',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Delay'
+  },
+  'Line_1634' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Delay1'
   },
-  'Line_1027' => {
+  'Line_1649' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Down Sample'
   },
-  'Line_1051' => {
+  'Line_1673' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Down Sample1'
   },
-  'Line_1075' => {
+  'Line_1697' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Register'
   },
-  'Line_1088' => {
+  'Line_170' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample1',
+    'Instance' => 'down_sample1',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample1'
+  },
+  'Line_1710' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Register1'
   },
-  'Line_1101' => {
+  'Line_1723' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Register2'
   },
-  'Line_1114' => {
+  'Line_1736' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Register3'
   },
-  'Line_1127' => {
+  'Line_1749' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Register6'
   },
-  'Line_1140' => {
+  'Line_1762' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Relational'
   },
-  'Line_1149' => {
+  'Line_1771' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Relational1'
   },
-  'Line_1200' => {
+  'Line_1822' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3',
     'Instance' => 'channel_select3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3'
   },
-  'Line_1446' => {
+  'Line_194' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample2',
+    'Instance' => 'down_sample2',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample2'
+  },
+  'Line_2026' => {
     'CodeInstance' => 'example_struct/dsp/cav1/ddc_nco',
     'Instance' => 'ddc_nco',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/DDC NCO'
   },
-  'Line_1458' => {
+  'Line_2038' => {
     'CodeInstance' => 'example_struct/dsp/cav1/pa_select',
     'Instance' => 'pa_select',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select'
   },
-  'Line_1471' => {
+  'Line_2051' => {
     'CodeInstance' => 'example_struct/dsp/cav1/pa_select1',
     'Instance' => 'pa_select1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1'
   },
-  'Line_1484' => {
+  'Line_2064' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0',
     'Instance' => 'subsystem1_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1'
   },
-  'Line_1497' => {
+  'Line_2077' => {
     'CodeInstance' => 'example_struct/dsp/cav1/subsystem3',
     'Instance' => 'subsystem3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3'
   },
-  'Line_1510' => {
+  'Line_2090' => {
     'CodeInstance' => 'example_struct/dsp/cav1/clock_enable_probe',
     'Instance' => 'clock_enable_probe',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Clock Enable Probe'
   },
-  'Line_1521' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/complex_multiplier_6_0',
-    'Instance' => 'complex_multiplier_6_0',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Complex Multiplier 6.0 '
-  },
-  'Line_1535' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register2',
-    'Instance' => 'register2',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register2'
-  },
-  'Line_1548' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register1',
-    'Instance' => 'register1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register1'
-  },
-  'Line_1561' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register3',
-    'Instance' => 'register3',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register3'
-  },
-  'Line_1574' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register4',
-    'Instance' => 'register4',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register4'
-  },
-  'Line_1587' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register5',
-    'Instance' => 'register5',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register5'
-  },
-  'Line_1600' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register6',
-    'Instance' => 'register6',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register6'
-  },
-  'Line_1613' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register7',
-    'Instance' => 'register7',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register7'
-  },
-  'Line_1626' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register8',
-    'Instance' => 'register8',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register8'
-  },
-  'Line_1639' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register9',
-    'Instance' => 'register9',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register9'
-  },
-  'Line_165' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/constant13',
-    'Instance' => 'constant13',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Constant13'
-  },
-  'Line_1652' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register10',
-    'Instance' => 'register10',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register10'
-  },
-  'Line_1665' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register11',
-    'Instance' => 'register11',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register11'
-  },
-  'Line_1678' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register12',
-    'Instance' => 'register12',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register12'
-  },
-  'Line_1691' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register13',
-    'Instance' => 'register13',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register13'
-  },
-  'Line_1704' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register14',
-    'Instance' => 'register14',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register14'
-  },
-  'Line_1717' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register15',
-    'Instance' => 'register15',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register15'
-  },
-  'Line_172' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/delay',
-    'Instance' => 'delay',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Delay'
-  },
-  'Line_1730' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register16',
-    'Instance' => 'register16',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register16'
-  },
-  'Line_1743' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register17',
-    'Instance' => 'register17',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register17'
-  },
-  'Line_1756' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register18',
-    'Instance' => 'register18',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register18'
-  },
-  'Line_1769' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register19',
-    'Instance' => 'register19',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register19'
-  },
-  'Line_1782' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register20',
-    'Instance' => 'register20',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register20'
-  },
-  'Line_1795' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register21',
-    'Instance' => 'register21',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register21'
-  },
-  'Line_1808' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register22',
-    'Instance' => 'register22',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register22'
-  },
-  'Line_1821' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register23',
-    'Instance' => 'register23',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register23'
-  },
-  'Line_1834' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register24',
-    'Instance' => 'register24',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register24'
-  },
-  'Line_1847' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register25',
-    'Instance' => 'register25',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register25'
-  },
-  'Line_1860' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register26',
-    'Instance' => 'register26',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register26'
-  },
-  'Line_187' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/delay1',
-    'Instance' => 'delay1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Delay1'
-  },
-  'Line_1873' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register27',
-    'Instance' => 'register27',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register27'
-  },
-  'Line_1886' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register28',
-    'Instance' => 'register28',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register28'
-  },
-  'Line_1899' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register29',
-    'Instance' => 'register29',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register29'
-  },
-  'Line_1912' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register30',
-    'Instance' => 'register30',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register30'
-  },
-  'Line_1925' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant_x0',
-    'Instance' => 'constant_x0',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant'
-  },
-  'Line_1932' => {
+  'Line_2101' => {
     'CodeInstance' => 'example_struct/dsp/cav1/clock_enable_probe1',
     'Instance' => 'clock_enable_probe1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Clock Enable Probe1'
   },
-  'Line_1943' => {
+  'Line_2112' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/complex_multiplier_6_0',
+    'Instance' => 'complex_multiplier_6_0',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Complex Multiplier 6.0 '
+  },
+  'Line_2126' => {
     'CodeInstance' => 'example_struct/dsp/cav1/complex_multiplier_6_0_1',
     'Instance' => 'complex_multiplier_6_0_1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Complex Multiplier 6.0 1'
   },
-  'Line_1957' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register32',
-    'Instance' => 'register32',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register32'
+  'Line_2140' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant_x0',
+    'Instance' => 'constant_x0',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant'
   },
-  'Line_1970' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/register33',
-    'Instance' => 'register33',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register33'
-  },
-  'Line_1983' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant9',
-    'Instance' => 'constant9',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant9'
-  },
-  'Line_1990' => {
+  'Line_2147' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant10',
     'Instance' => 'constant10',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant10'
   },
-  'Line_1997' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant3',
-    'Instance' => 'constant3',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant3'
-  },
-  'Line_2004' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant4',
-    'Instance' => 'constant4',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant4'
-  },
-  'Line_2011' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant5',
-    'Instance' => 'constant5',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant5'
-  },
-  'Line_2018' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant6',
-    'Instance' => 'constant6',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant6'
-  },
-  'Line_202' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/down_sample',
-    'Instance' => 'down_sample',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Down Sample'
-  },
-  'Line_2025' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant7',
-    'Instance' => 'constant7',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant7'
-  },
-  'Line_2032' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/constant8',
-    'Instance' => 'constant8',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant8'
-  },
-  'Line_2039' => {
+  'Line_2154' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant11',
     'Instance' => 'constant11',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant11'
   },
-  'Line_2046' => {
+  'Line_2161' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant12',
     'Instance' => 'constant12',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant12'
   },
-  'Line_2053' => {
+  'Line_2168' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant14',
     'Instance' => 'constant14',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant14'
   },
-  'Line_2060' => {
+  'Line_2175' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant18',
     'Instance' => 'constant18',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant18'
   },
-  'Line_2067' => {
+  'Line_218' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample3',
+    'Instance' => 'down_sample3',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample3'
+  },
+  'Line_2182' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant19',
     'Instance' => 'constant19',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant19'
   },
-  'Line_2074' => {
+  'Line_2189' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant21',
     'Instance' => 'constant21',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant21'
   },
-  'Line_2081' => {
+  'Line_2196' => {
     'CodeInstance' => 'example_struct/dsp/cav1/constant23',
     'Instance' => 'constant23',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant23'
   },
-  'Line_2128' => {
+  'Line_2203' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant3',
+    'Instance' => 'constant3',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant3'
+  },
+  'Line_2210' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant4',
+    'Instance' => 'constant4',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant4'
+  },
+  'Line_2217' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant5',
+    'Instance' => 'constant5',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant5'
+  },
+  'Line_2224' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant6',
+    'Instance' => 'constant6',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant6'
+  },
+  'Line_2231' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant7',
+    'Instance' => 'constant7',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant7'
+  },
+  'Line_2238' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant8',
+    'Instance' => 'constant8',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant8'
+  },
+  'Line_2245' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/constant9',
+    'Instance' => 'constant9',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Constant9'
+  },
+  'Line_2252' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register1',
+    'Instance' => 'register1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register1'
+  },
+  'Line_2265' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register17',
+    'Instance' => 'register17',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register17'
+  },
+  'Line_2278' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register18',
+    'Instance' => 'register18',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register18'
+  },
+  'Line_2291' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register19',
+    'Instance' => 'register19',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register19'
+  },
+  'Line_2304' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register2',
+    'Instance' => 'register2',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register2'
+  },
+  'Line_2317' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register20',
+    'Instance' => 'register20',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register20'
+  },
+  'Line_2330' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register21',
+    'Instance' => 'register21',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register21'
+  },
+  'Line_2343' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register22',
+    'Instance' => 'register22',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register22'
+  },
+  'Line_2356' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register23',
+    'Instance' => 'register23',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register23'
+  },
+  'Line_2369' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register24',
+    'Instance' => 'register24',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register24'
+  },
+  'Line_2382' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register25',
+    'Instance' => 'register25',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register25'
+  },
+  'Line_2395' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register26',
+    'Instance' => 'register26',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register26'
+  },
+  'Line_2408' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register27',
+    'Instance' => 'register27',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register27'
+  },
+  'Line_242' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample4',
+    'Instance' => 'down_sample4',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample4'
+  },
+  'Line_2421' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register28',
+    'Instance' => 'register28',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register28'
+  },
+  'Line_2434' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register29',
+    'Instance' => 'register29',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register29'
+  },
+  'Line_2447' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register30',
+    'Instance' => 'register30',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register30'
+  },
+  'Line_2460' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register32',
+    'Instance' => 'register32',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register32'
+  },
+  'Line_2473' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/register33',
+    'Instance' => 'register33',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Register33'
+  },
+  'Line_2526' => {
     'CodeInstance' => 'example_struct/dsp/cav2/ddc_nco/clock_enable_probe1',
     'Instance' => 'clock_enable_probe1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/DDC
 NCO/Clock Enable Probe1'
   },
-  'Line_2139' => {
+  'Line_2537' => {
     'CodeInstance' => 'example_struct/dsp/cav2/ddc_nco/constant21',
     'Instance' => 'constant21',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/DDC
 NCO/Constant21'
   },
-  'Line_2146' => {
+  'Line_2544' => {
     'CodeInstance' => 'example_struct/dsp/cav2/ddc_nco/dds_compiler_6_0',
     'Instance' => 'dds_compiler_6_0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/DDC
 NCO/DDS Compiler 6.0 '
   },
-  'Line_22' => {
-    'CodeInstance' => 'example_struct/axi_lite/register27',
-    'Instance' => 'register27',
-    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register27'
-  },
-  'Line_2211' => {
+  'Line_2609' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Constant13'
   },
-  'Line_2218' => {
+  'Line_2616' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Delay'
   },
-  'Line_2233' => {
+  'Line_2631' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Delay1'
   },
-  'Line_2248' => {
+  'Line_2646' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Down Sample'
   },
-  'Line_226' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/down_sample1',
-    'Instance' => 'down_sample1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Down Sample1'
+  'Line_266' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample5',
+    'Instance' => 'down_sample5',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample5'
   },
-  'Line_2272' => {
+  'Line_2670' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Down Sample1'
   },
-  'Line_2296' => {
+  'Line_2694' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Register'
   },
-  'Line_2309' => {
+  'Line_2707' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Register1'
   },
-  'Line_2322' => {
+  'Line_2720' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Register2'
   },
-  'Line_2335' => {
+  'Line_2733' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Register3'
   },
-  'Line_2348' => {
+  'Line_2746' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Register6'
   },
-  'Line_2361' => {
+  'Line_2759' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Relational'
   },
-  'Line_2370' => {
+  'Line_2768' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1/Relational1'
   },
-  'Line_2421' => {
+  'Line_2819' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select/channel_select1',
     'Instance' => 'channel_select1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select/Channel Select1'
   },
-  'Line_2486' => {
+  'Line_2884' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Constant13'
   },
-  'Line_2493' => {
+  'Line_2891' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Delay'
   },
-  'Line_250' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register_x0',
-    'Instance' => 'register_x0',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register'
+  'Line_290' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample6',
+    'Instance' => 'down_sample6',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample6'
   },
-  'Line_2508' => {
+  'Line_2906' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Delay1'
   },
-  'Line_2523' => {
+  'Line_2921' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Down Sample'
   },
-  'Line_2547' => {
+  'Line_2945' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Down Sample1'
   },
-  'Line_2571' => {
+  'Line_2969' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Register'
   },
-  'Line_2584' => {
+  'Line_2982' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Register1'
   },
-  'Line_2597' => {
+  'Line_2995' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Register2'
   },
-  'Line_2610' => {
+  'Line_3008' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Register3'
   },
-  'Line_2623' => {
+  'Line_3021' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Register6'
   },
-  'Line_263' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register1',
-    'Instance' => 'register1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register1'
-  },
-  'Line_2636' => {
+  'Line_3034' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Relational'
   },
-  'Line_2645' => {
+  'Line_3043' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1/Relational1'
   },
-  'Line_2696' => {
+  'Line_3094' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1/channel_select1',
     'Instance' => 'channel_select1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1/Channel Select1'
   },
-  'Line_276' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register2',
-    'Instance' => 'register2',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register2'
+  'Line_314' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample7',
+    'Instance' => 'down_sample7',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample7'
   },
-  'Line_2761' => {
+  'Line_3159' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Constant13'
   },
-  'Line_2768' => {
+  'Line_3166' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Delay'
   },
-  'Line_2783' => {
+  'Line_3181' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Delay1'
   },
-  'Line_2798' => {
+  'Line_3196' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Down Sample'
   },
-  'Line_2822' => {
+  'Line_3220' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Down Sample1'
   },
-  'Line_2846' => {
+  'Line_3244' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Register'
   },
-  'Line_2859' => {
+  'Line_3257' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Register1'
   },
-  'Line_2872' => {
+  'Line_3270' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Register2'
   },
-  'Line_2885' => {
+  'Line_3283' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Register3'
   },
-  'Line_289' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register3',
-    'Instance' => 'register3',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register3'
-  },
-  'Line_2898' => {
+  'Line_3296' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Register6'
   },
-  'Line_2911' => {
+  'Line_3309' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Relational'
   },
-  'Line_2920' => {
+  'Line_3318' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3/Relational1'
   },
-  'Line_2971' => {
+  'Line_3369' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0/channel_select3',
     'Instance' => 'channel_select3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1/Channel Select3'
   },
-  'Line_302' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register6',
-    'Instance' => 'register6',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register6'
+  'Line_338' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample8',
+    'Instance' => 'down_sample8',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample8'
   },
-  'Line_3036' => {
+  'Line_3434' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Constant13'
   },
-  'Line_3043' => {
+  'Line_3441' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Delay'
   },
-  'Line_3058' => {
+  'Line_3456' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Delay1'
   },
-  'Line_3073' => {
+  'Line_3471' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Down Sample'
   },
-  'Line_3097' => {
+  'Line_3495' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Down Sample1'
   },
-  'Line_3121' => {
+  'Line_3519' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Register'
   },
-  'Line_3134' => {
+  'Line_3532' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Register1'
   },
-  'Line_3147' => {
+  'Line_3545' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Register2'
   },
-  'Line_315' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/relational',
-    'Instance' => 'relational',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Relational'
-  },
-  'Line_3160' => {
+  'Line_3558' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Register3'
   },
-  'Line_3173' => {
+  'Line_3571' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Register6'
   },
-  'Line_3186' => {
+  'Line_3584' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Relational'
   },
-  'Line_3195' => {
+  'Line_3593' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3/Relational1'
   },
-  'Line_324' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/relational1',
-    'Instance' => 'relational1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Relational1'
+  'Line_362' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample9',
+    'Instance' => 'down_sample9',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample9'
   },
-  'Line_3246' => {
+  'Line_3644' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3/channel_select3',
     'Instance' => 'channel_select3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3/Channel Select3'
   },
-  'Line_3492' => {
+  'Line_386' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample10',
+    'Instance' => 'down_sample10',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample10'
+  },
+  'Line_3890' => {
     'CodeInstance' => 'example_struct/dsp/cav2/ddc_nco',
     'Instance' => 'ddc_nco',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/DDC NCO'
   },
-  'Line_35' => {
-    'CodeInstance' => 'example_struct/axi_lite/versionnumber',
-    'Instance' => 'versionnumber',
-    'SimulinkInstance' => 'exampleModel/example/axi_lite/VersionNumber'
-  },
-  'Line_3504' => {
+  'Line_3902' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select',
     'Instance' => 'pa_select',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select'
   },
-  'Line_3517' => {
+  'Line_3915' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1',
     'Instance' => 'pa_select1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/PA_select1'
   },
-  'Line_3530' => {
+  'Line_3928' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0',
     'Instance' => 'subsystem1_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem1'
   },
-  'Line_3543' => {
+  'Line_3941' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3',
     'Instance' => 'subsystem3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Subsystem3'
   },
-  'Line_3556' => {
+  'Line_3954' => {
     'CodeInstance' => 'example_struct/dsp/cav2/clock_enable_probe',
     'Instance' => 'clock_enable_probe',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Clock Enable Probe'
   },
-  'Line_3567' => {
+  'Line_3965' => {
     'CodeInstance' => 'example_struct/dsp/cav2/clock_enable_probe1',
     'Instance' => 'clock_enable_probe1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Clock Enable Probe1'
   },
-  'Line_3578' => {
+  'Line_3976' => {
     'CodeInstance' => 'example_struct/dsp/cav2/complex_multiplier_6_0',
     'Instance' => 'complex_multiplier_6_0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Complex Multiplier 6.0 '
   },
-  'Line_3592' => {
+  'Line_3990' => {
     'CodeInstance' => 'example_struct/dsp/cav2/complex_multiplier_6_0_1',
     'Instance' => 'complex_multiplier_6_0_1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Complex Multiplier 6.0 1'
   },
-  'Line_3606' => {
+  'Line_4004' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant_x0',
     'Instance' => 'constant_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant'
   },
-  'Line_3613' => {
+  'Line_4011' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant10',
     'Instance' => 'constant10',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant10'
   },
-  'Line_3620' => {
+  'Line_4018' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant11',
     'Instance' => 'constant11',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant11'
   },
-  'Line_3627' => {
+  'Line_4025' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant12',
     'Instance' => 'constant12',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant12'
   },
-  'Line_3634' => {
+  'Line_4032' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant14',
     'Instance' => 'constant14',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant14'
   },
-  'Line_3641' => {
+  'Line_4039' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant18',
     'Instance' => 'constant18',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant18'
   },
-  'Line_3648' => {
+  'Line_4046' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant19',
     'Instance' => 'constant19',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant19'
   },
-  'Line_3655' => {
+  'Line_4053' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant21',
     'Instance' => 'constant21',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant21'
   },
-  'Line_3662' => {
+  'Line_4060' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant23',
     'Instance' => 'constant23',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant23'
   },
-  'Line_3669' => {
+  'Line_4067' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant3',
     'Instance' => 'constant3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant3'
   },
-  'Line_3676' => {
+  'Line_4074' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant4',
     'Instance' => 'constant4',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant4'
   },
-  'Line_3683' => {
+  'Line_4081' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant5',
     'Instance' => 'constant5',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant5'
   },
-  'Line_3690' => {
+  'Line_4088' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant6',
     'Instance' => 'constant6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant6'
   },
-  'Line_3697' => {
+  'Line_4095' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant7',
     'Instance' => 'constant7',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant7'
   },
-  'Line_3704' => {
+  'Line_410' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample12',
+    'Instance' => 'down_sample12',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample12'
+  },
+  'Line_4102' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant8',
     'Instance' => 'constant8',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant8'
   },
-  'Line_3711' => {
+  'Line_4109' => {
     'CodeInstance' => 'example_struct/dsp/cav2/constant9',
     'Instance' => 'constant9',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Constant9'
   },
-  'Line_3718' => {
+  'Line_4116' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register1'
   },
-  'Line_3731' => {
+  'Line_4129' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register10',
     'Instance' => 'register10',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register10'
   },
-  'Line_3744' => {
+  'Line_4142' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register11',
     'Instance' => 'register11',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register11'
   },
-  'Line_375' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1',
-    'Instance' => 'channel_select1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1'
-  },
-  'Line_3757' => {
+  'Line_4155' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register12',
     'Instance' => 'register12',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register12'
   },
-  'Line_3770' => {
+  'Line_4168' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register13',
     'Instance' => 'register13',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register13'
   },
-  'Line_3783' => {
+  'Line_4181' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register14',
     'Instance' => 'register14',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register14'
   },
-  'Line_3796' => {
+  'Line_4194' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register15',
     'Instance' => 'register15',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register15'
   },
-  'Line_3809' => {
+  'Line_4207' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register16',
     'Instance' => 'register16',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register16'
   },
-  'Line_3822' => {
+  'Line_4220' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register17',
     'Instance' => 'register17',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register17'
   },
-  'Line_3835' => {
+  'Line_4233' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register18',
     'Instance' => 'register18',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register18'
   },
-  'Line_3848' => {
+  'Line_4246' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register19',
     'Instance' => 'register19',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register19'
   },
-  'Line_3861' => {
+  'Line_4259' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register2'
   },
-  'Line_3874' => {
+  'Line_4272' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register20',
     'Instance' => 'register20',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register20'
   },
-  'Line_3887' => {
+  'Line_4285' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register21',
     'Instance' => 'register21',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register21'
   },
-  'Line_3900' => {
+  'Line_4298' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register22',
     'Instance' => 'register22',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register22'
   },
-  'Line_3913' => {
+  'Line_4311' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register23',
     'Instance' => 'register23',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register23'
   },
-  'Line_3926' => {
+  'Line_4324' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register24',
     'Instance' => 'register24',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register24'
   },
-  'Line_3939' => {
+  'Line_4337' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register25',
     'Instance' => 'register25',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register25'
   },
-  'Line_3952' => {
+  'Line_434' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample13',
+    'Instance' => 'down_sample13',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample13'
+  },
+  'Line_4350' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register26',
     'Instance' => 'register26',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register26'
   },
-  'Line_3965' => {
+  'Line_4363' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register27',
     'Instance' => 'register27',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register27'
   },
-  'Line_3978' => {
+  'Line_4376' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register28',
     'Instance' => 'register28',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register28'
   },
-  'Line_3991' => {
+  'Line_4389' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register29',
     'Instance' => 'register29',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register29'
   },
-  'Line_4004' => {
+  'Line_4402' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register3'
   },
-  'Line_4017' => {
+  'Line_4415' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register30',
     'Instance' => 'register30',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register30'
   },
-  'Line_4030' => {
+  'Line_4428' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register32',
     'Instance' => 'register32',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register32'
   },
-  'Line_4043' => {
+  'Line_4441' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register33',
     'Instance' => 'register33',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register33'
   },
-  'Line_4056' => {
+  'Line_4454' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register4',
     'Instance' => 'register4',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register4'
   },
-  'Line_4069' => {
+  'Line_4467' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register5',
     'Instance' => 'register5',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register5'
   },
-  'Line_4082' => {
+  'Line_4480' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register6'
   },
-  'Line_4095' => {
+  'Line_4493' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register7',
     'Instance' => 'register7',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register7'
   },
-  'Line_4108' => {
+  'Line_4506' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register8',
     'Instance' => 'register8',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register8'
   },
-  'Line_4121' => {
+  'Line_4519' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register9',
     'Instance' => 'register9',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2/Register9'
   },
-  'Line_4188' => {
+  'Line_458' => {
+    'CodeInstance' => 'example_struct/axi_lite/down_sample14',
+    'Instance' => 'down_sample14',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Down Sample14'
+  },
+  'Line_4586' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register25',
     'Instance' => 'register25',
     'SimulinkInstance' => 'exampleModel/example/dsp/RFLib_input/Register25'
   },
-  'Line_4201' => {
+  'Line_4599' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register26',
     'Instance' => 'register26',
     'SimulinkInstance' => 'exampleModel/example/dsp/RFLib_input/Register26'
   },
-  'Line_4214' => {
+  'Line_4612' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register27',
     'Instance' => 'register27',
     'SimulinkInstance' => 'exampleModel/example/dsp/RFLib_input/Register27'
   },
-  'Line_4227' => {
+  'Line_4625' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register29',
     'Instance' => 'register29',
     'SimulinkInstance' => 'exampleModel/example/dsp/RFLib_input/Register29'
   },
-  'Line_4240' => {
+  'Line_4638' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register30',
     'Instance' => 'register30',
     'SimulinkInstance' => 'exampleModel/example/dsp/RFLib_input/Register30'
   },
-  'Line_4253' => {
+  'Line_4651' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register31',
     'Instance' => 'register31',
     'SimulinkInstance' => 'exampleModel/example/dsp/RFLib_input/Register31'
   },
-  'Line_4318' => {
+  'Line_4716' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Constant13'
   },
-  'Line_4325' => {
+  'Line_4723' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Delay'
   },
-  'Line_4340' => {
+  'Line_4738' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Delay1'
   },
-  'Line_4355' => {
+  'Line_4753' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Down Sample'
   },
-  'Line_4379' => {
+  'Line_4777' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Down Sample1'
   },
-  'Line_440' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/constant13',
-    'Instance' => 'constant13',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Constant13'
-  },
-  'Line_4403' => {
+  'Line_4801' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Register'
   },
-  'Line_4416' => {
+  'Line_4814' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Register1'
   },
-  'Line_4429' => {
+  'Line_482' => {
+    'CodeInstance' => 'example_struct/axi_lite/register10',
+    'Instance' => 'register10',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register10'
+  },
+  'Line_4827' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Register2'
   },
-  'Line_4442' => {
+  'Line_4840' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Register3'
   },
-  'Line_4455' => {
+  'Line_4853' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Register6'
   },
-  'Line_4468' => {
+  'Line_4866' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Relational'
   },
-  'Line_447' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/delay',
-    'Instance' => 'delay',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Delay'
-  },
-  'Line_4477' => {
+  'Line_4875' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3/Relational1'
   },
-  'Line_4528' => {
+  'Line_4926' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3',
     'Instance' => 'channel_select3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select/Channel Select3'
   },
-  'Line_4593' => {
+  'Line_495' => {
+    'CodeInstance' => 'example_struct/axi_lite/register11',
+    'Instance' => 'register11',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register11'
+  },
+  'Line_4991' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Constant13'
   },
-  'Line_4600' => {
+  'Line_4998' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Delay'
   },
-  'Line_4615' => {
+  'Line_5013' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Delay1'
   },
-  'Line_462' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/delay1',
-    'Instance' => 'delay1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Delay1'
-  },
-  'Line_4630' => {
+  'Line_5028' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Down Sample'
   },
-  'Line_4654' => {
+  'Line_5052' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Down Sample1'
   },
-  'Line_4678' => {
+  'Line_5076' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Register'
   },
-  'Line_4691' => {
+  'Line_508' => {
+    'CodeInstance' => 'example_struct/axi_lite/register12',
+    'Instance' => 'register12',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register12'
+  },
+  'Line_5089' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Register1'
   },
-  'Line_4704' => {
+  'Line_5102' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Register2'
   },
-  'Line_4717' => {
+  'Line_5115' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Register3'
   },
-  'Line_4730' => {
+  'Line_5128' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Register6'
   },
-  'Line_4743' => {
+  'Line_5141' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Relational'
   },
-  'Line_4752' => {
+  'Line_5150' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1/Relational1'
   },
-  'Line_477' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/down_sample',
-    'Instance' => 'down_sample',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Down Sample'
-  },
-  'Line_4803' => {
+  'Line_5201' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1',
     'Instance' => 'channel_select1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select/Channel Select1'
   },
-  'Line_4889' => {
+  'Line_521' => {
+    'CodeInstance' => 'example_struct/axi_lite/register13',
+    'Instance' => 'register13',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register13'
+  },
+  'Line_5287' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select',
     'Instance' => 'iq_select',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/IQ_select'
   },
-  'Line_4902' => {
+  'Line_5300' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select',
     'Instance' => 'pa_select',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref/PA_select'
   },
-  'Line_501' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/down_sample1',
-    'Instance' => 'down_sample1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Down Sample1'
+  'Line_534' => {
+    'CodeInstance' => 'example_struct/axi_lite/register14',
+    'Instance' => 'register14',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register14'
   },
-  'Line_525' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register_x0',
-    'Instance' => 'register_x0',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register'
+  'Line_547' => {
+    'CodeInstance' => 'example_struct/axi_lite/register15',
+    'Instance' => 'register15',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register15'
   },
-  'Line_5346' => {
+  'Line_560' => {
+    'CodeInstance' => 'example_struct/axi_lite/register16',
+    'Instance' => 'register16',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register16'
+  },
+  'Line_5702' => {
     'CodeInstance' => 'example_struct/dsp/cav1',
     'Instance' => 'cav1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1'
   },
-  'Line_538' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register1',
-    'Instance' => 'register1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register1'
+  'Line_573' => {
+    'CodeInstance' => 'example_struct/axi_lite/register3',
+    'Instance' => 'register3',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register3'
   },
-  'Line_5419' => {
+  'Line_5761' => {
     'CodeInstance' => 'example_struct/dsp/cav2',
     'Instance' => 'cav2',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav2'
   },
-  'Line_5492' => {
+  'Line_5834' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input',
     'Instance' => 'rflib_input',
     'SimulinkInstance' => 'exampleModel/example/dsp/RFLib_input'
   },
-  'Line_5509' => {
+  'Line_5851' => {
     'CodeInstance' => 'example_struct/dsp/ref',
     'Instance' => 'ref',
     'SimulinkInstance' => 'exampleModel/example/dsp/Ref'
   },
-  'Line_551' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register2',
-    'Instance' => 'register2',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register2'
+  'Line_586' => {
+    'CodeInstance' => 'example_struct/axi_lite/register4',
+    'Instance' => 'register4',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register4'
   },
-  'Line_564' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register3',
-    'Instance' => 'register3',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register3'
+  'Line_599' => {
+    'CodeInstance' => 'example_struct/axi_lite/register5',
+    'Instance' => 'register5',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register5'
   },
-  'Line_577' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/register6',
+  'Line_612' => {
+    'CodeInstance' => 'example_struct/axi_lite/register6',
     'Instance' => 'register6',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Register6'
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register6'
   },
-  'Line_5888' => {
+  'Line_625' => {
+    'CodeInstance' => 'example_struct/axi_lite/register7',
+    'Instance' => 'register7',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register7'
+  },
+  'Line_6250' => {
     'CodeInstance' => 'example_struct/axi_lite',
     'Instance' => 'axi_lite',
     'SimulinkInstance' => 'exampleModel/example/axi_lite'
   },
-  'Line_5894' => {
+  'Line_6286' => {
     'CodeInstance' => 'example_struct/dsp',
     'Instance' => 'dsp',
     'SimulinkInstance' => 'exampleModel/example/dsp'
   },
-  'Line_590' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/relational',
-    'Instance' => 'relational',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Relational'
+  'Line_638' => {
+    'CodeInstance' => 'example_struct/axi_lite/register8',
+    'Instance' => 'register8',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register8'
   },
-  'Line_599' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1/relational1',
-    'Instance' => 'relational1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1/Relational1'
+  'Line_6414' => {
+    'CodeInstance' => 'example_struct/register3',
+    'Instance' => 'register3',
+    'SimulinkInstance' => 'exampleModel/example/Register3'
   },
-  'Line_6060' => {
+  'Line_6429' => {
+    'CodeInstance' => 'example_struct/register1',
+    'Instance' => 'register1',
+    'SimulinkInstance' => 'exampleModel/example/Register1'
+  },
+  'Line_6444' => {
+    'CodeInstance' => 'example_struct/register2',
+    'Instance' => 'register2',
+    'SimulinkInstance' => 'exampleModel/example/Register2'
+  },
+  'Line_6459' => {
+    'CodeInstance' => 'example_struct/register4',
+    'Instance' => 'register4',
+    'SimulinkInstance' => 'exampleModel/example/Register4'
+  },
+  'Line_6474' => {
+    'CodeInstance' => 'example_struct/register11',
+    'Instance' => 'register11',
+    'SimulinkInstance' => 'exampleModel/example/Register11'
+  },
+  'Line_6489' => {
+    'CodeInstance' => 'example_struct/register9',
+    'Instance' => 'register9',
+    'SimulinkInstance' => 'exampleModel/example/Register9'
+  },
+  'Line_6504' => {
+    'CodeInstance' => 'example_struct/register8',
+    'Instance' => 'register8',
+    'SimulinkInstance' => 'exampleModel/example/Register8'
+  },
+  'Line_651' => {
+    'CodeInstance' => 'example_struct/axi_lite/register9',
+    'Instance' => 'register9',
+    'SimulinkInstance' => 'exampleModel/example/axi_lite/Register9'
+  },
+  'Line_6519' => {
+    'CodeInstance' => 'example_struct/register7',
+    'Instance' => 'register7',
+    'SimulinkInstance' => 'exampleModel/example/Register7'
+  },
+  'Line_6534' => {
+    'CodeInstance' => 'example_struct/register10',
+    'Instance' => 'register10',
+    'SimulinkInstance' => 'exampleModel/example/Register10'
+  },
+  'Line_6549' => {
+    'CodeInstance' => 'example_struct/register12',
+    'Instance' => 'register12',
+    'SimulinkInstance' => 'exampleModel/example/Register12'
+  },
+  'Line_6564' => {
+    'CodeInstance' => 'example_struct/register13',
+    'Instance' => 'register13',
+    'SimulinkInstance' => 'exampleModel/example/Register13'
+  },
+  'Line_6579' => {
+    'CodeInstance' => 'example_struct/register14',
+    'Instance' => 'register14',
+    'SimulinkInstance' => 'exampleModel/example/Register14'
+  },
+  'Line_6594' => {
+    'CodeInstance' => 'example_struct/register5',
+    'Instance' => 'register5',
+    'SimulinkInstance' => 'exampleModel/example/Register5'
+  },
+  'Line_6609' => {
+    'CodeInstance' => 'example_struct/register6',
+    'Instance' => 'register6',
+    'SimulinkInstance' => 'exampleModel/example/Register6'
+  },
+  'Line_6650' => {
+    'CodeInstance' => 'example_default_clock_driver/clockdriver_x2',
+    'Instance' => 'clockdriver_x2',
+    'SimulinkInstance' => ''
+  },
+  'Line_6662' => {
     'CodeInstance' => 'example_default_clock_driver/clockdriver_x1',
     'Instance' => 'clockdriver_x1',
     'SimulinkInstance' => ''
   },
-  'Line_6072' => {
+  'Line_6674' => {
     'CodeInstance' => 'example_default_clock_driver/clockdriver_x0',
     'Instance' => 'clockdriver_x0',
     'SimulinkInstance' => ''
   },
-  'Line_6084' => {
+  'Line_6686' => {
     'CodeInstance' => 'example_default_clock_driver/clockdriver',
     'Instance' => 'clockdriver',
     'SimulinkInstance' => ''
   },
-  'Line_650' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/pa_select1/channel_select1',
-    'Instance' => 'channel_select1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select1/Channel Select1'
-  },
-  'Line_715' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/constant13',
-    'Instance' => 'constant13',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Constant13'
-  },
-  'Line_722' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/delay',
-    'Instance' => 'delay',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Delay'
-  },
-  'Line_737' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/delay1',
-    'Instance' => 'delay1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Delay1'
-  },
-  'Line_752' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/down_sample',
-    'Instance' => 'down_sample',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Down Sample'
-  },
-  'Line_7613' => {
-    'CodeInstance' => 'axi_lite_axi_lite_interface',
-    'Instance' => 'axi_lite_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7638' => {
-    'CodeInstance' => 'dsp_cav1_nco_phase_adj_axi_lite_interface',
-    'Instance' => 'dsp_cav1_nco_phase_adj_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7663' => {
-    'CodeInstance' => 'dsp_cav1_nco_phase_reset_axi_lite_interface',
-    'Instance' => 'dsp_cav1_nco_phase_reset_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7688' => {
-    'CodeInstance' => 'dsp_cav1_p1_amp_out_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_amp_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7712' => {
-    'CodeInstance' => 'dsp_cav1_p1_chan_sel_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_chan_sel_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7736' => {
-    'CodeInstance' => 'dsp_cav1_p1_comparison_i_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_comparison_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_776' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/down_sample1',
-    'Instance' => 'down_sample1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Down Sample1'
-  },
-  'Line_7760' => {
-    'CodeInstance' => 'dsp_cav1_p1_comparison_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_comparison_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7784' => {
-    'CodeInstance' => 'dsp_cav1_p1_comparison_q_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_comparison_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7808' => {
-    'CodeInstance' => 'dsp_cav1_p1_dc_freq_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_dc_freq_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7832' => {
-    'CodeInstance' => 'dsp_cav1_p1_dc_img_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_dc_img_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7856' => {
-    'CodeInstance' => 'dsp_cav1_p1_dc_real_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_dc_real_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7880' => {
-    'CodeInstance' => 'dsp_cav1_p1_if_amp_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_if_amp_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7904' => {
-    'CodeInstance' => 'dsp_cav1_p1_if_i_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_if_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7928' => {
-    'CodeInstance' => 'dsp_cav1_p1_if_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_if_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7952' => {
-    'CodeInstance' => 'dsp_cav1_p1_if_q_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_if_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_7976' => {
-    'CodeInstance' => 'dsp_cav1_p1_integrated_i_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_integrated_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_800' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register_x0',
-    'Instance' => 'register_x0',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register'
-  },
-  'Line_8000' => {
-    'CodeInstance' => 'dsp_cav1_p1_integrated_q_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_integrated_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8024' => {
-    'CodeInstance' => 'dsp_cav1_p1_phase_out_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_phase_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8048' => {
-    'CodeInstance' => 'dsp_cav1_p1_window_start_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_window_start_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8072' => {
-    'CodeInstance' => 'dsp_cav1_p1_window_stop_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p1_window_stop_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8096' => {
-    'CodeInstance' => 'dsp_cav1_p2_amp_out_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_amp_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8120' => {
-    'CodeInstance' => 'dsp_cav1_p2_chan_sel_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_chan_sel_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_813' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register1',
-    'Instance' => 'register1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register1'
-  },
-  'Line_8144' => {
-    'CodeInstance' => 'dsp_cav1_p2_comparison_i_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_comparison_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8168' => {
-    'CodeInstance' => 'dsp_cav1_p2_comparison_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_comparison_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8192' => {
-    'CodeInstance' => 'dsp_cav1_p2_comparison_q_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_comparison_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_82' => {
+  'Line_704' => {
     'CodeInstance' => 'example_struct/dsp/cav1/ddc_nco/clock_enable_probe1',
     'Instance' => 'clock_enable_probe1',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/DDC
 NCO/Clock Enable Probe1'
   },
-  'Line_8216' => {
-    'CodeInstance' => 'dsp_cav1_p2_dc_freq_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_dc_freq_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8240' => {
-    'CodeInstance' => 'dsp_cav1_p2_dc_img_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_dc_img_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_826' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register2',
-    'Instance' => 'register2',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register2'
-  },
-  'Line_8264' => {
-    'CodeInstance' => 'dsp_cav1_p2_dc_real_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_dc_real_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8288' => {
-    'CodeInstance' => 'dsp_cav1_p2_if_amp_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_if_amp_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8312' => {
-    'CodeInstance' => 'dsp_cav1_p2_if_i_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_if_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8336' => {
-    'CodeInstance' => 'dsp_cav1_p2_if_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_if_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8360' => {
-    'CodeInstance' => 'dsp_cav1_p2_if_q_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_if_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8384' => {
-    'CodeInstance' => 'dsp_cav1_p2_integrated_i_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_integrated_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_839' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register3',
-    'Instance' => 'register3',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register3'
-  },
-  'Line_8408' => {
-    'CodeInstance' => 'dsp_cav1_p2_integrated_q_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_integrated_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8432' => {
-    'CodeInstance' => 'dsp_cav1_p2_phase_out_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_phase_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8456' => {
-    'CodeInstance' => 'dsp_cav1_p2_window_start_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_window_start_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8480' => {
-    'CodeInstance' => 'dsp_cav1_p2_window_stop_axi_lite_interface',
-    'Instance' => 'dsp_cav1_p2_window_stop_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8504' => {
-    'CodeInstance' => 'dsp_cav2_p1_amp_out_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_amp_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_852' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/register6',
-    'Instance' => 'register6',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Register6'
-  },
-  'Line_8528' => {
-    'CodeInstance' => 'dsp_cav2_p1_chan_sel_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_chan_sel_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8552' => {
-    'CodeInstance' => 'dsp_cav2_p1_comparison_i_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_comparison_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8576' => {
-    'CodeInstance' => 'dsp_cav2_p1_comparison_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_comparison_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8600' => {
-    'CodeInstance' => 'dsp_cav2_p1_comparison_q_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_comparison_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8624' => {
-    'CodeInstance' => 'dsp_cav2_p1_dc_freq_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_dc_freq_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8648' => {
-    'CodeInstance' => 'dsp_cav2_p1_dc_img_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_dc_img_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_865' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/relational',
-    'Instance' => 'relational',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Relational'
-  },
-  'Line_8672' => {
-    'CodeInstance' => 'dsp_cav2_p1_dc_real_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_dc_real_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8696' => {
-    'CodeInstance' => 'dsp_cav2_p1_if_amp_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_if_amp_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8720' => {
-    'CodeInstance' => 'dsp_cav2_p1_if_i_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_if_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_874' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3/relational1',
-    'Instance' => 'relational1',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3/Relational1'
-  },
-  'Line_8744' => {
-    'CodeInstance' => 'dsp_cav2_p1_if_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_if_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8768' => {
-    'CodeInstance' => 'dsp_cav2_p1_if_q_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_if_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8792' => {
-    'CodeInstance' => 'dsp_cav2_p1_integrated_i_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_integrated_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8816' => {
-    'CodeInstance' => 'dsp_cav2_p1_integrated_q_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_integrated_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8840' => {
-    'CodeInstance' => 'dsp_cav2_p1_phase_out_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_phase_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8864' => {
-    'CodeInstance' => 'dsp_cav2_p1_window_start_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_window_start_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8888' => {
-    'CodeInstance' => 'dsp_cav2_p1_window_stop_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p1_window_stop_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8912' => {
-    'CodeInstance' => 'dsp_cav2_p2_amp_out_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_amp_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8936' => {
-    'CodeInstance' => 'dsp_cav2_p2_chan_sel_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_chan_sel_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8960' => {
-    'CodeInstance' => 'dsp_cav2_p2_comparison_i_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_comparison_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_8984' => {
-    'CodeInstance' => 'dsp_cav2_p2_comparison_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_comparison_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9008' => {
-    'CodeInstance' => 'dsp_cav2_p2_comparison_q_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_comparison_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9032' => {
-    'CodeInstance' => 'dsp_cav2_p2_dc_freq_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_dc_freq_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9056' => {
-    'CodeInstance' => 'dsp_cav2_p2_dc_img_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_dc_img_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9080' => {
-    'CodeInstance' => 'dsp_cav2_p2_dc_real_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_dc_real_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9104' => {
-    'CodeInstance' => 'dsp_cav2_p2_if_amp_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_if_amp_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9128' => {
-    'CodeInstance' => 'dsp_cav2_p2_if_i_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_if_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9152' => {
-    'CodeInstance' => 'dsp_cav2_p2_if_phase_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_if_phase_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9176' => {
-    'CodeInstance' => 'dsp_cav2_p2_if_q_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_if_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9200' => {
-    'CodeInstance' => 'dsp_cav2_p2_integrated_i_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_integrated_i_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9224' => {
-    'CodeInstance' => 'dsp_cav2_p2_integrated_q_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_integrated_q_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9248' => {
-    'CodeInstance' => 'dsp_cav2_p2_phase_out_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_phase_out_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_925' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem1_x0/channel_select3',
-    'Instance' => 'channel_select3',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem1/Channel Select3'
-  },
-  'Line_9272' => {
-    'CodeInstance' => 'dsp_cav2_p2_window_start_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_window_start_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_9296' => {
-    'CodeInstance' => 'dsp_cav2_p2_window_stop_axi_lite_interface',
-    'Instance' => 'dsp_cav2_p2_window_stop_axi_lite_interface',
-    'SimulinkInstance' => ''
-  },
-  'Line_93' => {
+  'Line_715' => {
     'CodeInstance' => 'example_struct/dsp/cav1/ddc_nco/constant21',
     'Instance' => 'constant21',
     'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/DDC
 NCO/Constant21'
   },
-  'Line_9320' => {
+  'Line_722' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/ddc_nco/dds_compiler_6_0',
+    'Instance' => 'dds_compiler_6_0',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/DDC
+NCO/DDS Compiler 6.0 '
+  },
+  'Line_787' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/constant13',
+    'Instance' => 'constant13',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Constant13'
+  },
+  'Line_794' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/delay',
+    'Instance' => 'delay',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Delay'
+  },
+  'Line_7965' => {
+    'CodeInstance' => 'axi_lite_axi_lite_interface',
+    'Instance' => 'axi_lite_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8004' => {
+    'CodeInstance' => 'dsp_cav1_nco_phase_adj_axi_lite_interface',
+    'Instance' => 'dsp_cav1_nco_phase_adj_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8029' => {
+    'CodeInstance' => 'dsp_cav1_nco_phase_reset_axi_lite_interface',
+    'Instance' => 'dsp_cav1_nco_phase_reset_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8054' => {
+    'CodeInstance' => 'dsp_cav1_p1_chan_sel_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p1_chan_sel_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8078' => {
+    'CodeInstance' => 'dsp_cav1_p1_window_start_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p1_window_start_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_809' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/delay1',
+    'Instance' => 'delay1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Delay1'
+  },
+  'Line_8102' => {
+    'CodeInstance' => 'dsp_cav1_p1_window_stop_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p1_window_stop_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8126' => {
+    'CodeInstance' => 'dsp_cav1_p2_amp_out_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_amp_out_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8150' => {
+    'CodeInstance' => 'dsp_cav1_p2_chan_sel_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_chan_sel_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8174' => {
+    'CodeInstance' => 'dsp_cav1_p2_comparison_i_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_comparison_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8198' => {
+    'CodeInstance' => 'dsp_cav1_p2_comparison_phase_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_comparison_phase_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8222' => {
+    'CodeInstance' => 'dsp_cav1_p2_comparison_q_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_comparison_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_824' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/down_sample',
+    'Instance' => 'down_sample',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Down Sample'
+  },
+  'Line_8246' => {
+    'CodeInstance' => 'dsp_cav1_p2_dc_freq_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_dc_freq_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8270' => {
+    'CodeInstance' => 'dsp_cav1_p2_dc_img_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_dc_img_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8294' => {
+    'CodeInstance' => 'dsp_cav1_p2_dc_real_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_dc_real_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8318' => {
+    'CodeInstance' => 'dsp_cav1_p2_if_amp_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_if_amp_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8342' => {
+    'CodeInstance' => 'dsp_cav1_p2_if_i_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_if_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8366' => {
+    'CodeInstance' => 'dsp_cav1_p2_if_phase_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_if_phase_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8390' => {
+    'CodeInstance' => 'dsp_cav1_p2_if_q_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_if_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8414' => {
+    'CodeInstance' => 'dsp_cav1_p2_integrated_i_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_integrated_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8438' => {
+    'CodeInstance' => 'dsp_cav1_p2_integrated_q_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_integrated_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8462' => {
+    'CodeInstance' => 'dsp_cav1_p2_phase_out_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_phase_out_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_848' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/down_sample1',
+    'Instance' => 'down_sample1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Down Sample1'
+  },
+  'Line_8486' => {
+    'CodeInstance' => 'dsp_cav1_p2_window_start_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_window_start_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8510' => {
+    'CodeInstance' => 'dsp_cav1_p2_window_stop_axi_lite_interface',
+    'Instance' => 'dsp_cav1_p2_window_stop_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8534' => {
+    'CodeInstance' => 'dsp_cav2_p1_amp_out_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_amp_out_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8558' => {
+    'CodeInstance' => 'dsp_cav2_p1_chan_sel_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_chan_sel_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8582' => {
+    'CodeInstance' => 'dsp_cav2_p1_comparison_i_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_comparison_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8606' => {
+    'CodeInstance' => 'dsp_cav2_p1_comparison_phase_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_comparison_phase_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8630' => {
+    'CodeInstance' => 'dsp_cav2_p1_comparison_q_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_comparison_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8654' => {
+    'CodeInstance' => 'dsp_cav2_p1_dc_freq_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_dc_freq_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8678' => {
+    'CodeInstance' => 'dsp_cav2_p1_dc_img_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_dc_img_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8702' => {
+    'CodeInstance' => 'dsp_cav2_p1_dc_real_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_dc_real_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_872' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register_x0',
+    'Instance' => 'register_x0',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register'
+  },
+  'Line_8726' => {
+    'CodeInstance' => 'dsp_cav2_p1_if_amp_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_if_amp_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8750' => {
+    'CodeInstance' => 'dsp_cav2_p1_if_i_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_if_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8774' => {
+    'CodeInstance' => 'dsp_cav2_p1_if_phase_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_if_phase_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8798' => {
+    'CodeInstance' => 'dsp_cav2_p1_if_q_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_if_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8822' => {
+    'CodeInstance' => 'dsp_cav2_p1_integrated_i_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_integrated_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8846' => {
+    'CodeInstance' => 'dsp_cav2_p1_integrated_q_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_integrated_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_885' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register1',
+    'Instance' => 'register1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register1'
+  },
+  'Line_8870' => {
+    'CodeInstance' => 'dsp_cav2_p1_phase_out_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_phase_out_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8894' => {
+    'CodeInstance' => 'dsp_cav2_p1_window_start_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_window_start_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8918' => {
+    'CodeInstance' => 'dsp_cav2_p1_window_stop_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p1_window_stop_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8942' => {
+    'CodeInstance' => 'dsp_cav2_p2_amp_out_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_amp_out_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_8966' => {
+    'CodeInstance' => 'dsp_cav2_p2_chan_sel_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_chan_sel_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_898' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register2',
+    'Instance' => 'register2',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register2'
+  },
+  'Line_8990' => {
+    'CodeInstance' => 'dsp_cav2_p2_comparison_i_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_comparison_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9014' => {
+    'CodeInstance' => 'dsp_cav2_p2_comparison_phase_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_comparison_phase_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9038' => {
+    'CodeInstance' => 'dsp_cav2_p2_comparison_q_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_comparison_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9062' => {
+    'CodeInstance' => 'dsp_cav2_p2_dc_freq_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_dc_freq_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9086' => {
+    'CodeInstance' => 'dsp_cav2_p2_dc_img_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_dc_img_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_911' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register3',
+    'Instance' => 'register3',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register3'
+  },
+  'Line_9110' => {
+    'CodeInstance' => 'dsp_cav2_p2_dc_real_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_dc_real_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9134' => {
+    'CodeInstance' => 'dsp_cav2_p2_if_amp_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_if_amp_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9158' => {
+    'CodeInstance' => 'dsp_cav2_p2_if_i_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_if_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9182' => {
+    'CodeInstance' => 'dsp_cav2_p2_if_phase_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_if_phase_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9206' => {
+    'CodeInstance' => 'dsp_cav2_p2_if_q_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_if_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9230' => {
+    'CodeInstance' => 'dsp_cav2_p2_integrated_i_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_integrated_i_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_924' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/register6',
+    'Instance' => 'register6',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Register6'
+  },
+  'Line_9254' => {
+    'CodeInstance' => 'dsp_cav2_p2_integrated_q_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_integrated_q_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9278' => {
+    'CodeInstance' => 'dsp_cav2_p2_phase_out_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_phase_out_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9302' => {
+    'CodeInstance' => 'dsp_cav2_p2_window_start_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_window_start_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9326' => {
+    'CodeInstance' => 'dsp_cav2_p2_window_stop_axi_lite_interface',
+    'Instance' => 'dsp_cav2_p2_window_stop_axi_lite_interface',
+    'SimulinkInstance' => ''
+  },
+  'Line_9350' => {
     'CodeInstance' => 'dsp_ref_window_start_axi_lite_interface',
     'Instance' => 'dsp_ref_window_start_axi_lite_interface',
     'SimulinkInstance' => ''
   },
-  'Line_9344' => {
+  'Line_937' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/relational',
+    'Instance' => 'relational',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Relational'
+  },
+  'Line_9374' => {
     'CodeInstance' => 'dsp_ref_window_stop_axi_lite_interface',
     'Instance' => 'dsp_ref_window_stop_axi_lite_interface',
     'SimulinkInstance' => ''
   },
-  'Line_9368' => {
+  'Line_9398' => {
     'CodeInstance' => 'dsp_rf_ref_amp_axi_lite_interface',
     'Instance' => 'dsp_rf_ref_amp_axi_lite_interface',
     'SimulinkInstance' => ''
   },
-  'Line_9392' => {
+  'Line_9422' => {
     'CodeInstance' => 'dsp_rf_ref_chan_sel_axi_lite_interface',
     'Instance' => 'dsp_rf_ref_chan_sel_axi_lite_interface',
     'SimulinkInstance' => ''
   },
-  'Line_9416' => {
+  'Line_9446' => {
     'CodeInstance' => 'dsp_rf_ref_i_axi_lite_interface',
     'Instance' => 'dsp_rf_ref_i_axi_lite_interface',
     'SimulinkInstance' => ''
   },
-  'Line_9440' => {
+  'Line_946' => {
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1/relational1',
+    'Instance' => 'relational1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1/Relational1'
+  },
+  'Line_9470' => {
     'CodeInstance' => 'dsp_rf_ref_phase_axi_lite_interface',
     'Instance' => 'dsp_rf_ref_phase_axi_lite_interface',
     'SimulinkInstance' => ''
   },
-  'Line_9464' => {
+  'Line_9494' => {
     'CodeInstance' => 'dsp_rf_ref_q_axi_lite_interface',
     'Instance' => 'dsp_rf_ref_q_axi_lite_interface',
     'SimulinkInstance' => ''
   },
-  'Line_9488' => {
+  'Line_9518' => {
     'CodeInstance' => 'example_default_clock_driver',
     'Instance' => 'example_default_clock_driver',
     'SimulinkInstance' => ''
   },
-  'Line_9503' => {
+  'Line_9535' => {
     'CodeInstance' => 'example_struct',
     'Instance' => 'example_struct',
     'SimulinkInstance' => 'example'
   },
-  'Line_990' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/constant13',
-    'Instance' => 'constant13',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Constant13'
-  },
   'Line_997' => {
-    'CodeInstance' => 'example_struct/dsp/cav1/subsystem3/channel_select3/delay',
-    'Instance' => 'delay',
-    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/Subsystem3/Channel Select3/Delay'
+    'CodeInstance' => 'example_struct/dsp/cav1/pa_select/channel_select1',
+    'Instance' => 'channel_select1',
+    'SimulinkInstance' => 'exampleModel/example/dsp/Cav1/PA_select/Channel Select1'
   }
 }
