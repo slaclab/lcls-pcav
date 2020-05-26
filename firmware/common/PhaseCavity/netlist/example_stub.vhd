@@ -4,6 +4,10 @@ use IEEE.std_logic_1164.all;
 library work;
 entity example_stub is
   port (
+    dsp_clk : in std_logic;
+    dsp_rst : in std_logic;
+    gateway_in : in std_logic_vector( 29-1 downto 0 );
+    gateway_in2 : in std_logic_vector( 1-1 downto 0 );
     amp : in std_logic_vector( 18-1 downto 0 );
     ddcchannel : in std_logic_vector( 4-1 downto 0 );
     ddci : in std_logic_vector( 18-1 downto 0 );
@@ -12,8 +16,19 @@ entity example_stub is
     phase : in std_logic_vector( 18-1 downto 0 );
     phaseampchannel : in std_logic_vector( 4-1 downto 0 );
     phaseampsync : in std_logic_vector( 1-1 downto 0 );
+    -- DaqMux input
+    debugvalid : out std_logic_vector( 8-1 downto 0 );
+    debugdata : out std_logic_vector( 8*32-1 downto 0 );
+    debugsync : out std_logic_vector( 1-1 downto 0 );
+    -- diagnostic bus input
+    diagnclk : out std_logic;
+    diagnrst : out std_logic;
+    diagndata : out std_logic_vector( 32*32-1 downto 0 );
+    diagnfixed : out std_logic_vector( 32-1 downto 0 );
+    diagnsevr : out std_logic_vector( 2*32-1 downto 0 );
+    diagnsync : out std_logic;
+    -- register bus
     axi_lite_clk : in std_logic;
-    dsp_clk : in std_logic;
     axi_lite_aresetn : in std_logic;
     axi_lite_s_axi_awaddr : in std_logic_vector( 12-1 downto 0 );
     axi_lite_s_axi_awvalid : in std_logic;
@@ -1348,6 +1363,10 @@ architecture structural of example_stub is
 begin
   sysgen_dut : entity work.example 
   port map (
+    dsp_clk => dsp_clk,
+    dsp_rst => dsp_rst,
+    gateway_in => gateway_in,
+    gateway_in2 => gateway_in2,
     amp => amp,
     ddcchannel => ddcchannel,
     ddci => ddci,
@@ -1356,8 +1375,19 @@ begin
     phase => phase,
     phaseampchannel => phaseampchannel,
     phaseampsync => phaseampsync,
+    -- DaqMux input
+    debugvalid => debugvalid,
+    debugdata => debugdata,
+    debugsync => debugsync,
+    -- diagnostic bus input
+    diagnclk => diagnclk,
+    diagnrst => diagnrst,
+    diagndata => diagndata,
+    diagnfixed => diagnfixed,
+    diagnsevr => diagnsevr,
+    diagnsync => diagnsync,
+    -- register bus
     axi_lite_clk => axi_lite_clk,
-    dsp_clk => dsp_clk,
     axi_lite_aresetn => axi_lite_aresetn,
     axi_lite_s_axi_awaddr => axi_lite_s_axi_awaddr,
     axi_lite_s_axi_awvalid => axi_lite_s_axi_awvalid,

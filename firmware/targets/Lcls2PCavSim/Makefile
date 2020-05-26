@@ -4,10 +4,7 @@ export GIT_BYPASS = 1
 # Applications must define the 32-bitFirmware Version Number
 ##########################################################################################
 # PRJ_VERSION = 0x00000001  Initial version based on MR LLRF
-# PRJ_VERSION = 0x00000002  No model implementation with BSA/BLD
-# PRJ_VERSION = 0x00000003  Refactor of code
-# PRJ_VERSION = 0x00000004  Use example model from Charlie
-export PRJ_VERSION = 0x00000004
+export PRJ_VERSION = 0x00000001
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build
@@ -60,8 +57,8 @@ export RTM_TYPE = RtmDigitalDebug
 export RTM_INTF = Version2
 
 # DEFAULT_TIMING select LCLS-I or LCLS-II
-#export DEFAULT_TIMING = LCLS-I
-export DEFAULT_TIMING = LCLS-II
+export DEFAULT_TIMING = LCLS-I
+#export DEFAULT_TIMING = LCLS-II
 
 ##########################################################################################
 # Applications must define the application common path where AppCore.vhd exists

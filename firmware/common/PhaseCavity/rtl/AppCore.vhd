@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2019-10-19
+-- Last update: 2020-05-19
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -360,18 +360,16 @@ begin
          jesdClk2x   => jesdClk2x,
          jesdRst2x   => jesdRst2x,
          adcHs       => s_adcValues,
+         adcHsValid  => s_adcValids,
          dacHs       => s_dacHs,
          dacLs       => s_dacLs,
          debug       => s_debugValues,
          debugValids => s_debugValids,
          diagnClk    => diagnClk,
          diagn       => diagnBus.data,
-         diagnValids => open,
+         diagnFixed  => diagnBus.fixed,
+         diagnSevr   => diagnBus.sevr,
          diagnStrobe => diagnBus.strobe,
-         -- Timing and waveform
-         --wfAddr         => s_wfAddr,
-         --wfData         => s_wfData,
-         adcValid       => s_adcValids,
          rfSwitch       => s_fpgaInterlock,
          trigPulse      => s_trigPulse,
          trigDaqOut     => trigHw,
