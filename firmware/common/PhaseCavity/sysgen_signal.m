@@ -1,6 +1,21 @@
 close all;
 %clear all; clc;
 
+format compact
+
+% addpath('../LlrfLib/')
+addpath('../../submodules/sysgen-dsp-lib/LlrfLib/')
+% LLRF setup
+axiClk = 156.25e6;
+interleavedChannels = 12;
+Fs     = 357e6;
+Fadc   = Fs;
+Ts     = 1/Fs;
+Fproc  = 204e6;
+
+configBase = hex2dec('800');
+statusBase = hex2dec('0');
+
 fc = 2851.3e6;    % Cavity resonate freq
 f_prl = 2856e6;   % PRL freq
 wc = 2*pi*fc;
