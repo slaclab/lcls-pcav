@@ -639,6 +639,383 @@ end behavior;
 library work;
 use work.conv_pkg.all;
 
+--$Header: /devl/xcs/repo/env/Jobs/sysgen/src/xbs/blocks/xlconvert/hdl/xlconvert.vhd,v 1.1 2004/11/22 00:17:30 rosty Exp $
+---------------------------------------------------------------------
+--
+--  Filename      : xlconvert.vhd
+--
+--  Description   : VHDL description of a fixed point converter block that
+--                  converts the input to a new output type.
+
+--
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+--
+--  Entity        : xlconvert
+--
+--  Architecture  : behavior
+--
+--  Description   : Top level VHDL description of fixed point conver block.
+--
+---------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+
+
+entity convert_func_call_example_xlconvert is
+    generic (
+        din_width    : integer := 16;            -- Width of input
+        din_bin_pt   : integer := 4;             -- Binary point of input
+        din_arith    : integer := xlUnsigned;    -- Type of arith of input
+        dout_width   : integer := 8;             -- Width of output
+        dout_bin_pt  : integer := 2;             -- Binary point of output
+        dout_arith   : integer := xlUnsigned;    -- Type of arith of output
+        quantization : integer := xlTruncate;    -- xlRound or xlTruncate
+        overflow     : integer := xlWrap);       -- xlSaturate or xlWrap
+    port (
+        din : in std_logic_vector (din_width-1 downto 0);
+        result : out std_logic_vector (dout_width-1 downto 0));
+end convert_func_call_example_xlconvert ;
+
+architecture behavior of convert_func_call_example_xlconvert is
+begin
+    -- Convert to output type and do saturation arith.
+    result <= convert_type(din, din_width, din_bin_pt, din_arith,
+                           dout_width, dout_bin_pt, dout_arith,
+                           quantization, overflow);
+end behavior;
+
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+
+
+entity example_xlconvert  is
+    generic (
+        din_width    : integer := 16;            -- Width of input
+        din_bin_pt   : integer := 4;             -- Binary point of input
+        din_arith    : integer := xlUnsigned;    -- Type of arith of input
+        dout_width   : integer := 8;             -- Width of output
+        dout_bin_pt  : integer := 2;             -- Binary point of output
+        dout_arith   : integer := xlUnsigned;    -- Type of arith of output
+        en_width     : integer := 1;
+        en_bin_pt    : integer := 0;
+        en_arith     : integer := xlUnsigned;
+        bool_conversion : integer :=0;           -- if one, convert ufix_1_0 to
+                                                 -- bool
+        latency      : integer := 0;             -- Ouput delay clk cycles
+        quantization : integer := xlTruncate;    -- xlRound or xlTruncate
+        overflow     : integer := xlWrap);       -- xlSaturate or xlWrap
+    port (
+        din : in std_logic_vector (din_width-1 downto 0);
+        en  : in std_logic_vector (en_width-1 downto 0);
+        ce  : in std_logic;
+        clr : in std_logic;
+        clk : in std_logic;
+        dout : out std_logic_vector (dout_width-1 downto 0));
+
+end example_xlconvert ;
+
+architecture behavior of example_xlconvert  is
+
+    component synth_reg
+        generic (width       : integer;
+                 latency     : integer);
+        port (i       : in std_logic_vector(width-1 downto 0);
+              ce      : in std_logic;
+              clr     : in std_logic;
+              clk     : in std_logic;
+              o       : out std_logic_vector(width-1 downto 0));
+    end component;
+
+    component convert_func_call_example_xlconvert 
+        generic (
+            din_width    : integer := 16;            -- Width of input
+            din_bin_pt   : integer := 4;             -- Binary point of input
+            din_arith    : integer := xlUnsigned;    -- Type of arith of input
+            dout_width   : integer := 8;             -- Width of output
+            dout_bin_pt  : integer := 2;             -- Binary point of output
+            dout_arith   : integer := xlUnsigned;    -- Type of arith of output
+            quantization : integer := xlTruncate;    -- xlRound or xlTruncate
+            overflow     : integer := xlWrap);       -- xlSaturate or xlWrap
+        port (
+            din : in std_logic_vector (din_width-1 downto 0);
+            result : out std_logic_vector (dout_width-1 downto 0));
+    end component;
+
+
+    -- synthesis translate_off
+--    signal real_din, real_dout : real;    -- For debugging info ports
+    -- synthesis translate_on
+    signal result : std_logic_vector(dout_width-1 downto 0);
+    signal internal_ce : std_logic;
+
+begin
+
+    -- Debugging info for internal full precision variables
+    -- synthesis translate_off
+--     real_din <= to_real(din, din_bin_pt, din_arith);
+--     real_dout <= to_real(dout, dout_bin_pt, dout_arith);
+    -- synthesis translate_on
+
+    internal_ce <= ce and en(0);
+
+    bool_conversion_generate : if (bool_conversion = 1)
+    generate
+      result <= din;
+    end generate; --bool_conversion_generate
+
+    std_conversion_generate : if (bool_conversion = 0)
+    generate
+      -- Workaround for XST bug
+      convert : convert_func_call_example_xlconvert 
+        generic map (
+          din_width   => din_width,
+          din_bin_pt  => din_bin_pt,
+          din_arith   => din_arith,
+          dout_width  => dout_width,
+          dout_bin_pt => dout_bin_pt,
+          dout_arith  => dout_arith,
+          quantization => quantization,
+          overflow     => overflow)
+        port map (
+          din => din,
+          result => result);
+    end generate; --std_conversion_generate
+
+    latency_test : if (latency > 0) generate
+        reg : synth_reg
+            generic map (
+              width => dout_width,
+              latency => latency
+            )
+            port map (
+              i => result,
+              ce => internal_ce,
+              clr => clr,
+              clk => clk,
+              o => dout
+            );
+    end generate;
+
+    latency0 : if (latency = 0)
+    generate
+        dout <= result;
+    end generate latency0;
+
+end  behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_counter_6798bb4fe3 is
+  port (
+    op : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_counter_6798bb4fe3;
+architecture behavior of sysgen_counter_6798bb4fe3
+is
+  signal count_reg_20_23: unsigned((1 - 1) downto 0) := "0";
+begin
+  proc_count_reg_20_23: process (clk)
+  is
+  begin
+    if (clk'event and (clk = '1')) then
+      if (ce = '1') then
+        count_reg_20_23 <= count_reg_20_23 + std_logic_vector_to_unsigned("1");
+      end if;
+    end if;
+  end process proc_count_reg_20_23;
+  op <= unsigned_to_std_logic_vector(count_reg_20_23);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_d873ac5cdf is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_d873ac5cdf;
+architecture behavior of sysgen_constant_d873ac5cdf
+is
+begin
+  op <= "000011001100110011";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_48a67634d0 is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_48a67634d0;
+architecture behavior of sysgen_constant_48a67634d0
+is
+begin
+  op <= "000110011001100110";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_269620dc0b is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_269620dc0b;
+architecture behavior of sysgen_constant_269620dc0b
+is
+begin
+  op <= "001001100110011010";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_8ec6385cf2 is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_8ec6385cf2;
+architecture behavior of sysgen_constant_8ec6385cf2
+is
+begin
+  op <= "001100110011001101";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_7a5b50c0e3 is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_7a5b50c0e3;
+architecture behavior of sysgen_constant_7a5b50c0e3
+is
+begin
+  op <= "010000000000000000";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_aa3246cf9f is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_aa3246cf9f;
+architecture behavior of sysgen_constant_aa3246cf9f
+is
+begin
+  op <= "010011001100110011";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_009691f9ed is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_009691f9ed;
+architecture behavior of sysgen_constant_009691f9ed
+is
+begin
+  op <= "010110011001100110";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_6910f0d900 is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_6910f0d900;
+architecture behavior of sysgen_constant_6910f0d900
+is
+begin
+  op <= "011001100110011010";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_146af16123 is
+  port (
+    op : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_146af16123;
+architecture behavior of sysgen_constant_146af16123
+is
+begin
+  op <= "0";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -1001,7 +1378,6 @@ entity axi_lite_axi_lite_interface is
         cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
         cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
-        cav2_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p1_dc_freq : in std_logic_vector(25 downto 0);
         cav1_p1_dc_img : in std_logic_vector(28 downto 0);
         cav1_p1_dc_real : in std_logic_vector(28 downto 0);
@@ -1017,8 +1393,8 @@ entity axi_lite_axi_lite_interface is
         cav1_p2_comparison_phase : in std_logic_vector(17 downto 0);
         cav1_p2_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p2_dc_freq : in std_logic_vector(25 downto 0);
-        cav1_p2_dc_img : in std_logic_vector(28 downto 0);
-        cav1_p2_dc_real : in std_logic_vector(28 downto 0);
+        cav1_p2_dc_img : in std_logic_vector(17 downto 0);
+        cav1_p2_dc_real : in std_logic_vector(17 downto 0);
         cav1_p2_if_amp : in std_logic_vector(17 downto 0);
         cav1_p2_if_i : in std_logic_vector(17 downto 0);
         cav1_p2_if_phase : in std_logic_vector(17 downto 0);
@@ -1029,6 +1405,7 @@ entity axi_lite_axi_lite_interface is
         cav2_p1_amp_out : in std_logic_vector(17 downto 0);
         cav2_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
+        cav2_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav2_p1_dc_freq : in std_logic_vector(25 downto 0);
         cav2_p1_dc_img : in std_logic_vector(28 downto 0);
         cav2_p1_dc_real : in std_logic_vector(28 downto 0);
@@ -1107,7 +1484,6 @@ component axi_lite_axi_lite_interface_verilog is
         cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
         cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
-        cav2_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p1_dc_freq : in std_logic_vector(25 downto 0);
         cav1_p1_dc_img : in std_logic_vector(28 downto 0);
         cav1_p1_dc_real : in std_logic_vector(28 downto 0);
@@ -1123,8 +1499,8 @@ component axi_lite_axi_lite_interface_verilog is
         cav1_p2_comparison_phase : in std_logic_vector(17 downto 0);
         cav1_p2_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p2_dc_freq : in std_logic_vector(25 downto 0);
-        cav1_p2_dc_img : in std_logic_vector(28 downto 0);
-        cav1_p2_dc_real : in std_logic_vector(28 downto 0);
+        cav1_p2_dc_img : in std_logic_vector(17 downto 0);
+        cav1_p2_dc_real : in std_logic_vector(17 downto 0);
         cav1_p2_if_amp : in std_logic_vector(17 downto 0);
         cav1_p2_if_i : in std_logic_vector(17 downto 0);
         cav1_p2_if_phase : in std_logic_vector(17 downto 0);
@@ -1135,6 +1511,7 @@ component axi_lite_axi_lite_interface_verilog is
         cav2_p1_amp_out : in std_logic_vector(17 downto 0);
         cav2_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
+        cav2_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav2_p1_dc_freq : in std_logic_vector(25 downto 0);
         cav2_p1_dc_img : in std_logic_vector(28 downto 0);
         cav2_p1_dc_real : in std_logic_vector(28 downto 0);
@@ -1213,7 +1590,6 @@ inst : axi_lite_axi_lite_interface_verilog
     cav1_p1_comparison_i => cav1_p1_comparison_i,
     cav1_p1_comparison_phase => cav1_p1_comparison_phase,
     cav1_p1_comparison_q => cav1_p1_comparison_q,
-    cav2_p1_comparison_q => cav2_p1_comparison_q,
     cav1_p1_dc_freq => cav1_p1_dc_freq,
     cav1_p1_dc_img => cav1_p1_dc_img,
     cav1_p1_dc_real => cav1_p1_dc_real,
@@ -1241,6 +1617,7 @@ inst : axi_lite_axi_lite_interface_verilog
     cav2_p1_amp_out => cav2_p1_amp_out,
     cav2_p1_comparison_i => cav2_p1_comparison_i,
     cav2_p1_comparison_phase => cav2_p1_comparison_phase,
+    cav2_p1_comparison_q => cav2_p1_comparison_q,
     cav2_p1_dc_freq => cav2_p1_dc_freq,
     cav2_p1_dc_img => cav2_p1_dc_img,
     cav2_p1_dc_real => cav2_p1_dc_real,
@@ -1530,6 +1907,146 @@ latency_test: if (extra_registers > 0) generate
 library work;
 use work.conv_pkg.all;
 
+---------------------------------------------------------------------
+ --
+ --  Filename      : xlcounter_rst.vhd
+ --
+ --  Created       : 1/31/01
+ --  Modified      :
+ --
+ --  Description   : VHDL wrapper for a counter. This wrapper
+ --                  uses the Binary Counter CoreGenerator core.
+ --
+ ---------------------------------------------------------------------
+ 
+ 
+ ---------------------------------------------------------------------
+ --
+ --  Entity        : xlcounter
+ --
+ --  Architecture  : behavior
+ --
+ --  Description   : Top level VHDL description of a counter.
+ --
+ ---------------------------------------------------------------------
+ 
+ library IEEE;
+ use IEEE.std_logic_1164.all;
+
+entity example_xlcounter_free is 
+   generic (
+     core_name0: string := "";
+     op_width: integer := 5;
+     op_arith: integer := xlSigned
+   );
+   port (
+     ce: in std_logic;
+     clr: in std_logic;
+     clk: in std_logic;
+     op: out std_logic_vector(op_width - 1 downto 0);
+     up: in std_logic_vector(0 downto 0) := (others => '0');
+     load: in std_logic_vector(0 downto 0) := (others => '0');
+     din: in std_logic_vector(op_width - 1 downto 0) := (others => '0');
+     en: in std_logic_vector(0 downto 0);
+     rst: in std_logic_vector(0 downto 0)
+   );
+ end example_xlcounter_free;
+ 
+ architecture behavior of example_xlcounter_free is
+
+
+ component example_c_counter_binary_v12_0_i0
+    port ( 
+      clk: in std_logic;
+      ce: in std_logic;
+      SINIT: in std_logic;
+      q: out std_logic_vector(op_width - 1 downto 0) 
+ 		  ); 
+ end component;
+
+-- synthesis translate_off
+   constant zeroVec: std_logic_vector(op_width - 1 downto 0) := (others => '0');
+   constant oneVec: std_logic_vector(op_width - 1 downto 0) := (others => '1');
+   constant zeroStr: string(1 to op_width) :=
+     std_logic_vector_to_bin_string(zeroVec);
+   constant oneStr: string(1 to op_width) :=
+     std_logic_vector_to_bin_string(oneVec);
+ -- synthesis translate_on
+ 
+   signal core_sinit: std_logic;
+   signal core_ce: std_logic;
+   signal op_net: std_logic_vector(op_width - 1 downto 0);
+ begin
+   core_ce <= ce and en(0);
+   core_sinit <= (clr or rst(0)) and ce;
+   op <= op_net;
+
+
+ comp0: if ((core_name0 = "example_c_counter_binary_v12_0_i0")) generate 
+  core_instance0:example_c_counter_binary_v12_0_i0
+   port map ( 
+        clk => clk,
+        ce => core_ce,
+        SINIT => core_sinit,
+        q => op_net
+  ); 
+   end generate;
+
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+library work;
+use work.conv_pkg.all;
+
+entity xlcordic_b0006847a679caa89b70cd0e3ba875d8 is 
+  port(
+    ce:in std_logic;
+    clk:in std_logic;
+    m_axis_dout_tdata_phase:out std_logic_vector(17 downto 0);
+    m_axis_dout_tdata_real:out std_logic_vector(17 downto 0);
+    m_axis_dout_tvalid:out std_logic;
+    s_axis_cartesian_tdata_imag:in std_logic_vector(17 downto 0);
+    s_axis_cartesian_tdata_real:in std_logic_vector(17 downto 0);
+    s_axis_cartesian_tvalid:in std_logic
+  );
+end xlcordic_b0006847a679caa89b70cd0e3ba875d8; 
+
+architecture behavior of xlcordic_b0006847a679caa89b70cd0e3ba875d8  is
+  component example_cordic_v6_0_i0
+    port(
+      aclk:in std_logic;
+      aclken:in std_logic;
+      m_axis_dout_tdata:out std_logic_vector(47 downto 0);
+      m_axis_dout_tvalid:out std_logic;
+      s_axis_cartesian_tdata:in std_logic_vector(47 downto 0);
+      s_axis_cartesian_tvalid:in std_logic
+    );
+end component;
+signal m_axis_dout_tdata_net: std_logic_vector(47 downto 0) := (others=>'0');
+signal s_axis_cartesian_tdata_net: std_logic_vector(47 downto 0) := (others=>'0');
+begin
+  m_axis_dout_tdata_phase <= m_axis_dout_tdata_net(41 downto 24);
+  m_axis_dout_tdata_real <= m_axis_dout_tdata_net(17 downto 0);
+  s_axis_cartesian_tdata_net(41 downto 24) <= s_axis_cartesian_tdata_imag;
+  s_axis_cartesian_tdata_net(17 downto 0) <= s_axis_cartesian_tdata_real;
+  example_cordic_v6_0_i0_instance : example_cordic_v6_0_i0
+    port map(
+      aclk=>clk,
+      aclken=>ce,
+      m_axis_dout_tdata=>m_axis_dout_tdata_net,
+      m_axis_dout_tvalid=>m_axis_dout_tvalid,
+      s_axis_cartesian_tdata=>s_axis_cartesian_tdata_net,
+      s_axis_cartesian_tvalid=>s_axis_cartesian_tvalid
+    );
+end behavior;
+
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -1577,6 +2094,66 @@ begin
   s_axis_b_tdata_net(25 downto 16) <= s_axis_b_tdata_imag;
   s_axis_b_tdata_net(9 downto 0) <= s_axis_b_tdata_real;
   example_cmpy_v6_0_i0_instance : example_cmpy_v6_0_i0
+    port map(
+      aclk=>clk,
+      aclken=>ce,
+      m_axis_dout_tdata=>m_axis_dout_tdata_net,
+      m_axis_dout_tvalid=>m_axis_dout_tvalid,
+      s_axis_a_tdata=>s_axis_a_tdata_net,
+      s_axis_a_tvalid=>s_axis_a_tvalid,
+      s_axis_b_tdata=>s_axis_b_tdata_net,
+      s_axis_b_tvalid=>s_axis_b_tvalid
+    );
+end behavior;
+
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+library work;
+use work.conv_pkg.all;
+
+entity xlcomplex_multiplier_3714c308f0744230beef7291b402a51a is 
+  port(
+    ce:in std_logic;
+    clk:in std_logic;
+    m_axis_dout_tdata_imag:out std_logic_vector(17 downto 0);
+    m_axis_dout_tdata_real:out std_logic_vector(17 downto 0);
+    m_axis_dout_tvalid:out std_logic;
+    s_axis_a_tdata_imag:in std_logic_vector(17 downto 0);
+    s_axis_a_tdata_real:in std_logic_vector(17 downto 0);
+    s_axis_a_tvalid:in std_logic;
+    s_axis_b_tdata_imag:in std_logic_vector(9 downto 0);
+    s_axis_b_tdata_real:in std_logic_vector(9 downto 0);
+    s_axis_b_tvalid:in std_logic
+  );
+end xlcomplex_multiplier_3714c308f0744230beef7291b402a51a; 
+
+architecture behavior of xlcomplex_multiplier_3714c308f0744230beef7291b402a51a  is
+  component example_cmpy_v6_0_i1
+    port(
+      aclk:in std_logic;
+      aclken:in std_logic;
+      m_axis_dout_tdata:out std_logic_vector(47 downto 0);
+      m_axis_dout_tvalid:out std_logic;
+      s_axis_a_tdata:in std_logic_vector(47 downto 0);
+      s_axis_a_tvalid:in std_logic;
+      s_axis_b_tdata:in std_logic_vector(31 downto 0);
+      s_axis_b_tvalid:in std_logic
+    );
+end component;
+signal m_axis_dout_tdata_net: std_logic_vector(47 downto 0) := (others=>'0');
+signal s_axis_a_tdata_net: std_logic_vector(47 downto 0) := (others=>'0');
+signal s_axis_b_tdata_net: std_logic_vector(31 downto 0) := (others=>'0');
+begin
+  m_axis_dout_tdata_imag <= m_axis_dout_tdata_net(41 downto 24);
+  m_axis_dout_tdata_real <= m_axis_dout_tdata_net(17 downto 0);
+  s_axis_a_tdata_net(41 downto 24) <= s_axis_a_tdata_imag;
+  s_axis_a_tdata_net(17 downto 0) <= s_axis_a_tdata_real;
+  s_axis_b_tdata_net(25 downto 16) <= s_axis_b_tdata_imag;
+  s_axis_b_tdata_net(9 downto 0) <= s_axis_b_tdata_real;
+  example_cmpy_v6_0_i1_instance : example_cmpy_v6_0_i1
     port map(
       aclk=>clk,
       aclken=>ce,

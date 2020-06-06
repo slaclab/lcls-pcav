@@ -60,7 +60,6 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav1_p1_comparison_i,
   input wire[17:0] cav1_p1_comparison_phase,
   input wire[17:0] cav1_p1_comparison_q,
-  input wire[17:0] cav2_p1_comparison_q,
   input wire[25:0] cav1_p1_dc_freq,
   input wire[28:0] cav1_p1_dc_img,
   input wire[28:0] cav1_p1_dc_real,
@@ -76,8 +75,8 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav1_p2_comparison_phase,
   input wire[17:0] cav1_p2_comparison_q,
   input wire[25:0] cav1_p2_dc_freq,
-  input wire[28:0] cav1_p2_dc_img,
-  input wire[28:0] cav1_p2_dc_real,
+  input wire[17:0] cav1_p2_dc_img,
+  input wire[17:0] cav1_p2_dc_real,
   input wire[17:0] cav1_p2_if_amp,
   input wire[17:0] cav1_p2_if_i,
   input wire[17:0] cav1_p2_if_phase,
@@ -88,6 +87,7 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav2_p1_amp_out,
   input wire[17:0] cav2_p1_comparison_i,
   input wire[17:0] cav2_p1_comparison_phase,
+  input wire[17:0] cav2_p1_comparison_q,
   input wire[25:0] cav2_p1_dc_freq,
   input wire[28:0] cav2_p1_dc_img,
   input wire[28:0] cav2_p1_dc_real,
@@ -243,61 +243,61 @@ assign slv_wire_array[22] = {14'h0, cav1_p1_comparison_phase[17:0]};
 // map output 23
 assign slv_wire_array[23] = {14'h0, cav1_p1_comparison_q[17:0]};
 // map output 24
-assign slv_wire_array[24] = {14'h0, cav2_p1_comparison_q[17:0]};
+assign slv_wire_array[24] = {6'h0, cav1_p1_dc_freq[25:0]};
 // map output 25
-assign slv_wire_array[25] = {6'h0, cav1_p1_dc_freq[25:0]};
+assign slv_wire_array[25] = {3'h0, cav1_p1_dc_img[28:0]};
 // map output 26
-assign slv_wire_array[26] = {3'h0, cav1_p1_dc_img[28:0]};
+assign slv_wire_array[26] = {3'h0, cav1_p1_dc_real[28:0]};
 // map output 27
-assign slv_wire_array[27] = {3'h0, cav1_p1_dc_real[28:0]};
+assign slv_wire_array[27] = {14'h0, cav1_p1_if_amp[17:0]};
 // map output 28
-assign slv_wire_array[28] = {14'h0, cav1_p1_if_amp[17:0]};
+assign slv_wire_array[28] = {14'h0, cav1_p1_if_i[17:0]};
 // map output 29
-assign slv_wire_array[29] = {14'h0, cav1_p1_if_i[17:0]};
+assign slv_wire_array[29] = {14'h0, cav1_p1_if_phase[17:0]};
 // map output 30
-assign slv_wire_array[30] = {14'h0, cav1_p1_if_phase[17:0]};
+assign slv_wire_array[30] = {14'h0, cav1_p1_if_q[17:0]};
 // map output 31
-assign slv_wire_array[31] = {14'h0, cav1_p1_if_q[17:0]};
+assign slv_wire_array[31] = {14'h0, cav1_p1_integrated_i[17:0]};
 // map output 32
-assign slv_wire_array[32] = {14'h0, cav1_p1_integrated_i[17:0]};
+assign slv_wire_array[32] = {14'h0, cav1_p1_integrated_q[17:0]};
 // map output 33
-assign slv_wire_array[33] = {14'h0, cav1_p1_integrated_q[17:0]};
+assign slv_wire_array[33] = {14'h0, cav1_p1_phase_out[17:0]};
 // map output 34
-assign slv_wire_array[34] = {14'h0, cav1_p1_phase_out[17:0]};
+assign slv_wire_array[34] = {14'h0, cav1_p2_amp_out[17:0]};
 // map output 35
-assign slv_wire_array[35] = {14'h0, cav1_p2_amp_out[17:0]};
+assign slv_wire_array[35] = {14'h0, cav1_p2_comparison_i[17:0]};
 // map output 36
-assign slv_wire_array[36] = {14'h0, cav1_p2_comparison_i[17:0]};
+assign slv_wire_array[36] = {14'h0, cav1_p2_comparison_phase[17:0]};
 // map output 37
-assign slv_wire_array[37] = {14'h0, cav1_p2_comparison_phase[17:0]};
+assign slv_wire_array[37] = {14'h0, cav1_p2_comparison_q[17:0]};
 // map output 38
-assign slv_wire_array[38] = {14'h0, cav1_p2_comparison_q[17:0]};
+assign slv_wire_array[38] = {6'h0, cav1_p2_dc_freq[25:0]};
 // map output 39
-assign slv_wire_array[39] = {6'h0, cav1_p2_dc_freq[25:0]};
+assign slv_wire_array[39] = {14'h0, cav1_p2_dc_img[17:0]};
 // map output 40
-assign slv_wire_array[40] = {3'h0, cav1_p2_dc_img[28:0]};
+assign slv_wire_array[40] = {14'h0, cav1_p2_dc_real[17:0]};
 // map output 41
-assign slv_wire_array[41] = {3'h0, cav1_p2_dc_real[28:0]};
+assign slv_wire_array[41] = {14'h0, cav1_p2_if_amp[17:0]};
 // map output 42
-assign slv_wire_array[42] = {14'h0, cav1_p2_if_amp[17:0]};
+assign slv_wire_array[42] = {14'h0, cav1_p2_if_i[17:0]};
 // map output 43
-assign slv_wire_array[43] = {14'h0, cav1_p2_if_i[17:0]};
+assign slv_wire_array[43] = {14'h0, cav1_p2_if_phase[17:0]};
 // map output 44
-assign slv_wire_array[44] = {14'h0, cav1_p2_if_phase[17:0]};
+assign slv_wire_array[44] = {14'h0, cav1_p2_if_q[17:0]};
 // map output 45
-assign slv_wire_array[45] = {14'h0, cav1_p2_if_q[17:0]};
+assign slv_wire_array[45] = {14'h0, cav1_p2_integrated_i[17:0]};
 // map output 46
-assign slv_wire_array[46] = {14'h0, cav1_p2_integrated_i[17:0]};
+assign slv_wire_array[46] = {14'h0, cav1_p2_integrated_q[17:0]};
 // map output 47
-assign slv_wire_array[47] = {14'h0, cav1_p2_integrated_q[17:0]};
+assign slv_wire_array[47] = {14'h0, cav1_p2_phase_out[17:0]};
 // map output 48
-assign slv_wire_array[48] = {14'h0, cav1_p2_phase_out[17:0]};
+assign slv_wire_array[48] = {14'h0, cav2_p1_amp_out[17:0]};
 // map output 49
-assign slv_wire_array[49] = {14'h0, cav2_p1_amp_out[17:0]};
+assign slv_wire_array[49] = {14'h0, cav2_p1_comparison_i[17:0]};
 // map output 50
-assign slv_wire_array[50] = {14'h0, cav2_p1_comparison_i[17:0]};
+assign slv_wire_array[50] = {14'h0, cav2_p1_comparison_phase[17:0]};
 // map output 51
-assign slv_wire_array[51] = {14'h0, cav2_p1_comparison_phase[17:0]};
+assign slv_wire_array[51] = {14'h0, cav2_p1_comparison_q[17:0]};
 // map output 52
 assign slv_wire_array[52] = {6'h0, cav2_p1_dc_freq[25:0]};
 // map output 53
@@ -406,34 +406,34 @@ assign slv_wire_array[80] = status_0[31:0];
       12'd260 : dec_w = 21;
       12'd268 : dec_w = 22;
       12'd264 : dec_w = 23;
-      12'd672 : dec_w = 24;
-      12'd240 : dec_w = 25;
-      12'd228 : dec_w = 26;
-      12'd224 : dec_w = 27;
-      12'd204 : dec_w = 28;
-      12'd212 : dec_w = 29;
-      12'd208 : dec_w = 30;
-      12'd216 : dec_w = 31;
-      12'd244 : dec_w = 32;
-      12'd248 : dec_w = 33;
-      12'd252 : dec_w = 34;
-      12'd460 : dec_w = 35;
-      12'd464 : dec_w = 36;
-      12'd472 : dec_w = 37;
-      12'd468 : dec_w = 38;
-      12'd444 : dec_w = 39;
-      12'd432 : dec_w = 40;
-      12'd428 : dec_w = 41;
-      12'd408 : dec_w = 42;
-      12'd416 : dec_w = 43;
-      12'd412 : dec_w = 44;
-      12'd420 : dec_w = 45;
-      12'd448 : dec_w = 46;
-      12'd452 : dec_w = 47;
-      12'd456 : dec_w = 48;
-      12'd664 : dec_w = 49;
-      12'd668 : dec_w = 50;
-      12'd676 : dec_w = 51;
+      12'd240 : dec_w = 24;
+      12'd228 : dec_w = 25;
+      12'd224 : dec_w = 26;
+      12'd204 : dec_w = 27;
+      12'd212 : dec_w = 28;
+      12'd208 : dec_w = 29;
+      12'd216 : dec_w = 30;
+      12'd244 : dec_w = 31;
+      12'd248 : dec_w = 32;
+      12'd252 : dec_w = 33;
+      12'd460 : dec_w = 34;
+      12'd464 : dec_w = 35;
+      12'd472 : dec_w = 36;
+      12'd468 : dec_w = 37;
+      12'd444 : dec_w = 38;
+      12'd432 : dec_w = 39;
+      12'd428 : dec_w = 40;
+      12'd408 : dec_w = 41;
+      12'd416 : dec_w = 42;
+      12'd412 : dec_w = 43;
+      12'd420 : dec_w = 44;
+      12'd448 : dec_w = 45;
+      12'd452 : dec_w = 46;
+      12'd456 : dec_w = 47;
+      12'd664 : dec_w = 48;
+      12'd668 : dec_w = 49;
+      12'd676 : dec_w = 50;
+      12'd672 : dec_w = 51;
       12'd648 : dec_w = 52;
       12'd636 : dec_w = 53;
       12'd632 : dec_w = 54;
@@ -493,34 +493,34 @@ assign slv_wire_array[80] = status_0[31:0];
       12'd260 : dec_r = 21;
       12'd268 : dec_r = 22;
       12'd264 : dec_r = 23;
-      12'd672 : dec_r = 24;
-      12'd240 : dec_r = 25;
-      12'd228 : dec_r = 26;
-      12'd224 : dec_r = 27;
-      12'd204 : dec_r = 28;
-      12'd212 : dec_r = 29;
-      12'd208 : dec_r = 30;
-      12'd216 : dec_r = 31;
-      12'd244 : dec_r = 32;
-      12'd248 : dec_r = 33;
-      12'd252 : dec_r = 34;
-      12'd460 : dec_r = 35;
-      12'd464 : dec_r = 36;
-      12'd472 : dec_r = 37;
-      12'd468 : dec_r = 38;
-      12'd444 : dec_r = 39;
-      12'd432 : dec_r = 40;
-      12'd428 : dec_r = 41;
-      12'd408 : dec_r = 42;
-      12'd416 : dec_r = 43;
-      12'd412 : dec_r = 44;
-      12'd420 : dec_r = 45;
-      12'd448 : dec_r = 46;
-      12'd452 : dec_r = 47;
-      12'd456 : dec_r = 48;
-      12'd664 : dec_r = 49;
-      12'd668 : dec_r = 50;
-      12'd676 : dec_r = 51;
+      12'd240 : dec_r = 24;
+      12'd228 : dec_r = 25;
+      12'd224 : dec_r = 26;
+      12'd204 : dec_r = 27;
+      12'd212 : dec_r = 28;
+      12'd208 : dec_r = 29;
+      12'd216 : dec_r = 30;
+      12'd244 : dec_r = 31;
+      12'd248 : dec_r = 32;
+      12'd252 : dec_r = 33;
+      12'd460 : dec_r = 34;
+      12'd464 : dec_r = 35;
+      12'd472 : dec_r = 36;
+      12'd468 : dec_r = 37;
+      12'd444 : dec_r = 38;
+      12'd432 : dec_r = 39;
+      12'd428 : dec_r = 40;
+      12'd408 : dec_r = 41;
+      12'd416 : dec_r = 42;
+      12'd412 : dec_r = 43;
+      12'd420 : dec_r = 44;
+      12'd448 : dec_r = 45;
+      12'd452 : dec_r = 46;
+      12'd456 : dec_r = 47;
+      12'd664 : dec_r = 48;
+      12'd668 : dec_r = 49;
+      12'd676 : dec_r = 50;
+      12'd672 : dec_r = 51;
       12'd648 : dec_r = 52;
       12'd636 : dec_r = 53;
       12'd632 : dec_r = 54;

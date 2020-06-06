@@ -69,6 +69,40 @@ set_property -dict $params_list [get_ips example_c_addsub_v12_0_i0]
 
 
 set existingipslist [get_ips]
+if {[lsearch $existingipslist example_cordic_v6_0_i0] < 0} {
+create_ip -name cordic -version 6.0 -vendor xilinx.com -library ip -module_name example_cordic_v6_0_i0
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_cordic_v6_0_i0}
+lappend params_list CONFIG.ACLKEN {true}
+lappend params_list CONFIG.ARESETN {false}
+lappend params_list CONFIG.Architectural_Configuration {Parallel}
+lappend params_list CONFIG.Coarse_Rotation {true}
+lappend params_list CONFIG.Compensation_Scaling {No_Scale_Compensation}
+lappend params_list CONFIG.Data_Format {SignedFraction}
+lappend params_list CONFIG.Functional_Selection {Translate}
+lappend params_list CONFIG.Input_Width {18}
+lappend params_list CONFIG.Iterations {0}
+lappend params_list CONFIG.Output_Width {18}
+lappend params_list CONFIG.Phase_Format {Radians}
+lappend params_list CONFIG.Pipelining_Mode {Maximum}
+lappend params_list CONFIG.Precision {0}
+lappend params_list CONFIG.Round_Mode {Truncate}
+lappend params_list CONFIG.cartesian_has_tlast {false}
+lappend params_list CONFIG.cartesian_has_tuser {false}
+lappend params_list CONFIG.cartesian_tuser_width {1}
+lappend params_list CONFIG.flow_control {NonBlocking}
+lappend params_list CONFIG.optimize_goal {Performance}
+lappend params_list CONFIG.out_tlast_behv {Null}
+lappend params_list CONFIG.out_tready {false}
+lappend params_list CONFIG.phase_has_tlast {false}
+lappend params_list CONFIG.phase_has_tuser {false}
+lappend params_list CONFIG.phase_tuser_width {1}
+
+set_property -dict $params_list [get_ips example_cordic_v6_0_i0]
+}
+
+
+set existingipslist [get_ips]
 if {[lsearch $existingipslist example_cmpy_v6_0_i0] < 0} {
 create_ip -name cmpy -version 6.0 -vendor xilinx.com -library ip -module_name example_cmpy_v6_0_i0
 set params_list [list]
@@ -96,6 +130,65 @@ lappend params_list CONFIG.OutputWidth {29}
 lappend params_list CONFIG.RoundMode {Truncate}
 
 set_property -dict $params_list [get_ips example_cmpy_v6_0_i0]
+}
+
+
+set existingipslist [get_ips]
+if {[lsearch $existingipslist example_cmpy_v6_0_i1] < 0} {
+create_ip -name cmpy -version 6.0 -vendor xilinx.com -library ip -module_name example_cmpy_v6_0_i1
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_cmpy_v6_0_i1}
+lappend params_list CONFIG.ACLKEN {true}
+lappend params_list CONFIG.APortWidth {18}
+lappend params_list CONFIG.ARESETN {false}
+lappend params_list CONFIG.ATUSERWidth {1}
+lappend params_list CONFIG.BPortWidth {10}
+lappend params_list CONFIG.BTUSERWidth {1}
+lappend params_list CONFIG.CTRLTUSERWidth {1}
+lappend params_list CONFIG.FlowControl {NonBlocking}
+lappend params_list CONFIG.HasATLAST {false}
+lappend params_list CONFIG.HasATUSER {false}
+lappend params_list CONFIG.HasBTLAST {false}
+lappend params_list CONFIG.HasBTUSER {false}
+lappend params_list CONFIG.HasCTRLTLAST {false}
+lappend params_list CONFIG.HasCTRLTUSER {false}
+lappend params_list CONFIG.LatencyConfig {Automatic}
+lappend params_list CONFIG.MinimumLatency {6}
+lappend params_list CONFIG.MultType {Use_Mults}
+lappend params_list CONFIG.OptimizeGoal {Resources}
+lappend params_list CONFIG.OutTLASTBehv {Null}
+lappend params_list CONFIG.OutputWidth {18}
+lappend params_list CONFIG.RoundMode {Truncate}
+
+set_property -dict $params_list [get_ips example_cmpy_v6_0_i1]
+}
+
+
+set existingipslist [get_ips]
+if {[lsearch $existingipslist example_c_counter_binary_v12_0_i0] < 0} {
+create_ip -name c_counter_binary -version 12.0 -vendor xilinx.com -library ip -module_name example_c_counter_binary_v12_0_i0
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_c_counter_binary_v12_0_i0}
+lappend params_list CONFIG.ainit_value {0}
+lappend params_list CONFIG.ce {true}
+lappend params_list CONFIG.count_mode {UP}
+lappend params_list CONFIG.fb_latency {0}
+lappend params_list CONFIG.final_count_value {1}
+lappend params_list CONFIG.implementation {Fabric}
+lappend params_list CONFIG.increment_value {1}
+lappend params_list CONFIG.latency {1}
+lappend params_list CONFIG.load {false}
+lappend params_list CONFIG.output_width {16}
+lappend params_list CONFIG.restrict_count {false}
+lappend params_list CONFIG.sclr {false}
+lappend params_list CONFIG.sinit {true}
+lappend params_list CONFIG.sinit_value {0}
+lappend params_list CONFIG.sset {false}
+lappend params_list CONFIG.sync_ce_priority {Sync_Overrides_CE}
+lappend params_list CONFIG.sync_threshold_output {false}
+lappend params_list CONFIG.syncctrlpriority {Reset_Overrides_Set}
+
+set_property -dict $params_list [get_ips example_c_counter_binary_v12_0_i0]
 }
 
 

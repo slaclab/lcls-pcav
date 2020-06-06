@@ -95,7 +95,7 @@ table {border-collapse:collapse;
 <td class="title_table_design_cell">example</td>
 </tr>
 <tr>
-<td colspan=2 class="title_table_date_cell"><b>26-May-2020</b></td>
+<td colspan=2 class="title_table_date_cell"><b>06-Jun-2020</b></td>
 </tr>
 </table>
 <br>
@@ -134,6 +134,130 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">amp</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
+<td class="sg_cell">diagnsync_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diagnrst_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag8sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag8fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag7sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag7fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag6sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag6fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag5sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag5fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag4sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag4fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag3sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag3fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag2sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag2fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag1sevr_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag1fixed_ctl</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag8sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag1data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag1fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag1sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diagnclk</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diagnrst</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diagnsync</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag7data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag6data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag5data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag3data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag2data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag4data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag2fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag3fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag4fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag8data</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag5fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag6fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag7fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag8fixed</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag2sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag3sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag4sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag5sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag6sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">diag7sevr</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(1 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_2_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfdata_7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">wfvalid_7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(28 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_29_29</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
 <td class="sg_cell">axi_lite_aresetn</td><td class="sg_cell">in</td><td class="sg_cell">std_logic</td><td class="sg_cell">data</td><td class="sg_cell">-</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">axi_lite_s_axi_awaddr</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(11 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">-</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
@@ -170,9 +294,9 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">axi_lite_s_axi_rready</td><td class="sg_cell">in</td><td class="sg_cell">std_logic</td><td class="sg_cell">data</td><td class="sg_cell">-</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">axi_lite_clk</td><td class="sg_cell">in</td><td class="sg_cell">std_logic</td><td class="sg_cell">clock</td><td class="sg_cell">-</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
-<tr class="sg_row">
 <td class="sg_cell">dsp_clk</td><td class="sg_cell">in</td><td class="sg_cell">std_logic</td><td class="sg_cell">clock</td><td class="sg_cell">-</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">axi_lite_clk</td><td class="sg_cell">in</td><td class="sg_cell">std_logic</td><td class="sg_cell">clock</td><td class="sg_cell">-</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
 <caption class="sg_caption"><i>Table 1.</i> <b>Top Level Port Interface</b></caption>
 </table>
 <br>
@@ -316,8 +440,6 @@ The table below documents the memory map for System Generator design :
 <tr class="sg_row">
 <td class="sg_cell">cav1_p1_comparison_q</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell"></td><td class="sg_cell">00000108</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">cav2_p1_comparison_q</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell"></td><td class="sg_cell">000002A0</td><td class="sg_cell"></td></tr>
-<tr class="sg_row">
 <td class="sg_cell">cav1_p1_dc_freq</td><td class="sg_cell">Fix_26_0</td><td class="sg_cell"></td><td class="sg_cell">000000F0</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">cav1_p1_dc_img</td><td class="sg_cell">Fix_29_25</td><td class="sg_cell"></td><td class="sg_cell">000000E4</td><td class="sg_cell"></td></tr>
@@ -348,9 +470,9 @@ The table below documents the memory map for System Generator design :
 <tr class="sg_row">
 <td class="sg_cell">cav1_p2_dc_freq</td><td class="sg_cell">Fix_26_0</td><td class="sg_cell"></td><td class="sg_cell">000001BC</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">cav1_p2_dc_img</td><td class="sg_cell">Fix_29_25</td><td class="sg_cell"></td><td class="sg_cell">000001B0</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">cav1_p2_dc_img</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell"></td><td class="sg_cell">000001B0</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">cav1_p2_dc_real</td><td class="sg_cell">Fix_29_25</td><td class="sg_cell"></td><td class="sg_cell">000001AC</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">cav1_p2_dc_real</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell"></td><td class="sg_cell">000001AC</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">cav1_p2_if_amp</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell"></td><td class="sg_cell">00000198</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -371,6 +493,8 @@ The table below documents the memory map for System Generator design :
 <td class="sg_cell">cav2_p1_comparison_i</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell"></td><td class="sg_cell">0000029C</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">cav2_p1_comparison_phase</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell"></td><td class="sg_cell">000002A4</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">cav2_p1_comparison_q</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell"></td><td class="sg_cell">000002A0</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">cav2_p1_dc_freq</td><td class="sg_cell">Fix_26_0</td><td class="sg_cell"></td><td class="sg_cell">00000288</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">

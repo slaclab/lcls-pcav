@@ -322,14 +322,6 @@ int example_cav1_p1_comparison_q_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 264);
     return Data;
 }
-int example_cav2_p1_comparison_q_read(example *InstancePtr) {
-
-    int Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_BaseAddress, 672);
-    return Data;
-}
 int example_cav1_p1_dc_freq_read(example *InstancePtr) {
 
     int Data;
@@ -544,6 +536,14 @@ int example_cav2_p1_comparison_phase_read(example *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
 
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 676);
+    return Data;
+}
+int example_cav2_p1_comparison_q_read(example *InstancePtr) {
+
+    int Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 672);
     return Data;
 }
 int example_cav2_p1_dc_freq_read(example *InstancePtr) {

@@ -30,7 +30,6 @@
 #define EXAMPLE_CAV1_P1_COMPARISON_I 0x104/**< cav1_p1_comparison_i */
 #define EXAMPLE_CAV1_P1_COMPARISON_PHASE 0x10c/**< cav1_p1_comparison_phase */
 #define EXAMPLE_CAV1_P1_COMPARISON_Q 0x108/**< cav1_p1_comparison_q */
-#define EXAMPLE_CAV2_P1_COMPARISON_Q 0x2a0/**< cav2_p1_comparison_q */
 #define EXAMPLE_CAV1_P1_DC_FREQ 0xf0/**< cav1_p1_dc_freq */
 #define EXAMPLE_CAV1_P1_DC_IMG 0xe4/**< cav1_p1_dc_img */
 #define EXAMPLE_CAV1_P1_DC_REAL 0xe0/**< cav1_p1_dc_real */
@@ -58,6 +57,7 @@
 #define EXAMPLE_CAV2_P1_AMP_OUT 0x298/**< cav2_p1_amp_out */
 #define EXAMPLE_CAV2_P1_COMPARISON_I 0x29c/**< cav2_p1_comparison_i */
 #define EXAMPLE_CAV2_P1_COMPARISON_PHASE 0x2a4/**< cav2_p1_comparison_phase */
+#define EXAMPLE_CAV2_P1_COMPARISON_Q 0x2a0/**< cav2_p1_comparison_q */
 #define EXAMPLE_CAV2_P1_DC_FREQ 0x288/**< cav2_p1_dc_freq */
 #define EXAMPLE_CAV2_P1_DC_IMG 0x27c/**< cav2_p1_dc_img */
 #define EXAMPLE_CAV2_P1_DC_REAL 0x278/**< cav2_p1_dc_real */

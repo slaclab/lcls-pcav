@@ -577,17 +577,6 @@ int example_cav1_p1_comparison_phase_read(example *InstancePtr);
 */
 int example_cav1_p1_comparison_q_read(example *InstancePtr);
 /**
-* Read from cav2_p1_comparison_q gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p1_comparison_q instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav2_p1_comparison_q_read(example *InstancePtr);
-/**
 * Read from cav1_p1_dc_freq gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav1_p1_dc_freq instance to operate on.
@@ -884,6 +873,17 @@ int example_cav2_p1_comparison_i_read(example *InstancePtr);
 *
 */
 int example_cav2_p1_comparison_phase_read(example *InstancePtr);
+/**
+* Read from cav2_p1_comparison_q gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p1_comparison_q instance to operate on.
+*
+* @return	int
+*
+* @note    .
+*
+*/
+int example_cav2_p1_comparison_q_read(example *InstancePtr);
 /**
 * Read from cav2_p1_dc_freq gateway of example. Assignments are LSB-justified.
 *
