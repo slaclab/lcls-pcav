@@ -12,11 +12,12 @@ Fs     = 357e6;
 Fadc   = Fs;
 Ts     = 1/Fs;
 Fproc  = 204e6;
+Fsig   = Fproc/12;
 
 configBase = hex2dec('800');
 statusBase = hex2dec('0');
 
-fc = 2851.3e6;    % Cavity resonate freq
+fc = 2851.300000e6;    % Cavity resonate freq
 f_prl = 2856e6;   % PRL freq
 wc = 2*pi*fc;
 q  = 6000;        % Cavity Q
@@ -37,10 +38,11 @@ cav2p2_addr = cav1p1_addr * 4;
 jitter_amt = 100e-12;
 jitter_t = (t_start+jitter_amt):(1/fadc):(t_stop+jitter_amt);
 
-SIM_PRL = cos((2*pi*(f_prl-flo)*(adc_t)) + (0));   % Simplified PRL signal in the adc for simulink
+f_if_prl = f_prl-flo;
+SIM_PRL = cos((2*pi*(f_if_prl)*(adc_t)) + (0));   % Simplified PRL signal in the adc for simulink
 
 % Math representation of the IF cavity ring output 
-f_if = 80.278e6;
+% f_if = 80.278e6;
 f_if = fc - flo;
 tau_if = 1/(2*pi*bw/2);
 SIM_IF = cos(2*pi*f_if*(adc_t-t_delay));   % 80.278MHz ring
@@ -50,10 +52,42 @@ SIM_cav_ring_if = SIM_IF .* SIM_Ustep .* SIM_y_if;
 
 % SIM_cav_ring_if = SIM_IF;   % Simplified PRL signal in the adc for simulink
 
-
+cav_f_offset = f_if_prl - f_if
 SYS_PRL = [adc_t', SIM_PRL'];
 SYS_CAV = [adc_t', SIM_cav_ring_if'];
 
 figure()
 plot(adc_t, SIM_PRL);grid on; hold on;
 plot(adc_t, SIM_cav_ring_if); hold off
+
+figure()
+plot(adc_t, SIM_cav_ring_if); grid on;
+
+% N = 10;              % Order
+% F = [0 1000 8e4 Fsig/2];  % Frequency Vector
+% Fn = F/(Fsig/2)
+% Fp = Fn*pi
+% A = [0 1 0 0];       % Amplitude Vector
+% W = [10 1];           % Weight Vector
+% b  = firpm(N, Fn, A, W, 'differentiator');
+% fvtool(b)
+% [h, w] = freqz(b);
+% figure;
+% plot(w*((Fsig/2)/pi), abs(h)); grid on
+
+% N = 10;              % Order
+% F = [0 0.5 0.55 1];  % Frequency Vector
+% F1= F*(Fsig/2)
+% A = [0 1 0 0];       % Amplitude Vector
+% W = [10 1];           % Weight Vector
+% b  = firpm(N, F, A, W, 'differentiator');
+% fvtool(b)
+% [h, w] = freqz(b);
+% figure;
+% plot(w*((Fsig/2)/pi), abs(h)); grid on
+
+% b1 = [1 -1]
+% fvtool(b1)
+% [h1, w1] = freqz(b1);
+% figure;
+% plot(w1, abs(h1))
