@@ -234,6 +234,29 @@ void example_cav2_p2_chan_sel_write(example *InstancePtr, u8 Data);
 */
 u8 example_cav2_p2_chan_sel_read(example *InstancePtr);
 /**
+* Write to cav2_p2_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p2_calibration_coeff instance to operate on.
+* @param	Data is value to be written to gateway cav2_p2_calibration_coeff.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_p2_calibration_coeff_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_p2_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p2_calibration_coeff instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_p2_calibration_coeff_read(example *InstancePtr);
+/**
 * Write to cav2_p1_window_stop gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav2_p1_window_stop instance to operate on.
@@ -302,6 +325,29 @@ void example_cav2_p1_chan_sel_write(example *InstancePtr, u8 Data);
 *
 */
 u8 example_cav2_p1_chan_sel_read(example *InstancePtr);
+/**
+* Write to cav2_p1_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p1_calibration_coeff instance to operate on.
+* @param	Data is value to be written to gateway cav2_p1_calibration_coeff.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_p1_calibration_coeff_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_p1_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p1_calibration_coeff instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_p1_calibration_coeff_read(example *InstancePtr);
 /**
 * Write to cav2_nco_phase_reset gateway of example. Assignments are LSB-justified.
 *
@@ -418,6 +464,29 @@ void example_cav1_p2_chan_sel_write(example *InstancePtr, u8 Data);
 */
 u8 example_cav1_p2_chan_sel_read(example *InstancePtr);
 /**
+* Write to cav1_p2_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_p2_calibration_coeff instance to operate on.
+* @param	Data is value to be written to gateway cav1_p2_calibration_coeff.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav1_p2_calibration_coeff_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav1_p2_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_p2_calibration_coeff instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav1_p2_calibration_coeff_read(example *InstancePtr);
+/**
 * Write to cav1_p1_window_stop gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav1_p1_window_stop instance to operate on.
@@ -486,6 +555,29 @@ void example_cav1_p1_chan_sel_write(example *InstancePtr, u8 Data);
 *
 */
 u8 example_cav1_p1_chan_sel_read(example *InstancePtr);
+/**
+* Write to cav1_p1_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_p1_calibration_coeff instance to operate on.
+* @param	Data is value to be written to gateway cav1_p1_calibration_coeff.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav1_p1_calibration_coeff_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav1_p1_calibration_coeff gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_p1_calibration_coeff instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav1_p1_calibration_coeff_read(example *InstancePtr);
 /**
 * Write to cav1_nco_phase_reset gateway of example. Assignments are LSB-justified.
 *

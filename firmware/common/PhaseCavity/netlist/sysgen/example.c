@@ -108,6 +108,20 @@ u8 example_cav2_p2_chan_sel_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 832);
     return Data;
 }
+void example_cav2_p2_calibration_coeff_write(example *InstancePtr, u32 Data) {
+
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    example_WriteReg(InstancePtr->example_BaseAddress, 888, Data);
+}
+u32 example_cav2_p2_calibration_coeff_read(example *InstancePtr) {
+
+    u32 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 888);
+    return Data;
+}
 void example_cav2_p1_window_stop_write(example *InstancePtr, u32 Data) {
 
     Xil_AssertVoid(InstancePtr != NULL);
@@ -148,6 +162,20 @@ u8 example_cav2_p1_chan_sel_read(example *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
 
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 628);
+    return Data;
+}
+void example_cav2_p1_calibration_coeff_write(example *InstancePtr, u32 Data) {
+
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    example_WriteReg(InstancePtr->example_BaseAddress, 684, Data);
+}
+u32 example_cav2_p1_calibration_coeff_read(example *InstancePtr) {
+
+    u32 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 684);
     return Data;
 }
 void example_cav2_nco_phase_reset_write(example *InstancePtr, u32 Data) {
@@ -220,6 +248,20 @@ u8 example_cav1_p2_chan_sel_read(example *InstancePtr) {
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 424);
     return Data;
 }
+void example_cav1_p2_calibration_coeff_write(example *InstancePtr, u32 Data) {
+
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    example_WriteReg(InstancePtr->example_BaseAddress, 480, Data);
+}
+u32 example_cav1_p2_calibration_coeff_read(example *InstancePtr) {
+
+    u32 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 480);
+    return Data;
+}
 void example_cav1_p1_window_stop_write(example *InstancePtr, u32 Data) {
 
     Xil_AssertVoid(InstancePtr != NULL);
@@ -260,6 +302,20 @@ u8 example_cav1_p1_chan_sel_read(example *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
 
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 220);
+    return Data;
+}
+void example_cav1_p1_calibration_coeff_write(example *InstancePtr, u32 Data) {
+
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    example_WriteReg(InstancePtr->example_BaseAddress, 276, Data);
+}
+u32 example_cav1_p1_calibration_coeff_read(example *InstancePtr) {
+
+    u32 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 276);
     return Data;
 }
 void example_cav1_nco_phase_reset_write(example *InstancePtr, u32 Data) {
