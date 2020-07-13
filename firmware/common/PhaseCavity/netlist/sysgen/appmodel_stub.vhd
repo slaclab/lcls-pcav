@@ -2,7 +2,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
-entity example_stub is
+entity appmodel_stub is
   port (
     amp : in std_logic_vector( 18-1 downto 0 );
     ddcchannel : in std_logic_vector( 4-1 downto 0 );
@@ -12,8 +12,8 @@ entity example_stub is
     phase : in std_logic_vector( 18-1 downto 0 );
     phaseampchannel : in std_logic_vector( 4-1 downto 0 );
     phaseampsync : in std_logic_vector( 1-1 downto 0 );
-    axi_lite_clk : in std_logic;
     dsp_clk : in std_logic;
+    axi_lite_clk : in std_logic;
     axi_lite_aresetn : in std_logic;
     axi_lite_s_axi_awaddr : in std_logic_vector( 12-1 downto 0 );
     axi_lite_s_axi_awvalid : in std_logic;
@@ -355,10 +355,10 @@ entity example_stub is
     axi_lite_s_axi_rresp : out std_logic_vector( 2-1 downto 0 );
     axi_lite_s_axi_rvalid : out std_logic
   );
-end example_stub;
-architecture structural of example_stub is 
+end appmodel_stub;
+architecture structural of appmodel_stub is 
 begin
-  sysgen_dut : entity work.example 
+  sysgen_dut : entity work.appmodel 
   port map (
     amp => amp,
     ddcchannel => ddcchannel,
@@ -368,8 +368,8 @@ begin
     phase => phase,
     phaseampchannel => phaseampchannel,
     phaseampsync => phaseampsync,
-    axi_lite_clk => axi_lite_clk,
     dsp_clk => dsp_clk,
+    axi_lite_clk => axi_lite_clk,
     axi_lite_aresetn => axi_lite_aresetn,
     axi_lite_s_axi_awaddr => axi_lite_s_axi_awaddr,
     axi_lite_s_axi_awvalid => axi_lite_s_axi_awvalid,

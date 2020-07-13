@@ -63,31 +63,3 @@ plot(adc_t, SIM_cav_ring_if); hold off
 figure()
 plot(adc_t, SIM_cav_ring_if); grid on;
 
-% N = 10;              % Order
-% F = [0 1000 8e4 Fsig/2];  % Frequency Vector
-% Fn = F/(Fsig/2)
-% Fp = Fn*pi
-% A = [0 1 0 0];       % Amplitude Vector
-% W = [10 1];           % Weight Vector
-% b  = firpm(N, Fn, A, W, 'differentiator');
-% fvtool(b)
-% [h, w] = freqz(b);
-% figure;
-% plot(w*((Fsig/2)/pi), abs(h)); grid on
-
-% N = 10;              % Order
-% F = [0 0.5 0.55 1];  % Frequency Vector
-% F1= F*(Fsig/2)
-% A = [0 1 0 0];       % Amplitude Vector
-% W = [10 1];           % Weight Vector
-% b  = firpm(N, F, A, W, 'differentiator');
-% fvtool(b)
-% [h, w] = freqz(b);
-% figure;
-% plot(w*((Fsig/2)/pi), abs(h)); grid on
-
-% b1 = [1 -1]
-% fvtool(b1)
-% [h1, w1] = freqz(b1);
-% figure;
-% plot(w1, abs(h1))

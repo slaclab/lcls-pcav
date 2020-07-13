@@ -3,8 +3,8 @@ source -quiet $::env(RUCKUS_DIR)/vivado_proc.tcl
 
 # Load Source Code
 loadSource -dir  "$::DIR_PATH/rtl/"
-loadSource -path  "$::DIR_PATH/netlist/example_stub.vhd"
-#loadSource -path  "$::DIR_PATH/netlist/example.dcp"
+#loadSource -path  "$::DIR_PATH/netlist/example_stub.vhd"
+loadSource -path  "$::DIR_PATH/netlist/example.dcp"
 loadSource -path  "$::DIR_PATH/netlist/AppModel.vhd"
 
 loadIpCore -path "$::DIR_PATH/coregen/ila_0.xci"

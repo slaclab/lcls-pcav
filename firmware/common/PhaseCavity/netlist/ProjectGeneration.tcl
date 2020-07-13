@@ -5308,22 +5308,6 @@ NCO1/Gateway Out8}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready ClockDomain {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready Locs {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready IOStandard {}
-	dict set TopLevelPortInterface dsp_clk Name {dsp_clk}
-	dict set TopLevelPortInterface dsp_clk Type -
-	dict set TopLevelPortInterface dsp_clk ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface dsp_clk BinaryPoint 0
-	dict set TopLevelPortInterface dsp_clk Width 1
-	dict set TopLevelPortInterface dsp_clk DatFile {}
-	dict set TopLevelPortInterface dsp_clk Direction in
-	dict set TopLevelPortInterface dsp_clk Period 1
-	dict set TopLevelPortInterface dsp_clk Interface 6
-	dict set TopLevelPortInterface dsp_clk InterfaceName {}
-	dict set TopLevelPortInterface dsp_clk InterfaceString {CLOCK}
-	dict set TopLevelPortInterface dsp_clk ClockDomain {dsp}
-	dict set TopLevelPortInterface dsp_clk Locs {}
-	dict set TopLevelPortInterface dsp_clk IOStandard {}
-	dict set TopLevelPortInterface dsp_clk AssociatedInterfaces {}
-	dict set TopLevelPortInterface dsp_clk AssociatedResets {}
 	dict set TopLevelPortInterface axi_lite_clk Name {axi_lite_clk}
 	dict set TopLevelPortInterface axi_lite_clk Type -
 	dict set TopLevelPortInterface axi_lite_clk ArithmeticType xlUnsigned
@@ -5340,6 +5324,22 @@ NCO1/Gateway Out8}
 	dict set TopLevelPortInterface axi_lite_clk IOStandard {}
 	dict set TopLevelPortInterface axi_lite_clk AssociatedInterfaces {axi_lite_s_axi }
 	dict set TopLevelPortInterface axi_lite_clk AssociatedResets {axi_lite_aresetn }
+	dict set TopLevelPortInterface dsp_clk Name {dsp_clk}
+	dict set TopLevelPortInterface dsp_clk Type -
+	dict set TopLevelPortInterface dsp_clk ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface dsp_clk BinaryPoint 0
+	dict set TopLevelPortInterface dsp_clk Width 1
+	dict set TopLevelPortInterface dsp_clk DatFile {}
+	dict set TopLevelPortInterface dsp_clk Direction in
+	dict set TopLevelPortInterface dsp_clk Period 1
+	dict set TopLevelPortInterface dsp_clk Interface 6
+	dict set TopLevelPortInterface dsp_clk InterfaceName {}
+	dict set TopLevelPortInterface dsp_clk InterfaceString {CLOCK}
+	dict set TopLevelPortInterface dsp_clk ClockDomain {dsp}
+	dict set TopLevelPortInterface dsp_clk Locs {}
+	dict set TopLevelPortInterface dsp_clk IOStandard {}
+	dict set TopLevelPortInterface dsp_clk AssociatedInterfaces {}
+	dict set TopLevelPortInterface dsp_clk AssociatedResets {}
 	set MemoryMappedPort {}
 	dict set MemoryMappedPort scratchpad Name {scratchpad}
 	dict set MemoryMappedPort scratchpad Type UFix_32_0
