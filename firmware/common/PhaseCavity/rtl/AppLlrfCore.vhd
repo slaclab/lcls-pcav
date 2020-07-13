@@ -161,6 +161,7 @@ architecture mapping of AppLlrfCore is
    signal debug204 : DdcFrameArray(7 downto 0);
    signal debug185 : DdcFrameArray(7 downto 0);
 
+   signal diagnSync  : sl;
    signal diagnDataV : slv(1023 downto 0);
    signal diagnSevrV : slv(63 downto 0);
    
@@ -439,7 +440,7 @@ begin
        wfvalid_7              => debug204_valid(7),
        -- diagnostic bus input
        diagnclk(0)            => diagnClk,
-       diagnsync(0)           => diagnStrobe,
+       diagnsync(0)           => diagnSync,
        diag1data              => diagnDataV(0),
        diag1fixed             => diagnFixed(0),
        diag1sevr              => diagnSevrV(0),
@@ -559,7 +560,7 @@ begin
      debug204(i).valid <= debug204_valid(i);
      debug204(i).data  <= debug204_data(32*i+31 downto 32*i);
 --     debug204(i).sync  <= debug204_sync;
-     debug204(i).sync  <= diagnStrobe;
+     debug204(i).sync  <= diagnSync;
      U_SYNC_DEBUG : entity work.SynchronizerFifo
        generic map (
          TPD_G             => TPD_G,
@@ -586,6 +587,7 @@ begin
    end generate;
    trigDaqOut (0)      <= debug185(0).sync;
    trigDaqOut (1)      <= debug185(4).sync;
+   diagnStrobe         <= diagnSync;
    
    streamMaster <= AXI_STREAM_MASTER_INIT_C;
    
