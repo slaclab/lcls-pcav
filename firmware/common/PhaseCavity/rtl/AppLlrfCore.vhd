@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-07-13
+-- Last update: 2020-07-14
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -466,13 +466,13 @@ begin
        diag9data              => diagn(8),
        diag9fixed(0)          => diagnFixed(8),
        diag9sevr              => diagnSevr(8),
-       diag1data              => diagn(9),
+       diag10data              => diagn(9),
        diag10fixed(0)          => diagnFixed(9),
        diag10sevr              => diagnSevr(9),
-       diag10data              => diagn(10),
+       diag11data              => diagn(10),
        diag11fixed(0)          => diagnFixed(10),
        diag11sevr              => diagnSevr(10),
-       diag112data              => diagn(11),
+       diag12data              => diagn(11),
        diag12fixed(0)          => diagnFixed(11),
        diag12sevr              => diagnSevr(11),
        diag13data              => diagn(12),
