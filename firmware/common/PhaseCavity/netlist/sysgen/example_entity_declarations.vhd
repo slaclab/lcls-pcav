@@ -1114,6 +1114,25 @@ end behavior;
 library work;
 use work.conv_pkg.all;
 
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_8d20022674 is
+  port (
+    op : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_8d20022674;
+architecture behavior of sysgen_constant_8d20022674
+is
+begin
+  op <= "000000000000000000";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
 ---------------------------------------------------------------------
 --
 --  Filename      : xlceprobe.vhd
@@ -1703,25 +1722,6 @@ begin
   op_mem_37_22_front_din <= result_12_3_rel;
   op_mem_37_22_push_front_pop_back_en <= '1';
   op <= boolean_to_vector(op_mem_37_22_back);
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_8d20022674 is
-  port (
-    op : out std_logic_vector((18 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_8d20022674;
-architecture behavior of sysgen_constant_8d20022674
-is
-begin
-  op <= "000000000000000000";
 end behavior;
 
 library work;
