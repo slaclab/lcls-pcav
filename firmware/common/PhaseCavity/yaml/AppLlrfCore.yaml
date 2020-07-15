@@ -12,6 +12,7 @@
 #include llrfDemod.yaml
 #include llrfUpconvert.yaml
 #include llrfPll.yaml
+#include PcavReg.yaml
 
 AppLlrfCore: &AppLlrfCore 
   name: AppLlrfCore
@@ -37,3 +38,8 @@ AppLlrfCore: &AppLlrfCore
       <<: *LlrfPll
       at:
         offset: 0x2000
+    #########################################################
+    PcavReg:
+      <<: *PcavReg
+      at:
+        offset: 0x3000	
