@@ -12,8 +12,8 @@ entity example_stub is
     phase : in std_logic_vector( 18-1 downto 0 );
     phaseampchannel : in std_logic_vector( 4-1 downto 0 );
     phaseampsync : in std_logic_vector( 1-1 downto 0 );
-    axi_lite_clk : in std_logic;
     dsp_clk : in std_logic;
+    axi_lite_clk : in std_logic;
     axi_lite_aresetn : in std_logic;
     axi_lite_s_axi_awaddr : in std_logic_vector( 12-1 downto 0 );
     axi_lite_s_axi_awvalid : in std_logic;
@@ -136,83 +136,91 @@ entity example_stub is
     diag30data : out std_logic_vector( 32-1 downto 0 );
     diag31data : out std_logic_vector( 32-1 downto 0 );
     diag25data : out std_logic_vector( 32-1 downto 0 );
-    gateway_out3 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out3_x1 : out std_logic_vector( 26-1 downto 0 );
     gateway_out39 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out40 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5 : out std_logic_vector( 26-1 downto 0 );
-    gateway_out10 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out15 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5_x1 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out12_x0 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out15_x1 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out25 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out29 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out13_x0 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out21 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out10_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out15_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out16 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out3_x0 : out std_logic_vector( 26-1 downto 0 );
-    gateway_out4_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5_x0 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out3 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out4 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5 : out std_logic_vector( 26-1 downto 0 );
     gateway_out6 : out std_logic_vector( 18-1 downto 0 );
     gateway_out7 : out std_logic_vector( 34-1 downto 0 );
     gateway_out8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out : out std_logic_vector( 1-1 downto 0 );
+    gateway_out_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out10_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out10 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11 : out std_logic_vector( 32-1 downto 0 );
     gateway_out12 : out std_logic_vector( 20-1 downto 0 );
     gateway_out13 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out15_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out15 : out std_logic_vector( 32-1 downto 0 );
     gateway_out16_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out17 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x9 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out5_x7 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out6_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x6 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x8 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out5_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out6_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out18 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x9 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out10_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out12_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out13_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out10_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out12_x3 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out13_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out15_x3 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out15_x4 : out std_logic_vector( 32-1 downto 0 );
     gateway_out16_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out17_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out18_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x9 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x2 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x10 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out4_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out5_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5_x7 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x7 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x9 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out8_x10 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out1_x7 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out2_x8 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out29_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x7 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out5_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out24_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out25_x2 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out26_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out6_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x4 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out8_x6 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out1_x10 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out2_x10 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out27_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out29_x5 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out5_x8 : out std_logic_vector( 1-1 downto 0 );
     gateway_out24_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out25_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out25_x3 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x5 : out std_logic_vector( 20-1 downto 0 );
     gateway_out8_x7 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out24_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out25_x2 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out26_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out6_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x6 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out8_x8 : out std_logic_vector( 20-1 downto 0 );
     gateway_out1_x8 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out2_x9 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x8 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out27_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x8 : out std_logic_vector( 1-1 downto 0 );
     gateway_out5_x6 : out std_logic_vector( 1-1 downto 0 );
@@ -228,143 +236,163 @@ entity example_stub is
     gateway_out36_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out38_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out11_x6 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x2 : out std_logic_vector( 33-1 downto 0 );
     gateway_out20_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out8_x12 : out std_logic_vector( 63-1 downto 0 );
     gateway_out27_x6 : out std_logic_vector( 32-1 downto 0 );
     gateway_out28_x6 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out29_x6 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out3_x13 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out29_x7 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out3_x14 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x6 : out std_logic_vector( 33-1 downto 0 );
     gateway_out1_x14 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x14 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x13 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x13 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out11_x6 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x15 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x15 : out std_logic_vector( 10-1 downto 0 );
+    gateway_out11_x7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out19_x3 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out20_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x13 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out27_x7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out28_x7 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out29_x8 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out3_x15 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out_x7 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out1_x18 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x17 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x17 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x16 : out std_logic_vector( 10-1 downto 0 );
+    gateway_out4_x6 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out1_x16 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out2_x11 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out11_x5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x1 : out std_logic_vector( 33-1 downto 0 );
     gateway_out20_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x10 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out8_x11 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out3_x11 : out std_logic_vector( 33-1 downto 0 );
     gateway_out27_x5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out28_x5 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out29_x5 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out3_x11 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out29_x6 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out3_x12 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x4 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out1_x10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x11 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x12 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x12 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x11 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x12 : out std_logic_vector( 10-1 downto 0 );
+    gateway_out2_x13 : out std_logic_vector( 10-1 downto 0 );
+    gateway_out1_x13 : out std_logic_vector( 1-1 downto 0 );
     gateway_out39_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out40_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out10_x3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out15_x4 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out10_x4 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out15_x5 : out std_logic_vector( 18-1 downto 0 );
     gateway_out16_x4 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out3_x12 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out3_x13 : out std_logic_vector( 26-1 downto 0 );
     gateway_out4_x5 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x9 : out std_logic_vector( 26-1 downto 0 );
     gateway_out6_x8 : out std_logic_vector( 18-1 downto 0 );
     gateway_out7_x8 : out std_logic_vector( 34-1 downto 0 );
-    gateway_out8_x11 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x9 : out std_logic_vector( 1-1 downto 0 );
     gateway_out_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x12 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out10_x4 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out12_x2 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out13_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out10_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out12_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out13_x1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out15_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out16_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out17_x0 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out22_x0 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out15_x3 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out16_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out17_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out18_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out22_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out5_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out3_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x3 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out5_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out8_x3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x0 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out9_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x0 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out12_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out13_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out11_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out12_x2 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out13_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out15_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out16_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out17_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out22_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out16_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out17_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out18_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out22_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out6_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x0 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out6_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out1_x0 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x0 : out std_logic_vector( 16-1 downto 0 );
     gateway_out27 : out std_logic_vector( 1-1 downto 0 );
     gateway_out28 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out29 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out5_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out29_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out5_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out24 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out25 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out26 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out6_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out8_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out24_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out26_x0 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out26 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out8_x2 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out1_x1 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out24_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out25_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out26_x0 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out6_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x4 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out8_x5 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out1_x7 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x7 : out std_logic_vector( 16-1 downto 0 );
     gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out29_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out5_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out32_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out28_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out29_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x7 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out5_x5 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out32 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37 : out std_logic_vector( 1-1 downto 0 );
     gateway_out38 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out32 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out32_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out38_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out11_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x0 : out std_logic_vector( 33-1 downto 0 );
     gateway_out20_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x5 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out8_x6 : out std_logic_vector( 63-1 downto 0 );
     gateway_out27_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out28_x2 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out29_x2 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out3_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out28_x1 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out29_x1 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out3_x6 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x2 : out std_logic_vector( 33-1 downto 0 );
     gateway_out1_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x4 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x4 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out11_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out11_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19 : out std_logic_vector( 33-1 downto 0 );
     gateway_out20 : out std_logic_vector( 1-1 downto 0 );
     gateway_out8_x4 : out std_logic_vector( 63-1 downto 0 );
     gateway_out27_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out28_x0 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out29_x0 : out std_logic_vector( 33-1 downto 0 );
-    gateway_out3_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out_x1 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out29_x2 : out std_logic_vector( 33-1 downto 0 );
+    gateway_out3_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out_x3 : out std_logic_vector( 33-1 downto 0 );
     gateway_out1_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x6 : out std_logic_vector( 32-1 downto 0 );
@@ -391,8 +419,8 @@ begin
     phase => phase,
     phaseampchannel => phaseampchannel,
     phaseampsync => phaseampsync,
-    axi_lite_clk => axi_lite_clk,
     dsp_clk => dsp_clk,
+    axi_lite_clk => axi_lite_clk,
     axi_lite_aresetn => axi_lite_aresetn,
     axi_lite_s_axi_awaddr => axi_lite_s_axi_awaddr,
     axi_lite_s_axi_awvalid => axi_lite_s_axi_awvalid,
@@ -515,83 +543,91 @@ begin
     diag30data => diag30data,
     diag31data => diag31data,
     diag25data => diag25data,
-    gateway_out3 => gateway_out3,
+    gateway_out3_x1 => gateway_out3_x1,
     gateway_out39 => gateway_out39,
-    gateway_out4 => gateway_out4,
+    gateway_out4_x1 => gateway_out4_x1,
     gateway_out40 => gateway_out40,
-    gateway_out5 => gateway_out5,
-    gateway_out10 => gateway_out10,
-    gateway_out15 => gateway_out15,
+    gateway_out5_x1 => gateway_out5_x1,
+    gateway_out12_x0 => gateway_out12_x0,
+    gateway_out15_x1 => gateway_out15_x1,
+    gateway_out25 => gateway_out25,
+    gateway_out29 => gateway_out29,
+    gateway_out13_x0 => gateway_out13_x0,
+    gateway_out21 => gateway_out21,
+    gateway_out10_x0 => gateway_out10_x0,
+    gateway_out15_x0 => gateway_out15_x0,
     gateway_out16 => gateway_out16,
-    gateway_out3_x0 => gateway_out3_x0,
-    gateway_out4_x0 => gateway_out4_x0,
-    gateway_out5_x0 => gateway_out5_x0,
+    gateway_out3 => gateway_out3,
+    gateway_out4 => gateway_out4,
+    gateway_out5 => gateway_out5,
     gateway_out6 => gateway_out6,
     gateway_out7 => gateway_out7,
     gateway_out8 => gateway_out8,
-    gateway_out => gateway_out,
+    gateway_out_x0 => gateway_out_x0,
     gateway_out1 => gateway_out1,
-    gateway_out10_x0 => gateway_out10_x0,
+    gateway_out10 => gateway_out10,
     gateway_out11 => gateway_out11,
     gateway_out12 => gateway_out12,
     gateway_out13 => gateway_out13,
     gateway_out14 => gateway_out14,
-    gateway_out15_x0 => gateway_out15_x0,
+    gateway_out15 => gateway_out15,
     gateway_out16_x0 => gateway_out16_x0,
     gateway_out17 => gateway_out17,
     gateway_out2 => gateway_out2,
     gateway_out22 => gateway_out22,
     gateway_out23 => gateway_out23,
-    gateway_out3_x9 => gateway_out3_x9,
-    gateway_out4_x3 => gateway_out4_x3,
-    gateway_out5_x7 => gateway_out5_x7,
-    gateway_out6_x6 => gateway_out6_x6,
-    gateway_out7_x6 => gateway_out7_x6,
-    gateway_out8_x8 => gateway_out8_x8,
-    gateway_out9_x1 => gateway_out9_x1,
-    gateway_out_x3 => gateway_out_x3,
+    gateway_out3_x0 => gateway_out3_x0,
+    gateway_out4_x0 => gateway_out4_x0,
+    gateway_out5_x0 => gateway_out5_x0,
+    gateway_out6_x0 => gateway_out6_x0,
+    gateway_out7_x0 => gateway_out7_x0,
+    gateway_out8_x0 => gateway_out8_x0,
+    gateway_out9 => gateway_out9,
+    gateway_out18 => gateway_out18,
+    gateway_out => gateway_out,
     gateway_out1_x9 => gateway_out1_x9,
-    gateway_out10_x1 => gateway_out10_x1,
-    gateway_out11_x3 => gateway_out11_x3,
-    gateway_out12_x1 => gateway_out12_x1,
-    gateway_out13_x1 => gateway_out13_x1,
+    gateway_out10_x3 => gateway_out10_x3,
+    gateway_out11_x4 => gateway_out11_x4,
+    gateway_out12_x3 => gateway_out12_x3,
+    gateway_out13_x3 => gateway_out13_x3,
     gateway_out14_x2 => gateway_out14_x2,
-    gateway_out15_x3 => gateway_out15_x3,
+    gateway_out15_x4 => gateway_out15_x4,
     gateway_out16_x3 => gateway_out16_x3,
     gateway_out17_x2 => gateway_out17_x2,
-    gateway_out2_x10 => gateway_out2_x10,
+    gateway_out18_x0 => gateway_out18_x0,
+    gateway_out2_x9 => gateway_out2_x9,
     gateway_out22_x2 => gateway_out22_x2,
     gateway_out23_x2 => gateway_out23_x2,
-    gateway_out3_x10 => gateway_out3_x10,
+    gateway_out3_x9 => gateway_out3_x9,
     gateway_out4_x4 => gateway_out4_x4,
-    gateway_out5_x8 => gateway_out5_x8,
+    gateway_out5_x7 => gateway_out5_x7,
     gateway_out6_x7 => gateway_out6_x7,
     gateway_out7_x7 => gateway_out7_x7,
-    gateway_out8_x9 => gateway_out8_x9,
+    gateway_out8_x10 => gateway_out8_x10,
     gateway_out9_x2 => gateway_out9_x2,
-    gateway_out1_x7 => gateway_out1_x7,
-    gateway_out2_x8 => gateway_out2_x8,
-    gateway_out27_x3 => gateway_out27_x3,
-    gateway_out28_x3 => gateway_out28_x3,
-    gateway_out29_x3 => gateway_out29_x3,
-    gateway_out3_x7 => gateway_out3_x7,
-    gateway_out5_x5 => gateway_out5_x5,
-    gateway_out24_x1 => gateway_out24_x1,
-    gateway_out25_x2 => gateway_out25_x2,
-    gateway_out26_x1 => gateway_out26_x1,
-    gateway_out6_x4 => gateway_out6_x4,
-    gateway_out7_x4 => gateway_out7_x4,
-    gateway_out8_x6 => gateway_out8_x6,
+    gateway_out1_x10 => gateway_out1_x10,
+    gateway_out2_x10 => gateway_out2_x10,
+    gateway_out27_x4 => gateway_out27_x4,
+    gateway_out28_x4 => gateway_out28_x4,
+    gateway_out29_x5 => gateway_out29_x5,
+    gateway_out3_x10 => gateway_out3_x10,
+    gateway_out5_x8 => gateway_out5_x8,
     gateway_out24_x2 => gateway_out24_x2,
-    gateway_out25_x1 => gateway_out25_x1,
+    gateway_out25_x3 => gateway_out25_x3,
     gateway_out26_x2 => gateway_out26_x2,
     gateway_out6_x5 => gateway_out6_x5,
     gateway_out7_x5 => gateway_out7_x5,
     gateway_out8_x7 => gateway_out8_x7,
+    gateway_out24_x1 => gateway_out24_x1,
+    gateway_out25_x2 => gateway_out25_x2,
+    gateway_out26_x1 => gateway_out26_x1,
+    gateway_out6_x6 => gateway_out6_x6,
+    gateway_out7_x6 => gateway_out7_x6,
+    gateway_out8_x8 => gateway_out8_x8,
     gateway_out1_x8 => gateway_out1_x8,
-    gateway_out2_x9 => gateway_out2_x9,
-    gateway_out27_x4 => gateway_out27_x4,
-    gateway_out28_x4 => gateway_out28_x4,
+    gateway_out2_x8 => gateway_out2_x8,
+    gateway_out27_x3 => gateway_out27_x3,
+    gateway_out28_x3 => gateway_out28_x3,
     gateway_out29_x4 => gateway_out29_x4,
     gateway_out3_x8 => gateway_out3_x8,
     gateway_out5_x6 => gateway_out5_x6,
@@ -607,143 +643,163 @@ begin
     gateway_out36_x2 => gateway_out36_x2,
     gateway_out37_x2 => gateway_out37_x2,
     gateway_out38_x2 => gateway_out38_x2,
-    gateway_out11_x5 => gateway_out11_x5,
+    gateway_out11_x6 => gateway_out11_x6,
     gateway_out19_x2 => gateway_out19_x2,
     gateway_out20_x2 => gateway_out20_x2,
     gateway_out8_x12 => gateway_out8_x12,
     gateway_out27_x6 => gateway_out27_x6,
     gateway_out28_x6 => gateway_out28_x6,
-    gateway_out29_x6 => gateway_out29_x6,
-    gateway_out3_x13 => gateway_out3_x13,
+    gateway_out29_x7 => gateway_out29_x7,
+    gateway_out3_x14 => gateway_out3_x14,
     gateway_out_x6 => gateway_out_x6,
     gateway_out1_x14 => gateway_out1_x14,
     gateway_out2_x14 => gateway_out2_x14,
-    gateway_out1_x13 => gateway_out1_x13,
-    gateway_out2_x13 => gateway_out2_x13,
-    gateway_out11_x6 => gateway_out11_x6,
+    gateway_out1_x15 => gateway_out1_x15,
+    gateway_out2_x15 => gateway_out2_x15,
+    gateway_out11_x7 => gateway_out11_x7,
+    gateway_out19_x3 => gateway_out19_x3,
+    gateway_out20_x3 => gateway_out20_x3,
+    gateway_out8_x13 => gateway_out8_x13,
+    gateway_out27_x7 => gateway_out27_x7,
+    gateway_out28_x7 => gateway_out28_x7,
+    gateway_out29_x8 => gateway_out29_x8,
+    gateway_out3_x15 => gateway_out3_x15,
+    gateway_out_x7 => gateway_out_x7,
+    gateway_out1_x18 => gateway_out1_x18,
+    gateway_out2_x17 => gateway_out2_x17,
+    gateway_out1_x17 => gateway_out1_x17,
+    gateway_out2_x16 => gateway_out2_x16,
+    gateway_out4_x6 => gateway_out4_x6,
+    gateway_out1_x16 => gateway_out1_x16,
+    gateway_out2_x11 => gateway_out2_x11,
+    gateway_out11_x5 => gateway_out11_x5,
     gateway_out19_x1 => gateway_out19_x1,
     gateway_out20_x1 => gateway_out20_x1,
-    gateway_out8_x10 => gateway_out8_x10,
+    gateway_out8_x11 => gateway_out8_x11,
+    gateway_out3_x11 => gateway_out3_x11,
     gateway_out27_x5 => gateway_out27_x5,
     gateway_out28_x5 => gateway_out28_x5,
-    gateway_out29_x5 => gateway_out29_x5,
-    gateway_out3_x11 => gateway_out3_x11,
+    gateway_out29_x6 => gateway_out29_x6,
+    gateway_out3_x12 => gateway_out3_x12,
     gateway_out_x4 => gateway_out_x4,
-    gateway_out1_x10 => gateway_out1_x10,
-    gateway_out2_x11 => gateway_out2_x11,
-    gateway_out1_x11 => gateway_out1_x11,
+    gateway_out1_x12 => gateway_out1_x12,
     gateway_out2_x12 => gateway_out2_x12,
+    gateway_out1_x11 => gateway_out1_x11,
+    gateway_out2_x13 => gateway_out2_x13,
+    gateway_out1_x13 => gateway_out1_x13,
     gateway_out39_x0 => gateway_out39_x0,
     gateway_out40_x0 => gateway_out40_x0,
-    gateway_out10_x3 => gateway_out10_x3,
-    gateway_out15_x4 => gateway_out15_x4,
+    gateway_out10_x4 => gateway_out10_x4,
+    gateway_out15_x5 => gateway_out15_x5,
     gateway_out16_x4 => gateway_out16_x4,
-    gateway_out3_x12 => gateway_out3_x12,
+    gateway_out3_x13 => gateway_out3_x13,
     gateway_out4_x5 => gateway_out4_x5,
     gateway_out5_x9 => gateway_out5_x9,
     gateway_out6_x8 => gateway_out6_x8,
     gateway_out7_x8 => gateway_out7_x8,
-    gateway_out8_x11 => gateway_out8_x11,
+    gateway_out8_x9 => gateway_out8_x9,
     gateway_out_x5 => gateway_out_x5,
-    gateway_out1_x12 => gateway_out1_x12,
-    gateway_out10_x4 => gateway_out10_x4,
-    gateway_out11_x4 => gateway_out11_x4,
-    gateway_out12_x2 => gateway_out12_x2,
-    gateway_out13_x2 => gateway_out13_x2,
+    gateway_out1_x1 => gateway_out1_x1,
+    gateway_out10_x1 => gateway_out10_x1,
+    gateway_out11_x0 => gateway_out11_x0,
+    gateway_out12_x1 => gateway_out12_x1,
+    gateway_out13_x1 => gateway_out13_x1,
     gateway_out14_x0 => gateway_out14_x0,
-    gateway_out15_x1 => gateway_out15_x1,
-    gateway_out16_x1 => gateway_out16_x1,
-    gateway_out17_x0 => gateway_out17_x0,
-    gateway_out2_x1 => gateway_out2_x1,
-    gateway_out22_x0 => gateway_out22_x0,
+    gateway_out15_x3 => gateway_out15_x3,
+    gateway_out16_x2 => gateway_out16_x2,
+    gateway_out17_x1 => gateway_out17_x1,
+    gateway_out18_x2 => gateway_out18_x2,
+    gateway_out2_x2 => gateway_out2_x2,
+    gateway_out22_x1 => gateway_out22_x1,
     gateway_out23_x1 => gateway_out23_x1,
-    gateway_out3_x3 => gateway_out3_x3,
-    gateway_out4_x2 => gateway_out4_x2,
-    gateway_out5_x3 => gateway_out5_x3,
+    gateway_out3_x4 => gateway_out3_x4,
+    gateway_out4_x3 => gateway_out4_x3,
+    gateway_out5_x4 => gateway_out5_x4,
     gateway_out6_x3 => gateway_out6_x3,
     gateway_out7_x3 => gateway_out7_x3,
     gateway_out8_x3 => gateway_out8_x3,
-    gateway_out9_x0 => gateway_out9_x0,
-    gateway_out_x0 => gateway_out_x0,
+    gateway_out9_x1 => gateway_out9_x1,
+    gateway_out_x1 => gateway_out_x1,
     gateway_out1_x2 => gateway_out1_x2,
     gateway_out10_x2 => gateway_out10_x2,
-    gateway_out11_x0 => gateway_out11_x0,
-    gateway_out12_x0 => gateway_out12_x0,
-    gateway_out13_x0 => gateway_out13_x0,
+    gateway_out11_x1 => gateway_out11_x1,
+    gateway_out12_x2 => gateway_out12_x2,
+    gateway_out13_x2 => gateway_out13_x2,
     gateway_out14_x1 => gateway_out14_x1,
     gateway_out15_x2 => gateway_out15_x2,
-    gateway_out16_x2 => gateway_out16_x2,
-    gateway_out17_x1 => gateway_out17_x1,
-    gateway_out2_x2 => gateway_out2_x2,
-    gateway_out22_x1 => gateway_out22_x1,
+    gateway_out16_x1 => gateway_out16_x1,
+    gateway_out17_x0 => gateway_out17_x0,
+    gateway_out18_x1 => gateway_out18_x1,
+    gateway_out2_x1 => gateway_out2_x1,
+    gateway_out22_x0 => gateway_out22_x0,
     gateway_out23_x0 => gateway_out23_x0,
-    gateway_out3_x1 => gateway_out3_x1,
-    gateway_out4_x1 => gateway_out4_x1,
+    gateway_out3_x2 => gateway_out3_x2,
+    gateway_out4_x2 => gateway_out4_x2,
     gateway_out5_x2 => gateway_out5_x2,
-    gateway_out6_x0 => gateway_out6_x0,
-    gateway_out7_x0 => gateway_out7_x0,
-    gateway_out8_x0 => gateway_out8_x0,
-    gateway_out9 => gateway_out9,
+    gateway_out6_x1 => gateway_out6_x1,
+    gateway_out7_x1 => gateway_out7_x1,
+    gateway_out8_x1 => gateway_out8_x1,
+    gateway_out9_x0 => gateway_out9_x0,
     gateway_out1_x0 => gateway_out1_x0,
     gateway_out2_x0 => gateway_out2_x0,
     gateway_out27 => gateway_out27,
     gateway_out28 => gateway_out28,
-    gateway_out29 => gateway_out29,
-    gateway_out3_x2 => gateway_out3_x2,
-    gateway_out5_x1 => gateway_out5_x1,
+    gateway_out29_x0 => gateway_out29_x0,
+    gateway_out3_x3 => gateway_out3_x3,
+    gateway_out5_x3 => gateway_out5_x3,
     gateway_out24 => gateway_out24,
-    gateway_out25 => gateway_out25,
-    gateway_out26 => gateway_out26,
-    gateway_out6_x1 => gateway_out6_x1,
-    gateway_out7_x1 => gateway_out7_x1,
-    gateway_out8_x1 => gateway_out8_x1,
-    gateway_out24_x0 => gateway_out24_x0,
     gateway_out25_x0 => gateway_out25_x0,
-    gateway_out26_x0 => gateway_out26_x0,
+    gateway_out26 => gateway_out26,
     gateway_out6_x2 => gateway_out6_x2,
     gateway_out7_x2 => gateway_out7_x2,
     gateway_out8_x2 => gateway_out8_x2,
-    gateway_out1_x1 => gateway_out1_x1,
+    gateway_out24_x0 => gateway_out24_x0,
+    gateway_out25_x1 => gateway_out25_x1,
+    gateway_out26_x0 => gateway_out26_x0,
+    gateway_out6_x4 => gateway_out6_x4,
+    gateway_out7_x4 => gateway_out7_x4,
+    gateway_out8_x5 => gateway_out8_x5,
+    gateway_out1_x7 => gateway_out1_x7,
     gateway_out2_x7 => gateway_out2_x7,
     gateway_out27_x1 => gateway_out27_x1,
-    gateway_out28_x1 => gateway_out28_x1,
-    gateway_out29_x1 => gateway_out29_x1,
-    gateway_out3_x6 => gateway_out3_x6,
-    gateway_out5_x4 => gateway_out5_x4,
-    gateway_out32_x0 => gateway_out32_x0,
+    gateway_out28_x2 => gateway_out28_x2,
+    gateway_out29_x3 => gateway_out29_x3,
+    gateway_out3_x7 => gateway_out3_x7,
+    gateway_out5_x5 => gateway_out5_x5,
+    gateway_out32 => gateway_out32,
     gateway_out34 => gateway_out34,
     gateway_out35 => gateway_out35,
     gateway_out36 => gateway_out36,
     gateway_out37 => gateway_out37,
     gateway_out38 => gateway_out38,
-    gateway_out32 => gateway_out32,
+    gateway_out32_x0 => gateway_out32_x0,
     gateway_out34_x0 => gateway_out34_x0,
     gateway_out35_x0 => gateway_out35_x0,
     gateway_out36_x0 => gateway_out36_x0,
     gateway_out37_x0 => gateway_out37_x0,
     gateway_out38_x0 => gateway_out38_x0,
-    gateway_out11_x2 => gateway_out11_x2,
+    gateway_out11_x3 => gateway_out11_x3,
     gateway_out19_x0 => gateway_out19_x0,
     gateway_out20_x0 => gateway_out20_x0,
-    gateway_out8_x5 => gateway_out8_x5,
+    gateway_out8_x6 => gateway_out8_x6,
     gateway_out27_x2 => gateway_out27_x2,
-    gateway_out28_x2 => gateway_out28_x2,
-    gateway_out29_x2 => gateway_out29_x2,
-    gateway_out3_x5 => gateway_out3_x5,
+    gateway_out28_x1 => gateway_out28_x1,
+    gateway_out29_x1 => gateway_out29_x1,
+    gateway_out3_x6 => gateway_out3_x6,
     gateway_out_x2 => gateway_out_x2,
     gateway_out1_x3 => gateway_out1_x3,
     gateway_out2_x3 => gateway_out2_x3,
     gateway_out1_x4 => gateway_out1_x4,
     gateway_out2_x4 => gateway_out2_x4,
-    gateway_out11_x1 => gateway_out11_x1,
+    gateway_out11_x2 => gateway_out11_x2,
     gateway_out19 => gateway_out19,
     gateway_out20 => gateway_out20,
     gateway_out8_x4 => gateway_out8_x4,
     gateway_out27_x0 => gateway_out27_x0,
     gateway_out28_x0 => gateway_out28_x0,
-    gateway_out29_x0 => gateway_out29_x0,
-    gateway_out3_x4 => gateway_out3_x4,
-    gateway_out_x1 => gateway_out_x1,
+    gateway_out29_x2 => gateway_out29_x2,
+    gateway_out3_x5 => gateway_out3_x5,
+    gateway_out_x3 => gateway_out_x3,
     gateway_out1_x5 => gateway_out1_x5,
     gateway_out2_x5 => gateway_out2_x5,
     gateway_out1_x6 => gateway_out1_x6,
