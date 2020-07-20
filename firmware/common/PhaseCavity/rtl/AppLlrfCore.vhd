@@ -188,7 +188,7 @@ architecture mapping of AppLlrfCore is
             probe0 : in slv(255 downto 0) );
    end component;
 
-   constant APP_TEST_C : boolean := true;
+   constant APP_TEST_C : boolean := false;
    
 begin
 

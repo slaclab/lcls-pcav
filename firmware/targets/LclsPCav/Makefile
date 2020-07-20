@@ -4,7 +4,9 @@ export GIT_BYPASS = 1
 # Applications must define the 32-bitFirmware Version Number
 ##########################################################################################
 # PRJ_VERSION = 0x00000001  Initial version based on MR LLRF
-export PRJ_VERSION = 0x00000002
+# PRJ_VERSION = 0x00000002  Update diagnostic strobe scheme.  AppTestModel
+# PRJ_VERSION = 0x00000003  Matlab model.
+export PRJ_VERSION = 0x00000003
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build

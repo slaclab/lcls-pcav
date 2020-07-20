@@ -41,6 +41,6 @@ AppLlrfCore: &AppLlrfCore
         offset: 0x2000
     #########################################################
     PcavReg:
-      <<: *AppTestModel
+      <<: *PcavReg
       at:
         offset: 0x3000	
