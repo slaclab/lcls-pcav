@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-07-14
+-- Last update: 2020-07-19
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -161,22 +161,57 @@ architecture mapping of AppLlrfCore is
    signal debug204 : DdcFrameArray(7 downto 0);
    signal debug185 : DdcFrameArray(7 downto 0);
 
-   signal diagnSync  : sl;
+   signal idiagnStrobe  : sl;
+   signal idiagnSevr    : Slv2Array(31 downto 0);
+   signal diagn0data : slv(31 downto 0);
+   signal diagn0fixed: sl;
+   signal diagn0sevr : slv(1 downto 0);
+
+   type RegType is record
+     sync    : sl;
+     strobe  : sl;
+     sevr    : Slv2Array(31 downto 0);
+   end record;
+
+   constant REG_INIT_C : RegType := (
+     sync    => '0',
+     strobe  => '0',
+     sevr    => (others=>"11") );
+
+   signal r   : RegType := REG_INIT_C;
+   signal rin : RegType;
    
-   constant DEBUG_C : boolean := false;
+   constant DEBUG_C : boolean := true;
 
    component ila_0
      port ( clk    : in sl;
             probe0 : in slv(255 downto 0) );
    end component;
 
+   constant APP_TEST_C : boolean := true;
+   
 begin
 
    GEN_DEBUG : if DEBUG_C generate
      U_ILA : ila_0
-       port map ( clk                    => jesdClk(1),
-                  probe0(255 downto   0) => (others=>'0') );
+       port map ( clk                    => dspClk204,
+                  probe0(0)              => iq204.sync,
+                  probe0(4 downto 1)     => iq204.channel,
+                  probe0(5)              => debug204_valid(0),
+                  probe0(37 downto  6)   => debug204_data(31 downto 0),
+                  probe0(38)             => idiagnStrobe,
+                  probe0(70 downto 39)   => diagn0data,
+                  probe0(71)             => diagn0fixed,
+                  probe0(73 downto 72)   => diagn0sevr,
+                  probe0(91 downto 74)   => iq204.i_or_a,
+                  probe0(109 downto 92)  => iq204.q_or_f,
+                  probe0(110)            => af204.sync,
+                  probe0(255 downto 111) => (others=>'0') );
    end generate;
+
+   diagn     (0) <= diagn0data;
+   diagnFixed(0) <= diagn0fixed;
+   idiagnSevr (0) <= diagn0sevr;
    
    axiRstL <= not axiRst;
    
@@ -258,12 +293,19 @@ begin
        dacValidIn  => dacHsValid357,
        dacIn       => dacHs357 );
 
-   U_Sync204 : entity work.DdcSync
+   U_SyncAF204 : entity work.DdcSync
      port map (
        wr_clk => jesdClk2x(1),
        wr_ddc => af357,
        rd_clk => dspClk204,
        rd_ddc => af204 );
+
+   U_SyncIQ204 : entity work.DdcSync
+     port map (
+       wr_clk => jesdClk2x(1),
+       wr_ddc => iq357,
+       rd_clk => dspClk204,
+       rd_ddc => iq204 );
 
    SYNC_DAC_LS : for i in 2 downto 0 generate
       SYNC_DAC : entity work.SynchronizerFifo
@@ -408,187 +450,298 @@ begin
          axi_lite_s_axi_rresp   => readSlave  (UPCONVERT_INDEX_C).rresp,
          axi_lite_s_axi_rvalid  => readSlave  (UPCONVERT_INDEX_C).rvalid );
 
-   U_MODEL : entity work.example_stub
-     port map (
-       dsp_clk                => dspClk204,
-       ddcchannel             => iq204.channel,
-       ddci                   => iq204.i_or_a,
-       ddcq                   => iq204.q_or_f,
-       ddcsync(0)             => iq204.sync,
-       amp                    => af204.i_or_a,
-       phase                  => af204.q_or_f,
-       phaseampchannel        => af204.channel,
-       phaseampsync(0)        => af204.sync,
-       -- DaqMux input
-       wfdata_0               => debug204_data(32*0+31 downto 32*0),
-       wfvalid_0(0)           => debug204_valid(0),
-       wfdata_1               => debug204_data(32*1+31 downto 32*1),
-       wfvalid_1(0)           => debug204_valid(1),
-       wfdata_2               => debug204_data(32*2+31 downto 32*2),
-       wfvalid_2(0)           => debug204_valid(2),
-       wfdata_3               => debug204_data(32*3+31 downto 32*3),
-       wfvalid_3(0)           => debug204_valid(3),
-       wfdata_4               => debug204_data(32*4+31 downto 32*4),
-       wfvalid_4(0)           => debug204_valid(4),
-       wfdata_5               => debug204_data(32*5+31 downto 32*5),
-       wfvalid_5(0)           => debug204_valid(5),
-       wfdata_6               => debug204_data(32*6+31 downto 32*6),
-       wfvalid_6(0)           => debug204_valid(6),
-       wfdata_7               => debug204_data(32*7+31 downto 32*7),
-       wfvalid_7(0)           => debug204_valid(7),
-       -- diagnostic bus input
-       diagnclk(0)            => diagnClk,
-       diagnsync(0)           => diagnSync,
-       diag1data              => diagn(0),
-       diag1fixed(0)          => diagnFixed(0),
-       diag1sevr              => diagnSevr(0),
-       diag2data              => diagn(1),
-       diag2fixed(0)          => diagnFixed(1),
-       diag2sevr              => diagnSevr(1),
-       diag3data              => diagn(2),
-       diag3fixed(0)          => diagnFixed(2),
-       diag3sevr              => diagnSevr(2),
-       diag4data              => diagn(3),
-       diag4fixed(0)          => diagnFixed(3),
-       diag4sevr              => diagnSevr(3),
-       diag5data              => diagn(4),
-       diag5fixed(0)          => diagnFixed(4),
-       diag5sevr              => diagnSevr(4),
-       diag6data              => diagn(5),
-       diag6fixed(0)          => diagnFixed(5),
-       diag6sevr              => diagnSevr(5),
-       diag7data              => diagn(6),
-       diag7fixed(0)          => diagnFixed(6),
-       diag7sevr              => diagnSevr(6),
-       diag8data              => diagn(7),
-       diag8fixed(0)          => diagnFixed(7),
-       diag8sevr              => diagnSevr(7),
-       diag9data              => diagn(8),
-       diag9fixed(0)          => diagnFixed(8),
-       diag9sevr              => diagnSevr(8),
-       diag10data              => diagn(9),
-       diag10fixed(0)          => diagnFixed(9),
-       diag10sevr              => diagnSevr(9),
-       diag11data              => diagn(10),
-       diag11fixed(0)          => diagnFixed(10),
-       diag11sevr              => diagnSevr(10),
-       diag12data              => diagn(11),
-       diag12fixed(0)          => diagnFixed(11),
-       diag12sevr              => diagnSevr(11),
-       diag13data              => diagn(12),
-       diag13fixed(0)          => diagnFixed(12),
-       diag13sevr              => diagnSevr(12),
-       diag14data              => diagn(13),
-       diag14fixed(0)          => diagnFixed(13),
-       diag14sevr              => diagnSevr(13),
-       diag15data              => diagn(14),
-       diag15fixed(0)          => diagnFixed(14),
-       diag15sevr              => diagnSevr(14),
-       diag16data              => diagn(15),
-       diag16fixed(0)          => diagnFixed(15),
-       diag16sevr              => diagnSevr(15),
-       diag17data              => diagn(16),
-       diag17fixed(0)          => diagnFixed(16),
-       diag17sevr              => diagnSevr(16),
-       diag18data              => diagn(17),
-       diag18fixed(0)          => diagnFixed(17),
-       diag18sevr              => diagnSevr(17),
-       diag19data              => diagn(18),
-       diag19fixed(0)          => diagnFixed(18),
-       diag19sevr              => diagnSevr(18),
-       diag20data              => diagn(19),
-       diag20fixed(0)          => diagnFixed(19),
-       diag20sevr              => diagnSevr(19),
-       diag21data              => diagn(20),
-       diag21fixed(0)          => diagnFixed(20),
-       diag21sevr              => diagnSevr(20),
-       diag22data              => diagn(21),
-       diag22fixed(0)          => diagnFixed(21),
-       diag22sevr              => diagnSevr(21),
-       diag23data              => diagn(22),
-       diag23fixed(0)          => diagnFixed(22),
-       diag23sevr              => diagnSevr(22),
-       diag24data              => diagn(23),
-       diag24fixed(0)          => diagnFixed(23),
-       diag24sevr              => diagnSevr(23),
-       diag25data              => diagn(24),
-       diag25fixed(0)          => diagnFixed(24),
-       diag25sevr              => diagnSevr(24),
-       diag26data              => diagn(25),
-       diag26fixed(0)          => diagnFixed(25),
-       diag26sevr              => diagnSevr(25),
-       diag27data              => diagn(26),
-       diag27fixed(0)          => diagnFixed(26),
-       diag27sevr              => diagnSevr(26),
-       diag28data              => diagn(27),
-       diag28fixed(0)          => diagnFixed(27),
-       diag28sevr              => diagnSevr(27),
-       diag29data              => diagn(28),
-       diag29fixed(0)          => diagnFixed(28),
-       diag29sevr              => diagnSevr(28),
-       diag30data              => diagn(29),
-       diag30fixed(0)          => diagnFixed(29),
-       diag30sevr              => diagnSevr(29),
-       diag31data              => diagn(30),
-       diag31fixed(0)          => diagnFixed(30),
-       diag31sevr              => diagnSevr(30),
-       -- register bus
-       axi_lite_clk           => axiClk,
-       axi_lite_aresetn       => axiRstL,
-       axi_lite_s_axi_awaddr  => writeMaster(MODEL_INDEX_C).awaddr(11 downto 0),
-       axi_lite_s_axi_awvalid => writeMaster(MODEL_INDEX_C).awvalid,
-       axi_lite_s_axi_wdata   => writeMaster(MODEL_INDEX_C).wdata,
-       axi_lite_s_axi_wstrb   => writeMaster(MODEL_INDEX_C).wstrb,
-       axi_lite_s_axi_wvalid  => writeMaster(MODEL_INDEX_C).wvalid,
-       axi_lite_s_axi_bready  => writeMaster(MODEL_INDEX_C).bready,
-       axi_lite_s_axi_araddr  => readMaster (MODEL_INDEX_C).araddr(11 downto 0),
-       axi_lite_s_axi_arvalid => readMaster (MODEL_INDEX_C).arvalid,
-       axi_lite_s_axi_rready  => readMaster (MODEL_INDEX_C).rready,
-       axi_lite_s_axi_awready => writeSlave (MODEL_INDEX_C).awready,
-       axi_lite_s_axi_wready  => writeSlave (MODEL_INDEX_C).wready,
-       axi_lite_s_axi_bresp   => writeSlave (MODEL_INDEX_C).bresp,
-       axi_lite_s_axi_bvalid  => writeSlave (MODEL_INDEX_C).bvalid,
-       axi_lite_s_axi_arready => readSlave  (MODEL_INDEX_C).arready,
-       axi_lite_s_axi_rdata   => readSlave  (MODEL_INDEX_C).rdata,
-       axi_lite_s_axi_rresp   => readSlave  (MODEL_INDEX_C).rresp,
-       axi_lite_s_axi_rvalid  => readSlave  (MODEL_INDEX_C).rvalid );
+   GEN_TEST : if APP_TEST_C generate
+     U_APP : entity work.AppTestModel
+       port map (
+         clk             => dspClk204,
+         rst             => dspRst204,
+         sync            => iq204.sync,
+         i0              => (others=>(others=>'0')),
+         q0              => (others=>(others=>'0')),
+         -- Phase/Amp 
+         amp             => af204.i_or_a,
+         phase           => af204.q_or_f,
+         phaseampchannel => af204.channel,
+         phaseampvalid   => af204.valid,
+         phaseampsync    => af204.sync,
+         -- DDC I/Q
+         ddcchannel      => iq204.channel,
+         ddci            => iq204.i_or_a,
+         ddcq            => iq204.q_or_f,
+         ddcvalid        => iq204.valid,
+         ddcsync         => iq204.sync,
+         --  DaqMux interface
+         daqtrig         => open,
+         debug(0,0)      => debug204_data( 31 downto   0),
+         debug(0,1)      => debug204_data( 63 downto  32),
+         debug(0,2)      => debug204_data( 95 downto  64),
+         debug(0,3)      => debug204_data(127 downto  96),
+         debug(1,0)      => debug204_data(159 downto 128),
+         debug(1,1)      => debug204_data(191 downto 160),
+         debug(1,2)      => debug204_data(227 downto 192),
+         debug(1,3)      => debug204_data(255 downto 228),
+         debugvalid(0)   => debug204_valid(3 downto 0),
+         debugvalid(1)   => debug204_valid(7 downto 4),
+         -- 
+         seti            => open,
+         setq            => open,
+         userdaccontrol  => open,
+         rfSwitch        => open,
+         -- Diagnostic ports (diagnosticBus)
+         diagnClk        => diagnClk,
+         diagnRst        => diagnRst,
+         diagn           => diagn,
+         diagnValids     => open,
+--         diagnStrobe     => idiagnStrobe,
+         -- AXI-Lite Port
+         axiClk          => axiClk,
+         axiRst          => axiRst,
+         axiReadMaster   => readMaster (MODEL_INDEX_C),
+         axiReadSlave    => readSlave  (MODEL_INDEX_C),
+         axiWriteMaster  => writeMaster(MODEL_INDEX_C),
+         axiWriteSlave   => writeSlave (MODEL_INDEX_C) );
+     diagnFixed  <= (others=>'1');
+     idiagnSevr   <= (others=>"00");
+--     diagnStrobe <= idiagnStrobe;
+   end generate;
 
-   -- Need to translate debug waveforms to jesdClk(0) domain
+   GEN_MODEL : if not APP_TEST_C generate
+     U_MODEL : entity work.example_stub
+       port map (
+         dsp_clk                => dspClk204,
+         ddcchannel             => iq204.channel,
+         ddci                   => iq204.i_or_a,
+         ddcq                   => iq204.q_or_f,
+         ddcsync(0)             => iq204.sync,
+         amp                    => af204.i_or_a,
+         phase                  => af204.q_or_f,
+         phaseampchannel        => af204.channel,
+         phaseampsync(0)        => af204.sync,
+         -- DaqMux input
+         wfdata_0               => debug204_data(32*0+31 downto 32*0),
+         wfvalid_0(0)           => debug204_valid(0),
+         wfdata_1               => debug204_data(32*1+31 downto 32*1),
+         wfvalid_1(0)           => debug204_valid(1),
+         wfdata_2               => debug204_data(32*2+31 downto 32*2),
+         wfvalid_2(0)           => debug204_valid(2),
+         wfdata_3               => debug204_data(32*3+31 downto 32*3),
+         wfvalid_3(0)           => debug204_valid(3),
+         wfdata_4               => debug204_data(32*4+31 downto 32*4),
+         wfvalid_4(0)           => debug204_valid(4),
+         wfdata_5               => debug204_data(32*5+31 downto 32*5),
+         wfvalid_5(0)           => debug204_valid(5),
+         wfdata_6               => debug204_data(32*6+31 downto 32*6),
+         wfvalid_6(0)           => debug204_valid(6),
+         wfdata_7               => debug204_data(32*7+31 downto 32*7),
+         wfvalid_7(0)           => debug204_valid(7),
+         -- diagnostic bus input
+--       diagnclk(0)            => diagnClk,
+--         diagnsync(0)           => idiagnStrobe,
+         diag1data              => diagn0data,
+         diag1fixed(0)          => diagn0fixed,
+         diag1sevr              => diagn0sevr,
+         diag2data              => diagn(1),
+         diag2fixed(0)          => diagnFixed(1),
+         diag2sevr              => idiagnSevr(1),
+         diag3data              => diagn(2),
+         diag3fixed(0)          => diagnFixed(2),
+         diag3sevr              => idiagnSevr(2),
+         diag4data              => diagn(3),
+         diag4fixed(0)          => diagnFixed(3),
+         diag4sevr              => idiagnSevr(3),
+         diag5data              => diagn(4),
+         diag5fixed(0)          => diagnFixed(4),
+         diag5sevr              => idiagnSevr(4),
+         diag6data              => diagn(5),
+         diag6fixed(0)          => diagnFixed(5),
+         diag6sevr              => idiagnSevr(5),
+         diag7data              => diagn(6),
+         diag7fixed(0)          => diagnFixed(6),
+         diag7sevr              => idiagnSevr(6),
+         diag8data              => diagn(7),
+         diag8fixed(0)          => diagnFixed(7),
+         diag8sevr              => idiagnSevr(7),
+         diag9data              => diagn(8),
+         diag9fixed(0)          => diagnFixed(8),
+         diag9sevr              => idiagnSevr(8),
+         diag10data              => diagn(9),
+         diag10fixed(0)          => diagnFixed(9),
+         diag10sevr              => idiagnSevr(9),
+         diag11data              => diagn(10),
+         diag11fixed(0)          => diagnFixed(10),
+         diag11sevr              => idiagnSevr(10),
+         diag12data              => diagn(11),
+         diag12fixed(0)          => diagnFixed(11),
+         diag12sevr              => idiagnSevr(11),
+         diag13data              => diagn(12),
+         diag13fixed(0)          => diagnFixed(12),
+         diag13sevr              => idiagnSevr(12),
+         diag14data              => diagn(13),
+         diag14fixed(0)          => diagnFixed(13),
+         diag14sevr              => idiagnSevr(13),
+         diag15data              => diagn(14),
+         diag15fixed(0)          => diagnFixed(14),
+         diag15sevr              => idiagnSevr(14),
+         diag16data              => diagn(15),
+         diag16fixed(0)          => diagnFixed(15),
+         diag16sevr              => idiagnSevr(15),
+         diag17data              => diagn(16),
+         diag17fixed(0)          => diagnFixed(16),
+         diag17sevr              => idiagnSevr(16),
+         diag18data              => diagn(17),
+         diag18fixed(0)          => diagnFixed(17),
+         diag18sevr              => idiagnSevr(17),
+         diag19data              => diagn(18),
+         diag19fixed(0)          => diagnFixed(18),
+         diag19sevr              => idiagnSevr(18),
+         diag20data              => diagn(19),
+         diag20fixed(0)          => diagnFixed(19),
+         diag20sevr              => idiagnSevr(19),
+         diag21data              => diagn(20),
+         diag21fixed(0)          => diagnFixed(20),
+         diag21sevr              => idiagnSevr(20),
+         diag22data              => diagn(21),
+         diag22fixed(0)          => diagnFixed(21),
+         diag22sevr              => idiagnSevr(21),
+         diag23data              => diagn(22),
+         diag23fixed(0)          => diagnFixed(22),
+         diag23sevr              => idiagnSevr(22),
+         diag24data              => diagn(23),
+         diag24fixed(0)          => diagnFixed(23),
+         diag24sevr              => idiagnSevr(23),
+         diag25data              => diagn(24),
+         diag25fixed(0)          => diagnFixed(24),
+         diag25sevr              => idiagnSevr(24),
+         diag26data              => diagn(25),
+         diag26fixed(0)          => diagnFixed(25),
+         diag26sevr              => idiagnSevr(25),
+         diag27data              => diagn(26),
+         diag27fixed(0)          => diagnFixed(26),
+         diag27sevr              => idiagnSevr(26),
+         diag28data              => diagn(27),
+         diag28fixed(0)          => diagnFixed(27),
+         diag28sevr              => idiagnSevr(27),
+         diag29data              => diagn(28),
+         diag29fixed(0)          => diagnFixed(28),
+         diag29sevr              => idiagnSevr(28),
+         diag30data              => diagn(29),
+         diag30fixed(0)          => diagnFixed(29),
+         diag30sevr              => idiagnSevr(29),
+         diag31data              => diagn(30),
+         diag31fixed(0)          => diagnFixed(30),
+         diag31sevr              => idiagnSevr(30),
+         -- register bus
+         axi_lite_clk           => axiClk,
+         axi_lite_aresetn       => axiRstL,
+         axi_lite_s_axi_awaddr  => writeMaster(MODEL_INDEX_C).awaddr(11 downto 0),
+         axi_lite_s_axi_awvalid => writeMaster(MODEL_INDEX_C).awvalid,
+         axi_lite_s_axi_wdata   => writeMaster(MODEL_INDEX_C).wdata,
+         axi_lite_s_axi_wstrb   => writeMaster(MODEL_INDEX_C).wstrb,
+         axi_lite_s_axi_wvalid  => writeMaster(MODEL_INDEX_C).wvalid,
+         axi_lite_s_axi_bready  => writeMaster(MODEL_INDEX_C).bready,
+         axi_lite_s_axi_araddr  => readMaster (MODEL_INDEX_C).araddr(11 downto 0),
+         axi_lite_s_axi_arvalid => readMaster (MODEL_INDEX_C).arvalid,
+         axi_lite_s_axi_rready  => readMaster (MODEL_INDEX_C).rready,
+         axi_lite_s_axi_awready => writeSlave (MODEL_INDEX_C).awready,
+         axi_lite_s_axi_wready  => writeSlave (MODEL_INDEX_C).wready,
+         axi_lite_s_axi_bresp   => writeSlave (MODEL_INDEX_C).bresp,
+         axi_lite_s_axi_bvalid  => writeSlave (MODEL_INDEX_C).bvalid,
+         axi_lite_s_axi_arready => readSlave  (MODEL_INDEX_C).arready,
+         axi_lite_s_axi_rdata   => readSlave  (MODEL_INDEX_C).rdata,
+         axi_lite_s_axi_rresp   => readSlave  (MODEL_INDEX_C).rresp,
+         axi_lite_s_axi_rvalid  => readSlave  (MODEL_INDEX_C).rvalid );
+     diagnClk <= dspClk204;
+     diagnRst <= dspRst204;
+     --diagnStrobe         <= idiagnStrobe;
+     --diagnStrobe <= iq204.sync;
+   end generate;
+   
+   U_DIAGNSTROBE : entity work.SynchronizerOneShot
+     generic map (
+       TPD_G         => TPD_G )
+     port map (
+       clk      => dspClk204,
+       dataIn   => trigPulse(1),
+       dataOut  => idiagnStrobe );
+
+   GEN_TRIG : for i in 1 downto 0 generate
+     U_TimingRstSync: entity work.SynchronizerOneShot
+       generic map (
+         TPD_G         => TPD_G,
+         PULSE_WIDTH_G => 1 )
+       port map (
+         clk       => jesdClk(i),
+         rst       => jesdRst(i),
+         dataIn    => trigPulse(0),
+         dataOut   => trigDaqOut(i) );
+   end generate;
+
+-- Need to translate debug waveforms to jesdClk(0) domain
    GEN_DAQ : for i in 7 downto 0 generate
      debug204(i).valid <= debug204_valid(i);
      debug204(i).data  <= debug204_data(32*i+31 downto 32*i);
---     debug204(i).sync  <= debug204_sync;
-     debug204(i).sync  <= diagnSync;
      U_SYNC_DEBUG : entity work.SynchronizerFifo
        generic map (
          TPD_G             => TPD_G,
          ADDR_WIDTH_G      => 10,
-         DATA_WIDTH_G      => 33)
+         DATA_WIDTH_G      => 32)
        port map (
          rst               => '0',
          -- Write Ports (wr_clk domain)
          wr_clk            => dspClk204,
          wr_en             => debug204(i).valid,
          din(31 downto 0)  => debug204(i).data,
-         din(32)           => debug204(i).sync,
          -- Read Ports (rd_clk domain)
          rd_clk            => jesdClk(0),
          valid             => debug185(i).valid,
-         dout(31 downto 0) => debug185(i).data,
-         dout(32)          => debug185(i).sync );
+         dout(31 downto 0) => debug185(i).data );
 
      debug      (i/4, i mod 4) <= debug185(i).data;
      debugValids(i/4)(i mod 4) <= debug185(i).valid;
    end generate;
-   trigDaqOut (0)      <= debug185(0).sync;
-   trigDaqOut (1)      <= debug185(4).sync;
-   diagnStrobe         <= diagnSync;
-   
+
    streamMaster <= AXI_STREAM_MASTER_INIT_C;
    
 -- TODO tie to dsp core 
    trigMode <= "10";
    rfSwitch <= '1';
+
+   comb : process (r, dspRst204, idiagnStrobe, iq204, idiagnSevr) is
+     variable v : RegType;
+   begin
+     v := r;
+     v.strobe := '0';
+
+     if iq204.sync = '1' then
+       v.sync := '1';
+     end if;
      
+     if idiagnStrobe = '1' then
+       v.strobe := '1';
+       if r.sync = '1' then
+         v.sevr   := idiagnSevr;
+         v.sync   := '0';
+       else
+         v.sevr := (others=>"11");
+       end if;
+     end if;
+
+     if dspRst204='1' then
+       v := REG_INIT_C;
+     end if;
+
+     rin <= v;
+
+     diagnStrobe <= r.strobe;
+     diagnSevr   <= r.sevr;
+   end process comb;
+
+   seq : process (dspClk204) is
+   begin
+     if rising_edge(dspClk204) then
+       r <= rin;
+     end if;
+   end process seq;
+   
 end mapping;
 

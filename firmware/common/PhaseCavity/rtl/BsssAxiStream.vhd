@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-09-25
--- Last update: 2019-10-19
+-- Last update: 2020-07-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -255,7 +255,12 @@ architecture rtl of BsssAxiStream is
 
   signal eventStrobe  : sl;
   signal eventSel     : slv(NUM_EDEFS_G-1 downto 0);
-
+  signal eventSel0Q   : sl;
+  
+  signal diagnClkFreq    : slv(31 downto 0);
+  signal diagnStrobeRate : slv(31 downto 0);
+  signal eventSel0Rate   : slv(31 downto 0);
+  
   component ila_0
     port ( clk    : in sl;
            probe0 : in slv(255 downto 0) );
@@ -277,9 +282,36 @@ begin
                   probe0(            85) => r.master.tLast,
                   probe0(            86) => intSlave.tReady,
                   probe0(            87) => intAxisCtrl.pause,
-                  probe0(255 downto  88) => (others=>'0') );
+                  probe0(119 downto  88) => r.master.tData(31 downto 0),
+                  probe0(255 downto 120) => (others=>'0') );
    end generate;
-   
+
+   U_DIAGNCLKFREQ : entity work.SyncClockFreq
+     generic map ( REF_CLK_FREQ_G    => 156.25E+6,
+                   CLK_LOWER_LIMIT_G => 180.0E+6,
+                   CLK_UPPER_LIMIT_G => 220.0E+6 )
+     port map ( freqOut    => diagnClkFreq,
+                clkIn      => diagnosticClk,
+                locClk     => axilClk,
+                refClk     => axilClk );
+                   
+   U_DIAGNSTRRATE : entity work.SyncTrigRate
+     generic map ( COMMON_CLK_G      => false,
+                   REF_CLK_FREQ_G    => 156.25E+6 )
+     port map ( trigIn     => diagnosticBus.strobe,
+                trigRateOut=> diagnStrobeRate,
+                locClk     => diagnosticClk,
+                refClk     => axilClk );
+
+   eventSel0Q <= eventSel(0) and eventStrobe;
+   U_EVENTSELRATE : entity work.SyncTrigRate
+     generic map ( COMMON_CLK_G      => false,
+                   REF_CLK_FREQ_G    => 156.25E+6 )
+     port map ( trigIn     => eventSel0Q,
+                trigRateOut=> eventSel0Rate,
+                locClk     => diagnosticClk,
+                refClk     => axilClk );
+                   
    axilReadSlave  <= cin.axilReadS;
    axilWriteSlave <= cin.axilWriteS;
 
@@ -302,7 +334,8 @@ begin
                 mAxisMaster  => sAxisMasters(1),
                 mAxisSlave   => sAxisSlaves (1) );
    
-   reg_comb: process(c, axilRst, ssync, axilReadMaster, axilWriteMaster) is
+   reg_comb: process(c, axilRst, ssync, axilReadMaster, axilWriteMaster,
+                     diagnClkFreq, diagnStrobeRate, eventSel0Rate ) is
      variable v   : AxilRegType;
      variable ep  : AxiLiteEndPointType;
    begin
@@ -328,6 +361,9 @@ begin
      axiSlaveRegisterR(ep, x"020", 0, ssync.packets);
      axiSlaveRegisterR(ep, x"020",31, ssync.pause);
      axiSlaveRegisterR(ep, x"024", 0, ssync.depth);
+     axiSlaveRegisterR(ep, x"028", 0, diagnClkFreq);
+     axiSlaveRegisterR(ep, x"02C", 0, diagnStrobeRate);
+     axiSlaveRegisterR(ep, x"030", 0, eventSel0Rate);
      for i in 0 to NUM_EDEFS_G-1 loop
        axiSlaveRegister (ep, toSlv(64+i*8, 12),  0, v.config.edefConfig(i).rateSel);
        axiSlaveRegister (ep, toSlv(64+i*8, 12), 13, v.config.edefConfig(i).destSel);
@@ -393,6 +429,11 @@ begin
        eventSelQ := eventSel;
      else
        eventSelQ := eventSel and r.svcReady;
+     end if;
+
+     -- Dont start a new frame if not enough space in the fifo
+     if intAxisCtrl.pause = '1' then
+       eventSelQ := (others=>'0');
      end if;
      
      v := r;

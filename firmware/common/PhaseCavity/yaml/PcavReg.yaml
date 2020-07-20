@@ -14,7 +14,7 @@ PcavReg: &PcavReg
   class: MMIODev
   configPrio: 1
   description: Pcav Registers
-  size: 0x380
+  size: 0x400
   children:
     #########################################################
     rfRefAmpl:
@@ -138,7 +138,7 @@ PcavReg: &PcavReg
       name: cav1P1ChanSel
       sizeBits: 4
       lsBit: 0
-      mode: RO
+      mode: RW
       description: Channel Select for Cavity 1, Probe 1 (unsigned fixed 4.0)
     ###########################################################
     cav1P1DCReal:
@@ -183,7 +183,7 @@ PcavReg: &PcavReg
     ###########################################################
     cav1P1DCFreq:
       at:
-        offset: 0xfo
+        offset: 0xf0
       class: IntField
       name: cav1P1DCFreq
       sizeBits: 26
@@ -342,7 +342,7 @@ PcavReg: &PcavReg
       name: cav1P2ChanSel
       sizeBits: 4
       lsBit: 0
-      mode: RO
+      mode: RW
       description: Channel Select for Cavity 1, Probe 2 (unsigned fixed 4.0)
     ###########################################################
     cav1P2DCReal:
@@ -536,7 +536,7 @@ PcavReg: &PcavReg
       name: cav2P1ChanSel
       sizeBits: 4
       lsBit: 0
-      mode: RO
+      mode: RW
       description: Channel Select for Cavity 2, Probe 1 (unsigned fixed 4.0)
     ###########################################################
     cav2P1DCReal:
@@ -740,7 +740,7 @@ PcavReg: &PcavReg
       name: cav2P2ChanSel
       sizeBits: 4
       lsBit: 0
-      mode: RO
+      mode: RW
       description: Channel Select for Cavity 2, Probe 2 (unsigned fixed 4.0)
     ###########################################################
     cav2P2DCReal:
@@ -882,5 +882,15 @@ PcavReg: &PcavReg
       lsBit: 0
       mode: RW
       description: Calibration Coefficient (TBD)
+    ###########################################################
+    version:
+      at:
+        offset: 0x3f8
+      class: IntField
+      name: version
+      sizeBits: 32
+      lsBit: 0
+      mode: RO
+      description: Firmware version
 
 

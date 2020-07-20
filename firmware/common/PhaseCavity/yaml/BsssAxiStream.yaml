@@ -152,6 +152,39 @@ BsssAxiStream: &BsssAxiStream
       mode: RO
       description: "Packet count"
     #########################################################
+    paused:
+      class: IntField
+      at:
+        offset: 0x23
+      sizeBits: 1
+      lsBit: 7
+      mode: RO
+      description: "Stream paused"
+    #########################################################
+    diagnClockRate:
+      class: IntField
+      at:
+        offset: 0x28
+      sizeBits: 32
+      mode: RO
+      description: "Diagn clock rate"
+    #########################################################
+    diagnStrobeRate:
+      class: IntField
+      at:
+        offset: 0x2c
+      sizeBits: 32
+      mode: RO
+      description: "Diagn strobe rate"
+    #########################################################
+    eventSel0Rate:
+      class: IntField
+      at:
+        offset: 0x30
+      sizeBits: 32
+      mode: RO
+      description: "Event select0 rate"
+    #########################################################
     EdefEnable:
       at:
         offset: 0x47

@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-09-25
--- Last update: 2019-10-17
+-- Last update: 2020-07-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -59,7 +59,8 @@ begin
   U_Bsss : entity work.BsssAxiStream
     generic map ( SVC_START_G  => 0,
                   NUM_EDEFS_G  => NUM_EDEFS_G,
-                  BATCH_G      => false )
+                  BATCH_G      => false,
+                  DEBUG_G      => true )
     port map (
       -- Diagnostic data interface
       diagnosticClk   => diagnosticClk,

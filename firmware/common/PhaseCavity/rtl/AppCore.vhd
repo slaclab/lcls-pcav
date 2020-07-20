@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2020-05-19
+-- Last update: 2020-07-19
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -182,7 +182,7 @@ architecture mapping of AppCore is
    signal s_fpgaInterlock : sl := '0';
 
    -----------------Timing--------------------------
-   constant TRIG_SIZE_C : integer := 16;
+   constant TRIG_SIZE_C : integer := 8;
    signal s_trigPulse   : slv((TRIG_SIZE_C/2)-1 downto 0);
    signal s_trigStrobe  : slv((TRIG_SIZE_C/2)-1 downto 0);
    signal s_trigIndex   : slv((TRIG_SIZE_C/2)-1 downto 0);
@@ -223,7 +223,8 @@ architecture mapping of AppCore is
    signal timingMessage        : TimingMessageType;
    signal timingMessageSlv     : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
    signal timingMessageSlvO    : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
-
+   signal timingMessageStrobe  : sl;
+   
    signal streamMaster         : AxiStreamMasterType;
    signal streamSlave          : AxiStreamSlaveType;
    
@@ -243,8 +244,12 @@ begin
                   probe0(  2 downto  1) => s_trigMode,
                   probe0(            3) => timingBus.strobe,
                   probe0( 19 downto  4) => timingTrig.trigPulse,
-                  probe0( 27 downto 20) => s_trigPulse,
-                  probe0(255 downto 28) => (others=>'0') );
+                  probe0( 23 downto 20) => s_trigPulse,
+                  probe0( 27 downto 24) => s_trigStrobe,
+                  probe0(           28) => timingMessageStrobe,
+                  probe0( 32 downto 29) => s_debugValids(0),
+                  probe0( 36 downto 33) => s_debugValids(1),
+                  probe0(255 downto 37) => (others=>'0') );
    end generate;
    
     -- We want to see DAC values on DaqMux
@@ -395,6 +400,17 @@ begin
                   disable   => '0',
                   timingIn  => timingBus,
                   timingOut => timingMessage );
+     
+     U_Strobe : entity work.SlvDelay
+       generic map (
+         TPD_G   => TPD_G,
+         DELAY_G => 1 )
+       port map (
+         clk      => timingClk,
+         rst      => timingRst,
+         delay    => "0",
+         din (0)  => timingBus.strobe,
+         dout(0)  => timingMessageStrobe );
 
      streamMaster                 <= AXI_STREAM_MASTER_INIT_C;
      axilReadSlaves (BLD_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
@@ -402,8 +418,9 @@ begin
    end generate;
      
    GEN_LCLS_II : if APP_TIMING_MODE_C = 2 generate
-     timingMessage <= timingBus.message;
-
+     timingMessage       <= timingBus.message;
+     timingMessageStrobe <= timingBus.strobe;
+     
      U_BLD : entity work.BldWrapper
        generic map ( NUM_EDEFS_G => 2 )
        port map (
@@ -427,19 +444,17 @@ begin
    end generate;
 
    timingMessageSlv <= toSlv(timingMessage);
-   
-   V2FIFO : entity work.FifoAsync
-     generic map ( FWFT_EN_G     => true,
-                   DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C,
-                   ADDR_WIDTH_G  => 4 )
+
+   --  Capture timing message at full fiducial rate
+   V2FIFO : entity work.SynchronizerFifo
+     generic map ( DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C )
      port map    ( rst           => diagnRst,
                    -- Write Ports (wr_clk domain)
                    wr_clk        => timingClk,
-                   wr_en         => s_trigStrobe(0),
+                   wr_en         => timingMessageStrobe,
                    din           => timingMessageSlv,
                    -- Read Ports (rd_clk domain)
                    rd_clk        => diagnClk,
-                   rd_en         => diagnBus.strobe,
                    dout          => timingMessageSlvO );
 
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);

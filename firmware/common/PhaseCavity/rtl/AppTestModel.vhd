@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2020-01-23
--- Last update: 2020-01-23
+-- Last update: 2020-07-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,8 +32,7 @@ use work.SsiPkg.all;
 
 entity AppTestModel is
    generic (
-      TPD_G                : time     := 1 ns;
-      AXI_BASE_ADDR_G      : slv(31 downto 0);
+      TPD_G                : time     := 1 ns
    );
    port (
       --
@@ -49,13 +48,13 @@ entity AppTestModel is
       phaseampvalid   : in  sl;
       phaseampsync    : in  sl;
       -- DDC I/Q
-      ddcchannel      : in  slv( 2 downto 0);
+      ddcchannel      : in  slv( 3 downto 0);
       ddci            : in  slv(17 downto 0);
       ddcq            : in  slv(17 downto 0);
       ddcvalid        : in  sl;
       ddcsync         : in  sl;
       --  DaqMux interface
-      daqtrig         : out sl;
+      daqtrig         : out slv(1 downto 0);
       debug           : out Slv32VectorArray(1 downto 0, 3 downto 0);
       debugvalid      : out Slv4Array(1 downto 0);
       -- 
@@ -86,11 +85,15 @@ architecture mapping of AppTestModel is
    signal trigRateOutV      : Slv32Array(3 downto 0);
    
    type RegType is record
+     sync     : sl;
+     strobe   : sl;
      count    : slv       (23 downto 0);
      data     : Slv32Array(31 downto 0);
    end record;
 
    constant REG_INIT_C : RegType := (
+     sync     => '0',
+     strobe   => '0',
      count    => (others=>'0'),
      data     => (others=>(others=>'0')) );
 
@@ -100,7 +103,7 @@ architecture mapping of AppTestModel is
 begin
 
   U_TrigRate : entity work.SyncTrigRateVector
-    generic map ( COMMON_CLK_G   => true,
+    generic map ( COMMON_CLK_G   => false,
                   ONE_SHOT_G     => true,
                   REF_CLK_FREQ_G => 156.25E+6,
                   WIDTH_G        => 4 )
@@ -109,7 +112,7 @@ begin
                trigIn(2)    => ddcsync,
                trigIn(3)    => dstrobe,
                trigRateOut  => trigRateOut,
-               locClk       => axiClk,
+               locClk       => clk,
                refClk       => axiClk );
 
   trigRateOutV(0) <= muxSlVectorArray(trigRateOut, 0);
@@ -146,18 +149,24 @@ begin
   --
   diagn             <= r.data;         -- generated data
   diagnValids       <= (others=>'0');  -- data is not real
-  dstrobe           <= sync;           
   diagnStrobe       <= dstrobe;        -- new timing frame
   diagnClk          <= clk;
   diagnRst          <= rst or modelReg(0)(0);
 
-  comb : process ( r, rst, dstrobe ) is
+  comb : process ( r, rst, sync ) is
     variable v : RegType;
     variable j : integer;
   begin
     v := r;
 
-    if dstrobe = '1' then
+    v.sync   := sync;
+    v.strobe := '0';
+    
+    if sync='1' and r.sync='0' then
+      v.strobe := '1';
+    end if;
+    
+    if r.strobe = '1' then
       v.count := r.count+1;
     end if;
     
@@ -170,6 +179,8 @@ begin
     end if;
     
     rin <= v;
+
+    dstrobe <= r.strobe;
   end process;
 
   seq : process ( clk ) is

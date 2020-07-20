@@ -13,6 +13,7 @@
 #include llrfUpconvert.yaml
 #include llrfPll.yaml
 #include PcavReg.yaml
+#include AppTestModel.yaml
 
 AppLlrfCore: &AppLlrfCore 
   name: AppLlrfCore
@@ -40,6 +41,6 @@ AppLlrfCore: &AppLlrfCore
         offset: 0x2000
     #########################################################
     PcavReg:
-      <<: *PcavReg
+      <<: *AppTestModel
       at:
         offset: 0x3000	
