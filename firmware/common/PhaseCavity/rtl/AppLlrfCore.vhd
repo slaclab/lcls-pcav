@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-07-19
+-- Last update: 2020-07-23
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -81,6 +81,12 @@ entity AppLlrfCore is
       -- LLRF Mode Select
       trigMode       : out slv(1 downto 0);
             
+      -- DacSigCtrl
+      dacSigCtrl     : out   DacSigCtrlArray      (1 downto 0);
+      dacSigStatus   : in    DacSigStatusArray    (1 downto 0);
+      dacSigValids   : in    Slv7Array            (1 downto 0);
+      dacSigValues   : in    sampleDataVectorArray(1 downto 0, 6 downto 0);
+
       -- AXI-Lite Port
       axiClk         : in  sl;
       axiRst         : in  sl;
@@ -425,8 +431,8 @@ begin
 	 phaseampvalid(0) => af357.valid,
 	 phaseampchannel  => af357.channel,
 	 phaseamptlast(0) => af357.tLast,
-         seti             => iout357,
-         setq             => qout357,
+         seti             => dacSigValues(1,0),
+         setq             => dacSigValues(1,1),
 	 dacout           => dacHs357,
          dacoutvalid(0)   => dacHsValid357,
          --  AXI-Lite Interface
@@ -450,6 +456,9 @@ begin
          axi_lite_s_axi_rresp   => readSlave  (UPCONVERT_INDEX_C).rresp,
          axi_lite_s_axi_rvalid  => readSlave  (UPCONVERT_INDEX_C).rvalid );
 
+   dacSigCtrl(0).start <= (others => '0');
+   dacSigCtrl(1).start <= (others => trigPulseSync(0));
+   
    GEN_TEST : if APP_TEST_C generate
      U_APP : entity work.AppTestModel
        port map (

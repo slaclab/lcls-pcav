@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2020-07-19
+-- Last update: 2020-07-23
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -380,6 +380,12 @@ begin
          trigDaqOut     => trigHw,
          trigMode       => s_trigMode,
 
+         -- DacSigCtrl
+         dacSigCtrl     => dacSigCtrl,
+         dacSigStatus   => dacSigStatus,
+         dacSigValids   => dacSigValids,
+         dacSigValues   => dacSigValues,
+      
          -- AXI-Lite Port
          axiClk         => axilClk,
          axiRst         => axilRst,
@@ -684,7 +690,6 @@ begin
    ibAppDebugSlave  <= AXI_STREAM_SLAVE_FORCE_C;
 
    mpsObSlaves <= (others => AXI_STREAM_SLAVE_FORCE_C);
-   dacSigCtrl  <= (others => DAC_SIG_CTRL_INIT_C);
    timingPhy   <= TIMING_PHY_INIT_C;
 
    freezeHw <= (others => '0');
