@@ -33,6 +33,7 @@ use work.AxiLitePkg.all;
 use work.AxiStreamPkg.all;
 use work.Jesd204bPkg.all;
 use work.AmcCarrierPkg.all;
+use work.AppTopPkg.all;
 use work.EthMacPkg.all;
 use work.SsiPkg.all;
 use work.LlrfPkg.all;
@@ -173,6 +174,9 @@ architecture mapping of AppLlrfCore is
    signal diagn0fixed: sl;
    signal diagn0sevr : slv(1 downto 0);
 
+   signal iSigGen : slv(17 downto 0);
+   signal qSigGen : slv(17 downto 0);
+   
    type RegType is record
      sync    : sl;
      strobe  : sl;
@@ -431,8 +435,8 @@ begin
 	 phaseampvalid(0) => af357.valid,
 	 phaseampchannel  => af357.channel,
 	 phaseamptlast(0) => af357.tLast,
-         seti             => dacSigValues(1,0),
-         setq             => dacSigValues(1,1),
+         seti             => iSigGen,
+         setq             => qSigGen,
 	 dacout           => dacHs357,
          dacoutvalid(0)   => dacHsValid357,
          --  AXI-Lite Interface
@@ -456,6 +460,8 @@ begin
          axi_lite_s_axi_rresp   => readSlave  (UPCONVERT_INDEX_C).rresp,
          axi_lite_s_axi_rvalid  => readSlave  (UPCONVERT_INDEX_C).rvalid );
 
+   iSigGen             <= resize(dacSigValues(1,0)(15 downto 0),18);
+   qSigGen             <= resize(dacSigValues(1,1)(15 downto 0),18);
    dacSigCtrl(0).start <= (others => '0');
    dacSigCtrl(1).start <= (others => trigPulseSync(0));
    
