@@ -24,9 +24,12 @@ cav2p2_addr = cav1p1_addr * 4;
 
 fc = 2851.3e6;    % Cavity resonate freq
 f_prl = 2856e6;   % PRL freq
-b_rate = 1.2e5;  % Beam rate in Hz
+b_rate = 0.04e6;  % Beam rate in Hz
 b_ts   = 1/b_rate;
+sig_ratio = Fsig/b_rate
 num_shot = 4;
+
+t_needed = b_ts * num_shot;
 
 fs = fc*5.5;
 
@@ -46,6 +49,8 @@ flo = 2771e6;       % LO freq
 t_start = 0;        % x axis start time
 % t_stop  = 1e-4;     % x axis stop time
 t_stop = (num_shot * (t_delay + t_puls_stop + t_puls_gap));
+
+t_sig  = (0:(t_needed*Fsig))*(1/Fsig);
 % t_puls = t_start:(1/fadc):(t_delay + t_puls_stop + t_puls_gap);
 t_puls = (0:(t_delay + t_puls_stop + t_puls_gap)*fadc)*(1/fadc);
 % adc_t = (t_start):(1/fadc):(t_stop);   % ADC CLK x axis
@@ -62,11 +67,24 @@ jitter_t = (t_start+jitter_amt):(1/fadc):(t_stop+jitter_amt);
 
 trigger_sig = zeros(1, length(t_trg_seg));
 trigger_sig(1,1:12) = 1e2;
+
+sig_t_trg = zeros(1, length(t_sig));
+sig_t_pul_t = ones(1,num_shot-1);
+sig_t_trg(1,1) = 1e1;
+for i=1:num_shot
+    sig_t_pul_t(i+1) = find(t_sig == (i*b_ts));
+    sig_t_trg(1,sig_t_pul_t(i+1)) = 1e1;    
+end
+sig_t_pul_t;
+sig_t_pul_tic = sig_t_pul_t(2) - sig_t_pul_t(1);
+figure()
+plot(t_sig, sig_t_trg); grid on
 % figure()
 % plot(t_trg_seg, trigger_sig); grid on
 
 f_if_prl = f_prl-flo;
 SIM_PRL = cos((2*pi*(f_if_prl)*(adc_t)) + (0));   % Simplified PRL signal in the adc for simulink
+sig_SIM_PRL = cos((2*pi*(f_if_prl)*(t_sig)) + (0));   % Simplified PRL signal in the adc for simulink
 
 % Math representation of the IF cavity ring output 
 f_if = fc - flo;
@@ -76,38 +94,56 @@ SIM_y_if = exp(-(adc_t-t_delay)/tau_if);   % Cavity exp decay
 SIM_Ustep = (adc_t >= t_delay);            % Delaying the start
 SIM_cav_ring_if = SIM_IF .* SIM_Ustep .* SIM_y_if;
 
+sig_SIM_IF    = zeros(1, length(t_sig));
+sig_SIM_y_if  = zeros(1, length(t_sig));
+sig_SIM_Ustep = zeros(1, length(t_sig));
+sig_SIM_cav_ring_if = zeros(1, length(t_sig));
+sig_delay = 8*(1/Fsig);
+tau_if = 1/(2*pi*bw/2);
+for i = 1:(num_shot)
+    sig_SIM_IF(sig_t_pul_t(i):sig_t_pul_t(i+1)-1)   = cos(2*pi*f_if*(t_sig(1:sig_t_pul_t(2)-1)-sig_delay));   % 80.278MHz ring
+    sig_SIM_y_if(sig_t_pul_t(i):sig_t_pul_t(i+1)-1) = exp(-(t_sig(1:sig_t_pul_t(2)-1)-sig_delay)/tau_if);   % Cavity exp decay
+    sig_SIM_Ustep(sig_t_pul_t(i):sig_t_pul_t(i+1)-1) = (t_sig(1:sig_t_pul_t(2)-1)-sig_delay >= sig_delay);            % Delaying the start
+    sig_SIM_cav_ring_if(sig_t_pul_t(i):sig_t_pul_t(i+1)-1) = sig_SIM_IF(sig_t_pul_t(i):sig_t_pul_t(i+1)-1) .* ...
+        sig_SIM_Ustep(sig_t_pul_t(i):sig_t_pul_t(i+1)-1) .* sig_SIM_y_if(sig_t_pul_t(i):sig_t_pul_t(i+1)-1);
+end
+figure()
+plot(t_sig, sig_SIM_cav_ring_if); grid on; hold on
+plot(t_sig, sig_t_trg);
+plot(t_sig, sig_SIM_PRL); hold off
+
 
 tSIM_IF = cos(2*pi*f_if*(t_puls-t_delay));   % 80.278MHz ring
 tSIM_y_if = exp(-(t_puls-t_delay)/tau_if);   % Cavity exp decay
 tSIM_Ustep = (t_puls >= t_delay);            % Delaying the start
 tSIM_cav_ring_if = tSIM_IF .* tSIM_Ustep .* tSIM_y_if;
 t_cav_test = tSIM_cav_ring_if;
-figure()
-plot(t_puls, t_cav_test); grid on;
+% figure()
+% plot(t_puls, t_cav_test); grid on;
 trig_ary = trigger_sig;
 for (i = 2:num_shot)
     t_cav_test = cat(2, t_cav_test, tSIM_cav_ring_if);
     trig_ary = cat(2, trig_ary, trigger_sig);
 end
 size(t_cav_test);
-figure()
-plot(adc_t, t_cav_test); grid on; hold on;
-plot(t_trg, trig_ary/(1e3)); hold off
+% figure()
+% plot(adc_t, t_cav_test); grid on; hold on;
+% plot(t_trg, trig_ary/(1e3)); hold off
 
-SYS_PRL = [adc_t', SIM_PRL'];
-SYS_CAV = [adc_t', t_cav_test'];
-SYS_TRG = [t_trg', trig_ary'];
+SYS_PRL = [t_sig', sig_SIM_PRL'];
+SYS_CAV = [t_sig', sig_SIM_cav_ring_if'];
+SYS_TRG = [t_sig', sig_t_trg'];
 
-abs(f_if-f_if_prl)
-t_stop
+% abs(f_if-f_if_prl);
+% t_stop;
 
 % figure()
 % plot(adc_t, SIM_cav_ring_if);grid on; hold on;
 % plot(adc_t, t_cav_test); hold off
 
-figure()
-plot(adc_t, SIM_PRL);grid on; hold on;
-plot(adc_t, t_cav_test); hold off
+% figure()
+% plot(adc_t, SIM_PRL);grid on; hold on;
+% plot(adc_t, t_cav_test); hold off
 % 
 % figure()
 % plot(adc_t, SIM_cav_ring_if); grid on;

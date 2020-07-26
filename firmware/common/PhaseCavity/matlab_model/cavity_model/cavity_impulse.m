@@ -1,9 +1,10 @@
 close all;
-%clear all; clc;
+clear all; clc;
 
 fc = 2851.3e6;    % Cavity resonate freq
 % fc = 2856e6;      % Cavity resonate freq
 f_prl = 2856e6;   % PRL freq
+f_sig = 17e6;
 wc = 2*pi*fc;
 q  = 6000;        % Cavity Q
 bw = fc/q;        % Cavity BW
@@ -23,6 +24,10 @@ t_delay = 0;   % Delaying the start of the pulse
 t  = (t_start):(Ts):(t_stop);          % x axis
 adc_t = (t_start):(1/fadc):(t_stop);   % ADC CLK x axis
 
+t_test = (0:5000)*(1/f_sig);
+t_trg_t = zeros(1, length(t_test));
+t_trg_t(1,1) = 1e9;
+
 jitter_amt = 100e-12;
 jitter_t = (t_start+jitter_amt):(1/fadc):(t_stop+jitter_amt);
 
@@ -30,6 +35,7 @@ jitter_t = (t_start+jitter_amt):(1/fadc):(t_stop+jitter_amt);
 tfcav = tf([wc/q, 0], [1, wc/q, (wc^2)]);
 cav_out = impulse(tfcav, t);  % Simulating the cavity ring output
 cav_out = cav_out./(max(cav_out));
+
 
 % Phase reference line signal
 PRL_rf  = cos((2*pi*f_prl*(t)) + (0));    % PRL RF
