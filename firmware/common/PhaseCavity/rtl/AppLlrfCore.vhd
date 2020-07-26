@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-07-23
+-- Last update: 2020-07-25
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -181,12 +181,16 @@ architecture mapping of AppLlrfCore is
      sync    : sl;
      strobe  : sl;
      sevr    : Slv2Array(31 downto 0);
+     count   : slv(3 downto 0);
+     valid   : sl;
    end record;
 
    constant REG_INIT_C : RegType := (
      sync    => '0',
      strobe  => '0',
-     sevr    => (others=>"11") );
+     sevr    => (others=>"11"),
+     count   => (others=>'0'),
+     valid   => '0' );
 
    signal r   : RegType := REG_INIT_C;
    signal rin : RegType;
@@ -693,7 +697,8 @@ begin
 
 -- Need to translate debug waveforms to jesdClk(0) domain
    GEN_DAQ : for i in 7 downto 0 generate
-     debug204(i).valid <= debug204_valid(i);
+--     debug204(i).valid <= debug204_valid(i);
+     debug204(i).valid <= r.valid;
      debug204(i).data  <= debug204_data(32*i+31 downto 32*i);
      U_SYNC_DEBUG : entity work.SynchronizerFifo
        generic map (
@@ -727,10 +732,18 @@ begin
      v := r;
      v.strobe := '0';
 
+     v.valid := '0';
+     v.count := r.count + 1;
+
+     if iq204.sync = '1' or r.count=toSlv(11,4) then
+       v.valid := '1';
+       v.count := (others=>'0');
+     end if;
+     
      if iq204.sync = '1' then
        v.sync := '1';
      end if;
-     
+
      if idiagnStrobe = '1' then
        v.strobe := '1';
        if r.sync = '1' then
