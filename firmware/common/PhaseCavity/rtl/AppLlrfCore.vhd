@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-07-25
+-- Last update: 2020-07-26
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -691,7 +691,7 @@ begin
        port map (
          clk       => jesdClk(i),
          rst       => jesdRst(i),
-         dataIn    => trigPulse(0),
+         dataIn    => trigPulse(2),
          dataOut   => trigDaqOut(i) );
    end generate;
 
