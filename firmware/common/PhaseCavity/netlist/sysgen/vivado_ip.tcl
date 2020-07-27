@@ -659,6 +659,28 @@ set_property -dict $params_list [get_ips example_mult_gen_v12_0_i4]
 
 
 set existingipslist [get_ips]
+if {[lsearch $existingipslist example_mult_gen_v12_0_i5] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i5
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i5}
+lappend params_list CONFIG.clockenable {true}
+lappend params_list CONFIG.multiplier_construction {Use_Mults}
+lappend params_list CONFIG.optgoal {Speed}
+lappend params_list CONFIG.outputwidthhigh {36}
+lappend params_list CONFIG.pipestages {3}
+lappend params_list CONFIG.portatype {Signed}
+lappend params_list CONFIG.portawidth {36}
+lappend params_list CONFIG.portbtype {Unsigned}
+lappend params_list CONFIG.portbwidth {1}
+lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
+lappend params_list CONFIG.syncclear {true}
+lappend params_list CONFIG.use_custom_output_width {true}
+
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i5]
+}
+
+
+set existingipslist [get_ips]
 if {[lsearch $existingipslist example_c_addsub_v12_0_i3] < 0} {
 create_ip -name c_addsub -version 12.0 -vendor xilinx.com -library ip -module_name example_c_addsub_v12_0_i3
 set params_list [list]
@@ -693,10 +715,10 @@ set_property -dict $params_list [get_ips example_c_addsub_v12_0_i3]
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i5] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i5
+if {[lsearch $existingipslist example_mult_gen_v12_0_i6] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i6
 set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i5}
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i6}
 lappend params_list CONFIG.ccmimp {Distributed_Memory}
 lappend params_list CONFIG.clockenable {false}
 lappend params_list CONFIG.constvalue {16384}
@@ -712,7 +734,31 @@ lappend params_list CONFIG.portbwidth {18}
 lappend params_list CONFIG.syncclear {false}
 lappend params_list CONFIG.use_custom_output_width {true}
 
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i5]
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i6]
+}
+
+
+set existingipslist [get_ips]
+if {[lsearch $existingipslist example_mult_gen_v12_0_i7] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i7
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i7}
+lappend params_list CONFIG.ccmimp {Distributed_Memory}
+lappend params_list CONFIG.clockenable {false}
+lappend params_list CONFIG.constvalue {65536}
+lappend params_list CONFIG.internaluser {0}
+lappend params_list CONFIG.multtype {Constant_Coefficient_Multiplier}
+lappend params_list CONFIG.outputwidthhigh {35}
+lappend params_list CONFIG.outputwidthlow {0}
+lappend params_list CONFIG.pipestages {0}
+lappend params_list CONFIG.portatype {Signed}
+lappend params_list CONFIG.portawidth {18}
+lappend params_list CONFIG.portbtype {Unsigned}
+lappend params_list CONFIG.portbwidth {18}
+lappend params_list CONFIG.syncclear {false}
+lappend params_list CONFIG.use_custom_output_width {true}
+
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i7]
 }
 
 

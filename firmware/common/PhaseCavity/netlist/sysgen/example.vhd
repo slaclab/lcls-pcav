@@ -67,65 +67,65 @@ entity example_subsystem_x2 is
   );
 end example_subsystem_x2;
 architecture structural of example_subsystem_x2 is 
+  signal c1p1_comp_phi : std_logic_vector( 18-1 downto 0 );
   signal c1p2_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
   signal c1p2_if_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal c1p1_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c1p1_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c1p2_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c1p1_amp_out : std_logic_vector( 18-1 downto 0 );
   signal c1p1_comp_i : std_logic_vector( 18-1 downto 0 );
   signal c1p1_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal down_sample2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal c1p2_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal d_ce_net : std_logic;
+  signal d_clk_net : std_logic;
+  signal c1p2_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_phi : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal c1p2_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_q : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal q_ce_net : std_logic;
+  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
   signal register5_q_net : std_logic_vector( 18-1 downto 0 );
   signal register4_q_net : std_logic_vector( 18-1 downto 0 );
   signal register6_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
 begin
   p1_1 <= c1p1_if_amp;
   p2_1 <= c1p2_if_amp;
@@ -155,10 +155,10 @@ begin
   p2_12 <= c1p2_comp_i;
   p2_13 <= c1p2_comp_q;
   p2_14 <= c1p2_comp_phi;
-  down_sample1_q_net <= cav1_p1_if_amp;
-  down_sample_q_net <= cav1_p1_if_phase;
-  register11_q_net_x2 <= cav1_p1_if_i;
-  register11_q_net_x1 <= cav1_p1_if_q;
+  register11_q_net_x3 <= cav1_p1_if_amp;
+  register11_q_net_x2 <= cav1_p1_if_phase;
+  register11_q_net_x6 <= cav1_p1_if_i;
+  register11_q_net_x5 <= cav1_p1_if_q;
   convert6_dout_net <= cav1_p1_dc_real;
   convert5_dout_net <= cav1_p1_dc_img;
   down_sample2_q_net <= cav1_p1_dc_freq;
@@ -169,10 +169,10 @@ begin
   register5_q_net <= cav1_p1_comparison_i;
   register4_q_net <= cav1_p1_comparison_q;
   register6_q_net <= cav1_p1_comparison_phase;
-  down_sample1_q_net_x0 <= cav1_p2_if_amp;
-  down_sample_q_net_x0 <= cav1_p2_if_phase;
+  register11_q_net_x0 <= cav1_p2_if_amp;
+  register11_q_net_x1 <= cav1_p2_if_phase;
   register11_q_net <= cav1_p2_if_i;
-  register11_q_net_x0 <= cav1_p2_if_q;
+  register11_q_net_x4 <= cav1_p2_if_q;
   convert1_dout_net <= cav1_p2_dc_real;
   convert_dout_net <= cav1_p2_dc_img;
   down_sample2_q_net_x0 <= cav1_p2_dc_freq;
@@ -194,7 +194,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample_q_net,
+    d => register11_q_net_x2,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -284,7 +284,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample_q_net_x0,
+    d => register11_q_net_x1,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -359,7 +359,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net_x2,
+    d => register11_q_net_x6,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -404,7 +404,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample1_q_net_x0,
+    d => register11_q_net_x0,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -419,7 +419,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net_x0,
+    d => register11_q_net_x4,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -509,7 +509,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample1_q_net,
+    d => register11_q_net_x3,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -524,7 +524,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net_x1,
+    d => register11_q_net_x5,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -641,30 +641,30 @@ entity example_subsystem2_x4 is
   );
 end example_subsystem2_x4;
 architecture structural of example_subsystem2_x4 is 
-  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c1p2_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c1p2_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c1_nco_phi : std_logic_vector( 32-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
   signal c1_nco_reset : std_logic_vector( 1-1 downto 0 );
   signal c1p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
   signal c1p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c1_nco_phi : std_logic_vector( 32-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
+  signal d_ce_net_x0 : std_logic;
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
+  signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal register30_q_net : std_logic_vector( 4-1 downto 0 );
   signal register31_q_net : std_logic_vector( 16-1 downto 0 );
+  signal c1p2_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c1p2_win_stop : std_logic_vector( 16-1 downto 0 );
   signal register32_q_net : std_logic_vector( 16-1 downto 0 );
   signal register35_q_net : std_logic_vector( 1-1 downto 0 );
   signal register36_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal q_clk_net_x0 : std_logic;
-  signal d_ce_net_x0 : std_logic;
 begin
   c1p1_chan_sel <= in1_1;
   c1p2_chan_sel <= in1_2;
@@ -869,16 +869,16 @@ architecture structural of example_subsystem3_x3 is
   signal ref_phi : std_logic_vector( 18-1 downto 0 );
   signal ref_i : std_logic_vector( 18-1 downto 0 );
   signal ref_q : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal q_clk_net : std_logic;
 begin
   out1_1 <= ref_amp;
   out1_2 <= ref_phi;
@@ -971,12 +971,12 @@ entity example_subsystem4_x0 is
   );
 end example_subsystem4_x0;
 architecture structural of example_subsystem4_x0 is 
-  signal ref_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 4-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
   signal q_clk_net_x0 : std_logic;
   signal d_ce_net_x0 : std_logic;
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal ref_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 4-1 downto 0 );
 begin
   ref_chan_sel <= in1_3;
   rf_ref_chan_sel <= register2_q_net;
@@ -1070,66 +1070,66 @@ entity example_subsystem5_x0 is
   );
 end example_subsystem5_x0;
 architecture structural of example_subsystem5_x0 is 
-  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c2p1_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_if_phi : std_logic_vector( 18-1 downto 0 );
+  signal addsub_s_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal c2p1_integ_i : std_logic_vector( 20-1 downto 0 );
   signal c2p2_if_i : std_logic_vector( 18-1 downto 0 );
   signal c2p2_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c2p2_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c2p2_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c2p2_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_if_phi : std_logic_vector( 18-1 downto 0 );
   signal c2p1_if_phi : std_logic_vector( 18-1 downto 0 );
   signal c2p1_if_i : std_logic_vector( 18-1 downto 0 );
   signal c2p1_if_q : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal c2p1_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_amp_out : std_logic_vector( 18-1 downto 0 );
   signal c2p1_dc_i : std_logic_vector( 18-1 downto 0 );
   signal c2p1_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c2p1_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal addsub_s_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal q_clk_net : std_logic;
+  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal d_ce_net_x0 : std_logic;
   signal q_clk_net_x0 : std_logic;
   signal d_ce_net : std_logic;
+  signal c2p2_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal c2p2_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal c2p2_integ_q : std_logic_vector( 20-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal q_clk_net : std_logic;
 begin
   p1_1 <= c2p1_if_amp;
   p2_1 <= c2p2_if_amp;
@@ -1159,10 +1159,10 @@ begin
   p2_12 <= c2p2_comp_i;
   p2_13 <= c2p2_comp_q;
   p2_14 <= c2p2_comp_phi;
-  down_sample1_q_net <= cav2_p1_if_amp;
-  down_sample_q_net_x0 <= cav2_p1_if_phase;
-  register11_q_net_x2 <= cav2_p1_if_i;
-  register11_q_net_x3 <= cav2_p1_if_q;
+  register11_q_net <= cav2_p1_if_amp;
+  register11_q_net_x7 <= cav2_p1_if_phase;
+  register11_q_net_x5 <= cav2_p1_if_i;
+  register11_q_net_x6 <= cav2_p1_if_q;
   convert1_dout_net_x1 <= cav2_p1_dc_real;
   convert5_dout_net <= cav2_p1_dc_img;
   convert1_dout_net_x0 <= cav2_p1_dc_freq;
@@ -1171,11 +1171,11 @@ begin
   register13_q_net <= cav2_p1_phase_out;
   register14_q_net <= cav2_p1_amp_out;
   addsub_s_net <= cav2_p1_comparison_i;
-  register11_q_net <= cav2_p1_comparison_phase;
-  down_sample1_q_net_x0 <= cav2_p2_if_amp;
-  down_sample_q_net <= cav2_p2_if_phase;
-  register11_q_net_x1 <= cav2_p2_if_i;
-  register11_q_net_x0 <= cav2_p2_if_q;
+  register11_q_net_x0 <= cav2_p1_comparison_phase;
+  register11_q_net_x1 <= cav2_p2_if_amp;
+  register11_q_net_x2 <= cav2_p2_if_phase;
+  register11_q_net_x4 <= cav2_p2_if_i;
+  register11_q_net_x3 <= cav2_p2_if_q;
   convert6_dout_net <= cav2_p2_dc_real;
   convert2_dout_net <= cav2_p2_dc_img;
   convert1_dout_net <= cav2_p2_dc_freq;
@@ -1199,7 +1199,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample_q_net_x0,
+    d => register11_q_net_x7,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1259,7 +1259,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net,
+    d => register11_q_net_x0,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1274,7 +1274,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample_q_net,
+    d => register11_q_net_x2,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1349,7 +1349,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net_x1,
+    d => register11_q_net_x4,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1364,7 +1364,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net_x2,
+    d => register11_q_net_x5,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1379,7 +1379,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample1_q_net_x0,
+    d => register11_q_net_x1,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1394,7 +1394,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net_x0,
+    d => register11_q_net_x3,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1409,7 +1409,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample1_q_net,
+    d => register11_q_net,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1514,7 +1514,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register11_q_net_x3,
+    d => register11_q_net_x6,
     d_clk => d_clk_net,
     q_ce => q_ce_net,
     q_clk => q_clk_net,
@@ -1646,30 +1646,30 @@ entity example_subsystem7_x1 is
   );
 end example_subsystem7_x1;
 architecture structural of example_subsystem7_x1 is 
-  signal c2p2_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c2_nco_reset : std_logic_vector( 1-1 downto 0 );
-  signal c2p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c2_nco_phi : std_logic_vector( 32-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
+  signal c2p2_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal c2p1_win_start : std_logic_vector( 16-1 downto 0 );
   signal register32_q_net : std_logic_vector( 16-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
+  signal c2p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net_x0 : std_logic;
   signal d_ce_net_x0 : std_logic;
-  signal c2p2_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c2p1_win_start : std_logic_vector( 16-1 downto 0 );
+  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
   signal c2p1_win_stop : std_logic_vector( 16-1 downto 0 );
   signal c2p2_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c2p1_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
+  signal c2p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
+  signal c2_nco_phi : std_logic_vector( 32-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
+  signal c2p2_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c2_nco_reset : std_logic_vector( 1-1 downto 0 );
+  signal c2p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
 begin
   c2p1_chan_sel <= in1_1;
   c2p2_chan_sel <= in1_2;
@@ -2023,336 +2023,336 @@ entity example_axi_lite is
   );
 end example_axi_lite;
 architecture structural of example_axi_lite is 
-  signal c1p2_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c1p2_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
-  signal c1p2_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_if_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c2p1_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c2p1_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c2p1_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_if_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal down_sample37_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample38_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample39_q_net : std_logic_vector( 32-1 downto 0 );
-  signal c2p2_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c2p2_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c2p2_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c2p2_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal cav1_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
-  signal cav1_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register16_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register15_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register9_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample17_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample18_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample29_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register81_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register83_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register88_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register89_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register34_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
   signal register49_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register198_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register199_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register50_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register146_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register147_q_net : std_logic_vector( 4-1 downto 0 );
-  signal ref_i : std_logic_vector( 18-1 downto 0 );
-  signal down_sample51_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register152_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register153_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register154_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register155_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register125_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register127_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register126_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register128_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register118_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register119_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register120_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_window_start_net : std_logic_vector( 16-1 downto 0 );
-  signal cav2_p2_window_stop_net : std_logic_vector( 16-1 downto 0 );
-  signal register76_q_net : std_logic_vector( 18-1 downto 0 );
-  signal rf_ref_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register80_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register78_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register82_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register27_q_net : std_logic_vector( 32-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal dest_clk_net : std_logic;
-  signal dest_ce_net : std_logic;
-  signal register72_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register73_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register74_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register75_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample12_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register112_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register113_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register114_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register115_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register8_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register7_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register4_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register122_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
-  signal register20_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p2_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p2_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register21_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register23_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register22_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal ref_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c1p2_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c1p2_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c1_nco_reset : std_logic_vector( 1-1 downto 0 );
-  signal register68_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register69_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register70_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register71_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample20_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample21_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample22_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample23_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample24_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample30_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample31_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample32_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register110_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register104_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register105_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register106_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register28_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register24_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register26_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register25_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register17_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register18_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register19_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p2_window_start_net : std_logic_vector( 16-1 downto 0 );
-  signal cav1_p2_window_stop_net : std_logic_vector( 16-1 downto 0 );
-  signal cav2_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
-  signal cav2_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
+  signal register148_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register149_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register109_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register43_q_net : std_logic_vector( 18-1 downto 0 );
   signal register93_q_net : std_logic_vector( 18-1 downto 0 );
   signal cav2_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
   signal cav2_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register94_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register96_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register95_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register103_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register102_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample10_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample15_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample16_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample25_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample26_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register58_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register39_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register59_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register101_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register97_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register99_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register98_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register100_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register90_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register91_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register92_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
-  signal cav2_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
-  signal register121_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register124_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register123_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register131_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register130_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register129_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample35_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample36_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register40_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register41_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register42_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register43_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample27_q_net : std_logic_vector( 20-1 downto 0 );
-  signal down_sample28_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register116_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register117_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register139_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register140_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register32_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample58_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample59_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample6_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample8_q_net : std_logic_vector( 20-1 downto 0 );
-  signal down_sample9_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register132_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register133_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register134_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register135_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register62_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register63_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register64_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register65_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register66_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register67_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register36_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register160_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register161_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register47_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register48_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register31_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register111_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register156_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register157_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register158_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register159_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register60_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register61_q_net : std_logic_vector( 4-1 downto 0 );
-  signal down_sample19_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample33_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample34_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample56_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample57_q_net : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c1p1_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c1p1_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c1p2_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal register136_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register33_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register137_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register138_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample43_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample44_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register141_q_net : std_logic_vector( 18-1 downto 0 );
   signal register142_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register143_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register144_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register145_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register200_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register201_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register202_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register203_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register34_q_net : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c1_nco_phi : std_logic_vector( 32-1 downto 0 );
-  signal c2p2_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c2p1_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c2p1_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c2p2_win_start : std_logic_vector( 16-1 downto 0 );
-  signal register10_q_net : std_logic_vector( 20-1 downto 0 );
-  signal c2p2_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c2_nco_reset : std_logic_vector( 1-1 downto 0 );
+  signal c2p1_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal down_sample5_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_if_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal register88_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register89_q_net : std_logic_vector( 4-1 downto 0 );
+  signal down_sample26_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register146_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register147_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register50_q_net : std_logic_vector( 18-1 downto 0 );
   signal c2p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
   signal c2p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
   signal c2_nco_phi : std_logic_vector( 32-1 downto 0 );
-  signal ref_amp : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal register74_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register75_q_net : std_logic_vector( 32-1 downto 0 );
+  signal c1p2_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal register55_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register68_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register69_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register107_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample54_q_net : std_logic_vector( 20-1 downto 0 );
+  signal c2p1_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal c2p1_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal register77_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample55_q_net : std_logic_vector( 20-1 downto 0 );
+  signal down_sample51_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register58_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register144_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register83_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register140_q_net : std_logic_vector( 20-1 downto 0 );
+  signal down_sample25_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample49_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal c1p2_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal c1p2_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal down_sample17_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register21_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register23_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register82_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register27_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register94_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register96_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal c2p1_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal register16_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register15_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register9_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample42_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register160_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register161_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample43_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample41_q_net : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal register111_q_net : std_logic_vector( 20-1 downto 0 );
+  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal down_sample28_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal register105_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register32_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample52_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register51_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample46_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample20_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample35_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register113_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample44_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample32_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal down_sample10_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register64_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register65_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register110_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample8_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register72_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register73_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register41_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register80_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register78_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register133_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register31_q_net : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal down_sample22_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register36_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register114_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register129_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register125_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register56_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample36_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register145_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample47_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_chan_sel_net : std_logic_vector( 4-1 downto 0 );
+  signal register122_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register135_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register117_q_net : std_logic_vector( 18-1 downto 0 );
   signal ref_phi : std_logic_vector( 18-1 downto 0 );
+  signal ref_i : std_logic_vector( 18-1 downto 0 );
   signal ref_q : std_logic_vector( 18-1 downto 0 );
+  signal register92_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal register101_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register97_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register66_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register67_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register52_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register134_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register60_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register61_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register151_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample34_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_phi : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c2_nco_reset : std_logic_vector( 1-1 downto 0 );
+  signal register132_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register124_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register127_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register126_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register128_q_net : std_logic_vector( 18-1 downto 0 );
+  signal dest_ce_net : std_logic;
+  signal c2p1_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal ref_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal cav2_p2_window_stop_net : std_logic_vector( 16-1 downto 0 );
+  signal register76_q_net : std_logic_vector( 18-1 downto 0 );
+  signal rf_ref_chan_sel_net : std_logic_vector( 4-1 downto 0 );
+  signal down_sample21_q_net : std_logic_vector( 18-1 downto 0 );
   signal c1p1_if_phi : std_logic_vector( 18-1 downto 0 );
   signal c1p1_if_i : std_logic_vector( 18-1 downto 0 );
   signal c1p1_if_q : std_logic_vector( 18-1 downto 0 );
-  signal register77_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register79_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample4_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample40_q_net : std_logic_vector( 20-1 downto 0 );
-  signal down_sample45_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample46_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample47_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal c2p2_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal versionnumber_op_net : std_logic_vector( 32-1 downto 0 );
+  signal register39_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register100_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register90_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register91_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register143_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register123_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register131_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register130_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c1p2_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c1_nco_reset : std_logic_vector( 1-1 downto 0 );
+  signal c1_nco_phi : std_logic_vector( 32-1 downto 0 );
+  signal c2p2_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal c2p1_win_start : std_logic_vector( 16-1 downto 0 );
+  signal register95_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register103_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register102_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register156_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register157_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register159_q_net : std_logic_vector( 1-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal dest_clk_net : std_logic;
+  signal down_sample58_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal cav1_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
+  signal register198_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register199_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register4_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register10_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register48_q_net : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal register202_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register203_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register47_q_net : std_logic_vector( 20-1 downto 0 );
+  signal down_sample12_q_net : std_logic_vector( 18-1 downto 0 );
   signal register204_q_net : std_logic_vector( 18-1 downto 0 );
   signal register205_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register51_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register52_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register53_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register148_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register149_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register35_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register150_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register151_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register46_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register107_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register108_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register109_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register106_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register8_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register7_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register81_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register154_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register19_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p2_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal cav1_p2_window_stop_net : std_logic_vector( 16-1 downto 0 );
+  signal register120_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal register141_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample30_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
+  signal register121_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register26_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register25_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register40_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register200_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register201_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register33_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample15_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample39_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample45_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample4_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample40_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register112_q_net : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register20_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p2_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p2_chan_sel_net : std_logic_vector( 4-1 downto 0 );
+  signal register136_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c2p2_win_start : std_logic_vector( 16-1 downto 0 );
+  signal down_sample24_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample18_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register28_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register24_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal register59_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register137_q_net : std_logic_vector( 18-1 downto 0 );
   signal register54_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register55_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register56_q_net : std_logic_vector( 18-1 downto 0 );
-  signal versionnumber_op_net : std_logic_vector( 32-1 downto 0 );
-  signal register57_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register44_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register45_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample60_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample7_q_net : std_logic_vector( 20-1 downto 0 );
-  signal down_sample54_q_net : std_logic_vector( 20-1 downto 0 );
-  signal down_sample55_q_net : std_logic_vector( 20-1 downto 0 );
-  signal down_sample5_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample50_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample52_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample53_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample41_q_net : std_logic_vector( 20-1 downto 0 );
-  signal down_sample42_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample16_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_if_phi : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_if_i : std_logic_vector( 18-1 downto 0 );
   signal down_sample48_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample49_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample37_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register118_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register119_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register155_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample19_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register99_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register98_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample27_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register152_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register153_q_net : std_logic_vector( 16-1 downto 0 );
+  signal ref_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal cav1_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
+  signal register45_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register138_q_net : std_logic_vector( 32-1 downto 0 );
+  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal register35_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample38_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register150_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample31_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register53_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register62_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register63_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register158_q_net : std_logic_vector( 1-1 downto 0 );
+  signal c2p1_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal c2p2_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal down_sample50_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
+  signal cav2_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
+  signal register42_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample60_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register115_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register104_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register46_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register79_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample9_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_if_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal down_sample57_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample53_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample7_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register108_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register116_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register139_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register17_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register18_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register57_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample29_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample6_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample56_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample59_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register70_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register71_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample33_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register44_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample23_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register22_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 18-1 downto 0 );
+  signal c2p1_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_if_phi : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_if_i : std_logic_vector( 18-1 downto 0 );
 begin
   out2_1 <= c1p1_chan_sel;
   out3_1 <= c2p1_chan_sel;
@@ -6575,7 +6575,6 @@ entity example_bsa_streaming is
     wfdata_7 : in std_logic_vector( 18-1 downto 0 );
     wfvalid_0 : in std_logic_vector( 1-1 downto 0 );
     wfvalid_1 : in std_logic_vector( 1-1 downto 0 );
-    wfvalid_7 : in std_logic_vector( 1-1 downto 0 );
     diag1data : in std_logic_vector( 18-1 downto 0 );
     diag8data : in std_logic_vector( 18-1 downto 0 );
     diag14data : in std_logic_vector( 18-1 downto 0 );
@@ -6755,464 +6754,463 @@ entity example_bsa_streaming is
     wfvalid_4 : out std_logic_vector( 1-1 downto 0 );
     wfvalid_5 : out std_logic_vector( 1-1 downto 0 );
     wfvalid_6 : out std_logic_vector( 1-1 downto 0 );
-    wfvalid_7_x0 : out std_logic_vector( 1-1 downto 0 );
+    wfvalid_7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out : out std_logic_vector( 16-1 downto 0 );
     gateway_out1 : out std_logic_vector( 26-1 downto 0 )
   );
 end example_bsa_streaming;
 architecture structural of example_bsa_streaming is 
-  signal register17_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register91_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register90_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register89_q_net : std_logic_vector( 3-1 downto 0 );
-  signal constant42_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant43_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant44_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant45_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant46_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant47_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant48_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register109_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register110_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register111_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register112_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert43_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register43_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert47_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register47_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert50_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register50_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert139_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register139_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant78_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant79_op_net : std_logic_vector( 18-1 downto 0 );
   signal constant8_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant77_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant76_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant75_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant74_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant112_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant89_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant82_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant80_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant66_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant5_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant84_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant85_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant83_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant86_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant103_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant104_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant105_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register31_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register34_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register40_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register109_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register62_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register4_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register140_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register80_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register73_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register55_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
   signal nco_sin : std_logic_vector( 26-1 downto 0 );
   signal nco_sin_x0 : std_logic_vector( 26-1 downto 0 );
   signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant30_op_net : std_logic_vector( 18-1 downto 0 );
-  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert124_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register124_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert125_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register125_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert126_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register127_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert18_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux9_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert19_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux3_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert12_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert20_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux1_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert54_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert65_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert1_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert27_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert28_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert29_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert30_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert31_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert32_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert33_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert34_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert35_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert36_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register54_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register61_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register20_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant56_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant57_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant58_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant59_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant60_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant61_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant62_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register44_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register45_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register60_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register59_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal constant87_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant88_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant6_op_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert47_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register47_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register57_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant31_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant64_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant63_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register46_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant9_op_net : std_logic_vector( 3-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant28_op_net : std_logic_vector( 3-1 downto 0 );
+  signal convert88_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal convert89_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux25_y_net : std_logic_vector( 32-1 downto 0 );
+  signal register39_q_net : std_logic_vector( 1-1 downto 0 );
   signal register66_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register69_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register34_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register37_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register56_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register65_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register88_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register64_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert131_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert24_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register82_q_net : std_logic_vector( 3-1 downto 0 );
+  signal constant77_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant76_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant75_op_net : std_logic_vector( 18-1 downto 0 );
+  signal register100_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register72_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert50_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register50_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert43_dout_net : std_logic_vector( 32-1 downto 0 );
   signal register36_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register9_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register8_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register7_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register3_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert138_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register138_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert139_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register139_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register110_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register19_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert23_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register23_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x3 : std_logic_vector( 3-1 downto 0 );
+  signal register69_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert143_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register144_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register13_q_net_x2 : std_logic_vector( 3-1 downto 0 );
+  signal constant74_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant112_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register48_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register32_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert105_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert110_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register108_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register58_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register132_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register68_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register51_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register97_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register16_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert104_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert111_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert130_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register131_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal register59_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register54_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert119_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register76_q_net : std_logic_vector( 3-1 downto 0 );
+  signal mux18_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert61_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert46_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert22_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert114_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert49_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert103_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register38_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant24_op_net : std_logic_vector( 3-1 downto 0 );
+  signal register115_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register43_q_net : std_logic_vector( 18-1 downto 0 );
+  signal relational7_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert106_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert97_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert142_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert144_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register99_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert70_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert94_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux4_y_net : std_logic_vector( 32-1 downto 0 );
+  signal register105_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant39_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant60_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert45_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert21_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register104_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert25_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert48_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register103_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant10_op_net : std_logic_vector( 3-1 downto 0 );
   signal register12_q_net_x2 : std_logic_vector( 3-1 downto 0 );
-  signal convert140_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register140_q_net : std_logic_vector( 18-1 downto 0 );
-  signal constant70_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant71_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant26_op_net : std_logic_vector( 3-1 downto 0 );
+  signal register44_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant35_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register61_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert107_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert98_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register52_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant32_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant81_op_net : std_logic_vector( 18-1 downto 0 );
+  signal mux14_y_net : std_logic_vector( 32-1 downto 0 );
+  signal register41_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant53_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert116_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert123_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register123_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert78_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux15_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert51_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register83_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register135_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register95_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register94_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register53_q_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal mult7_p_net : std_logic_vector( 18-1 downto 0 );
+  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert135_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert79_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux16_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert52_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert99_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert108_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register98_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant48_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant72_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant90_op_net : std_logic_vector( 18-1 downto 0 );
   signal constant73_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant66_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant5_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant84_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant85_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant83_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register31_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register32_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register15_q_net : std_logic_vector( 1-1 downto 0 );
-  signal convert113_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register114_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert114_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register115_q_net : std_logic_vector( 18-1 downto 0 );
-  signal counter_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert49_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert103_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert105_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert110_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert104_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert111_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert106_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert97_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert107_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert98_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert99_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert108_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert100_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert109_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert101_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert102_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register126_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register68_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register8_q_net : std_logic_vector( 3-1 downto 0 );
   signal register77_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register74_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register67_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register81_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register80_q_net : std_logic_vector( 3-1 downto 0 );
   signal register18_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant35_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant36_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant37_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant38_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal constant39_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant40_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant41_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert144_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register129_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x3 : std_logic_vector( 3-1 downto 0 );
-  signal register10_q_net : std_logic_vector( 3-1 downto 0 );
-  signal constant68_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant69_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant67_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant31_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant64_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant28_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant29_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant30_op_net_x0 : std_logic_vector( 3-1 downto 0 );
-  signal constant33_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant34_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant86_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant87_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant88_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant6_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant89_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant82_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant80_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant32_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant81_op_net : std_logic_vector( 18-1 downto 0 );
-  signal mux14_y_net : std_logic_vector( 32-1 downto 0 );
-  signal constant91_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant92_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant93_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant94_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant100_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant101_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant99_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant102_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant103_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant104_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant105_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant78_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant79_op_net : std_logic_vector( 18-1 downto 0 );
-  signal convert135_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register135_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert136_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register136_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert137_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register137_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register46_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register48_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register49_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register16_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register79_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register78_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register85_q_net : std_logic_vector( 3-1 downto 0 );
-  signal constant9_op_net : std_logic_vector( 3-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 3-1 downto 0 );
-  signal convert23_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register23_q_net : std_logic_vector( 18-1 downto 0 );
-  signal constant63_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant65_op_net : std_logic_vector( 3-1 downto 0 );
-  signal convert141_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register141_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert142_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register143_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert143_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register144_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert121_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register121_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert122_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register122_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert123_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register123_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register103_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register104_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register105_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register106_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register107_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register108_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register142_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert26_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert44_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert127_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register128_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert128_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register113_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert129_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register130_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register37_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register38_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register39_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register4_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant10_op_net : std_logic_vector( 3-1 downto 0 );
-  signal register63_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register62_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register76_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register75_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register87_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register95_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register94_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register92_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register40_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register41_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register42_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register84_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register83_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register82_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register96_q_net : std_logic_vector( 3-1 downto 0 );
-  signal constant49_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant50_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant51_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant52_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant53_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant54_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant55_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert115_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register116_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert116_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert117_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register117_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert118_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register118_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert119_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register119_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert120_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register120_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register70_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register65_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register64_q_net : std_logic_vector( 1-1 downto 0 );
-  signal convert45_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert21_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert46_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert22_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert131_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert24_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert25_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert48_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register100_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register101_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register102_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register53_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register52_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register51_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register93_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register88_q_net : std_logic_vector( 3-1 downto 0 );
-  signal register86_q_net : std_logic_vector( 3-1 downto 0 );
-  signal constant11_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant12_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant13_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant14_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant15_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant16_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant17_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant18_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant19_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant20_op_net : std_logic_vector( 3-1 downto 0 );
-  signal convert37_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert38_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert39_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert40_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert41_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert42_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register27_q_net : std_logic_vector( 26-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal register21_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register22_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register24_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register25_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register26_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert88_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux18_y_net : std_logic_vector( 32-1 downto 0 );
-  signal register73_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register72_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register71_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register19_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register97_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register98_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register99_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register91_q_net : std_logic_vector( 3-1 downto 0 );
+  signal constant47_op_net : std_logic_vector( 1-1 downto 0 );
   signal convert85_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux22_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert74_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register24_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register111_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert84_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux2_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register9_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register84_q_net : std_logic_vector( 3-1 downto 0 );
+  signal convert136_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register136_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register117_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant101_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant99_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant102_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant46_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert141_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register141_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant62_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register20_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant17_op_net : std_logic_vector( 3-1 downto 0 );
+  signal register87_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register79_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register25_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert121_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert101_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert102_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register81_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register112_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert86_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux23_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert59_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert87_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux24_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert60_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert61_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert89_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux25_y_net : std_logic_vector( 32-1 downto 0 );
+  signal constant33_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register101_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register7_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register119_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register107_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register143_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register96_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register60_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant34_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register138_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert115_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register116_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register102_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register49_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mux3_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert12_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert20_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux7_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert17_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal register22_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant59_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert36_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert37_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert38_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert127_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register128_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register129_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant13_op_net : std_logic_vector( 3-1 downto 0 );
+  signal register70_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register90_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register71_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant11_op_net : std_logic_vector( 3-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert42_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register27_q_net : std_logic_vector( 26-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert124_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register124_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register137_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant27_op_net : std_logic_vector( 3-1 downto 0 );
+  signal convert128_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register113_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert81_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux17_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert62_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal constant23_op_net : std_logic_vector( 3-1 downto 0 );
+  signal convert126_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register127_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register45_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant91_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant92_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant93_op_net : std_logic_vector( 18-1 downto 0 );
+  signal register21_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register125_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant68_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant69_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant67_op_net : std_logic_vector( 1-1 downto 0 );
+  signal q_ce_net : std_logic;
+  signal convert120_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert26_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert44_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal constant38_op_net : std_logic_vector( 1-1 downto 0 );
   signal convert66_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert90_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux27_y_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register120_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register86_q_net : std_logic_vector( 3-1 downto 0 );
+  signal constant40_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert100_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert109_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal constant36_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register93_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register89_q_net : std_logic_vector( 3-1 downto 0 );
+  signal convert118_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register118_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant61_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert87_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux24_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert60_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert82_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux19_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert71_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert69_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert93_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux30_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert67_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert91_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux28_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert68_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert92_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux29_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert69_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert93_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux30_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert70_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert94_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux4_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert6_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert14_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux31_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert63_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert95_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux32_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert64_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert96_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux5_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert15_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux6_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert16_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux7_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert17_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux8_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal relational7_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal constant38_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register13_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal mux11_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert55_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal mux1_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert54_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert65_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal convert30_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert31_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert32_dout_net : std_logic_vector( 32-1 downto 0 );
   signal convert75_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux12_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert56_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert113_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register114_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register67_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register85_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register26_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant94_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant100_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert137_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal constant37_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant29_op_net : std_logic_vector( 3-1 downto 0 );
+  signal register3_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register121_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant65_op_net : std_logic_vector( 3-1 downto 0 );
+  signal convert125_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert13_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux21_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert73_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal d_clk_net : std_logic;
+  signal constant15_op_net : std_logic_vector( 3-1 downto 0 );
+  signal convert133_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register133_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant30_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant19_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant20_op_net : std_logic_vector( 3-1 downto 0 );
+  signal convert63_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert95_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux32_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert76_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux13_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert57_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert77_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert15_dout_net : std_logic_vector( 2-1 downto 0 );
   signal convert58_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert78_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux15_y_net : std_logic_vector( 32-1 downto 0 );
-  signal register58_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register57_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register56_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register55_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register13_q_net_x2 : std_logic_vector( 3-1 downto 0 );
-  signal convert130_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register131_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert132_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert133_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register133_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert51_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert79_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux16_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert52_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal constant49_op_net : std_logic_vector( 1-1 downto 0 );
+  signal mux9_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert19_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal constant41_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert39_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert40_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert41_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal constant16_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant18_op_net : std_logic_vector( 3-1 downto 0 );
+  signal mux6_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert16_dout_net : std_logic_vector( 2-1 downto 0 );
   signal convert80_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux10_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert53_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert81_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux17_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert62_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert82_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux19_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert71_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register142_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register63_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register75_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register42_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert138_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register17_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal mux11_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert55_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal constant52_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert27_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert28_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert29_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal constant55_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register126_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register28_q_net : std_logic_vector( 26-1 downto 0 );
+  signal convert132_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal constant12_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant22_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant57_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant42_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert129_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal register130_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mux8_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert18_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal constant21_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant25_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant56_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant14_op_net : std_logic_vector( 3-1 downto 0 );
+  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant70_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant71_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert117_dout_net : std_logic_vector( 32-1 downto 0 );
   signal convert83_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux20_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert72_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert84_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux2_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert13_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux21_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert73_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal constant21_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant22_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant23_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant24_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant25_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant26_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant27_op_net : std_logic_vector( 3-1 downto 0 );
-  signal register28_q_net : std_logic_vector( 26-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal register132_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register78_q_net : std_logic_vector( 3-1 downto 0 );
+  signal convert140_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal constant44_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register10_q_net : std_logic_vector( 3-1 downto 0 );
+  signal constant58_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register92_q_net : std_logic_vector( 3-1 downto 0 );
+  signal register106_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register74_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert122_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register122_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant51_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant45_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant43_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant50_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant54_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert33_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert34_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert35_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert6_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert14_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux31_y_net : std_logic_vector( 32-1 downto 0 );
+  signal register15_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   diagnrst_ctl <= constant31_op_net;
   diag6fixed_x0 <= constant3_op_net;
@@ -7284,17 +7282,16 @@ begin
   convert1_dout_net <= wfdata_4;
   convert5_dout_net_x0 <= wfdata_5;
   counter_op_net <= wfdata_6;
-  constant30_op_net <= wfdata_7;
+  mult7_p_net <= wfdata_7;
   relational7_op_net <= wfvalid_0;
   relational7_op_net_x0 <= wfvalid_1;
-  constant38_op_net <= wfvalid_7;
   register1_q_net <= diag1data;
   register14_q_net <= diag8data;
   register11_q_net_x0 <= diag14data;
-  register12_q_net_x1 <= diag9data;
-  register14_q_net_x1 <= diag16data_x0;
-  register12_q_net_x0 <= diag13data_x0;
-  register14_q_net_x0 <= diag12data_x0;
+  register12_q_net_x0 <= diag9data;
+  register14_q_net_x0 <= diag16data_x0;
+  register12_q_net_x1 <= diag13data_x0;
+  register14_q_net_x1 <= diag12data_x0;
   register13_q_net_x1 <= diag11data_x0;
   register11_q_net_x1 <= diag10data_x0;
   diag10data <= mux11_y_net;
@@ -7408,7 +7405,7 @@ begin
   wfvalid_4 <= convert39_dout_net;
   wfvalid_5 <= convert40_dout_net;
   wfvalid_6 <= convert41_dout_net;
-  wfvalid_7_x0 <= convert42_dout_net;
+  wfvalid_7 <= convert42_dout_net;
   gateway_out <= register33_q_net;
   gateway_out1 <= register27_q_net;
   q_clk_net <= clk_1;
@@ -7630,7 +7627,7 @@ begin
     clk => '0',
     ce => '0',
     clr => '0',
-    op => constant30_op_net_x0
+    op => constant30_op_net
   );
   constant31 : entity work.sysgen_constant_146af16123 
   port map (
@@ -7686,7 +7683,7 @@ begin
     clk => '0',
     ce => '0',
     clr => '0',
-    op => constant38_op_net_x0
+    op => constant38_op_net
   );
   constant39 : entity work.sysgen_constant_146af16123 
   port map (
@@ -9246,10 +9243,10 @@ begin
   generic map (
     bool_conversion => 0,
     din_arith => 2,
-    din_bin_pt => 17,
+    din_bin_pt => 16,
     din_width => 18,
     dout_arith => 2,
-    dout_bin_pt => 0,
+    dout_bin_pt => 16,
     dout_width => 32,
     latency => 1,
     overflow => xlWrap,
@@ -9259,8 +9256,8 @@ begin
     clr => '0',
     en => "1",
     din => register34_q_net,
-    clk => q_clk_net,
-    ce => d_ce_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
     dout => convert34_dout_net
   );
   convert35 : entity work.example_xlconvert 
@@ -9448,8 +9445,8 @@ begin
     clr => '0',
     en => "1",
     din => register42_q_net,
-    clk => q_clk_net,
-    ce => d_ce_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
     dout => convert42_dout_net
   );
   convert43 : entity work.example_xlconvert 
@@ -10937,7 +10934,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register12_q_net_x0,
+    d => register12_q_net_x1,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register100_q_net
@@ -10976,7 +10973,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register14_q_net_x1,
+    d => register14_q_net_x0,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register103_q_net
@@ -10989,7 +10986,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register12_q_net_x1,
+    d => register12_q_net_x0,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register104_q_net
@@ -11002,7 +10999,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register14_q_net_x1,
+    d => register14_q_net_x0,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register105_q_net
@@ -11028,7 +11025,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register14_q_net_x0,
+    d => register14_q_net_x1,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register107_q_net
@@ -11041,7 +11038,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register12_q_net_x0,
+    d => register12_q_net_x1,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register108_q_net
@@ -11561,7 +11558,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => constant38_op_net_x0,
+    d => constant38_op_net,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register16_q_net
@@ -11821,9 +11818,9 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => constant30_op_net,
-    clk => q_clk_net,
-    ce => d_ce_net,
+    d => mult7_p_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
     q => register34_q_net
   );
   register35 : entity work.example_xlregister 
@@ -11938,9 +11935,9 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => constant38_op_net,
-    clk => q_clk_net,
-    ce => d_ce_net,
+    d => relational7_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
     q => register42_q_net
   );
   register43 : entity work.example_xlregister 
@@ -12679,7 +12676,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => constant30_op_net_x0,
+    d => constant30_op_net,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register94_q_net
@@ -12718,7 +12715,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register12_q_net_x1,
+    d => register12_q_net_x0,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register97_q_net
@@ -12744,7 +12741,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register14_q_net_x0,
+    d => register14_q_net_x1,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register99_q_net
@@ -13323,13 +13320,13 @@ entity example_pulse_catcher is
   );
 end example_pulse_catcher;
 architecture structural of example_pulse_catcher is 
-  signal register_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
   signal register7_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
-  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
   signal q_ce_net : std_logic;
-  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= register_q_net;
   register7_q_net <= in1;
@@ -13419,18 +13416,18 @@ entity example_ddc_nco1 is
   );
 end example_ddc_nco1;
 architecture structural of example_ddc_nco1 is 
-  signal dds_compiler_6_0_m_axis_data_tvalid_net : std_logic;
-  signal nco_sin : std_logic_vector( 26-1 downto 0 );
   signal nco_cos : std_logic_vector( 26-1 downto 0 );
   signal down_sample6_q_net : std_logic_vector( 32-1 downto 0 );
   signal register7_q_net : std_logic_vector( 1-1 downto 0 );
+  signal dds_compiler_6_0_m_axis_data_tvalid_net : std_logic;
+  signal nco_sin : std_logic_vector( 26-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal register_q_net : std_logic_vector( 1-1 downto 0 );
   signal constant21_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
   signal dds_compiler_6_0_s_axis_phase_tready_net : std_logic;
   signal logical_y_net : std_logic;
+  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   tvalid <= dds_compiler_6_0_m_axis_data_tvalid_net;
   sine <= nco_sin;
@@ -13504,7 +13501,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_iq_integration_x0 is
+entity example_iq_integration is
   port (
     cav_windowed_imag : in std_logic_vector( 18-1 downto 0 );
     cav_windowed_real : in std_logic_vector( 18-1 downto 0 );
@@ -13535,42 +13532,42 @@ entity example_iq_integration_x0 is
     gateway_out7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out9 : out std_logic_vector( 32-1 downto 0 )
   );
-end example_iq_integration_x0;
-architecture structural of example_iq_integration_x0 is 
-  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+end example_iq_integration;
+architecture structural of example_iq_integration is 
   signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult6_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult7_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register12_q_net : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
   signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
   signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
   signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
   signal register11_q_net : std_logic_vector( 32-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
+  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
 begin
   cav_int_q <= convert10_dout_net;
   cav_int_i <= convert9_dout_net;
   ref_int_i <= convert2_dout_net;
   ref_int_q <= convert4_dout_net;
-  mult2_p_net <= cav_windowed_imag;
-  mult_p_net <= cav_windowed_real;
+  mult6_p_net <= cav_windowed_imag;
+  mult7_p_net <= cav_windowed_real;
   mult4_p_net <= ref_windowed_i;
   mult5_p_net <= ref_windowed_q;
   convert11_dout_net <= window_profile;
@@ -13596,7 +13593,7 @@ begin
   accumulator : entity work.sysgen_accum_3210400574 
   port map (
     clr => '0',
-    b => mult2_p_net,
+    b => mult6_p_net,
     rst => inverter_op_net,
     clk => d_clk_net,
     ce => q_ce_net,
@@ -13605,7 +13602,7 @@ begin
   accumulator1 : entity work.sysgen_accum_3210400574 
   port map (
     clr => '0',
-    b => mult_p_net,
+    b => mult7_p_net,
     rst => inverter1_op_net,
     clk => d_clk_net,
     ce => q_ce_net,
@@ -13920,34 +13917,34 @@ entity example_iq_integration1 is
   );
 end example_iq_integration1;
 architecture structural of example_iq_integration1 is 
-  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register12_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
+  signal q_ce_net : std_logic;
   signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
   signal register11_q_net : std_logic_vector( 32-1 downto 0 );
   signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register12_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   cav_int_q <= convert10_dout_net;
   cav_int_i <= convert9_dout_net;
@@ -14271,13 +14268,11 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_masking_n_delay_x0 is
+entity example_masking_n_delay is
   port (
     phi_reset_trig : in std_logic_vector( 1-1 downto 0 );
     start_pt : in std_logic_vector( 16-1 downto 0 );
     stop_pt : in std_logic_vector( 16-1 downto 0 );
-    delay_amt : in std_logic_vector( 16-1 downto 0 );
-    delay_latch : in std_logic_vector( 1-1 downto 0 );
     clk_1 : in std_logic;
     ce_1 : in std_logic;
     clk_12 : in std_logic;
@@ -14288,7 +14283,6 @@ entity example_masking_n_delay_x0 is
     integral_trig : out std_logic_vector( 1-1 downto 0 );
     flo_window : out std_logic_vector( 1-1 downto 0 );
     stream_valid : out std_logic_vector( 1-1 downto 0 );
-    delay_val : out std_logic_vector( 16-1 downto 0 );
     gateway_out27 : out std_logic_vector( 1-1 downto 0 );
     gateway_out28 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29 : out std_logic_vector( 1-1 downto 0 );
@@ -14301,55 +14295,50 @@ entity example_masking_n_delay_x0 is
     gateway_out10 : out std_logic_vector( 16-1 downto 0 );
     gateway_out11 : out std_logic_vector( 16-1 downto 0 )
   );
-end example_masking_n_delay_x0;
-architecture structural of example_masking_n_delay_x0 is 
+end example_masking_n_delay;
+architecture structural of example_masking_n_delay is 
+  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
   signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal constant11_op_net : std_logic_vector( 16-1 downto 0 );
+  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
+  signal down_sample2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
+  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal logical2_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
-  signal constant11_op_net : std_logic_vector( 16-1 downto 0 );
-  signal addsub4_s_net : std_logic_vector( 16-1 downto 0 );
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
+  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
+  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 16-1 downto 0 );
+  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay7_q_net : std_logic_vector( 16-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net : std_logic_vector( 16-1 downto 0 );
   signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
   signal register33_q_net : std_logic_vector( 16-1 downto 0 );
   signal register34_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register5_q_net : std_logic_vector( 16-1 downto 0 );
   signal register6_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
+  signal register5_q_net : std_logic_vector( 16-1 downto 0 );
   signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
-  signal logical2_y_net : std_logic_vector( 1-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
   signal delay6_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay7_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
-  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   trig_reset <= convert3_dout_net;
   counter_x0 <= counter_op_net;
@@ -14357,12 +14346,9 @@ begin
   integral_trig <= convert5_dout_net;
   flo_window <= convert2_dout_net;
   stream_valid <= relational7_op_net;
-  delay_val <= register_q_net;
   down_sample2_q_net <= phi_reset_trig;
   register33_q_net <= start_pt;
   register34_q_net <= stop_pt;
-  register2_q_net <= delay_amt;
-  delay2_q_net <= delay_latch;
   gateway_out27 <= relational4_op_net;
   gateway_out28 <= relational3_op_net;
   gateway_out29 <= convert11_dout_net;
@@ -14409,40 +14395,6 @@ begin
     ce => q_ce_net,
     s => addsub1_s_net
   );
-  addsub4 : entity work.example_xladdsub 
-  generic map (
-    a_arith => xlUnsigned,
-    a_bin_pt => 0,
-    a_width => 16,
-    b_arith => xlUnsigned,
-    b_bin_pt => 0,
-    b_width => 16,
-    c_has_c_out => 0,
-    c_latency => 1,
-    c_output_width => 17,
-    core_name0 => "example_c_addsub_v12_0_i0",
-    en_arith => xlUnsigned,
-    en_bin_pt => 0,
-    en_width => 1,
-    extra_registers => 0,
-    full_s_arith => 1,
-    full_s_width => 17,
-    latency => 1,
-    overflow => 2,
-    quantization => 1,
-    s_arith => xlUnsigned,
-    s_bin_pt => 0,
-    s_width => 16
-  )
-  port map (
-    clr => '0',
-    a => register_q_net,
-    b => register2_q_net,
-    en => delay2_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    s => addsub4_s_net
-  );
   constant1 : entity work.sysgen_constant_1c061e35c5 
   port map (
     clk => '0',
@@ -14457,14 +14409,14 @@ begin
     clr => '0',
     op => constant11_op_net
   );
-  constant2 : entity work.sysgen_constant_b4eb188ed9 
+  constant2 : entity work.sysgen_constant_9d3c6a22a6 
   port map (
     clk => '0',
     ce => '0',
     clr => '0',
     op => constant2_op_net
   );
-  constant3 : entity work.sysgen_constant_bcc72769b8 
+  constant3 : entity work.sysgen_constant_5af5c4c643 
   port map (
     clk => '0',
     ce => '0',
@@ -14604,9 +14556,14 @@ begin
     ce => q_ce_net,
     dout => convert8_dout_net
   );
-  counter : entity work.example_xlcounter_free 
+  counter : entity work.example_xlcounter_limit 
   generic map (
+    cnt_15_0 => 32768,
+    cnt_31_16 => 0,
+    cnt_47_32 => 0,
+    cnt_63_48 => 0,
     core_name0 => "example_c_counter_binary_v12_0_i0",
+    count_limited => 1,
     op_arith => xlUnsigned,
     op_width => 16
   )
@@ -14617,21 +14574,6 @@ begin
     clk => d_clk_net,
     ce => q_ce_net,
     op => counter_op_net
-  );
-  delay : entity work.example_xldelay 
-  generic map (
-    latency => 1,
-    reg_retiming => 0,
-    reset => 0,
-    width => 1
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => delay2_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay_q_net
   );
   delay1 : entity work.example_xldelay 
   generic map (
@@ -14804,19 +14746,6 @@ begin
     ce => q_ce_net,
     y => logical2_y_net
   );
-  register_x0 : entity work.example_xlregister 
-  generic map (
-    d_width => 16,
-    init_value => b"0000000000101100"
-  )
-  port map (
-    rst => "0",
-    d => addsub4_s_net,
-    en => delay_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => register_q_net
-  );
   register1 : entity work.example_xlregister 
   generic map (
     d_width => 1,
@@ -14943,7 +14872,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_pa_conversion2_x0 is
+entity example_pa_conversion2 is
   port (
     cav_int_q : in std_logic_vector( 20-1 downto 0 );
     cav_int_i : in std_logic_vector( 20-1 downto 0 );
@@ -14959,8 +14888,14 @@ entity example_pa_conversion2_x0 is
     cav_phi_out : out std_logic_vector( 18-1 downto 0 );
     cav_amp_out : out std_logic_vector( 18-1 downto 0 )
   );
-end example_pa_conversion2_x0;
-architecture structural of example_pa_conversion2_x0 is 
+end example_pa_conversion2;
+architecture structural of example_pa_conversion2 is 
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
   signal register12_q_net : std_logic_vector( 18-1 downto 0 );
   signal register13_q_net : std_logic_vector( 18-1 downto 0 );
   signal register14_q_net : std_logic_vector( 18-1 downto 0 );
@@ -14968,27 +14903,21 @@ architecture structural of example_pa_conversion2_x0 is
   signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal cordic_6_0_1_m_axis_dout_tvalid_net : std_logic;
+  signal cordic_6_0_1_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
   signal down_sample3_q_net : std_logic_vector( 18-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
   signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_1_m_axis_dout_tvalid_net : std_logic;
-  signal cordic_6_0_1_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   phi_diff <= addsub_s_net;
   ref_phi_out <= register11_q_net;
@@ -15237,7 +15166,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_channel_select1_x2 is
+entity example_channel_select1_x1 is
   port (
     in0 : in std_logic_vector( 18-1 downto 0 );
     in1 : in std_logic_vector( 18-1 downto 0 );
@@ -15250,16 +15179,16 @@ entity example_channel_select1_x2 is
     out0 : out std_logic_vector( 18-1 downto 0 );
     out1 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_channel_select1_x2;
-architecture structural of example_channel_select1_x2 is 
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+end example_channel_select1_x1;
+architecture structural of example_channel_select1_x1 is 
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp : std_logic_vector( 18-1 downto 0 );
   signal phase : std_logic_vector( 18-1 downto 0 );
   signal channel : std_logic_vector( 4-1 downto 0 );
@@ -15268,10 +15197,10 @@ architecture structural of example_channel_select1_x2 is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
   signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal last : std_logic_vector( 1-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
   out1 <= down_sample_q_net;
@@ -15457,7 +15386,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_pa_select_x1 is
+entity example_pa_select_x0 is
   port (
     pa_bus_1 : in std_logic_vector( 18-1 downto 0 );
     pa_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -15470,18 +15399,18 @@ entity example_pa_select_x1 is
     amp : out std_logic_vector( 18-1 downto 0 );
     phase : out std_logic_vector( 18-1 downto 0 )
   );
-end example_pa_select_x1;
-architecture structural of example_pa_select_x1 is 
+end example_pa_select_x0;
+architecture structural of example_pa_select_x0 is 
+  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
   signal phase_x0 : std_logic_vector( 18-1 downto 0 );
   signal channel : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
+  signal q_ce_net : std_logic;
 begin
   amp <= down_sample1_q_net;
   phase <= down_sample_q_net;
@@ -15493,7 +15422,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  channel_select1 : entity work.example_channel_select1_x2 
+  channel_select1 : entity work.example_channel_select1_x1 
   port map (
     in0 => amp_x0,
     in1 => phase_x0,
@@ -15512,7 +15441,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_channel_select1_x3 is
+entity example_channel_select1_x2 is
   port (
     in0 : in std_logic_vector( 18-1 downto 0 );
     in1 : in std_logic_vector( 18-1 downto 0 );
@@ -15525,27 +15454,27 @@ entity example_channel_select1_x3 is
     out0 : out std_logic_vector( 18-1 downto 0 );
     out1 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_channel_select1_x3;
-architecture structural of example_channel_select1_x3 is 
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal amp : std_logic_vector( 18-1 downto 0 );
-  signal phase : std_logic_vector( 18-1 downto 0 );
+end example_channel_select1_x2;
+architecture structural of example_channel_select1_x2 is 
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal channel : std_logic_vector( 4-1 downto 0 );
   signal register30_q_net : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal amp : std_logic_vector( 18-1 downto 0 );
+  signal phase : std_logic_vector( 18-1 downto 0 );
   signal q_ce_net : std_logic;
   signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
   signal last : std_logic_vector( 1-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
@@ -15732,7 +15661,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_pa_select1_x0 is
+entity example_pa_select1 is
   port (
     pa_bus_1 : in std_logic_vector( 18-1 downto 0 );
     pa_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -15745,18 +15674,18 @@ entity example_pa_select1_x0 is
     amp : out std_logic_vector( 18-1 downto 0 );
     phase : out std_logic_vector( 18-1 downto 0 )
   );
-end example_pa_select1_x0;
-architecture structural of example_pa_select1_x0 is 
+end example_pa_select1;
+architecture structural of example_pa_select1 is 
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp_x0 : std_logic_vector( 18-1 downto 0 );
+  signal q_ce_net : std_logic;
   signal register30_q_net : std_logic_vector( 4-1 downto 0 );
   signal phase_x0 : std_logic_vector( 18-1 downto 0 );
   signal channel : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
 begin
   amp <= down_sample1_q_net;
   phase <= down_sample_q_net;
@@ -15768,7 +15697,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  channel_select1 : entity work.example_channel_select1_x3 
+  channel_select1 : entity work.example_channel_select1_x2 
   port map (
     in0 => amp_x0,
     in1 => phase_x0,
@@ -15803,27 +15732,27 @@ entity example_channel_select3_x2 is
   );
 end example_channel_select3_x2;
 architecture structural of example_channel_select3_x2 is 
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal ddci : std_logic_vector( 18-1 downto 0 );
   signal ddcq : std_logic_vector( 18-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal last : std_logic_vector( 1-1 downto 0 );
+  signal q_ce_net : std_logic;
+  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal ddcsync : std_logic_vector( 1-1 downto 0 );
   signal ddcchannel : std_logic_vector( 4-1 downto 0 );
   signal register30_q_net : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
   out1 <= down_sample_q_net;
@@ -16010,7 +15939,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem1_x2 is
+entity example_subsystem1_x3 is
   port (
     iq_stream_in_1 : in std_logic_vector( 18-1 downto 0 );
     iq_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -16024,19 +15953,19 @@ entity example_subsystem1_x2 is
     ddci : out std_logic_vector( 18-1 downto 0 );
     ddcq : out std_logic_vector( 18-1 downto 0 )
   );
-end example_subsystem1_x2;
-architecture structural of example_subsystem1_x2 is 
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
-  signal ddcq_x0 : std_logic_vector( 18-1 downto 0 );
+end example_subsystem1_x3;
+architecture structural of example_subsystem1_x3 is 
+  signal q_ce_net : std_logic;
   signal ddcchannel : std_logic_vector( 4-1 downto 0 );
   signal ddcsync : std_logic_vector( 1-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
+  signal ddcq_x0 : std_logic_vector( 18-1 downto 0 );
 begin
   ddci <= down_sample1_q_net;
   ddcq <= down_sample_q_net;
@@ -16062,6 +15991,430 @@ begin
     ce_12 => q_ce_net,
     out0 => down_sample1_q_net,
     out1 => down_sample_q_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem10/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse_x5 is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse_x5;
+architecture structural of example_posedge_pulse_x5 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem10
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem10 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem10;
+architecture structural of example_subsystem10 is 
+  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+begin
+  q <= register11_q_net;
+  down_sample1_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant3_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse_x5 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample1_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant3_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem11/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse_x0 is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse_x0;
+architecture structural of example_posedge_pulse_x0 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem11
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem11 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem11;
+architecture structural of example_subsystem11 is 
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
+begin
+  q <= register11_q_net;
+  down_sample_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant3_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse_x0 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant3_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem12/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse_x6 is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse_x6;
+architecture structural of example_posedge_pulse_x6 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem12
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem12 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem12;
+architecture structural of example_subsystem12 is 
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 16-1 downto 0 );
+  signal d_clk_net : std_logic;
+begin
+  q <= register11_q_net;
+  down_sample_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant4_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse_x6 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem13/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse_x7 is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse_x7;
+architecture structural of example_posedge_pulse_x7 is 
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem13
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem13 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem13;
+architecture structural of example_subsystem13 is 
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 16-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  q <= register11_q_net;
+  down_sample1_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant4_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse_x7 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample1_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
   );
 end structural;
 -- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/Subsystem2
@@ -16153,31 +16506,31 @@ entity example_channel_select3_x3 is
   );
 end example_channel_select3_x3;
 architecture structural of example_channel_select3_x3 is 
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register5_q_net : std_logic_vector( 1-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register5_q_net : std_logic_vector( 1-1 downto 0 );
   signal register4_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal ddci : std_logic_vector( 18-1 downto 0 );
-  signal ddcq : std_logic_vector( 18-1 downto 0 );
-  signal ddcsync : std_logic_vector( 1-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal ddcchannel : std_logic_vector( 4-1 downto 0 );
   signal register29_q_net : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal last : std_logic_vector( 1-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal ddci : std_logic_vector( 18-1 downto 0 );
+  signal ddcq : std_logic_vector( 18-1 downto 0 );
+  signal ddcsync : std_logic_vector( 1-1 downto 0 );
   signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
   signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
   out1 <= down_sample_q_net;
@@ -16447,11 +16800,6 @@ entity example_subsystem3_x2 is
   );
 end example_subsystem3_x2;
 architecture structural of example_subsystem3_x2 is 
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
   signal ddcq_x0 : std_logic_vector( 18-1 downto 0 );
   signal ddcchannel : std_logic_vector( 4-1 downto 0 );
   signal ddcsync : std_logic_vector( 1-1 downto 0 );
@@ -16459,6 +16807,11 @@ architecture structural of example_subsystem3_x2 is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
 begin
   ddci <= down_sample1_q_net;
   ddcq <= down_sample_q_net;
@@ -16493,15 +16846,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x9 is
+entity example_posedge_pulse_x18 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x9;
-architecture structural of example_posedge_pulse_x9 is 
+end example_posedge_pulse_x18;
+architecture structural of example_posedge_pulse_x18 is 
   signal q_ce_net : std_logic;
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
@@ -16543,28 +16896,32 @@ entity example_subsystem4_x1 is
     threshold : in std_logic_vector( 16-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
-    q : out std_logic_vector( 18-1 downto 0 )
+    q : out std_logic_vector( 18-1 downto 0 );
+    gateway_out8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1 : out std_logic_vector( 1-1 downto 0 )
   );
 end example_subsystem4_x1;
 architecture structural of example_subsystem4_x1 is 
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   q <= register11_q_net;
   down_sample_q_net <= d;
   convert3_dout_net <= reset;
   counter_op_net <= cntr;
   constant1_op_net <= threshold;
+  gateway_out8 <= register11_q_net;
+  gateway_out1 <= logical_y_net;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x9 
+  posedge_pulse : entity work.example_posedge_pulse_x18 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -16599,15 +16956,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x12 is
+entity example_posedge_pulse_x19 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x12;
-architecture structural of example_posedge_pulse_x12 is 
+end example_posedge_pulse_x19;
+architecture structural of example_posedge_pulse_x19 is 
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -16670,7 +17027,7 @@ begin
   constant1_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x12 
+  posedge_pulse : entity work.example_posedge_pulse_x19 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -16705,20 +17062,20 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x2 is
+entity example_posedge_pulse_x13 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x2;
-architecture structural of example_posedge_pulse_x2 is 
+end example_posedge_pulse_x13;
+architecture structural of example_posedge_pulse_x13 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical_y_net;
   relational4_op_net <= in1;
@@ -16747,7 +17104,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem6 is
+entity example_subsystem6_x0 is
   port (
     d : in std_logic_vector( 18-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
@@ -16757,8 +17114,8 @@ entity example_subsystem6 is
     ce_12 : in std_logic;
     q : out std_logic_vector( 18-1 downto 0 )
   );
-end example_subsystem6;
-architecture structural of example_subsystem6 is 
+end example_subsystem6_x0;
+architecture structural of example_subsystem6_x0 is 
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -16776,7 +17133,7 @@ begin
   constant2_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x2 
+  posedge_pulse : entity work.example_posedge_pulse_x13 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -16811,20 +17168,20 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x3 is
+entity example_posedge_pulse_x14 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x3;
-architecture structural of example_posedge_pulse_x3 is 
+end example_posedge_pulse_x14;
+architecture structural of example_posedge_pulse_x14 is 
+  signal q_ce_net : std_logic;
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical_y_net;
   relational4_op_net <= in1;
@@ -16853,7 +17210,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem7 is
+entity example_subsystem7_x0 is
   port (
     d : in std_logic_vector( 18-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
@@ -16863,8 +17220,8 @@ entity example_subsystem7 is
     ce_12 : in std_logic;
     q : out std_logic_vector( 18-1 downto 0 )
   );
-end example_subsystem7;
-architecture structural of example_subsystem7 is 
+end example_subsystem7_x0;
+architecture structural of example_subsystem7_x0 is 
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -16882,7 +17239,7 @@ begin
   constant2_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x3 
+  posedge_pulse : entity work.example_posedge_pulse_x14 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -16917,20 +17274,20 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x0 is
+entity example_posedge_pulse_x11 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x0;
-architecture structural of example_posedge_pulse_x0 is 
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+end example_posedge_pulse_x11;
+architecture structural of example_posedge_pulse_x11 is 
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical_y_net;
   relational4_op_net <= in1;
@@ -16988,7 +17345,7 @@ begin
   constant1_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x0 
+  posedge_pulse : entity work.example_posedge_pulse_x11 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -17023,15 +17380,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x4 is
+entity example_posedge_pulse_x15 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x4;
-architecture structural of example_posedge_pulse_x4 is 
+end example_posedge_pulse_x15;
+architecture structural of example_posedge_pulse_x15 is 
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -17065,7 +17422,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem9 is
+entity example_subsystem9_x0 is
   port (
     d : in std_logic_vector( 18-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
@@ -17075,8 +17432,10 @@ entity example_subsystem9 is
     ce_12 : in std_logic;
     q : out std_logic_vector( 18-1 downto 0 )
   );
-end example_subsystem9;
-architecture structural of example_subsystem9 is 
+end example_subsystem9_x0;
+architecture structural of example_subsystem9_x0 is 
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -17084,8 +17443,6 @@ architecture structural of example_subsystem9 is
   signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   q <= register11_q_net;
   down_sample_q_net <= d;
@@ -17094,7 +17451,7 @@ begin
   constant1_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x4 
+  posedge_pulse : entity work.example_posedge_pulse_x15 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -17155,45 +17512,42 @@ entity example_c1p1_masking_window is
   );
 end example_c1p1_masking_window;
 architecture structural of example_c1p1_masking_window is 
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub4_s_net : std_logic_vector( 16-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay6_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay7_q_net : std_logic_vector( 16-1 downto 0 );
   signal register5_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
+  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
   signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant11_op_net : std_logic_vector( 16-1 downto 0 );
-  signal addsub4_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay6_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay7_q_net : std_logic_vector( 16-1 downto 0 );
+  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
   signal logical2_y_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
+  signal constant11_op_net : std_logic_vector( 16-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -17202,6 +17556,9 @@ architecture structural of example_c1p1_masking_window is
   signal down_sample2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal register31_q_net : std_logic_vector( 16-1 downto 0 );
   signal register32_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   counter_x0 <= counter_op_net;
   eval_window <= convert11_dout_net;
@@ -17485,9 +17842,14 @@ begin
     ce => q_ce_net,
     dout => convert8_dout_net
   );
-  counter : entity work.example_xlcounter_free 
+  counter : entity work.example_xlcounter_limit 
   generic map (
+    cnt_15_0 => 32768,
+    cnt_31_16 => 0,
+    cnt_47_32 => 0,
+    cnt_63_48 => 0,
     core_name0 => "example_c_counter_binary_v12_0_i0",
+    count_limited => 1,
     op_arith => xlUnsigned,
     op_width => 16
   )
@@ -17882,15 +18244,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem1_x3 is
+entity example_subsystem1_x2 is
   port (
     in1 : in std_logic;
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_subsystem1_x3;
-architecture structural of example_subsystem1_x3 is 
+end example_subsystem1_x2;
+architecture structural of example_subsystem1_x2 is 
   signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
   signal cordic_6_0_3_m_axis_dout_tvalid_net : std_logic;
   signal d_clk_net : std_logic;
@@ -17958,13 +18320,13 @@ entity example_subsystem2_x3 is
   );
 end example_subsystem2_x3;
 architecture structural of example_subsystem2_x3 is 
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter8_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter8_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= delay4_q_net;
   cordic_6_0_2_m_axis_dout_tvalid_net <= in1;
@@ -18037,24 +18399,14 @@ entity example_c1p1_pa_conversion is
   );
 end example_c1p1_pa_conversion;
 architecture structural of example_c1p1_pa_conversion is 
-  signal cordic_6_0_3_m_axis_dout_tdata_imag_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_3_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic;
-  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register6_q_net : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register4_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
   signal register5_q_net : std_logic_vector( 18-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
@@ -18063,6 +18415,7 @@ architecture structural of example_c1p1_pa_conversion is
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tvalid_net : std_logic;
   signal delay4_q_net_x0 : std_logic_vector( 1-1 downto 0 );
@@ -18070,12 +18423,21 @@ architecture structural of example_c1p1_pa_conversion is
   signal delay4_q_net_x1 : std_logic_vector( 1-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
   signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
   signal delay4_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal cordic_6_0_3_m_axis_dout_tdata_imag_net : std_logic_vector( 18-1 downto 0 );
+  signal cordic_6_0_3_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic;
+  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   phi_diff <= register6_q_net;
   ref_phi_out <= register11_q_net;
@@ -18093,21 +18455,21 @@ begin
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  subsystem_x3 : entity work.example_subsystem_x1 
+  subsystem_x4 : entity work.example_subsystem_x1 
   port map (
     in1 => cordic_6_0_1_m_axis_dout_tvalid_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     out1 => delay4_q_net
   );
-  subsystem1_x4 : entity work.example_subsystem1_x3 
+  subsystem1_x5 : entity work.example_subsystem1_x2 
   port map (
     in1 => cordic_6_0_3_m_axis_dout_tvalid_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     out1 => delay4_q_net_x0
   );
-  subsystem2_x4 : entity work.example_subsystem2_x3 
+  subsystem2_x5 : entity work.example_subsystem2_x3 
   port map (
     in1 => cordic_6_0_2_m_axis_dout_tvalid_net,
     clk_12 => d_clk_net,
@@ -18454,6 +18816,13 @@ entity example_phase_latching_x1 is
   );
 end example_phase_latching_x1;
 architecture structural of example_phase_latching_x1 is 
+  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub1_s_net : std_logic_vector( 2-1 downto 0 );
+  signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub2_s_net : std_logic_vector( 2-1 downto 0 );
+  signal delay6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
@@ -18463,13 +18832,6 @@ architecture structural of example_phase_latching_x1 is
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 2-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub2_s_net : std_logic_vector( 2-1 downto 0 );
-  signal delay6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   stop_value <= register1_q_net;
   start_value <= register_q_net;
@@ -18609,20 +18971,20 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x8 is
+entity example_posedge_pulse_x16 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x8;
-architecture structural of example_posedge_pulse_x8 is 
+end example_posedge_pulse_x16;
+architecture structural of example_posedge_pulse_x16 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical_y_net;
   logical_y_net_x0 <= in1;
@@ -18672,27 +19034,27 @@ entity example_delta_phi_x1 is
   );
 end example_delta_phi_x1;
 architecture structural of example_delta_phi_x1 is 
-  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant4_op_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
   signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   d_phi <= mult1_p_net;
   val_latched <= logical_y_net;
@@ -18724,7 +19086,7 @@ begin
     gateway_out3 => register_q_net,
     gateway_out4 => register1_q_net
   );
-  posedge_pulse : entity work.example_posedge_pulse_x8 
+  posedge_pulse : entity work.example_posedge_pulse_x16 
   port map (
     in1 => logical_y_net_x0,
     clk_12 => d_clk_net,
@@ -18912,16 +19274,16 @@ entity example_delta_t_x1 is
   );
 end example_delta_t_x1;
 architecture structural of example_delta_t_x1 is 
-  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter2_op_net : std_logic_vector( 10-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal constant5_op_net : std_logic_vector( 32-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal counter2_op_net : std_logic_vector( 10-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   dt <= mult_p_net;
   convert2_dout_net <= window;
@@ -19094,20 +19456,20 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x11 is
+entity example_posedge_pulse_x17 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x11;
-architecture structural of example_posedge_pulse_x11 is 
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
+end example_posedge_pulse_x17;
+architecture structural of example_posedge_pulse_x17 is 
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical_y_net;
   delay1_q_net <= in1;
@@ -19176,6 +19538,21 @@ entity example_freq_err1_x1 is
 end example_freq_err1_x1;
 architecture structural of example_freq_err1_x1 is 
   signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x0 : std_logic_vector( 63-1 downto 0 );
   signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -19185,28 +19562,13 @@ architecture structural of example_freq_err1_x1 is
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 63-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
-  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
   signal mult_p_net : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x0 : std_logic_vector( 63-1 downto 0 );
-  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
   signal divide1_op_net : std_logic_vector( 96-1 downto 0 );
 begin
   nco_err <= convert_dout_net;
@@ -19279,7 +19641,7 @@ begin
     ce_12 => q_ce_net,
     out1 => logical_y_net_x0
   );
-  posedge_pulse : entity work.example_posedge_pulse_x11 
+  posedge_pulse : entity work.example_posedge_pulse_x17 
   port map (
     in1 => delay1_q_net,
     clk_12 => d_clk_net,
@@ -19589,11 +19951,28 @@ entity example_c1p1_freq_err_module is
   );
 end example_c1p1_freq_err_module;
 architecture structural of example_c1p1_freq_err_module is 
+  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 63-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
   signal q_clk_net : std_logic;
@@ -19605,23 +19984,6 @@ architecture structural of example_c1p1_freq_err_module is
   signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample5_q_net : std_logic;
   signal clock_enable_probe4_q_net : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 63-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
-  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
 begin
   nco_err_fb <= convert_dout_net;
   freq_err <= down_sample2_q_net;
@@ -19747,15 +20109,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem_x4 is
+entity example_subsystem_x3 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_subsystem_x4;
-architecture structural of example_subsystem_x4 is 
+end example_subsystem_x3;
+architecture structural of example_subsystem_x3 is 
   signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -19805,7 +20167,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem1_x5 is
+entity example_subsystem1_x4 is
   port (
     lc : in std_logic_vector( 1-1 downto 0 );
     d : in std_logic_vector( 1-1 downto 0 );
@@ -19813,8 +20175,8 @@ entity example_subsystem1_x5 is
     clk_12 : in std_logic;
     ce_12 : in std_logic
   );
-end example_subsystem1_x5;
-architecture structural of example_subsystem1_x5 is 
+end example_subsystem1_x4;
+architecture structural of example_subsystem1_x4 is 
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
@@ -19864,7 +20226,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem2_x6 is
+entity example_subsystem2_x5 is
   port (
     lc : in std_logic_vector( 1-1 downto 0 );
     d : in std_logic_vector( 1-1 downto 0 );
@@ -19872,15 +20234,15 @@ entity example_subsystem2_x6 is
     clk_12 : in std_logic;
     ce_12 : in std_logic
   );
-end example_subsystem2_x6;
-architecture structural of example_subsystem2_x6 is 
+end example_subsystem2_x5;
+architecture structural of example_subsystem2_x5 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical6_y_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical6_y_net : std_logic_vector( 1-1 downto 0 );
 begin
   logical7_y_net <= lc;
   relational1_op_net <= d;
@@ -19923,7 +20285,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem3_x5 is
+entity example_subsystem3_x4 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     in2 : in std_logic_vector( 1-1 downto 0 );
@@ -19931,8 +20293,8 @@ entity example_subsystem3_x5 is
     ce_12 : in std_logic;
     or_x0 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_subsystem3_x5;
-architecture structural of example_subsystem3_x5 is 
+end example_subsystem3_x4;
+architecture structural of example_subsystem3_x4 is 
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
@@ -19959,22 +20321,22 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_negedge_x2 is
+entity example_negedge_x1 is
   port (
     d : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     q : out std_logic_vector( 1-1 downto 0 )
   );
-end example_negedge_x2;
-architecture structural of example_negedge_x2 is 
-  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
+end example_negedge_x1;
+architecture structural of example_negedge_x1 is 
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   q <= logical7_y_net;
   logical7_y_net_x0 <= d;
@@ -20033,7 +20395,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_delay_calc1_x2 is
+entity example_delay_calc1_x1 is
   port (
     wav : in std_logic_vector( 18-1 downto 0 );
     win : in std_logic_vector( 18-1 downto 0 );
@@ -20043,11 +20405,17 @@ entity example_delay_calc1_x2 is
     delay_amt : out std_logic_vector( 16-1 downto 0 );
     delay_fb_latch : out std_logic_vector( 1-1 downto 0 )
   );
-end example_delay_calc1_x2;
-architecture structural of example_delay_calc1_x2 is 
+end example_delay_calc1_x1;
+architecture structural of example_delay_calc1_x1 is 
+  signal absolute1_op_net : std_logic_vector( 19-1 downto 0 );
+  signal absolute2_op_net : std_logic_vector( 19-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 2-1 downto 0 );
   signal register2_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal logical3_y_net : std_logic_vector( 1-1 downto 0 );
   signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -20059,12 +20427,6 @@ architecture structural of example_delay_calc1_x2 is
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal absolute1_op_net : std_logic_vector( 19-1 downto 0 );
-  signal absolute2_op_net : std_logic_vector( 19-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 2-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal logical3_y_net : std_logic_vector( 1-1 downto 0 );
 begin
   delay_amt <= register2_q_net;
   delay_fb_latch <= delay2_q_net;
@@ -20073,14 +20435,14 @@ begin
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  subsystem_x3 : entity work.example_subsystem_x4 
+  subsystem_x4 : entity work.example_subsystem_x3 
   port map (
     in1 => relational3_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     out1 => logical1_y_net
   );
-  subsystem1_x4 : entity work.example_subsystem1_x5 
+  subsystem1_x5 : entity work.example_subsystem1_x4 
   port map (
     lc => logical7_y_net,
     d => relational3_op_net,
@@ -20088,7 +20450,7 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net
   );
-  subsystem2_x4 : entity work.example_subsystem2_x6 
+  subsystem2_x5 : entity work.example_subsystem2_x5 
   port map (
     lc => logical7_y_net,
     d => relational1_op_net,
@@ -20096,7 +20458,7 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net
   );
-  subsystem3_x3 : entity work.example_subsystem3_x5 
+  subsystem3_x4 : entity work.example_subsystem3_x4 
   port map (
     in1 => relational1_op_net,
     in2 => relational3_op_net,
@@ -20104,7 +20466,7 @@ begin
     ce_12 => q_ce_net,
     or_x0 => logical7_y_net_x0
   );
-  negedge_x3 : entity work.example_negedge_x2 
+  negedge_x4 : entity work.example_negedge_x1 
   port map (
     d => logical7_y_net_x0,
     clk_12 => d_clk_net,
@@ -20244,6 +20606,9 @@ entity example_c1p1_window_wf1 is
   );
 end example_c1p1_window_wf1;
 architecture structural of example_c1p1_window_wf1 is 
+  signal constant13_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant15_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant20_op_net : std_logic_vector( 1-1 downto 0 );
   signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
@@ -20255,6 +20620,10 @@ architecture structural of example_c1p1_window_wf1 is
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net : std_logic_vector( 18-1 downto 0 );
+  signal constant22_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant5_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant6_op_net : std_logic_vector( 18-1 downto 0 );
   signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
   signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -20264,21 +20633,14 @@ architecture structural of example_c1p1_window_wf1 is
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
-  signal dual_port_ram_douta_net : std_logic_vector( 18-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram1_douta_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub2_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant13_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant15_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant20_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant22_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant5_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant6_op_net : std_logic_vector( 18-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
+  signal dual_port_ram_douta_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub2_s_net : std_logic_vector( 16-1 downto 0 );
+  signal dual_port_ram1_douta_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
 begin
   cav_windowed_imag <= mult2_p_net;
   cav_windowed_real <= mult_p_net;
@@ -20303,7 +20665,7 @@ begin
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  delay_calc1 : entity work.example_delay_calc1_x2 
+  delay_calc1_x0 : entity work.example_delay_calc1_x1 
   port map (
     wav => dual_port_ram_doutb_net,
     win => addsub3_s_net,
@@ -20763,9 +21125,6 @@ entity example_phase_latching_x2 is
   );
 end example_phase_latching_x2;
 architecture structural of example_phase_latching_x2 is 
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
@@ -20774,11 +21133,14 @@ architecture structural of example_phase_latching_x2 is
   signal q_ce_net : std_logic;
   signal addsub1_s_net : std_logic_vector( 2-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
   signal addsub2_s_net : std_logic_vector( 2-1 downto 0 );
   signal delay6_q_net : std_logic_vector( 1-1 downto 0 );
   signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
 begin
   stop_value <= register1_q_net;
   start_value <= register_q_net;
@@ -20918,15 +21280,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x13 is
+entity example_posedge_pulse_x20 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x13;
-architecture structural of example_posedge_pulse_x13 is 
+end example_posedge_pulse_x20;
+architecture structural of example_posedge_pulse_x20 is 
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -20991,17 +21353,17 @@ architecture structural of example_delta_phi_x2 is
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant4_op_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
 begin
   d_phi <= mult1_p_net;
   val_latched <= logical_y_net;
@@ -21033,7 +21395,7 @@ begin
     gateway_out3 => register_q_net,
     gateway_out4 => register1_q_net
   );
-  posedge_pulse : entity work.example_posedge_pulse_x13 
+  posedge_pulse : entity work.example_posedge_pulse_x20 
   port map (
     in1 => logical_y_net_x0,
     clk_12 => d_clk_net,
@@ -21221,8 +21583,6 @@ entity example_delta_t_x2 is
   );
 end example_delta_t_x2;
 architecture structural of example_delta_t_x2 is 
-  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -21231,6 +21591,8 @@ architecture structural of example_delta_t_x2 is
   signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
   signal counter2_op_net : std_logic_vector( 10-1 downto 0 );
   signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   dt <= mult_p_net;
   convert2_dout_net <= window;
@@ -21403,15 +21765,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x10 is
+entity example_posedge_pulse_x21 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x10;
-architecture structural of example_posedge_pulse_x10 is 
+end example_posedge_pulse_x21;
+architecture structural of example_posedge_pulse_x21 is 
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -21484,8 +21846,6 @@ entity example_freq_err1_x2 is
   );
 end example_freq_err1_x2;
 architecture structural of example_freq_err1_x2 is 
-  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
-  signal divide1_op_net : std_logic_vector( 96-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
@@ -21498,6 +21858,18 @@ architecture structural of example_freq_err1_x2 is
   signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
   signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x0 : std_logic_vector( 63-1 downto 0 );
+  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
+  signal divide1_op_net : std_logic_vector( 96-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 10-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
   signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -21507,16 +21879,6 @@ architecture structural of example_freq_err1_x2 is
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 10-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x0 : std_logic_vector( 63-1 downto 0 );
 begin
   nco_err <= convert_dout_net;
   freq_err <= down_sample2_q_net;
@@ -21588,7 +21950,7 @@ begin
     ce_12 => q_ce_net,
     out1 => logical_y_net_x0
   );
-  posedge_pulse : entity work.example_posedge_pulse_x10 
+  posedge_pulse : entity work.example_posedge_pulse_x21 
   port map (
     in1 => delay1_q_net,
     clk_12 => d_clk_net,
@@ -21898,13 +22260,12 @@ entity example_c1p2_freq_err_module is
   );
 end example_c1p2_freq_err_module;
 architecture structural of example_c1p2_freq_err_module is 
-  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal q_ce_net : std_logic;
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
+  signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample5_q_net : std_logic;
+  signal clock_enable_probe4_q_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 63-1 downto 0 );
@@ -21915,27 +22276,28 @@ architecture structural of example_c1p2_freq_err_module is
   signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal mult6_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult7_p_net : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
-  signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample5_q_net : std_logic;
-  signal clock_enable_probe4_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   nco_err_fb <= convert_dout_net;
   freq_err <= down_sample2_q_net;
-  mult2_p_net <= imag;
-  mult_p_net <= real;
+  mult6_p_net <= imag;
+  mult7_p_net <= real;
   convert2_dout_net <= flo_window;
   convert3_dout_net_x0 <= reset;
   counter_op_net <= c1p2_pt_cntr;
@@ -21961,7 +22323,7 @@ begin
   gateway_out3_x0 <= register_q_net;
   gateway_out4_x0 <= register1_q_net;
   gateway_out5_x0 <= convert3_dout_net;
-  gateway_out1 <= mult_p_net_x0;
+  gateway_out1 <= mult_p_net;
   gateway_out2 <= register2_q_net;
   q_clk_net <= clk_1;
   d_ce_net <= ce_1;
@@ -22001,14 +22363,14 @@ begin
     gateway_out3_x0 => register_q_net,
     gateway_out4 => register1_q_net,
     gateway_out5 => convert3_dout_net,
-    gateway_out1_x1 => mult_p_net_x0,
+    gateway_out1_x1 => mult_p_net,
     gateway_out2_x0 => register2_q_net
   );
   cordic_6_0_2 : entity work.xlcordic_a2b2101681e14f3bc89bba910da1f662 
   port map (
     s_axis_cartesian_tvalid => down_sample5_q_net,
-    s_axis_cartesian_tdata_imag => mult2_p_net,
-    s_axis_cartesian_tdata_real => mult_p_net,
+    s_axis_cartesian_tdata_imag => mult6_p_net,
+    s_axis_cartesian_tdata_real => mult7_p_net,
     clk => d_clk_net,
     ce => q_ce_net,
     m_axis_dout_tvalid => cordic_6_0_2_m_axis_dout_tvalid_net,
@@ -22021,7 +22383,7 @@ begin
     q_width => 1
   )
   port map (
-    d => mult2_p_net,
+    d => mult6_p_net,
     clk => d_clk_net,
     ce => q_ce_net,
     q => clock_enable_probe4_q_net
@@ -22051,475 +22413,6 @@ begin
     q(0) => down_sample5_q_net
   );
 end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_window_wf/Delay_calc1/Subsystem
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_subsystem_x3 is
-  port (
-    in1 : in std_logic_vector( 1-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    out1 : out std_logic_vector( 1-1 downto 0 )
-  );
-end example_subsystem_x3;
-architecture structural of example_subsystem_x3 is 
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal delay3_q_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter5_op_net : std_logic_vector( 1-1 downto 0 );
-begin
-  out1 <= logical1_y_net;
-  relational3_op_net <= in1;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  delay3 : entity work.example_xldelay 
-  generic map (
-    latency => 2,
-    reg_retiming => 0,
-    reset => 0,
-    width => 1
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => relational3_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay3_q_net
-  );
-  inverter5 : entity work.sysgen_inverter_afe636f99c 
-  port map (
-    clr => '0',
-    ip => relational3_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => inverter5_op_net
-  );
-  logical1 : entity work.sysgen_logical_cfc7fd815b 
-  port map (
-    clr => '0',
-    d0 => inverter5_op_net,
-    d1 => delay3_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    y => logical1_y_net
-  );
-end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_window_wf/Delay_calc1/Subsystem1
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_subsystem1_x4 is
-  port (
-    lc : in std_logic_vector( 1-1 downto 0 );
-    d : in std_logic_vector( 1-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    q : out std_logic_vector( 1-1 downto 0 )
-  );
-end example_subsystem1_x4;
-architecture structural of example_subsystem1_x4 is 
-  signal register1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical6_y_net : std_logic_vector( 1-1 downto 0 );
-begin
-  q <= register1_q_net;
-  logical7_y_net <= lc;
-  relational3_op_net <= d;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  inverter1 : entity work.sysgen_inverter_afe636f99c 
-  port map (
-    clr => '0',
-    ip => register1_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => inverter1_op_net
-  );
-  logical6 : entity work.sysgen_logical_c102ed2f09 
-  port map (
-    clr => '0',
-    d0 => inverter1_op_net,
-    d1 => logical7_y_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    y => logical6_y_net
-  );
-  register1 : entity work.example_xlregister 
-  generic map (
-    d_width => 1,
-    init_value => b"0"
-  )
-  port map (
-    rst => "0",
-    d => relational3_op_net,
-    en => logical6_y_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => register1_q_net
-  );
-end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_window_wf/Delay_calc1/Subsystem2
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_subsystem2_x5 is
-  port (
-    lc : in std_logic_vector( 1-1 downto 0 );
-    d : in std_logic_vector( 1-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    q : out std_logic_vector( 1-1 downto 0 )
-  );
-end example_subsystem2_x5;
-architecture structural of example_subsystem2_x5 is 
-  signal register1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical6_y_net : std_logic_vector( 1-1 downto 0 );
-begin
-  q <= register1_q_net;
-  logical7_y_net <= lc;
-  relational1_op_net <= d;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  inverter1 : entity work.sysgen_inverter_afe636f99c 
-  port map (
-    clr => '0',
-    ip => register1_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => inverter1_op_net
-  );
-  logical6 : entity work.sysgen_logical_c102ed2f09 
-  port map (
-    clr => '0',
-    d0 => inverter1_op_net,
-    d1 => logical7_y_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    y => logical6_y_net
-  );
-  register1 : entity work.example_xlregister 
-  generic map (
-    d_width => 1,
-    init_value => b"0"
-  )
-  port map (
-    rst => "0",
-    d => relational1_op_net,
-    en => logical6_y_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => register1_q_net
-  );
-end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_window_wf/Delay_calc1/Subsystem3
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_subsystem3_x4 is
-  port (
-    in1 : in std_logic_vector( 1-1 downto 0 );
-    in2 : in std_logic_vector( 1-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    or_x0 : out std_logic_vector( 1-1 downto 0 )
-  );
-end example_subsystem3_x4;
-architecture structural of example_subsystem3_x4 is 
-  signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-begin
-  or_x0 <= logical7_y_net;
-  relational1_op_net <= in1;
-  relational3_op_net <= in2;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  logical7 : entity work.sysgen_logical_c102ed2f09 
-  port map (
-    clr => '0',
-    d0 => relational1_op_net,
-    d1 => relational3_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    y => logical7_y_net
-  );
-end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_window_wf/Delay_calc1/negedge
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_negedge_x1 is
-  port (
-    d : in std_logic_vector( 1-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    q : out std_logic_vector( 1-1 downto 0 )
-  );
-end example_negedge_x1;
-architecture structural of example_negedge_x1 is 
-  signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
-  signal logical7_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
-begin
-  q <= logical7_y_net;
-  logical7_y_net_x0 <= d;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  delay1 : entity work.example_xldelay 
-  generic map (
-    latency => 4,
-    reg_retiming => 0,
-    reset => 0,
-    width => 1
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => delay2_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay1_q_net
-  );
-  delay2 : entity work.example_xldelay 
-  generic map (
-    latency => 20,
-    reg_retiming => 0,
-    reset => 0,
-    width => 1
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => logical7_y_net_x0,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay2_q_net
-  );
-  inverter4 : entity work.sysgen_inverter_afe636f99c 
-  port map (
-    clr => '0',
-    ip => delay2_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => inverter4_op_net
-  );
-  logical7 : entity work.sysgen_logical_cfc7fd815b 
-  port map (
-    clr => '0',
-    d0 => inverter4_op_net,
-    d1 => delay1_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    y => logical7_y_net
-  );
-end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_window_wf/Delay_calc1
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_delay_calc1_x1 is
-  port (
-    wav : in std_logic_vector( 18-1 downto 0 );
-    win : in std_logic_vector( 18-1 downto 0 );
-    reset : in std_logic_vector( 1-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    delay_amt : out std_logic_vector( 16-1 downto 0 );
-    delay_fb_latch : out std_logic_vector( 1-1 downto 0 )
-  );
-end example_delay_calc1_x1;
-architecture structural of example_delay_calc1_x1 is 
-  signal absolute2_op_net : std_logic_vector( 19-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 2-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal logical3_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical7_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal absolute1_op_net : std_logic_vector( 19-1 downto 0 );
-begin
-  delay_amt <= register2_q_net;
-  delay_fb_latch <= delay2_q_net;
-  dual_port_ram_doutb_net <= wav;
-  addsub3_s_net <= win;
-  convert3_dout_net <= reset;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  subsystem_x3 : entity work.example_subsystem_x3 
-  port map (
-    in1 => relational3_op_net,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    out1 => logical1_y_net
-  );
-  subsystem1_x4 : entity work.example_subsystem1_x4 
-  port map (
-    lc => logical7_y_net,
-    d => relational3_op_net,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    q => register1_q_net
-  );
-  subsystem2_x4 : entity work.example_subsystem2_x5 
-  port map (
-    lc => logical7_y_net,
-    d => relational1_op_net,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    q => register1_q_net_x0
-  );
-  subsystem3_x3 : entity work.example_subsystem3_x4 
-  port map (
-    in1 => relational1_op_net,
-    in2 => relational3_op_net,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    or_x0 => logical7_y_net_x0
-  );
-  negedge_x3 : entity work.example_negedge_x1 
-  port map (
-    d => logical7_y_net_x0,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    q => logical7_y_net
-  );
-  absolute1 : entity work.sysgen_abs_b917f293e9 
-  port map (
-    clr => '0',
-    a => dual_port_ram_doutb_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => absolute1_op_net
-  );
-  absolute2 : entity work.sysgen_abs_fa676c0e3c 
-  port map (
-    clr => '0',
-    a => addsub3_s_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => absolute2_op_net
-  );
-  constant1 : entity work.sysgen_constant_8d20022674 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant1_op_net
-  );
-  constant2 : entity work.sysgen_constant_f90246c4ec 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant2_op_net
-  );
-  counter : entity work.example_xlcounter_free 
-  generic map (
-    core_name0 => "example_c_counter_binary_v12_0_i0",
-    op_arith => xlUnsigned,
-    op_width => 16
-  )
-  port map (
-    clr => '0',
-    rst => convert3_dout_net,
-    en => logical3_y_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => counter_op_net
-  );
-  delay2 : entity work.example_xldelay 
-  generic map (
-    latency => 30,
-    reg_retiming => 0,
-    reset => 0,
-    width => 1
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => logical1_y_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay2_q_net
-  );
-  logical3 : entity work.sysgen_logical_fa018af68e 
-  port map (
-    clr => '0',
-    d0 => register1_q_net_x0,
-    d1 => register1_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    y => logical3_y_net
-  );
-  register2 : entity work.example_xlregister 
-  generic map (
-    d_width => 16,
-    init_value => b"0000000000000000"
-  )
-  port map (
-    rst => "0",
-    d => counter_op_net,
-    en => logical7_y_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => register2_q_net
-  );
-  relational1 : entity work.sysgen_relational_b3cb550c88 
-  port map (
-    clr => '0',
-    a => absolute1_op_net,
-    b => constant1_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => relational1_op_net
-  );
-  relational3 : entity work.sysgen_relational_63a65dbf2d 
-  port map (
-    clr => '0',
-    a => absolute2_op_net,
-    b => constant2_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    op => relational3_op_net
-  );
-end structural;
 -- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_window_wf
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -22531,9 +22424,7 @@ entity example_c1p2_window_wf is
     cav_real : in std_logic_vector( 18-1 downto 0 );
     ref_img : in std_logic_vector( 18-1 downto 0 );
     ref_real : in std_logic_vector( 18-1 downto 0 );
-    window_profile : in std_logic_vector( 18-1 downto 0 );
     pt_window : in std_logic_vector( 1-1 downto 0 );
-    delay_match_amt : in std_logic_vector( 16-1 downto 0 );
     pt_cntr : in std_logic_vector( 16-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
@@ -22542,422 +22433,40 @@ entity example_c1p2_window_wf is
     cav_windowed_real : out std_logic_vector( 18-1 downto 0 );
     ref_windowed_imag : out std_logic_vector( 18-1 downto 0 );
     ref_windowed_real : out std_logic_vector( 18-1 downto 0 );
-    delayed_cav_dc_img : out std_logic_vector( 18-1 downto 0 );
-    delayed_cav_dc_real : out std_logic_vector( 18-1 downto 0 );
-    delay_amt : out std_logic_vector( 16-1 downto 0 );
-    delay_amt_latch : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11 : out std_logic_vector( 18-1 downto 0 );
     gateway_out35 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out38 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4 : out std_logic_vector( 18-1 downto 0 )
+    gateway_out38 : out std_logic_vector( 18-1 downto 0 )
   );
 end example_c1p2_window_wf;
 architecture structural of example_c1p2_window_wf is 
-  signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
-  signal dual_port_ram_douta_net : std_logic_vector( 18-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram1_douta_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult6_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult7_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net : std_logic_vector( 16-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
-  signal addsub2_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant13_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant15_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant20_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant22_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant5_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant6_op_net : std_logic_vector( 18-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
 begin
-  cav_windowed_imag <= mult2_p_net;
-  cav_windowed_real <= mult_p_net;
+  cav_windowed_imag <= mult6_p_net;
+  cav_windowed_real <= mult7_p_net;
   ref_windowed_imag <= mult5_p_net;
   ref_windowed_real <= mult4_p_net;
-  delayed_cav_dc_img <= dual_port_ram_doutb_net;
-  delayed_cav_dc_real <= dual_port_ram1_doutb_net;
-  delay_amt <= register2_q_net;
-  delay_amt_latch <= delay2_q_net_x0;
   convert_dout_net <= cav_img;
   convert1_dout_net <= cav_real;
   down_sample_q_net <= ref_img;
   down_sample1_q_net <= ref_real;
-  addsub3_s_net <= window_profile;
   convert11_dout_net <= pt_window;
-  register_q_net <= delay_match_amt;
   counter_op_net <= pt_cntr;
-  gateway_out11 <= mult2_p_net;
   gateway_out35 <= mult4_p_net;
   gateway_out38 <= mult5_p_net;
-  gateway_out4 <= mult3_p_net;
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  delay_calc1 : entity work.example_delay_calc1_x1 
-  port map (
-    wav => dual_port_ram_doutb_net,
-    win => addsub3_s_net,
-    reset => convert3_dout_net,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    delay_amt => register2_q_net,
-    delay_fb_latch => delay2_q_net_x0
-  );
-  addsub1 : entity work.example_xladdsub 
-  generic map (
-    a_arith => xlUnsigned,
-    a_bin_pt => 0,
-    a_width => 16,
-    b_arith => xlUnsigned,
-    b_bin_pt => 0,
-    b_width => 16,
-    c_has_c_out => 0,
-    c_latency => 1,
-    c_output_width => 17,
-    core_name0 => "example_c_addsub_v12_0_i0",
-    extra_registers => 0,
-    full_s_arith => 1,
-    full_s_width => 17,
-    latency => 1,
-    overflow => 1,
-    quantization => 1,
-    s_arith => xlUnsigned,
-    s_bin_pt => 0,
-    s_width => 16
-  )
-  port map (
-    clr => '0',
-    en => "1",
-    a => register_q_net,
-    b => counter_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    s => addsub1_s_net
-  );
-  addsub2 : entity work.example_xladdsub 
-  generic map (
-    a_arith => xlUnsigned,
-    a_bin_pt => 0,
-    a_width => 16,
-    b_arith => xlUnsigned,
-    b_bin_pt => 0,
-    b_width => 16,
-    c_has_c_out => 0,
-    c_latency => 1,
-    c_output_width => 17,
-    core_name0 => "example_c_addsub_v12_0_i0",
-    extra_registers => 0,
-    full_s_arith => 1,
-    full_s_width => 17,
-    latency => 1,
-    overflow => 1,
-    quantization => 1,
-    s_arith => xlUnsigned,
-    s_bin_pt => 0,
-    s_width => 16
-  )
-  port map (
-    clr => '0',
-    en => "1",
-    a => register_q_net,
-    b => counter_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    s => addsub2_s_net
-  );
-  constant13 : entity work.sysgen_constant_589172b339 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant13_op_net
-  );
-  constant15 : entity work.sysgen_constant_8d20022674 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant15_op_net
-  );
-  constant20 : entity work.sysgen_constant_589172b339 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant20_op_net
-  );
-  constant22 : entity work.sysgen_constant_8d20022674 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant22_op_net
-  );
-  constant5 : entity work.sysgen_constant_8d20022674 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant5_op_net
-  );
-  constant6 : entity work.sysgen_constant_8d20022674 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant6_op_net
-  );
-  delay4 : entity work.example_xldelay 
-  generic map (
-    latency => 1,
-    reg_retiming => 0,
-    reset => 0,
-    width => 16
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => counter_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay4_q_net
-  );
-  delay5 : entity work.example_xldelay 
-  generic map (
-    latency => 1,
-    reg_retiming => 0,
-    reset => 0,
-    width => 16
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => counter_op_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay5_q_net
-  );
-  dual_port_ram : entity work.example_xldpram 
-  generic map (
-    c_address_width_a => 16,
-    c_address_width_b => 16,
-    c_width_a => 18,
-    c_width_b => 18,
-    core_name0 => "example_blk_mem_gen_i0",
-    latency => 1
-  )
-  port map (
-    ena => "1",
-    rsta => "0",
-    rstb => "0",
-    addra => addsub1_s_net,
-    dina => convert_dout_net,
-    wea => relational1_op_net,
-    addrb => delay4_q_net,
-    dinb => constant15_op_net,
-    web => constant13_op_net,
-    enb => relational1_op_net,
-    a_clk => d_clk_net,
-    a_ce => q_ce_net,
-    b_clk => d_clk_net,
-    b_ce => q_ce_net,
-    douta => dual_port_ram_douta_net,
-    doutb => dual_port_ram_doutb_net
-  );
-  dual_port_ram1 : entity work.example_xldpram 
-  generic map (
-    c_address_width_a => 16,
-    c_address_width_b => 16,
-    c_width_a => 18,
-    c_width_b => 18,
-    core_name0 => "example_blk_mem_gen_i0",
-    latency => 1
-  )
-  port map (
-    ena => "1",
-    rsta => "0",
-    rstb => "0",
-    addra => addsub2_s_net,
-    dina => convert1_dout_net,
-    wea => relational_op_net,
-    addrb => delay5_q_net,
-    dinb => constant22_op_net,
-    web => constant20_op_net,
-    enb => relational_op_net,
-    a_clk => d_clk_net,
-    a_ce => q_ce_net,
-    b_clk => d_clk_net,
-    b_ce => q_ce_net,
-    douta => dual_port_ram1_douta_net,
-    doutb => dual_port_ram1_doutb_net
-  );
-  mult : entity work.example_xlmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 17,
-    a_width => 18,
-    b_arith => xlUnsigned,
-    b_bin_pt => 0,
-    b_width => 1,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 1,
-    c_b_width => 1,
-    c_baat => 18,
-    c_output_width => 19,
-    c_type => 0,
-    core_name0 => "example_mult_gen_v12_0_i3",
-    extra_registers => 0,
-    multsign => 2,
-    overflow => 1,
-    p_arith => xlSigned,
-    p_bin_pt => 16,
-    p_width => 18,
-    quantization => 1
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => mult1_p_net,
-    b => convert11_dout_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => mult_p_net
-  );
-  mult1 : entity work.example_xlmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_arith => xlSigned,
-    b_bin_pt => 15,
-    b_width => 18,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 0,
-    c_b_width => 18,
-    c_baat => 18,
-    c_output_width => 36,
-    c_type => 0,
-    core_name0 => "example_mult_gen_v12_0_i4",
-    extra_registers => 0,
-    multsign => 2,
-    overflow => 1,
-    p_arith => xlSigned,
-    p_bin_pt => 17,
-    p_width => 18,
-    quantization => 1
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => dual_port_ram1_doutb_net,
-    b => addsub3_s_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => mult1_p_net
-  );
-  mult2 : entity work.example_xlmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 17,
-    a_width => 18,
-    b_arith => xlUnsigned,
-    b_bin_pt => 0,
-    b_width => 1,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 1,
-    c_b_width => 1,
-    c_baat => 18,
-    c_output_width => 19,
-    c_type => 0,
-    core_name0 => "example_mult_gen_v12_0_i3",
-    extra_registers => 0,
-    multsign => 2,
-    overflow => 1,
-    p_arith => xlSigned,
-    p_bin_pt => 16,
-    p_width => 18,
-    quantization => 1
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => mult3_p_net,
-    b => convert11_dout_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => mult2_p_net
-  );
-  mult3 : entity work.example_xlmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_arith => xlSigned,
-    b_bin_pt => 15,
-    b_width => 18,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 0,
-    c_b_width => 18,
-    c_baat => 18,
-    c_output_width => 36,
-    c_type => 0,
-    core_name0 => "example_mult_gen_v12_0_i4",
-    extra_registers => 0,
-    multsign => 2,
-    overflow => 1,
-    p_arith => xlSigned,
-    p_bin_pt => 17,
-    p_width => 18,
-    quantization => 1
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => dual_port_ram_doutb_net,
-    b => addsub3_s_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => mult3_p_net
-  );
   mult4 : entity work.example_xlmult 
   generic map (
     a_arith => xlSigned,
@@ -23032,23 +22541,79 @@ begin
     core_ce => q_ce_net,
     p => mult5_p_net
   );
-  relational : entity work.sysgen_relational_ac9b2871ac 
+  mult7 : entity work.example_xlmult 
+  generic map (
+    a_arith => xlSigned,
+    a_bin_pt => 16,
+    a_width => 18,
+    b_arith => xlUnsigned,
+    b_bin_pt => 0,
+    b_width => 1,
+    c_a_type => 0,
+    c_a_width => 18,
+    c_b_type => 1,
+    c_b_width => 1,
+    c_baat => 18,
+    c_output_width => 19,
+    c_type => 0,
+    core_name0 => "example_mult_gen_v12_0_i3",
+    extra_registers => 0,
+    multsign => 2,
+    overflow => 1,
+    p_arith => xlSigned,
+    p_bin_pt => 16,
+    p_width => 18,
+    quantization => 1
+  )
   port map (
     clr => '0',
-    a => counter_op_net,
-    b => constant5_op_net,
+    core_clr => '1',
+    en => "1",
+    rst => "0",
+    a => convert1_dout_net,
+    b => convert11_dout_net,
     clk => d_clk_net,
     ce => q_ce_net,
-    op => relational_op_net
+    core_clk => d_clk_net,
+    core_ce => q_ce_net,
+    p => mult7_p_net
   );
-  relational1 : entity work.sysgen_relational_ac9b2871ac 
+  mult6 : entity work.example_xlmult 
+  generic map (
+    a_arith => xlSigned,
+    a_bin_pt => 16,
+    a_width => 18,
+    b_arith => xlUnsigned,
+    b_bin_pt => 0,
+    b_width => 1,
+    c_a_type => 0,
+    c_a_width => 18,
+    c_b_type => 1,
+    c_b_width => 1,
+    c_baat => 18,
+    c_output_width => 19,
+    c_type => 0,
+    core_name0 => "example_mult_gen_v12_0_i3",
+    extra_registers => 0,
+    multsign => 2,
+    overflow => 1,
+    p_arith => xlSigned,
+    p_bin_pt => 16,
+    p_width => 18,
+    quantization => 1
+  )
   port map (
     clr => '0',
-    a => counter_op_net,
-    b => constant6_op_net,
+    core_clr => '1',
+    en => "1",
+    rst => "0",
+    a => convert_dout_net,
+    b => convert11_dout_net,
     clk => d_clk_net,
     ce => q_ce_net,
-    op => relational1_op_net
+    core_clk => d_clk_net,
+    core_ce => q_ce_net,
+    p => mult6_p_net
   );
 end structural;
 -- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_windowing_func1/four_point_avg
@@ -23065,7 +22630,6 @@ entity example_four_point_avg_x1 is
   );
 end example_four_point_avg_x1;
 architecture structural of example_four_point_avg_x1 is 
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
   signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
@@ -23078,6 +22642,7 @@ architecture structural of example_four_point_avg_x1 is
   signal addsub2_s_net : std_logic_vector( 18-1 downto 0 );
   signal cmult1_p_net : std_logic_vector( 18-1 downto 0 );
   signal cmult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
 begin
   out1 <= addsub3_s_net;
   cordic_6_0_m_axis_dout_tdata_real_net <= in1;
@@ -23187,7 +22752,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -23220,7 +22785,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -23253,7 +22818,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -23286,7 +22851,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -23392,7 +22957,7 @@ begin
   convert2_dout_net <= cav1_p2_dc_tvalid;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  four_point_avg : entity work.example_four_point_avg_x1 
+  four_point_avg_x0 : entity work.example_four_point_avg_x1 
   port map (
     in1 => cordic_6_0_m_axis_dout_tdata_real_net,
     clk_12 => d_clk_net,
@@ -23404,366 +22969,6 @@ begin
     s_axis_cartesian_tvalid => convert2_dout_net(0),
     s_axis_cartesian_tdata_imag => convert5_dout_net,
     s_axis_cartesian_tdata_real => convert6_dout_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    m_axis_dout_tvalid => cordic_6_0_m_axis_dout_tvalid_net,
-    m_axis_dout_tdata_phase => cordic_6_0_m_axis_dout_tdata_phase_net,
-    m_axis_dout_tdata_real => cordic_6_0_m_axis_dout_tdata_real_net
-  );
-end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_windowing_func2/four_point_avg
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_four_point_avg_x2 is
-  port (
-    in1 : in std_logic_vector( 18-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    out1 : out std_logic_vector( 18-1 downto 0 )
-  );
-end example_four_point_avg_x2;
-architecture structural of example_four_point_avg_x2 is 
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
-  signal cmult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal cmult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub2_s_net : std_logic_vector( 18-1 downto 0 );
-  signal cmult1_p_net : std_logic_vector( 18-1 downto 0 );
-  signal cmult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
-begin
-  out1 <= addsub3_s_net;
-  cordic_6_0_m_axis_dout_tdata_real_net <= in1;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  addsub1 : entity work.example_xladdsub 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_arith => xlSigned,
-    b_bin_pt => 16,
-    b_width => 18,
-    c_has_c_out => 0,
-    c_latency => 1,
-    c_output_width => 19,
-    core_name0 => "example_c_addsub_v12_0_i3",
-    extra_registers => 0,
-    full_s_arith => 2,
-    full_s_width => 19,
-    latency => 1,
-    overflow => 2,
-    quantization => 1,
-    s_arith => xlSigned,
-    s_bin_pt => 15,
-    s_width => 18
-  )
-  port map (
-    clr => '0',
-    en => "1",
-    a => cmult4_p_net,
-    b => cmult2_p_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    s => addsub1_s_net
-  );
-  addsub2 : entity work.example_xladdsub 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_arith => xlSigned,
-    b_bin_pt => 16,
-    b_width => 18,
-    c_has_c_out => 0,
-    c_latency => 1,
-    c_output_width => 19,
-    core_name0 => "example_c_addsub_v12_0_i3",
-    extra_registers => 0,
-    full_s_arith => 2,
-    full_s_width => 19,
-    latency => 1,
-    overflow => 2,
-    quantization => 1,
-    s_arith => xlSigned,
-    s_bin_pt => 15,
-    s_width => 18
-  )
-  port map (
-    clr => '0',
-    en => "1",
-    a => cmult1_p_net,
-    b => cmult3_p_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    s => addsub2_s_net
-  );
-  addsub3 : entity work.example_xladdsub 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 15,
-    a_width => 18,
-    b_arith => xlSigned,
-    b_bin_pt => 15,
-    b_width => 18,
-    c_has_c_out => 0,
-    c_latency => 1,
-    c_output_width => 19,
-    core_name0 => "example_c_addsub_v12_0_i3",
-    extra_registers => 0,
-    full_s_arith => 2,
-    full_s_width => 19,
-    latency => 1,
-    overflow => 2,
-    quantization => 1,
-    s_arith => xlSigned,
-    s_bin_pt => 15,
-    s_width => 18
-  )
-  port map (
-    clr => '0',
-    en => "1",
-    a => addsub2_s_net,
-    b => addsub1_s_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    s => addsub3_s_net
-  );
-  cmult1 : entity work.example_xlcmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_bin_pt => 16,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 1,
-    c_b_width => 18,
-    c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
-    extra_registers => 1,
-    multsign => 2,
-    overflow => 2,
-    p_arith => xlSigned,
-    p_bin_pt => 16,
-    p_width => 18,
-    quantization => 1,
-    zero_const => 0
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => delay2_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => cmult1_p_net
-  );
-  cmult2 : entity work.example_xlcmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_bin_pt => 16,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 1,
-    c_b_width => 18,
-    c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
-    extra_registers => 1,
-    multsign => 2,
-    overflow => 2,
-    p_arith => xlSigned,
-    p_bin_pt => 16,
-    p_width => 18,
-    quantization => 1,
-    zero_const => 0
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => delay1_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => cmult2_p_net
-  );
-  cmult3 : entity work.example_xlcmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_bin_pt => 16,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 1,
-    c_b_width => 18,
-    c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
-    extra_registers => 1,
-    multsign => 2,
-    overflow => 2,
-    p_arith => xlSigned,
-    p_bin_pt => 16,
-    p_width => 18,
-    quantization => 1,
-    zero_const => 0
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => delay3_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => cmult3_p_net
-  );
-  cmult4 : entity work.example_xlcmult 
-  generic map (
-    a_arith => xlSigned,
-    a_bin_pt => 16,
-    a_width => 18,
-    b_bin_pt => 16,
-    c_a_type => 0,
-    c_a_width => 18,
-    c_b_type => 1,
-    c_b_width => 18,
-    c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
-    extra_registers => 1,
-    multsign => 2,
-    overflow => 2,
-    p_arith => xlSigned,
-    p_bin_pt => 16,
-    p_width => 18,
-    quantization => 1,
-    zero_const => 0
-  )
-  port map (
-    clr => '0',
-    core_clr => '1',
-    en => "1",
-    rst => "0",
-    a => cordic_6_0_m_axis_dout_tdata_real_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    core_clk => d_clk_net,
-    core_ce => q_ce_net,
-    p => cmult4_p_net
-  );
-  delay1 : entity work.example_xldelay 
-  generic map (
-    latency => 1,
-    reg_retiming => 0,
-    reset => 0,
-    width => 18
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => cordic_6_0_m_axis_dout_tdata_real_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay1_q_net
-  );
-  delay2 : entity work.example_xldelay 
-  generic map (
-    latency => 1,
-    reg_retiming => 0,
-    reset => 0,
-    width => 18
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => delay1_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay2_q_net
-  );
-  delay3 : entity work.example_xldelay 
-  generic map (
-    latency => 1,
-    reg_retiming => 0,
-    reset => 0,
-    width => 18
-  )
-  port map (
-    en => '1',
-    rst => '1',
-    d => delay2_q_net,
-    clk => d_clk_net,
-    ce => q_ce_net,
-    q => delay3_q_net
-  );
-end structural;
--- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav1/c1p2_windowing_func2
-library IEEE;
-use IEEE.std_logic_1164.all;
-library work;
-use work.conv_pkg.all;
-entity example_c1p2_windowing_func2_x0 is
-  port (
-    imag : in std_logic_vector( 18-1 downto 0 );
-    real : in std_logic_vector( 18-1 downto 0 );
-    eval_window : in std_logic_vector( 1-1 downto 0 );
-    c1p2_pt_cntr : in std_logic_vector( 16-1 downto 0 );
-    cav1_p2_dc_tvalid : in std_logic_vector( 1-1 downto 0 );
-    clk_12 : in std_logic;
-    ce_12 : in std_logic;
-    window_profile : out std_logic_vector( 18-1 downto 0 )
-  );
-end example_c1p2_windowing_func2_x0;
-architecture structural of example_c1p2_windowing_func2_x0 is 
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal cordic_6_0_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_m_axis_dout_tvalid_net : std_logic;
-  signal cordic_6_0_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-begin
-  window_profile <= addsub3_s_net;
-  convert_dout_net <= imag;
-  convert1_dout_net <= real;
-  convert11_dout_net <= eval_window;
-  counter_op_net <= c1p2_pt_cntr;
-  convert2_dout_net <= cav1_p2_dc_tvalid;
-  d_clk_net <= clk_12;
-  q_ce_net <= ce_12;
-  four_point_avg : entity work.example_four_point_avg_x2 
-  port map (
-    in1 => cordic_6_0_m_axis_dout_tdata_real_net,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    out1 => addsub3_s_net
-  );
-  cordic_6_0 : entity work.xlcordic_a2b2101681e14f3bc89bba910da1f662 
-  port map (
-    s_axis_cartesian_tvalid => convert2_dout_net(0),
-    s_axis_cartesian_tdata_imag => convert_dout_net,
-    s_axis_cartesian_tdata_real => convert1_dout_net,
     clk => d_clk_net,
     ce => q_ce_net,
     m_axis_dout_tvalid => cordic_6_0_m_axis_dout_tvalid_net,
@@ -23818,9 +23023,7 @@ entity example_cav1 is
     cav1_p2_dc_real : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_dc_img : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_dc_freq : out std_logic_vector( 32-1 downto 0 );
-    cav1_p2_delayed_dc_img : out std_logic_vector( 18-1 downto 0 );
     c1p2_integral_logic : out std_logic_vector( 1-1 downto 0 );
-    cav1_p2_delayed_dc_real : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_ref_phase_out : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_ref_amp_out : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_integrated_ref_i : out std_logic_vector( 20-1 downto 0 );
@@ -23836,7 +23039,6 @@ entity example_cav1 is
     cav1_p2_comparison_q : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_comparison_phase : out std_logic_vector( 18-1 downto 0 );
     dsp_cav1_reset : out std_logic_vector( 1-1 downto 0 );
-    c1p2_window_func : out std_logic_vector( 18-1 downto 0 );
     cav1_nco_fb : out std_logic_vector( 32-1 downto 0 );
     cav1_p1_windowed_ref_i : out std_logic_vector( 18-1 downto 0 );
     cav1_p1_windowed_ref_q : out std_logic_vector( 18-1 downto 0 );
@@ -23859,7 +23061,6 @@ entity example_cav1 is
     cav1_p1_amp_out : out std_logic_vector( 18-1 downto 0 );
     flo_c1p2_window : out std_logic_vector( 1-1 downto 0 );
     cav1_p1_if_amp : out std_logic_vector( 18-1 downto 0 );
-    c1_p2_delay_amt : out std_logic_vector( 16-1 downto 0 );
     cav1_p2_windowed_img : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_windowed_real : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_windowed_ref_i : out std_logic_vector( 18-1 downto 0 );
@@ -23867,8 +23068,6 @@ entity example_cav1 is
     cav1_p2_phase_out : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_amp_out : out std_logic_vector( 18-1 downto 0 );
     c1p2_freq_err : out std_logic_vector( 32-1 downto 0 );
-    c1_p2_delay_latch : out std_logic_vector( 1-1 downto 0 );
-    c1p2_delay_match : out std_logic_vector( 16-1 downto 0 );
     cav1_p1_if_phase : out std_logic_vector( 18-1 downto 0 );
     ref_q_reg : out std_logic_vector( 18-1 downto 0 );
     cav1_sync : out std_logic_vector( 1-1 downto 0 );
@@ -23882,17 +23081,17 @@ entity example_cav1 is
     ref_i_reg : out std_logic_vector( 18-1 downto 0 );
     cav1_p1_if_i : out std_logic_vector( 18-1 downto 0 );
     cav1_p1_if_q : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x10 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out10_x4 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x11 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out10_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out2_x8 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x8 : out std_logic_vector( 26-1 downto 0 );
-    gateway_out4_x8 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x7 : out std_logic_vector( 26-1 downto 0 );
     gateway_out6_x5 : out std_logic_vector( 16-1 downto 0 );
     gateway_out_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x9 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out10_x3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x10 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out10_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x4 : out std_logic_vector( 32-1 downto 0 );
     gateway_out12_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out13_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x0 : out std_logic_vector( 18-1 downto 0 );
@@ -23900,19 +23099,19 @@ entity example_cav1 is
     gateway_out16_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out17_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out18_x0 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x7 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x7 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x6 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out8_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x6 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out10_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x7 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out10_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out12 : out std_logic_vector( 20-1 downto 0 );
     gateway_out13 : out std_logic_vector( 32-1 downto 0 );
@@ -23921,81 +23120,85 @@ entity example_cav1 is
     gateway_out16 : out std_logic_vector( 1-1 downto 0 );
     gateway_out17 : out std_logic_vector( 32-1 downto 0 );
     gateway_out18 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out4_x4 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out8_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out29_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out4_x5 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out9_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out27_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out29_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out4_x6 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out6_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x5 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out9_x1 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out10_x2 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out11_x4 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out10_x1 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out11_x3 : out std_logic_vector( 16-1 downto 0 );
     gateway_out24 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x3 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out8_x3 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out7_x4 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out8_x4 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out7_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out8_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x9 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x8 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out2_x5 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out29_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x7 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out29_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out5_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out44_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out46_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x7 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out19_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x6 : out std_logic_vector( 63-1 downto 0 );
-    gateway_out20_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x5 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x6 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out5_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out44 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out46 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out11_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out19 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out2_x1 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out20 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x1 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out5_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out27 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out3_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2 : out std_logic_vector( 10-1 downto 0 );
     gateway_out10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out44 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out46 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out19 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x0 : out std_logic_vector( 63-1 downto 0 );
-    gateway_out20 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out38_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out44_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out46_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out11_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out19_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out2_x4 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out20_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x3 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x0 : out std_logic_vector( 1-1 downto 0 );
@@ -24010,80 +23213,54 @@ entity example_cav1 is
     gateway_out1_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out4_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x2 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out10_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x2 : out std_logic_vector( 18-1 downto 0 )
+    gateway_out38 : out std_logic_vector( 18-1 downto 0 )
   );
 end example_cav1;
 architecture structural of example_cav1 is 
+  signal constant4_op_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample1_q_net_x7 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample7_q_net : std_logic_vector( 18-1 downto 0 );
   signal register5_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register8_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register6_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register12_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x6 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x5 : std_logic_vector( 1-1 downto 0 );
-  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x3 : std_logic_vector( 16-1 downto 0 );
-  signal delay1_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal delay5_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal register31_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x3 : std_logic_vector( 33-1 downto 0 );
+  signal clock_enable_probe_q_net : std_logic_vector( 1-1 downto 0 );
+  signal clock_enable_probe1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal complex_multiplier_6_0_m_axis_dout_tvalid_net : std_logic;
+  signal complex_multiplier_6_0_m_axis_dout_tdata_imag_net : std_logic_vector( 33-1 downto 0 );
+  signal complex_multiplier_6_0_m_axis_dout_tdata_real_net : std_logic_vector( 33-1 downto 0 );
+  signal down_sample2_q_net : std_logic;
+  signal register2_q_net_x6 : std_logic_vector( 33-1 downto 0 );
+  signal register_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x4 : std_logic_vector( 10-1 downto 0 );
   signal relational4_op_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal dual_port_ram_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram1_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal addsub3_s_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
+  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x0 : std_logic_vector( 63-1 downto 0 );
+  signal delay1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal mult_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
   signal register5_q_net : std_logic_vector( 18-1 downto 0 );
   signal register4_q_net : std_logic_vector( 18-1 downto 0 );
@@ -24091,51 +23268,84 @@ architecture structural of example_cav1 is
   signal convert11_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal counter_op_net_x0 : std_logic_vector( 16-1 downto 0 );
   signal convert5_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
   signal register_q_net_x3 : std_logic_vector( 16-1 downto 0 );
-  signal register2_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal down_sample1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x4 : std_logic_vector( 16-1 downto 0 );
-  signal mult2_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal complex_multiplier_6_0_1_m_axis_dout_tvalid_net : std_logic;
-  signal complex_multiplier_6_0_1_m_axis_dout_tdata_imag_net : std_logic_vector( 33-1 downto 0 );
-  signal complex_multiplier_6_0_1_m_axis_dout_tdata_real_net : std_logic_vector( 33-1 downto 0 );
-  signal down_sample1_q_net : std_logic;
-  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register32_q_net_x0 : std_logic_vector( 33-1 downto 0 );
-  signal register33_q_net_x0 : std_logic_vector( 33-1 downto 0 );
-  signal convert10_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal register31_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x4 : std_logic_vector( 33-1 downto 0 );
-  signal register2_q_net_x5 : std_logic_vector( 33-1 downto 0 );
-  signal amp : std_logic_vector( 18-1 downto 0 );
-  signal ddci : std_logic_vector( 18-1 downto 0 );
-  signal phase : std_logic_vector( 18-1 downto 0 );
-  signal channel : std_logic_vector( 4-1 downto 0 );
-  signal ddcq : std_logic_vector( 18-1 downto 0 );
-  signal ddcchannel : std_logic_vector( 4-1 downto 0 );
-  signal ddcsync : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal convert2_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x3 : std_logic_vector( 10-1 downto 0 );
+  signal register2_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net_x3 : std_logic_vector( 16-1 downto 0 );
+  signal delay1_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal down_sample_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal logical_y_net_x6 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x1 : std_logic_vector( 10-1 downto 0 );
+  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x4 : std_logic_vector( 1-1 downto 0 );
   signal mult3_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x3 : std_logic_vector( 63-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal logical_y_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net_x2 : std_logic_vector( 19-1 downto 0 );
+  signal register11_q_net_x9 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x10 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal logical_y_net_x5 : std_logic_vector( 1-1 downto 0 );
+  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x6 : std_logic_vector( 32-1 downto 0 );
+  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register9_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register1_q_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
+  signal nco_sin : std_logic_vector( 26-1 downto 0 );
+  signal nco_cos : std_logic_vector( 26-1 downto 0 );
+  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
+  signal down_sample1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
@@ -24144,90 +23354,80 @@ architecture structural of example_cav1 is
   signal down_sample6_q_net : std_logic_vector( 32-1 downto 0 );
   signal register7_q_net : std_logic_vector( 1-1 downto 0 );
   signal down_sample3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample7_q_net : std_logic_vector( 18-1 downto 0 );
-  signal clock_enable_probe_q_net : std_logic_vector( 1-1 downto 0 );
-  signal clock_enable_probe1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal complex_multiplier_6_0_m_axis_dout_tvalid_net : std_logic;
-  signal complex_multiplier_6_0_m_axis_dout_tdata_imag_net : std_logic_vector( 33-1 downto 0 );
-  signal complex_multiplier_6_0_m_axis_dout_tdata_real_net : std_logic_vector( 33-1 downto 0 );
-  signal down_sample2_q_net : std_logic;
-  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal down_sample1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net_x5 : std_logic_vector( 1-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x5 : std_logic_vector( 1-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
-  signal nco_sin : std_logic_vector( 26-1 downto 0 );
-  signal nco_cos : std_logic_vector( 26-1 downto 0 );
-  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x12 : std_logic_vector( 18-1 downto 0 );
+  signal mult6_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult7_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x11 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x8 : std_logic_vector( 18-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
-  signal down_sample1_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register9_q_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample2_q_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register11_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
+  signal amp : std_logic_vector( 18-1 downto 0 );
+  signal channel : std_logic_vector( 4-1 downto 0 );
+  signal ddcq : std_logic_vector( 18-1 downto 0 );
+  signal ddcchannel : std_logic_vector( 4-1 downto 0 );
+  signal register33_q_net_x0 : std_logic_vector( 33-1 downto 0 );
+  signal convert10_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
   signal inverter_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
   signal register12_q_net : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x1 : std_logic_vector( 63-1 downto 0 );
-  signal delay1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x2 : std_logic_vector( 10-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal logical_y_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x0 : std_logic_vector( 63-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
-  signal logical_y_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x2 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register12_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x7 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal convert5_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal addsub3_s_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal ddci : std_logic_vector( 18-1 downto 0 );
+  signal phase : std_logic_vector( 18-1 downto 0 );
+  signal ddcsync : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal convert2_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal complex_multiplier_6_0_1_m_axis_dout_tvalid_net : std_logic;
+  signal complex_multiplier_6_0_1_m_axis_dout_tdata_imag_net : std_logic_vector( 33-1 downto 0 );
+  signal complex_multiplier_6_0_1_m_axis_dout_tdata_real_net : std_logic_vector( 33-1 downto 0 );
+  signal down_sample1_q_net : std_logic;
+  signal constant_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register32_q_net_x0 : std_logic_vector( 33-1 downto 0 );
 begin
   amp <= pa_stream_1;
   ddci <= iq_stream_1;
@@ -24245,39 +23445,36 @@ begin
   flo_c1p1_window <= convert2_dout_net_x3;
   cav1_p1_delayed_dc_img <= dual_port_ram_doutb_net;
   cav1_p1_delayed_dc_real <= dual_port_ram1_doutb_net;
-  c1_p1_delay_amt <= register2_q_net_x1;
-  cav1_p1_ref_phase_out <= register11_q_net_x5;
+  c1_p1_delay_amt <= register2_q_net_x2;
+  cav1_p1_ref_phase_out <= register11_q_net_x0;
   c1p2_pt_cntr <= counter_op_net;
   cav1_p2_dc_real <= convert1_dout_net;
   cav1_p2_dc_img <= convert_dout_net;
   cav1_p2_dc_freq <= down_sample2_q_net_x1;
-  cav1_p2_delayed_dc_img <= dual_port_ram_doutb_net_x0;
   c1p2_integral_logic <= convert5_dout_net_x0;
-  cav1_p2_delayed_dc_real <= dual_port_ram1_doutb_net_x0;
   cav1_p2_ref_phase_out <= register11_q_net_x1;
   cav1_p2_ref_amp_out <= register12_q_net_x0;
   cav1_p2_integrated_ref_i <= convert2_dout_net;
-  cav1_p2_integrated_ref_q <= convert4_dout_net;
+  cav1_p2_integrated_ref_q <= convert4_dout_net_x0;
   c1p1_window_func <= addsub3_s_net_x0;
-  cav1_p2_if_amp <= down_sample1_q_net_x4;
-  cav1_p2_if_phase <= down_sample_q_net_x2;
-  cav1_p2_if_i <= register11_q_net_x7;
-  cav1_p2_if_q <= register11_q_net_x6;
-  cav1_p2_integrated_i <= convert9_dout_net;
+  cav1_p2_if_amp <= register11_q_net_x9;
+  cav1_p2_if_phase <= register11_q_net_x10;
+  cav1_p2_if_i <= register11_q_net_x4;
+  cav1_p2_if_q <= register11_q_net_x3;
+  cav1_p2_integrated_i <= convert9_dout_net_x0;
   cav1_p2_integrated_q <= convert10_dout_net;
   cav1_p2_comparison_i <= addsub_s_net;
   cav1_p2_comparison_q <= addsub_s_net;
   cav1_p2_comparison_phase <= register_q_net_x1;
   dsp_cav1_reset <= convert3_dout_net_x1;
-  c1p2_window_func <= addsub3_s_net_x1;
   cav1_nco_fb <= convert_dout_net_x0;
   cav1_p1_windowed_ref_i <= mult4_p_net;
   cav1_p1_windowed_ref_q <= mult5_p_net;
   cav1_p1_windowed_img <= mult2_p_net;
   cav1_p1_windowed_real <= mult_p_net;
   cav1_p1_integrated_ref_i <= convert2_dout_net_x0;
-  cav1_p1_integrated_ref_q <= convert4_dout_net_x0;
-  cav1_p1_integrated_i <= convert9_dout_net_x0;
+  cav1_p1_integrated_ref_q <= convert4_dout_net;
+  cav1_p1_integrated_i <= convert9_dout_net;
   cav1_p1_integrated_q <= convert10_dout_net_x0;
   cav1_p1_comparison_i <= register5_q_net;
   reset <= convert3_dout_net_x1;
@@ -24286,25 +23483,22 @@ begin
   c1p1_pt_window <= convert11_dout_net_x0;
   c1p1_pt_cntr <= counter_op_net_x0;
   c1p1_integral_logic <= convert5_dout_net_x1;
-  cav1_p1_ref_amp_out <= register1_q_net_x6;
+  cav1_p1_ref_amp_out <= register1_q_net_x5;
   c1p1_delay_match <= register_q_net_x3;
-  cav1_p1_phase_out <= register2_q_net_x7;
-  cav1_p1_amp_out <= register3_q_net_x0;
+  cav1_p1_phase_out <= register2_q_net_x3;
+  cav1_p1_amp_out <= register3_q_net;
   flo_c1p2_window <= convert2_dout_net_x2;
-  cav1_p1_if_amp <= down_sample1_q_net_x5;
-  c1_p2_delay_amt <= register2_q_net_x4;
-  cav1_p2_windowed_img <= mult2_p_net_x0;
-  cav1_p2_windowed_real <= mult_p_net_x2;
+  cav1_p1_if_amp <= register11_q_net_x12;
+  cav1_p2_windowed_img <= mult6_p_net;
+  cav1_p2_windowed_real <= mult7_p_net;
   cav1_p2_windowed_ref_i <= mult4_p_net_x0;
   cav1_p2_windowed_ref_q <= mult5_p_net_x0;
   cav1_p2_phase_out <= register13_q_net;
   cav1_p2_amp_out <= register14_q_net;
   c1p2_freq_err <= down_sample2_q_net_x1;
-  c1_p2_delay_latch <= delay2_q_net_x2;
-  c1p2_delay_match <= register_q_net_x2;
-  cav1_p1_if_phase <= down_sample_q_net_x1;
-  ref_q_reg <= register11_q_net_x3;
-  cav1_sync <= down_sample2_q_net_x5;
+  cav1_p1_if_phase <= register11_q_net_x11;
+  ref_q_reg <= register11_q_net_x8;
+  cav1_sync <= down_sample2_q_net_x4;
   c1p2_ready <= relational_op_net;
   c1_ready <= logical_y_net_x5;
   c1p1_ready <= delay4_q_net;
@@ -24312,138 +23506,142 @@ begin
   cav1_nco_cos <= nco_cos;
   c1_stream_valid <= relational7_op_net;
   c1_p1_delay_latch <= delay2_q_net;
-  ref_i_reg <= register11_q_net_x2;
-  cav1_p1_if_i <= register11_q_net_x4;
-  cav1_p1_if_q <= register11_q_net_x8;
+  ref_i_reg <= register11_q_net_x7;
+  cav1_p1_if_i <= register11_q_net_x6;
+  cav1_p1_if_q <= register11_q_net_x5;
   register29_q_net <= cav1_p1_chan_sel;
-  register1_q_net_x1 <= cav1_p1_cal_coef;
+  register1_q_net_x0 <= cav1_p1_cal_coef;
   register35_q_net <= cav1_nco_phase_reset;
   register30_q_net <= cav1_p2_chan_sel;
-  down_sample1_q_net_x3 <= rf_ref_amp;
+  down_sample1_q_net_x2 <= rf_ref_amp;
   down_sample_q_net_x0 <= rf_ref_phase;
   down_sample_q_net <= rf_ref_q;
   register36_q_net <= cav1_nco_phase_adj;
   register31_q_net <= cav1_p1_window_start;
   register32_q_net <= cav1_p1_window_stop;
-  down_sample1_q_net_x2 <= rf_ref_i;
+  down_sample1_q_net_x1 <= rf_ref_i;
   register33_q_net <= cav1_p2_window_start;
   register34_q_net <= cav1_p2_window_stop;
   register2_q_net_x0 <= cav1_p2_cal_coef;
-  gateway_out1_x10 <= convert5_dout_net;
-  gateway_out10_x4 <= convert6_dout_net;
+  gateway_out1_x11 <= convert5_dout_net;
+  gateway_out10_x3 <= convert6_dout_net;
   gateway_out2_x8 <= convert11_dout_net_x0;
   gateway_out3_x8 <= nco_sin;
-  gateway_out4_x8 <= register9_q_net;
+  gateway_out4_x7 <= register9_q_net;
   gateway_out5_x7 <= nco_cos;
   gateway_out6_x5 <= counter_op_net;
   gateway_out_x2 <= inverter_op_net_x0;
-  gateway_out1_x9 <= convert2_dout_net;
-  gateway_out10_x3 <= mult4_p_net_x0;
-  gateway_out11_x5 <= register1_q_net_x0;
-  gateway_out12_x0 <= convert4_dout_net;
+  gateway_out1_x10 <= convert2_dout_net;
+  gateway_out10_x2 <= mult4_p_net_x0;
+  gateway_out11_x4 <= register1_q_net;
+  gateway_out12_x0 <= convert4_dout_net_x0;
   gateway_out13_x0 <= register12_q_net;
   gateway_out14_x0 <= mult5_p_net_x0;
   gateway_out15_x0 <= register2_q_net;
   gateway_out16_x0 <= inverter3_op_net_x0;
   gateway_out17_x0 <= accumulator3_q_net;
-  gateway_out18_x0 <= register1_q_net_x0;
-  gateway_out2_x7 <= inverter2_op_net_x0;
-  gateway_out22_x0 <= convert9_dout_net;
+  gateway_out18_x0 <= register1_q_net;
+  gateway_out2_x6 <= inverter2_op_net_x0;
+  gateway_out22_x0 <= convert9_dout_net_x0;
   gateway_out23_x0 <= convert10_dout_net;
-  gateway_out3_x7 <= accumulator_q_net;
-  gateway_out4_x7 <= accumulator2_q_net;
-  gateway_out5_x4 <= mult2_p_net_x0;
+  gateway_out3_x6 <= accumulator_q_net;
+  gateway_out4_x5 <= accumulator2_q_net;
+  gateway_out5_x4 <= mult6_p_net;
   gateway_out6_x2 <= inverter1_op_net_x0;
   gateway_out7_x2 <= accumulator1_q_net;
-  gateway_out8_x2 <= mult_p_net_x2;
-  gateway_out9_x0 <= register11_q_net_x0;
+  gateway_out8_x2 <= mult7_p_net;
+  gateway_out9 <= register11_q_net;
   gateway_out_x1 <= inverter_op_net;
-  gateway_out1_x6 <= convert2_dout_net_x0;
-  gateway_out10_x1 <= mult4_p_net;
-  gateway_out11_x2 <= register1_q_net;
-  gateway_out12 <= convert4_dout_net_x0;
+  gateway_out1_x7 <= convert2_dout_net_x0;
+  gateway_out10_x0 <= mult4_p_net;
+  gateway_out11_x2 <= register1_q_net_x6;
+  gateway_out12 <= convert4_dout_net;
   gateway_out13 <= register12_q_net_x1;
   gateway_out14 <= mult5_p_net;
-  gateway_out15 <= register2_q_net_x6;
+  gateway_out15 <= register2_q_net_x7;
   gateway_out16 <= inverter3_op_net;
   gateway_out17 <= accumulator3_q_net_x0;
   gateway_out18 <= convert3_dout_net_x1;
-  gateway_out2_x4 <= inverter2_op_net;
-  gateway_out22 <= convert9_dout_net_x0;
+  gateway_out2_x5 <= inverter2_op_net;
+  gateway_out22 <= convert9_dout_net;
   gateway_out23 <= convert10_dout_net_x0;
-  gateway_out3_x4 <= accumulator_q_net_x0;
+  gateway_out3_x5 <= accumulator_q_net_x0;
   gateway_out4_x4 <= accumulator2_q_net_x0;
   gateway_out5_x3 <= mult2_p_net;
   gateway_out6_x1 <= inverter1_op_net;
   gateway_out7_x1 <= accumulator1_q_net_x0;
   gateway_out8_x1 <= mult_p_net;
-  gateway_out9 <= register11_q_net;
-  gateway_out27_x1 <= relational4_op_net;
-  gateway_out28_x1 <= relational3_op_net;
-  gateway_out29_x1 <= convert11_dout_net;
-  gateway_out4_x5 <= counter_op_net;
+  gateway_out9_x2 <= register11_q_net_x2;
+  gateway_out27_x2 <= relational4_op_net;
+  gateway_out28_x2 <= relational3_op_net;
+  gateway_out29_x2 <= convert11_dout_net;
+  gateway_out4_x6 <= counter_op_net;
   gateway_out5_x6 <= convert5_dout_net_x0;
   gateway_out6_x4 <= convert3_dout_net_x1;
-  gateway_out7_x4 <= register1_q_net_x5;
-  gateway_out8_x4 <= convert2_dout_net_x2;
+  gateway_out7_x5 <= register1_q_net_x4;
+  gateway_out8_x5 <= convert2_dout_net_x2;
   gateway_out9_x1 <= delay8_q_net;
-  gateway_out10_x2 <= delay2_q_net_x3;
-  gateway_out11_x4 <= delay1_q_net_x1;
+  gateway_out10_x1 <= delay2_q_net_x3;
+  gateway_out11_x3 <= delay1_q_net_x1;
   gateway_out24 <= convert5_dout_net_x0;
   gateway_out25 <= convert10_dout_net;
-  gateway_out26 <= convert9_dout_net;
+  gateway_out26 <= convert9_dout_net_x0;
   gateway_out6_x3 <= convert5_dout_net_x0;
-  gateway_out7_x3 <= convert4_dout_net;
-  gateway_out8_x3 <= convert2_dout_net;
+  gateway_out7_x4 <= convert4_dout_net_x0;
+  gateway_out8_x4 <= convert2_dout_net;
+  gateway_out7_x3 <= down_sample_q_net_x3;
+  gateway_out8_x3 <= register11_q_net_x3;
+  gateway_out9_x0 <= convert3_dout_net_x1;
+  gateway_out1_x9 <= logical_y_net_x6;
   gateway_out1_x8 <= delay5_q_net_x1;
-  gateway_out2_x5 <= delay3_q_net_x1;
-  gateway_out27_x2 <= relational4_op_net_x0;
-  gateway_out28_x2 <= relational3_op_net_x0;
-  gateway_out29_x2 <= convert11_dout_net_x0;
-  gateway_out3_x6 <= convert7_dout_net;
+  gateway_out2_x7 <= delay3_q_net_x1;
+  gateway_out27_x1 <= relational4_op_net_x0;
+  gateway_out28_x1 <= relational3_op_net_x0;
+  gateway_out29_x1 <= convert11_dout_net_x0;
+  gateway_out3_x7 <= convert7_dout_net;
   gateway_out5_x5 <= convert5_dout_net_x1;
-  gateway_out44_x0 <= mult_p_net;
-  gateway_out46_x0 <= mult2_p_net;
-  gateway_out1_x7 <= logical_y_net_x0;
-  gateway_out11_x3 <= convert_dout_net_x1;
-  gateway_out19_x0 <= mult3_p_net_x0;
-  gateway_out2_x6 <= down_sample1_q_net_x1;
-  gateway_out20_x0 <= delay1_q_net_x0;
-  gateway_out3_x5 <= delay2_q_net_x1;
-  gateway_out4_x6 <= delay3_q_net_x0;
-  gateway_out5_x1 <= down_sample2_q_net_x0;
-  gateway_out6 <= logical_y_net;
-  gateway_out7 <= logical_y_net_x1;
-  gateway_out8 <= convert3_dout_net_x0;
+  gateway_out44 <= mult_p_net;
+  gateway_out46 <= mult2_p_net;
   gateway_out1_x2 <= logical_y_net_x1;
+  gateway_out11_x0 <= convert_dout_net_x1;
+  gateway_out19 <= mult3_p_net_x0;
+  gateway_out2_x1 <= down_sample1_q_net_x0;
+  gateway_out20 <= delay1_q_net_x0;
+  gateway_out3_x1 <= delay2_q_net_x1;
+  gateway_out4_x1 <= delay3_q_net;
+  gateway_out5_x0 <= down_sample2_q_net_x0;
+  gateway_out6 <= logical_y_net_x0;
+  gateway_out7 <= logical_y_net;
+  gateway_out8 <= convert3_dout_net_x0;
+  gateway_out1_x1 <= logical_y_net;
   gateway_out27 <= addsub3_s_net;
   gateway_out28 <= register_q_net;
-  gateway_out29 <= register1_q_net_x2;
-  gateway_out3_x1 <= mult1_p_net;
+  gateway_out29 <= register1_q_net_x1;
+  gateway_out3_x0 <= mult1_p_net;
   gateway_out <= mult3_p_net_x0;
-  gateway_out1_x1 <= relational1_op_net;
-  gateway_out2_x1 <= delay5_q_net;
-  gateway_out3_x0 <= register_q_net;
-  gateway_out4_x0 <= register1_q_net_x2;
+  gateway_out1_x0 <= relational1_op_net;
+  gateway_out2_x0 <= delay5_q_net;
+  gateway_out3 <= register_q_net;
+  gateway_out4 <= register1_q_net_x1;
   gateway_out5 <= convert3_dout_net_x0;
-  gateway_out1_x0 <= mult_p_net_x0;
-  gateway_out2 <= register2_q_net_x2;
+  gateway_out1 <= mult_p_net_x0;
+  gateway_out2 <= register2_q_net_x1;
   gateway_out10 <= convert11_dout_net_x0;
-  gateway_out11_x0 <= mult2_p_net;
+  gateway_out11 <= mult2_p_net;
   gateway_out34 <= convert11_dout_net_x0;
   gateway_out35 <= mult4_p_net;
   gateway_out37 <= convert11_dout_net_x0;
-  gateway_out38 <= mult5_p_net;
-  gateway_out4 <= mult3_p_net;
-  gateway_out44 <= mult_p_net_x2;
-  gateway_out46 <= mult2_p_net_x0;
-  gateway_out1 <= logical_y_net_x4;
-  gateway_out11 <= convert_dout_net_x0;
-  gateway_out19 <= mult3_p_net_x2;
-  gateway_out2_x0 <= down_sample1_q_net_x0;
-  gateway_out20 <= delay1_q_net;
-  gateway_out3 <= delay2_q_net_x0;
-  gateway_out4_x3 <= delay3_q_net;
+  gateway_out38_x0 <= mult5_p_net;
+  gateway_out4_x0 <= mult3_p_net;
+  gateway_out44_x0 <= mult7_p_net;
+  gateway_out46_x0 <= mult6_p_net;
+  gateway_out1_x6 <= logical_y_net_x4;
+  gateway_out11_x1 <= convert_dout_net_x0;
+  gateway_out19_x0 <= mult3_p_net_x1;
+  gateway_out2_x4 <= down_sample1_q_net_x3;
+  gateway_out20_x0 <= delay1_q_net;
+  gateway_out3_x4 <= delay2_q_net_x0;
+  gateway_out4_x3 <= delay3_q_net_x0;
   gateway_out5_x2 <= down_sample2_q_net_x1;
   gateway_out6_x0 <= logical_y_net_x3;
   gateway_out7_x0 <= logical_y_net_x2;
@@ -24451,23 +23649,20 @@ begin
   gateway_out1_x5 <= logical_y_net_x2;
   gateway_out27_x0 <= addsub3_s_net_x2;
   gateway_out28_x0 <= register_q_net_x0;
-  gateway_out29_x0 <= register1_q_net_x3;
+  gateway_out29_x0 <= register1_q_net_x2;
   gateway_out3_x3 <= mult1_p_net_x0;
-  gateway_out_x0 <= mult3_p_net_x2;
+  gateway_out_x0 <= mult3_p_net_x1;
   gateway_out1_x4 <= relational1_op_net_x0;
   gateway_out2_x3 <= delay5_q_net_x0;
   gateway_out3_x2 <= register_q_net_x0;
-  gateway_out4_x1 <= register1_q_net_x3;
-  gateway_out5_x0 <= convert3_dout_net;
+  gateway_out4_x2 <= register1_q_net_x2;
+  gateway_out5_x1 <= convert3_dout_net;
   gateway_out1_x3 <= mult_p_net_x1;
-  gateway_out2_x2 <= register2_q_net_x3;
-  gateway_out10_x0 <= convert11_dout_net;
-  gateway_out11_x1 <= mult2_p_net_x0;
+  gateway_out2_x2 <= register2_q_net_x4;
   gateway_out34_x0 <= convert11_dout_net;
   gateway_out35_x0 <= mult4_p_net_x0;
   gateway_out37_x0 <= convert11_dout_net;
-  gateway_out38_x0 <= mult5_p_net_x0;
-  gateway_out4_x2 <= mult3_p_net_x1;
+  gateway_out38 <= mult5_p_net_x0;
   q_clk_net <= clk_1;
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
@@ -24484,36 +23679,36 @@ begin
     nco_out_1 => nco_sin,
     nco_out_2 => nco_cos
   );
-  iq_integration : entity work.example_iq_integration_x0 
+  iq_integration : entity work.example_iq_integration 
   port map (
-    cav_windowed_imag => mult2_p_net_x0,
-    cav_windowed_real => mult_p_net_x2,
+    cav_windowed_imag => mult6_p_net,
+    cav_windowed_real => mult7_p_net,
     ref_windowed_i => mult4_p_net_x0,
     ref_windowed_q => mult5_p_net_x0,
     window_profile => convert11_dout_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     cav_int_q => convert10_dout_net,
-    cav_int_i => convert9_dout_net,
+    cav_int_i => convert9_dout_net_x0,
     ref_int_i => convert2_dout_net,
-    ref_int_q => convert4_dout_net,
+    ref_int_q => convert4_dout_net_x0,
     gateway_out => inverter_op_net_x0,
     gateway_out1 => convert2_dout_net,
-    gateway_out11 => register1_q_net_x0,
-    gateway_out12 => convert4_dout_net,
+    gateway_out11 => register1_q_net,
+    gateway_out12 => convert4_dout_net_x0,
     gateway_out13 => register12_q_net,
     gateway_out15 => register2_q_net,
     gateway_out16 => inverter3_op_net_x0,
     gateway_out17 => accumulator3_q_net,
-    gateway_out18 => register1_q_net_x0,
+    gateway_out18 => register1_q_net,
     gateway_out2 => inverter2_op_net_x0,
-    gateway_out22 => convert9_dout_net,
+    gateway_out22 => convert9_dout_net_x0,
     gateway_out23 => convert10_dout_net,
     gateway_out3 => accumulator_q_net,
     gateway_out4 => accumulator2_q_net,
     gateway_out6 => inverter1_op_net_x0,
     gateway_out7 => accumulator1_q_net,
-    gateway_out9 => register11_q_net_x0
+    gateway_out9 => register11_q_net
   );
   iq_integration1 : entity work.example_iq_integration1 
   port map (
@@ -24526,33 +23721,31 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     cav_int_q => convert10_dout_net_x0,
-    cav_int_i => convert9_dout_net_x0,
+    cav_int_i => convert9_dout_net,
     ref_int_i => convert2_dout_net_x0,
-    ref_int_q => convert4_dout_net_x0,
+    ref_int_q => convert4_dout_net,
     gateway_out => inverter_op_net,
     gateway_out1 => convert2_dout_net_x0,
-    gateway_out11 => register1_q_net,
-    gateway_out12 => convert4_dout_net_x0,
+    gateway_out11 => register1_q_net_x6,
+    gateway_out12 => convert4_dout_net,
     gateway_out13 => register12_q_net_x1,
-    gateway_out15 => register2_q_net_x6,
+    gateway_out15 => register2_q_net_x7,
     gateway_out16 => inverter3_op_net,
     gateway_out17 => accumulator3_q_net_x0,
     gateway_out2 => inverter2_op_net,
-    gateway_out22 => convert9_dout_net_x0,
+    gateway_out22 => convert9_dout_net,
     gateway_out23 => convert10_dout_net_x0,
     gateway_out3 => accumulator_q_net_x0,
     gateway_out4 => accumulator2_q_net_x0,
     gateway_out6 => inverter1_op_net,
     gateway_out7 => accumulator1_q_net_x0,
-    gateway_out9 => register11_q_net
+    gateway_out9 => register11_q_net_x2
   );
-  masking_n_delay : entity work.example_masking_n_delay_x0 
+  masking_n_delay : entity work.example_masking_n_delay 
   port map (
-    phi_reset_trig => down_sample2_q_net_x5,
+    phi_reset_trig => down_sample2_q_net_x4,
     start_pt => register33_q_net,
     stop_pt => register34_q_net,
-    delay_amt => register2_q_net_x4,
-    delay_latch => delay2_q_net_x2,
     clk_1 => q_clk_net,
     ce_1 => d_ce_net,
     clk_12 => d_clk_net,
@@ -24563,24 +23756,23 @@ begin
     integral_trig => convert5_dout_net_x0,
     flo_window => convert2_dout_net_x2,
     stream_valid => relational7_op_net,
-    delay_val => register_q_net_x2,
     gateway_out27 => relational4_op_net,
     gateway_out28 => relational3_op_net,
     gateway_out29 => convert11_dout_net,
     gateway_out4 => counter_op_net,
     gateway_out5 => convert5_dout_net_x0,
     gateway_out6 => convert3_dout_net_x1,
-    gateway_out7 => register1_q_net_x5,
+    gateway_out7 => register1_q_net_x4,
     gateway_out8 => convert2_dout_net_x2,
     gateway_out9 => delay8_q_net,
     gateway_out10 => delay2_q_net_x3,
     gateway_out11 => delay1_q_net_x1
   );
-  pa_conversion2 : entity work.example_pa_conversion2_x0 
+  pa_conversion2 : entity work.example_pa_conversion2 
   port map (
     cav_int_q => convert10_dout_net,
-    cav_int_i => convert9_dout_net,
-    ref_int_q => convert4_dout_net,
+    cav_int_i => convert9_dout_net_x0,
+    ref_int_q => convert4_dout_net_x0,
     ref_int_i => convert2_dout_net,
     integration_trig => convert5_dout_net_x0,
     cal_coefficient => down_sample3_q_net,
@@ -24592,7 +23784,7 @@ begin
     cav_phi_out => register13_q_net,
     cav_amp_out => register14_q_net
   );
-  pa_select : entity work.example_pa_select_x1 
+  pa_select : entity work.example_pa_select_x0 
   port map (
     pa_bus_1 => amp,
     pa_chan_sel => register29_q_net,
@@ -24605,7 +23797,7 @@ begin
     amp => down_sample1_q_net_x5,
     phase => down_sample_q_net_x1
   );
-  pa_select1 : entity work.example_pa_select1_x0 
+  pa_select1 : entity work.example_pa_select1 
   port map (
     pa_bus_1 => amp,
     pa_chan_sel => register30_q_net,
@@ -24618,7 +23810,7 @@ begin
     amp => down_sample1_q_net_x4,
     phase => down_sample_q_net_x2
   );
-  subsystem1_x4 : entity work.example_subsystem1_x2 
+  subsystem1_x5 : entity work.example_subsystem1_x3 
   port map (
     iq_stream_in_1 => ddci,
     iq_chan_sel => register30_q_net,
@@ -24632,14 +23824,54 @@ begin
     ddci => down_sample1_q_net_x6,
     ddcq => down_sample_q_net_x3
   );
-  subsystem2_x4 : entity work.example_subsystem2_x2 
+  subsystem10 : entity work.example_subsystem10 
+  port map (
+    d => down_sample1_q_net_x4,
+    reset => convert3_dout_net_x1,
+    cntr => counter_op_net,
+    threshold => constant3_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x9
+  );
+  subsystem11 : entity work.example_subsystem11 
+  port map (
+    d => down_sample_q_net_x2,
+    reset => convert3_dout_net_x1,
+    cntr => counter_op_net,
+    threshold => constant3_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x10
+  );
+  subsystem12 : entity work.example_subsystem12 
+  port map (
+    d => down_sample_q_net_x1,
+    reset => convert3_dout_net_x1,
+    cntr => counter_op_net,
+    threshold => constant4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x11
+  );
+  subsystem13 : entity work.example_subsystem13 
+  port map (
+    d => down_sample1_q_net_x5,
+    reset => convert3_dout_net_x1,
+    cntr => counter_op_net,
+    threshold => constant4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x12
+  );
+  subsystem2_x5 : entity work.example_subsystem2_x2 
   port map (
     in1 => register6_q_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     out1 => delay4_q_net
   );
-  subsystem3_x3 : entity work.example_subsystem3_x2 
+  subsystem3_x4 : entity work.example_subsystem3_x2 
   port map (
     iq_stream_in_1 => ddci,
     iq_chan_sel => register29_q_net,
@@ -24652,7 +23884,7 @@ begin
     ce_12 => q_ce_net,
     ddci => down_sample1_q_net_x7,
     ddcq => down_sample_q_net_x4,
-    sync => down_sample2_q_net_x5
+    sync => down_sample2_q_net_x4
   );
   subsystem4 : entity work.example_subsystem4_x1 
   port map (
@@ -24662,7 +23894,9 @@ begin
     threshold => constant1_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    q => register11_q_net_x6
+    q => register11_q_net_x3,
+    gateway_out8 => register11_q_net_x3,
+    gateway_out1 => logical_y_net_x6
   );
   subsystem5 : entity work.example_subsystem5_x1 
   port map (
@@ -24672,9 +23906,9 @@ begin
     threshold => constant1_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    q => register11_q_net_x7
+    q => register11_q_net_x4
   );
-  subsystem6 : entity work.example_subsystem6 
+  subsystem6 : entity work.example_subsystem6_x0 
   port map (
     d => down_sample_q_net_x4,
     reset => convert3_dout_net_x1,
@@ -24682,9 +23916,9 @@ begin
     threshold => constant2_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    q => register11_q_net_x8
+    q => register11_q_net_x5
   );
-  subsystem7 : entity work.example_subsystem7 
+  subsystem7 : entity work.example_subsystem7_x0 
   port map (
     d => down_sample1_q_net_x7,
     reset => convert3_dout_net_x1,
@@ -24692,19 +23926,19 @@ begin
     threshold => constant2_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    q => register11_q_net_x4
+    q => register11_q_net_x6
   );
   subsystem8 : entity work.example_subsystem8_x0 
   port map (
-    d => down_sample1_q_net_x2,
+    d => down_sample1_q_net_x1,
     reset => convert3_dout_net_x1,
     cntr => counter_op_net,
     threshold => constant1_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    q => register11_q_net_x2
+    q => register11_q_net_x7
   );
-  subsystem9 : entity work.example_subsystem9 
+  subsystem9 : entity work.example_subsystem9_x0 
   port map (
     d => down_sample_q_net,
     reset => convert3_dout_net_x1,
@@ -24712,14 +23946,14 @@ begin
     threshold => constant1_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    q => register11_q_net_x3
+    q => register11_q_net_x8
   );
   c1p1_masking_window : entity work.example_c1p1_masking_window 
   port map (
-    phi_reset_trig => down_sample2_q_net_x5,
+    phi_reset_trig => down_sample2_q_net_x4,
     start_pt => register31_q_net,
     stop_pt => register32_q_net,
-    delay_amt => register2_q_net_x1,
+    delay_amt => register2_q_net_x2,
     delay_latch => delay2_q_net,
     clk_1 => q_clk_net,
     ce_1 => d_ce_net,
@@ -24741,8 +23975,8 @@ begin
   c1p1_pa_conversion : entity work.example_c1p1_pa_conversion 
   port map (
     cav_int_q => convert10_dout_net_x0,
-    cav_int_i => convert9_dout_net_x0,
-    ref_int_q => convert4_dout_net_x0,
+    cav_int_i => convert9_dout_net,
+    ref_int_q => convert4_dout_net,
     ref_int_i => convert2_dout_net_x0,
     integration_trig => convert5_dout_net_x1,
     cal_coefficient => down_sample7_q_net,
@@ -24750,10 +23984,10 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     phi_diff => register6_q_net,
-    ref_phi_out => register11_q_net_x5,
-    ref_amp_out => register1_q_net_x6,
-    cav_phi_out => register2_q_net_x7,
-    cav_amp_out => register3_q_net_x0,
+    ref_phi_out => register11_q_net_x0,
+    ref_amp_out => register1_q_net_x5,
+    cav_phi_out => register2_q_net_x3,
+    cav_amp_out => register3_q_net,
     phi_diff_q => register4_q_net,
     phi_diff_i => register5_q_net
   );
@@ -24770,37 +24004,37 @@ begin
     ce_12 => q_ce_net,
     nco_err_fb => convert_dout_net_x1,
     freq_err => down_sample2_q_net_x0,
-    gateway_out1_x0 => logical_y_net_x0,
+    gateway_out1_x0 => logical_y_net_x1,
     gateway_out11 => convert_dout_net_x1,
     gateway_out19 => mult3_p_net_x0,
-    gateway_out2_x0 => down_sample1_q_net_x1,
+    gateway_out2_x0 => down_sample1_q_net_x0,
     gateway_out20 => delay1_q_net_x0,
     gateway_out3 => delay2_q_net_x1,
-    gateway_out4 => delay3_q_net_x0,
+    gateway_out4 => delay3_q_net,
     gateway_out5 => down_sample2_q_net_x0,
-    gateway_out6 => logical_y_net,
-    gateway_out7 => logical_y_net_x1,
+    gateway_out6 => logical_y_net_x0,
+    gateway_out7 => logical_y_net,
     gateway_out8 => convert3_dout_net_x0,
-    gateway_out1_x2 => logical_y_net_x1,
+    gateway_out1_x2 => logical_y_net,
     gateway_out27 => addsub3_s_net,
     gateway_out28 => register_q_net,
-    gateway_out29 => register1_q_net_x2,
+    gateway_out29 => register1_q_net_x1,
     gateway_out3_x1 => mult1_p_net,
     gateway_out => mult3_p_net_x0,
     gateway_out1_x1 => relational1_op_net,
     gateway_out2_x1 => delay5_q_net,
     gateway_out3_x0 => register_q_net,
-    gateway_out4_x0 => register1_q_net_x2,
+    gateway_out4_x0 => register1_q_net_x1,
     gateway_out5_x0 => convert3_dout_net_x0,
     gateway_out1 => mult_p_net_x0,
-    gateway_out2 => register2_q_net_x2
+    gateway_out2 => register2_q_net_x1
   );
   c1p1_window_wf1 : entity work.example_c1p1_window_wf1 
   port map (
     cav_img => convert5_dout_net,
     cav_real => convert6_dout_net,
     ref_img => down_sample_q_net,
-    ref_real => down_sample1_q_net_x2,
+    ref_real => down_sample1_q_net_x1,
     window_profile => addsub3_s_net_x0,
     cav_delayed_imag => dual_port_ram_doutb_net,
     cav_delayed_real => dual_port_ram1_doutb_net,
@@ -24814,7 +24048,7 @@ begin
     cav_windowed_real => mult_p_net,
     ref_windowed_imag => mult5_p_net,
     ref_windowed_real => mult4_p_net,
-    delay_amt => register2_q_net_x1,
+    delay_amt => register2_q_net_x2,
     delay_amt_latch => delay2_q_net,
     gateway_out11 => mult2_p_net,
     gateway_out35 => mult4_p_net,
@@ -24823,8 +24057,8 @@ begin
   );
   c1p2_freq_err_module : entity work.example_c1p2_freq_err_module 
   port map (
-    imag => mult2_p_net_x0,
-    real => mult_p_net_x2,
+    imag => mult6_p_net,
+    real => mult7_p_net,
     flo_window => convert2_dout_net_x2,
     reset => convert3_dout_net_x1,
     c1p2_pt_cntr => counter_op_net,
@@ -24836,11 +24070,11 @@ begin
     freq_err => down_sample2_q_net_x1,
     gateway_out1_x0 => logical_y_net_x4,
     gateway_out11 => convert_dout_net_x0,
-    gateway_out19 => mult3_p_net_x2,
-    gateway_out2_x0 => down_sample1_q_net_x0,
+    gateway_out19 => mult3_p_net_x1,
+    gateway_out2_x0 => down_sample1_q_net_x3,
     gateway_out20 => delay1_q_net,
     gateway_out3 => delay2_q_net_x0,
-    gateway_out4 => delay3_q_net,
+    gateway_out4 => delay3_q_net_x0,
     gateway_out5 => down_sample2_q_net_x1,
     gateway_out6 => logical_y_net_x3,
     gateway_out7 => logical_y_net_x2,
@@ -24848,42 +24082,34 @@ begin
     gateway_out1_x2 => logical_y_net_x2,
     gateway_out27 => addsub3_s_net_x2,
     gateway_out28 => register_q_net_x0,
-    gateway_out29 => register1_q_net_x3,
+    gateway_out29 => register1_q_net_x2,
     gateway_out3_x1 => mult1_p_net_x0,
-    gateway_out => mult3_p_net_x2,
+    gateway_out => mult3_p_net_x1,
     gateway_out1_x1 => relational1_op_net_x0,
     gateway_out2_x1 => delay5_q_net_x0,
     gateway_out3_x0 => register_q_net_x0,
-    gateway_out4_x0 => register1_q_net_x3,
+    gateway_out4_x0 => register1_q_net_x2,
     gateway_out5_x0 => convert3_dout_net,
     gateway_out1 => mult_p_net_x1,
-    gateway_out2 => register2_q_net_x3
+    gateway_out2 => register2_q_net_x4
   );
   c1p2_window_wf : entity work.example_c1p2_window_wf 
   port map (
     cav_img => convert_dout_net,
     cav_real => convert1_dout_net,
     ref_img => down_sample_q_net,
-    ref_real => down_sample1_q_net_x2,
-    window_profile => addsub3_s_net_x1,
+    ref_real => down_sample1_q_net_x1,
     pt_window => convert11_dout_net,
-    delay_match_amt => register_q_net_x2,
     pt_cntr => counter_op_net,
     reset => convert3_dout_net_x1,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    cav_windowed_imag => mult2_p_net_x0,
-    cav_windowed_real => mult_p_net_x2,
+    cav_windowed_imag => mult6_p_net,
+    cav_windowed_real => mult7_p_net,
     ref_windowed_imag => mult5_p_net_x0,
     ref_windowed_real => mult4_p_net_x0,
-    delayed_cav_dc_img => dual_port_ram_doutb_net_x0,
-    delayed_cav_dc_real => dual_port_ram1_doutb_net_x0,
-    delay_amt => register2_q_net_x4,
-    delay_amt_latch => delay2_q_net_x2,
-    gateway_out11 => mult2_p_net_x0,
     gateway_out35 => mult4_p_net_x0,
-    gateway_out38 => mult5_p_net_x0,
-    gateway_out4 => mult3_p_net_x1
+    gateway_out38 => mult5_p_net_x0
   );
   c1p2_windowing_func1 : entity work.example_c1p2_windowing_func1 
   port map (
@@ -24895,17 +24121,6 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     window_profile => addsub3_s_net_x0
-  );
-  c1p2_windowing_func2 : entity work.example_c1p2_windowing_func2_x0 
-  port map (
-    imag => convert_dout_net,
-    real => convert1_dout_net,
-    eval_window => convert11_dout_net,
-    c1p2_pt_cntr => counter_op_net,
-    cav1_p2_dc_tvalid => convert2_dout_net_x1,
-    clk_12 => d_clk_net,
-    ce_12 => q_ce_net,
-    window_profile => addsub3_s_net_x1
   );
   clock_enable_probe : entity work.example_xlceprobe 
   generic map (
@@ -25022,7 +24237,7 @@ begin
   port map (
     clr => '0',
     en => "1",
-    din => down_sample2_q_net_x5,
+    din => down_sample2_q_net_x4,
     clk => d_clk_net,
     ce => q_ce_net,
     dout => convert10_dout_net_x1
@@ -25064,7 +24279,7 @@ begin
   port map (
     clr => '0',
     en => "1",
-    din => register1_q_net_x4,
+    din => register1_q_net_x3,
     clk => d_clk_net,
     ce => q_ce_net,
     dout => convert5_dout_net
@@ -25085,7 +24300,7 @@ begin
   port map (
     clr => '0',
     en => "1",
-    din => register2_q_net_x5,
+    din => register2_q_net_x6,
     clk => d_clk_net,
     ce => q_ce_net,
     dout => convert6_dout_net
@@ -25243,7 +24458,7 @@ begin
     en(0) => complex_multiplier_6_0_m_axis_dout_tvalid_net,
     clk => d_clk_net,
     ce => q_ce_net,
-    q => register1_q_net_x4
+    q => register1_q_net_x3
   );
   register2 : entity work.example_xlregister 
   generic map (
@@ -25256,7 +24471,7 @@ begin
     en(0) => complex_multiplier_6_0_m_axis_dout_tvalid_net,
     clk => d_clk_net,
     ce => q_ce_net,
-    q => register2_q_net_x5
+    q => register2_q_net_x6
   );
   register31 : entity work.example_xlregister 
   generic map (
@@ -25318,7 +24533,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register1_q_net_x1,
+    d => register1_q_net_x0,
     clk => q_clk_net,
     ce => d_ce_net,
     q => register6_q_net_x0
@@ -25331,7 +24546,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => down_sample2_q_net_x5,
+    d => down_sample2_q_net_x4,
     clk => d_clk_net,
     ce => q_ce_net,
     q => register7_q_net
@@ -25385,28 +24600,42 @@ begin
     clr => '0',
     op => constant1_op_net
   );
+  constant3 : entity work.sysgen_constant_ef05f162c4 
+  port map (
+    clk => '0',
+    ce => '0',
+    clr => '0',
+    op => constant3_op_net
+  );
+  constant4 : entity work.sysgen_constant_ef05f162c4 
+  port map (
+    clk => '0',
+    ce => '0',
+    clr => '0',
+    op => constant4_op_net
+  );
 end structural;
 -- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/DDC NCO1/posedge_pulse
 library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x1 is
+entity example_posedge_pulse_x12 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x1;
-architecture structural of example_posedge_pulse_x1 is 
+end example_posedge_pulse_x12;
+architecture structural of example_posedge_pulse_x12 is 
   signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
   signal delay_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net : std_logic_vector( 1-1 downto 0 );
   signal register8_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal register_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= register_q_net;
   register8_q_net <= in1;
@@ -25496,6 +24725,10 @@ entity example_ddc_nco1_x0 is
   );
 end example_ddc_nco1_x0;
 architecture structural of example_ddc_nco1_x0 is 
+  signal constant21_op_net : std_logic_vector( 1-1 downto 0 );
+  signal dds_compiler_6_0_s_axis_phase_tready_net : std_logic;
+  signal logical_y_net : std_logic;
+  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
   signal dds_compiler_6_0_m_axis_data_tvalid_net : std_logic;
   signal nco_sin : std_logic_vector( 26-1 downto 0 );
   signal nco_cos : std_logic_vector( 26-1 downto 0 );
@@ -25504,10 +24737,6 @@ architecture structural of example_ddc_nco1_x0 is
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal register_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant21_op_net : std_logic_vector( 1-1 downto 0 );
-  signal dds_compiler_6_0_s_axis_phase_tready_net : std_logic;
-  signal logical_y_net : std_logic;
-  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   tvalid <= dds_compiler_6_0_m_axis_data_tvalid_net;
   sine <= nco_sin;
@@ -25518,7 +24747,7 @@ begin
   register8_q_net <= phase_reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x1 
+  posedge_pulse : entity work.example_posedge_pulse_x12 
   port map (
     in1 => register8_q_net,
     clk_12 => d_clk_net,
@@ -25581,7 +24810,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_iq_integration is
+entity example_iq_integration_x0 is
   port (
     cav_windowed_imag : in std_logic_vector( 18-1 downto 0 );
     cav_windowed_real : in std_logic_vector( 18-1 downto 0 );
@@ -25612,8 +24841,12 @@ entity example_iq_integration is
     gateway_out7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out9 : out std_logic_vector( 32-1 downto 0 )
   );
-end example_iq_integration;
-architecture structural of example_iq_integration is 
+end example_iq_integration_x0;
+architecture structural of example_iq_integration_x0 is 
+  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
@@ -25624,6 +24857,9 @@ architecture structural of example_iq_integration is
   signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
   signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 32-1 downto 0 );
   signal register12_q_net : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 32-1 downto 0 );
@@ -25634,13 +24870,6 @@ architecture structural of example_iq_integration is
   signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   cav_int_q <= convert10_dout_net;
   cav_int_i <= convert9_dout_net;
@@ -25997,8 +25226,20 @@ entity example_iq_integration2 is
   );
 end example_iq_integration2;
 architecture structural of example_iq_integration2 is 
-  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
   signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
@@ -26012,18 +25253,6 @@ architecture structural of example_iq_integration2 is
   signal register2_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
   signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   cav_int_q <= convert10_dout_net;
   cav_int_i <= convert9_dout_net;
@@ -26347,7 +25576,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_masking_n_delay is
+entity example_masking_n_delay_x0 is
   port (
     phi_reset_trig : in std_logic_vector( 1-1 downto 0 );
     start_pt : in std_logic_vector( 16-1 downto 0 );
@@ -26378,23 +25607,40 @@ entity example_masking_n_delay is
     gateway_out8 : out std_logic_vector( 1-1 downto 0 );
     gateway_out9 : out std_logic_vector( 16-1 downto 0 )
   );
-end example_masking_n_delay;
-architecture structural of example_masking_n_delay is 
-  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal delay6_q_net : std_logic_vector( 16-1 downto 0 );
+end example_masking_n_delay_x0;
+architecture structural of example_masking_n_delay_x0 is 
+  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay7_q_net : std_logic_vector( 16-1 downto 0 );
   signal register5_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
+  signal logical2_y_net : std_logic_vector( 1-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay6_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 16-1 downto 0 );
+  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
+  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
+  signal constant11_op_net : std_logic_vector( 16-1 downto 0 );
+  signal addsub4_s_net : std_logic_vector( 16-1 downto 0 );
+  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal register33_q_net : std_logic_vector( 16-1 downto 0 );
   signal register34_q_net : std_logic_vector( 16-1 downto 0 );
   signal register2_q_net : std_logic_vector( 16-1 downto 0 );
@@ -26405,29 +25651,12 @@ architecture structural of example_masking_n_delay is
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
-  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant11_op_net : std_logic_vector( 16-1 downto 0 );
-  signal addsub4_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
-  signal logical2_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   trig_reset <= convert3_dout_net;
   counter_x0 <= counter_op_net;
@@ -26683,9 +25912,14 @@ begin
     ce => q_ce_net,
     dout => convert8_dout_net
   );
-  counter : entity work.example_xlcounter_free 
+  counter : entity work.example_xlcounter_limit 
   generic map (
+    cnt_15_0 => 32768,
+    cnt_31_16 => 0,
+    cnt_47_32 => 0,
+    cnt_63_48 => 0,
     core_name0 => "example_c_counter_binary_v12_0_i0",
+    count_limited => 1,
     op_arith => xlUnsigned,
     op_width => 16
   )
@@ -27055,6 +26289,23 @@ entity example_pa_conversion1 is
   );
 end example_pa_conversion1;
 architecture structural of example_pa_conversion1 is 
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal cordic_6_0_1_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
+  signal cordic_6_0_1_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal register12_q_net : std_logic_vector( 18-1 downto 0 );
   signal register13_q_net : std_logic_vector( 18-1 downto 0 );
@@ -27065,24 +26316,7 @@ architecture structural of example_pa_conversion1 is
   signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
   signal down_sample7_q_net : std_logic_vector( 18-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tvalid_net : std_logic;
-  signal cordic_6_0_1_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_1_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
 begin
   phi_diff <= addsub_s_net;
   ref_phi_out <= register11_q_net;
@@ -27331,7 +26565,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_pa_conversion2 is
+entity example_pa_conversion2_x0 is
   port (
     cav_int_q : in std_logic_vector( 20-1 downto 0 );
     cav_int_i : in std_logic_vector( 20-1 downto 0 );
@@ -27347,13 +26581,10 @@ entity example_pa_conversion2 is
     cav_phi_out : out std_logic_vector( 18-1 downto 0 );
     cav_amp_out : out std_logic_vector( 18-1 downto 0 )
   );
-end example_pa_conversion2;
-architecture structural of example_pa_conversion2 is 
+end example_pa_conversion2_x0;
+architecture structural of example_pa_conversion2_x0 is 
+  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
   signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
   signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
@@ -27363,20 +26594,23 @@ architecture structural of example_pa_conversion2 is
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tvalid_net : std_logic;
   signal cordic_6_0_1_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
   signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   phi_diff <= addsub_s_net;
   ref_phi_out <= register11_q_net;
@@ -27625,7 +26859,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_channel_select1 is
+entity example_channel_select1_x3 is
   port (
     in0 : in std_logic_vector( 18-1 downto 0 );
     in1 : in std_logic_vector( 18-1 downto 0 );
@@ -27638,18 +26872,19 @@ entity example_channel_select1 is
     out0 : out std_logic_vector( 18-1 downto 0 );
     out1 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_channel_select1;
-architecture structural of example_channel_select1 is 
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+end example_channel_select1_x3;
+architecture structural of example_channel_select1_x3 is 
+  signal last : std_logic_vector( 1-1 downto 0 );
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp : std_logic_vector( 18-1 downto 0 );
   signal phase : std_logic_vector( 18-1 downto 0 );
@@ -27659,7 +26894,6 @@ architecture structural of example_channel_select1 is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
   out1 <= down_sample_q_net;
@@ -27845,7 +27079,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_pa_select is
+entity example_pa_select_x1 is
   port (
     pa_bus_1 : in std_logic_vector( 18-1 downto 0 );
     pa_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -27858,8 +27092,8 @@ entity example_pa_select is
     amp : out std_logic_vector( 18-1 downto 0 );
     phase : out std_logic_vector( 18-1 downto 0 )
   );
-end example_pa_select;
-architecture structural of example_pa_select is 
+end example_pa_select_x1;
+architecture structural of example_pa_select_x1 is 
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp_x0 : std_logic_vector( 18-1 downto 0 );
@@ -27881,7 +27115,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  channel_select1 : entity work.example_channel_select1 
+  channel_select1 : entity work.example_channel_select1_x3 
   port map (
     in0 => amp_x0,
     in1 => phase_x0,
@@ -27900,7 +27134,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_channel_select1_x0 is
+entity example_channel_select1 is
   port (
     in0 : in std_logic_vector( 18-1 downto 0 );
     in1 : in std_logic_vector( 18-1 downto 0 );
@@ -27913,8 +27147,11 @@ entity example_channel_select1_x0 is
     out0 : out std_logic_vector( 18-1 downto 0 );
     out1 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_channel_select1_x0;
-architecture structural of example_channel_select1_x0 is 
+end example_channel_select1;
+architecture structural of example_channel_select1 is 
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal last : std_logic_vector( 1-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp : std_logic_vector( 18-1 downto 0 );
@@ -27932,9 +27169,6 @@ architecture structural of example_channel_select1_x0 is
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
   out1 <= down_sample_q_net;
@@ -28120,7 +27354,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_pa_select1 is
+entity example_pa_select1_x0 is
   port (
     pa_bus_1 : in std_logic_vector( 18-1 downto 0 );
     pa_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -28133,8 +27367,10 @@ entity example_pa_select1 is
     amp : out std_logic_vector( 18-1 downto 0 );
     phase : out std_logic_vector( 18-1 downto 0 )
   );
-end example_pa_select1;
-architecture structural of example_pa_select1 is 
+end example_pa_select1_x0;
+architecture structural of example_pa_select1_x0 is 
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp_x0 : std_logic_vector( 18-1 downto 0 );
@@ -28143,8 +27379,6 @@ architecture structural of example_pa_select1 is
   signal channel : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
 begin
   amp <= down_sample1_q_net;
   phase <= down_sample_q_net;
@@ -28156,7 +27390,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  channel_select1 : entity work.example_channel_select1_x0 
+  channel_select1 : entity work.example_channel_select1 
   port map (
     in0 => amp_x0,
     in1 => phase_x0,
@@ -28193,11 +27427,11 @@ end example_channel_select3;
 architecture structural of example_channel_select3 is 
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal last : std_logic_vector( 1-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal ddci : std_logic_vector( 18-1 downto 0 );
@@ -28398,7 +27632,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem1_x0 is
+entity example_subsystem1_x1 is
   port (
     iq_stream_in_1 : in std_logic_vector( 18-1 downto 0 );
     iq_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -28412,8 +27646,8 @@ entity example_subsystem1_x0 is
     ddci : out std_logic_vector( 18-1 downto 0 );
     ddcq : out std_logic_vector( 18-1 downto 0 )
   );
-end example_subsystem1_x0;
-architecture structural of example_subsystem1_x0 is 
+end example_subsystem1_x1;
+architecture structural of example_subsystem1_x1 is 
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
@@ -28452,12 +27686,330 @@ begin
     out1 => down_sample_q_net
   );
 end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem10/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse_x9 is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse_x9;
+architecture structural of example_posedge_pulse_x9 is 
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem10
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem10_x0 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem10_x0;
+architecture structural of example_subsystem10_x0 is 
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 16-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  q <= register11_q_net;
+  down_sample1_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant4_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse_x9 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample1_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem11/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse_x10 is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse_x10;
+architecture structural of example_posedge_pulse_x10 is 
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem11
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem11_x0 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem11_x0;
+architecture structural of example_subsystem11_x0 is 
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant5_op_net : std_logic_vector( 16-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  q <= register11_q_net;
+  down_sample1_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant5_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse_x10 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample1_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant5_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem12/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse;
+architecture structural of example_posedge_pulse is 
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem12
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem12_x0 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem12_x0;
+architecture structural of example_subsystem12_x0 is 
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant5_op_net : std_logic_vector( 16-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  q <= register11_q_net;
+  down_sample_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant5_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant5_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
+  );
+end structural;
 -- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem2/freq_err1/delta_phi/phase_latching
 library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_phase_latching_x0 is
+entity example_phase_latching is
   port (
     phase : in std_logic_vector( 18-1 downto 0 );
     window : in std_logic_vector( 1-1 downto 0 );
@@ -28471,8 +28023,8 @@ entity example_phase_latching_x0 is
     gateway_out3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_phase_latching_x0;
-architecture structural of example_phase_latching_x0 is 
+end example_phase_latching;
+architecture structural of example_phase_latching is 
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
@@ -28482,13 +28034,13 @@ architecture structural of example_phase_latching_x0 is
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
   signal addsub1_s_net : std_logic_vector( 2-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
   signal addsub2_s_net : std_logic_vector( 2-1 downto 0 );
   signal delay6_q_net : std_logic_vector( 1-1 downto 0 );
   signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   stop_value <= register1_q_net;
   start_value <= register_q_net;
@@ -28628,7 +28180,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_delta_phi_x0 is
+entity example_delta_phi is
   port (
     phase : in std_logic_vector( 18-1 downto 0 );
     window : in std_logic_vector( 1-1 downto 0 );
@@ -28645,10 +28197,8 @@ entity example_delta_phi_x0 is
     gateway_out3_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_delta_phi_x0;
-architecture structural of example_delta_phi_x0 is 
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
+end example_delta_phi;
+architecture structural of example_delta_phi is 
   signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal constant4_op_net : std_logic_vector( 18-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -28662,6 +28212,8 @@ architecture structural of example_delta_phi_x0 is
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
 begin
   d_phi <= mult1_p_net;
   mult3_p_net <= phase;
@@ -28677,7 +28229,7 @@ begin
   gateway_out4 <= register1_q_net;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  phase_latching : entity work.example_phase_latching_x0 
+  phase_latching : entity work.example_phase_latching 
   port map (
     phase => mult3_p_net,
     window => convert2_dout_net,
@@ -28819,7 +28371,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_delta_t_x0 is
+entity example_delta_t is
   port (
     window : in std_logic_vector( 1-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
@@ -28829,8 +28381,10 @@ entity example_delta_t_x0 is
     gateway_out1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2 : out std_logic_vector( 10-1 downto 0 )
   );
-end example_delta_t_x0;
-architecture structural of example_delta_t_x0 is 
+end example_delta_t;
+architecture structural of example_delta_t is 
+  signal counter2_op_net : std_logic_vector( 10-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
   signal mult_p_net : std_logic_vector( 32-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -28839,8 +28393,6 @@ architecture structural of example_delta_t_x0 is
   signal q_ce_net : std_logic;
   signal constant5_op_net : std_logic_vector( 32-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal counter2_op_net : std_logic_vector( 10-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   dt <= mult_p_net;
   convert2_dout_net <= window;
@@ -28955,7 +28507,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_freq_err1_x0 is
+entity example_freq_err1 is
   port (
     raw_phase : in std_logic_vector( 18-1 downto 0 );
     window : in std_logic_vector( 1-1 downto 0 );
@@ -28983,10 +28535,21 @@ entity example_freq_err1_x0 is
     gateway_out1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x0 : out std_logic_vector( 10-1 downto 0 )
   );
-end example_freq_err1_x0;
-architecture structural of example_freq_err1_x0 is 
+end example_freq_err1;
+architecture structural of example_freq_err1 is 
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 10-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal divide1_op_net : std_logic_vector( 96-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
+  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
@@ -28998,17 +28561,6 @@ architecture structural of example_freq_err1_x0 is
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 10-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
-  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
-  signal divide1_op_net : std_logic_vector( 96-1 downto 0 );
 begin
   nco_err <= convert_dout_net;
   freq_err <= convert1_dout_net;
@@ -29035,7 +28587,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  delta_phi : entity work.example_delta_phi_x0 
+  delta_phi : entity work.example_delta_phi 
   port map (
     phase => mult3_p_net,
     window => convert2_dout_net,
@@ -29052,7 +28604,7 @@ begin
     gateway_out3_x0 => register_q_net,
     gateway_out4 => register1_q_net
   );
-  delta_t : entity work.example_delta_t_x0 
+  delta_t : entity work.example_delta_t 
   port map (
     window => convert2_dout_net,
     reset => convert3_dout_net,
@@ -29219,7 +28771,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem2_x0 is
+entity example_subsystem2_x1 is
   port (
     imag : in std_logic_vector( 18-1 downto 0 );
     real : in std_logic_vector( 18-1 downto 0 );
@@ -29251,11 +28803,18 @@ entity example_subsystem2_x0 is
     gateway_out1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2 : out std_logic_vector( 10-1 downto 0 )
   );
-end example_subsystem2_x0;
-architecture structural of example_subsystem2_x0 is 
-  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
+end example_subsystem2_x1;
+architecture structural of example_subsystem2_x1 is 
+  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
@@ -29272,13 +28831,6 @@ architecture structural of example_subsystem2_x0 is
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   nco_err_fb <= convert_dout_net;
   freq_err <= convert1_dout_net;
@@ -29309,7 +28861,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  freq_err1 : entity work.example_freq_err1_x0 
+  freq_err1 : entity work.example_freq_err1 
   port map (
     raw_phase => cordic_6_0_2_m_axis_dout_tdata_phase_net,
     window => convert2_dout_net,
@@ -29406,21 +28958,17 @@ entity example_channel_select3_x0 is
   );
 end example_channel_select3_x0;
 architecture structural of example_channel_select3_x0 is 
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register4_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal last : std_logic_vector( 1-1 downto 0 );
   signal register5_q_net : std_logic_vector( 1-1 downto 0 );
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register4_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal ddci : std_logic_vector( 18-1 downto 0 );
-  signal ddcq : std_logic_vector( 18-1 downto 0 );
-  signal ddcsync : std_logic_vector( 1-1 downto 0 );
-  signal ddcchannel : std_logic_vector( 4-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal register29_q_net : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
@@ -29428,9 +28976,13 @@ architecture structural of example_channel_select3_x0 is
   signal q_ce_net : std_logic;
   signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
   signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal ddci : std_logic_vector( 18-1 downto 0 );
+  signal ddcq : std_logic_vector( 18-1 downto 0 );
+  signal ddcsync : std_logic_vector( 1-1 downto 0 );
+  signal ddcchannel : std_logic_vector( 4-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
   out1 <= down_sample_q_net;
@@ -29683,7 +29235,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem3_x0 is
+entity example_subsystem3_x1 is
   port (
     iq_stream_in_1 : in std_logic_vector( 18-1 downto 0 );
     iq_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -29698,8 +29250,8 @@ entity example_subsystem3_x0 is
     ddcq : out std_logic_vector( 18-1 downto 0 );
     sync : out std_logic_vector( 1-1 downto 0 )
   );
-end example_subsystem3_x0;
-architecture structural of example_subsystem3_x0 is 
+end example_subsystem3_x1;
+architecture structural of example_subsystem3_x1 is 
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
@@ -29746,7 +29298,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_phase_latching is
+entity example_phase_latching_x0 is
   port (
     phase : in std_logic_vector( 18-1 downto 0 );
     window : in std_logic_vector( 1-1 downto 0 );
@@ -29760,12 +29312,12 @@ entity example_phase_latching is
     gateway_out3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_phase_latching;
-architecture structural of example_phase_latching is 
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+end example_phase_latching_x0;
+architecture structural of example_phase_latching_x0 is 
+  signal delay6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
@@ -29774,10 +29326,10 @@ architecture structural of example_phase_latching is
   signal addsub1_s_net : std_logic_vector( 2-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
   signal addsub2_s_net : std_logic_vector( 2-1 downto 0 );
-  signal delay6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
 begin
   stop_value <= register1_q_net;
   start_value <= register_q_net;
@@ -29917,7 +29469,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_delta_phi is
+entity example_delta_phi_x0 is
   port (
     phase : in std_logic_vector( 18-1 downto 0 );
     window : in std_logic_vector( 1-1 downto 0 );
@@ -29934,8 +29486,10 @@ entity example_delta_phi is
     gateway_out3_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_delta_phi;
-architecture structural of example_delta_phi is 
+end example_delta_phi_x0;
+architecture structural of example_delta_phi_x0 is 
+  signal constant4_op_net : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -29944,13 +29498,11 @@ architecture structural of example_delta_phi is
   signal register_q_net : std_logic_vector( 18-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal constant4_op_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   d_phi <= mult1_p_net;
   mult3_p_net <= phase;
@@ -29966,7 +29518,7 @@ begin
   gateway_out4 <= register1_q_net;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  phase_latching : entity work.example_phase_latching 
+  phase_latching : entity work.example_phase_latching_x0 
   port map (
     phase => mult3_p_net,
     window => convert2_dout_net,
@@ -30108,7 +29660,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_delta_t is
+entity example_delta_t_x0 is
   port (
     window : in std_logic_vector( 1-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
@@ -30118,18 +29670,18 @@ entity example_delta_t is
     gateway_out1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2 : out std_logic_vector( 10-1 downto 0 )
   );
-end example_delta_t;
-architecture structural of example_delta_t is 
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal counter2_op_net : std_logic_vector( 10-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+end example_delta_t_x0;
+architecture structural of example_delta_t_x0 is 
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal constant5_op_net : std_logic_vector( 32-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter2_op_net : std_logic_vector( 10-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
 begin
   dt <= mult_p_net;
   convert2_dout_net <= window;
@@ -30244,7 +29796,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_freq_err1 is
+entity example_freq_err1_x0 is
   port (
     raw_phase : in std_logic_vector( 18-1 downto 0 );
     window : in std_logic_vector( 1-1 downto 0 );
@@ -30273,8 +29825,13 @@ entity example_freq_err1 is
     gateway_out1_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x0 : out std_logic_vector( 10-1 downto 0 )
   );
-end example_freq_err1;
-architecture structural of example_freq_err1 is 
+end example_freq_err1_x0;
+architecture structural of example_freq_err1_x0 is 
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 1-1 downto 0 );
+  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
+  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
@@ -30296,12 +29853,7 @@ architecture structural of example_freq_err1 is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal constant8_op_net : std_logic_vector( 26-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 96-1 downto 0 );
-  signal divide_op_net : std_logic_vector( 63-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 1-1 downto 0 );
   signal divide1_op_net : std_logic_vector( 96-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   nco_err <= convert_dout_net;
   freq_err <= convert1_dout_net;
@@ -30329,7 +29881,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  delta_phi : entity work.example_delta_phi 
+  delta_phi : entity work.example_delta_phi_x0 
   port map (
     phase => mult3_p_net,
     window => convert2_dout_net,
@@ -30346,7 +29898,7 @@ begin
     gateway_out3_x0 => register_q_net,
     gateway_out4 => register1_q_net
   );
-  delta_t : entity work.example_delta_t 
+  delta_t : entity work.example_delta_t_x0 
   port map (
     window => convert2_dout_net,
     reset => convert3_dout_net,
@@ -30580,7 +30132,6 @@ entity example_subsystem4 is
   );
 end example_subsystem4;
 architecture structural of example_subsystem4 is 
-  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 32-1 downto 0 );
   signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult_p_net : std_logic_vector( 18-1 downto 0 );
@@ -30599,6 +30150,7 @@ architecture structural of example_subsystem4 is
   signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net : std_logic_vector( 10-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
@@ -30638,7 +30190,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  freq_err1 : entity work.example_freq_err1 
+  freq_err1 : entity work.example_freq_err1_x0 
   port map (
     raw_phase => cordic_6_0_2_m_axis_dout_tdata_phase_net,
     window => convert2_dout_net,
@@ -30719,15 +30271,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x6 is
+entity example_posedge_pulse_x2 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x6;
-architecture structural of example_posedge_pulse_x6 is 
+end example_posedge_pulse_x2;
+architecture structural of example_posedge_pulse_x2 is 
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -30790,7 +30342,7 @@ begin
   constant1_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x6 
+  posedge_pulse : entity work.example_posedge_pulse_x2 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -30825,15 +30377,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x7 is
+entity example_posedge_pulse_x3 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x7;
-architecture structural of example_posedge_pulse_x7 is 
+end example_posedge_pulse_x3;
+architecture structural of example_posedge_pulse_x3 is 
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -30867,7 +30419,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem6_x0 is
+entity example_subsystem6 is
   port (
     d : in std_logic_vector( 18-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
@@ -30877,10 +30429,8 @@ entity example_subsystem6_x0 is
     ce_12 : in std_logic;
     q : out std_logic_vector( 18-1 downto 0 )
   );
-end example_subsystem6_x0;
-architecture structural of example_subsystem6_x0 is 
-  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+end example_subsystem6;
+architecture structural of example_subsystem6 is 
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
@@ -30888,6 +30438,8 @@ architecture structural of example_subsystem6_x0 is
   signal q_ce_net : std_logic;
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
 begin
   q <= register11_q_net;
   down_sample1_q_net <= d;
@@ -30896,7 +30448,7 @@ begin
   constant1_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x7 
+  posedge_pulse : entity work.example_posedge_pulse_x3 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -30931,15 +30483,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse_x5 is
+entity example_posedge_pulse_x1 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse_x5;
-architecture structural of example_posedge_pulse_x5 is 
+end example_posedge_pulse_x1;
+architecture structural of example_posedge_pulse_x1 is 
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -30973,7 +30525,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem7_x0 is
+entity example_subsystem7 is
   port (
     d : in std_logic_vector( 18-1 downto 0 );
     reset : in std_logic_vector( 1-1 downto 0 );
@@ -30983,8 +30535,8 @@ entity example_subsystem7_x0 is
     ce_12 : in std_logic;
     q : out std_logic_vector( 18-1 downto 0 )
   );
-end example_subsystem7_x0;
-architecture structural of example_subsystem7_x0 is 
+end example_subsystem7;
+architecture structural of example_subsystem7 is 
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -31002,7 +30554,7 @@ begin
   constant2_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse_x5 
+  posedge_pulse : entity work.example_posedge_pulse_x1 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -31037,20 +30589,20 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_posedge_pulse is
+entity example_posedge_pulse_x4 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     clk_12 : in std_logic;
     ce_12 : in std_logic;
     out1 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_posedge_pulse;
-architecture structural of example_posedge_pulse is 
+end example_posedge_pulse_x4;
+architecture structural of example_posedge_pulse_x4 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical_y_net;
   relational4_op_net <= in1;
@@ -31108,7 +30660,7 @@ begin
   constant2_op_net <= threshold;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  posedge_pulse : entity work.example_posedge_pulse 
+  posedge_pulse : entity work.example_posedge_pulse_x4 
   port map (
     in1 => relational4_op_net,
     clk_12 => d_clk_net,
@@ -31138,6 +30690,112 @@ begin
     op => relational4_op_net
   );
 end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem9/posedge_pulse
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_posedge_pulse_x8 is
+  port (
+    in1 : in std_logic_vector( 1-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    out1 : out std_logic_vector( 1-1 downto 0 )
+  );
+end example_posedge_pulse_x8;
+architecture structural of example_posedge_pulse_x8 is 
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  out1 <= logical_y_net;
+  relational4_op_net <= in1;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  inverter1 : entity work.sysgen_inverter_afe636f99c 
+  port map (
+    clr => '0',
+    ip => relational4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => inverter1_op_net
+  );
+  logical : entity work.sysgen_logical_cfc7fd815b 
+  port map (
+    clr => '0',
+    d0 => relational4_op_net,
+    d1 => inverter1_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    y => logical_y_net
+  );
+end structural;
+-- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/Subsystem9
+library IEEE;
+use IEEE.std_logic_1164.all;
+library work;
+use work.conv_pkg.all;
+entity example_subsystem9 is
+  port (
+    d : in std_logic_vector( 18-1 downto 0 );
+    reset : in std_logic_vector( 1-1 downto 0 );
+    cntr : in std_logic_vector( 16-1 downto 0 );
+    threshold : in std_logic_vector( 16-1 downto 0 );
+    clk_12 : in std_logic;
+    ce_12 : in std_logic;
+    q : out std_logic_vector( 18-1 downto 0 )
+  );
+end example_subsystem9;
+architecture structural of example_subsystem9 is 
+  signal register11_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 16-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+begin
+  q <= register11_q_net;
+  down_sample_q_net <= d;
+  convert3_dout_net <= reset;
+  counter_op_net <= cntr;
+  constant4_op_net <= threshold;
+  d_clk_net <= clk_12;
+  q_ce_net <= ce_12;
+  posedge_pulse : entity work.example_posedge_pulse_x8 
+  port map (
+    in1 => relational4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    out1 => logical_y_net
+  );
+  register11 : entity work.example_xlregister 
+  generic map (
+    d_width => 18,
+    init_value => b"000000000000000000"
+  )
+  port map (
+    d => down_sample_q_net,
+    rst => convert3_dout_net,
+    en => logical_y_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    q => register11_q_net
+  );
+  relational4 : entity work.sysgen_relational_cc115c856c 
+  port map (
+    clr => '0',
+    a => counter_op_net,
+    b => constant4_op_net,
+    clk => d_clk_net,
+    ce => q_ce_net,
+    op => relational4_op_net
+  );
+end structural;
 -- Generated from Simulink block exampleModel_bus_axi/example/dsp/Cav2/c1p2_windowing_func2/four_point_avg
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -31152,6 +30810,11 @@ entity example_four_point_avg is
   );
 end example_four_point_avg;
 architecture structural of example_four_point_avg is 
+  signal addsub2_s_net : std_logic_vector( 18-1 downto 0 );
+  signal cmult1_p_net : std_logic_vector( 18-1 downto 0 );
+  signal cmult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -31159,11 +30822,6 @@ architecture structural of example_four_point_avg is
   signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
   signal cmult4_p_net : std_logic_vector( 18-1 downto 0 );
   signal cmult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub2_s_net : std_logic_vector( 18-1 downto 0 );
-  signal cmult1_p_net : std_logic_vector( 18-1 downto 0 );
-  signal cmult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
 begin
   out1 <= addsub3_s_net;
@@ -31274,7 +30932,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31307,7 +30965,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31340,7 +30998,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31373,7 +31031,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31479,7 +31137,7 @@ begin
   convert2_dout_net <= cav1_p2_dc_tvalid;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  four_point_avg : entity work.example_four_point_avg 
+  four_point_avg_x0 : entity work.example_four_point_avg 
   port map (
     in1 => cordic_6_0_m_axis_dout_tdata_real_net,
     clk_12 => d_clk_net,
@@ -31512,6 +31170,9 @@ entity example_four_point_avg_x0 is
   );
 end example_four_point_avg_x0;
 architecture structural of example_four_point_avg_x0 is 
+  signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal d_clk_net : std_logic;
@@ -31522,9 +31183,6 @@ architecture structural of example_four_point_avg_x0 is
   signal addsub2_s_net : std_logic_vector( 18-1 downto 0 );
   signal cmult1_p_net : std_logic_vector( 18-1 downto 0 );
   signal cmult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 18-1 downto 0 );
 begin
   out1 <= addsub3_s_net;
   cordic_6_0_m_axis_dout_tdata_real_net <= in1;
@@ -31634,7 +31292,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31667,7 +31325,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31700,7 +31358,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31733,7 +31391,7 @@ begin
     c_b_type => 1,
     c_b_width => 18,
     c_output_width => 36,
-    core_name0 => "example_mult_gen_v12_0_i5",
+    core_name0 => "example_mult_gen_v12_0_i6",
     extra_registers => 1,
     multsign => 2,
     overflow => 2,
@@ -31839,7 +31497,7 @@ begin
   convert2_dout_net <= cav1_p2_dc_tvalid;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  four_point_avg : entity work.example_four_point_avg_x0 
+  four_point_avg_x0 : entity work.example_four_point_avg_x0 
   port map (
     in1 => cordic_6_0_m_axis_dout_tdata_real_net,
     clk_12 => d_clk_net,
@@ -31889,6 +31547,30 @@ entity example_c2p1_masking_window1 is
   );
 end example_c2p1_masking_window1;
 architecture structural of example_c2p1_masking_window1 is 
+  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 16-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net : std_logic_vector( 16-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal delay7_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register5_q_net : std_logic_vector( 16-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
+  signal logical2_y_net : std_logic_vector( 1-1 downto 0 );
+  signal down_sample2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
   signal register2_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
@@ -31899,43 +31581,19 @@ architecture structural of example_c2p1_masking_window1 is
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
+  signal addsub4_s_net : std_logic_vector( 16-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
   signal q_ce_net : std_logic;
   signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
   signal constant11_op_net : std_logic_vector( 16-1 downto 0 );
-  signal addsub4_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 16-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
-  signal logical2_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register10_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay7_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register5_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal relational6_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational5_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay2_q_net_x0 : std_logic_vector( 16-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 16-1 downto 0 );
   signal down_sample2_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay6_q_net : std_logic_vector( 16-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
 begin
   counter_x0 <= counter_op_net;
   eval_window <= convert11_dout_net;
@@ -32219,9 +31877,14 @@ begin
     ce => q_ce_net,
     dout => convert8_dout_net
   );
-  counter : entity work.example_xlcounter_free 
+  counter : entity work.example_xlcounter_limit 
   generic map (
+    cnt_15_0 => 32768,
+    cnt_31_16 => 0,
+    cnt_47_32 => 0,
+    cnt_63_48 => 0,
     core_name0 => "example_c_counter_binary_v12_0_i0",
+    count_limited => 1,
     op_arith => xlUnsigned,
     op_width => 16
   )
@@ -32558,12 +32221,12 @@ entity example_subsystem is
   );
 end example_subsystem;
 architecture structural of example_subsystem is 
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
   signal delay3_q_net : std_logic_vector( 1-1 downto 0 );
   signal inverter5_op_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical1_y_net;
   relational3_op_net <= in1;
@@ -32617,13 +32280,13 @@ entity example_subsystem1 is
   );
 end example_subsystem1;
 architecture structural of example_subsystem1 is 
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal logical6_y_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical6_y_net : std_logic_vector( 1-1 downto 0 );
 begin
   logical7_y_net <= lc;
   relational3_op_net <= d;
@@ -32835,7 +32498,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_delay_calc1 is
+entity example_delay_calc1_x0 is
   port (
     wav : in std_logic_vector( 18-1 downto 0 );
     win : in std_logic_vector( 18-1 downto 0 );
@@ -32845,16 +32508,8 @@ entity example_delay_calc1 is
     delay_amt : out std_logic_vector( 16-1 downto 0 );
     delay_fb_latch : out std_logic_vector( 1-1 downto 0 )
   );
-end example_delay_calc1;
-architecture structural of example_delay_calc1 is 
-  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
+end example_delay_calc1_x0;
+architecture structural of example_delay_calc1_x0 is 
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
@@ -32867,6 +32522,14 @@ architecture structural of example_delay_calc1 is
   signal constant2_op_net : std_logic_vector( 2-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal logical3_y_net : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
 begin
   delay_amt <= register2_q_net;
   delay_fb_latch <= delay2_q_net;
@@ -32875,14 +32538,14 @@ begin
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  subsystem_x3 : entity work.example_subsystem 
+  subsystem_x4 : entity work.example_subsystem 
   port map (
     in1 => relational3_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     out1 => logical1_y_net
   );
-  subsystem1_x4 : entity work.example_subsystem1 
+  subsystem1_x5 : entity work.example_subsystem1 
   port map (
     lc => logical7_y_net_x0,
     d => relational3_op_net,
@@ -32890,7 +32553,7 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net
   );
-  subsystem2_x4 : entity work.example_subsystem2 
+  subsystem2_x5 : entity work.example_subsystem2 
   port map (
     lc => logical7_y_net_x0,
     d => relational1_op_net,
@@ -32898,7 +32561,7 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net
   );
-  subsystem3_x3 : entity work.example_subsystem3 
+  subsystem3_x4 : entity work.example_subsystem3 
   port map (
     in1 => relational1_op_net,
     in2 => relational3_op_net,
@@ -32906,7 +32569,7 @@ begin
     ce_12 => q_ce_net,
     or_x0 => logical7_y_net
   );
-  negedge_x3 : entity work.example_negedge 
+  negedge_x4 : entity work.example_negedge 
   port map (
     d => logical7_y_net,
     clk_12 => d_clk_net,
@@ -33046,27 +32709,11 @@ entity example_c2p1_window_wf is
   );
 end example_c2p1_window_wf;
 architecture structural of example_c2p1_window_wf is 
-  signal addsub2_s_net : std_logic_vector( 16-1 downto 0 );
-  signal constant13_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant15_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant20_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant22_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant5_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant6_op_net : std_logic_vector( 18-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
+  signal mult1_p_net : std_logic_vector( 18-1 downto 0 );
   signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal dual_port_ram_douta_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram1_douta_net : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
   signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
@@ -33080,7 +32727,23 @@ architecture structural of example_c2p1_window_wf is
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
+  signal addsub2_s_net : std_logic_vector( 16-1 downto 0 );
+  signal constant13_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant15_op_net : std_logic_vector( 18-1 downto 0 );
+  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal dual_port_ram1_douta_net : std_logic_vector( 18-1 downto 0 );
+  signal constant20_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant22_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant5_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant6_op_net : std_logic_vector( 18-1 downto 0 );
+  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
 begin
   cav_windowed_imag <= mult2_p_net;
   cav_windowed_real <= mult_p_net;
@@ -33105,7 +32768,7 @@ begin
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  delay_calc1 : entity work.example_delay_calc1 
+  delay_calc1_x0 : entity work.example_delay_calc1_x0 
   port map (
     wav => dual_port_ram_doutb_net,
     win => addsub3_s_net,
@@ -33558,12 +33221,12 @@ entity example_subsystem_x0 is
   );
 end example_subsystem_x0;
 architecture structural of example_subsystem_x0 is 
+  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal delay3_q_net : std_logic_vector( 1-1 downto 0 );
   signal inverter5_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical1_y_net : std_logic_vector( 1-1 downto 0 );
 begin
   out1 <= logical1_y_net;
   relational3_op_net <= in1;
@@ -33607,7 +33270,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem1_x1 is
+entity example_subsystem1_x0 is
   port (
     lc : in std_logic_vector( 1-1 downto 0 );
     d : in std_logic_vector( 1-1 downto 0 );
@@ -33615,8 +33278,8 @@ entity example_subsystem1_x1 is
     ce_12 : in std_logic;
     q : out std_logic_vector( 1-1 downto 0 )
   );
-end example_subsystem1_x1;
-architecture structural of example_subsystem1_x1 is 
+end example_subsystem1_x0;
+architecture structural of example_subsystem1_x0 is 
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
@@ -33666,7 +33329,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem2_x1 is
+entity example_subsystem2_x0 is
   port (
     lc : in std_logic_vector( 1-1 downto 0 );
     d : in std_logic_vector( 1-1 downto 0 );
@@ -33674,8 +33337,8 @@ entity example_subsystem2_x1 is
     ce_12 : in std_logic;
     q : out std_logic_vector( 1-1 downto 0 )
   );
-end example_subsystem2_x1;
-architecture structural of example_subsystem2_x1 is 
+end example_subsystem2_x0;
+architecture structural of example_subsystem2_x0 is 
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
@@ -33725,7 +33388,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_subsystem3_x1 is
+entity example_subsystem3_x0 is
   port (
     in1 : in std_logic_vector( 1-1 downto 0 );
     in2 : in std_logic_vector( 1-1 downto 0 );
@@ -33733,8 +33396,8 @@ entity example_subsystem3_x1 is
     ce_12 : in std_logic;
     or_x0 : out std_logic_vector( 1-1 downto 0 )
   );
-end example_subsystem3_x1;
-architecture structural of example_subsystem3_x1 is 
+end example_subsystem3_x0;
+architecture structural of example_subsystem3_x0 is 
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
   signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
@@ -33770,13 +33433,13 @@ entity example_negedge_x0 is
   );
 end example_negedge_x0;
 architecture structural of example_negedge_x0 is 
+  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net : std_logic_vector( 1-1 downto 0 );
   signal logical7_y_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal inverter4_op_net : std_logic_vector( 1-1 downto 0 );
 begin
   q <= logical7_y_net;
   logical7_y_net_x0 <= d;
@@ -33835,7 +33498,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_delay_calc1_x0 is
+entity example_delay_calc1 is
   port (
     wav : in std_logic_vector( 18-1 downto 0 );
     win : in std_logic_vector( 18-1 downto 0 );
@@ -33845,11 +33508,8 @@ entity example_delay_calc1_x0 is
     delay_amt : out std_logic_vector( 16-1 downto 0 );
     delay_fb_latch : out std_logic_vector( 1-1 downto 0 )
   );
-end example_delay_calc1_x0;
-architecture structural of example_delay_calc1_x0 is 
-  signal constant2_op_net : std_logic_vector( 2-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal logical3_y_net : std_logic_vector( 1-1 downto 0 );
+end example_delay_calc1;
+architecture structural of example_delay_calc1 is 
   signal register2_q_net : std_logic_vector( 16-1 downto 0 );
   signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
   signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
@@ -33867,6 +33527,9 @@ architecture structural of example_delay_calc1_x0 is
   signal absolute1_op_net : std_logic_vector( 19-1 downto 0 );
   signal absolute2_op_net : std_logic_vector( 19-1 downto 0 );
   signal constant1_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 2-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal logical3_y_net : std_logic_vector( 1-1 downto 0 );
 begin
   delay_amt <= register2_q_net;
   delay_fb_latch <= delay2_q_net;
@@ -33875,14 +33538,14 @@ begin
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  subsystem_x3 : entity work.example_subsystem_x0 
+  subsystem_x4 : entity work.example_subsystem_x0 
   port map (
     in1 => relational3_op_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     out1 => logical1_y_net
   );
-  subsystem1_x4 : entity work.example_subsystem1_x1 
+  subsystem1_x5 : entity work.example_subsystem1_x0 
   port map (
     lc => logical7_y_net_x0,
     d => relational3_op_net,
@@ -33890,7 +33553,7 @@ begin
     ce_12 => q_ce_net,
     q => register1_q_net
   );
-  subsystem2_x4 : entity work.example_subsystem2_x1 
+  subsystem2_x5 : entity work.example_subsystem2_x0 
   port map (
     lc => logical7_y_net_x0,
     d => relational1_op_net,
@@ -33898,7 +33561,7 @@ begin
     ce_12 => q_ce_net,
     q => register1_q_net_x0
   );
-  subsystem3_x3 : entity work.example_subsystem3_x1 
+  subsystem3_x4 : entity work.example_subsystem3_x0 
   port map (
     in1 => relational1_op_net,
     in2 => relational3_op_net,
@@ -33906,7 +33569,7 @@ begin
     ce_12 => q_ce_net,
     or_x0 => logical7_y_net
   );
-  negedge_x3 : entity work.example_negedge_x0 
+  negedge_x4 : entity work.example_negedge_x0 
   port map (
     d => logical7_y_net,
     clk_12 => d_clk_net,
@@ -34046,6 +33709,8 @@ entity example_c2p2_window_wf is
   );
 end example_c2p2_window_wf;
 architecture structural of example_c2p2_window_wf is 
+  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
   signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
@@ -34062,25 +33727,23 @@ architecture structural of example_c2p2_window_wf is
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register_q_net : std_logic_vector( 16-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal mult1_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal addsub1_s_net : std_logic_vector( 16-1 downto 0 );
   signal addsub2_s_net : std_logic_vector( 16-1 downto 0 );
+  signal dual_port_ram_douta_net : std_logic_vector( 18-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal dual_port_ram1_douta_net : std_logic_vector( 18-1 downto 0 );
   signal constant13_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant15_op_net : std_logic_vector( 18-1 downto 0 );
   signal constant20_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant22_op_net : std_logic_vector( 18-1 downto 0 );
   signal constant5_op_net : std_logic_vector( 18-1 downto 0 );
   signal constant6_op_net : std_logic_vector( 18-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
-  signal dual_port_ram_douta_net : std_logic_vector( 18-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram1_douta_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 18-1 downto 0 );
 begin
   cav_windowed_imag <= mult2_p_net;
   cav_windowed_real <= mult_p_net;
@@ -34105,7 +33768,7 @@ begin
   convert3_dout_net <= reset;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  delay_calc1 : entity work.example_delay_calc1_x0 
+  delay_calc1_x0 : entity work.example_delay_calc1 
   port map (
     wav => dual_port_ram_doutb_net,
     win => addsub3_s_net,
@@ -34668,12 +34331,12 @@ entity example_cav2 is
     gateway_out2_x8 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x8 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x5 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out5_x6 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out6_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out3_x7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out5_x5 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out6_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x6 : out std_logic_vector( 20-1 downto 0 );
@@ -34691,82 +34354,82 @@ entity example_cav2 is
     gateway_out23 : out std_logic_vector( 20-1 downto 0 );
     gateway_out3_x6 : out std_logic_vector( 32-1 downto 0 );
     gateway_out4_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out5_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out8 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out1_x5 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out2_x5 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x7 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out27_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out4_x4 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out5_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out6_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x8 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out4_x5 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out5_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out6_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out9_x1 : out std_logic_vector( 16-1 downto 0 );
     gateway_out24_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25_x0 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out26 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out6_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x2 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out8_x2 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out24 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out25 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out8_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out24 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out25 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out26 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out6_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out8_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out44_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out1_x7 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x7 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out20_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x7 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out27_x2 : out std_logic_vector( 19-1 downto 0 );
-    gateway_out28_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out2_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out20 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out27_x0 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out28_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out3_x3 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x1 : out std_logic_vector( 10-1 downto 0 );
+    gateway_out1_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2 : out std_logic_vector( 10-1 downto 0 );
     gateway_out44 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out20 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out20_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out27 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out3_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x5 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x5 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out5_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x4 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out1_x4 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out1_x2 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x3 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out5_x2 : out std_logic_vector( 1-1 downto 0 );
@@ -34775,110 +34438,46 @@ entity example_cav2 is
     gateway_out34_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out38_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out10 : out std_logic_vector( 1-1 downto 0 );
     gateway_out11_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x1 : out std_logic_vector( 18-1 downto 0 )
+    gateway_out38 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x0 : out std_logic_vector( 18-1 downto 0 )
   );
 end example_cav2;
 architecture structural of example_cav2 is 
-  signal ddci : std_logic_vector( 18-1 downto 0 );
-  signal phase : std_logic_vector( 18-1 downto 0 );
   signal channel : std_logic_vector( 4-1 downto 0 );
   signal ddcq : std_logic_vector( 18-1 downto 0 );
   signal ddcchannel : std_logic_vector( 4-1 downto 0 );
-  signal ddcsync : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal addsub3_s_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal counter_op_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal convert5_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x4 : std_logic_vector( 16-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal mult2_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal addsub_s_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal convert11_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal counter_op_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal convert5_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register12_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal amp : std_logic_vector( 18-1 downto 0 );
-  signal register7_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal addsub3_s_net_x2 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal ddci : std_logic_vector( 18-1 downto 0 );
+  signal phase : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x6 : std_logic_vector( 33-1 downto 0 );
+  signal convert10_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x5 : std_logic_vector( 33-1 downto 0 );
+  signal register33_q_net_x0 : std_logic_vector( 33-1 downto 0 );
   signal register2_q_net_x2 : std_logic_vector( 10-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal addsub3_s_net_x1 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x1 : std_logic_vector( 10-1 downto 0 );
-  signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal q_clk_net : std_logic;
-  signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal dds_compiler_6_0_m_axis_data_tvalid_net : std_logic;
@@ -34886,81 +34485,65 @@ architecture structural of example_cav2 is
   signal register8_q_net : std_logic_vector( 1-1 downto 0 );
   signal down_sample7_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x5 : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net_x4 : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 16-1 downto 0 );
+  signal constant5_op_net : std_logic_vector( 16-1 downto 0 );
   signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal constant1_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
-  signal clock_enable_probe_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal down_sample1_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal amp : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net_x3 : std_logic_vector( 16-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal mult_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
-  signal down_sample_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal nco_sin : std_logic_vector( 26-1 downto 0 );
-  signal nco_cos : std_logic_vector( 26-1 downto 0 );
-  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal addsub_s_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x9 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x10 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register7_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal q_clk_net : std_logic;
+  signal d_ce_net : std_logic;
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal down_sample1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
   signal register31_q_net : std_logic_vector( 16-1 downto 0 );
   signal register32_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal counter_op_net : std_logic_vector( 16-1 downto 0 );
   signal register33_q_net : std_logic_vector( 16-1 downto 0 );
   signal register34_q_net : std_logic_vector( 16-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register12_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
   signal inverter_op_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register12_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x5 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register11_q_net_x6 : std_logic_vector( 32-1 downto 0 );
-  signal delay5_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal register12_q_net : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal addsub3_s_net_x2 : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 16-1 downto 0 );
+  signal clock_enable_probe_q_net : std_logic_vector( 1-1 downto 0 );
   signal clock_enable_probe1_q_net : std_logic_vector( 1-1 downto 0 );
   signal complex_multiplier_6_0_m_axis_dout_tvalid_net : std_logic;
   signal complex_multiplier_6_0_m_axis_dout_tdata_imag_net : std_logic_vector( 33-1 downto 0 );
@@ -34972,14 +34555,100 @@ architecture structural of example_cav2 is
   signal down_sample1_q_net : std_logic;
   signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net_x6 : std_logic_vector( 33-1 downto 0 );
-  signal convert10_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register32_q_net_x0 : std_logic_vector( 33-1 downto 0 );
-  signal register1_q_net_x5 : std_logic_vector( 33-1 downto 0 );
-  signal register33_q_net_x0 : std_logic_vector( 33-1 downto 0 );
+  signal ddcsync : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal addsub3_s_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal counter_op_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal convert5_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal dual_port_ram_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram1_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
   signal register10_q_net : std_logic_vector( 18-1 downto 0 );
   signal register9_q_net : std_logic_vector( 32-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal mult2_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal mult_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x11 : std_logic_vector( 18-1 downto 0 );
+  signal convert11_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal convert5_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register11_q_net_x7 : std_logic_vector( 32-1 downto 0 );
+  signal delay5_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert7_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x8 : std_logic_vector( 18-1 downto 0 );
+  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x4 : std_logic_vector( 16-1 downto 0 );
+  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
+  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal register12_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x5 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x1 : std_logic_vector( 10-1 downto 0 );
+  signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal relational1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal nco_sin : std_logic_vector( 26-1 downto 0 );
+  signal nco_cos : std_logic_vector( 26-1 downto 0 );
+  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
+  signal down_sample1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
 begin
   amp <= pa_stream_1;
   ddci <= iq_stream_1;
@@ -34998,29 +34667,29 @@ begin
   c2p2_pt_cntr <= counter_op_net_x1;
   c2p2_integral_logic <= convert5_dout_net_x1;
   c2p2_delay_match <= register_q_net_x1;
-  cav2_p2_delayed_dc_img <= dual_port_ram_doutb_net;
-  cav2_p2_delayed_dc_real <= dual_port_ram1_doutb_net;
-  cav2_p1_delayed_dc_img <= dual_port_ram_doutb_net_x0;
+  cav2_p2_delayed_dc_img <= dual_port_ram_doutb_net_x0;
+  cav2_p2_delayed_dc_real <= dual_port_ram1_doutb_net_x0;
+  cav2_p1_delayed_dc_img <= dual_port_ram_doutb_net;
   cav2_p2_dc_real <= convert6_dout_net;
   cav2_p2_dc_img <= convert2_dout_net_x2;
   cav2_p2_dc_freq <= convert1_dout_net_x1;
-  cav2_p2_phase_out <= register13_q_net;
-  cav2_p2_amp_out <= register14_q_net;
-  cav2_p2_comparison_i <= addsub_s_net;
-  cav2_p2_comparison_q <= addsub_s_net;
+  cav2_p2_phase_out <= register13_q_net_x0;
+  cav2_p2_amp_out <= register14_q_net_x0;
+  cav2_p2_comparison_i <= addsub_s_net_x0;
+  cav2_p2_comparison_q <= addsub_s_net_x0;
   cav2_p2_comparison_phase <= register3_q_net;
-  cav2_p1_delayed_dc_real <= dual_port_ram1_doutb_net_x0;
-  cav2_p2_if_amp <= down_sample1_q_net_x5;
-  cav2_p2_if_phase <= down_sample_q_net_x5;
+  cav2_p1_delayed_dc_real <= dual_port_ram1_doutb_net;
+  cav2_p2_if_amp <= register11_q_net_x9;
+  cav2_p2_if_phase <= register11_q_net_x10;
   cav2_p1_if_q <= register11_q_net_x3;
   cav2_p1_if_i <= register11_q_net_x2;
-  cav2_p2_ref_phase_out <= register11_q_net_x4;
-  cav2_p2_ref_amp_out <= register12_q_net_x0;
+  cav2_p2_ref_phase_out <= register11_q_net_x6;
+  cav2_p2_ref_amp_out <= register12_q_net_x1;
   cav2_p2_integrated_ref_i <= convert2_dout_net;
   cav2_p2_integrated_ref_q <= convert4_dout_net;
   cav2_p2_integrated_i <= convert9_dout_net;
   dsp_cav2_reset <= convert3_dout_net_x1;
-  c2_p1_delay_amt <= register2_q_net_x4;
+  c2_p1_delay_amt <= register2_q_net_x3;
   cav2_p2_integrated_q <= convert10_dout_net;
   cav2_p1_windowed_ref_i <= mult4_p_net_x0;
   cav2_p1_windowed_ref_q <= mult5_p_net_x0;
@@ -35030,35 +34699,35 @@ begin
   cav2_p1_integrated_ref_q <= convert4_dout_net_x0;
   cav2_p1_integrated_i <= convert9_dout_net_x0;
   cav2_p1_integrated_q <= convert10_dout_net_x0;
-  cav2_p1_comparison_i <= addsub_s_net_x0;
+  cav2_p1_comparison_i <= addsub_s_net;
   cav2_p1_ref_phase_out <= register11_q_net_x5;
-  cav2_p1_comparison_q <= addsub_s_net_x0;
-  cav2_p1_comparison_phase <= register11_q_net_x7;
+  cav2_p1_comparison_q <= addsub_s_net;
+  cav2_p1_comparison_phase <= register11_q_net_x11;
   c2p1_pt_window <= convert11_dout_net_x0;
   c2p1_pt_cntr <= counter_op_net_x0;
   c2p1_integral_logic <= convert5_dout_net_x0;
-  cav2_p1_ref_amp_out <= register12_q_net_x1;
-  c2_p1_delay_latch <= delay2_q_net_x0;
-  cav2_p1_phase_out <= register13_q_net_x0;
-  cav2_p1_amp_out <= register14_q_net_x0;
+  cav2_p1_ref_amp_out <= register12_q_net_x0;
+  c2_p1_delay_latch <= delay2_q_net;
+  cav2_p1_phase_out <= register13_q_net;
+  cav2_p1_amp_out <= register14_q_net;
   flo_c2p2_window <= convert2_dout_net_x4;
-  cav2_p1_if_amp <= down_sample1_q_net_x3;
+  cav2_p1_if_amp <= register11_q_net_x8;
   c2p2_ready <= relational2_op_net;
   c2p2_freq_err <= convert1_dout_net_x1;
-  c2_p2_delay_latch <= delay2_q_net;
+  c2_p2_delay_latch <= delay2_q_net_x0;
   c2p2_window_func <= addsub3_s_net;
   cav2_nco_fb <= convert_dout_net_x0;
-  c2_p2_delay_amt <= register2_q_net_x3;
+  c2_p2_delay_amt <= register2_q_net_x4;
   cav2_p2_windowed_img <= mult2_p_net;
   cav2_p2_windowed_real <= mult_p_net_x1;
   cav2_p2_windowed_ref_i <= mult4_p_net;
   cav2_p2_windowed_ref_q <= mult5_p_net;
-  cav2_p1_if_phase <= down_sample_q_net_x3;
-  c2p1_delay_match <= register_q_net;
+  cav2_p1_if_phase <= register11_q_net_x4;
+  c2p1_delay_match <= register_q_net_x0;
   cav2_p2_if_i <= register11_q_net_x1;
   cav2_sync <= down_sample2_q_net;
   c2_ready <= logical_y_net_x0;
-  c2p1_ready <= relational1_op_net_x0;
+  c2p1_ready <= relational1_op_net_x1;
   cav2_nco_sin <= nco_sin;
   cav2_nco_cos <= nco_cos;
   c2_stream_valid <= relational7_op_net;
@@ -35066,132 +34735,132 @@ begin
   register29_q_net <= cav2_p1_chan_sel;
   register35_q_net <= cav2_nco_phase_reset;
   register30_q_net <= cav2_p2_chan_sel;
-  down_sample1_q_net_x1 <= rf_ref_amp;
-  down_sample_q_net_x1 <= rf_ref_phase;
-  down_sample_q_net_x2 <= rf_ref_q;
+  down_sample1_q_net_x2 <= rf_ref_amp;
+  down_sample_q_net_x2 <= rf_ref_phase;
+  down_sample_q_net_x1 <= rf_ref_q;
   register36_q_net <= cav2_nco_phase_adj;
-  down_sample1_q_net_x2 <= rf_ref_i;
+  down_sample1_q_net_x1 <= rf_ref_i;
   register31_q_net <= cav2_p1_window_start;
   register32_q_net <= cav2_p1_window_stop;
-  register1_q_net_x1 <= cav2_p1_cal_coef;
+  register1_q_net_x0 <= cav2_p1_cal_coef;
   register2_q_net_x0 <= cav2_p2_cal_coef;
   convert3_dout_net <= reset;
   counter_op_net <= c1p2_pt_cntr;
   register33_q_net <= cav2_p2_window_start;
   register34_q_net <= cav2_p2_window_stop;
-  gateway_out_x2 <= inverter_op_net;
+  gateway_out_x2 <= inverter_op_net_x0;
   gateway_out1_x8 <= convert2_dout_net;
   gateway_out10_x2 <= mult4_p_net;
-  gateway_out11_x4 <= register1_q_net_x0;
+  gateway_out11_x4 <= register1_q_net;
   gateway_out12_x0 <= convert4_dout_net;
   gateway_out13_x0 <= register12_q_net;
   gateway_out14_x0 <= mult5_p_net;
   gateway_out15_x0 <= register2_q_net;
-  gateway_out16_x0 <= inverter3_op_net_x0;
+  gateway_out16_x0 <= inverter3_op_net;
   gateway_out17_x0 <= accumulator3_q_net;
-  gateway_out18_x0 <= register1_q_net_x0;
+  gateway_out18_x0 <= register1_q_net;
   gateway_out2_x8 <= inverter2_op_net_x0;
   gateway_out22_x0 <= convert9_dout_net;
   gateway_out23_x0 <= convert10_dout_net;
-  gateway_out3_x8 <= accumulator_q_net;
-  gateway_out4_x5 <= accumulator2_q_net;
-  gateway_out5_x6 <= mult2_p_net;
-  gateway_out6_x4 <= inverter1_op_net;
-  gateway_out7_x3 <= accumulator1_q_net;
-  gateway_out8_x3 <= mult_p_net_x1;
+  gateway_out3_x7 <= accumulator_q_net;
+  gateway_out4_x4 <= accumulator2_q_net;
+  gateway_out5_x5 <= mult2_p_net;
+  gateway_out6_x1 <= inverter1_op_net_x0;
+  gateway_out7_x0 <= accumulator1_q_net;
+  gateway_out8_x0 <= mult_p_net_x1;
   gateway_out9_x0 <= register11_q_net;
-  gateway_out_x1 <= inverter_op_net_x0;
+  gateway_out_x1 <= inverter_op_net;
   gateway_out1_x6 <= convert2_dout_net_x0;
   gateway_out10_x1 <= mult4_p_net_x0;
-  gateway_out11_x2 <= register1_q_net;
+  gateway_out11_x2 <= register1_q_net_x3;
   gateway_out12 <= convert4_dout_net_x0;
   gateway_out13 <= register12_q_net_x2;
   gateway_out14 <= mult5_p_net_x0;
   gateway_out15 <= register2_q_net_x5;
-  gateway_out16 <= inverter3_op_net;
+  gateway_out16 <= inverter3_op_net_x0;
   gateway_out17 <= accumulator3_q_net_x0;
-  gateway_out18 <= register1_q_net;
+  gateway_out18 <= register1_q_net_x3;
   gateway_out2_x6 <= inverter2_op_net;
   gateway_out22 <= convert9_dout_net_x0;
   gateway_out23 <= convert10_dout_net_x0;
   gateway_out3_x6 <= accumulator_q_net_x0;
   gateway_out4_x3 <= accumulator2_q_net_x0;
-  gateway_out5_x3 <= mult2_p_net_x0;
-  gateway_out6_x0 <= inverter1_op_net_x0;
+  gateway_out5_x4 <= mult2_p_net_x0;
+  gateway_out6_x0 <= inverter1_op_net;
   gateway_out7 <= accumulator1_q_net_x0;
   gateway_out8 <= mult_p_net_x2;
-  gateway_out9 <= register11_q_net_x6;
+  gateway_out9 <= register11_q_net_x7;
   gateway_out1_x5 <= delay5_q_net_x1;
-  gateway_out2_x5 <= delay3_q_net_x0;
-  gateway_out27_x1 <= relational4_op_net_x0;
-  gateway_out28_x1 <= relational3_op_net_x0;
+  gateway_out2_x7 <= delay3_q_net_x0;
+  gateway_out27_x2 <= relational4_op_net_x0;
+  gateway_out28_x2 <= relational3_op_net_x0;
   gateway_out29_x2 <= convert11_dout_net_x1;
-  gateway_out3_x5 <= convert7_dout_net_x0;
-  gateway_out4_x4 <= counter_op_net_x1;
-  gateway_out5_x5 <= convert5_dout_net_x1;
-  gateway_out6_x3 <= convert3_dout_net_x1;
-  gateway_out7_x2 <= register1_q_net_x3;
-  gateway_out8_x2 <= convert2_dout_net_x4;
+  gateway_out3_x8 <= convert7_dout_net_x0;
+  gateway_out4_x5 <= counter_op_net_x1;
+  gateway_out5_x6 <= convert5_dout_net_x1;
+  gateway_out6_x4 <= convert3_dout_net_x1;
+  gateway_out7_x3 <= register1_q_net_x4;
+  gateway_out8_x3 <= convert2_dout_net_x4;
   gateway_out9_x1 <= delay8_q_net;
   gateway_out24_x0 <= convert5_dout_net_x0;
   gateway_out25_x0 <= convert10_dout_net_x0;
-  gateway_out26_x0 <= convert9_dout_net_x0;
-  gateway_out6_x2 <= convert5_dout_net_x0;
-  gateway_out7_x1 <= convert4_dout_net_x0;
-  gateway_out8_x1 <= convert2_dout_net_x0;
+  gateway_out26 <= convert9_dout_net_x0;
+  gateway_out6_x3 <= convert5_dout_net_x0;
+  gateway_out7_x2 <= convert4_dout_net_x0;
+  gateway_out8_x2 <= convert2_dout_net_x0;
   gateway_out24 <= convert5_dout_net_x1;
   gateway_out25 <= convert10_dout_net;
-  gateway_out26 <= convert9_dout_net;
-  gateway_out6_x1 <= convert5_dout_net_x1;
-  gateway_out7_x0 <= convert4_dout_net;
-  gateway_out8_x0 <= convert2_dout_net;
+  gateway_out26_x0 <= convert9_dout_net;
+  gateway_out6_x2 <= convert5_dout_net_x1;
+  gateway_out7_x1 <= convert4_dout_net;
+  gateway_out8_x1 <= convert2_dout_net;
   gateway_out44_x0 <= mult_p_net_x1;
   gateway_out46_x0 <= mult2_p_net;
   gateway_out1_x7 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
   gateway_out11_x3 <= convert_dout_net_x0;
   gateway_out19_x0 <= mult3_p_net_x2;
-  gateway_out2_x7 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
-  gateway_out20_x0 <= convert2_dout_net_x4;
-  gateway_out3_x7 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
-  gateway_out5_x4 <= convert1_dout_net_x1;
-  gateway_out27_x2 <= addsub3_s_net_x2;
-  gateway_out28_x2 <= register_q_net_x2;
-  gateway_out29_x0 <= register1_q_net_x4;
-  gateway_out3_x3 <= mult1_p_net_x0;
+  gateway_out2_x2 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
+  gateway_out20 <= convert2_dout_net_x4;
+  gateway_out3_x3 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
+  gateway_out5_x1 <= convert1_dout_net_x1;
+  gateway_out27_x0 <= addsub3_s_net_x2;
+  gateway_out28_x0 <= register_q_net_x2;
+  gateway_out29_x0 <= register1_q_net_x2;
+  gateway_out3_x2 <= mult1_p_net_x0;
   gateway_out_x0 <= mult3_p_net_x2;
-  gateway_out1_x3 <= relational1_op_net_x1;
-  gateway_out2_x2 <= delay5_q_net_x2;
-  gateway_out3_x2 <= register_q_net_x2;
-  gateway_out4_x0 <= register1_q_net_x4;
-  gateway_out5_x1 <= convert3_dout_net_x2;
-  gateway_out1_x2 <= mult_p_net_x0;
-  gateway_out2_x1 <= register2_q_net_x2;
+  gateway_out1_x1 <= relational1_op_net_x0;
+  gateway_out2_x1 <= delay5_q_net_x2;
+  gateway_out3_x1 <= register_q_net_x2;
+  gateway_out4 <= register1_q_net_x2;
+  gateway_out5_x0 <= convert3_dout_net_x2;
+  gateway_out1_x0 <= mult_p_net_x0;
+  gateway_out2 <= register2_q_net_x2;
   gateway_out44 <= mult_p_net_x2;
   gateway_out46 <= mult2_p_net_x0;
-  gateway_out1_x1 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
+  gateway_out1 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
   gateway_out11 <= convert_dout_net;
   gateway_out19 <= mult3_p_net;
-  gateway_out2 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
-  gateway_out20 <= convert2_dout_net_x3;
-  gateway_out3_x1 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
-  gateway_out5_x0 <= convert1_dout_net_x0;
+  gateway_out2_x0 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
+  gateway_out20_x0 <= convert2_dout_net_x3;
+  gateway_out3_x0 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
+  gateway_out5 <= convert1_dout_net_x0;
   gateway_out6 <= logical_y_net;
   gateway_out27 <= addsub3_s_net_x1;
-  gateway_out28 <= register_q_net_x0;
-  gateway_out29 <= register1_q_net_x2;
-  gateway_out3_x0 <= mult1_p_net;
+  gateway_out28 <= register_q_net;
+  gateway_out29 <= register1_q_net_x1;
+  gateway_out3 <= mult1_p_net;
   gateway_out <= mult3_p_net;
-  gateway_out1 <= relational1_op_net;
-  gateway_out2_x0 <= delay5_q_net_x0;
-  gateway_out3 <= register_q_net_x0;
-  gateway_out4 <= register1_q_net_x2;
-  gateway_out5 <= convert3_dout_net_x0;
-  gateway_out1_x0 <= mult_p_net;
+  gateway_out1_x4 <= relational1_op_net;
+  gateway_out2_x5 <= delay5_q_net_x0;
+  gateway_out3_x5 <= register_q_net;
+  gateway_out4_x2 <= register1_q_net_x1;
+  gateway_out5_x3 <= convert3_dout_net_x0;
+  gateway_out1_x3 <= mult_p_net;
   gateway_out2_x4 <= register2_q_net_x1;
-  gateway_out1_x4 <= delay5_q_net;
+  gateway_out1_x2 <= delay5_q_net;
   gateway_out2_x3 <= delay3_q_net;
-  gateway_out27_x0 <= relational4_op_net;
-  gateway_out28_x0 <= relational3_op_net;
+  gateway_out27_x1 <= relational4_op_net;
+  gateway_out28_x1 <= relational3_op_net;
   gateway_out29_x1 <= convert11_dout_net_x0;
   gateway_out3_x4 <= convert7_dout_net;
   gateway_out5_x2 <= convert5_dout_net_x0;
@@ -35200,15 +34869,15 @@ begin
   gateway_out34_x0 <= convert11_dout_net_x0;
   gateway_out35_x0 <= mult4_p_net_x0;
   gateway_out37_x0 <= convert11_dout_net_x0;
-  gateway_out38 <= mult5_p_net_x0;
-  gateway_out4_x2 <= mult3_p_net_x1;
+  gateway_out38_x0 <= mult5_p_net_x0;
+  gateway_out4_x1 <= mult3_p_net_x1;
   gateway_out10 <= convert11_dout_net_x1;
   gateway_out11_x0 <= mult2_p_net;
   gateway_out34 <= convert11_dout_net_x1;
   gateway_out35 <= mult4_p_net;
   gateway_out37 <= convert11_dout_net_x1;
-  gateway_out38_x0 <= mult5_p_net;
-  gateway_out4_x1 <= mult3_p_net_x0;
+  gateway_out38 <= mult5_p_net;
+  gateway_out4_x0 <= mult3_p_net_x0;
   convert2_dout_net_x1 <= cav1_p2_dc_tvalid;
   q_clk_net <= clk_1;
   d_ce_net <= ce_1;
@@ -35226,7 +34895,7 @@ begin
     nco_out_1 => nco_sin,
     nco_out_2 => nco_cos
   );
-  iq_integration : entity work.example_iq_integration 
+  iq_integration : entity work.example_iq_integration_x0 
   port map (
     cav_windowed_imag => mult2_p_net,
     cav_windowed_real => mult_p_net_x1,
@@ -35239,21 +34908,21 @@ begin
     cav_int_i => convert9_dout_net,
     ref_int_i => convert2_dout_net,
     ref_int_q => convert4_dout_net,
-    gateway_out => inverter_op_net,
+    gateway_out => inverter_op_net_x0,
     gateway_out1 => convert2_dout_net,
-    gateway_out11 => register1_q_net_x0,
+    gateway_out11 => register1_q_net,
     gateway_out12 => convert4_dout_net,
     gateway_out13 => register12_q_net,
     gateway_out15 => register2_q_net,
-    gateway_out16 => inverter3_op_net_x0,
+    gateway_out16 => inverter3_op_net,
     gateway_out17 => accumulator3_q_net,
-    gateway_out18 => register1_q_net_x0,
+    gateway_out18 => register1_q_net,
     gateway_out2 => inverter2_op_net_x0,
     gateway_out22 => convert9_dout_net,
     gateway_out23 => convert10_dout_net,
     gateway_out3 => accumulator_q_net,
     gateway_out4 => accumulator2_q_net,
-    gateway_out6 => inverter1_op_net,
+    gateway_out6 => inverter1_op_net_x0,
     gateway_out7 => accumulator1_q_net,
     gateway_out9 => register11_q_net
   );
@@ -35270,31 +34939,31 @@ begin
     cav_int_i => convert9_dout_net_x0,
     ref_int_i => convert2_dout_net_x0,
     ref_int_q => convert4_dout_net_x0,
-    gateway_out => inverter_op_net_x0,
+    gateway_out => inverter_op_net,
     gateway_out1 => convert2_dout_net_x0,
-    gateway_out11 => register1_q_net,
+    gateway_out11 => register1_q_net_x3,
     gateway_out12 => convert4_dout_net_x0,
     gateway_out13 => register12_q_net_x2,
     gateway_out15 => register2_q_net_x5,
-    gateway_out16 => inverter3_op_net,
+    gateway_out16 => inverter3_op_net_x0,
     gateway_out17 => accumulator3_q_net_x0,
-    gateway_out18 => register1_q_net,
+    gateway_out18 => register1_q_net_x3,
     gateway_out2 => inverter2_op_net,
     gateway_out22 => convert9_dout_net_x0,
     gateway_out23 => convert10_dout_net_x0,
     gateway_out3 => accumulator_q_net_x0,
     gateway_out4 => accumulator2_q_net_x0,
-    gateway_out6 => inverter1_op_net_x0,
+    gateway_out6 => inverter1_op_net,
     gateway_out7 => accumulator1_q_net_x0,
-    gateway_out9 => register11_q_net_x6
+    gateway_out9 => register11_q_net_x7
   );
-  masking_n_delay : entity work.example_masking_n_delay 
+  masking_n_delay : entity work.example_masking_n_delay_x0 
   port map (
     phi_reset_trig => down_sample2_q_net,
     start_pt => register33_q_net,
     stop_pt => register34_q_net,
-    delay_amt => register2_q_net_x3,
-    delay_latch => delay2_q_net,
+    delay_amt => register2_q_net_x4,
+    delay_latch => delay2_q_net_x0,
     clk_1 => q_clk_net,
     ce_1 => d_ce_net,
     clk_12 => d_clk_net,
@@ -35315,7 +34984,7 @@ begin
     gateway_out4 => counter_op_net_x1,
     gateway_out5 => convert5_dout_net_x1,
     gateway_out6 => convert3_dout_net_x1,
-    gateway_out7 => register1_q_net_x3,
+    gateway_out7 => register1_q_net_x4,
     gateway_out8 => convert2_dout_net_x4,
     gateway_out9 => delay8_q_net
   );
@@ -35329,13 +34998,13 @@ begin
     cal_coefficient => down_sample7_q_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    phi_diff => addsub_s_net_x0,
+    phi_diff => addsub_s_net,
     ref_phi_out => register11_q_net_x5,
-    ref_amp_out => register12_q_net_x1,
-    cav_phi_out => register13_q_net_x0,
-    cav_amp_out => register14_q_net_x0
+    ref_amp_out => register12_q_net_x0,
+    cav_phi_out => register13_q_net,
+    cav_amp_out => register14_q_net
   );
-  pa_conversion2 : entity work.example_pa_conversion2 
+  pa_conversion2 : entity work.example_pa_conversion2_x0 
   port map (
     cav_int_q => convert10_dout_net,
     cav_int_i => convert9_dout_net,
@@ -35345,13 +35014,13 @@ begin
     cal_coefficient => down_sample3_q_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    phi_diff => addsub_s_net,
-    ref_phi_out => register11_q_net_x4,
-    ref_amp_out => register12_q_net_x0,
-    cav_phi_out => register13_q_net,
-    cav_amp_out => register14_q_net
+    phi_diff => addsub_s_net_x0,
+    ref_phi_out => register11_q_net_x6,
+    ref_amp_out => register12_q_net_x1,
+    cav_phi_out => register13_q_net_x0,
+    cav_amp_out => register14_q_net_x0
   );
-  pa_select : entity work.example_pa_select 
+  pa_select : entity work.example_pa_select_x1 
   port map (
     pa_bus_1 => amp,
     pa_chan_sel => register29_q_net,
@@ -35364,7 +35033,7 @@ begin
     amp => down_sample1_q_net_x3,
     phase => down_sample_q_net_x3
   );
-  pa_select1 : entity work.example_pa_select1 
+  pa_select1 : entity work.example_pa_select1_x0 
   port map (
     pa_bus_1 => amp,
     pa_chan_sel => register30_q_net,
@@ -35377,7 +35046,7 @@ begin
     amp => down_sample1_q_net_x5,
     phase => down_sample_q_net_x5
   );
-  subsystem1_x4 : entity work.example_subsystem1_x0 
+  subsystem1_x5 : entity work.example_subsystem1_x1 
   port map (
     iq_stream_in_1 => ddci,
     iq_chan_sel => register30_q_net,
@@ -35391,7 +35060,37 @@ begin
     ddci => down_sample1_q_net_x4,
     ddcq => down_sample_q_net_x4
   );
-  subsystem2_x4 : entity work.example_subsystem2_x0 
+  subsystem10 : entity work.example_subsystem10_x0 
+  port map (
+    d => down_sample1_q_net_x3,
+    reset => convert3_dout_net,
+    cntr => counter_op_net,
+    threshold => constant4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x8
+  );
+  subsystem11 : entity work.example_subsystem11_x0 
+  port map (
+    d => down_sample1_q_net_x5,
+    reset => convert3_dout_net,
+    cntr => counter_op_net,
+    threshold => constant5_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x9
+  );
+  subsystem12 : entity work.example_subsystem12_x0 
+  port map (
+    d => down_sample_q_net_x5,
+    reset => convert3_dout_net,
+    cntr => counter_op_net,
+    threshold => constant5_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x10
+  );
+  subsystem2_x5 : entity work.example_subsystem2_x1 
   port map (
     imag => mult2_p_net,
     real => mult_p_net_x1,
@@ -35412,18 +35111,18 @@ begin
     gateway_out5_x0 => convert1_dout_net_x1,
     gateway_out27 => addsub3_s_net_x2,
     gateway_out28 => register_q_net_x2,
-    gateway_out29 => register1_q_net_x4,
+    gateway_out29 => register1_q_net_x2,
     gateway_out3_x1 => mult1_p_net_x0,
     gateway_out => mult3_p_net_x2,
-    gateway_out1_x1 => relational1_op_net_x1,
+    gateway_out1_x1 => relational1_op_net_x0,
     gateway_out2_x1 => delay5_q_net_x2,
     gateway_out3_x0 => register_q_net_x2,
-    gateway_out4 => register1_q_net_x4,
+    gateway_out4 => register1_q_net_x2,
     gateway_out5 => convert3_dout_net_x2,
     gateway_out1 => mult_p_net_x0,
     gateway_out2 => register2_q_net_x2
   );
-  subsystem3_x3 : entity work.example_subsystem3_x0 
+  subsystem3_x4 : entity work.example_subsystem3_x1 
   port map (
     iq_stream_in_1 => ddci,
     iq_chan_sel => register29_q_net,
@@ -35459,14 +35158,14 @@ begin
     gateway_out5_x0 => convert1_dout_net_x0,
     gateway_out6 => logical_y_net,
     gateway_out27 => addsub3_s_net_x1,
-    gateway_out28 => register_q_net_x0,
-    gateway_out29 => register1_q_net_x2,
+    gateway_out28 => register_q_net,
+    gateway_out29 => register1_q_net_x1,
     gateway_out3_x1 => mult1_p_net,
     gateway_out => mult3_p_net,
     gateway_out1_x1 => relational1_op_net,
     gateway_out2_x1 => delay5_q_net_x0,
-    gateway_out3_x0 => register_q_net_x0,
-    gateway_out4 => register1_q_net_x2,
+    gateway_out3_x0 => register_q_net,
+    gateway_out4 => register1_q_net_x1,
     gateway_out5 => convert3_dout_net_x0,
     gateway_out1 => mult_p_net,
     gateway_out2 => register2_q_net_x1
@@ -35481,7 +35180,7 @@ begin
     ce_12 => q_ce_net,
     q => register11_q_net_x0
   );
-  subsystem6 : entity work.example_subsystem6_x0 
+  subsystem6 : entity work.example_subsystem6 
   port map (
     d => down_sample1_q_net_x4,
     reset => convert3_dout_net,
@@ -35491,7 +35190,7 @@ begin
     ce_12 => q_ce_net,
     q => register11_q_net_x1
   );
-  subsystem7 : entity work.example_subsystem7_x0 
+  subsystem7 : entity work.example_subsystem7 
   port map (
     d => down_sample1_q_net_x0,
     reset => convert3_dout_net,
@@ -35511,7 +35210,17 @@ begin
     ce_12 => q_ce_net,
     q => register11_q_net_x3
   );
-  c1p2_windowing_func2 : entity work.example_c1p2_windowing_func2 
+  subsystem9 : entity work.example_subsystem9 
+  port map (
+    d => down_sample_q_net_x3,
+    reset => convert3_dout_net,
+    cntr => counter_op_net,
+    threshold => constant4_op_net,
+    clk_12 => d_clk_net,
+    ce_12 => q_ce_net,
+    q => register11_q_net_x4
+  );
+  c1p2_windowing_func2_x0 : entity work.example_c1p2_windowing_func2 
   port map (
     imag => convert2_dout_net_x2,
     real => convert6_dout_net,
@@ -35538,8 +35247,8 @@ begin
     phi_reset_trig => down_sample2_q_net,
     start_pt => register31_q_net,
     stop_pt => register32_q_net,
-    delay_amt => register2_q_net_x4,
-    delay_latch => delay2_q_net_x0,
+    delay_amt => register2_q_net_x3,
+    delay_latch => delay2_q_net,
     clk_1 => q_clk_net,
     ce_1 => d_ce_net,
     clk_12 => d_clk_net,
@@ -35548,7 +35257,7 @@ begin
     eval_window => convert11_dout_net_x0,
     integral_trig => convert5_dout_net_x0,
     flo_window => convert2_dout_net_x3,
-    delay_val => register_q_net,
+    delay_val => register_q_net_x0,
     gateway_out1 => delay5_q_net,
     gateway_out2 => delay3_q_net,
     gateway_out27 => relational4_op_net,
@@ -35561,13 +35270,13 @@ begin
   port map (
     cav_img => convert5_dout_net,
     cav_real => convert1_dout_net,
-    ref_img => down_sample_q_net_x2,
-    ref_real => down_sample1_q_net_x2,
+    ref_img => down_sample_q_net_x1,
+    ref_real => down_sample1_q_net_x1,
     window_profile => addsub3_s_net_x0,
-    cav_delayed_imag => dual_port_ram_doutb_net_x0,
-    cav_delayed_real => dual_port_ram1_doutb_net_x0,
+    cav_delayed_imag => dual_port_ram_doutb_net,
+    cav_delayed_real => dual_port_ram1_doutb_net,
     pt_window => convert11_dout_net_x0,
-    delay_match_amt => register_q_net,
+    delay_match_amt => register_q_net_x0,
     pt_cntr => counter_op_net_x0,
     reset => convert3_dout_net,
     clk_12 => d_clk_net,
@@ -35576,8 +35285,8 @@ begin
     cav_windowed_real => mult_p_net_x2,
     ref_windowed_imag => mult5_p_net_x0,
     ref_windowed_real => mult4_p_net_x0,
-    delay_amt => register2_q_net_x4,
-    delay_amt_latch => delay2_q_net_x0,
+    delay_amt => register2_q_net_x3,
+    delay_amt_latch => delay2_q_net,
     gateway_out11 => mult2_p_net_x0,
     gateway_out35 => mult4_p_net_x0,
     gateway_out38 => mult5_p_net_x0,
@@ -35587,8 +35296,8 @@ begin
   port map (
     cav_img => convert2_dout_net_x2,
     cav_real => convert6_dout_net,
-    ref_img => down_sample_q_net_x2,
-    ref_real => down_sample1_q_net_x2,
+    ref_img => down_sample_q_net_x1,
+    ref_real => down_sample1_q_net_x1,
     window_profile => addsub3_s_net,
     pt_window => convert11_dout_net_x1,
     delay_match_amt => register_q_net_x1,
@@ -35600,10 +35309,10 @@ begin
     cav_windowed_real => mult_p_net_x1,
     ref_windowed_imag => mult5_p_net,
     ref_windowed_real => mult4_p_net,
-    delayed_cav_dc_img => dual_port_ram_doutb_net,
-    delayed_cav_dc_real => dual_port_ram1_doutb_net,
-    delay_amt => register2_q_net_x3,
-    delay_amt_latch => delay2_q_net,
+    delayed_cav_dc_img => dual_port_ram_doutb_net_x0,
+    delayed_cav_dc_real => dual_port_ram1_doutb_net_x0,
+    delay_amt => register2_q_net_x4,
+    delay_amt_latch => delay2_q_net_x0,
     gateway_out11 => mult2_p_net,
     gateway_out35 => mult4_p_net,
     gateway_out38 => mult5_p_net,
@@ -35922,7 +35631,7 @@ begin
   logical : entity work.sysgen_logical_cfc7fd815b 
   port map (
     clr => '0',
-    d0 => relational1_op_net_x0,
+    d0 => relational1_op_net_x1,
     d1 => relational2_op_net,
     clk => d_clk_net,
     ce => q_ce_net,
@@ -35961,11 +35670,11 @@ begin
   )
   port map (
     en => "1",
-    d => addsub_s_net_x0,
+    d => addsub_s_net,
     rst => convert11_dout_net,
     clk => d_clk_net,
     ce => q_ce_net,
-    q => register11_q_net_x7
+    q => register11_q_net_x11
   );
   register2 : entity work.example_xlregister 
   generic map (
@@ -35987,7 +35696,7 @@ begin
   )
   port map (
     en => "1",
-    d => addsub_s_net,
+    d => addsub_s_net_x0,
     rst => convert10_dout_net_x1,
     clk => d_clk_net,
     ce => q_ce_net,
@@ -36027,7 +35736,7 @@ begin
   port map (
     en => "1",
     rst => "0",
-    d => register1_q_net_x1,
+    d => register1_q_net_x0,
     clk => q_clk_net,
     ce => d_ce_net,
     q => register7_q_net
@@ -36061,11 +35770,11 @@ begin
   relational1 : entity work.sysgen_relational_a432dce3f8 
   port map (
     clr => '0',
-    a => register11_q_net_x7,
+    a => register11_q_net_x11,
     b => constant7_op_net,
     clk => d_clk_net,
     ce => q_ce_net,
-    op => relational1_op_net_x0
+    op => relational1_op_net_x1
   );
   relational2 : entity work.sysgen_relational_a432dce3f8 
   port map (
@@ -36089,6 +35798,20 @@ begin
     ce => '0',
     clr => '0',
     op => constant1_op_net
+  );
+  constant4 : entity work.sysgen_constant_ef05f162c4 
+  port map (
+    clk => '0',
+    ce => '0',
+    clr => '0',
+    op => constant4_op_net
+  );
+  constant5 : entity work.sysgen_constant_ef05f162c4 
+  port map (
+    clk => '0',
+    ce => '0',
+    clr => '0',
+    op => constant5_op_net
   );
 end structural;
 -- Generated from Simulink block exampleModel_bus_axi/example/dsp/RFLib_input
@@ -36117,13 +35840,14 @@ entity example_rflib_input is
   );
 end example_rflib_input;
 architecture structural of example_rflib_input is 
-  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
-  signal phase_x0 : std_logic_vector( 18-1 downto 0 );
-  signal channel : std_logic_vector( 4-1 downto 0 );
   signal ddcq_x0 : std_logic_vector( 18-1 downto 0 );
   signal ddcchannel_x0 : std_logic_vector( 4-1 downto 0 );
   signal ddcsync_x0 : std_logic_vector( 1-1 downto 0 );
   signal amp_net : std_logic_vector( 18-1 downto 0 );
+  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
+  signal phase_x0 : std_logic_vector( 18-1 downto 0 );
+  signal channel : std_logic_vector( 4-1 downto 0 );
+  signal amp_x0 : std_logic_vector( 18-1 downto 0 );
   signal ddcchannel_net : std_logic_vector( 4-1 downto 0 );
   signal ddci_net : std_logic_vector( 18-1 downto 0 );
   signal ddcq_net : std_logic_vector( 18-1 downto 0 );
@@ -36132,7 +35856,6 @@ architecture structural of example_rflib_input is
   signal phaseampchannel_net : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
-  signal amp_x0 : std_logic_vector( 18-1 downto 0 );
 begin
   pa_out_1 <= amp_x0;
   iq_out_1 <= ddci_x0;
@@ -36263,6 +35986,14 @@ entity example_channel_select3_x1 is
   );
 end example_channel_select3_x1;
 architecture structural of example_channel_select3_x1 is 
+  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
+  signal last : std_logic_vector( 1-1 downto 0 );
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal ddci : std_logic_vector( 18-1 downto 0 );
@@ -36274,16 +36005,8 @@ architecture structural of example_channel_select3_x1 is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
-  signal delay_q_net : std_logic_vector( 18-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
-  signal last : std_logic_vector( 1-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
   out1 <= down_sample_q_net;
@@ -36486,17 +36209,17 @@ entity example_iq_select is
   );
 end example_iq_select;
 architecture structural of example_iq_select is 
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 4-1 downto 0 );
-  signal ddcq_x0 : std_logic_vector( 18-1 downto 0 );
   signal ddcchannel : std_logic_vector( 4-1 downto 0 );
   signal ddcsync : std_logic_vector( 1-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 4-1 downto 0 );
+  signal ddcq_x0 : std_logic_vector( 18-1 downto 0 );
 begin
   ddci <= down_sample1_q_net;
   ddcq <= down_sample_q_net;
@@ -36529,7 +36252,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_channel_select1_x1 is
+entity example_channel_select1_x0 is
   port (
     in0 : in std_logic_vector( 18-1 downto 0 );
     in1 : in std_logic_vector( 18-1 downto 0 );
@@ -36542,8 +36265,8 @@ entity example_channel_select1_x1 is
     out0 : out std_logic_vector( 18-1 downto 0 );
     out1 : out std_logic_vector( 18-1 downto 0 )
   );
-end example_channel_select1_x1;
-architecture structural of example_channel_select1_x1 is 
+end example_channel_select1_x0;
+architecture structural of example_channel_select1_x0 is 
   signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
   signal amp : std_logic_vector( 18-1 downto 0 );
@@ -36554,15 +36277,15 @@ architecture structural of example_channel_select1_x1 is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal register_q_net : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
   signal constant13_op_net : std_logic_vector( 4-1 downto 0 );
   signal delay_q_net : std_logic_vector( 18-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 18-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 1-1 downto 0 );
   signal last : std_logic_vector( 1-1 downto 0 );
 begin
   out0 <= down_sample1_q_net;
@@ -36749,7 +36472,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 library work;
 use work.conv_pkg.all;
-entity example_pa_select_x0 is
+entity example_pa_select is
   port (
     pa_bus_1 : in std_logic_vector( 18-1 downto 0 );
     pa_chan_sel : in std_logic_vector( 4-1 downto 0 );
@@ -36762,18 +36485,18 @@ entity example_pa_select_x0 is
     amp : out std_logic_vector( 18-1 downto 0 );
     phase : out std_logic_vector( 18-1 downto 0 )
   );
-end example_pa_select_x0;
-architecture structural of example_pa_select_x0 is 
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal amp_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 4-1 downto 0 );
-  signal phase_x0 : std_logic_vector( 18-1 downto 0 );
+end example_pa_select;
+architecture structural of example_pa_select is 
   signal channel : std_logic_vector( 4-1 downto 0 );
   signal q_clk_net : std_logic;
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal amp_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 4-1 downto 0 );
+  signal phase_x0 : std_logic_vector( 18-1 downto 0 );
 begin
   amp <= down_sample1_q_net;
   phase <= down_sample_q_net;
@@ -36785,7 +36508,7 @@ begin
   d_ce_net <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  channel_select1 : entity work.example_channel_select1_x1 
+  channel_select1 : entity work.example_channel_select1_x0 
   port map (
     in0 => amp_x0,
     in1 => phase_x0,
@@ -36880,7 +36603,7 @@ begin
     ddci => down_sample1_q_net,
     ddcq => down_sample_q_net
   );
-  pa_select : entity work.example_pa_select_x0 
+  pa_select : entity work.example_pa_select 
   port map (
     pa_bus_1 => amp,
     pa_chan_sel => register2_q_net,
@@ -36967,7 +36690,7 @@ entity example_dsp is
     wfdata_0 : out std_logic_vector( 26-1 downto 0 );
     wfdata_1 : out std_logic_vector( 26-1 downto 0 );
     gateway_out_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x11 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out1_x12 : out std_logic_vector( 26-1 downto 0 );
     gateway_out2_x10 : out std_logic_vector( 1-1 downto 0 );
     diag10data : out std_logic_vector( 32-1 downto 0 );
     diag10fixed : out std_logic_vector( 1-1 downto 0 );
@@ -37082,43 +36805,43 @@ entity example_dsp is
     wfvalid_6_x0 : out std_logic_vector( 1-1 downto 0 );
     wfvalid_7_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out_x6 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out1_x14 : out std_logic_vector( 26-1 downto 0 );
-    gateway_out1_x12 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out10_x6 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x15 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out1_x14 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out10_x5 : out std_logic_vector( 18-1 downto 0 );
     gateway_out2_x11 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x9 : out std_logic_vector( 26-1 downto 0 );
+    gateway_out3_x10 : out std_logic_vector( 26-1 downto 0 );
     gateway_out39_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x9 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x8 : out std_logic_vector( 32-1 downto 0 );
     gateway_out40_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x8 : out std_logic_vector( 26-1 downto 0 );
     gateway_out6_x6 : out std_logic_vector( 16-1 downto 0 );
     gateway_out_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x13 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out10_x5 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out12 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out13 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out10_x4 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x6 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out12_x2 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out13_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14 : out std_logic_vector( 18-1 downto 0 );
     gateway_out15 : out std_logic_vector( 32-1 downto 0 );
     gateway_out16 : out std_logic_vector( 1-1 downto 0 );
     gateway_out17 : out std_logic_vector( 32-1 downto 0 );
     gateway_out18 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23 : out std_logic_vector( 20-1 downto 0 );
     gateway_out3_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out5_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out5_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out7_x3 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x3 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out1_x4 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out12_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out13_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out11_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out12 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out13 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out15_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out16_x0 : out std_logic_vector( 1-1 downto 0 );
@@ -37128,29 +36851,33 @@ entity example_dsp is
     gateway_out22_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out3_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x1 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out7_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x4 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out4 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out5_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out6_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out9 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out4_x2 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out5_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out6_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out9_x0 : out std_logic_vector( 16-1 downto 0 );
     gateway_out10 : out std_logic_vector( 16-1 downto 0 );
     gateway_out11 : out std_logic_vector( 16-1 downto 0 );
     gateway_out24 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out7_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out8 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out7 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out8_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2 : out std_logic_vector( 16-1 downto 0 );
     gateway_out27 : out std_logic_vector( 1-1 downto 0 );
@@ -37160,81 +36887,78 @@ entity example_dsp is
     gateway_out5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out44 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out11_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x1 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out2_x0 : out std_logic_vector( 63-1 downto 0 );
     gateway_out20 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x0 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out5_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out6_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out4 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out5_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out6_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out27_x0 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x4 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x6 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out3_x6 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x5 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x8 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x7 : out std_logic_vector( 10-1 downto 0 );
     gateway_out10_x3 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x6 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out32_x0 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x5 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out32 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out38_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x5 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out44_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x7 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out11_x4 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out2_x6 : out std_logic_vector( 63-1 downto 0 );
     gateway_out20_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x6 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x8 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out3_x9 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x7 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x11 : out std_logic_vector( 1-1 downto 0 );
     gateway_out27_x2 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out3_x7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x8 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x9 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x10 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x9 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x8 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x7 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out3_x7 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x6 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x8 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x8 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out10_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x7 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out32 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out32_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37 : out std_logic_vector( 1-1 downto 0 );
     gateway_out38 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out39 : out std_logic_vector( 18-1 downto 0 );
     gateway_out40 : out std_logic_vector( 18-1 downto 0 );
     gateway_out_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x4 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out1_x5 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out12_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out11_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out12_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out13_x1 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out15_x1 : out std_logic_vector( 32-1 downto 0 );
@@ -37244,18 +36968,18 @@ entity example_dsp is
     gateway_out2_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x5 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x4 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x2 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out7_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x5 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x5 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out1_x6 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out12_x2 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out11_x3 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out12_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out13_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out15_x2 : out std_logic_vector( 32-1 downto 0 );
@@ -37265,107 +36989,107 @@ entity example_dsp is
     gateway_out2_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out22_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x2 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out3_x10 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x14 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out5_x14 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out6_x9 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x7 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x7 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out1_x21 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out3_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x9 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out5_x9 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out6_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x8 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x5 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x22 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x18 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out27_x5 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x17 : out std_logic_vector( 1-1 downto 0 );
     gateway_out4_x13 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out5_x13 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out5_x14 : out std_logic_vector( 1-1 downto 0 );
     gateway_out6_x8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out9_x3 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out7_x7 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x7 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out9_x4 : out std_logic_vector( 16-1 downto 0 );
     gateway_out24_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25_x0 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out26_x0 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out6_x9 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x10 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out8_x10 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out24_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out25_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x11 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x9 : out std_logic_vector( 20-1 downto 0 );
     gateway_out8_x9 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out24_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out25_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out26_x0 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out6_x10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x8 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out8_x8 : out std_logic_vector( 20-1 downto 0 );
     gateway_out44_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x22 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x23 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out2_x19 : out std_logic_vector( 18-1 downto 0 );
     gateway_out20_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x18 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x15 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out4_x14 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x15 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out27_x4 : out std_logic_vector( 19-1 downto 0 );
-    gateway_out28_x3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out29_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out27_x6 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out28_x6 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out29_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x13 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x7 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x17 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x18 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x14 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x12 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x11 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5_x10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x16 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x12 : out std_logic_vector( 10-1 downto 0 );
+    gateway_out5_x11 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x17 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x13 : out std_logic_vector( 10-1 downto 0 );
     gateway_out44_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x15 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out11_x8 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x16 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x13 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out2_x12 : out std_logic_vector( 18-1 downto 0 );
     gateway_out20_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x11 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x10 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out5_x9 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out5_x10 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x7 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out27_x5 : out std_logic_vector( 19-1 downto 0 );
-    gateway_out28_x5 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out27_x3 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out28_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x5 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x16 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x8 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x20 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x21 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x17 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x15 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x12 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out5_x11 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x19 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x16 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out1_x18 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out2_x15 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x3 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out5_x13 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x20 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out2_x15 : out std_logic_vector( 10-1 downto 0 );
+    gateway_out1_x19 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out2_x16 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out27_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out28_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out29_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out29_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x14 : out std_logic_vector( 1-1 downto 0 );
     gateway_out5_x12 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out10_x7 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x10 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out10_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out11_x8 : out std_logic_vector( 18-1 downto 0 );
     gateway_out32_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out34_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out35_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out34_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out35_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out38_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x17 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out10_x8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x11 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x16 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out10_x7 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out11_x10 : out std_logic_vector( 18-1 downto 0 );
     gateway_out32_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out34_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out35_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out34_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out35_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out37_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out38_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x16 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x15 : out std_logic_vector( 18-1 downto 0 );
     diag10fixed_x0 : out std_logic_vector( 1-1 downto 0 );
     diag11fixed_x0 : out std_logic_vector( 1-1 downto 0 );
     diag12fixed_x0 : out std_logic_vector( 1-1 downto 0 );
@@ -37424,8 +37148,6 @@ entity example_dsp is
     cav1_nco_fb : out std_logic_vector( 32-1 downto 0 );
     c1_p1_delay_amt : out std_logic_vector( 16-1 downto 0 );
     c1_p1_delay_latch : out std_logic_vector( 1-1 downto 0 );
-    c1_p2_delay_amt : out std_logic_vector( 16-1 downto 0 );
-    c1_p2_delay_latch : out std_logic_vector( 1-1 downto 0 );
     c1_ready : out std_logic_vector( 1-1 downto 0 );
     c1_stream_valid : out std_logic_vector( 1-1 downto 0 );
     c1p1_delay_match : out std_logic_vector( 16-1 downto 0 );
@@ -37435,13 +37157,11 @@ entity example_dsp is
     c1p1_pt_window : out std_logic_vector( 1-1 downto 0 );
     c1p1_ready : out std_logic_vector( 1-1 downto 0 );
     c1p1_window_func : out std_logic_vector( 18-1 downto 0 );
-    c1p2_delay_match : out std_logic_vector( 16-1 downto 0 );
     c1p2_freq_err : out std_logic_vector( 32-1 downto 0 );
     c1p2_integral_logic : out std_logic_vector( 1-1 downto 0 );
     c1p2_pt_cntr : out std_logic_vector( 16-1 downto 0 );
     c1p2_pt_window : out std_logic_vector( 1-1 downto 0 );
     c1p2_ready : out std_logic_vector( 1-1 downto 0 );
-    c1p2_window_func : out std_logic_vector( 18-1 downto 0 );
     cav1_nco_cos : out std_logic_vector( 26-1 downto 0 );
     cav1_nco_sin : out std_logic_vector( 26-1 downto 0 );
     cav1_p1_amp_out : out std_logic_vector( 18-1 downto 0 );
@@ -37476,8 +37196,6 @@ entity example_dsp is
     cav1_p2_dc_img : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_dc_real : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_dc_tvalid : out std_logic_vector( 1-1 downto 0 );
-    cav1_p2_delayed_dc_img : out std_logic_vector( 18-1 downto 0 );
-    cav1_p2_delayed_dc_real : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_if_amp : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_if_i : out std_logic_vector( 18-1 downto 0 );
     cav1_p2_if_phase : out std_logic_vector( 18-1 downto 0 );
@@ -37582,171 +37300,66 @@ entity example_dsp is
   );
 end example_dsp;
 architecture structural of example_dsp is 
-  signal register1_q_net_x9 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x15 : std_logic_vector( 18-1 downto 0 );
-  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal convert5_dout_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
-  signal constant30_op_net : std_logic_vector( 18-1 downto 0 );
-  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x13 : std_logic_vector( 32-1 downto 0 );
+  signal delay5_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert7_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal convert5_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x7 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal delay8_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal convert5_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert16_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux7_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert17_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux8_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert10_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert18_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux9_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert11_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert19_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux3_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert12_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert20_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux1_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert54_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal mult6_p_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
   signal relational7_op_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal register2_q_net_x11 : std_logic_vector( 18-1 downto 0 );
-  signal constant38_op_net : std_logic_vector( 1-1 downto 0 );
   signal nco_sin_x0 : std_logic_vector( 26-1 downto 0 );
   signal logical_y_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x3 : std_logic_vector( 18-1 downto 0 );
   signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
   signal register13_q_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal register14_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal nco_sin : std_logic_vector( 26-1 downto 0 );
-  signal convert72_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal mux11_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert55_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert75_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux12_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert56_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert76_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux13_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert57_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert77_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux14_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert58_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert78_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux15_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert51_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert79_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux16_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert52_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert80_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux10_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert53_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert81_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux17_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert62_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert82_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux19_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert71_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert83_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux20_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert65_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal convert84_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux2_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert13_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux21_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert73_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert85_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux22_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert74_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert86_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux23_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert59_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert87_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux24_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert60_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert88_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux18_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert61_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert89_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux25_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert66_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert90_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux27_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert67_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x5 : std_logic_vector( 1-1 downto 0 );
-  signal convert1_dout_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x0 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x5 : std_logic_vector( 10-1 downto 0 );
-  signal delay5_q_net_x2 : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal amp_net : std_logic_vector( 18-1 downto 0 );
-  signal ddcchannel_net : std_logic_vector( 4-1 downto 0 );
-  signal ddci_net : std_logic_vector( 18-1 downto 0 );
-  signal ddcq_net : std_logic_vector( 18-1 downto 0 );
-  signal ddcsync_net : std_logic_vector( 1-1 downto 0 );
-  signal phase_net : std_logic_vector( 18-1 downto 0 );
-  signal phaseampchannel_net : std_logic_vector( 4-1 downto 0 );
-  signal constant72_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant71_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant70_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant69_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant68_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant67_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant66_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant32_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant89_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant80_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant88_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant81_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant87_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant8_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant64_op_net : std_logic_vector( 3-1 downto 0 );
-  signal constant90_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant86_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant91_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant85_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant92_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant84_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant93_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant83_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant94_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant82_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant79_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant105_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant78_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant104_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant77_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant103_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant76_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant102_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant75_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant101_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant74_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant100_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant112_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant99_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant6_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant5_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant73_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant31_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert91_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux28_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert68_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert92_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux29_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert69_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert93_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux30_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert70_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -37764,23 +37377,298 @@ architecture structural of example_dsp is
   signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert15_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux6_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert16_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux7_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert17_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux8_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert10_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert18_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux9_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert11_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert19_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux3_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert12_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert20_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux1_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert54_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal down_sample_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal mux24_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert60_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert88_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux18_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert61_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert89_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux25_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert66_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert90_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux27_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert67_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert91_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux28_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert68_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert92_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux29_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert69_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal mux14_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert58_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert78_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux15_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert51_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert79_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux16_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert52_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert80_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux10_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert53_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert81_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux17_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert62_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert82_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux19_y_net : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal constant78_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant104_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant77_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant103_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant76_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant102_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant75_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant101_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant74_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant100_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant112_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant99_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant6_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant5_op_net : std_logic_vector( 1-1 downto 0 );
+  signal dual_port_ram_doutb_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram1_doutb_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x18 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal logical_y_net_x7 : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net_x4 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x2 : std_logic_vector( 63-1 downto 0 );
+  signal delay1_q_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net_x3 : std_logic_vector( 16-1 downto 0 );
+  signal register2_q_net_x4 : std_logic_vector( 10-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x5 : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net_x0 : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal mult2_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
+  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x11 : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x6 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x5 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
+  signal accumulator_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert6_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal convert5_dout_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal mult7_p_net : std_logic_vector( 18-1 downto 0 );
+  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net_x5 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x13 : std_logic_vector( 10-1 downto 0 );
+  signal inverter_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x7 : std_logic_vector( 20-1 downto 0 );
+  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x10 : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net_x5 : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal nco_sin : std_logic_vector( 26-1 downto 0 );
+  signal convert72_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal mux11_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert55_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert75_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux12_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert56_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert76_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux13_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert57_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert77_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal down_sample2_q_net_x4 : std_logic_vector( 32-1 downto 0 );
+  signal logical_y_net_x9 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x8 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net_x4 : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x12 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x5 : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal mult4_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
+  signal down_sample2_q_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x6 : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x23 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x14 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x7 : std_logic_vector( 16-1 downto 0 );
+  signal constant88_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant81_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant87_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant8_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant64_op_net : std_logic_vector( 3-1 downto 0 );
+  signal constant90_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant86_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant91_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant85_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant92_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant84_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant93_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant83_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant94_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant82_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant79_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant105_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register2_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register33_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register36_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal convert7_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x5 : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x1 : std_logic_vector( 63-1 downto 0 );
+  signal delay1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal down_sample2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal logical_y_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal amp_x0 : std_logic_vector( 18-1 downto 0 );
+  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
+  signal phase_x0 : std_logic_vector( 18-1 downto 0 );
+  signal channel : std_logic_vector( 4-1 downto 0 );
+  signal dual_port_ram1_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x9 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net_x7 : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x15 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x20 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x16 : std_logic_vector( 18-1 downto 0 );
+  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x5 : std_logic_vector( 10-1 downto 0 );
+  signal delay5_q_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert7_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net_x12 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
+  signal accumulator_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult2_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x25 : std_logic_vector( 32-1 downto 0 );
+  signal inverter_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x8 : std_logic_vector( 20-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal convert71_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert83_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux20_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert65_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal convert84_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux2_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert13_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux21_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert73_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert85_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux22_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert74_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert86_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux23_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert59_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert87_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal register11_q_net_x22 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x17 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x21 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x9 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x24 : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net_x8 : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net_x3 : std_logic_vector( 16-1 downto 0 );
+  signal counter_op_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal relational1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
   signal convert_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal convert1_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
@@ -37796,6 +37684,13 @@ architecture structural of example_dsp is
   signal convert36_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert37_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert38_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register4_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert39_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert40_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert41_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -37803,145 +37698,13 @@ architecture structural of example_dsp is
   signal register33_q_net : std_logic_vector( 16-1 downto 0 );
   signal register27_q_net : std_logic_vector( 26-1 downto 0 );
   signal convert11_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal down_sample1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register9_q_net : std_logic_vector( 32-1 downto 0 );
-  signal down_sample_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal nco_cos : std_logic_vector( 26-1 downto 0 );
   signal inverter_op_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal convert2_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
   signal mult4_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal inverter_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x7 : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x10 : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net_x4 : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x12 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x16 : std_logic_vector( 32-1 downto 0 );
-  signal inverter_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x8 : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x11 : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net_x5 : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x7 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x4 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x17 : std_logic_vector( 32-1 downto 0 );
-  signal delay5_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal counter_op_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal convert5_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x7 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal delay8_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal convert5_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x4 : std_logic_vector( 10-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 32-1 downto 0 );
-  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay5_q_net_x4 : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net_x3 : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x5 : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net_x3 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x3 : std_logic_vector( 63-1 downto 0 );
-  signal delay1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
   signal addsub3_s_net_x3 : std_logic_vector( 19-1 downto 0 );
   signal register_q_net_x4 : std_logic_vector( 18-1 downto 0 );
   signal register1_q_net_x8 : std_logic_vector( 18-1 downto 0 );
@@ -37950,106 +37713,20 @@ architecture structural of example_dsp is
   signal delay5_q_net_x3 : std_logic_vector( 1-1 downto 0 );
   signal mult_p_net_x3 : std_logic_vector( 32-1 downto 0 );
   signal register2_q_net_x9 : std_logic_vector( 10-1 downto 0 );
-  signal down_sample1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register4_q_net : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal logical_y_net_x8 : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net_x4 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x6 : std_logic_vector( 63-1 downto 0 );
-  signal delay1_q_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net_x2 : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net_x4 : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x7 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x19 : std_logic_vector( 18-1 downto 0 );
   signal logical_y_net_x6 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x4 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x12 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x5 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x5 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x14 : std_logic_vector( 10-1 downto 0 );
-  signal register2_q_net_x10 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net_x13 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x5 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net_x6 : std_logic_vector( 16-1 downto 0 );
-  signal counter_op_net_x2 : std_logic_vector( 16-1 downto 0 );
-  signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram_doutb_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x12 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x11 : std_logic_vector( 18-1 downto 0 );
-  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram_doutb_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x10 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x9 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x6 : std_logic_vector( 1-1 downto 0 );
-  signal register11_q_net_x13 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x14 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x6 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net_x8 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net_x3 : std_logic_vector( 16-1 downto 0 );
-  signal counter_op_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net_x2 : std_logic_vector( 16-1 downto 0 );
-  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal nco_cos_x0 : std_logic_vector( 26-1 downto 0 );
-  signal addsub_s_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x8 : std_logic_vector( 18-1 downto 0 );
+  signal delay5_q_net_x4 : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
   signal addsub_s_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net_x9 : std_logic_vector( 18-1 downto 0 );
   signal convert6_dout_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal dual_port_ram_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register29_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register2_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register33_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal register34_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register36_q_net_x0 : std_logic_vector( 32-1 downto 0 );
   signal register35_q_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net_x4 : std_logic_vector( 18-1 downto 0 );
   signal register29_q_net_x1 : std_logic_vector( 4-1 downto 0 );
@@ -38064,39 +37741,73 @@ architecture structural of example_dsp is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal channel : std_logic_vector( 4-1 downto 0 );
   signal ddcq_x0 : std_logic_vector( 18-1 downto 0 );
   signal ddcchannel_x0 : std_logic_vector( 4-1 downto 0 );
   signal ddcsync_x0 : std_logic_vector( 1-1 downto 0 );
-  signal amp_x0 : std_logic_vector( 18-1 downto 0 );
-  signal ddci_x0 : std_logic_vector( 18-1 downto 0 );
-  signal phase_x0 : std_logic_vector( 18-1 downto 0 );
+  signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal nco_cos_x0 : std_logic_vector( 26-1 downto 0 );
+  signal addsub_s_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x8 : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x10 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x12 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x11 : std_logic_vector( 18-1 downto 0 );
+  signal constant4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant73_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant31_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net_x10 : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net_x5 : std_logic_vector( 16-1 downto 0 );
+  signal amp_net : std_logic_vector( 18-1 downto 0 );
+  signal ddcchannel_net : std_logic_vector( 4-1 downto 0 );
+  signal ddci_net : std_logic_vector( 18-1 downto 0 );
+  signal ddcq_net : std_logic_vector( 18-1 downto 0 );
+  signal ddcsync_net : std_logic_vector( 1-1 downto 0 );
+  signal phase_net : std_logic_vector( 18-1 downto 0 );
+  signal phaseampchannel_net : std_logic_vector( 4-1 downto 0 );
+  signal constant72_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant71_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant70_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant69_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant68_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant67_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant66_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant32_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant89_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant80_op_net : std_logic_vector( 18-1 downto 0 );
 begin
   diag1data_x0 <= register1_q_net_x9;
-  diag2data <= register11_q_net_x15;
+  diag2data <= register11_q_net_x24;
   wfdata_2 <= convert6_dout_net;
   wfdata_3 <= convert5_dout_net_x0;
   wfdata_4 <= convert1_dout_net_x3;
   wfdata_5 <= convert5_dout_net_x4;
   wfdata_6 <= counter_op_net;
-  wfdata_7 <= constant30_op_net;
+  wfdata_7 <= mult7_p_net;
   wfvalid_2 <= relational7_op_net;
   wfvalid_3 <= relational7_op_net;
   wfvalid_4 <= relational7_op_net_x0;
   wfvalid_5 <= relational7_op_net_x0;
   diag3data <= register2_q_net_x11;
   wfvalid_6 <= relational7_op_net;
-  wfvalid_7 <= constant38_op_net;
+  wfvalid_7 <= relational7_op_net;
   wfvalid_0 <= relational7_op_net;
   wfvalid_1 <= relational7_op_net_x0;
   diagnsync_ctl <= logical_y_net_x2;
-  diag10data_x0 <= register11_q_net_x4;
-  diag9data <= register12_q_net_x2;
+  diag10data_x0 <= register11_q_net_x6;
+  diag9data <= register12_q_net_x3;
   diag11data_x0 <= register13_q_net_x0;
   diag12data_x0 <= register14_q_net_x0;
   diag4data <= register3_q_net_x0;
-  diag13data_x0 <= register12_q_net_x3;
-  diag14data_x0 <= register11_q_net_x5;
+  diag13data_x0 <= register12_q_net_x4;
+  diag14data_x0 <= register11_q_net_x7;
   diag15data_x0 <= register13_q_net_x1;
   diag16data_x0 <= register14_q_net_x1;
   diag5data <= register12_q_net_x0;
@@ -38106,7 +37817,7 @@ begin
   wfdata_0 <= nco_sin;
   wfdata_1 <= nco_sin_x0;
   gateway_out_x4 <= relational7_op_net;
-  gateway_out1_x11 <= nco_sin;
+  gateway_out1_x12 <= nco_sin;
   gateway_out2_x10 <= convert3_dout_net;
   diag10data <= mux11_y_net;
   diag10fixed <= convert55_dout_net;
@@ -38221,43 +37932,43 @@ begin
   wfvalid_6_x0 <= convert41_dout_net;
   wfvalid_7_x0 <= convert42_dout_net;
   gateway_out_x6 <= register33_q_net;
-  gateway_out1_x14 <= register27_q_net;
-  gateway_out1_x12 <= convert5_dout_net_x0;
-  gateway_out10_x6 <= convert6_dout_net;
+  gateway_out1_x15 <= register27_q_net;
+  gateway_out1_x14 <= convert5_dout_net_x0;
+  gateway_out10_x5 <= convert6_dout_net;
   gateway_out2_x11 <= convert11_dout_net_x3;
-  gateway_out3_x9 <= nco_sin;
-  gateway_out39_x0 <= down_sample1_q_net_x2;
-  gateway_out4_x9 <= register9_q_net;
-  gateway_out40_x0 <= down_sample_q_net_x2;
+  gateway_out3_x10 <= nco_sin;
+  gateway_out39_x0 <= down_sample1_q_net_x0;
+  gateway_out4_x8 <= register9_q_net;
+  gateway_out40_x0 <= down_sample_q_net_x0;
   gateway_out5_x8 <= nco_cos;
   gateway_out6_x6 <= counter_op_net;
   gateway_out_x5 <= inverter_op_net_x0;
   gateway_out1_x13 <= convert2_dout_net_x1;
-  gateway_out10_x5 <= mult4_p_net_x2;
-  gateway_out11_x1 <= register1_q_net_x1;
-  gateway_out12 <= convert4_dout_net_x0;
-  gateway_out13 <= register12_q_net_x1;
+  gateway_out10_x4 <= mult4_p_net_x2;
+  gateway_out11_x6 <= register1_q_net_x1;
+  gateway_out12_x2 <= convert4_dout_net_x0;
+  gateway_out13_x0 <= register12_q_net_x1;
   gateway_out14 <= mult5_p_net_x2;
   gateway_out15 <= register2_q_net_x0;
   gateway_out16 <= inverter3_op_net_x0;
   gateway_out17 <= accumulator3_q_net;
   gateway_out18 <= register1_q_net_x1;
-  gateway_out2_x2 <= inverter2_op_net_x0;
+  gateway_out2_x1 <= inverter2_op_net_x0;
   gateway_out22 <= convert9_dout_net_x2;
   gateway_out23 <= convert10_dout_net_x0;
   gateway_out3_x2 <= accumulator_q_net;
-  gateway_out4_x1 <= accumulator2_q_net;
-  gateway_out5_x2 <= mult2_p_net_x2;
+  gateway_out4_x0 <= accumulator2_q_net;
+  gateway_out5_x1 <= mult6_p_net;
   gateway_out6_x2 <= inverter1_op_net_x0;
-  gateway_out7_x2 <= accumulator1_q_net;
-  gateway_out8_x2 <= mult_p_net_x6;
-  gateway_out9_x0 <= register11_q_net_x1;
+  gateway_out7_x3 <= accumulator1_q_net;
+  gateway_out8_x3 <= mult7_p_net;
+  gateway_out9_x1 <= register11_q_net_x1;
   gateway_out_x0 <= inverter_op_net;
-  gateway_out1_x3 <= convert2_dout_net;
+  gateway_out1_x4 <= convert2_dout_net;
   gateway_out10_x0 <= mult4_p_net_x1;
-  gateway_out11_x2 <= register1_q_net;
-  gateway_out12_x0 <= convert4_dout_net;
-  gateway_out13_x0 <= register12_q_net;
+  gateway_out11_x1 <= register1_q_net;
+  gateway_out12 <= convert4_dout_net;
+  gateway_out13 <= register12_q_net;
   gateway_out14_x0 <= mult5_p_net_x1;
   gateway_out15_x0 <= register2_q_net;
   gateway_out16_x0 <= inverter3_op_net;
@@ -38267,31 +37978,35 @@ begin
   gateway_out22_x0 <= convert9_dout_net_x0;
   gateway_out23_x0 <= convert10_dout_net;
   gateway_out3_x3 <= accumulator_q_net_x0;
-  gateway_out4_x2 <= accumulator2_q_net_x0;
+  gateway_out4_x1 <= accumulator2_q_net_x0;
   gateway_out5_x3 <= mult2_p_net_x1;
   gateway_out6_x3 <= inverter1_op_net;
-  gateway_out7_x3 <= accumulator1_q_net_x0;
-  gateway_out8_x3 <= mult_p_net_x4;
-  gateway_out9_x1 <= register11_q_net;
+  gateway_out7_x4 <= accumulator1_q_net_x0;
+  gateway_out8_x4 <= mult_p_net_x4;
+  gateway_out9_x2 <= register11_q_net;
   gateway_out27_x1 <= relational4_op_net;
   gateway_out28_x1 <= relational3_op_net;
   gateway_out29_x1 <= convert11_dout_net;
-  gateway_out4 <= counter_op_net;
-  gateway_out5_x0 <= convert5_dout_net;
-  gateway_out6_x0 <= convert3_dout_net;
-  gateway_out7_x0 <= register1_q_net_x0;
-  gateway_out8_x0 <= convert2_dout_net_x0;
-  gateway_out9 <= delay8_q_net;
+  gateway_out4_x2 <= counter_op_net;
+  gateway_out5_x2 <= convert5_dout_net;
+  gateway_out6_x1 <= convert3_dout_net;
+  gateway_out7_x1 <= register1_q_net_x0;
+  gateway_out8_x1 <= convert2_dout_net_x0;
+  gateway_out9_x0 <= delay8_q_net;
   gateway_out10 <= delay2_q_net;
   gateway_out11 <= delay1_q_net;
   gateway_out24 <= convert5_dout_net;
   gateway_out25 <= convert10_dout_net_x0;
   gateway_out26 <= convert9_dout_net_x2;
   gateway_out6 <= convert5_dout_net;
-  gateway_out7 <= convert4_dout_net_x0;
+  gateway_out7_x0 <= convert4_dout_net_x0;
   gateway_out8 <= convert2_dout_net_x1;
+  gateway_out7 <= down_sample_q_net_x1;
+  gateway_out8_x0 <= register11_q_net_x19;
+  gateway_out9 <= convert3_dout_net;
+  gateway_out1_x0 <= logical_y_net_x6;
   gateway_out1 <= delay5_q_net_x4;
-  gateway_out2 <= delay3_q_net_x3;
+  gateway_out2 <= delay3_q_net_x2;
   gateway_out27 <= relational4_op_net_x2;
   gateway_out28 <= relational3_op_net_x2;
   gateway_out29 <= convert11_dout_net_x3;
@@ -38299,82 +38014,79 @@ begin
   gateway_out5 <= convert5_dout_net_x3;
   gateway_out44 <= mult_p_net_x4;
   gateway_out46 <= mult2_p_net_x1;
-  gateway_out1_x2 <= logical_y_net_x5;
+  gateway_out1_x3 <= logical_y_net_x5;
   gateway_out11_x0 <= convert_dout_net_x3;
   gateway_out19 <= mult3_p_net_x3;
-  gateway_out2_x1 <= down_sample1_q_net_x3;
+  gateway_out2_x0 <= down_sample1_q_net_x1;
   gateway_out20 <= delay1_q_net_x0;
   gateway_out3_x1 <= delay2_q_net_x2;
-  gateway_out4_x0 <= delay3_q_net_x1;
-  gateway_out5_x1 <= down_sample2_q_net_x2;
-  gateway_out6_x1 <= logical_y_net_x4;
-  gateway_out7_x1 <= logical_y_net_x3;
-  gateway_out8_x1 <= convert3_dout_net_x3;
-  gateway_out1_x1 <= logical_y_net_x3;
+  gateway_out4 <= delay3_q_net_x1;
+  gateway_out5_x0 <= down_sample2_q_net_x2;
+  gateway_out6_x0 <= logical_y_net_x4;
+  gateway_out7_x2 <= logical_y_net_x3;
+  gateway_out8_x2 <= convert3_dout_net_x3;
+  gateway_out1_x2 <= logical_y_net_x3;
   gateway_out27_x0 <= addsub3_s_net_x3;
   gateway_out28_x0 <= register_q_net_x4;
   gateway_out29_x0 <= register1_q_net_x8;
   gateway_out3_x0 <= mult1_p_net_x1;
   gateway_out <= mult3_p_net_x3;
-  gateway_out1_x0 <= relational1_op_net_x2;
-  gateway_out2_x0 <= delay5_q_net_x3;
-  gateway_out3_x4 <= register_q_net_x4;
-  gateway_out4_x6 <= register1_q_net_x8;
+  gateway_out1_x1 <= relational1_op_net_x2;
+  gateway_out2_x2 <= delay5_q_net_x3;
+  gateway_out3_x6 <= register_q_net_x4;
+  gateway_out4_x5 <= register1_q_net_x8;
   gateway_out5_x5 <= convert3_dout_net_x3;
-  gateway_out1_x7 <= mult_p_net_x3;
+  gateway_out1_x8 <= mult_p_net_x3;
   gateway_out2_x7 <= register2_q_net_x9;
   gateway_out10_x3 <= convert11_dout_net_x3;
-  gateway_out11_x6 <= mult2_p_net_x1;
-  gateway_out32_x0 <= down_sample1_q_net_x1;
+  gateway_out11_x5 <= mult2_p_net_x1;
+  gateway_out32 <= down_sample1_q_net;
   gateway_out34_x0 <= convert11_dout_net_x3;
   gateway_out35_x0 <= mult4_p_net_x1;
-  gateway_out36_x0 <= down_sample_q_net_x1;
+  gateway_out36_x0 <= down_sample_q_net;
   gateway_out37_x0 <= convert11_dout_net_x3;
   gateway_out38_x0 <= mult5_p_net_x1;
-  gateway_out4_x5 <= mult3_p_net_x4;
-  gateway_out44_x0 <= mult_p_net_x6;
-  gateway_out46_x0 <= mult2_p_net_x2;
-  gateway_out1_x6 <= logical_y_net_x8;
-  gateway_out11_x5 <= convert_dout_net_x4;
+  gateway_out4_x4 <= mult3_p_net_x4;
+  gateway_out44_x0 <= mult7_p_net;
+  gateway_out46_x0 <= mult6_p_net;
+  gateway_out1_x7 <= logical_y_net_x7;
+  gateway_out11_x4 <= convert_dout_net_x4;
   gateway_out19_x0 <= mult3_p_net_x5;
-  gateway_out2_x6 <= down_sample1_q_net_x6;
+  gateway_out2_x6 <= down_sample1_q_net_x2;
   gateway_out20_x0 <= delay1_q_net_x1;
-  gateway_out3_x6 <= delay2_q_net_x4;
-  gateway_out4_x8 <= delay3_q_net_x2;
+  gateway_out3_x9 <= delay2_q_net_x4;
+  gateway_out4_x7 <= delay3_q_net_x3;
   gateway_out5_x7 <= down_sample2_q_net_x4;
-  gateway_out6_x5 <= logical_y_net_x7;
-  gateway_out7_x5 <= logical_y_net_x6;
-  gateway_out8_x5 <= convert3_dout_net_x4;
-  gateway_out1_x10 <= logical_y_net_x6;
+  gateway_out6_x5 <= logical_y_net_x9;
+  gateway_out7_x6 <= logical_y_net_x8;
+  gateway_out8_x6 <= convert3_dout_net_x4;
+  gateway_out1_x11 <= logical_y_net_x8;
   gateway_out27_x2 <= addsub3_s_net_x4;
-  gateway_out28_x2 <= register_q_net_x7;
+  gateway_out28_x2 <= register_q_net_x6;
   gateway_out29_x2 <= register1_q_net_x12;
-  gateway_out3_x7 <= mult1_p_net_x2;
+  gateway_out3_x8 <= mult1_p_net_x2;
   gateway_out_x3 <= mult3_p_net_x5;
-  gateway_out1_x9 <= relational1_op_net_x3;
+  gateway_out1_x10 <= relational1_op_net_x3;
   gateway_out2_x9 <= delay5_q_net_x5;
-  gateway_out3_x8 <= register_q_net_x7;
-  gateway_out4_x7 <= register1_q_net_x12;
+  gateway_out3_x7 <= register_q_net_x6;
+  gateway_out4_x6 <= register1_q_net_x12;
   gateway_out5_x6 <= convert3_dout_net_x4;
-  gateway_out1_x8 <= mult_p_net_x5;
-  gateway_out2_x8 <= register2_q_net_x14;
-  gateway_out10_x4 <= convert11_dout_net;
-  gateway_out11_x7 <= mult2_p_net_x2;
-  gateway_out32 <= down_sample1_q_net_x1;
+  gateway_out1_x9 <= mult_p_net_x5;
+  gateway_out2_x8 <= register2_q_net_x13;
+  gateway_out32_x0 <= down_sample1_q_net;
   gateway_out34 <= convert11_dout_net;
   gateway_out35 <= mult4_p_net_x2;
-  gateway_out36 <= down_sample_q_net_x1;
+  gateway_out36 <= down_sample_q_net;
   gateway_out37 <= convert11_dout_net;
   gateway_out38 <= mult5_p_net_x2;
-  gateway_out4_x3 <= mult3_p_net_x6;
-  gateway_out39 <= down_sample1_q_net_x2;
-  gateway_out40 <= down_sample_q_net_x2;
+  gateway_out39 <= down_sample1_q_net_x0;
+  gateway_out40 <= down_sample_q_net_x0;
   gateway_out_x1 <= inverter_op_net_x1;
-  gateway_out1_x4 <= convert2_dout_net_x7;
-  gateway_out10_x1 <= mult4_p_net_x0;
-  gateway_out11_x3 <= register1_q_net_x10;
-  gateway_out12_x1 <= convert4_dout_net_x2;
-  gateway_out13_x1 <= register12_q_net_x4;
+  gateway_out1_x5 <= convert2_dout_net_x7;
+  gateway_out10_x1 <= mult4_p_net;
+  gateway_out11_x2 <= register1_q_net_x10;
+  gateway_out12_x0 <= convert4_dout_net_x2;
+  gateway_out13_x1 <= register12_q_net_x5;
   gateway_out14_x1 <= mult5_p_net;
   gateway_out15_x1 <= register2_q_net_x12;
   gateway_out16_x1 <= inverter3_op_net_x1;
@@ -38383,128 +38095,128 @@ begin
   gateway_out2_x4 <= inverter2_op_net_x1;
   gateway_out22_x1 <= convert9_dout_net_x3;
   gateway_out23_x1 <= convert10_dout_net_x2;
-  gateway_out3_x5 <= accumulator_q_net_x1;
-  gateway_out4_x4 <= accumulator2_q_net_x1;
+  gateway_out3_x4 <= accumulator_q_net_x1;
+  gateway_out4_x3 <= accumulator2_q_net_x1;
   gateway_out5_x4 <= mult2_p_net_x0;
   gateway_out6_x4 <= inverter1_op_net_x1;
-  gateway_out7_x4 <= accumulator1_q_net_x1;
-  gateway_out8_x4 <= mult_p_net_x2;
-  gateway_out9_x2 <= register11_q_net_x16;
+  gateway_out7_x5 <= accumulator1_q_net_x1;
+  gateway_out8_x5 <= mult_p_net_x2;
+  gateway_out9_x3 <= register11_q_net_x25;
   gateway_out_x2 <= inverter_op_net_x2;
-  gateway_out1_x5 <= convert2_dout_net_x8;
-  gateway_out10_x2 <= mult4_p_net;
-  gateway_out11_x4 <= register1_q_net_x11;
-  gateway_out12_x2 <= convert4_dout_net_x3;
-  gateway_out13_x2 <= register12_q_net_x5;
+  gateway_out1_x6 <= convert2_dout_net_x8;
+  gateway_out10_x2 <= mult4_p_net_x0;
+  gateway_out11_x3 <= register1_q_net_x11;
+  gateway_out12_x1 <= convert4_dout_net_x3;
+  gateway_out13_x2 <= register12_q_net_x2;
   gateway_out14_x2 <= mult5_p_net_x0;
-  gateway_out15_x2 <= register2_q_net_x7;
+  gateway_out15_x2 <= register2_q_net_x6;
   gateway_out16_x2 <= inverter3_op_net_x2;
   gateway_out17_x2 <= accumulator3_q_net_x2;
   gateway_out18_x2 <= register1_q_net_x11;
   gateway_out2_x5 <= inverter2_op_net_x2;
-  gateway_out22_x2 <= convert9_dout_net_x4;
+  gateway_out22_x2 <= convert9_dout_net_x5;
   gateway_out23_x2 <= convert10_dout_net_x3;
-  gateway_out3_x10 <= accumulator_q_net_x2;
-  gateway_out4_x14 <= accumulator2_q_net_x2;
-  gateway_out5_x14 <= mult2_p_net;
-  gateway_out6_x9 <= inverter1_op_net_x2;
-  gateway_out7_x7 <= accumulator1_q_net_x2;
-  gateway_out8_x7 <= mult_p_net_x1;
-  gateway_out9_x4 <= register11_q_net_x17;
-  gateway_out1_x21 <= delay5_q_net_x1;
+  gateway_out3_x5 <= accumulator_q_net_x2;
+  gateway_out4_x9 <= accumulator2_q_net_x2;
+  gateway_out5_x9 <= mult2_p_net;
+  gateway_out6_x10 <= inverter1_op_net_x2;
+  gateway_out7_x8 <= accumulator1_q_net_x2;
+  gateway_out8_x8 <= mult_p_net_x1;
+  gateway_out9_x5 <= register11_q_net_x13;
+  gateway_out1_x22 <= delay5_q_net_x1;
   gateway_out2_x18 <= delay3_q_net;
-  gateway_out27_x6 <= relational4_op_net_x0;
-  gateway_out28_x6 <= relational3_op_net_x0;
+  gateway_out27_x5 <= relational4_op_net_x0;
+  gateway_out28_x5 <= relational3_op_net_x0;
   gateway_out29_x6 <= convert11_dout_net_x1;
   gateway_out3_x17 <= convert7_dout_net_x0;
   gateway_out4_x13 <= counter_op_net_x0;
-  gateway_out5_x13 <= convert5_dout_net_x1;
+  gateway_out5_x14 <= convert5_dout_net_x1;
   gateway_out6_x8 <= convert3_dout_net_x2;
-  gateway_out7_x6 <= register1_q_net_x7;
-  gateway_out8_x6 <= convert2_dout_net_x4;
-  gateway_out9_x3 <= delay8_q_net_x0;
+  gateway_out7_x7 <= register1_q_net_x7;
+  gateway_out8_x7 <= convert2_dout_net_x4;
+  gateway_out9_x4 <= delay8_q_net_x0;
   gateway_out24_x0 <= convert5_dout_net_x2;
   gateway_out25_x0 <= convert10_dout_net_x3;
-  gateway_out26_x1 <= convert9_dout_net_x4;
-  gateway_out6_x11 <= convert5_dout_net_x2;
-  gateway_out7_x9 <= convert4_dout_net_x3;
-  gateway_out8_x9 <= convert2_dout_net_x8;
+  gateway_out26_x0 <= convert9_dout_net_x5;
+  gateway_out6_x9 <= convert5_dout_net_x2;
+  gateway_out7_x10 <= convert4_dout_net_x3;
+  gateway_out8_x10 <= convert2_dout_net_x8;
   gateway_out24_x1 <= convert5_dout_net_x1;
   gateway_out25_x1 <= convert10_dout_net_x2;
-  gateway_out26_x0 <= convert9_dout_net_x3;
-  gateway_out6_x10 <= convert5_dout_net_x1;
-  gateway_out7_x8 <= convert4_dout_net_x2;
-  gateway_out8_x8 <= convert2_dout_net_x7;
+  gateway_out26_x1 <= convert9_dout_net_x3;
+  gateway_out6_x11 <= convert5_dout_net_x1;
+  gateway_out7_x9 <= convert4_dout_net_x2;
+  gateway_out8_x9 <= convert2_dout_net_x7;
   gateway_out44_x2 <= mult_p_net_x2;
   gateway_out46_x2 <= mult2_p_net_x0;
-  gateway_out1_x22 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
+  gateway_out1_x23 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
   gateway_out11_x9 <= convert_dout_net_x1;
   gateway_out19_x2 <= mult3_p_net;
   gateway_out2_x19 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
   gateway_out20_x2 <= convert2_dout_net_x4;
   gateway_out3_x18 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
-  gateway_out4_x15 <= counter_op_net;
+  gateway_out4_x14 <= counter_op_net;
   gateway_out5_x15 <= convert1_dout_net_x1;
-  gateway_out27_x4 <= addsub3_s_net;
-  gateway_out28_x3 <= register_q_net_x0;
-  gateway_out29_x3 <= register1_q_net_x5;
+  gateway_out27_x6 <= addsub3_s_net;
+  gateway_out28_x6 <= register_q_net_x0;
+  gateway_out29_x4 <= register1_q_net_x5;
   gateway_out3_x13 <= mult1_p_net;
   gateway_out_x7 <= mult3_p_net;
-  gateway_out1_x17 <= relational1_op_net_x0;
+  gateway_out1_x18 <= relational1_op_net;
   gateway_out2_x14 <= delay5_q_net;
   gateway_out3_x12 <= register_q_net_x0;
   gateway_out4_x11 <= register1_q_net_x5;
-  gateway_out5_x10 <= convert3_dout_net_x0;
-  gateway_out1_x16 <= mult_p_net;
-  gateway_out2_x12 <= register2_q_net_x4;
+  gateway_out5_x11 <= convert3_dout_net_x0;
+  gateway_out1_x17 <= mult_p_net;
+  gateway_out2_x13 <= register2_q_net_x4;
   gateway_out44_x1 <= mult_p_net_x1;
   gateway_out46_x1 <= mult2_p_net;
-  gateway_out1_x15 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
-  gateway_out11_x8 <= convert_dout_net_x2;
+  gateway_out1_x16 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
+  gateway_out11_x7 <= convert_dout_net_x2;
   gateway_out19_x1 <= mult3_p_net_x0;
-  gateway_out2_x13 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
+  gateway_out2_x12 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
   gateway_out20_x1 <= convert2_dout_net_x5;
   gateway_out3_x11 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
   gateway_out4_x10 <= counter_op_net;
-  gateway_out5_x9 <= convert1_dout_net_x2;
+  gateway_out5_x10 <= convert1_dout_net_x2;
   gateway_out6_x7 <= logical_y_net_x0;
-  gateway_out27_x5 <= addsub3_s_net_x0;
-  gateway_out28_x5 <= register_q_net_x1;
+  gateway_out27_x3 <= addsub3_s_net_x0;
+  gateway_out28_x3 <= register_q_net_x1;
   gateway_out29_x5 <= register1_q_net_x6;
   gateway_out3_x16 <= mult1_p_net_x0;
   gateway_out_x8 <= mult3_p_net_x0;
-  gateway_out1_x20 <= relational1_op_net_x1;
+  gateway_out1_x21 <= relational1_op_net_x0;
   gateway_out2_x17 <= delay5_q_net_x0;
   gateway_out3_x15 <= register_q_net_x1;
   gateway_out4_x12 <= register1_q_net_x6;
-  gateway_out5_x11 <= convert3_dout_net_x1;
-  gateway_out1_x19 <= mult_p_net_x0;
-  gateway_out2_x16 <= register2_q_net_x5;
-  gateway_out1_x18 <= delay5_q_net_x2;
-  gateway_out2_x15 <= delay3_q_net_x0;
-  gateway_out27_x3 <= relational4_op_net_x1;
+  gateway_out5_x13 <= convert3_dout_net_x1;
+  gateway_out1_x20 <= mult_p_net_x0;
+  gateway_out2_x15 <= register2_q_net_x5;
+  gateway_out1_x19 <= delay5_q_net_x2;
+  gateway_out2_x16 <= delay3_q_net_x0;
+  gateway_out27_x4 <= relational4_op_net_x1;
   gateway_out28_x4 <= relational3_op_net_x1;
-  gateway_out29_x4 <= convert11_dout_net_x2;
+  gateway_out29_x3 <= convert11_dout_net_x2;
   gateway_out3_x14 <= convert7_dout_net_x1;
   gateway_out5_x12 <= convert5_dout_net_x2;
-  gateway_out10_x7 <= convert11_dout_net_x2;
-  gateway_out11_x10 <= mult2_p_net;
-  gateway_out32_x1 <= down_sample1_q_net_x1;
-  gateway_out34_x2 <= convert11_dout_net_x2;
-  gateway_out35_x2 <= mult4_p_net;
-  gateway_out36_x2 <= down_sample_q_net_x1;
+  gateway_out10_x6 <= convert11_dout_net_x2;
+  gateway_out11_x8 <= mult2_p_net;
+  gateway_out32_x1 <= down_sample1_q_net;
+  gateway_out34_x1 <= convert11_dout_net_x2;
+  gateway_out35_x1 <= mult4_p_net_x0;
+  gateway_out36_x2 <= down_sample_q_net;
   gateway_out37_x2 <= convert11_dout_net_x2;
   gateway_out38_x2 <= mult5_p_net_x0;
-  gateway_out4_x17 <= mult3_p_net_x1;
-  gateway_out10_x8 <= convert11_dout_net_x1;
-  gateway_out11_x11 <= mult2_p_net_x0;
-  gateway_out32_x2 <= down_sample1_q_net_x1;
-  gateway_out34_x1 <= convert11_dout_net_x1;
-  gateway_out35_x1 <= mult4_p_net_x0;
-  gateway_out36_x1 <= down_sample_q_net_x1;
+  gateway_out4_x16 <= mult3_p_net_x2;
+  gateway_out10_x7 <= convert11_dout_net_x1;
+  gateway_out11_x10 <= mult2_p_net_x0;
+  gateway_out32_x2 <= down_sample1_q_net;
+  gateway_out34_x2 <= convert11_dout_net_x1;
+  gateway_out35_x2 <= mult4_p_net;
+  gateway_out36_x1 <= down_sample_q_net;
   gateway_out37_x1 <= convert11_dout_net_x1;
   gateway_out38_x1 <= mult5_p_net;
-  gateway_out4_x16 <= mult3_p_net_x2;
+  gateway_out4_x15 <= mult3_p_net_x1;
   amp_net <= amp;
   ddcchannel_net <= ddcchannel;
   ddci_net <= ddci;
@@ -38570,24 +38282,20 @@ begin
   cav1_nco_fb <= convert_dout_net_x4;
   c1_p1_delay_amt <= register2_q_net_x10;
   c1_p1_delay_latch <= delay2_q_net_x3;
-  c1_p2_delay_amt <= register2_q_net_x13;
-  c1_p2_delay_latch <= delay2_q_net_x5;
   c1_ready <= logical_y_net;
   c1_stream_valid <= relational7_op_net;
-  c1p1_delay_match <= register_q_net_x6;
+  c1p1_delay_match <= register_q_net_x5;
   c1p1_freq_err <= down_sample2_q_net_x2;
   c1p1_integral_logic <= convert5_dout_net_x3;
   c1p1_pt_cntr <= counter_op_net_x2;
   c1p1_pt_window <= convert11_dout_net_x3;
   c1p1_ready <= delay4_q_net;
   c1p1_window_func <= addsub3_s_net_x5;
-  c1p2_delay_match <= register_q_net;
   c1p2_freq_err <= down_sample2_q_net_x4;
   c1p2_integral_logic <= convert5_dout_net;
   c1p2_pt_cntr <= counter_op_net;
   c1p2_pt_window <= convert11_dout_net;
   c1p2_ready <= relational_op_net;
-  c1p2_window_func <= addsub3_s_net_x6;
   cav1_nco_cos <= nco_cos;
   cav1_nco_sin <= nco_sin;
   cav1_p1_amp_out <= register3_q_net_x0;
@@ -38599,35 +38307,33 @@ begin
   cav1_p1_dc_real <= convert6_dout_net;
   cav1_p1_delayed_dc_img <= dual_port_ram_doutb_net_x1;
   cav1_p1_delayed_dc_real <= dual_port_ram1_doutb_net_x1;
-  cav1_p1_if_amp <= down_sample1_q_net_x4;
-  cav1_p1_if_i <= register11_q_net_x12;
-  cav1_p1_if_phase <= down_sample_q_net_x4;
-  cav1_p1_if_q <= register11_q_net_x11;
+  cav1_p1_if_amp <= register11_q_net_x18;
+  cav1_p1_if_i <= register11_q_net_x22;
+  cav1_p1_if_phase <= register11_q_net_x17;
+  cav1_p1_if_q <= register11_q_net_x21;
   cav1_p1_integrated_i <= convert9_dout_net_x0;
   cav1_p1_integrated_q <= convert10_dout_net;
   cav1_p1_integrated_ref_i <= convert2_dout_net;
   cav1_p1_integrated_ref_q <= convert4_dout_net;
   cav1_p1_phase_out <= register2_q_net_x11;
   cav1_p1_ref_amp_out <= register1_q_net_x9;
-  cav1_p1_ref_phase_out <= register11_q_net_x15;
+  cav1_p1_ref_phase_out <= register11_q_net_x24;
   cav1_p1_windowed_img <= mult2_p_net_x1;
   cav1_p1_windowed_real <= mult_p_net_x4;
   cav1_p1_windowed_ref_i <= mult4_p_net_x1;
   cav1_p1_windowed_ref_q <= mult5_p_net_x1;
   cav1_p2_amp_out <= register14_q_net;
   cav1_p2_comparison_i <= addsub_s_net;
-  cav1_p2_comparison_phase <= register_q_net_x5;
+  cav1_p2_comparison_phase <= register_q_net_x7;
   cav1_p2_comparison_q <= addsub_s_net;
   cav1_p2_dc_freq <= down_sample2_q_net_x4;
   cav1_p2_dc_img <= convert_dout_net;
   cav1_p2_dc_real <= convert1_dout_net;
   cav1_p2_dc_tvalid <= convert2_dout_net_x2;
-  cav1_p2_delayed_dc_img <= dual_port_ram_doutb_net_x2;
-  cav1_p2_delayed_dc_real <= dual_port_ram1_doutb_net_x2;
-  cav1_p2_if_amp <= down_sample1_q_net_x5;
-  cav1_p2_if_i <= register11_q_net_x10;
-  cav1_p2_if_phase <= down_sample_q_net_x3;
-  cav1_p2_if_q <= register11_q_net_x9;
+  cav1_p2_if_amp <= register11_q_net_x15;
+  cav1_p2_if_i <= register11_q_net_x20;
+  cav1_p2_if_phase <= register11_q_net_x16;
+  cav1_p2_if_q <= register11_q_net_x19;
   cav1_p2_integrated_i <= convert9_dout_net_x2;
   cav1_p2_integrated_q <= convert10_dout_net_x0;
   cav1_p2_integrated_ref_i <= convert2_dout_net_x1;
@@ -38635,19 +38341,19 @@ begin
   cav1_p2_phase_out <= register13_q_net;
   cav1_p2_ref_amp_out <= register12_q_net_x0;
   cav1_p2_ref_phase_out <= register11_q_net_x0;
-  cav1_p2_windowed_img <= mult2_p_net_x2;
-  cav1_p2_windowed_real <= mult_p_net_x6;
+  cav1_p2_windowed_img <= mult6_p_net;
+  cav1_p2_windowed_real <= mult7_p_net;
   cav1_p2_windowed_ref_i <= mult4_p_net_x2;
   cav1_p2_windowed_ref_q <= mult5_p_net_x2;
   cav1_sync <= down_sample2_q_net_x3;
   dsp_cav1_reset <= convert3_dout_net;
   flo_c1p1_window <= convert2_dout_net_x6;
   flo_c1p2_window <= convert2_dout_net_x0;
-  ref_i_reg <= register11_q_net_x13;
+  ref_i_reg <= register11_q_net_x23;
   ref_q_reg <= register11_q_net_x14;
   reset <= convert3_dout_net;
   cav2_nco_fb <= convert_dout_net_x1;
-  c2_p1_delay_amt <= register2_q_net_x6;
+  c2_p1_delay_amt <= register2_q_net_x7;
   c2_p1_delay_latch <= delay2_q_net_x0;
   c2_p2_delay_amt <= register2_q_net_x8;
   c2_p2_delay_latch <= delay2_q_net_x1;
@@ -38658,7 +38364,7 @@ begin
   c2p1_integral_logic <= convert5_dout_net_x2;
   c2p1_pt_cntr <= counter_op_net_x1;
   c2p1_pt_window <= convert11_dout_net_x2;
-  c2p1_ready <= relational1_op_net;
+  c2p1_ready <= relational1_op_net_x1;
   c2p1_window_func <= addsub3_s_net_x2;
   c2p2_delay_match <= register_q_net_x2;
   c2p2_freq_err <= convert1_dout_net_x1;
@@ -38671,27 +38377,27 @@ begin
   cav2_nco_sin <= nco_sin_x0;
   cav2_p1_amp_out <= register14_q_net_x0;
   cav2_p1_comparison_i <= addsub_s_net_x0;
-  cav2_p1_comparison_phase <= register11_q_net_x6;
+  cav2_p1_comparison_phase <= register11_q_net_x8;
   cav2_p1_comparison_q <= addsub_s_net_x0;
   cav2_p1_dc_freq <= convert1_dout_net_x2;
   cav2_p1_dc_img <= convert5_dout_net_x4;
   cav2_p1_dc_real <= convert1_dout_net_x3;
   cav2_p1_delayed_dc_img <= dual_port_ram_doutb_net;
   cav2_p1_delayed_dc_real <= dual_port_ram1_doutb_net;
-  cav2_p1_if_amp <= down_sample1_q_net;
-  cav2_p1_if_i <= register11_q_net_x7;
-  cav2_p1_if_phase <= down_sample_q_net;
-  cav2_p1_if_q <= register11_q_net_x8;
-  cav2_p1_integrated_i <= convert9_dout_net_x4;
+  cav2_p1_if_amp <= register11_q_net_x2;
+  cav2_p1_if_i <= register11_q_net_x10;
+  cav2_p1_if_phase <= register11_q_net_x12;
+  cav2_p1_if_q <= register11_q_net_x11;
+  cav2_p1_integrated_i <= convert9_dout_net_x5;
   cav2_p1_integrated_q <= convert10_dout_net_x3;
   cav2_p1_integrated_ref_i <= convert2_dout_net_x8;
   cav2_p1_integrated_ref_q <= convert4_dout_net_x3;
   cav2_p1_phase_out <= register13_q_net_x0;
-  cav2_p1_ref_amp_out <= register12_q_net_x2;
-  cav2_p1_ref_phase_out <= register11_q_net_x4;
+  cav2_p1_ref_amp_out <= register12_q_net_x3;
+  cav2_p1_ref_phase_out <= register11_q_net_x6;
   cav2_p1_windowed_img <= mult2_p_net;
   cav2_p1_windowed_real <= mult_p_net_x1;
-  cav2_p1_windowed_ref_i <= mult4_p_net;
+  cav2_p1_windowed_ref_i <= mult4_p_net_x0;
   cav2_p1_windowed_ref_q <= mult5_p_net_x0;
   cav2_p2_amp_out <= register14_q_net_x1;
   cav2_p2_comparison_i <= addsub_s_net_x1;
@@ -38702,29 +38408,29 @@ begin
   cav2_p2_dc_real <= convert6_dout_net_x1;
   cav2_p2_delayed_dc_img <= dual_port_ram_doutb_net_x0;
   cav2_p2_delayed_dc_real <= dual_port_ram1_doutb_net_x0;
-  cav2_p2_if_amp <= down_sample1_q_net_x0;
-  cav2_p2_if_i <= register11_q_net_x3;
-  cav2_p2_if_phase <= down_sample_q_net_x0;
-  cav2_p2_if_q <= register11_q_net_x2;
+  cav2_p2_if_amp <= register11_q_net_x3;
+  cav2_p2_if_i <= register11_q_net_x9;
+  cav2_p2_if_phase <= register11_q_net_x4;
+  cav2_p2_if_q <= register11_q_net_x5;
   cav2_p2_integrated_i <= convert9_dout_net_x3;
   cav2_p2_integrated_q <= convert10_dout_net_x2;
   cav2_p2_integrated_ref_i <= convert2_dout_net_x7;
   cav2_p2_integrated_ref_q <= convert4_dout_net_x2;
   cav2_p2_phase_out <= register13_q_net_x1;
-  cav2_p2_ref_amp_out <= register12_q_net_x3;
-  cav2_p2_ref_phase_out <= register11_q_net_x5;
+  cav2_p2_ref_amp_out <= register12_q_net_x4;
+  cav2_p2_ref_phase_out <= register11_q_net_x7;
   cav2_p2_windowed_img <= mult2_p_net_x0;
   cav2_p2_windowed_real <= mult_p_net_x2;
-  cav2_p2_windowed_ref_i <= mult4_p_net_x0;
+  cav2_p2_windowed_ref_i <= mult4_p_net;
   cav2_p2_windowed_ref_q <= mult5_p_net;
   cav2_sync <= down_sample2_q_net;
   dsp_cav2_reset <= convert3_dout_net_x2;
   flo_c2p1_window <= convert2_dout_net_x5;
   flo_c2p2_window <= convert2_dout_net_x4;
-  rf_ref_amp <= down_sample1_q_net_x2;
-  rf_ref_i <= down_sample1_q_net_x1;
-  rf_ref_phase <= down_sample_q_net_x2;
-  rf_ref_q <= down_sample_q_net_x1;
+  rf_ref_amp <= down_sample1_q_net_x0;
+  rf_ref_i <= down_sample1_q_net;
+  rf_ref_phase <= down_sample_q_net_x0;
+  rf_ref_q <= down_sample_q_net;
   register36_q_net <= cav1_nco_phase_adj;
   register35_q_net <= cav1_nco_phase_reset;
   register1_q_net_x2 <= cav1_p1_cal_coef;
@@ -38759,7 +38465,7 @@ begin
     diag5data => register12_q_net_x0,
     diag4data => register3_q_net_x0,
     diag3data => register2_q_net_x11,
-    diag2data => register11_q_net_x15,
+    diag2data => register11_q_net_x24,
     wfdata_0 => nco_sin,
     wfdata_1 => nco_sin_x0,
     wfdata_2 => convert6_dout_net,
@@ -38767,19 +38473,18 @@ begin
     wfdata_4 => convert1_dout_net_x3,
     wfdata_5 => convert5_dout_net_x4,
     wfdata_6 => counter_op_net,
-    wfdata_7 => constant30_op_net,
+    wfdata_7 => mult7_p_net,
     wfvalid_0 => relational7_op_net,
     wfvalid_1 => relational7_op_net_x0,
-    wfvalid_7 => constant38_op_net,
     diag1data => register1_q_net_x9,
     diag8data => register14_q_net,
-    diag14data => register11_q_net_x5,
-    diag9data => register12_q_net_x2,
+    diag14data => register11_q_net_x7,
+    diag9data => register12_q_net_x3,
     diag16data_x0 => register14_q_net_x1,
-    diag13data_x0 => register12_q_net_x3,
+    diag13data_x0 => register12_q_net_x4,
     diag12data_x0 => register14_q_net_x0,
     diag11data_x0 => register13_q_net_x0,
-    diag10data_x0 => register11_q_net_x4,
+    diag10data_x0 => register11_q_net_x6,
     clk_1 => q_clk_net,
     ce_1 => d_ce_net,
     clk_12 => d_clk_net,
@@ -38950,7 +38655,7 @@ begin
     wfvalid_4 => convert39_dout_net,
     wfvalid_5 => convert40_dout_net,
     wfvalid_6 => convert41_dout_net,
-    wfvalid_7_x0 => convert42_dout_net,
+    wfvalid_7 => convert42_dout_net,
     gateway_out => register33_q_net,
     gateway_out1 => register27_q_net
   );
@@ -38967,13 +38672,13 @@ begin
     cav1_p1_cal_coef => register1_q_net_x2,
     cav1_nco_phase_reset => register35_q_net,
     cav1_p2_chan_sel => register30_q_net,
-    rf_ref_amp => down_sample1_q_net_x2,
-    rf_ref_phase => down_sample_q_net_x2,
-    rf_ref_q => down_sample_q_net_x1,
+    rf_ref_amp => down_sample1_q_net_x0,
+    rf_ref_phase => down_sample_q_net_x0,
+    rf_ref_q => down_sample_q_net,
     cav1_nco_phase_adj => register36_q_net,
     cav1_p1_window_start => register31_q_net,
     cav1_p1_window_stop => register32_q_net,
-    rf_ref_i => down_sample1_q_net_x1,
+    rf_ref_i => down_sample1_q_net,
     cav1_p2_window_start => register33_q_net_x0,
     cav1_p2_window_stop => register34_q_net,
     cav1_p2_cal_coef => register2_q_net_x2,
@@ -38991,30 +38696,27 @@ begin
     cav1_p1_delayed_dc_img => dual_port_ram_doutb_net_x1,
     cav1_p1_delayed_dc_real => dual_port_ram1_doutb_net_x1,
     c1_p1_delay_amt => register2_q_net_x10,
-    cav1_p1_ref_phase_out => register11_q_net_x15,
+    cav1_p1_ref_phase_out => register11_q_net_x24,
     c1p2_pt_cntr => counter_op_net,
     cav1_p2_dc_real => convert1_dout_net,
     cav1_p2_dc_img => convert_dout_net,
     cav1_p2_dc_freq => down_sample2_q_net_x4,
-    cav1_p2_delayed_dc_img => dual_port_ram_doutb_net_x2,
     c1p2_integral_logic => convert5_dout_net,
-    cav1_p2_delayed_dc_real => dual_port_ram1_doutb_net_x2,
     cav1_p2_ref_phase_out => register11_q_net_x0,
     cav1_p2_ref_amp_out => register12_q_net_x0,
     cav1_p2_integrated_ref_i => convert2_dout_net_x1,
     cav1_p2_integrated_ref_q => convert4_dout_net_x0,
     c1p1_window_func => addsub3_s_net_x5,
-    cav1_p2_if_amp => down_sample1_q_net_x5,
-    cav1_p2_if_phase => down_sample_q_net_x3,
-    cav1_p2_if_i => register11_q_net_x10,
-    cav1_p2_if_q => register11_q_net_x9,
+    cav1_p2_if_amp => register11_q_net_x15,
+    cav1_p2_if_phase => register11_q_net_x16,
+    cav1_p2_if_i => register11_q_net_x20,
+    cav1_p2_if_q => register11_q_net_x19,
     cav1_p2_integrated_i => convert9_dout_net_x2,
     cav1_p2_integrated_q => convert10_dout_net_x0,
     cav1_p2_comparison_i => addsub_s_net,
     cav1_p2_comparison_q => addsub_s_net,
-    cav1_p2_comparison_phase => register_q_net_x5,
+    cav1_p2_comparison_phase => register_q_net_x7,
     dsp_cav1_reset => convert3_dout_net,
-    c1p2_window_func => addsub3_s_net_x6,
     cav1_nco_fb => convert_dout_net_x4,
     cav1_p1_windowed_ref_i => mult4_p_net_x1,
     cav1_p1_windowed_ref_q => mult5_p_net_x1,
@@ -39032,22 +38734,19 @@ begin
     c1p1_pt_cntr => counter_op_net_x2,
     c1p1_integral_logic => convert5_dout_net_x3,
     cav1_p1_ref_amp_out => register1_q_net_x9,
-    c1p1_delay_match => register_q_net_x6,
+    c1p1_delay_match => register_q_net_x5,
     cav1_p1_phase_out => register2_q_net_x11,
     cav1_p1_amp_out => register3_q_net_x0,
     flo_c1p2_window => convert2_dout_net_x0,
-    cav1_p1_if_amp => down_sample1_q_net_x4,
-    c1_p2_delay_amt => register2_q_net_x13,
-    cav1_p2_windowed_img => mult2_p_net_x2,
-    cav1_p2_windowed_real => mult_p_net_x6,
+    cav1_p1_if_amp => register11_q_net_x18,
+    cav1_p2_windowed_img => mult6_p_net,
+    cav1_p2_windowed_real => mult7_p_net,
     cav1_p2_windowed_ref_i => mult4_p_net_x2,
     cav1_p2_windowed_ref_q => mult5_p_net_x2,
     cav1_p2_phase_out => register13_q_net,
     cav1_p2_amp_out => register14_q_net,
     c1p2_freq_err => down_sample2_q_net_x4,
-    c1_p2_delay_latch => delay2_q_net_x5,
-    c1p2_delay_match => register_q_net,
-    cav1_p1_if_phase => down_sample_q_net_x4,
+    cav1_p1_if_phase => register11_q_net_x17,
     ref_q_reg => register11_q_net_x14,
     cav1_sync => down_sample2_q_net_x3,
     c1p2_ready => relational_op_net,
@@ -39057,20 +38756,20 @@ begin
     cav1_nco_cos => nco_cos,
     c1_stream_valid => relational7_op_net,
     c1_p1_delay_latch => delay2_q_net_x3,
-    ref_i_reg => register11_q_net_x13,
-    cav1_p1_if_i => register11_q_net_x12,
-    cav1_p1_if_q => register11_q_net_x11,
-    gateway_out1_x10 => convert5_dout_net_x0,
-    gateway_out10_x4 => convert6_dout_net,
+    ref_i_reg => register11_q_net_x23,
+    cav1_p1_if_i => register11_q_net_x22,
+    cav1_p1_if_q => register11_q_net_x21,
+    gateway_out1_x11 => convert5_dout_net_x0,
+    gateway_out10_x3 => convert6_dout_net,
     gateway_out2_x8 => convert11_dout_net_x3,
     gateway_out3_x8 => nco_sin,
-    gateway_out4_x8 => register9_q_net,
+    gateway_out4_x7 => register9_q_net,
     gateway_out5_x7 => nco_cos,
     gateway_out6_x5 => counter_op_net,
     gateway_out_x2 => inverter_op_net_x0,
-    gateway_out1_x9 => convert2_dout_net_x1,
-    gateway_out10_x3 => mult4_p_net_x2,
-    gateway_out11_x5 => register1_q_net_x1,
+    gateway_out1_x10 => convert2_dout_net_x1,
+    gateway_out10_x2 => mult4_p_net_x2,
+    gateway_out11_x4 => register1_q_net_x1,
     gateway_out12_x0 => convert4_dout_net_x0,
     gateway_out13_x0 => register12_q_net_x1,
     gateway_out14_x0 => mult5_p_net_x2,
@@ -39078,19 +38777,19 @@ begin
     gateway_out16_x0 => inverter3_op_net_x0,
     gateway_out17_x0 => accumulator3_q_net,
     gateway_out18_x0 => register1_q_net_x1,
-    gateway_out2_x7 => inverter2_op_net_x0,
+    gateway_out2_x6 => inverter2_op_net_x0,
     gateway_out22_x0 => convert9_dout_net_x2,
     gateway_out23_x0 => convert10_dout_net_x0,
-    gateway_out3_x7 => accumulator_q_net,
-    gateway_out4_x7 => accumulator2_q_net,
-    gateway_out5_x4 => mult2_p_net_x2,
+    gateway_out3_x6 => accumulator_q_net,
+    gateway_out4_x5 => accumulator2_q_net,
+    gateway_out5_x4 => mult6_p_net,
     gateway_out6_x2 => inverter1_op_net_x0,
     gateway_out7_x2 => accumulator1_q_net,
-    gateway_out8_x2 => mult_p_net_x6,
-    gateway_out9_x0 => register11_q_net_x1,
+    gateway_out8_x2 => mult7_p_net,
+    gateway_out9 => register11_q_net_x1,
     gateway_out_x1 => inverter_op_net,
-    gateway_out1_x6 => convert2_dout_net,
-    gateway_out10_x1 => mult4_p_net_x1,
+    gateway_out1_x7 => convert2_dout_net,
+    gateway_out10_x0 => mult4_p_net_x1,
     gateway_out11_x2 => register1_q_net,
     gateway_out12 => convert4_dout_net,
     gateway_out13 => register12_q_net,
@@ -39099,106 +38798,107 @@ begin
     gateway_out16 => inverter3_op_net,
     gateway_out17 => accumulator3_q_net_x0,
     gateway_out18 => convert3_dout_net,
-    gateway_out2_x4 => inverter2_op_net,
+    gateway_out2_x5 => inverter2_op_net,
     gateway_out22 => convert9_dout_net_x0,
     gateway_out23 => convert10_dout_net,
-    gateway_out3_x4 => accumulator_q_net_x0,
+    gateway_out3_x5 => accumulator_q_net_x0,
     gateway_out4_x4 => accumulator2_q_net_x0,
     gateway_out5_x3 => mult2_p_net_x1,
     gateway_out6_x1 => inverter1_op_net,
     gateway_out7_x1 => accumulator1_q_net_x0,
     gateway_out8_x1 => mult_p_net_x4,
-    gateway_out9 => register11_q_net,
-    gateway_out27_x1 => relational4_op_net,
-    gateway_out28_x1 => relational3_op_net,
-    gateway_out29_x1 => convert11_dout_net,
-    gateway_out4_x5 => counter_op_net,
+    gateway_out9_x2 => register11_q_net,
+    gateway_out27_x2 => relational4_op_net,
+    gateway_out28_x2 => relational3_op_net,
+    gateway_out29_x2 => convert11_dout_net,
+    gateway_out4_x6 => counter_op_net,
     gateway_out5_x6 => convert5_dout_net,
     gateway_out6_x4 => convert3_dout_net,
-    gateway_out7_x4 => register1_q_net_x0,
-    gateway_out8_x4 => convert2_dout_net_x0,
+    gateway_out7_x5 => register1_q_net_x0,
+    gateway_out8_x5 => convert2_dout_net_x0,
     gateway_out9_x1 => delay8_q_net,
-    gateway_out10_x2 => delay2_q_net,
-    gateway_out11_x4 => delay1_q_net,
+    gateway_out10_x1 => delay2_q_net,
+    gateway_out11_x3 => delay1_q_net,
     gateway_out24 => convert5_dout_net,
     gateway_out25 => convert10_dout_net_x0,
     gateway_out26 => convert9_dout_net_x2,
     gateway_out6_x3 => convert5_dout_net,
-    gateway_out7_x3 => convert4_dout_net_x0,
-    gateway_out8_x3 => convert2_dout_net_x1,
+    gateway_out7_x4 => convert4_dout_net_x0,
+    gateway_out8_x4 => convert2_dout_net_x1,
+    gateway_out7_x3 => down_sample_q_net_x1,
+    gateway_out8_x3 => register11_q_net_x19,
+    gateway_out9_x0 => convert3_dout_net,
+    gateway_out1_x9 => logical_y_net_x6,
     gateway_out1_x8 => delay5_q_net_x4,
-    gateway_out2_x5 => delay3_q_net_x3,
-    gateway_out27_x2 => relational4_op_net_x2,
-    gateway_out28_x2 => relational3_op_net_x2,
-    gateway_out29_x2 => convert11_dout_net_x3,
-    gateway_out3_x6 => convert7_dout_net_x2,
+    gateway_out2_x7 => delay3_q_net_x2,
+    gateway_out27_x1 => relational4_op_net_x2,
+    gateway_out28_x1 => relational3_op_net_x2,
+    gateway_out29_x1 => convert11_dout_net_x3,
+    gateway_out3_x7 => convert7_dout_net_x2,
     gateway_out5_x5 => convert5_dout_net_x3,
-    gateway_out44_x0 => mult_p_net_x4,
-    gateway_out46_x0 => mult2_p_net_x1,
-    gateway_out1_x7 => logical_y_net_x5,
-    gateway_out11_x3 => convert_dout_net_x3,
-    gateway_out19_x0 => mult3_p_net_x3,
-    gateway_out2_x6 => down_sample1_q_net_x3,
-    gateway_out20_x0 => delay1_q_net_x0,
-    gateway_out3_x5 => delay2_q_net_x2,
-    gateway_out4_x6 => delay3_q_net_x1,
-    gateway_out5_x1 => down_sample2_q_net_x2,
+    gateway_out44 => mult_p_net_x4,
+    gateway_out46 => mult2_p_net_x1,
+    gateway_out1_x2 => logical_y_net_x5,
+    gateway_out11_x0 => convert_dout_net_x3,
+    gateway_out19 => mult3_p_net_x3,
+    gateway_out2_x1 => down_sample1_q_net_x1,
+    gateway_out20 => delay1_q_net_x0,
+    gateway_out3_x1 => delay2_q_net_x2,
+    gateway_out4_x1 => delay3_q_net_x1,
+    gateway_out5_x0 => down_sample2_q_net_x2,
     gateway_out6 => logical_y_net_x4,
     gateway_out7 => logical_y_net_x3,
     gateway_out8 => convert3_dout_net_x3,
-    gateway_out1_x2 => logical_y_net_x3,
+    gateway_out1_x1 => logical_y_net_x3,
     gateway_out27 => addsub3_s_net_x3,
     gateway_out28 => register_q_net_x4,
     gateway_out29 => register1_q_net_x8,
-    gateway_out3_x1 => mult1_p_net_x1,
+    gateway_out3_x0 => mult1_p_net_x1,
     gateway_out => mult3_p_net_x3,
-    gateway_out1_x1 => relational1_op_net_x2,
-    gateway_out2_x1 => delay5_q_net_x3,
-    gateway_out3_x0 => register_q_net_x4,
-    gateway_out4_x0 => register1_q_net_x8,
+    gateway_out1_x0 => relational1_op_net_x2,
+    gateway_out2_x0 => delay5_q_net_x3,
+    gateway_out3 => register_q_net_x4,
+    gateway_out4 => register1_q_net_x8,
     gateway_out5 => convert3_dout_net_x3,
-    gateway_out1_x0 => mult_p_net_x3,
+    gateway_out1 => mult_p_net_x3,
     gateway_out2 => register2_q_net_x9,
     gateway_out10 => convert11_dout_net_x3,
-    gateway_out11_x0 => mult2_p_net_x1,
+    gateway_out11 => mult2_p_net_x1,
     gateway_out34 => convert11_dout_net_x3,
     gateway_out35 => mult4_p_net_x1,
     gateway_out37 => convert11_dout_net_x3,
-    gateway_out38 => mult5_p_net_x1,
-    gateway_out4 => mult3_p_net_x4,
-    gateway_out44 => mult_p_net_x6,
-    gateway_out46 => mult2_p_net_x2,
-    gateway_out1 => logical_y_net_x8,
-    gateway_out11 => convert_dout_net_x4,
-    gateway_out19 => mult3_p_net_x5,
-    gateway_out2_x0 => down_sample1_q_net_x6,
-    gateway_out20 => delay1_q_net_x1,
-    gateway_out3 => delay2_q_net_x4,
-    gateway_out4_x3 => delay3_q_net_x2,
+    gateway_out38_x0 => mult5_p_net_x1,
+    gateway_out4_x0 => mult3_p_net_x4,
+    gateway_out44_x0 => mult7_p_net,
+    gateway_out46_x0 => mult6_p_net,
+    gateway_out1_x6 => logical_y_net_x7,
+    gateway_out11_x1 => convert_dout_net_x4,
+    gateway_out19_x0 => mult3_p_net_x5,
+    gateway_out2_x4 => down_sample1_q_net_x2,
+    gateway_out20_x0 => delay1_q_net_x1,
+    gateway_out3_x4 => delay2_q_net_x4,
+    gateway_out4_x3 => delay3_q_net_x3,
     gateway_out5_x2 => down_sample2_q_net_x4,
-    gateway_out6_x0 => logical_y_net_x7,
-    gateway_out7_x0 => logical_y_net_x6,
+    gateway_out6_x0 => logical_y_net_x9,
+    gateway_out7_x0 => logical_y_net_x8,
     gateway_out8_x0 => convert3_dout_net_x4,
-    gateway_out1_x5 => logical_y_net_x6,
+    gateway_out1_x5 => logical_y_net_x8,
     gateway_out27_x0 => addsub3_s_net_x4,
-    gateway_out28_x0 => register_q_net_x7,
+    gateway_out28_x0 => register_q_net_x6,
     gateway_out29_x0 => register1_q_net_x12,
     gateway_out3_x3 => mult1_p_net_x2,
     gateway_out_x0 => mult3_p_net_x5,
     gateway_out1_x4 => relational1_op_net_x3,
     gateway_out2_x3 => delay5_q_net_x5,
-    gateway_out3_x2 => register_q_net_x7,
-    gateway_out4_x1 => register1_q_net_x12,
-    gateway_out5_x0 => convert3_dout_net_x4,
+    gateway_out3_x2 => register_q_net_x6,
+    gateway_out4_x2 => register1_q_net_x12,
+    gateway_out5_x1 => convert3_dout_net_x4,
     gateway_out1_x3 => mult_p_net_x5,
-    gateway_out2_x2 => register2_q_net_x14,
-    gateway_out10_x0 => convert11_dout_net,
-    gateway_out11_x1 => mult2_p_net_x2,
+    gateway_out2_x2 => register2_q_net_x13,
     gateway_out34_x0 => convert11_dout_net,
     gateway_out35_x0 => mult4_p_net_x2,
     gateway_out37_x0 => convert11_dout_net,
-    gateway_out38_x0 => mult5_p_net_x2,
-    gateway_out4_x2 => mult3_p_net_x6
+    gateway_out38 => mult5_p_net_x2
   );
   cav2 : entity work.example_cav2 
   port map (
@@ -39212,11 +38912,11 @@ begin
     cav2_p1_chan_sel => register29_q_net_x1,
     cav2_nco_phase_reset => register35_q_net_x0,
     cav2_p2_chan_sel => register30_q_net_x0,
-    rf_ref_amp => down_sample1_q_net_x2,
-    rf_ref_phase => down_sample_q_net_x2,
-    rf_ref_q => down_sample_q_net_x1,
+    rf_ref_amp => down_sample1_q_net_x0,
+    rf_ref_phase => down_sample_q_net_x0,
+    rf_ref_q => down_sample_q_net,
     cav2_nco_phase_adj => register36_q_net_x0,
-    rf_ref_i => down_sample1_q_net_x1,
+    rf_ref_i => down_sample1_q_net,
     cav2_p1_window_start => register31_q_net_x0,
     cav2_p1_window_stop => register32_q_net_x0,
     cav2_p1_cal_coef => register1_q_net_x4,
@@ -39252,39 +38952,39 @@ begin
     cav2_p2_comparison_q => addsub_s_net_x1,
     cav2_p2_comparison_phase => register3_q_net,
     cav2_p1_delayed_dc_real => dual_port_ram1_doutb_net,
-    cav2_p2_if_amp => down_sample1_q_net_x0,
-    cav2_p2_if_phase => down_sample_q_net_x0,
-    cav2_p1_if_q => register11_q_net_x8,
-    cav2_p1_if_i => register11_q_net_x7,
-    cav2_p2_ref_phase_out => register11_q_net_x5,
-    cav2_p2_ref_amp_out => register12_q_net_x3,
+    cav2_p2_if_amp => register11_q_net_x3,
+    cav2_p2_if_phase => register11_q_net_x4,
+    cav2_p1_if_q => register11_q_net_x11,
+    cav2_p1_if_i => register11_q_net_x10,
+    cav2_p2_ref_phase_out => register11_q_net_x7,
+    cav2_p2_ref_amp_out => register12_q_net_x4,
     cav2_p2_integrated_ref_i => convert2_dout_net_x7,
     cav2_p2_integrated_ref_q => convert4_dout_net_x2,
     cav2_p2_integrated_i => convert9_dout_net_x3,
     dsp_cav2_reset => convert3_dout_net_x2,
-    c2_p1_delay_amt => register2_q_net_x6,
+    c2_p1_delay_amt => register2_q_net_x7,
     cav2_p2_integrated_q => convert10_dout_net_x2,
-    cav2_p1_windowed_ref_i => mult4_p_net,
+    cav2_p1_windowed_ref_i => mult4_p_net_x0,
     cav2_p1_windowed_ref_q => mult5_p_net_x0,
     cav2_p1_windowed_img => mult2_p_net,
     cav2_p1_windowed_real => mult_p_net_x1,
     cav2_p1_integrated_ref_i => convert2_dout_net_x8,
     cav2_p1_integrated_ref_q => convert4_dout_net_x3,
-    cav2_p1_integrated_i => convert9_dout_net_x4,
+    cav2_p1_integrated_i => convert9_dout_net_x5,
     cav2_p1_integrated_q => convert10_dout_net_x3,
     cav2_p1_comparison_i => addsub_s_net_x0,
-    cav2_p1_ref_phase_out => register11_q_net_x4,
+    cav2_p1_ref_phase_out => register11_q_net_x6,
     cav2_p1_comparison_q => addsub_s_net_x0,
-    cav2_p1_comparison_phase => register11_q_net_x6,
+    cav2_p1_comparison_phase => register11_q_net_x8,
     c2p1_pt_window => convert11_dout_net_x2,
     c2p1_pt_cntr => counter_op_net_x1,
     c2p1_integral_logic => convert5_dout_net_x2,
-    cav2_p1_ref_amp_out => register12_q_net_x2,
+    cav2_p1_ref_amp_out => register12_q_net_x3,
     c2_p1_delay_latch => delay2_q_net_x0,
     cav2_p1_phase_out => register13_q_net_x0,
     cav2_p1_amp_out => register14_q_net_x0,
     flo_c2p2_window => convert2_dout_net_x4,
-    cav2_p1_if_amp => down_sample1_q_net,
+    cav2_p1_if_amp => register11_q_net_x2,
     c2p2_ready => relational2_op_net,
     c2p2_freq_err => convert1_dout_net_x1,
     c2_p2_delay_latch => delay2_q_net_x1,
@@ -39293,24 +38993,24 @@ begin
     c2_p2_delay_amt => register2_q_net_x8,
     cav2_p2_windowed_img => mult2_p_net_x0,
     cav2_p2_windowed_real => mult_p_net_x2,
-    cav2_p2_windowed_ref_i => mult4_p_net_x0,
+    cav2_p2_windowed_ref_i => mult4_p_net,
     cav2_p2_windowed_ref_q => mult5_p_net,
-    cav2_p1_if_phase => down_sample_q_net,
+    cav2_p1_if_phase => register11_q_net_x12,
     c2p1_delay_match => register_q_net_x3,
-    cav2_p2_if_i => register11_q_net_x3,
+    cav2_p2_if_i => register11_q_net_x9,
     cav2_sync => down_sample2_q_net,
     c2_ready => logical_y_net_x1,
-    c2p1_ready => relational1_op_net,
+    c2p1_ready => relational1_op_net_x1,
     cav2_nco_sin => nco_sin_x0,
     cav2_nco_cos => nco_cos_x0,
     c2_stream_valid => relational7_op_net_x0,
-    cav2_p2_if_q => register11_q_net_x2,
+    cav2_p2_if_q => register11_q_net_x5,
     gateway_out_x2 => inverter_op_net_x1,
     gateway_out1_x8 => convert2_dout_net_x7,
-    gateway_out10_x2 => mult4_p_net_x0,
+    gateway_out10_x2 => mult4_p_net,
     gateway_out11_x4 => register1_q_net_x10,
     gateway_out12_x0 => convert4_dout_net_x2,
-    gateway_out13_x0 => register12_q_net_x4,
+    gateway_out13_x0 => register12_q_net_x5,
     gateway_out14_x0 => mult5_p_net,
     gateway_out15_x0 => register2_q_net_x12,
     gateway_out16_x0 => inverter3_op_net_x1,
@@ -39319,122 +39019,122 @@ begin
     gateway_out2_x8 => inverter2_op_net_x1,
     gateway_out22_x0 => convert9_dout_net_x3,
     gateway_out23_x0 => convert10_dout_net_x2,
-    gateway_out3_x8 => accumulator_q_net_x1,
-    gateway_out4_x5 => accumulator2_q_net_x1,
-    gateway_out5_x6 => mult2_p_net_x0,
-    gateway_out6_x4 => inverter1_op_net_x1,
-    gateway_out7_x3 => accumulator1_q_net_x1,
-    gateway_out8_x3 => mult_p_net_x2,
-    gateway_out9_x0 => register11_q_net_x16,
+    gateway_out3_x7 => accumulator_q_net_x1,
+    gateway_out4_x4 => accumulator2_q_net_x1,
+    gateway_out5_x5 => mult2_p_net_x0,
+    gateway_out6_x1 => inverter1_op_net_x1,
+    gateway_out7_x0 => accumulator1_q_net_x1,
+    gateway_out8_x0 => mult_p_net_x2,
+    gateway_out9_x0 => register11_q_net_x25,
     gateway_out_x1 => inverter_op_net_x2,
     gateway_out1_x6 => convert2_dout_net_x8,
-    gateway_out10_x1 => mult4_p_net,
+    gateway_out10_x1 => mult4_p_net_x0,
     gateway_out11_x2 => register1_q_net_x11,
     gateway_out12 => convert4_dout_net_x3,
-    gateway_out13 => register12_q_net_x5,
+    gateway_out13 => register12_q_net_x2,
     gateway_out14 => mult5_p_net_x0,
-    gateway_out15 => register2_q_net_x7,
+    gateway_out15 => register2_q_net_x6,
     gateway_out16 => inverter3_op_net_x2,
     gateway_out17 => accumulator3_q_net_x2,
     gateway_out18 => register1_q_net_x11,
     gateway_out2_x6 => inverter2_op_net_x2,
-    gateway_out22 => convert9_dout_net_x4,
+    gateway_out22 => convert9_dout_net_x5,
     gateway_out23 => convert10_dout_net_x3,
     gateway_out3_x6 => accumulator_q_net_x2,
     gateway_out4_x3 => accumulator2_q_net_x2,
-    gateway_out5_x3 => mult2_p_net,
+    gateway_out5_x4 => mult2_p_net,
     gateway_out6_x0 => inverter1_op_net_x2,
     gateway_out7 => accumulator1_q_net_x2,
     gateway_out8 => mult_p_net_x1,
-    gateway_out9 => register11_q_net_x17,
+    gateway_out9 => register11_q_net_x13,
     gateway_out1_x5 => delay5_q_net_x1,
-    gateway_out2_x5 => delay3_q_net,
-    gateway_out27_x1 => relational4_op_net_x0,
-    gateway_out28_x1 => relational3_op_net_x0,
+    gateway_out2_x7 => delay3_q_net,
+    gateway_out27_x2 => relational4_op_net_x0,
+    gateway_out28_x2 => relational3_op_net_x0,
     gateway_out29_x2 => convert11_dout_net_x1,
-    gateway_out3_x5 => convert7_dout_net_x0,
-    gateway_out4_x4 => counter_op_net_x0,
-    gateway_out5_x5 => convert5_dout_net_x1,
-    gateway_out6_x3 => convert3_dout_net_x2,
-    gateway_out7_x2 => register1_q_net_x7,
-    gateway_out8_x2 => convert2_dout_net_x4,
+    gateway_out3_x8 => convert7_dout_net_x0,
+    gateway_out4_x5 => counter_op_net_x0,
+    gateway_out5_x6 => convert5_dout_net_x1,
+    gateway_out6_x4 => convert3_dout_net_x2,
+    gateway_out7_x3 => register1_q_net_x7,
+    gateway_out8_x3 => convert2_dout_net_x4,
     gateway_out9_x1 => delay8_q_net_x0,
     gateway_out24_x0 => convert5_dout_net_x2,
     gateway_out25_x0 => convert10_dout_net_x3,
-    gateway_out26_x0 => convert9_dout_net_x4,
-    gateway_out6_x2 => convert5_dout_net_x2,
-    gateway_out7_x1 => convert4_dout_net_x3,
-    gateway_out8_x1 => convert2_dout_net_x8,
+    gateway_out26 => convert9_dout_net_x5,
+    gateway_out6_x3 => convert5_dout_net_x2,
+    gateway_out7_x2 => convert4_dout_net_x3,
+    gateway_out8_x2 => convert2_dout_net_x8,
     gateway_out24 => convert5_dout_net_x1,
     gateway_out25 => convert10_dout_net_x2,
-    gateway_out26 => convert9_dout_net_x3,
-    gateway_out6_x1 => convert5_dout_net_x1,
-    gateway_out7_x0 => convert4_dout_net_x2,
-    gateway_out8_x0 => convert2_dout_net_x7,
+    gateway_out26_x0 => convert9_dout_net_x3,
+    gateway_out6_x2 => convert5_dout_net_x1,
+    gateway_out7_x1 => convert4_dout_net_x2,
+    gateway_out8_x1 => convert2_dout_net_x7,
     gateway_out44_x0 => mult_p_net_x2,
     gateway_out46_x0 => mult2_p_net_x0,
     gateway_out1_x7 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
     gateway_out11_x3 => convert_dout_net_x1,
     gateway_out19_x0 => mult3_p_net,
-    gateway_out2_x7 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
-    gateway_out20_x0 => convert2_dout_net_x4,
-    gateway_out3_x7 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
-    gateway_out5_x4 => convert1_dout_net_x1,
-    gateway_out27_x2 => addsub3_s_net,
-    gateway_out28_x2 => register_q_net_x0,
+    gateway_out2_x2 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
+    gateway_out20 => convert2_dout_net_x4,
+    gateway_out3_x3 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
+    gateway_out5_x1 => convert1_dout_net_x1,
+    gateway_out27_x0 => addsub3_s_net,
+    gateway_out28_x0 => register_q_net_x0,
     gateway_out29_x0 => register1_q_net_x5,
-    gateway_out3_x3 => mult1_p_net,
+    gateway_out3_x2 => mult1_p_net,
     gateway_out_x0 => mult3_p_net,
-    gateway_out1_x3 => relational1_op_net_x0,
-    gateway_out2_x2 => delay5_q_net,
-    gateway_out3_x2 => register_q_net_x0,
-    gateway_out4_x0 => register1_q_net_x5,
-    gateway_out5_x1 => convert3_dout_net_x0,
-    gateway_out1_x2 => mult_p_net,
-    gateway_out2_x1 => register2_q_net_x4,
+    gateway_out1_x1 => relational1_op_net,
+    gateway_out2_x1 => delay5_q_net,
+    gateway_out3_x1 => register_q_net_x0,
+    gateway_out4 => register1_q_net_x5,
+    gateway_out5_x0 => convert3_dout_net_x0,
+    gateway_out1_x0 => mult_p_net,
+    gateway_out2 => register2_q_net_x4,
     gateway_out44 => mult_p_net_x1,
     gateway_out46 => mult2_p_net,
-    gateway_out1_x1 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
+    gateway_out1 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
     gateway_out11 => convert_dout_net_x2,
     gateway_out19 => mult3_p_net_x0,
-    gateway_out2 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
-    gateway_out20 => convert2_dout_net_x5,
-    gateway_out3_x1 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
-    gateway_out5_x0 => convert1_dout_net_x2,
+    gateway_out2_x0 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
+    gateway_out20_x0 => convert2_dout_net_x5,
+    gateway_out3_x0 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
+    gateway_out5 => convert1_dout_net_x2,
     gateway_out6 => logical_y_net_x0,
     gateway_out27 => addsub3_s_net_x0,
     gateway_out28 => register_q_net_x1,
     gateway_out29 => register1_q_net_x6,
-    gateway_out3_x0 => mult1_p_net_x0,
+    gateway_out3 => mult1_p_net_x0,
     gateway_out => mult3_p_net_x0,
-    gateway_out1 => relational1_op_net_x1,
-    gateway_out2_x0 => delay5_q_net_x0,
-    gateway_out3 => register_q_net_x1,
-    gateway_out4 => register1_q_net_x6,
-    gateway_out5 => convert3_dout_net_x1,
-    gateway_out1_x0 => mult_p_net_x0,
+    gateway_out1_x4 => relational1_op_net_x0,
+    gateway_out2_x5 => delay5_q_net_x0,
+    gateway_out3_x5 => register_q_net_x1,
+    gateway_out4_x2 => register1_q_net_x6,
+    gateway_out5_x3 => convert3_dout_net_x1,
+    gateway_out1_x3 => mult_p_net_x0,
     gateway_out2_x4 => register2_q_net_x5,
-    gateway_out1_x4 => delay5_q_net_x2,
+    gateway_out1_x2 => delay5_q_net_x2,
     gateway_out2_x3 => delay3_q_net_x0,
-    gateway_out27_x0 => relational4_op_net_x1,
-    gateway_out28_x0 => relational3_op_net_x1,
+    gateway_out27_x1 => relational4_op_net_x1,
+    gateway_out28_x1 => relational3_op_net_x1,
     gateway_out29_x1 => convert11_dout_net_x2,
     gateway_out3_x4 => convert7_dout_net_x1,
     gateway_out5_x2 => convert5_dout_net_x2,
     gateway_out10_x0 => convert11_dout_net_x2,
     gateway_out11_x1 => mult2_p_net,
     gateway_out34_x0 => convert11_dout_net_x2,
-    gateway_out35_x0 => mult4_p_net,
+    gateway_out35_x0 => mult4_p_net_x0,
     gateway_out37_x0 => convert11_dout_net_x2,
-    gateway_out38 => mult5_p_net_x0,
-    gateway_out4_x2 => mult3_p_net_x1,
+    gateway_out38_x0 => mult5_p_net_x0,
+    gateway_out4_x1 => mult3_p_net_x2,
     gateway_out10 => convert11_dout_net_x1,
     gateway_out11_x0 => mult2_p_net_x0,
     gateway_out34 => convert11_dout_net_x1,
-    gateway_out35 => mult4_p_net_x0,
+    gateway_out35 => mult4_p_net,
     gateway_out37 => convert11_dout_net_x1,
-    gateway_out38_x0 => mult5_p_net,
-    gateway_out4_x1 => mult3_p_net_x2
+    gateway_out38 => mult5_p_net,
+    gateway_out4_x0 => mult3_p_net_x1
   );
   rflib_input : entity work.example_rflib_input 
   port map (
@@ -39469,28 +39169,14 @@ begin
     ce_1 => d_ce_net,
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
-    ref_amp => down_sample1_q_net_x2,
-    ref_phi => down_sample_q_net_x2,
-    ref_i => down_sample1_q_net_x1,
-    ref_q => down_sample_q_net_x1,
-    rf_ref_amp => down_sample1_q_net_x2,
-    rf_ref_phase => down_sample_q_net_x2,
-    rf_ref_i => down_sample1_q_net_x1,
-    rf_ref_q => down_sample_q_net_x1
-  );
-  constant30 : entity work.sysgen_constant_6910f0d900 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant30_op_net
-  );
-  constant38 : entity work.sysgen_constant_146af16123 
-  port map (
-    clk => '0',
-    ce => '0',
-    clr => '0',
-    op => constant38_op_net
+    ref_amp => down_sample1_q_net_x0,
+    ref_phi => down_sample_q_net_x0,
+    ref_i => down_sample1_q_net,
+    ref_q => down_sample_q_net,
+    rf_ref_amp => down_sample1_q_net_x0,
+    rf_ref_phase => down_sample_q_net_x0,
+    rf_ref_i => down_sample1_q_net,
+    rf_ref_q => down_sample_q_net
   );
   logical : entity work.sysgen_logical_cfc7fd815b 
   port map (
@@ -39779,24 +39465,28 @@ entity example_struct is
     gateway_out7_x5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out8_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out27 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out27_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out4_x13 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out4_x12 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x11 : out std_logic_vector( 1-1 downto 0 );
     gateway_out6_x8 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out8_x6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out9_x3 : out std_logic_vector( 16-1 downto 0 );
     gateway_out10_x6 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out11_x7 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out11_x8 : out std_logic_vector( 16-1 downto 0 );
     gateway_out24_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x9 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x7 : out std_logic_vector( 20-1 downto 0 );
     gateway_out8_x7 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out1_x15 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out7_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out8_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x5 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x17 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x18 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x15 : out std_logic_vector( 16-1 downto 0 );
     gateway_out27_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out28_x5 : out std_logic_vector( 1-1 downto 0 );
@@ -39805,10 +39495,10 @@ entity example_struct is
     gateway_out5_x12 : out std_logic_vector( 1-1 downto 0 );
     gateway_out44_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x16 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x8 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x13 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out11_x6 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x13 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out2_x12 : out std_logic_vector( 63-1 downto 0 );
     gateway_out20_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x11 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x10 : out std_logic_vector( 16-1 downto 0 );
@@ -39816,42 +39506,42 @@ entity example_struct is
     gateway_out6_x7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out8_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x12 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out27_x4 : out std_logic_vector( 19-1 downto 0 );
-    gateway_out28_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x14 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out27_x3 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out28_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x12 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x5 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x13 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x12 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x15 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x13 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x13 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x11 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x14 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x16 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x14 : out std_logic_vector( 10-1 downto 0 );
     gateway_out10_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x6 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x7 : out std_logic_vector( 18-1 downto 0 );
     gateway_out32_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out36_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out37_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x12 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out36_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out37_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out38_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x14 : out std_logic_vector( 18-1 downto 0 );
     gateway_out44_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x20 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x21 : out std_logic_vector( 1-1 downto 0 );
     gateway_out11_x10 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x17 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out2_x18 : out std_logic_vector( 63-1 downto 0 );
     gateway_out20_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x16 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x16 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out4_x15 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x14 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x11 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x9 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x9 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x21 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x24 : out std_logic_vector( 1-1 downto 0 );
     gateway_out27_x6 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28_x6 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x6 : out std_logic_vector( 18-1 downto 0 );
@@ -39860,24 +39550,21 @@ entity example_struct is
     gateway_out1_x23 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x19 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x17 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x17 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x16 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x15 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x22 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out2_x18 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out10_x8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x11 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out2_x17 : out std_logic_vector( 10-1 downto 0 );
     gateway_out32_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out36_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out37_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x14 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x17 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out36_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out37_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out38_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x19 : out std_logic_vector( 1-1 downto 0 );
     gateway_out39_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out40_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out_x7 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x18 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x20 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x7 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out12_x2 : out std_logic_vector( 20-1 downto 0 );
@@ -39891,14 +39578,14 @@ entity example_struct is
     gateway_out22_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out3_x15 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x15 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x13 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x13 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x8 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out7_x9 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x9 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9_x4 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x19 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out_x7 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x6 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out12_x1 : out std_logic_vector( 20-1 downto 0 );
@@ -39918,10 +39605,10 @@ entity example_struct is
     gateway_out7_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out8_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9_x1 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out1_x6 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out1_x7 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x6 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out27_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out4_x4 : out std_logic_vector( 16-1 downto 0 );
@@ -39952,8 +39639,8 @@ entity example_struct is
     gateway_out3_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x2 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x2 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out27_x0 : out std_logic_vector( 19-1 downto 0 );
-    gateway_out28 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out27 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out28_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x3 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x3 : out std_logic_vector( 18-1 downto 0 );
@@ -39962,11 +39649,11 @@ entity example_struct is
     gateway_out3_x5 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x7 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x8 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x7 : out std_logic_vector( 10-1 downto 0 );
     gateway_out44_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x0 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x9 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out2_x8 : out std_logic_vector( 18-1 downto 0 );
@@ -39975,22 +39662,22 @@ entity example_struct is
     gateway_out4_x8 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out27_x3 : out std_logic_vector( 19-1 downto 0 );
-    gateway_out28_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out27_x2 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out28_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x4 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x9 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x10 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x9 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x10 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x9 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x10 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x11 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x10 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out1_x11 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out1_x12 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x11 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out27_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out28_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out27_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out28_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out5_x5 : out std_logic_vector( 1-1 downto 0 );
@@ -40015,201 +39702,159 @@ entity example_struct is
   );
 end example_struct;
 architecture structural of example_struct is 
-  signal cav1_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
-  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register16_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register15_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
-  signal convert13_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux21_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert73_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert85_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux22_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert74_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert86_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux23_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert59_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert87_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux24_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert60_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert88_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux18_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert61_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert89_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux25_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert66_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert90_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux27_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert67_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert91_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux28_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert68_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert92_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux29_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert69_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert93_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux30_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert70_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert94_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux4_y_net : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x6 : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net_x3 : std_logic_vector( 32-1 downto 0 );
-  signal convert14_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux31_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert63_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert95_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux32_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert64_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert96_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux5_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert15_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux6_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert16_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux7_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert9_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert17_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux8_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert10_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert18_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux9_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert19_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux3_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert12_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert20_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux1_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert54_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert65_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert27_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert28_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert29_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert30_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert31_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert32_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert33_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert34_dout_net : std_logic_vector( 32-1 downto 0 );
-  signal convert35_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert36_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert37_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert38_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert39_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert40_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert41_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert42_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal register33_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal register27_q_net_x0 : std_logic_vector( 26-1 downto 0 );
-  signal convert5_dout_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal convert6_dout_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal convert11_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
-  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register9_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal down_sample_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal nco_cos_x0 : std_logic_vector( 26-1 downto 0 );
-  signal counter_op_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal inverter_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x6 : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x8 : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net_x4 : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x10 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
   signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x9 : std_logic_vector( 32-1 downto 0 );
-  signal inverter_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x5 : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x9 : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net_x5 : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x11 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x4 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x10 : std_logic_vector( 32-1 downto 0 );
-  signal relational4_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal register1_q_net_x10 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x7 : std_logic_vector( 1-1 downto 0 );
-  signal delay8_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x2 : std_logic_vector( 16-1 downto 0 );
-  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay5_q_net_x5 : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net_x3 : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert5_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x3 : std_logic_vector( 63-1 downto 0 );
-  signal delay1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net_x1 : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x7 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x8 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x5 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x11 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x5 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x13 : std_logic_vector( 10-1 downto 0 );
-  signal down_sample1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert_dout_net_x4 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x4 : std_logic_vector( 63-1 downto 0 );
-  signal delay1_q_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal delay2_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal delay3_q_net_x2 : std_logic_vector( 16-1 downto 0 );
-  signal down_sample2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert7_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal convert10_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
+  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal mult2_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
+  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x11 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x12 : std_logic_vector( 18-1 downto 0 );
+  signal convert6_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
+  signal register3_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal c2p1_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c2p1_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c2p2_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c2p2_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c2_nco_reset : std_logic_vector( 1-1 downto 0 );
+  signal c2p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
+  signal c2_nco_phi : std_logic_vector( 32-1 downto 0 );
+  signal register1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register36_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register33_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal register34_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal register2_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register29_q_net_x2 : std_logic_vector( 4-1 downto 0 );
+  signal register30_q_net_x1 : std_logic_vector( 4-1 downto 0 );
+  signal register31_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal register32_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant72_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register12_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x20 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x13 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x21 : std_logic_vector( 18-1 downto 0 );
+  signal logical_y_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal amp_net : std_logic_vector( 18-1 downto 0 );
+  signal ddcchannel_net : std_logic_vector( 4-1 downto 0 );
+  signal ddci_net : std_logic_vector( 18-1 downto 0 );
+  signal ddcq_net : std_logic_vector( 18-1 downto 0 );
+  signal ddcsync_net : std_logic_vector( 1-1 downto 0 );
+  signal phase_net : std_logic_vector( 18-1 downto 0 );
+  signal phaseampchannel_net : std_logic_vector( 4-1 downto 0 );
+  signal phaseampsync_net : std_logic_vector( 1-1 downto 0 );
+  signal d_ce_net : std_logic;
+  signal dest_clk_net : std_logic;
+  signal dest_ce_net : std_logic;
+  signal q_clk_net_x0 : std_logic;
+  signal d_ce_net_x0 : std_logic;
+  signal d_clk_net : std_logic;
+  signal q_ce_net : std_logic;
+  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_phi : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_dc_i : std_logic_vector( 18-1 downto 0 );
   signal addsub3_s_net_x6 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x12 : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
   signal mult1_p_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x4 : std_logic_vector( 10-1 downto 0 );
+  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x5 : std_logic_vector( 10-1 downto 0 );
+  signal nco_sin : std_logic_vector( 26-1 downto 0 );
+  signal constant69_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant68_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant67_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant66_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant32_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant89_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant80_op_net : std_logic_vector( 18-1 downto 0 );
+  signal constant88_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant81_op_net : std_logic_vector( 18-1 downto 0 );
   signal constant87_op_net : std_logic_vector( 1-1 downto 0 );
+  signal dual_port_ram_doutb_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal dual_port_ram1_doutb_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x8 : std_logic_vector( 1-1 downto 0 );
+  signal down_sample2_q_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x9 : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net_x6 : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net_x7 : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal register_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal counter_op_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal relational1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal constant71_op_net : std_logic_vector( 1-1 downto 0 );
+  signal constant70_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x8 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x9 : std_logic_vector( 10-1 downto 0 );
+  signal delay5_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert7_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal addsub3_s_net_x3 : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x7 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x1 : std_logic_vector( 1-1 downto 0 );
   signal constant8_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant64_op_net : std_logic_vector( 3-1 downto 0 );
   signal constant90_op_net : std_logic_vector( 18-1 downto 0 );
@@ -40245,217 +39890,110 @@ architecture structural of example_struct is
   signal constant1_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant73_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant31_op_net : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net_x12 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net_x3 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register2_q_net_x13 : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net_x5 : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net_x5 : std_logic_vector( 1-1 downto 0 );
   signal register_q_net_x7 : std_logic_vector( 16-1 downto 0 );
   signal counter_op_net_x2 : std_logic_vector( 16-1 downto 0 );
   signal delay4_q_net : std_logic_vector( 1-1 downto 0 );
   signal addsub3_s_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net_x3 : std_logic_vector( 16-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram_doutb_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal counter_op_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal relational1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal addsub3_s_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal register_q_net : std_logic_vector( 16-1 downto 0 );
   signal relational2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal addsub3_s_net_x2 : std_logic_vector( 18-1 downto 0 );
   signal nco_cos : std_logic_vector( 26-1 downto 0 );
   signal dual_port_ram_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal dual_port_ram1_doutb_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal dual_port_ram_doutb_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal dual_port_ram1_doutb_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal down_sample2_q_net : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
-  signal register35_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal inverter_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x5 : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net_x3 : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x5 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x3 : std_logic_vector( 32-1 downto 0 );
-  signal inverter_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
-  signal mult4_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x3 : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult5_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal inverter3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator3_q_net : std_logic_vector( 32-1 downto 0 );
-  signal inverter2_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert9_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal convert10_dout_net_x0 : std_logic_vector( 20-1 downto 0 );
-  signal accumulator_q_net : std_logic_vector( 32-1 downto 0 );
-  signal accumulator2_q_net : std_logic_vector( 32-1 downto 0 );
-  signal mult2_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal accumulator1_q_net : std_logic_vector( 32-1 downto 0 );
-  signal mult_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal delay5_q_net : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal counter_op_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal logical_y_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net_x4 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x2 : std_logic_vector( 63-1 downto 0 );
+  signal delay1_q_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x4 : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal down_sample2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal logical_y_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
   signal convert5_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net : std_logic_vector( 1-1 downto 0 );
   signal register1_q_net_x4 : std_logic_vector( 1-1 downto 0 );
   signal convert2_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
   signal delay8_q_net : std_logic_vector( 16-1 downto 0 );
   signal convert5_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal addsub3_s_net_x1 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x3 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x8 : std_logic_vector( 10-1 downto 0 );
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
-  signal mult3_p_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal convert1_dout_net_x2 : std_logic_vector( 32-1 downto 0 );
-  signal logical_y_net_x4 : std_logic_vector( 1-1 downto 0 );
-  signal addsub3_s_net_x4 : std_logic_vector( 19-1 downto 0 );
-  signal register_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal mult1_p_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal relational1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal delay5_q_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert3_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal mult_p_net_x4 : std_logic_vector( 32-1 downto 0 );
-  signal register2_q_net_x9 : std_logic_vector( 10-1 downto 0 );
-  signal delay5_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal delay3_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal relational4_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal relational3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal convert11_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal convert7_dout_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal mult3_p_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal amp_net : std_logic_vector( 18-1 downto 0 );
-  signal ddcchannel_net : std_logic_vector( 4-1 downto 0 );
-  signal ddci_net : std_logic_vector( 18-1 downto 0 );
-  signal ddcq_net : std_logic_vector( 18-1 downto 0 );
-  signal ddcsync_net : std_logic_vector( 1-1 downto 0 );
-  signal phase_net : std_logic_vector( 18-1 downto 0 );
-  signal phaseampchannel_net : std_logic_vector( 4-1 downto 0 );
-  signal phaseampsync_net : std_logic_vector( 1-1 downto 0 );
-  signal d_ce_net : std_logic;
-  signal dest_clk_net : std_logic;
-  signal dest_ce_net : std_logic;
-  signal q_clk_net_x0 : std_logic;
-  signal d_ce_net_x0 : std_logic;
-  signal d_clk_net : std_logic;
-  signal q_ce_net : std_logic;
-  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c1p1_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c1p1_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c1p1_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal c1p2_integ_i : std_logic_vector( 20-1 downto 0 );
-  signal c1p2_integ_q : std_logic_vector( 20-1 downto 0 );
-  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_comp_i : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_comp_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x5 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x14 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x11 : std_logic_vector( 18-1 downto 0 );
-  signal register2_q_net_x14 : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register5_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register4_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x12 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x13 : std_logic_vector( 18-1 downto 0 );
-  signal convert1_dout_net_x3 : std_logic_vector( 18-1 downto 0 );
-  signal convert_dout_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register13_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal addsub_s_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c1p2_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c1p2_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c1_nco_reset : std_logic_vector( 1-1 downto 0 );
-  signal c1p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c1_nco_phi : std_logic_vector( 32-1 downto 0 );
-  signal register29_q_net_x0 : std_logic_vector( 4-1 downto 0 );
-  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
-  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register15_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register9_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register8_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register7_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register4_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register10_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register11_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal cav1_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
+  signal register20_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p2_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p2_chan_sel_net : std_logic_vector( 4-1 downto 0 );
+  signal register21_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mux23_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert59_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert87_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux24_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert60_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert88_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux18_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert61_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert89_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux25_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert66_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert90_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux27_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert67_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert91_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux28_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert68_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal mult6_p_net : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal mult7_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x13 : std_logic_vector( 32-1 downto 0 );
+  signal inverter_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x7 : std_logic_vector( 20-1 downto 0 );
+  signal mult4_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x10 : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net_x5 : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x11 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net_x2 : std_logic_vector( 1-1 downto 0 );
   signal register33_q_net : std_logic_vector( 16-1 downto 0 );
   signal register34_q_net : std_logic_vector( 16-1 downto 0 );
   signal register1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal ref_amp : std_logic_vector( 18-1 downto 0 );
   signal ref_phi : std_logic_vector( 18-1 downto 0 );
   signal ref_i : std_logic_vector( 18-1 downto 0 );
   signal ref_q : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x18 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x17 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x23 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x22 : std_logic_vector( 18-1 downto 0 );
   signal ref_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal register2_q_net : std_logic_vector( 4-1 downto 0 );
+  signal c2p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal c2p1_if_amp : std_logic_vector( 18-1 downto 0 );
   signal c2p2_if_amp : std_logic_vector( 18-1 downto 0 );
   signal c2p1_if_phi : std_logic_vector( 18-1 downto 0 );
   signal c2p1_if_i : std_logic_vector( 18-1 downto 0 );
   signal c2p1_if_q : std_logic_vector( 18-1 downto 0 );
-  signal c2p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal c2p1_dc_i : std_logic_vector( 18-1 downto 0 );
   signal c2p1_dc_q : std_logic_vector( 18-1 downto 0 );
   signal c2p1_dc_freq : std_logic_vector( 32-1 downto 0 );
@@ -40479,132 +40017,17 @@ architecture structural of example_struct is
   signal c2p2_comp_i : std_logic_vector( 18-1 downto 0 );
   signal c2p2_comp_q : std_logic_vector( 18-1 downto 0 );
   signal c2p2_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x8 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x10 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x9 : std_logic_vector( 18-1 downto 0 );
   signal convert1_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal convert5_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register13_q_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal register14_q_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal addsub_s_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x7 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x8 : std_logic_vector( 18-1 downto 0 );
-  signal convert6_dout_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register13_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal register14_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net_x0 : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal c2p1_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c2p1_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c2p2_win_start : std_logic_vector( 16-1 downto 0 );
-  signal c2p2_win_stop : std_logic_vector( 16-1 downto 0 );
-  signal c2_nco_reset : std_logic_vector( 1-1 downto 0 );
-  signal c2p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
-  signal c2_nco_phi : std_logic_vector( 32-1 downto 0 );
-  signal register1_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register36_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register33_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal register34_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal register2_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register29_q_net_x2 : std_logic_vector( 4-1 downto 0 );
-  signal register30_q_net_x1 : std_logic_vector( 4-1 downto 0 );
-  signal register31_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal register32_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal register11_q_net_x16 : std_logic_vector( 18-1 downto 0 );
-  signal constant30_op_net : std_logic_vector( 18-1 downto 0 );
-  signal relational7_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant38_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant72_op_net : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net_x3 : std_logic_vector( 1-1 downto 0 );
-  signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x13 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register12_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x15 : std_logic_vector( 18-1 downto 0 );
-  signal nco_sin : std_logic_vector( 26-1 downto 0 );
-  signal constant71_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant70_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant69_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant68_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant67_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant66_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant32_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant89_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant80_op_net : std_logic_vector( 18-1 downto 0 );
-  signal constant88_op_net : std_logic_vector( 1-1 downto 0 );
-  signal constant81_op_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal convert2_dout_net_x8 : std_logic_vector( 1-1 downto 0 );
-  signal dual_port_ram_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal dual_port_ram1_doutb_net : std_logic_vector( 18-1 downto 0 );
-  signal down_sample2_q_net_x2 : std_logic_vector( 1-1 downto 0 );
-  signal convert2_dout_net_x9 : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net_x7 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x0 : std_logic_vector( 1-1 downto 0 );
-  signal register2_q_net_x6 : std_logic_vector( 16-1 downto 0 );
-  signal delay2_q_net_x1 : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register_q_net_x0 : std_logic_vector( 16-1 downto 0 );
-  signal register9_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register8_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register7_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register5_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register4_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register6_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register10_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register11_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register12_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
-  signal cav1_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
-  signal register20_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p2_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p2_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register21_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register103_q_net : std_logic_vector( 32-1 downto 0 );
-  signal register23_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register22_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register30_q_net_x0 : std_logic_vector( 32-1 downto 0 );
-  signal register29_q_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal register28_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register24_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register26_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register25_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
-  signal register17_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register18_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register19_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p2_window_start_net : std_logic_vector( 16-1 downto 0 );
-  signal cav1_p2_window_stop_net : std_logic_vector( 16-1 downto 0 );
-  signal cav2_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
-  signal cav2_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
-  signal register93_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
-  signal register94_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register96_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register95_q_net : std_logic_vector( 18-1 downto 0 );
-  signal mux11_y_net : std_logic_vector( 32-1 downto 0 );
-  signal register102_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register101_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register97_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register99_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register98_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register100_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register90_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register91_q_net : std_logic_vector( 20-1 downto 0 );
-  signal register92_q_net : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
-  signal cav2_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
+  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
   signal register121_q_net : std_logic_vector( 18-1 downto 0 );
   signal q_clk_net : std_logic;
   signal cav2_p2_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
@@ -40623,6 +40046,207 @@ architecture structural of example_struct is
   signal register119_q_net : std_logic_vector( 20-1 downto 0 );
   signal register120_q_net : std_logic_vector( 18-1 downto 0 );
   signal cav2_p2_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal c1p1_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal c1p1_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal c1p1_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_phi : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal c1p2_integ_i : std_logic_vector( 20-1 downto 0 );
+  signal c1p2_integ_q : std_logic_vector( 20-1 downto 0 );
+  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_q : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_comp_phi : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x16 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x17 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x24 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x25 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x14 : std_logic_vector( 18-1 downto 0 );
+  signal register3_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register5_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register4_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register6_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x19 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x18 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x26 : std_logic_vector( 18-1 downto 0 );
+  signal convert1_dout_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register13_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register14_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal addsub_s_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal ref_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c1p2_win_start : std_logic_vector( 16-1 downto 0 );
+  signal c1p2_win_stop : std_logic_vector( 16-1 downto 0 );
+  signal c1_nco_reset : std_logic_vector( 1-1 downto 0 );
+  signal c1p1_cal_coeff : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_cal_coeff : std_logic_vector( 18-1 downto 0 );
+  signal c1_nco_phi : std_logic_vector( 32-1 downto 0 );
+  signal register29_q_net_x0 : std_logic_vector( 4-1 downto 0 );
+  signal register30_q_net : std_logic_vector( 4-1 downto 0 );
+  signal register31_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register32_q_net : std_logic_vector( 16-1 downto 0 );
+  signal register36_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register35_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal inverter_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
+  signal mult4_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x6 : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x1 : std_logic_vector( 20-1 downto 0 );
+  signal convert62_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert82_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux19_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert71_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert83_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux20_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert72_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert84_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux2_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert13_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux21_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert73_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert85_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux22_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert74_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert86_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal cav1_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
+  signal cav1_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
+  signal register13_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
+  signal register14_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register16_q_net : std_logic_vector( 18-1 downto 0 );
+  signal counter_op_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal inverter_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x5 : std_logic_vector( 20-1 downto 0 );
+  signal mult4_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x9 : std_logic_vector( 32-1 downto 0 );
+  signal convert4_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
+  signal register12_q_net_x4 : std_logic_vector( 32-1 downto 0 );
+  signal mult5_p_net : std_logic_vector( 18-1 downto 0 );
+  signal register2_q_net_x10 : std_logic_vector( 32-1 downto 0 );
+  signal inverter3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator3_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal inverter2_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x3 : std_logic_vector( 20-1 downto 0 );
+  signal accumulator_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal convert76_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux13_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert57_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert77_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux14_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert58_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert78_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux15_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert51_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert79_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux16_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert52_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert80_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux10_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert53_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert81_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux17_y_net : std_logic_vector( 32-1 downto 0 );
+  signal mux5_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert7_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert15_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux6_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert8_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert16_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux7_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert9_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert17_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux8_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert10_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert18_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux9_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert19_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux3_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert12_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert9_dout_net_x4 : std_logic_vector( 20-1 downto 0 );
+  signal convert10_dout_net_x2 : std_logic_vector( 20-1 downto 0 );
+  signal accumulator_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal accumulator2_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult2_p_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal inverter1_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal accumulator1_q_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult_p_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x14 : std_logic_vector( 32-1 downto 0 );
+  signal relational4_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net_x1 : std_logic_vector( 1-1 downto 0 );
+  signal convert11_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal register1_q_net_x12 : std_logic_vector( 1-1 downto 0 );
+  signal convert2_dout_net_x6 : std_logic_vector( 1-1 downto 0 );
+  signal convert92_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux29_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert69_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert93_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux30_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert70_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert94_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux4_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert7_dout_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert5_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal convert14_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux31_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert63_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert95_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux32_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert64_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert96_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal addsub3_s_net_x5 : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net_x5 : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x11 : std_logic_vector( 18-1 downto 0 );
+  signal mult1_p_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal relational1_op_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net_x4 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x12 : std_logic_vector( 10-1 downto 0 );
+  signal down_sample1_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net : std_logic_vector( 18-1 downto 0 );
+  signal mult3_p_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
+  signal register94_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register96_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register95_q_net : std_logic_vector( 18-1 downto 0 );
+  signal mux11_y_net : std_logic_vector( 32-1 downto 0 );
+  signal register102_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register101_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register97_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register99_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register98_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register100_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register90_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register91_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register92_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p1_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal cav2_p1_window_stop_net : std_logic_vector( 16-1 downto 0 );
   signal cav2_p2_window_stop_net : std_logic_vector( 16-1 downto 0 );
   signal ref_window_start_net : std_logic_vector( 16-1 downto 0 );
   signal ref_window_stop_net : std_logic_vector( 16-1 downto 0 );
@@ -40641,33 +40265,89 @@ architecture structural of example_struct is
   signal convert75_dout_net : std_logic_vector( 2-1 downto 0 );
   signal mux12_y_net : std_logic_vector( 32-1 downto 0 );
   signal convert56_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert76_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux13_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert57_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert77_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux14_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert58_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert78_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux15_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert51_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert79_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux16_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert52_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert80_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux10_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert53_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert81_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux17_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert62_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert82_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux19_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert71_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert83_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux20_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert72_dout_net : std_logic_vector( 1-1 downto 0 );
-  signal convert84_dout_net : std_logic_vector( 2-1 downto 0 );
-  signal mux2_y_net : std_logic_vector( 32-1 downto 0 );
-  signal convert4_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal mult_p_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal register2_q_net_x8 : std_logic_vector( 10-1 downto 0 );
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal convert_dout_net_x1 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal convert2_dout_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net_x2 : std_logic_vector( 32-1 downto 0 );
+  signal logical_y_net_x4 : std_logic_vector( 1-1 downto 0 );
+  signal addsub3_s_net_x4 : std_logic_vector( 19-1 downto 0 );
+  signal register_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal logical_y_net_x8 : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net_x3 : std_logic_vector( 32-1 downto 0 );
+  signal mult3_p_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal down_sample1_q_net_x1 : std_logic_vector( 63-1 downto 0 );
+  signal delay1_q_net_x0 : std_logic_vector( 1-1 downto 0 );
+  signal delay2_q_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal delay3_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal down_sample2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal logical_y_net_x6 : std_logic_vector( 1-1 downto 0 );
+  signal logical_y_net_x7 : std_logic_vector( 1-1 downto 0 );
+  signal convert3_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal delay8_q_net_x0 : std_logic_vector( 16-1 downto 0 );
+  signal delay2_q_net_x2 : std_logic_vector( 16-1 downto 0 );
+  signal delay1_q_net : std_logic_vector( 16-1 downto 0 );
+  signal down_sample_q_net_x0 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x15 : std_logic_vector( 18-1 downto 0 );
+  signal logical_y_net_x9 : std_logic_vector( 1-1 downto 0 );
+  signal delay5_q_net_x5 : std_logic_vector( 16-1 downto 0 );
+  signal delay3_q_net_x3 : std_logic_vector( 16-1 downto 0 );
+  signal relational4_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal relational3_op_net_x2 : std_logic_vector( 1-1 downto 0 );
+  signal convert37_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert38_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert39_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert40_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert41_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert42_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register33_q_net_x1 : std_logic_vector( 16-1 downto 0 );
+  signal register27_q_net_x0 : std_logic_vector( 26-1 downto 0 );
+  signal convert5_dout_net_x3 : std_logic_vector( 18-1 downto 0 );
+  signal convert6_dout_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal convert11_dout_net_x3 : std_logic_vector( 1-1 downto 0 );
+  signal register35_q_net : std_logic_vector( 1-1 downto 0 );
+  signal down_sample1_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register9_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal down_sample_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal nco_cos_x0 : std_logic_vector( 26-1 downto 0 );
+  signal convert20_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal mux1_y_net : std_logic_vector( 32-1 downto 0 );
+  signal convert54_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert65_dout_net : std_logic_vector( 2-1 downto 0 );
+  signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert1_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert27_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert28_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert29_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert30_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert31_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert32_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert33_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert34_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal convert35_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal convert36_dout_net : std_logic_vector( 1-1 downto 0 );
+  signal register103_q_net : std_logic_vector( 32-1 downto 0 );
+  signal register23_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register22_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register30_q_net_x0 : std_logic_vector( 32-1 downto 0 );
+  signal register29_q_net_x1 : std_logic_vector( 18-1 downto 0 );
+  signal register28_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register24_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register26_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register25_q_net : std_logic_vector( 18-1 downto 0 );
+  signal register1_q_net_x2 : std_logic_vector( 18-1 downto 0 );
+  signal register17_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register18_q_net : std_logic_vector( 20-1 downto 0 );
+  signal register19_q_net : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p2_window_start_net : std_logic_vector( 16-1 downto 0 );
+  signal cav1_p2_window_stop_net : std_logic_vector( 16-1 downto 0 );
+  signal cav2_nco_phase_adj_net : std_logic_vector( 32-1 downto 0 );
+  signal cav2_nco_phase_reset_net : std_logic_vector( 1-1 downto 0 );
+  signal register93_q_net : std_logic_vector( 18-1 downto 0 );
 begin
   cav1_nco_phase_adj_net <= cav1_nco_phase_adj;
   cav1_nco_phase_reset_net <= cav1_nco_phase_reset;
@@ -40878,34 +40558,34 @@ begin
   gateway_out3_x1 <= nco_sin_x0;
   gateway_out39 <= down_sample1_q_net;
   gateway_out4_x1 <= register9_q_net_x0;
-  gateway_out40 <= down_sample_q_net_x4;
+  gateway_out40 <= down_sample_q_net_x1;
   gateway_out5_x1 <= nco_cos_x0;
   gateway_out6_x1 <= counter_op_net_x1;
   gateway_out_x1 <= inverter_op_net_x1;
-  gateway_out1_x2 <= convert2_dout_net_x6;
+  gateway_out1_x2 <= convert2_dout_net_x5;
   gateway_out10_x1 <= mult4_p_net;
-  gateway_out11_x0 <= register1_q_net_x8;
+  gateway_out11_x0 <= register1_q_net_x9;
   gateway_out12_x0 <= convert4_dout_net_x2;
   gateway_out13_x0 <= register12_q_net_x4;
   gateway_out14_x0 <= mult5_p_net;
   gateway_out15 <= register2_q_net_x10;
   gateway_out16 <= inverter3_op_net_x1;
   gateway_out17 <= accumulator3_q_net_x2;
-  gateway_out18 <= register1_q_net_x8;
+  gateway_out18 <= register1_q_net_x9;
   gateway_out2 <= inverter2_op_net_x1;
   gateway_out22 <= convert9_dout_net_x3;
   gateway_out23 <= convert10_dout_net_x3;
   gateway_out3 <= accumulator_q_net_x2;
   gateway_out4 <= accumulator2_q_net_x2;
-  gateway_out5 <= mult2_p_net;
+  gateway_out5 <= mult6_p_net;
   gateway_out6_x0 <= inverter1_op_net_x1;
   gateway_out7 <= accumulator1_q_net_x2;
-  gateway_out8 <= mult_p_net;
-  gateway_out9 <= register11_q_net_x9;
+  gateway_out8 <= mult7_p_net;
+  gateway_out9 <= register11_q_net_x13;
   gateway_out <= inverter_op_net_x2;
-  gateway_out1 <= convert2_dout_net_x5;
+  gateway_out1 <= convert2_dout_net_x7;
   gateway_out10 <= mult4_p_net_x2;
-  gateway_out11 <= register1_q_net_x9;
+  gateway_out11 <= register1_q_net_x10;
   gateway_out12 <= convert4_dout_net_x3;
   gateway_out13 <= register12_q_net_x5;
   gateway_out14 <= mult5_p_net_x2;
@@ -40918,131 +40598,132 @@ begin
   gateway_out23_x0 <= convert10_dout_net_x2;
   gateway_out3_x0 <= accumulator_q_net_x1;
   gateway_out4_x0 <= accumulator2_q_net_x1;
-  gateway_out5_x0 <= mult2_p_net_x2;
+  gateway_out5_x0 <= mult2_p_net_x1;
   gateway_out6 <= inverter1_op_net_x2;
   gateway_out7_x5 <= accumulator1_q_net_x1;
-  gateway_out8_x4 <= mult_p_net_x6;
-  gateway_out9_x2 <= register11_q_net_x10;
-  gateway_out27 <= relational4_op_net_x1;
-  gateway_out28_x4 <= relational3_op_net_x1;
+  gateway_out8_x4 <= mult_p_net_x5;
+  gateway_out9_x2 <= register11_q_net_x14;
+  gateway_out27_x4 <= relational4_op_net_x1;
+  gateway_out28 <= relational3_op_net_x1;
   gateway_out29_x4 <= convert11_dout_net_x2;
-  gateway_out4_x13 <= counter_op_net_x1;
+  gateway_out4_x12 <= counter_op_net_x1;
   gateway_out5_x11 <= convert5_dout_net_x2;
   gateway_out6_x8 <= convert3_dout_net_x2;
-  gateway_out7_x6 <= register1_q_net_x10;
-  gateway_out8_x6 <= convert2_dout_net_x7;
+  gateway_out7_x6 <= register1_q_net_x12;
+  gateway_out8_x6 <= convert2_dout_net_x6;
   gateway_out9_x3 <= delay8_q_net_x0;
   gateway_out10_x6 <= delay2_q_net_x2;
-  gateway_out11_x7 <= delay1_q_net;
+  gateway_out11_x8 <= delay1_q_net;
   gateway_out24_x1 <= convert5_dout_net_x2;
   gateway_out25_x2 <= convert10_dout_net_x3;
   gateway_out26_x1 <= convert9_dout_net_x3;
   gateway_out6_x9 <= convert5_dout_net_x2;
   gateway_out7_x7 <= convert4_dout_net_x2;
-  gateway_out8_x7 <= convert2_dout_net_x6;
-  gateway_out1_x15 <= delay5_q_net_x5;
+  gateway_out8_x7 <= convert2_dout_net_x5;
+  gateway_out7_x8 <= down_sample_q_net_x0;
+  gateway_out8_x8 <= register11_q_net_x15;
+  gateway_out9_x5 <= convert3_dout_net_x2;
+  gateway_out1_x17 <= logical_y_net_x9;
+  gateway_out1_x18 <= delay5_q_net_x5;
   gateway_out2_x15 <= delay3_q_net_x3;
   gateway_out27_x5 <= relational4_op_net_x2;
   gateway_out28_x5 <= relational3_op_net_x2;
   gateway_out29_x5 <= convert11_dout_net_x3;
   gateway_out3_x14 <= convert7_dout_net_x2;
   gateway_out5_x12 <= convert5_dout_net_x4;
-  gateway_out44_x1 <= mult_p_net_x6;
-  gateway_out46_x1 <= mult2_p_net_x2;
-  gateway_out1_x16 <= logical_y_net_x6;
-  gateway_out11_x8 <= convert_dout_net_x3;
-  gateway_out19_x1 <= mult3_p_net_x4;
-  gateway_out2_x13 <= down_sample1_q_net_x3;
+  gateway_out44_x1 <= mult_p_net_x5;
+  gateway_out46_x1 <= mult2_p_net_x1;
+  gateway_out1_x13 <= logical_y_net_x8;
+  gateway_out11_x6 <= convert_dout_net_x3;
+  gateway_out19_x1 <= mult3_p_net_x3;
+  gateway_out2_x12 <= down_sample1_q_net_x1;
   gateway_out20_x1 <= delay1_q_net_x0;
-  gateway_out3_x11 <= delay2_q_net_x4;
+  gateway_out3_x11 <= delay2_q_net_x3;
   gateway_out4_x10 <= delay3_q_net_x1;
   gateway_out5_x9 <= down_sample2_q_net_x0;
-  gateway_out6_x7 <= logical_y_net_x7;
-  gateway_out7_x4 <= logical_y_net_x8;
+  gateway_out6_x7 <= logical_y_net_x6;
+  gateway_out7_x4 <= logical_y_net_x7;
   gateway_out8_x5 <= convert3_dout_net_x3;
-  gateway_out1_x12 <= logical_y_net_x8;
-  gateway_out27_x4 <= addsub3_s_net_x5;
-  gateway_out28_x3 <= register_q_net_x4;
+  gateway_out1_x14 <= logical_y_net_x7;
+  gateway_out27_x3 <= addsub3_s_net_x5;
+  gateway_out28_x4 <= register_q_net_x5;
   gateway_out29_x3 <= register1_q_net_x11;
   gateway_out3_x12 <= mult1_p_net_x1;
-  gateway_out_x5 <= mult3_p_net_x4;
-  gateway_out1_x13 <= relational1_op_net_x3;
-  gateway_out2_x12 <= delay5_q_net_x3;
-  gateway_out3_x13 <= register_q_net_x4;
+  gateway_out_x5 <= mult3_p_net_x3;
+  gateway_out1_x15 <= relational1_op_net_x3;
+  gateway_out2_x13 <= delay5_q_net_x4;
+  gateway_out3_x13 <= register_q_net_x5;
   gateway_out4_x11 <= register1_q_net_x11;
   gateway_out5_x10 <= convert3_dout_net_x3;
-  gateway_out1_x14 <= mult_p_net_x5;
-  gateway_out2_x14 <= register2_q_net_x13;
+  gateway_out1_x16 <= mult_p_net_x4;
+  gateway_out2_x14 <= register2_q_net_x12;
   gateway_out10_x5 <= convert11_dout_net_x3;
-  gateway_out11_x6 <= mult2_p_net_x2;
-  gateway_out32_x1 <= down_sample1_q_net_x1;
+  gateway_out11_x7 <= mult2_p_net_x1;
+  gateway_out32_x1 <= down_sample1_q_net_x0;
   gateway_out34_x1 <= convert11_dout_net_x3;
   gateway_out35_x1 <= mult4_p_net_x2;
-  gateway_out36_x1 <= down_sample_q_net_x1;
-  gateway_out37_x1 <= convert11_dout_net_x3;
-  gateway_out38_x1 <= mult5_p_net_x2;
-  gateway_out4_x12 <= mult3_p_net_x6;
-  gateway_out44_x2 <= mult_p_net;
-  gateway_out46_x2 <= mult2_p_net;
-  gateway_out1_x20 <= logical_y_net_x0;
+  gateway_out36_x2 <= down_sample_q_net;
+  gateway_out37_x2 <= convert11_dout_net_x3;
+  gateway_out38_x2 <= mult5_p_net_x2;
+  gateway_out4_x14 <= mult3_p_net_x5;
+  gateway_out44_x2 <= mult7_p_net;
+  gateway_out46_x2 <= mult6_p_net;
+  gateway_out1_x21 <= logical_y_net_x0;
   gateway_out11_x10 <= convert_dout_net_x4;
-  gateway_out19_x2 <= mult3_p_net_x5;
-  gateway_out2_x17 <= down_sample1_q_net_x4;
+  gateway_out19_x2 <= mult3_p_net_x4;
+  gateway_out2_x18 <= down_sample1_q_net_x2;
   gateway_out20_x2 <= delay1_q_net_x1;
-  gateway_out3_x16 <= delay2_q_net_x5;
-  gateway_out4_x16 <= delay3_q_net_x2;
+  gateway_out3_x16 <= delay2_q_net_x4;
+  gateway_out4_x15 <= delay3_q_net_x2;
   gateway_out5_x14 <= down_sample2_q_net_x1;
   gateway_out6_x11 <= logical_y_net_x1;
-  gateway_out7_x9 <= logical_y_net_x2;
-  gateway_out8_x9 <= convert3_dout_net_x4;
-  gateway_out1_x21 <= logical_y_net_x2;
+  gateway_out7_x10 <= logical_y_net_x2;
+  gateway_out8_x10 <= convert3_dout_net_x4;
+  gateway_out1_x24 <= logical_y_net_x2;
   gateway_out27_x6 <= addsub3_s_net_x6;
-  gateway_out28_x6 <= register_q_net_x5;
-  gateway_out29_x6 <= register1_q_net_x12;
+  gateway_out28_x6 <= register_q_net_x0;
+  gateway_out29_x6 <= register1_q_net_x5;
   gateway_out3_x18 <= mult1_p_net_x2;
-  gateway_out_x8 <= mult3_p_net_x5;
-  gateway_out1_x23 <= relational1_op_net_x2;
-  gateway_out2_x19 <= delay5_q_net_x4;
-  gateway_out3_x17 <= register_q_net_x5;
-  gateway_out4_x17 <= register1_q_net_x12;
+  gateway_out_x8 <= mult3_p_net_x4;
+  gateway_out1_x23 <= relational1_op_net;
+  gateway_out2_x19 <= delay5_q_net_x2;
+  gateway_out3_x17 <= register_q_net_x0;
+  gateway_out4_x16 <= register1_q_net_x5;
   gateway_out5_x15 <= convert3_dout_net_x4;
-  gateway_out1_x22 <= mult_p_net_x0;
-  gateway_out2_x18 <= register2_q_net_x4;
-  gateway_out10_x8 <= convert11_dout_net_x2;
-  gateway_out11_x11 <= mult2_p_net;
-  gateway_out32_x2 <= down_sample1_q_net_x1;
+  gateway_out1_x22 <= mult_p_net;
+  gateway_out2_x17 <= register2_q_net_x5;
+  gateway_out32_x2 <= down_sample1_q_net_x0;
   gateway_out34_x2 <= convert11_dout_net_x2;
   gateway_out35_x2 <= mult4_p_net;
-  gateway_out36_x2 <= down_sample_q_net_x1;
-  gateway_out37_x2 <= convert11_dout_net_x2;
-  gateway_out38_x2 <= mult5_p_net;
-  gateway_out4_x14 <= mult3_p_net;
-  gateway_out1_x17 <= register35_q_net_x0;
+  gateway_out36_x1 <= down_sample_q_net;
+  gateway_out37_x1 <= convert11_dout_net_x2;
+  gateway_out38_x1 <= mult5_p_net;
+  gateway_out1_x19 <= register35_q_net_x0;
   gateway_out39_x0 <= down_sample1_q_net;
-  gateway_out40_x0 <= down_sample_q_net_x4;
-  gateway_out_x7 <= inverter_op_net_x0;
-  gateway_out1_x18 <= convert2_dout_net_x3;
+  gateway_out40_x0 <= down_sample_q_net_x1;
+  gateway_out_x6 <= inverter_op_net_x0;
+  gateway_out1_x20 <= convert2_dout_net_x3;
   gateway_out10_x7 <= mult4_p_net_x1;
-  gateway_out11_x9 <= register1_q_net_x5;
+  gateway_out11_x9 <= register1_q_net_x6;
   gateway_out12_x2 <= convert4_dout_net_x1;
   gateway_out13_x2 <= register12_q_net_x3;
   gateway_out14_x2 <= mult5_p_net_x1;
-  gateway_out15_x2 <= register2_q_net_x5;
+  gateway_out15_x2 <= register2_q_net_x3;
   gateway_out16_x2 <= inverter3_op_net_x0;
   gateway_out17_x2 <= accumulator3_q_net_x0;
-  gateway_out18_x2 <= register1_q_net_x5;
+  gateway_out18_x2 <= register1_q_net_x6;
   gateway_out2_x16 <= inverter2_op_net_x0;
-  gateway_out22_x2 <= convert9_dout_net_x2;
+  gateway_out22_x2 <= convert9_dout_net_x1;
   gateway_out23_x2 <= convert10_dout_net_x1;
   gateway_out3_x15 <= accumulator_q_net_x0;
-  gateway_out4_x15 <= accumulator2_q_net_x0;
-  gateway_out5_x13 <= mult2_p_net_x1;
+  gateway_out4_x13 <= accumulator2_q_net_x0;
+  gateway_out5_x13 <= mult2_p_net_x0;
   gateway_out6_x10 <= inverter1_op_net_x0;
-  gateway_out7_x8 <= accumulator1_q_net_x0;
-  gateway_out8_x8 <= mult_p_net_x2;
+  gateway_out7_x9 <= accumulator1_q_net_x0;
+  gateway_out8_x9 <= mult_p_net_x1;
   gateway_out9_x4 <= register11_q_net_x3;
-  gateway_out_x6 <= inverter_op_net;
-  gateway_out1_x19 <= convert2_dout_net_x1;
+  gateway_out_x7 <= inverter_op_net;
+  gateway_out1_x6 <= convert2_dout_net_x1;
   gateway_out10_x2 <= mult4_p_net_x0;
   gateway_out11_x2 <= register1_q_net_x3;
   gateway_out12_x1 <= convert4_dout_net_x0;
@@ -41057,15 +40738,15 @@ begin
   gateway_out23_x1 <= convert10_dout_net_x0;
   gateway_out3_x4 <= accumulator_q_net;
   gateway_out4_x3 <= accumulator2_q_net;
-  gateway_out5_x3 <= mult2_p_net_x0;
+  gateway_out5_x3 <= mult2_p_net;
   gateway_out6_x4 <= inverter1_op_net;
   gateway_out7_x2 <= accumulator1_q_net;
-  gateway_out8_x3 <= mult_p_net_x1;
+  gateway_out8_x3 <= mult_p_net_x0;
   gateway_out9_x1 <= register11_q_net_x0;
-  gateway_out1_x6 <= delay5_q_net;
+  gateway_out1_x7 <= delay5_q_net;
   gateway_out2_x6 <= delay3_q_net;
-  gateway_out27_x1 <= relational4_op_net;
-  gateway_out28_x0 <= relational3_op_net;
+  gateway_out27_x0 <= relational4_op_net;
+  gateway_out28_x1 <= relational3_op_net;
   gateway_out29_x0 <= convert11_dout_net_x0;
   gateway_out3_x6 <= convert7_dout_net_x0;
   gateway_out4_x4 <= counter_op_net;
@@ -41082,80 +40763,80 @@ begin
   gateway_out8_x0 <= convert2_dout_net_x1;
   gateway_out24_x0 <= convert5_dout_net;
   gateway_out25_x1 <= convert10_dout_net_x1;
-  gateway_out26_x0 <= convert9_dout_net_x2;
+  gateway_out26_x0 <= convert9_dout_net_x1;
   gateway_out6_x3 <= convert5_dout_net;
   gateway_out7_x1 <= convert4_dout_net_x1;
   gateway_out8_x1 <= convert2_dout_net_x3;
-  gateway_out44 <= mult_p_net_x2;
-  gateway_out46 <= mult2_p_net_x1;
-  gateway_out1_x4 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
+  gateway_out44 <= mult_p_net_x1;
+  gateway_out46 <= mult2_p_net_x0;
+  gateway_out1_x4 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
   gateway_out11_x1 <= convert_dout_net_x0;
-  gateway_out19 <= mult3_p_net_x2;
-  gateway_out2_x3 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
+  gateway_out19 <= mult3_p_net_x1;
+  gateway_out2_x3 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
   gateway_out20 <= convert2_dout_net_x0;
-  gateway_out3_x2 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
+  gateway_out3_x2 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
   gateway_out4_x2 <= counter_op_net_x1;
   gateway_out5_x2 <= convert1_dout_net_x1;
-  gateway_out27_x0 <= addsub3_s_net_x1;
-  gateway_out28 <= register_q_net_x1;
-  gateway_out29 <= register1_q_net_x6;
+  gateway_out27 <= addsub3_s_net_x3;
+  gateway_out28_x0 <= register_q_net_x2;
+  gateway_out29 <= register1_q_net_x7;
   gateway_out3_x3 <= mult1_p_net;
-  gateway_out_x3 <= mult3_p_net_x2;
-  gateway_out1_x5 <= relational1_op_net;
+  gateway_out_x3 <= mult3_p_net_x1;
+  gateway_out1_x5 <= relational1_op_net_x0;
   gateway_out2_x4 <= delay5_q_net_x1;
-  gateway_out3_x5 <= register_q_net_x1;
-  gateway_out4_x7 <= register1_q_net_x6;
+  gateway_out3_x5 <= register_q_net_x2;
+  gateway_out4_x7 <= register1_q_net_x7;
   gateway_out5_x6 <= convert3_dout_net_x0;
-  gateway_out1_x7 <= mult_p_net_x3;
+  gateway_out1_x8 <= mult_p_net_x2;
   gateway_out2_x7 <= register2_q_net_x8;
-  gateway_out44_x0 <= mult_p_net_x1;
-  gateway_out46_x0 <= mult2_p_net_x0;
-  gateway_out1_x8 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
+  gateway_out44_x0 <= mult_p_net_x0;
+  gateway_out46_x0 <= mult2_p_net;
+  gateway_out1_x9 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
   gateway_out11_x5 <= convert_dout_net_x1;
-  gateway_out19_x0 <= mult3_p_net_x3;
-  gateway_out2_x8 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
+  gateway_out19_x0 <= mult3_p_net_x2;
+  gateway_out2_x8 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
   gateway_out20_x0 <= convert2_dout_net_x4;
-  gateway_out3_x8 <= cordic_6_0_2_m_axis_dout_tdata_phase_net;
+  gateway_out3_x8 <= cordic_6_0_2_m_axis_dout_tdata_phase_net_x0;
   gateway_out4_x8 <= counter_op_net_x1;
   gateway_out5_x7 <= convert1_dout_net_x2;
   gateway_out6_x6 <= logical_y_net_x4;
-  gateway_out27_x3 <= addsub3_s_net_x4;
-  gateway_out28_x2 <= register_q_net_x2;
-  gateway_out29_x2 <= register1_q_net_x7;
+  gateway_out27_x2 <= addsub3_s_net_x4;
+  gateway_out28_x3 <= register_q_net_x3;
+  gateway_out29_x2 <= register1_q_net_x8;
   gateway_out3_x9 <= mult1_p_net_x0;
-  gateway_out_x4 <= mult3_p_net_x3;
-  gateway_out1_x9 <= relational1_op_net_x1;
-  gateway_out2_x9 <= delay5_q_net_x2;
-  gateway_out3_x10 <= register_q_net_x2;
-  gateway_out4_x9 <= register1_q_net_x7;
+  gateway_out_x4 <= mult3_p_net_x2;
+  gateway_out1_x10 <= relational1_op_net_x2;
+  gateway_out2_x9 <= delay5_q_net_x3;
+  gateway_out3_x10 <= register_q_net_x3;
+  gateway_out4_x9 <= register1_q_net_x8;
   gateway_out5_x8 <= convert3_dout_net_x1;
-  gateway_out1_x10 <= mult_p_net_x4;
+  gateway_out1_x11 <= mult_p_net_x3;
   gateway_out2_x10 <= register2_q_net_x9;
-  gateway_out1_x11 <= delay5_q_net_x0;
+  gateway_out1_x12 <= delay5_q_net_x0;
   gateway_out2_x11 <= delay3_q_net_x0;
-  gateway_out27_x2 <= relational4_op_net_x0;
-  gateway_out28_x1 <= relational3_op_net_x0;
+  gateway_out27_x1 <= relational4_op_net_x0;
+  gateway_out28_x2 <= relational3_op_net_x0;
   gateway_out29_x1 <= convert11_dout_net_x1;
   gateway_out3_x7 <= convert7_dout_net_x1;
   gateway_out5_x5 <= convert5_dout_net_x1;
   gateway_out10_x3 <= convert11_dout_net_x1;
-  gateway_out11_x3 <= mult2_p_net_x0;
-  gateway_out32_x0 <= down_sample1_q_net_x1;
+  gateway_out11_x3 <= mult2_p_net;
+  gateway_out32_x0 <= down_sample1_q_net_x0;
   gateway_out34 <= convert11_dout_net_x1;
   gateway_out35 <= mult4_p_net_x0;
-  gateway_out36 <= down_sample_q_net_x1;
+  gateway_out36 <= down_sample_q_net;
   gateway_out37 <= convert11_dout_net_x1;
   gateway_out38 <= mult5_p_net_x0;
-  gateway_out4_x5 <= mult3_p_net_x0;
+  gateway_out4_x5 <= mult3_p_net;
   gateway_out10_x4 <= convert11_dout_net_x0;
-  gateway_out11_x4 <= mult2_p_net_x1;
-  gateway_out32 <= down_sample1_q_net_x1;
+  gateway_out11_x4 <= mult2_p_net_x0;
+  gateway_out32 <= down_sample1_q_net_x0;
   gateway_out34_x0 <= convert11_dout_net_x0;
   gateway_out35_x0 <= mult4_p_net_x1;
-  gateway_out36_x0 <= down_sample_q_net_x1;
+  gateway_out36_x0 <= down_sample_q_net;
   gateway_out37_x0 <= convert11_dout_net_x0;
   gateway_out38_x0 <= mult5_p_net_x1;
-  gateway_out4_x6 <= mult3_p_net_x1;
+  gateway_out4_x6 <= mult3_p_net_x0;
   amp_net <= amp;
   ddcchannel_net <= ddcchannel;
   ddci_net <= ddci;
@@ -41172,12 +40853,12 @@ begin
   d_ce_net_x0 <= ce_1;
   d_clk_net <= clk_12;
   q_ce_net <= ce_12;
-  subsystem_x3 : entity work.example_subsystem_x2 
+  subsystem_x4 : entity work.example_subsystem_x2 
   port map (
-    cav1_p1_if_amp => down_sample1_q_net_x5,
-    cav1_p1_if_phase => down_sample_q_net_x3,
-    cav1_p1_if_i => register11_q_net_x14,
-    cav1_p1_if_q => register11_q_net_x11,
+    cav1_p1_if_amp => register11_q_net_x16,
+    cav1_p1_if_phase => register11_q_net_x17,
+    cav1_p1_if_i => register11_q_net_x24,
+    cav1_p1_if_q => register11_q_net_x25,
     cav1_p1_dc_real => convert6_dout_net_x1,
     cav1_p1_dc_img => convert5_dout_net_x3,
     cav1_p1_dc_freq => down_sample2_q_net_x0,
@@ -41188,10 +40869,10 @@ begin
     cav1_p1_comparison_i => register5_q_net_x0,
     cav1_p1_comparison_q => register4_q_net_x0,
     cav1_p1_comparison_phase => register6_q_net_x0,
-    cav1_p2_if_amp => down_sample1_q_net_x6,
-    cav1_p2_if_phase => down_sample_q_net_x2,
-    cav1_p2_if_i => register11_q_net_x12,
-    cav1_p2_if_q => register11_q_net_x13,
+    cav1_p2_if_amp => register11_q_net_x19,
+    cav1_p2_if_phase => register11_q_net_x18,
+    cav1_p2_if_i => register11_q_net_x26,
+    cav1_p2_if_q => register11_q_net_x15,
     cav1_p2_dc_real => convert1_dout_net_x3,
     cav1_p2_dc_img => convert_dout_net_x2,
     cav1_p2_dc_freq => down_sample2_q_net_x1,
@@ -41234,7 +40915,7 @@ begin
     p2_13 => c1p2_comp_q,
     p2_14 => c1p2_comp_phi
   );
-  subsystem2_x4 : entity work.example_subsystem2_x4 
+  subsystem2_x5 : entity work.example_subsystem2_x4 
   port map (
     in1_1 => c1p1_chan_sel,
     in1_2 => c1p2_chan_sel,
@@ -41261,14 +40942,14 @@ begin
     cav1_p1_cal_coef => register1_q_net_x0,
     cav1_p2_cal_coef => register2_q_net_x0
   );
-  subsystem3_x3 : entity work.example_subsystem3_x3 
+  subsystem3_x4 : entity work.example_subsystem3_x3 
   port map (
     rf_ref_amp => down_sample1_q_net,
-    rf_ref_phase => down_sample_q_net_x4,
-    rf_ref_i => down_sample1_q_net_x1,
-    rf_ref_q => down_sample_q_net_x1,
-    ref_i_reg => register11_q_net_x18,
-    ref_q_reg => register11_q_net_x17,
+    rf_ref_phase => down_sample_q_net_x1,
+    rf_ref_i => down_sample1_q_net_x0,
+    rf_ref_q => down_sample_q_net,
+    ref_i_reg => register11_q_net_x23,
+    ref_q_reg => register11_q_net_x22,
     clk_1 => q_clk_net,
     ce_1 => d_ce_net,
     clk_12 => d_clk_net,
@@ -41289,10 +40970,10 @@ begin
   );
   subsystem5 : entity work.example_subsystem5_x0 
   port map (
-    cav2_p1_if_amp => down_sample1_q_net_x0,
-    cav2_p1_if_phase => down_sample_q_net,
-    cav2_p1_if_i => register11_q_net_x6,
-    cav2_p1_if_q => register11_q_net_x5,
+    cav2_p1_if_amp => register11_q_net_x7,
+    cav2_p1_if_phase => register11_q_net_x8,
+    cav2_p1_if_i => register11_q_net_x10,
+    cav2_p1_if_q => register11_q_net_x9,
     cav2_p1_dc_real => convert1_dout_net_x0,
     cav2_p1_dc_img => convert5_dout_net_x0,
     cav2_p1_dc_freq => convert1_dout_net_x2,
@@ -41302,14 +40983,14 @@ begin
     cav2_p1_amp_out => register14_q_net_x1,
     cav2_p1_comparison_i => addsub_s_net_x0,
     cav2_p1_comparison_phase => register11_q_net_x4,
-    cav2_p2_if_amp => down_sample1_q_net_x2,
-    cav2_p2_if_phase => down_sample_q_net_x0,
-    cav2_p2_if_i => register11_q_net_x7,
-    cav2_p2_if_q => register11_q_net_x8,
+    cav2_p2_if_amp => register11_q_net_x6,
+    cav2_p2_if_phase => register11_q_net_x5,
+    cav2_p2_if_i => register11_q_net_x11,
+    cav2_p2_if_q => register11_q_net_x12,
     cav2_p2_dc_real => convert6_dout_net_x0,
     cav2_p2_dc_img => convert2_dout_net_x2,
     cav2_p2_dc_freq => convert1_dout_net_x1,
-    cav2_p2_integrated_i => convert9_dout_net_x2,
+    cav2_p2_integrated_i => convert9_dout_net_x1,
     cav2_p2_integrated_q => convert10_dout_net_x1,
     cav2_p2_phase_out => register13_q_net_x0,
     cav2_p2_amp_out => register14_q_net_x0,
@@ -41582,40 +41263,40 @@ begin
     clk_12 => d_clk_net,
     ce_12 => q_ce_net,
     diag1data_x0 => register1_q_net_x13,
-    diag2data => register11_q_net_x16,
+    diag2data => register11_q_net_x21,
     wfdata_2 => convert6_dout_net_x1,
     wfdata_3 => convert5_dout_net_x3,
     wfdata_4 => convert1_dout_net_x0,
     wfdata_5 => convert5_dout_net_x0,
     wfdata_6 => counter_op_net_x1,
-    wfdata_7 => constant30_op_net,
+    wfdata_7 => mult7_p_net,
     wfvalid_2 => relational7_op_net_x0,
     wfvalid_3 => relational7_op_net_x0,
     wfvalid_4 => relational7_op_net,
     wfvalid_5 => relational7_op_net,
     diag3data => register2_q_net_x14,
     wfvalid_6 => relational7_op_net_x0,
-    wfvalid_7 => constant38_op_net,
+    wfvalid_7 => relational7_op_net_x0,
     wfvalid_0 => relational7_op_net_x0,
     wfvalid_1 => relational7_op_net,
     diagnsync_ctl => logical_y_net_x3,
-    diag10data_x0 => register11_q_net_x1,
+    diag10data_x0 => register11_q_net_x2,
     diag9data => register12_q_net_x2,
     diag11data_x0 => register13_q_net_x1,
     diag12data_x0 => register14_q_net_x1,
     diag4data => register3_q_net_x1,
     diag13data_x0 => register12_q_net_x1,
-    diag14data_x0 => register11_q_net_x2,
+    diag14data_x0 => register11_q_net_x1,
     diag15data_x0 => register13_q_net_x0,
     diag16data_x0 => register14_q_net_x0,
     diag5data => register12_q_net_x6,
-    diag6data => register11_q_net_x15,
+    diag6data => register11_q_net_x20,
     diag7data => register13_q_net_x2,
     diag8data => register14_q_net_x2,
     wfdata_0 => nco_sin_x0,
     wfdata_1 => nco_sin,
     gateway_out_x4 => relational7_op_net_x0,
-    gateway_out1_x11 => nco_sin_x0,
+    gateway_out1_x12 => nco_sin_x0,
     gateway_out2_x10 => convert3_dout_net_x2,
     diag10data => mux11_y_net,
     diag10fixed => convert55_dout_net,
@@ -41730,43 +41411,43 @@ begin
     wfvalid_6_x0 => convert41_dout_net,
     wfvalid_7_x0 => convert42_dout_net,
     gateway_out_x6 => register33_q_net_x1,
-    gateway_out1_x14 => register27_q_net_x0,
-    gateway_out1_x12 => convert5_dout_net_x3,
-    gateway_out10_x6 => convert6_dout_net_x1,
+    gateway_out1_x15 => register27_q_net_x0,
+    gateway_out1_x14 => convert5_dout_net_x3,
+    gateway_out10_x5 => convert6_dout_net_x1,
     gateway_out2_x11 => convert11_dout_net_x3,
-    gateway_out3_x9 => nco_sin_x0,
+    gateway_out3_x10 => nco_sin_x0,
     gateway_out39_x0 => down_sample1_q_net,
-    gateway_out4_x9 => register9_q_net_x0,
-    gateway_out40_x0 => down_sample_q_net_x4,
+    gateway_out4_x8 => register9_q_net_x0,
+    gateway_out40_x0 => down_sample_q_net_x1,
     gateway_out5_x8 => nco_cos_x0,
     gateway_out6_x6 => counter_op_net_x1,
     gateway_out_x5 => inverter_op_net_x1,
-    gateway_out1_x13 => convert2_dout_net_x6,
-    gateway_out10_x5 => mult4_p_net,
-    gateway_out11_x1 => register1_q_net_x8,
-    gateway_out12 => convert4_dout_net_x2,
-    gateway_out13 => register12_q_net_x4,
+    gateway_out1_x13 => convert2_dout_net_x5,
+    gateway_out10_x4 => mult4_p_net,
+    gateway_out11_x6 => register1_q_net_x9,
+    gateway_out12_x2 => convert4_dout_net_x2,
+    gateway_out13_x0 => register12_q_net_x4,
     gateway_out14 => mult5_p_net,
     gateway_out15 => register2_q_net_x10,
     gateway_out16 => inverter3_op_net_x1,
     gateway_out17 => accumulator3_q_net_x2,
-    gateway_out18 => register1_q_net_x8,
-    gateway_out2_x2 => inverter2_op_net_x1,
+    gateway_out18 => register1_q_net_x9,
+    gateway_out2_x1 => inverter2_op_net_x1,
     gateway_out22 => convert9_dout_net_x3,
     gateway_out23 => convert10_dout_net_x3,
     gateway_out3_x2 => accumulator_q_net_x2,
-    gateway_out4_x1 => accumulator2_q_net_x2,
-    gateway_out5_x2 => mult2_p_net,
+    gateway_out4_x0 => accumulator2_q_net_x2,
+    gateway_out5_x1 => mult6_p_net,
     gateway_out6_x2 => inverter1_op_net_x1,
-    gateway_out7_x2 => accumulator1_q_net_x2,
-    gateway_out8_x2 => mult_p_net,
-    gateway_out9_x0 => register11_q_net_x9,
+    gateway_out7_x3 => accumulator1_q_net_x2,
+    gateway_out8_x3 => mult7_p_net,
+    gateway_out9_x1 => register11_q_net_x13,
     gateway_out_x0 => inverter_op_net_x2,
-    gateway_out1_x3 => convert2_dout_net_x5,
+    gateway_out1_x4 => convert2_dout_net_x7,
     gateway_out10_x0 => mult4_p_net_x2,
-    gateway_out11_x2 => register1_q_net_x9,
-    gateway_out12_x0 => convert4_dout_net_x3,
-    gateway_out13_x0 => register12_q_net_x5,
+    gateway_out11_x1 => register1_q_net_x10,
+    gateway_out12 => convert4_dout_net_x3,
+    gateway_out13 => register12_q_net_x5,
     gateway_out14_x0 => mult5_p_net_x2,
     gateway_out15_x0 => register2_q_net_x11,
     gateway_out16_x0 => inverter3_op_net_x2,
@@ -41776,29 +41457,33 @@ begin
     gateway_out22_x0 => convert9_dout_net_x4,
     gateway_out23_x0 => convert10_dout_net_x2,
     gateway_out3_x3 => accumulator_q_net_x1,
-    gateway_out4_x2 => accumulator2_q_net_x1,
-    gateway_out5_x3 => mult2_p_net_x2,
+    gateway_out4_x1 => accumulator2_q_net_x1,
+    gateway_out5_x3 => mult2_p_net_x1,
     gateway_out6_x3 => inverter1_op_net_x2,
-    gateway_out7_x3 => accumulator1_q_net_x1,
-    gateway_out8_x3 => mult_p_net_x6,
-    gateway_out9_x1 => register11_q_net_x10,
+    gateway_out7_x4 => accumulator1_q_net_x1,
+    gateway_out8_x4 => mult_p_net_x5,
+    gateway_out9_x2 => register11_q_net_x14,
     gateway_out27_x1 => relational4_op_net_x1,
     gateway_out28_x1 => relational3_op_net_x1,
     gateway_out29_x1 => convert11_dout_net_x2,
-    gateway_out4 => counter_op_net_x1,
-    gateway_out5_x0 => convert5_dout_net_x2,
-    gateway_out6_x0 => convert3_dout_net_x2,
-    gateway_out7_x0 => register1_q_net_x10,
-    gateway_out8_x0 => convert2_dout_net_x7,
-    gateway_out9 => delay8_q_net_x0,
+    gateway_out4_x2 => counter_op_net_x1,
+    gateway_out5_x2 => convert5_dout_net_x2,
+    gateway_out6_x1 => convert3_dout_net_x2,
+    gateway_out7_x1 => register1_q_net_x12,
+    gateway_out8_x1 => convert2_dout_net_x6,
+    gateway_out9_x0 => delay8_q_net_x0,
     gateway_out10 => delay2_q_net_x2,
     gateway_out11 => delay1_q_net,
     gateway_out24 => convert5_dout_net_x2,
     gateway_out25 => convert10_dout_net_x3,
     gateway_out26 => convert9_dout_net_x3,
     gateway_out6 => convert5_dout_net_x2,
-    gateway_out7 => convert4_dout_net_x2,
-    gateway_out8 => convert2_dout_net_x6,
+    gateway_out7_x0 => convert4_dout_net_x2,
+    gateway_out8 => convert2_dout_net_x5,
+    gateway_out7 => down_sample_q_net_x0,
+    gateway_out8_x0 => register11_q_net_x15,
+    gateway_out9 => convert3_dout_net_x2,
+    gateway_out1_x0 => logical_y_net_x9,
     gateway_out1 => delay5_q_net_x5,
     gateway_out2 => delay3_q_net_x3,
     gateway_out27 => relational4_op_net_x2,
@@ -41806,104 +41491,101 @@ begin
     gateway_out29 => convert11_dout_net_x3,
     gateway_out3 => convert7_dout_net_x2,
     gateway_out5 => convert5_dout_net_x4,
-    gateway_out44 => mult_p_net_x6,
-    gateway_out46 => mult2_p_net_x2,
-    gateway_out1_x2 => logical_y_net_x6,
+    gateway_out44 => mult_p_net_x5,
+    gateway_out46 => mult2_p_net_x1,
+    gateway_out1_x3 => logical_y_net_x8,
     gateway_out11_x0 => convert_dout_net_x3,
-    gateway_out19 => mult3_p_net_x4,
-    gateway_out2_x1 => down_sample1_q_net_x3,
+    gateway_out19 => mult3_p_net_x3,
+    gateway_out2_x0 => down_sample1_q_net_x1,
     gateway_out20 => delay1_q_net_x0,
-    gateway_out3_x1 => delay2_q_net_x4,
-    gateway_out4_x0 => delay3_q_net_x1,
-    gateway_out5_x1 => down_sample2_q_net_x0,
-    gateway_out6_x1 => logical_y_net_x7,
-    gateway_out7_x1 => logical_y_net_x8,
-    gateway_out8_x1 => convert3_dout_net_x3,
-    gateway_out1_x1 => logical_y_net_x8,
+    gateway_out3_x1 => delay2_q_net_x3,
+    gateway_out4 => delay3_q_net_x1,
+    gateway_out5_x0 => down_sample2_q_net_x0,
+    gateway_out6_x0 => logical_y_net_x6,
+    gateway_out7_x2 => logical_y_net_x7,
+    gateway_out8_x2 => convert3_dout_net_x3,
+    gateway_out1_x2 => logical_y_net_x7,
     gateway_out27_x0 => addsub3_s_net_x5,
-    gateway_out28_x0 => register_q_net_x4,
+    gateway_out28_x0 => register_q_net_x5,
     gateway_out29_x0 => register1_q_net_x11,
     gateway_out3_x0 => mult1_p_net_x1,
-    gateway_out => mult3_p_net_x4,
-    gateway_out1_x0 => relational1_op_net_x3,
-    gateway_out2_x0 => delay5_q_net_x3,
-    gateway_out3_x4 => register_q_net_x4,
-    gateway_out4_x6 => register1_q_net_x11,
+    gateway_out => mult3_p_net_x3,
+    gateway_out1_x1 => relational1_op_net_x3,
+    gateway_out2_x2 => delay5_q_net_x4,
+    gateway_out3_x6 => register_q_net_x5,
+    gateway_out4_x5 => register1_q_net_x11,
     gateway_out5_x5 => convert3_dout_net_x3,
-    gateway_out1_x7 => mult_p_net_x5,
-    gateway_out2_x7 => register2_q_net_x13,
+    gateway_out1_x8 => mult_p_net_x4,
+    gateway_out2_x7 => register2_q_net_x12,
     gateway_out10_x3 => convert11_dout_net_x3,
-    gateway_out11_x6 => mult2_p_net_x2,
-    gateway_out32_x0 => down_sample1_q_net_x1,
+    gateway_out11_x5 => mult2_p_net_x1,
+    gateway_out32 => down_sample1_q_net_x0,
     gateway_out34_x0 => convert11_dout_net_x3,
     gateway_out35_x0 => mult4_p_net_x2,
-    gateway_out36_x0 => down_sample_q_net_x1,
+    gateway_out36_x0 => down_sample_q_net,
     gateway_out37_x0 => convert11_dout_net_x3,
     gateway_out38_x0 => mult5_p_net_x2,
-    gateway_out4_x5 => mult3_p_net_x6,
-    gateway_out44_x0 => mult_p_net,
-    gateway_out46_x0 => mult2_p_net,
-    gateway_out1_x6 => logical_y_net_x0,
-    gateway_out11_x5 => convert_dout_net_x4,
-    gateway_out19_x0 => mult3_p_net_x5,
-    gateway_out2_x6 => down_sample1_q_net_x4,
+    gateway_out4_x4 => mult3_p_net_x5,
+    gateway_out44_x0 => mult7_p_net,
+    gateway_out46_x0 => mult6_p_net,
+    gateway_out1_x7 => logical_y_net_x0,
+    gateway_out11_x4 => convert_dout_net_x4,
+    gateway_out19_x0 => mult3_p_net_x4,
+    gateway_out2_x6 => down_sample1_q_net_x2,
     gateway_out20_x0 => delay1_q_net_x1,
-    gateway_out3_x6 => delay2_q_net_x5,
-    gateway_out4_x8 => delay3_q_net_x2,
+    gateway_out3_x9 => delay2_q_net_x4,
+    gateway_out4_x7 => delay3_q_net_x2,
     gateway_out5_x7 => down_sample2_q_net_x1,
     gateway_out6_x5 => logical_y_net_x1,
-    gateway_out7_x5 => logical_y_net_x2,
-    gateway_out8_x5 => convert3_dout_net_x4,
-    gateway_out1_x10 => logical_y_net_x2,
+    gateway_out7_x6 => logical_y_net_x2,
+    gateway_out8_x6 => convert3_dout_net_x4,
+    gateway_out1_x11 => logical_y_net_x2,
     gateway_out27_x2 => addsub3_s_net_x6,
-    gateway_out28_x2 => register_q_net_x5,
-    gateway_out29_x2 => register1_q_net_x12,
-    gateway_out3_x7 => mult1_p_net_x2,
-    gateway_out_x3 => mult3_p_net_x5,
-    gateway_out1_x9 => relational1_op_net_x2,
-    gateway_out2_x9 => delay5_q_net_x4,
-    gateway_out3_x8 => register_q_net_x5,
-    gateway_out4_x7 => register1_q_net_x12,
+    gateway_out28_x2 => register_q_net_x0,
+    gateway_out29_x2 => register1_q_net_x5,
+    gateway_out3_x8 => mult1_p_net_x2,
+    gateway_out_x3 => mult3_p_net_x4,
+    gateway_out1_x10 => relational1_op_net,
+    gateway_out2_x9 => delay5_q_net_x2,
+    gateway_out3_x7 => register_q_net_x0,
+    gateway_out4_x6 => register1_q_net_x5,
     gateway_out5_x6 => convert3_dout_net_x4,
-    gateway_out1_x8 => mult_p_net_x0,
-    gateway_out2_x8 => register2_q_net_x4,
-    gateway_out10_x4 => convert11_dout_net_x2,
-    gateway_out11_x7 => mult2_p_net,
-    gateway_out32 => down_sample1_q_net_x1,
+    gateway_out1_x9 => mult_p_net,
+    gateway_out2_x8 => register2_q_net_x5,
+    gateway_out32_x0 => down_sample1_q_net_x0,
     gateway_out34 => convert11_dout_net_x2,
     gateway_out35 => mult4_p_net,
-    gateway_out36 => down_sample_q_net_x1,
+    gateway_out36 => down_sample_q_net,
     gateway_out37 => convert11_dout_net_x2,
     gateway_out38 => mult5_p_net,
-    gateway_out4_x3 => mult3_p_net,
     gateway_out39 => down_sample1_q_net,
-    gateway_out40 => down_sample_q_net_x4,
+    gateway_out40 => down_sample_q_net_x1,
     gateway_out_x1 => inverter_op_net_x0,
-    gateway_out1_x4 => convert2_dout_net_x3,
+    gateway_out1_x5 => convert2_dout_net_x3,
     gateway_out10_x1 => mult4_p_net_x1,
-    gateway_out11_x3 => register1_q_net_x5,
-    gateway_out12_x1 => convert4_dout_net_x1,
+    gateway_out11_x2 => register1_q_net_x6,
+    gateway_out12_x0 => convert4_dout_net_x1,
     gateway_out13_x1 => register12_q_net_x3,
     gateway_out14_x1 => mult5_p_net_x1,
-    gateway_out15_x1 => register2_q_net_x5,
+    gateway_out15_x1 => register2_q_net_x3,
     gateway_out16_x1 => inverter3_op_net_x0,
     gateway_out17_x1 => accumulator3_q_net_x0,
-    gateway_out18_x1 => register1_q_net_x5,
+    gateway_out18_x1 => register1_q_net_x6,
     gateway_out2_x4 => inverter2_op_net_x0,
-    gateway_out22_x1 => convert9_dout_net_x2,
+    gateway_out22_x1 => convert9_dout_net_x1,
     gateway_out23_x1 => convert10_dout_net_x1,
-    gateway_out3_x5 => accumulator_q_net_x0,
-    gateway_out4_x4 => accumulator2_q_net_x0,
-    gateway_out5_x4 => mult2_p_net_x1,
+    gateway_out3_x4 => accumulator_q_net_x0,
+    gateway_out4_x3 => accumulator2_q_net_x0,
+    gateway_out5_x4 => mult2_p_net_x0,
     gateway_out6_x4 => inverter1_op_net_x0,
-    gateway_out7_x4 => accumulator1_q_net_x0,
-    gateway_out8_x4 => mult_p_net_x2,
-    gateway_out9_x2 => register11_q_net_x3,
+    gateway_out7_x5 => accumulator1_q_net_x0,
+    gateway_out8_x5 => mult_p_net_x1,
+    gateway_out9_x3 => register11_q_net_x3,
     gateway_out_x2 => inverter_op_net,
-    gateway_out1_x5 => convert2_dout_net_x1,
+    gateway_out1_x6 => convert2_dout_net_x1,
     gateway_out10_x2 => mult4_p_net_x0,
-    gateway_out11_x4 => register1_q_net_x3,
-    gateway_out12_x2 => convert4_dout_net_x0,
+    gateway_out11_x3 => register1_q_net_x3,
+    gateway_out12_x1 => convert4_dout_net_x0,
     gateway_out13_x2 => register12_q_net_x0,
     gateway_out14_x2 => mult5_p_net_x0,
     gateway_out15_x2 => register2_q_net_x2,
@@ -41913,107 +41595,107 @@ begin
     gateway_out2_x5 => inverter2_op_net,
     gateway_out22_x2 => convert9_dout_net_x0,
     gateway_out23_x2 => convert10_dout_net_x0,
-    gateway_out3_x10 => accumulator_q_net,
-    gateway_out4_x14 => accumulator2_q_net,
-    gateway_out5_x14 => mult2_p_net_x0,
-    gateway_out6_x9 => inverter1_op_net,
-    gateway_out7_x7 => accumulator1_q_net,
-    gateway_out8_x7 => mult_p_net_x1,
-    gateway_out9_x4 => register11_q_net_x0,
-    gateway_out1_x21 => delay5_q_net,
+    gateway_out3_x5 => accumulator_q_net,
+    gateway_out4_x9 => accumulator2_q_net,
+    gateway_out5_x9 => mult2_p_net,
+    gateway_out6_x10 => inverter1_op_net,
+    gateway_out7_x8 => accumulator1_q_net,
+    gateway_out8_x8 => mult_p_net_x0,
+    gateway_out9_x5 => register11_q_net_x0,
+    gateway_out1_x22 => delay5_q_net,
     gateway_out2_x18 => delay3_q_net,
-    gateway_out27_x6 => relational4_op_net,
-    gateway_out28_x6 => relational3_op_net,
+    gateway_out27_x5 => relational4_op_net,
+    gateway_out28_x5 => relational3_op_net,
     gateway_out29_x6 => convert11_dout_net_x0,
     gateway_out3_x17 => convert7_dout_net_x0,
     gateway_out4_x13 => counter_op_net,
-    gateway_out5_x13 => convert5_dout_net,
+    gateway_out5_x14 => convert5_dout_net,
     gateway_out6_x8 => convert3_dout_net,
-    gateway_out7_x6 => register1_q_net_x4,
-    gateway_out8_x6 => convert2_dout_net_x0,
-    gateway_out9_x3 => delay8_q_net,
+    gateway_out7_x7 => register1_q_net_x4,
+    gateway_out8_x7 => convert2_dout_net_x0,
+    gateway_out9_x4 => delay8_q_net,
     gateway_out24_x0 => convert5_dout_net_x1,
     gateway_out25_x0 => convert10_dout_net_x0,
-    gateway_out26_x1 => convert9_dout_net_x0,
-    gateway_out6_x11 => convert5_dout_net_x1,
-    gateway_out7_x9 => convert4_dout_net_x0,
-    gateway_out8_x9 => convert2_dout_net_x1,
+    gateway_out26_x0 => convert9_dout_net_x0,
+    gateway_out6_x9 => convert5_dout_net_x1,
+    gateway_out7_x10 => convert4_dout_net_x0,
+    gateway_out8_x10 => convert2_dout_net_x1,
     gateway_out24_x1 => convert5_dout_net,
     gateway_out25_x1 => convert10_dout_net_x1,
-    gateway_out26_x0 => convert9_dout_net_x2,
-    gateway_out6_x10 => convert5_dout_net,
-    gateway_out7_x8 => convert4_dout_net_x1,
-    gateway_out8_x8 => convert2_dout_net_x3,
-    gateway_out44_x2 => mult_p_net_x2,
-    gateway_out46_x2 => mult2_p_net_x1,
-    gateway_out1_x22 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
+    gateway_out26_x1 => convert9_dout_net_x1,
+    gateway_out6_x11 => convert5_dout_net,
+    gateway_out7_x9 => convert4_dout_net_x1,
+    gateway_out8_x9 => convert2_dout_net_x3,
+    gateway_out44_x2 => mult_p_net_x1,
+    gateway_out46_x2 => mult2_p_net_x0,
+    gateway_out1_x23 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
     gateway_out11_x9 => convert_dout_net_x0,
-    gateway_out19_x2 => mult3_p_net_x2,
-    gateway_out2_x19 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
+    gateway_out19_x2 => mult3_p_net_x1,
+    gateway_out2_x19 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
     gateway_out20_x2 => convert2_dout_net_x0,
-    gateway_out3_x18 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
-    gateway_out4_x15 => counter_op_net_x1,
+    gateway_out3_x18 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
+    gateway_out4_x14 => counter_op_net_x1,
     gateway_out5_x15 => convert1_dout_net_x1,
-    gateway_out27_x4 => addsub3_s_net_x1,
-    gateway_out28_x3 => register_q_net_x1,
-    gateway_out29_x3 => register1_q_net_x6,
+    gateway_out27_x6 => addsub3_s_net_x3,
+    gateway_out28_x6 => register_q_net_x2,
+    gateway_out29_x4 => register1_q_net_x7,
     gateway_out3_x13 => mult1_p_net,
-    gateway_out_x7 => mult3_p_net_x2,
-    gateway_out1_x17 => relational1_op_net,
+    gateway_out_x7 => mult3_p_net_x1,
+    gateway_out1_x18 => relational1_op_net_x0,
     gateway_out2_x14 => delay5_q_net_x1,
-    gateway_out3_x12 => register_q_net_x1,
-    gateway_out4_x11 => register1_q_net_x6,
-    gateway_out5_x10 => convert3_dout_net_x0,
-    gateway_out1_x16 => mult_p_net_x3,
-    gateway_out2_x12 => register2_q_net_x8,
-    gateway_out44_x1 => mult_p_net_x1,
-    gateway_out46_x1 => mult2_p_net_x0,
-    gateway_out1_x15 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
-    gateway_out11_x8 => convert_dout_net_x1,
-    gateway_out19_x1 => mult3_p_net_x3,
-    gateway_out2_x13 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
+    gateway_out3_x12 => register_q_net_x2,
+    gateway_out4_x11 => register1_q_net_x7,
+    gateway_out5_x11 => convert3_dout_net_x0,
+    gateway_out1_x17 => mult_p_net_x2,
+    gateway_out2_x13 => register2_q_net_x8,
+    gateway_out44_x1 => mult_p_net_x0,
+    gateway_out46_x1 => mult2_p_net,
+    gateway_out1_x16 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
+    gateway_out11_x7 => convert_dout_net_x1,
+    gateway_out19_x1 => mult3_p_net_x2,
+    gateway_out2_x12 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
     gateway_out20_x1 => convert2_dout_net_x4,
-    gateway_out3_x11 => cordic_6_0_2_m_axis_dout_tdata_phase_net,
+    gateway_out3_x11 => cordic_6_0_2_m_axis_dout_tdata_phase_net_x0,
     gateway_out4_x10 => counter_op_net_x1,
-    gateway_out5_x9 => convert1_dout_net_x2,
+    gateway_out5_x10 => convert1_dout_net_x2,
     gateway_out6_x7 => logical_y_net_x4,
-    gateway_out27_x5 => addsub3_s_net_x4,
-    gateway_out28_x5 => register_q_net_x2,
-    gateway_out29_x5 => register1_q_net_x7,
+    gateway_out27_x3 => addsub3_s_net_x4,
+    gateway_out28_x3 => register_q_net_x3,
+    gateway_out29_x5 => register1_q_net_x8,
     gateway_out3_x16 => mult1_p_net_x0,
-    gateway_out_x8 => mult3_p_net_x3,
-    gateway_out1_x20 => relational1_op_net_x1,
-    gateway_out2_x17 => delay5_q_net_x2,
-    gateway_out3_x15 => register_q_net_x2,
-    gateway_out4_x12 => register1_q_net_x7,
-    gateway_out5_x11 => convert3_dout_net_x1,
-    gateway_out1_x19 => mult_p_net_x4,
-    gateway_out2_x16 => register2_q_net_x9,
-    gateway_out1_x18 => delay5_q_net_x0,
-    gateway_out2_x15 => delay3_q_net_x0,
-    gateway_out27_x3 => relational4_op_net_x0,
+    gateway_out_x8 => mult3_p_net_x2,
+    gateway_out1_x21 => relational1_op_net_x2,
+    gateway_out2_x17 => delay5_q_net_x3,
+    gateway_out3_x15 => register_q_net_x3,
+    gateway_out4_x12 => register1_q_net_x8,
+    gateway_out5_x13 => convert3_dout_net_x1,
+    gateway_out1_x20 => mult_p_net_x3,
+    gateway_out2_x15 => register2_q_net_x9,
+    gateway_out1_x19 => delay5_q_net_x0,
+    gateway_out2_x16 => delay3_q_net_x0,
+    gateway_out27_x4 => relational4_op_net_x0,
     gateway_out28_x4 => relational3_op_net_x0,
-    gateway_out29_x4 => convert11_dout_net_x1,
+    gateway_out29_x3 => convert11_dout_net_x1,
     gateway_out3_x14 => convert7_dout_net_x1,
     gateway_out5_x12 => convert5_dout_net_x1,
-    gateway_out10_x7 => convert11_dout_net_x1,
-    gateway_out11_x10 => mult2_p_net_x0,
-    gateway_out32_x1 => down_sample1_q_net_x1,
-    gateway_out34_x2 => convert11_dout_net_x1,
-    gateway_out35_x2 => mult4_p_net_x0,
-    gateway_out36_x2 => down_sample_q_net_x1,
+    gateway_out10_x6 => convert11_dout_net_x1,
+    gateway_out11_x8 => mult2_p_net,
+    gateway_out32_x1 => down_sample1_q_net_x0,
+    gateway_out34_x1 => convert11_dout_net_x1,
+    gateway_out35_x1 => mult4_p_net_x0,
+    gateway_out36_x2 => down_sample_q_net,
     gateway_out37_x2 => convert11_dout_net_x1,
     gateway_out38_x2 => mult5_p_net_x0,
-    gateway_out4_x17 => mult3_p_net_x0,
-    gateway_out10_x8 => convert11_dout_net_x0,
-    gateway_out11_x11 => mult2_p_net_x1,
-    gateway_out32_x2 => down_sample1_q_net_x1,
-    gateway_out34_x1 => convert11_dout_net_x0,
-    gateway_out35_x1 => mult4_p_net_x1,
-    gateway_out36_x1 => down_sample_q_net_x1,
+    gateway_out4_x16 => mult3_p_net,
+    gateway_out10_x7 => convert11_dout_net_x0,
+    gateway_out11_x10 => mult2_p_net_x0,
+    gateway_out32_x2 => down_sample1_q_net_x0,
+    gateway_out34_x2 => convert11_dout_net_x0,
+    gateway_out35_x2 => mult4_p_net_x1,
+    gateway_out36_x1 => down_sample_q_net,
     gateway_out37_x1 => convert11_dout_net_x0,
     gateway_out38_x1 => mult5_p_net_x1,
-    gateway_out4_x16 => mult3_p_net_x1,
+    gateway_out4_x15 => mult3_p_net_x0,
     diag10fixed_x0 => constant72_op_net,
     diag11fixed_x0 => constant71_op_net,
     diag12fixed_x0 => constant70_op_net,
@@ -42070,10 +41752,8 @@ begin
     diag9fixed_x0 => constant73_op_net,
     diagnrst_ctl => constant31_op_net,
     cav1_nco_fb => convert_dout_net_x4,
-    c1_p1_delay_amt => register2_q_net_x12,
-    c1_p1_delay_latch => delay2_q_net_x3,
-    c1_p2_delay_amt => register2_q_net_x3,
-    c1_p2_delay_latch => delay2_q_net,
+    c1_p1_delay_amt => register2_q_net_x13,
+    c1_p1_delay_latch => delay2_q_net_x5,
     c1_ready => logical_y_net_x5,
     c1_stream_valid => relational7_op_net_x0,
     c1p1_delay_match => register_q_net_x7,
@@ -42083,13 +41763,11 @@ begin
     c1p1_pt_window => convert11_dout_net_x3,
     c1p1_ready => delay4_q_net,
     c1p1_window_func => addsub3_s_net_x0,
-    c1p2_delay_match => register_q_net_x3,
     c1p2_freq_err => down_sample2_q_net_x1,
     c1p2_integral_logic => convert5_dout_net_x2,
     c1p2_pt_cntr => counter_op_net_x1,
     c1p2_pt_window => convert11_dout_net_x2,
     c1p2_ready => relational_op_net,
-    c1p2_window_func => addsub3_s_net,
     cav1_nco_cos => nco_cos_x0,
     cav1_nco_sin => nco_sin_x0,
     cav1_p1_amp_out => register3_q_net_x1,
@@ -42101,19 +41779,19 @@ begin
     cav1_p1_dc_real => convert6_dout_net_x1,
     cav1_p1_delayed_dc_img => dual_port_ram_doutb_net_x2,
     cav1_p1_delayed_dc_real => dual_port_ram1_doutb_net_x2,
-    cav1_p1_if_amp => down_sample1_q_net_x5,
-    cav1_p1_if_i => register11_q_net_x14,
-    cav1_p1_if_phase => down_sample_q_net_x3,
-    cav1_p1_if_q => register11_q_net_x11,
+    cav1_p1_if_amp => register11_q_net_x16,
+    cav1_p1_if_i => register11_q_net_x24,
+    cav1_p1_if_phase => register11_q_net_x17,
+    cav1_p1_if_q => register11_q_net_x25,
     cav1_p1_integrated_i => convert9_dout_net_x4,
     cav1_p1_integrated_q => convert10_dout_net_x2,
-    cav1_p1_integrated_ref_i => convert2_dout_net_x5,
+    cav1_p1_integrated_ref_i => convert2_dout_net_x7,
     cav1_p1_integrated_ref_q => convert4_dout_net_x3,
     cav1_p1_phase_out => register2_q_net_x14,
     cav1_p1_ref_amp_out => register1_q_net_x13,
-    cav1_p1_ref_phase_out => register11_q_net_x16,
-    cav1_p1_windowed_img => mult2_p_net_x2,
-    cav1_p1_windowed_real => mult_p_net_x6,
+    cav1_p1_ref_phase_out => register11_q_net_x21,
+    cav1_p1_windowed_img => mult2_p_net_x1,
+    cav1_p1_windowed_real => mult_p_net_x5,
     cav1_p1_windowed_ref_i => mult4_p_net_x2,
     cav1_p1_windowed_ref_q => mult5_p_net_x2,
     cav1_p2_amp_out => register14_q_net_x2,
@@ -42124,51 +41802,49 @@ begin
     cav1_p2_dc_img => convert_dout_net_x2,
     cav1_p2_dc_real => convert1_dout_net_x3,
     cav1_p2_dc_tvalid => convert2_dout_net_x8,
-    cav1_p2_delayed_dc_img => dual_port_ram_doutb_net,
-    cav1_p2_delayed_dc_real => dual_port_ram1_doutb_net,
-    cav1_p2_if_amp => down_sample1_q_net_x6,
-    cav1_p2_if_i => register11_q_net_x12,
-    cav1_p2_if_phase => down_sample_q_net_x2,
-    cav1_p2_if_q => register11_q_net_x13,
+    cav1_p2_if_amp => register11_q_net_x19,
+    cav1_p2_if_i => register11_q_net_x26,
+    cav1_p2_if_phase => register11_q_net_x18,
+    cav1_p2_if_q => register11_q_net_x15,
     cav1_p2_integrated_i => convert9_dout_net_x3,
     cav1_p2_integrated_q => convert10_dout_net_x3,
-    cav1_p2_integrated_ref_i => convert2_dout_net_x6,
+    cav1_p2_integrated_ref_i => convert2_dout_net_x5,
     cav1_p2_integrated_ref_q => convert4_dout_net_x2,
     cav1_p2_phase_out => register13_q_net_x2,
     cav1_p2_ref_amp_out => register12_q_net_x6,
-    cav1_p2_ref_phase_out => register11_q_net_x15,
-    cav1_p2_windowed_img => mult2_p_net,
-    cav1_p2_windowed_real => mult_p_net,
+    cav1_p2_ref_phase_out => register11_q_net_x20,
+    cav1_p2_windowed_img => mult6_p_net,
+    cav1_p2_windowed_real => mult7_p_net,
     cav1_p2_windowed_ref_i => mult4_p_net,
     cav1_p2_windowed_ref_q => mult5_p_net,
     cav1_sync => down_sample2_q_net_x2,
     dsp_cav1_reset => convert3_dout_net_x2,
     flo_c1p1_window => convert2_dout_net_x9,
-    flo_c1p2_window => convert2_dout_net_x7,
-    ref_i_reg => register11_q_net_x18,
-    ref_q_reg => register11_q_net_x17,
+    flo_c1p2_window => convert2_dout_net_x6,
+    ref_i_reg => register11_q_net_x23,
+    ref_q_reg => register11_q_net_x22,
     reset => convert3_dout_net_x2,
     cav2_nco_fb => convert_dout_net_x0,
-    c2_p1_delay_amt => register2_q_net_x7,
+    c2_p1_delay_amt => register2_q_net_x6,
     c2_p1_delay_latch => delay2_q_net_x0,
-    c2_p2_delay_amt => register2_q_net_x6,
+    c2_p2_delay_amt => register2_q_net_x7,
     c2_p2_delay_latch => delay2_q_net_x1,
     c2_ready => logical_y_net,
     c2_stream_valid => relational7_op_net,
-    c2p1_delay_match => register_q_net_x0,
+    c2p1_delay_match => register_q_net_x1,
     c2p1_freq_err => convert1_dout_net_x2,
     c2p1_integral_logic => convert5_dout_net_x1,
     c2p1_pt_cntr => counter_op_net_x0,
     c2p1_pt_window => convert11_dout_net_x1,
-    c2p1_ready => relational1_op_net_x0,
-    c2p1_window_func => addsub3_s_net_x2,
+    c2p1_ready => relational1_op_net_x1,
+    c2p1_window_func => addsub3_s_net_x1,
     c2p2_delay_match => register_q_net,
     c2p2_freq_err => convert1_dout_net_x1,
     c2p2_integral_logic => convert5_dout_net,
     c2p2_pt_cntr => counter_op_net,
     c2p2_pt_window => convert11_dout_net_x0,
     c2p2_ready => relational2_op_net,
-    c2p2_window_func => addsub3_s_net_x3,
+    c2p2_window_func => addsub3_s_net_x2,
     cav2_nco_cos => nco_cos,
     cav2_nco_sin => nco_sin,
     cav2_p1_amp_out => register14_q_net_x1,
@@ -42180,19 +41856,19 @@ begin
     cav2_p1_dc_real => convert1_dout_net_x0,
     cav2_p1_delayed_dc_img => dual_port_ram_doutb_net_x0,
     cav2_p1_delayed_dc_real => dual_port_ram1_doutb_net_x0,
-    cav2_p1_if_amp => down_sample1_q_net_x0,
-    cav2_p1_if_i => register11_q_net_x6,
-    cav2_p1_if_phase => down_sample_q_net,
-    cav2_p1_if_q => register11_q_net_x5,
+    cav2_p1_if_amp => register11_q_net_x7,
+    cav2_p1_if_i => register11_q_net_x10,
+    cav2_p1_if_phase => register11_q_net_x8,
+    cav2_p1_if_q => register11_q_net_x9,
     cav2_p1_integrated_i => convert9_dout_net_x0,
     cav2_p1_integrated_q => convert10_dout_net_x0,
     cav2_p1_integrated_ref_i => convert2_dout_net_x1,
     cav2_p1_integrated_ref_q => convert4_dout_net_x0,
     cav2_p1_phase_out => register13_q_net_x1,
     cav2_p1_ref_amp_out => register12_q_net_x2,
-    cav2_p1_ref_phase_out => register11_q_net_x1,
-    cav2_p1_windowed_img => mult2_p_net_x0,
-    cav2_p1_windowed_real => mult_p_net_x1,
+    cav2_p1_ref_phase_out => register11_q_net_x2,
+    cav2_p1_windowed_img => mult2_p_net,
+    cav2_p1_windowed_real => mult_p_net_x0,
     cav2_p1_windowed_ref_i => mult4_p_net_x0,
     cav2_p1_windowed_ref_q => mult5_p_net_x0,
     cav2_p2_amp_out => register14_q_net_x0,
@@ -42204,19 +41880,19 @@ begin
     cav2_p2_dc_real => convert6_dout_net_x0,
     cav2_p2_delayed_dc_img => dual_port_ram_doutb_net_x1,
     cav2_p2_delayed_dc_real => dual_port_ram1_doutb_net_x1,
-    cav2_p2_if_amp => down_sample1_q_net_x2,
-    cav2_p2_if_i => register11_q_net_x7,
-    cav2_p2_if_phase => down_sample_q_net_x0,
-    cav2_p2_if_q => register11_q_net_x8,
-    cav2_p2_integrated_i => convert9_dout_net_x2,
+    cav2_p2_if_amp => register11_q_net_x6,
+    cav2_p2_if_i => register11_q_net_x11,
+    cav2_p2_if_phase => register11_q_net_x5,
+    cav2_p2_if_q => register11_q_net_x12,
+    cav2_p2_integrated_i => convert9_dout_net_x1,
     cav2_p2_integrated_q => convert10_dout_net_x1,
     cav2_p2_integrated_ref_i => convert2_dout_net_x3,
     cav2_p2_integrated_ref_q => convert4_dout_net_x1,
     cav2_p2_phase_out => register13_q_net_x0,
     cav2_p2_ref_amp_out => register12_q_net_x1,
-    cav2_p2_ref_phase_out => register11_q_net_x2,
-    cav2_p2_windowed_img => mult2_p_net_x1,
-    cav2_p2_windowed_real => mult_p_net_x2,
+    cav2_p2_ref_phase_out => register11_q_net_x1,
+    cav2_p2_windowed_img => mult2_p_net_x0,
+    cav2_p2_windowed_real => mult_p_net_x1,
     cav2_p2_windowed_ref_i => mult4_p_net_x1,
     cav2_p2_windowed_ref_q => mult5_p_net_x1,
     cav2_sync => down_sample2_q_net,
@@ -42224,9 +41900,9 @@ begin
     flo_c2p1_window => convert2_dout_net_x4,
     flo_c2p2_window => convert2_dout_net_x0,
     rf_ref_amp => down_sample1_q_net,
-    rf_ref_i => down_sample1_q_net_x1,
-    rf_ref_phase => down_sample_q_net_x4,
-    rf_ref_q => down_sample_q_net_x1
+    rf_ref_i => down_sample1_q_net_x0,
+    rf_ref_phase => down_sample_q_net_x1,
+    rf_ref_q => down_sample_q_net
   );
 end structural;
 -- Generated from Simulink block 
@@ -42465,7 +42141,7 @@ entity example is
     gateway_out13_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out15_x0 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out16 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out16_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out17 : out std_logic_vector( 32-1 downto 0 );
     gateway_out18 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2 : out std_logic_vector( 1-1 downto 0 );
@@ -42475,8 +42151,8 @@ entity example is
     gateway_out4 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x0 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out7 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out : out std_logic_vector( 1-1 downto 0 );
     gateway_out1 : out std_logic_vector( 20-1 downto 0 );
@@ -42486,7 +42162,7 @@ entity example is
     gateway_out13 : out std_logic_vector( 32-1 downto 0 );
     gateway_out14 : out std_logic_vector( 18-1 downto 0 );
     gateway_out15 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out16_x0 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out16 : out std_logic_vector( 1-1 downto 0 );
     gateway_out17_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out18_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x0 : out std_logic_vector( 1-1 downto 0 );
@@ -42496,27 +42172,31 @@ entity example is
     gateway_out4_x0 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x0 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x5 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out7_x0 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out27_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out27_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out28_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out29_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out4_x13 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out4_x12 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x11 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out6_x9 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x6 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out6_x8 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out8_x6 : out std_logic_vector( 1-1 downto 0 );
     gateway_out9_x0 : out std_logic_vector( 16-1 downto 0 );
     gateway_out10_x6 : out std_logic_vector( 16-1 downto 0 );
-    gateway_out11_x7 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out11_x8 : out std_logic_vector( 16-1 downto 0 );
     gateway_out24_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out6_x8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x7 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out6_x9 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x6 : out std_logic_vector( 20-1 downto 0 );
     gateway_out8_x7 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out1_x15 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out7_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out8_x8 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x16 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x17 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x15 : out std_logic_vector( 16-1 downto 0 );
     gateway_out27_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out28_x5 : out std_logic_vector( 1-1 downto 0 );
@@ -42525,79 +42205,76 @@ entity example is
     gateway_out5_x12 : out std_logic_vector( 1-1 downto 0 );
     gateway_out44_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x16 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x8 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x13 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out11_x6 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out2_x13 : out std_logic_vector( 63-1 downto 0 );
+    gateway_out2_x12 : out std_logic_vector( 63-1 downto 0 );
     gateway_out20_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out3_x11 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out3_x12 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x10 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x7 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x4 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out1_x12 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out27_x3 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out27_x4 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x3 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out3_x12 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out3_x11 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x5 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x13 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out2_x12 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x14 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out2_x13 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x13 : out std_logic_vector( 18-1 downto 0 );
     gateway_out4_x11 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x14 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x15 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x14 : out std_logic_vector( 10-1 downto 0 );
     gateway_out10_x5 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x6 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out11_x7 : out std_logic_vector( 18-1 downto 0 );
     gateway_out32_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34_x1 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x1 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out37_x1 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38_x1 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x12 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out37_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out38_x2 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x14 : out std_logic_vector( 18-1 downto 0 );
     gateway_out44_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x20 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x21 : out std_logic_vector( 1-1 downto 0 );
     gateway_out11_x10 : out std_logic_vector( 32-1 downto 0 );
     gateway_out19_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out2_x17 : out std_logic_vector( 63-1 downto 0 );
     gateway_out20_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x16 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x16 : out std_logic_vector( 16-1 downto 0 );
+    gateway_out4_x15 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x14 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x11 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x9 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x9 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x21 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out7_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x10 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x22 : out std_logic_vector( 1-1 downto 0 );
     gateway_out27_x6 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28_x6 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x6 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x18 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x8 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x23 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out1_x24 : out std_logic_vector( 1-1 downto 0 );
     gateway_out2_x19 : out std_logic_vector( 1-1 downto 0 );
     gateway_out3_x17 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x17 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out4_x16 : out std_logic_vector( 18-1 downto 0 );
     gateway_out5_x15 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x22 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out1_x23 : out std_logic_vector( 32-1 downto 0 );
     gateway_out2_x18 : out std_logic_vector( 10-1 downto 0 );
-    gateway_out10_x8 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out11_x11 : out std_logic_vector( 18-1 downto 0 );
     gateway_out32_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out34_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out35_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out36_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out37_x2 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out38_x2 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out4_x14 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out1_x17 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out37_x1 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out38_x1 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out1_x18 : out std_logic_vector( 1-1 downto 0 );
     gateway_out39_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out40_x0 : out std_logic_vector( 18-1 downto 0 );
     gateway_out_x7 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x18 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out1_x19 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x7 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x9 : out std_logic_vector( 32-1 downto 0 );
     gateway_out12_x2 : out std_logic_vector( 20-1 downto 0 );
@@ -42611,14 +42288,14 @@ entity example is
     gateway_out22_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out23_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out3_x15 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out4_x15 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out4_x13 : out std_logic_vector( 32-1 downto 0 );
     gateway_out5_x13 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x10 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out7_x8 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x8 : out std_logic_vector( 18-1 downto 0 );
-    gateway_out9_x4 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out7_x9 : out std_logic_vector( 32-1 downto 0 );
+    gateway_out8_x9 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out9_x5 : out std_logic_vector( 32-1 downto 0 );
     gateway_out_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out1_x19 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out1_x20 : out std_logic_vector( 20-1 downto 0 );
     gateway_out10_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out11_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out12_x1 : out std_logic_vector( 20-1 downto 0 );
@@ -42636,7 +42313,7 @@ entity example is
     gateway_out5_x3 : out std_logic_vector( 18-1 downto 0 );
     gateway_out6_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x3 : out std_logic_vector( 32-1 downto 0 );
-    gateway_out8_x3 : out std_logic_vector( 18-1 downto 0 );
+    gateway_out8_x4 : out std_logic_vector( 18-1 downto 0 );
     gateway_out9_x2 : out std_logic_vector( 32-1 downto 0 );
     gateway_out1_x6 : out std_logic_vector( 16-1 downto 0 );
     gateway_out2_x6 : out std_logic_vector( 16-1 downto 0 );
@@ -42648,20 +42325,20 @@ entity example is
     gateway_out5_x4 : out std_logic_vector( 1-1 downto 0 );
     gateway_out6_x5 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x4 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out8_x2 : out std_logic_vector( 1-1 downto 0 );
+    gateway_out8_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out9_x1 : out std_logic_vector( 16-1 downto 0 );
     gateway_out24 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x2 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x1 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out8_x0 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out8_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out24_x0 : out std_logic_vector( 1-1 downto 0 );
     gateway_out25_x1 : out std_logic_vector( 20-1 downto 0 );
     gateway_out26_x0 : out std_logic_vector( 20-1 downto 0 );
     gateway_out6_x3 : out std_logic_vector( 1-1 downto 0 );
     gateway_out7_x2 : out std_logic_vector( 20-1 downto 0 );
-    gateway_out8_x1 : out std_logic_vector( 20-1 downto 0 );
+    gateway_out8_x2 : out std_logic_vector( 20-1 downto 0 );
     gateway_out44 : out std_logic_vector( 18-1 downto 0 );
     gateway_out46 : out std_logic_vector( 18-1 downto 0 );
     gateway_out1_x4 : out std_logic_vector( 18-1 downto 0 );
@@ -42695,7 +42372,7 @@ entity example is
     gateway_out4_x8 : out std_logic_vector( 16-1 downto 0 );
     gateway_out5_x7 : out std_logic_vector( 32-1 downto 0 );
     gateway_out6_x6 : out std_logic_vector( 1-1 downto 0 );
-    gateway_out27_x2 : out std_logic_vector( 19-1 downto 0 );
+    gateway_out27_x3 : out std_logic_vector( 19-1 downto 0 );
     gateway_out28_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out29_x2 : out std_logic_vector( 18-1 downto 0 );
     gateway_out3_x9 : out std_logic_vector( 32-1 downto 0 );
@@ -42744,19 +42421,7 @@ entity example is
 end example;
 architecture structural of example is 
   attribute core_generation_info : string;
-  attribute core_generation_info of structural : architecture is "example,sysgen_core_2017_4,{,compilation=Synthesized Checkpoint,block_icon_display=Default,family=kintexu,part=xcku040,speed=-2-e,package=ffva1156,synthesis_language=vhdl,hdl_library=work,synthesis_strategy=Flow_PerfOptimized_high,implementation_strategy=Vivado Implementation Defaults,testbench=0,interface_doc=1,ce_clr=0,clock_period=-10,system_simulink_period=-1,waveform_viewer=1,axilite_interface=1,ip_catalog_plugin=0,hwcosim_burst_mode=0,simulation_time=0.00016,abs=16,accum=16,addsub=54,ceprobe=8,cmpy_v6_0=4,cmult=24,constant=211,convert=243,cordic_v6_0=17,counter=17,dds_compiler_v6_0=2,delay=183,divide=8,dpram=8,dsamp=120,inv=93,logical=94,mult=36,mux=31,register=606,relational=100,usamp=23,}";
-  signal cav1_nco_phase_adj : std_logic_vector( 32-1 downto 0 );
-  signal cav1_nco_phase_reset : std_logic_vector( 1-1 downto 0 );
-  signal cav1_p1_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_calibration_coeff : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal cav1_p1_comparison_i : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_comparison_phase : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_comparison_q : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal cav1_p1_dc_img : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_dc_real : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_if_amp : std_logic_vector( 18-1 downto 0 );
+  attribute core_generation_info of structural : architecture is "example,sysgen_core_2017_4,{,compilation=Synthesized Checkpoint,block_icon_display=Default,family=kintexu,part=xcku040,speed=-2-e,package=ffva1156,synthesis_language=vhdl,hdl_library=work,synthesis_strategy=Flow_PerfOptimized_high,implementation_strategy=Vivado Implementation Defaults,testbench=0,interface_doc=1,ce_clr=0,clock_period=-10,system_simulink_period=-1,waveform_viewer=1,axilite_interface=1,ip_catalog_plugin=0,hwcosim_burst_mode=0,simulation_time=0.00016,abs=16,accum=16,addsub=54,ceprobe=8,cmpy_v6_0=4,cmult=24,constant=213,convert=243,cordic_v6_0=17,counter=17,dds_compiler_v6_0=2,delay=180,divide=8,dpram=8,dsamp=120,inv=101,logical=102,mult=38,mux=31,register=614,relational=108,usamp=23,}";
   signal cav1_p1_if_i : std_logic_vector( 18-1 downto 0 );
   signal cav1_p1_if_phase : std_logic_vector( 18-1 downto 0 );
   signal cav1_p1_if_q : std_logic_vector( 18-1 downto 0 );
@@ -42766,6 +42431,34 @@ architecture structural of example is
   signal cav1_p1_window_start : std_logic_vector( 16-1 downto 0 );
   signal cav1_p1_window_stop : std_logic_vector( 16-1 downto 0 );
   signal cav1_p2_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal cav1_nco_phase_adj : std_logic_vector( 32-1 downto 0 );
+  signal cav1_nco_phase_reset : std_logic_vector( 1-1 downto 0 );
+  signal cav1_p1_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_calibration_coeff : std_logic_vector( 18-1 downto 0 );
+  signal clk_1_net_x0 : std_logic;
+  signal ce_1_net_x0 : std_logic;
+  signal clk_8_net : std_logic;
+  signal ce_8_net : std_logic;
+  signal clk_1_net : std_logic;
+  signal ce_1_net : std_logic;
+  signal clk_12_net : std_logic;
+  signal ce_12_net : std_logic;
+  signal ref_window_stop : std_logic_vector( 16-1 downto 0 );
+  signal rf_ref_amp : std_logic_vector( 18-1 downto 0 );
+  signal rf_ref_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal rf_ref_i : std_logic_vector( 18-1 downto 0 );
+  signal rf_ref_phase : std_logic_vector( 18-1 downto 0 );
+  signal rf_ref_q : std_logic_vector( 18-1 downto 0 );
+  signal scratchpad : std_logic_vector( 32-1 downto 0 );
+  signal status_0 : std_logic_vector( 32-1 downto 0 );
+  signal cav1_p1_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal cav1_p1_comparison_i : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_comparison_phase : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_comparison_q : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal cav1_p1_dc_img : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_dc_real : std_logic_vector( 18-1 downto 0 );
+  signal cav1_p1_if_amp : std_logic_vector( 18-1 downto 0 );
   signal cav1_p2_calibration_coeff : std_logic_vector( 18-1 downto 0 );
   signal cav1_p2_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal cav1_p2_comparison_i : std_logic_vector( 18-1 downto 0 );
@@ -42780,6 +42473,26 @@ architecture structural of example is
   signal cav1_p2_if_q : std_logic_vector( 18-1 downto 0 );
   signal cav2_p2_dc_img : std_logic_vector( 18-1 downto 0 );
   signal cav1_p2_integrated_i : std_logic_vector( 20-1 downto 0 );
+  signal cav2_p1_window_start : std_logic_vector( 16-1 downto 0 );
+  signal cav2_p1_window_stop : std_logic_vector( 16-1 downto 0 );
+  signal cav2_p2_amp_out : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_calibration_coeff : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal cav2_p2_comparison_i : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_comparison_phase : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_comparison_q : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_dc_freq : std_logic_vector( 32-1 downto 0 );
+  signal cav2_p2_dc_real : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_if_i : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_if_phase : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_if_q : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_integrated_i : std_logic_vector( 20-1 downto 0 );
+  signal cav2_p2_integrated_q : std_logic_vector( 20-1 downto 0 );
+  signal cav2_p2_phase_out : std_logic_vector( 18-1 downto 0 );
+  signal cav2_p2_window_start : std_logic_vector( 16-1 downto 0 );
+  signal cav2_p2_window_stop : std_logic_vector( 16-1 downto 0 );
+  signal ref_window_start : std_logic_vector( 16-1 downto 0 );
   signal cav1_p2_integrated_q : std_logic_vector( 20-1 downto 0 );
   signal cav1_p2_phase_out : std_logic_vector( 18-1 downto 0 );
   signal cav1_p2_window_start : std_logic_vector( 16-1 downto 0 );
@@ -42802,43 +42515,7 @@ architecture structural of example is
   signal cav2_p1_integrated_i : std_logic_vector( 20-1 downto 0 );
   signal cav2_p1_integrated_q : std_logic_vector( 20-1 downto 0 );
   signal cav2_p1_phase_out : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p1_window_start : std_logic_vector( 16-1 downto 0 );
-  signal cav2_p1_window_stop : std_logic_vector( 16-1 downto 0 );
-  signal cav2_p2_amp_out : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_calibration_coeff : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal cav2_p2_comparison_i : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_comparison_phase : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_comparison_q : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_dc_freq : std_logic_vector( 32-1 downto 0 );
-  signal cav2_p2_dc_real : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_if_amp : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_if_i : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_if_phase : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_if_q : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_integrated_i : std_logic_vector( 20-1 downto 0 );
-  signal cav2_p2_integrated_q : std_logic_vector( 20-1 downto 0 );
-  signal cav2_p2_phase_out : std_logic_vector( 18-1 downto 0 );
-  signal cav2_p2_window_start : std_logic_vector( 16-1 downto 0 );
-  signal cav2_p2_window_stop : std_logic_vector( 16-1 downto 0 );
-  signal ref_window_start : std_logic_vector( 16-1 downto 0 );
-  signal ref_window_stop : std_logic_vector( 16-1 downto 0 );
-  signal rf_ref_amp : std_logic_vector( 18-1 downto 0 );
-  signal rf_ref_chan_sel : std_logic_vector( 4-1 downto 0 );
-  signal rf_ref_i : std_logic_vector( 18-1 downto 0 );
-  signal rf_ref_phase : std_logic_vector( 18-1 downto 0 );
-  signal rf_ref_q : std_logic_vector( 18-1 downto 0 );
-  signal scratchpad : std_logic_vector( 32-1 downto 0 );
-  signal status_0 : std_logic_vector( 32-1 downto 0 );
   signal axi_lite_clk_net : std_logic;
-  signal clk_1_net_x0 : std_logic;
-  signal ce_1_net_x0 : std_logic;
-  signal clk_8_net : std_logic;
-  signal ce_8_net : std_logic;
-  signal clk_1_net : std_logic;
-  signal ce_1_net : std_logic;
-  signal clk_12_net : std_logic;
-  signal ce_12_net : std_logic;
 begin
   axi_lite_axi_lite_interface : entity work.axi_lite_axi_lite_interface 
   port map (
@@ -43203,7 +42880,7 @@ begin
     gateway_out13_x0 => gateway_out13_x0,
     gateway_out14_x0 => gateway_out14_x0,
     gateway_out15 => gateway_out15_x0,
-    gateway_out16 => gateway_out16,
+    gateway_out16 => gateway_out16_x0,
     gateway_out17 => gateway_out17,
     gateway_out18 => gateway_out18,
     gateway_out2 => gateway_out2,
@@ -43213,8 +42890,8 @@ begin
     gateway_out4 => gateway_out4,
     gateway_out5 => gateway_out5,
     gateway_out6_x0 => gateway_out6,
-    gateway_out7 => gateway_out7_x0,
-    gateway_out8 => gateway_out8,
+    gateway_out7 => gateway_out7,
+    gateway_out8 => gateway_out8_x0,
     gateway_out9 => gateway_out9,
     gateway_out => gateway_out,
     gateway_out1 => gateway_out1,
@@ -43224,7 +42901,7 @@ begin
     gateway_out13 => gateway_out13,
     gateway_out14 => gateway_out14,
     gateway_out15_x0 => gateway_out15,
-    gateway_out16_x0 => gateway_out16_x0,
+    gateway_out16_x0 => gateway_out16,
     gateway_out17_x0 => gateway_out17_x0,
     gateway_out18_x0 => gateway_out18_x0,
     gateway_out2_x0 => gateway_out2_x0,
@@ -43234,27 +42911,31 @@ begin
     gateway_out4_x0 => gateway_out4_x0,
     gateway_out5_x0 => gateway_out5_x0,
     gateway_out6 => gateway_out6_x0,
-    gateway_out7_x5 => gateway_out7,
-    gateway_out8_x4 => gateway_out8_x5,
+    gateway_out7_x5 => gateway_out7_x0,
+    gateway_out8_x4 => gateway_out8,
     gateway_out9_x2 => gateway_out9_x3,
-    gateway_out27 => gateway_out27_x4,
-    gateway_out28_x4 => gateway_out28_x4,
+    gateway_out27_x4 => gateway_out27_x2,
+    gateway_out28 => gateway_out28_x4,
     gateway_out29_x4 => gateway_out29_x4,
-    gateway_out4_x13 => gateway_out4_x13,
+    gateway_out4_x12 => gateway_out4_x12,
     gateway_out5_x11 => gateway_out5_x11,
-    gateway_out6_x8 => gateway_out6_x9,
-    gateway_out7_x6 => gateway_out7_x6,
+    gateway_out6_x8 => gateway_out6_x8,
+    gateway_out7_x6 => gateway_out7_x7,
     gateway_out8_x6 => gateway_out8_x6,
     gateway_out9_x3 => gateway_out9_x0,
     gateway_out10_x6 => gateway_out10_x6,
-    gateway_out11_x7 => gateway_out11_x7,
+    gateway_out11_x8 => gateway_out11_x8,
     gateway_out24_x1 => gateway_out24_x1,
     gateway_out25_x2 => gateway_out25_x2,
     gateway_out26_x1 => gateway_out26_x1,
-    gateway_out6_x9 => gateway_out6_x8,
-    gateway_out7_x7 => gateway_out7_x7,
+    gateway_out6_x9 => gateway_out6_x9,
+    gateway_out7_x7 => gateway_out7_x6,
     gateway_out8_x7 => gateway_out8_x7,
-    gateway_out1_x15 => gateway_out1_x15,
+    gateway_out7_x8 => gateway_out7_x8,
+    gateway_out8_x8 => gateway_out8_x8,
+    gateway_out9_x5 => gateway_out9_x4,
+    gateway_out1_x17 => gateway_out1_x16,
+    gateway_out1_x18 => gateway_out1_x17,
     gateway_out2_x15 => gateway_out2_x15,
     gateway_out27_x5 => gateway_out27_x5,
     gateway_out28_x5 => gateway_out28_x5,
@@ -43263,79 +42944,76 @@ begin
     gateway_out5_x12 => gateway_out5_x12,
     gateway_out44_x1 => gateway_out44_x1,
     gateway_out46_x1 => gateway_out46_x1,
-    gateway_out1_x16 => gateway_out1_x16,
-    gateway_out11_x8 => gateway_out11_x8,
+    gateway_out1_x13 => gateway_out1_x13,
+    gateway_out11_x6 => gateway_out11_x6,
     gateway_out19_x1 => gateway_out19_x1,
-    gateway_out2_x13 => gateway_out2_x13,
+    gateway_out2_x12 => gateway_out2_x12,
     gateway_out20_x1 => gateway_out20_x1,
-    gateway_out3_x11 => gateway_out3_x11,
+    gateway_out3_x11 => gateway_out3_x12,
     gateway_out4_x10 => gateway_out4_x10,
     gateway_out5_x9 => gateway_out5_x9,
     gateway_out6_x7 => gateway_out6_x7,
     gateway_out7_x4 => gateway_out7_x5,
-    gateway_out8_x5 => gateway_out8_x4,
-    gateway_out1_x12 => gateway_out1_x12,
-    gateway_out27_x4 => gateway_out27_x3,
-    gateway_out28_x3 => gateway_out28_x3,
+    gateway_out8_x5 => gateway_out8_x5,
+    gateway_out1_x14 => gateway_out1_x12,
+    gateway_out27_x3 => gateway_out27_x4,
+    gateway_out28_x4 => gateway_out28_x3,
     gateway_out29_x3 => gateway_out29_x3,
-    gateway_out3_x12 => gateway_out3_x12,
+    gateway_out3_x12 => gateway_out3_x11,
     gateway_out_x5 => gateway_out_x5,
-    gateway_out1_x13 => gateway_out1_x13,
-    gateway_out2_x12 => gateway_out2_x12,
+    gateway_out1_x15 => gateway_out1_x14,
+    gateway_out2_x13 => gateway_out2_x13,
     gateway_out3_x13 => gateway_out3_x13,
     gateway_out4_x11 => gateway_out4_x11,
     gateway_out5_x10 => gateway_out5_x10,
-    gateway_out1_x14 => gateway_out1_x14,
+    gateway_out1_x16 => gateway_out1_x15,
     gateway_out2_x14 => gateway_out2_x14,
     gateway_out10_x5 => gateway_out10_x5,
-    gateway_out11_x6 => gateway_out11_x6,
+    gateway_out11_x7 => gateway_out11_x7,
     gateway_out32_x1 => gateway_out32_x1,
     gateway_out34_x1 => gateway_out34_x1,
     gateway_out35_x1 => gateway_out35_x1,
-    gateway_out36_x1 => gateway_out36_x1,
-    gateway_out37_x1 => gateway_out37_x1,
-    gateway_out38_x1 => gateway_out38_x1,
-    gateway_out4_x12 => gateway_out4_x12,
+    gateway_out36_x2 => gateway_out36_x1,
+    gateway_out37_x2 => gateway_out37_x2,
+    gateway_out38_x2 => gateway_out38_x2,
+    gateway_out4_x14 => gateway_out4_x14,
     gateway_out44_x2 => gateway_out44_x2,
     gateway_out46_x2 => gateway_out46_x2,
-    gateway_out1_x20 => gateway_out1_x20,
+    gateway_out1_x21 => gateway_out1_x21,
     gateway_out11_x10 => gateway_out11_x10,
     gateway_out19_x2 => gateway_out19_x2,
-    gateway_out2_x17 => gateway_out2_x17,
+    gateway_out2_x18 => gateway_out2_x17,
     gateway_out20_x2 => gateway_out20_x2,
     gateway_out3_x16 => gateway_out3_x16,
-    gateway_out4_x16 => gateway_out4_x16,
+    gateway_out4_x15 => gateway_out4_x15,
     gateway_out5_x14 => gateway_out5_x14,
     gateway_out6_x11 => gateway_out6_x11,
-    gateway_out7_x9 => gateway_out7_x9,
-    gateway_out8_x9 => gateway_out8_x9,
-    gateway_out1_x21 => gateway_out1_x21,
+    gateway_out7_x10 => gateway_out7_x10,
+    gateway_out8_x10 => gateway_out8_x10,
+    gateway_out1_x24 => gateway_out1_x22,
     gateway_out27_x6 => gateway_out27_x6,
     gateway_out28_x6 => gateway_out28_x6,
     gateway_out29_x6 => gateway_out29_x6,
     gateway_out3_x18 => gateway_out3_x18,
     gateway_out_x8 => gateway_out_x8,
-    gateway_out1_x23 => gateway_out1_x23,
+    gateway_out1_x23 => gateway_out1_x24,
     gateway_out2_x19 => gateway_out2_x19,
     gateway_out3_x17 => gateway_out3_x17,
-    gateway_out4_x17 => gateway_out4_x17,
+    gateway_out4_x16 => gateway_out4_x16,
     gateway_out5_x15 => gateway_out5_x15,
-    gateway_out1_x22 => gateway_out1_x22,
-    gateway_out2_x18 => gateway_out2_x18,
-    gateway_out10_x8 => gateway_out10_x8,
-    gateway_out11_x11 => gateway_out11_x11,
+    gateway_out1_x22 => gateway_out1_x23,
+    gateway_out2_x17 => gateway_out2_x18,
     gateway_out32_x2 => gateway_out32_x2,
     gateway_out34_x2 => gateway_out34_x2,
     gateway_out35_x2 => gateway_out35_x2,
-    gateway_out36_x2 => gateway_out36_x2,
-    gateway_out37_x2 => gateway_out37_x2,
-    gateway_out38_x2 => gateway_out38_x2,
-    gateway_out4_x14 => gateway_out4_x14,
-    gateway_out1_x17 => gateway_out1_x17,
+    gateway_out36_x1 => gateway_out36_x2,
+    gateway_out37_x1 => gateway_out37_x1,
+    gateway_out38_x1 => gateway_out38_x1,
+    gateway_out1_x19 => gateway_out1_x18,
     gateway_out39_x0 => gateway_out39_x0,
     gateway_out40_x0 => gateway_out40_x0,
-    gateway_out_x7 => gateway_out_x7,
-    gateway_out1_x18 => gateway_out1_x18,
+    gateway_out_x6 => gateway_out_x7,
+    gateway_out1_x20 => gateway_out1_x19,
     gateway_out10_x7 => gateway_out10_x7,
     gateway_out11_x9 => gateway_out11_x9,
     gateway_out12_x2 => gateway_out12_x2,
@@ -43349,14 +43027,14 @@ begin
     gateway_out22_x2 => gateway_out22_x2,
     gateway_out23_x2 => gateway_out23_x2,
     gateway_out3_x15 => gateway_out3_x15,
-    gateway_out4_x15 => gateway_out4_x15,
+    gateway_out4_x13 => gateway_out4_x13,
     gateway_out5_x13 => gateway_out5_x13,
     gateway_out6_x10 => gateway_out6_x10,
-    gateway_out7_x8 => gateway_out7_x8,
-    gateway_out8_x8 => gateway_out8_x8,
-    gateway_out9_x4 => gateway_out9_x4,
-    gateway_out_x6 => gateway_out_x6,
-    gateway_out1_x19 => gateway_out1_x19,
+    gateway_out7_x9 => gateway_out7_x9,
+    gateway_out8_x9 => gateway_out8_x9,
+    gateway_out9_x4 => gateway_out9_x5,
+    gateway_out_x7 => gateway_out_x6,
+    gateway_out1_x6 => gateway_out1_x20,
     gateway_out10_x2 => gateway_out10_x2,
     gateway_out11_x2 => gateway_out11_x2,
     gateway_out12_x1 => gateway_out12_x1,
@@ -43374,32 +43052,32 @@ begin
     gateway_out5_x3 => gateway_out5_x3,
     gateway_out6_x4 => gateway_out6_x4,
     gateway_out7_x2 => gateway_out7_x3,
-    gateway_out8_x3 => gateway_out8_x3,
+    gateway_out8_x3 => gateway_out8_x4,
     gateway_out9_x1 => gateway_out9_x2,
-    gateway_out1_x6 => gateway_out1_x6,
+    gateway_out1_x7 => gateway_out1_x6,
     gateway_out2_x6 => gateway_out2_x6,
-    gateway_out27_x1 => gateway_out27_x0,
-    gateway_out28_x0 => gateway_out28_x0,
+    gateway_out27_x0 => gateway_out27_x0,
+    gateway_out28_x1 => gateway_out28_x0,
     gateway_out29_x0 => gateway_out29_x0,
     gateway_out3_x6 => gateway_out3_x6,
     gateway_out4_x4 => gateway_out4_x4,
     gateway_out5_x4 => gateway_out5_x4,
     gateway_out6_x5 => gateway_out6_x5,
     gateway_out7_x3 => gateway_out7_x4,
-    gateway_out8_x2 => gateway_out8_x2,
+    gateway_out8_x2 => gateway_out8_x3,
     gateway_out9_x0 => gateway_out9_x1,
     gateway_out24 => gateway_out24,
     gateway_out25_x0 => gateway_out25_x0,
     gateway_out26 => gateway_out26,
     gateway_out6_x2 => gateway_out6_x2,
     gateway_out7_x0 => gateway_out7_x1,
-    gateway_out8_x0 => gateway_out8_x0,
+    gateway_out8_x0 => gateway_out8_x1,
     gateway_out24_x0 => gateway_out24_x0,
     gateway_out25_x1 => gateway_out25_x1,
     gateway_out26_x0 => gateway_out26_x0,
     gateway_out6_x3 => gateway_out6_x3,
     gateway_out7_x1 => gateway_out7_x2,
-    gateway_out8_x1 => gateway_out8_x1,
+    gateway_out8_x1 => gateway_out8_x2,
     gateway_out44 => gateway_out44,
     gateway_out46 => gateway_out46,
     gateway_out1_x4 => gateway_out1_x4,
@@ -43410,8 +43088,8 @@ begin
     gateway_out3_x2 => gateway_out3_x2,
     gateway_out4_x2 => gateway_out4_x2,
     gateway_out5_x2 => gateway_out5_x2,
-    gateway_out27_x0 => gateway_out27,
-    gateway_out28 => gateway_out28,
+    gateway_out27 => gateway_out27,
+    gateway_out28_x0 => gateway_out28,
     gateway_out29 => gateway_out29,
     gateway_out3_x3 => gateway_out3_x3,
     gateway_out_x3 => gateway_out_x3,
@@ -43420,11 +43098,11 @@ begin
     gateway_out3_x5 => gateway_out3_x5,
     gateway_out4_x7 => gateway_out4_x7,
     gateway_out5_x6 => gateway_out5_x6,
-    gateway_out1_x7 => gateway_out1_x7,
+    gateway_out1_x8 => gateway_out1_x7,
     gateway_out2_x7 => gateway_out2_x7,
     gateway_out44_x0 => gateway_out44_x0,
     gateway_out46_x0 => gateway_out46_x0,
-    gateway_out1_x8 => gateway_out1_x8,
+    gateway_out1_x9 => gateway_out1_x8,
     gateway_out11_x5 => gateway_out11_x5,
     gateway_out19_x0 => gateway_out19_x0,
     gateway_out2_x8 => gateway_out2_x8,
@@ -43433,22 +43111,22 @@ begin
     gateway_out4_x8 => gateway_out4_x8,
     gateway_out5_x7 => gateway_out5_x7,
     gateway_out6_x6 => gateway_out6_x6,
-    gateway_out27_x3 => gateway_out27_x2,
-    gateway_out28_x2 => gateway_out28_x2,
+    gateway_out27_x2 => gateway_out27_x3,
+    gateway_out28_x3 => gateway_out28_x2,
     gateway_out29_x2 => gateway_out29_x2,
     gateway_out3_x9 => gateway_out3_x9,
     gateway_out_x4 => gateway_out_x4,
-    gateway_out1_x9 => gateway_out1_x9,
+    gateway_out1_x10 => gateway_out1_x9,
     gateway_out2_x9 => gateway_out2_x9,
     gateway_out3_x10 => gateway_out3_x10,
     gateway_out4_x9 => gateway_out4_x9,
     gateway_out5_x8 => gateway_out5_x8,
-    gateway_out1_x10 => gateway_out1_x10,
+    gateway_out1_x11 => gateway_out1_x10,
     gateway_out2_x10 => gateway_out2_x10,
-    gateway_out1_x11 => gateway_out1_x11,
+    gateway_out1_x12 => gateway_out1_x11,
     gateway_out2_x11 => gateway_out2_x11,
-    gateway_out27_x2 => gateway_out27_x1,
-    gateway_out28_x1 => gateway_out28_x1,
+    gateway_out27_x1 => gateway_out27_x1,
+    gateway_out28_x2 => gateway_out28_x1,
     gateway_out29_x1 => gateway_out29_x1,
     gateway_out3_x7 => gateway_out3_x7,
     gateway_out5_x5 => gateway_out5_x5,

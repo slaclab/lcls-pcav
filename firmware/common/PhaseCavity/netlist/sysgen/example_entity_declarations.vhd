@@ -642,44 +642,6 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_constant_6910f0d900 is
-  port (
-    op : out std_logic_vector((18 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_6910f0d900;
-architecture behavior of sysgen_constant_6910f0d900
-is
-begin
-  op <= "011001100110011010";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_146af16123 is
-  port (
-    op : out std_logic_vector((1 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_146af16123;
-architecture behavior of sysgen_constant_146af16123
-is
-begin
-  op <= "0";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
 entity sysgen_logical_cfc7fd815b is
   port (
     d0 : in std_logic_vector((1 - 1) downto 0);
@@ -718,6 +680,25 @@ begin
   latency_pipe_5_26_front_din <= fully_2_1_bit;
   latency_pipe_5_26_push_front_pop_back_en <= '1';
   y <= std_logic_to_vector(latency_pipe_5_26_back);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_146af16123 is
+  port (
+    op : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_146af16123;
+architecture behavior of sysgen_constant_146af16123
+is
+begin
+  op <= "0";
 end behavior;
 
 library work;
@@ -1542,17 +1523,17 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_constant_b4eb188ed9 is
+entity sysgen_constant_9d3c6a22a6 is
   port (
     op : out std_logic_vector((16 - 1) downto 0);
     clk : in std_logic;
     ce : in std_logic;
     clr : in std_logic);
-end sysgen_constant_b4eb188ed9;
-architecture behavior of sysgen_constant_b4eb188ed9
+end sysgen_constant_9d3c6a22a6;
+architecture behavior of sysgen_constant_9d3c6a22a6
 is
 begin
-  op <= "0000000001101010";
+  op <= "0000000001011010";
 end behavior;
 
 library work;
@@ -1561,17 +1542,17 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_constant_bcc72769b8 is
+entity sysgen_constant_5af5c4c643 is
   port (
     op : out std_logic_vector((16 - 1) downto 0);
     clk : in std_logic;
     ce : in std_logic;
     clr : in std_logic);
-end sysgen_constant_bcc72769b8;
-architecture behavior of sysgen_constant_bcc72769b8
+end sysgen_constant_5af5c4c643;
+architecture behavior of sysgen_constant_5af5c4c643
 is
 begin
-  op <= "0000000001010111";
+  op <= "0000000000101010";
 end behavior;
 
 library work;
@@ -2032,6 +2013,25 @@ architecture behavior of sysgen_constant_8dc05a74d7
 is
 begin
   op <= "0000000000101000";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_b4eb188ed9 is
+  port (
+    op : out std_logic_vector((16 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_b4eb188ed9;
+architecture behavior of sysgen_constant_b4eb188ed9
+is
+begin
+  op <= "0000000001101010";
 end behavior;
 
 library work;
@@ -2969,6 +2969,73 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_relational_4a2c48b94a is
+  port (
+    a : in std_logic_vector((19 - 1) downto 0);
+    b : in std_logic_vector((2 - 1) downto 0);
+    op : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_relational_4a2c48b94a;
+architecture behavior of sysgen_relational_4a2c48b94a
+is
+  signal a_1_31: signed((19 - 1) downto 0);
+  signal b_1_34: signed((2 - 1) downto 0);
+  type array_type_op_mem_37_22 is array (0 to (1 - 1)) of boolean;
+  signal op_mem_37_22: array_type_op_mem_37_22 := (
+    0 => false);
+  signal op_mem_37_22_front_din: boolean;
+  signal op_mem_37_22_back: boolean;
+  signal op_mem_37_22_push_front_pop_back_en: std_logic;
+  signal cast_18_16: signed((19 - 1) downto 0);
+  signal result_18_3_rel: boolean;
+begin
+  a_1_31 <= std_logic_vector_to_signed(a);
+  b_1_34 <= std_logic_vector_to_signed(b);
+  op_mem_37_22_back <= op_mem_37_22(0);
+  proc_op_mem_37_22: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (op_mem_37_22_push_front_pop_back_en = '1')) then
+        op_mem_37_22(0) <= op_mem_37_22_front_din;
+      end if;
+    end if;
+  end process proc_op_mem_37_22;
+  cast_18_16 <= s2s_cast(b_1_34, 0, 19, 16);
+  result_18_3_rel <= a_1_31 > cast_18_16;
+  op_mem_37_22_front_din <= result_18_3_rel;
+  op_mem_37_22_push_front_pop_back_en <= '1';
+  op <= boolean_to_vector(op_mem_37_22_back);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_bcc72769b8 is
+  port (
+    op : out std_logic_vector((16 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_bcc72769b8;
+architecture behavior of sysgen_constant_bcc72769b8
+is
+begin
+  op <= "0000000001010111";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_logical_bcd83b5e75 is
   port (
     d0 : in std_logic_vector((1 - 1) downto 0);
@@ -3778,7 +3845,14 @@ entity example_xlcmult is
  signal internal_core_ce: std_logic;
 
 
- component example_mult_gen_v12_0_i5
+ component example_mult_gen_v12_0_i6
+    port ( 
+      p: out std_logic_vector(c_output_width - 1 downto 0);
+      a: in std_logic_vector(c_a_width - 1 downto 0) 
+ 		  ); 
+ end component;
+
+ component example_mult_gen_v12_0_i7
     port ( 
       p: out std_logic_vector(c_output_width - 1 downto 0);
       a: in std_logic_vector(c_a_width - 1 downto 0) 
@@ -3804,8 +3878,16 @@ begin
  nd <= internal_ce;
 
 
- comp0: if ((core_name0 = "example_mult_gen_v12_0_i5")) generate 
-  core_instance0:example_mult_gen_v12_0_i5
+ comp0: if ((core_name0 = "example_mult_gen_v12_0_i6")) generate 
+  core_instance0:example_mult_gen_v12_0_i6
+   port map ( 
+      p => tmp_p,
+      a => tmp_a
+  ); 
+   end generate;
+
+ comp1: if ((core_name0 = "example_mult_gen_v12_0_i7")) generate 
+  core_instance1:example_mult_gen_v12_0_i7
    port map ( 
       p => tmp_p,
       a => tmp_a
@@ -3888,7 +3970,7 @@ entity example_xlcounter_free is
  architecture behavior of example_xlcounter_free is
 
 
- component example_c_counter_binary_v12_0_i0
+ component example_c_counter_binary_v12_0_i1
     port ( 
       clk: in std_logic;
       ce: in std_logic;
@@ -3897,7 +3979,7 @@ entity example_xlcounter_free is
  		  ); 
  end component;
 
- component example_c_counter_binary_v12_0_i1
+ component example_c_counter_binary_v12_0_i0
     port ( 
       clk: in std_logic;
       ce: in std_logic;
@@ -3924,8 +4006,8 @@ entity example_xlcounter_free is
    op <= op_net;
 
 
- comp0: if ((core_name0 = "example_c_counter_binary_v12_0_i0")) generate 
-  core_instance0:example_c_counter_binary_v12_0_i0
+ comp0: if ((core_name0 = "example_c_counter_binary_v12_0_i1")) generate 
+  core_instance0:example_c_counter_binary_v12_0_i1
    port map ( 
         clk => clk,
         ce => core_ce,
@@ -3934,8 +4016,158 @@ entity example_xlcounter_free is
   ); 
    end generate;
 
- comp1: if ((core_name0 = "example_c_counter_binary_v12_0_i1")) generate 
-  core_instance1:example_c_counter_binary_v12_0_i1
+ comp1: if ((core_name0 = "example_c_counter_binary_v12_0_i0")) generate 
+  core_instance1:example_c_counter_binary_v12_0_i0
+   port map ( 
+        clk => clk,
+        ce => core_ce,
+        SINIT => core_sinit,
+        q => op_net
+  ); 
+   end generate;
+
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+---------------------------------------------------------------------
+ --
+ --  Filename      : xlcounter.vhd
+ --
+ --  Created       : 5/31/00
+ --  Modified      : 6/7/00
+ --
+ --  Description   : VHDL wrapper for a counter. This wrapper
+ --                  uses the Binary Counter CoreGenerator core.
+ --
+ ---------------------------------------------------------------------
+ 
+ 
+ ---------------------------------------------------------------------
+ --
+ --  Entity        : xlcounter
+ --
+ --  Architecture  : behavior
+ --
+ --  Description   : Top level VHDL description of a counter.
+ --
+ ---------------------------------------------------------------------
+ 
+ library IEEE;
+ use IEEE.std_logic_1164.all;
+ use IEEE.numeric_std.all;
+
+entity example_xlcounter_limit is 
+   generic (
+     core_name0: string := "";
+     op_width: integer := 5;
+     op_arith: integer := xlSigned;
+     cnt_63_48: integer:= 0;
+     cnt_47_32: integer:= 0;
+     cnt_31_16: integer:= 0;
+     cnt_15_0: integer:= 0;
+     count_limited: integer := 0		-- 0 if cnt_to = (2^n)-1 else 1
+   );
+   port (
+     ce: in std_logic;
+     clr: in std_logic;
+     clk: in std_logic;
+     op: out std_logic_vector(op_width - 1 downto 0);
+     up: in std_logic_vector(0 downto 0) := (others => '0');
+     en: in std_logic_vector(0 downto 0);
+     rst: in std_logic_vector(0 downto 0)
+   );
+ end example_xlcounter_limit;
+ 
+ architecture behavior of example_xlcounter_limit is
+ signal high_cnt_to: std_logic_vector(31 downto 0);
+ signal low_cnt_to: std_logic_vector(31 downto 0);
+ signal cnt_to: std_logic_vector(63 downto 0);
+ signal core_sinit, op_thresh0, core_ce: std_logic;
+ signal rst_overrides_en: std_logic;
+ signal op_net: std_logic_vector(op_width - 1 downto 0);
+ 
+ -- synthesis translate_off
+ signal real_op : real; -- For debugging info ports
+ -- synthesis translate_on
+ 
+ function equals(op, cnt_to : std_logic_vector; width, arith : integer)
+ return std_logic
+ is
+ variable signed_op, signed_cnt_to : signed (width - 1 downto 0);
+ variable unsigned_op, unsigned_cnt_to : unsigned (width - 1 downto 0);
+ variable result : std_logic;
+ begin
+ -- synthesis translate_off
+ if ((is_XorU(op)) or (is_XorU(cnt_to)) ) then
+ result := '0';
+ return result;
+ end if;
+ -- synthesis translate_on
+ 
+ if (op = cnt_to) then
+ result := '1';
+ else
+ result := '0';
+ end if;
+ return result;
+ end;
+
+
+ component example_c_counter_binary_v12_0_i0
+    port ( 
+      clk: in std_logic;
+      ce: in std_logic;
+      SINIT: in std_logic;
+      q: out std_logic_vector(op_width - 1 downto 0) 
+ 		  ); 
+ end component;
+
+-- synthesis translate_off
+   constant zeroVec : std_logic_vector(op_width - 1 downto 0) := (others => '0');
+   constant oneVec : std_logic_vector(op_width - 1 downto 0) := (others => '1');
+   constant zeroStr : string(1 to op_width) :=
+     std_logic_vector_to_bin_string(zeroVec);
+   constant oneStr : string(1 to op_width) :=
+     std_logic_vector_to_bin_string(oneVec);
+ -- synthesis translate_on
+ 
+ begin
+   -- Debugging info for internal full precision variables
+   -- synthesis translate_off
+ --     real_op <= to_real(op, op_bin_pt, op_arith);
+   -- synthesis translate_on
+ 
+   cnt_to(63 downto 48) <= integer_to_std_logic_vector(cnt_63_48, 16, op_arith);
+   cnt_to(47 downto 32) <= integer_to_std_logic_vector(cnt_47_32, 16, op_arith);
+   cnt_to(31 downto 16) <= integer_to_std_logic_vector(cnt_31_16, 16, op_arith);
+   cnt_to(15 downto 0) <= integer_to_std_logic_vector(cnt_15_0, 16, op_arith);
+ 
+   -- Output of counter always valid
+   op <= op_net;
+   core_ce <= ce and en(0);
+   rst_overrides_en <= rst(0) or en(0);
+ 
+   limit : if (count_limited = 1) generate
+     eq_cnt_to : process (op_net, cnt_to)
+     begin
+       -- Had to pass cnt_to(op_width - 1 downto 0) instead of cnt_to so
+       -- that XST would infer a macro
+       op_thresh0 <= equals(op_net, cnt_to(op_width - 1 downto 0),
+                      op_width, op_arith);
+     end process;
+ 
+     core_sinit <= (op_thresh0 or clr or rst(0)) and ce and rst_overrides_en;
+   end generate;
+ 
+   no_limit : if (count_limited = 0) generate
+     core_sinit <= (clr or rst(0)) and ce and rst_overrides_en;
+   end generate;
+
+
+ comp0: if ((core_name0 = "example_c_counter_binary_v12_0_i0")) generate 
+  core_instance0:example_c_counter_binary_v12_0_i0
    port map ( 
         clk => clk,
         ce => core_ce,
@@ -4642,6 +4874,17 @@ entity example_xlmult is
  		  ); 
  end component;
 
+ component example_mult_gen_v12_0_i5
+    port ( 
+      b: in std_logic_vector(c_b_width - 1 downto 0);
+      p: out std_logic_vector(c_output_width - 1 downto 0);
+      clk: in std_logic;
+      ce: in std_logic;
+      sclr: in std_logic;
+      a: in std_logic_vector(c_a_width - 1 downto 0) 
+ 		  ); 
+ end component;
+
 signal tmp_a: std_logic_vector(c_a_width - 1 downto 0);
  signal conv_a: std_logic_vector(c_a_width - 1 downto 0);
  signal tmp_b: std_logic_vector(c_b_width - 1 downto 0);
@@ -4726,6 +4969,18 @@ signal tmp_a: std_logic_vector(c_a_width - 1 downto 0);
 
  comp4: if ((core_name0 = "example_mult_gen_v12_0_i4")) generate 
   core_instance4:example_mult_gen_v12_0_i4
+   port map ( 
+        a => tmp_a,
+        clk => clk,
+        ce => internal_ce,
+        sclr => internal_clr,
+        p => tmp_p,
+        b => tmp_b
+  ); 
+   end generate;
+
+ comp5: if ((core_name0 = "example_mult_gen_v12_0_i5")) generate 
+  core_instance5:example_mult_gen_v12_0_i5
    port map ( 
         a => tmp_a,
         clk => clk,
