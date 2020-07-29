@@ -71,8 +71,8 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav1_p1_if_i,
   input wire[17:0] cav1_p1_if_phase,
   input wire[17:0] cav1_p1_if_q,
-  input wire[19:0] cav1_p1_integrated_i,
-  input wire[19:0] cav1_p1_integrated_q,
+  input wire[17:0] cav1_p1_integrated_i,
+  input wire[17:0] cav1_p1_integrated_q,
   input wire[17:0] cav1_p1_phase_out,
   input wire[17:0] cav1_p2_amp_out,
   input wire[17:0] cav1_p2_comparison_i,
@@ -85,8 +85,8 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav1_p2_if_i,
   input wire[17:0] cav1_p2_if_phase,
   input wire[17:0] cav1_p2_if_q,
-  input wire[19:0] cav1_p2_integrated_i,
-  input wire[19:0] cav1_p2_integrated_q,
+  input wire[17:0] cav1_p2_integrated_i,
+  input wire[17:0] cav1_p2_integrated_q,
   input wire[17:0] cav1_p2_phase_out,
   input wire[17:0] cav2_p1_amp_out,
   input wire[17:0] cav2_p1_comparison_i,
@@ -99,8 +99,8 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav2_p1_if_i,
   input wire[17:0] cav2_p1_if_phase,
   input wire[17:0] cav2_p1_if_q,
-  input wire[19:0] cav2_p1_integrated_i,
-  input wire[19:0] cav2_p1_integrated_q,
+  input wire[17:0] cav2_p1_integrated_i,
+  input wire[17:0] cav2_p1_integrated_q,
   input wire[17:0] cav2_p1_phase_out,
   input wire[17:0] cav2_p2_amp_out,
   input wire[17:0] cav2_p2_comparison_i,
@@ -113,8 +113,8 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   input wire[17:0] cav2_p2_if_i,
   input wire[17:0] cav2_p2_if_phase,
   input wire[17:0] cav2_p2_if_q,
-  input wire[19:0] cav2_p2_integrated_i,
-  input wire[19:0] cav2_p2_integrated_q,
+  input wire[17:0] cav2_p2_integrated_i,
+  input wire[17:0] cav2_p2_integrated_q,
   input wire[17:0] cav2_p2_phase_out,
   input wire[17:0] rf_ref_amp,
   input wire[17:0] rf_ref_i,
@@ -273,9 +273,9 @@ assign slv_wire_array[33] = {14'h0, cav1_p1_if_phase[17:0]};
 // map output 34
 assign slv_wire_array[34] = {14'h0, cav1_p1_if_q[17:0]};
 // map output 35
-assign slv_wire_array[35] = {12'h0, cav1_p1_integrated_i[19:0]};
+assign slv_wire_array[35] = {14'h0, cav1_p1_integrated_i[17:0]};
 // map output 36
-assign slv_wire_array[36] = {12'h0, cav1_p1_integrated_q[19:0]};
+assign slv_wire_array[36] = {14'h0, cav1_p1_integrated_q[17:0]};
 // map output 37
 assign slv_wire_array[37] = {14'h0, cav1_p1_phase_out[17:0]};
 // map output 38
@@ -301,9 +301,9 @@ assign slv_wire_array[47] = {14'h0, cav1_p2_if_phase[17:0]};
 // map output 48
 assign slv_wire_array[48] = {14'h0, cav1_p2_if_q[17:0]};
 // map output 49
-assign slv_wire_array[49] = {12'h0, cav1_p2_integrated_i[19:0]};
+assign slv_wire_array[49] = {14'h0, cav1_p2_integrated_i[17:0]};
 // map output 50
-assign slv_wire_array[50] = {12'h0, cav1_p2_integrated_q[19:0]};
+assign slv_wire_array[50] = {14'h0, cav1_p2_integrated_q[17:0]};
 // map output 51
 assign slv_wire_array[51] = {14'h0, cav1_p2_phase_out[17:0]};
 // map output 52
@@ -329,9 +329,9 @@ assign slv_wire_array[61] = {14'h0, cav2_p1_if_phase[17:0]};
 // map output 62
 assign slv_wire_array[62] = {14'h0, cav2_p1_if_q[17:0]};
 // map output 63
-assign slv_wire_array[63] = {12'h0, cav2_p1_integrated_i[19:0]};
+assign slv_wire_array[63] = {14'h0, cav2_p1_integrated_i[17:0]};
 // map output 64
-assign slv_wire_array[64] = {12'h0, cav2_p1_integrated_q[19:0]};
+assign slv_wire_array[64] = {14'h0, cav2_p1_integrated_q[17:0]};
 // map output 65
 assign slv_wire_array[65] = {14'h0, cav2_p1_phase_out[17:0]};
 // map output 66
@@ -357,9 +357,9 @@ assign slv_wire_array[75] = {14'h0, cav2_p2_if_phase[17:0]};
 // map output 76
 assign slv_wire_array[76] = {14'h0, cav2_p2_if_q[17:0]};
 // map output 77
-assign slv_wire_array[77] = {12'h0, cav2_p2_integrated_i[19:0]};
+assign slv_wire_array[77] = {14'h0, cav2_p2_integrated_i[17:0]};
 // map output 78
-assign slv_wire_array[78] = {12'h0, cav2_p2_integrated_q[19:0]};
+assign slv_wire_array[78] = {14'h0, cav2_p2_integrated_q[17:0]};
 // map output 79
 assign slv_wire_array[79] = {14'h0, cav2_p2_phase_out[17:0]};
 // map output 80

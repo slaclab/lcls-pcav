@@ -66,6 +66,37 @@ set_property -dict $params_list [get_ips example_cmpy_v6_0_i0]
 
 
 set existingipslist [get_ips]
+if {[lsearch $existingipslist example_cmpy_v6_0_i1] < 0} {
+create_ip -name cmpy -version 6.0 -vendor xilinx.com -library ip -module_name example_cmpy_v6_0_i1
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_cmpy_v6_0_i1}
+lappend params_list CONFIG.ACLKEN {true}
+lappend params_list CONFIG.APortWidth {18}
+lappend params_list CONFIG.ARESETN {false}
+lappend params_list CONFIG.ATUSERWidth {1}
+lappend params_list CONFIG.BPortWidth {26}
+lappend params_list CONFIG.BTUSERWidth {1}
+lappend params_list CONFIG.CTRLTUSERWidth {1}
+lappend params_list CONFIG.FlowControl {NonBlocking}
+lappend params_list CONFIG.HasATLAST {false}
+lappend params_list CONFIG.HasATUSER {false}
+lappend params_list CONFIG.HasBTLAST {false}
+lappend params_list CONFIG.HasBTUSER {false}
+lappend params_list CONFIG.HasCTRLTLAST {false}
+lappend params_list CONFIG.HasCTRLTUSER {false}
+lappend params_list CONFIG.LatencyConfig {Automatic}
+lappend params_list CONFIG.MinimumLatency {4}
+lappend params_list CONFIG.MultType {Use_Mults}
+lappend params_list CONFIG.OptimizeGoal {Resources}
+lappend params_list CONFIG.OutTLASTBehv {Null}
+lappend params_list CONFIG.OutputWidth {21}
+lappend params_list CONFIG.RoundMode {Truncate}
+
+set_property -dict $params_list [get_ips example_cmpy_v6_0_i1]
+}
+
+
+set existingipslist [get_ips]
 if {[lsearch $existingipslist example_dds_compiler_v6_0_i0] < 0} {
 create_ip -name dds_compiler -version 6.0 -vendor xilinx.com -library ip -module_name example_dds_compiler_v6_0_i0
 set params_list [list]
@@ -174,6 +205,40 @@ lappend params_list CONFIG.explicit_period {false}
 lappend params_list CONFIG.period {1.00000000}
 
 set_property -dict $params_list [get_ips example_dds_compiler_v6_0_i0]
+}
+
+
+set existingipslist [get_ips]
+if {[lsearch $existingipslist example_cordic_v6_0_i0] < 0} {
+create_ip -name cordic -version 6.0 -vendor xilinx.com -library ip -module_name example_cordic_v6_0_i0
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_cordic_v6_0_i0}
+lappend params_list CONFIG.ACLKEN {true}
+lappend params_list CONFIG.ARESETN {false}
+lappend params_list CONFIG.Architectural_Configuration {Parallel}
+lappend params_list CONFIG.Coarse_Rotation {true}
+lappend params_list CONFIG.Compensation_Scaling {No_Scale_Compensation}
+lappend params_list CONFIG.Data_Format {SignedFraction}
+lappend params_list CONFIG.Functional_Selection {Translate}
+lappend params_list CONFIG.Input_Width {18}
+lappend params_list CONFIG.Iterations {0}
+lappend params_list CONFIG.Output_Width {18}
+lappend params_list CONFIG.Phase_Format {Radians}
+lappend params_list CONFIG.Pipelining_Mode {Maximum}
+lappend params_list CONFIG.Precision {0}
+lappend params_list CONFIG.Round_Mode {Truncate}
+lappend params_list CONFIG.cartesian_has_tlast {false}
+lappend params_list CONFIG.cartesian_has_tuser {false}
+lappend params_list CONFIG.cartesian_tuser_width {1}
+lappend params_list CONFIG.flow_control {NonBlocking}
+lappend params_list CONFIG.optimize_goal {Performance}
+lappend params_list CONFIG.out_tlast_behv {Null}
+lappend params_list CONFIG.out_tready {false}
+lappend params_list CONFIG.phase_has_tlast {false}
+lappend params_list CONFIG.phase_has_tuser {false}
+lappend params_list CONFIG.phase_tuser_width {1}
+
+set_property -dict $params_list [get_ips example_cordic_v6_0_i0]
 }
 
 
@@ -308,40 +373,6 @@ set_property -dict $params_list [get_ips example_c_addsub_v12_0_i2]
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_cordic_v6_0_i0] < 0} {
-create_ip -name cordic -version 6.0 -vendor xilinx.com -library ip -module_name example_cordic_v6_0_i0
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_cordic_v6_0_i0}
-lappend params_list CONFIG.ACLKEN {true}
-lappend params_list CONFIG.ARESETN {false}
-lappend params_list CONFIG.Architectural_Configuration {Parallel}
-lappend params_list CONFIG.Coarse_Rotation {true}
-lappend params_list CONFIG.Compensation_Scaling {No_Scale_Compensation}
-lappend params_list CONFIG.Data_Format {SignedFraction}
-lappend params_list CONFIG.Functional_Selection {Translate}
-lappend params_list CONFIG.Input_Width {20}
-lappend params_list CONFIG.Iterations {0}
-lappend params_list CONFIG.Output_Width {18}
-lappend params_list CONFIG.Phase_Format {Scaled_Radians}
-lappend params_list CONFIG.Pipelining_Mode {Maximum}
-lappend params_list CONFIG.Precision {0}
-lappend params_list CONFIG.Round_Mode {Truncate}
-lappend params_list CONFIG.cartesian_has_tlast {false}
-lappend params_list CONFIG.cartesian_has_tuser {false}
-lappend params_list CONFIG.cartesian_tuser_width {1}
-lappend params_list CONFIG.flow_control {NonBlocking}
-lappend params_list CONFIG.optimize_goal {Performance}
-lappend params_list CONFIG.out_tlast_behv {Null}
-lappend params_list CONFIG.out_tready {false}
-lappend params_list CONFIG.phase_has_tlast {false}
-lappend params_list CONFIG.phase_has_tuser {false}
-lappend params_list CONFIG.phase_tuser_width {1}
-
-set_property -dict $params_list [get_ips example_cordic_v6_0_i0]
-}
-
-
-set existingipslist [get_ips]
 if {[lsearch $existingipslist example_cordic_v6_0_i1] < 0} {
 create_ip -name cordic -version 6.0 -vendor xilinx.com -library ip -module_name example_cordic_v6_0_i1
 set params_list [list]
@@ -352,7 +383,7 @@ lappend params_list CONFIG.Architectural_Configuration {Parallel}
 lappend params_list CONFIG.Coarse_Rotation {true}
 lappend params_list CONFIG.Compensation_Scaling {No_Scale_Compensation}
 lappend params_list CONFIG.Data_Format {SignedFraction}
-lappend params_list CONFIG.Functional_Selection {Sin_and_Cos}
+lappend params_list CONFIG.Functional_Selection {Translate}
 lappend params_list CONFIG.Input_Width {18}
 lappend params_list CONFIG.Iterations {0}
 lappend params_list CONFIG.Output_Width {18}
@@ -376,36 +407,24 @@ set_property -dict $params_list [get_ips example_cordic_v6_0_i1]
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_cordic_v6_0_i2] < 0} {
-create_ip -name cordic -version 6.0 -vendor xilinx.com -library ip -module_name example_cordic_v6_0_i2
+if {[lsearch $existingipslist example_mult_gen_v12_0_i0] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i0
 set params_list [list]
-lappend params_list CONFIG.Component_Name {example_cordic_v6_0_i2}
-lappend params_list CONFIG.ACLKEN {true}
-lappend params_list CONFIG.ARESETN {false}
-lappend params_list CONFIG.Architectural_Configuration {Parallel}
-lappend params_list CONFIG.Coarse_Rotation {true}
-lappend params_list CONFIG.Compensation_Scaling {No_Scale_Compensation}
-lappend params_list CONFIG.Data_Format {SignedFraction}
-lappend params_list CONFIG.Functional_Selection {Translate}
-lappend params_list CONFIG.Input_Width {18}
-lappend params_list CONFIG.Iterations {0}
-lappend params_list CONFIG.Output_Width {18}
-lappend params_list CONFIG.Phase_Format {Scaled_Radians}
-lappend params_list CONFIG.Pipelining_Mode {Maximum}
-lappend params_list CONFIG.Precision {0}
-lappend params_list CONFIG.Round_Mode {Truncate}
-lappend params_list CONFIG.cartesian_has_tlast {false}
-lappend params_list CONFIG.cartesian_has_tuser {false}
-lappend params_list CONFIG.cartesian_tuser_width {1}
-lappend params_list CONFIG.flow_control {NonBlocking}
-lappend params_list CONFIG.optimize_goal {Performance}
-lappend params_list CONFIG.out_tlast_behv {Null}
-lappend params_list CONFIG.out_tready {false}
-lappend params_list CONFIG.phase_has_tlast {false}
-lappend params_list CONFIG.phase_has_tuser {false}
-lappend params_list CONFIG.phase_tuser_width {1}
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i0}
+lappend params_list CONFIG.clockenable {true}
+lappend params_list CONFIG.multiplier_construction {Use_Mults}
+lappend params_list CONFIG.optgoal {Speed}
+lappend params_list CONFIG.outputwidthhigh {18}
+lappend params_list CONFIG.pipestages {3}
+lappend params_list CONFIG.portatype {Signed}
+lappend params_list CONFIG.portawidth {18}
+lappend params_list CONFIG.portbtype {Unsigned}
+lappend params_list CONFIG.portbwidth {1}
+lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
+lappend params_list CONFIG.syncclear {true}
+lappend params_list CONFIG.use_custom_output_width {true}
 
-set_property -dict $params_list [get_ips example_cordic_v6_0_i2]
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i0]
 }
 
 
@@ -423,7 +442,7 @@ lappend params_list CONFIG.OutTready {false}
 lappend params_list CONFIG.algorithm_type {Radix2}
 lappend params_list CONFIG.clocks_per_division {1}
 lappend params_list CONFIG.divide_by_zero_detect {false}
-lappend params_list CONFIG.dividend_and_quotient_width {32}
+lappend params_list CONFIG.dividend_and_quotient_width {19}
 lappend params_list CONFIG.dividend_has_tlast {false}
 lappend params_list CONFIG.dividend_has_tuser {false}
 lappend params_list CONFIG.dividend_tuser_width {1}
@@ -431,8 +450,8 @@ lappend params_list CONFIG.divisor_has_tlast {false}
 lappend params_list CONFIG.divisor_has_tuser {false}
 lappend params_list CONFIG.divisor_tuser_width {1}
 lappend params_list CONFIG.divisor_width {32}
-lappend params_list CONFIG.fractional_width {33}
-lappend params_list CONFIG.latency {69}
+lappend params_list CONFIG.fractional_width {59}
+lappend params_list CONFIG.latency {82}
 lappend params_list CONFIG.latency_configuration {Automatic}
 lappend params_list CONFIG.operand_sign {Signed}
 lappend params_list CONFIG.remainder_type {Fractional}
@@ -455,7 +474,7 @@ lappend params_list CONFIG.OutTready {false}
 lappend params_list CONFIG.algorithm_type {Radix2}
 lappend params_list CONFIG.clocks_per_division {1}
 lappend params_list CONFIG.divide_by_zero_detect {false}
-lappend params_list CONFIG.dividend_and_quotient_width {63}
+lappend params_list CONFIG.dividend_and_quotient_width {61}
 lappend params_list CONFIG.dividend_has_tlast {false}
 lappend params_list CONFIG.dividend_has_tuser {false}
 lappend params_list CONFIG.dividend_tuser_width {1}
@@ -464,7 +483,7 @@ lappend params_list CONFIG.divisor_has_tuser {false}
 lappend params_list CONFIG.divisor_tuser_width {1}
 lappend params_list CONFIG.divisor_width {26}
 lappend params_list CONFIG.fractional_width {33}
-lappend params_list CONFIG.latency {100}
+lappend params_list CONFIG.latency {98}
 lappend params_list CONFIG.latency_configuration {Automatic}
 lappend params_list CONFIG.operand_sign {Signed}
 lappend params_list CONFIG.remainder_type {Fractional}
@@ -474,10 +493,10 @@ set_property -dict $params_list [get_ips example_div_gen_v5_1_i1]
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i0] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i0
+if {[lsearch $existingipslist example_mult_gen_v12_0_i1] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i1
 set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i0}
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i1}
 lappend params_list CONFIG.clockenable {true}
 lappend params_list CONFIG.multiplier_construction {Use_Mults}
 lappend params_list CONFIG.optgoal {Speed}
@@ -491,29 +510,29 @@ lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
 lappend params_list CONFIG.syncclear {true}
 lappend params_list CONFIG.use_custom_output_width {true}
 
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i0]
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i1]
 }
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i1] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i1
+if {[lsearch $existingipslist example_mult_gen_v12_0_i2] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i2
 set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i1}
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i2}
 lappend params_list CONFIG.clockenable {true}
 lappend params_list CONFIG.multiplier_construction {Use_Mults}
 lappend params_list CONFIG.optgoal {Speed}
-lappend params_list CONFIG.outputwidthhigh {36}
+lappend params_list CONFIG.outputwidthhigh {51}
 lappend params_list CONFIG.pipestages {2}
-lappend params_list CONFIG.portatype {Signed}
-lappend params_list CONFIG.portawidth {19}
-lappend params_list CONFIG.portbtype {Signed}
-lappend params_list CONFIG.portbwidth {18}
+lappend params_list CONFIG.portatype {Unsigned}
+lappend params_list CONFIG.portawidth {10}
+lappend params_list CONFIG.portbtype {Unsigned}
+lappend params_list CONFIG.portbwidth {42}
 lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
 lappend params_list CONFIG.syncclear {true}
 lappend params_list CONFIG.use_custom_output_width {true}
 
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i1]
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i2]
 }
 
 
@@ -542,257 +561,6 @@ lappend params_list CONFIG.sync_threshold_output {false}
 lappend params_list CONFIG.syncctrlpriority {Reset_Overrides_Set}
 
 set_property -dict $params_list [get_ips example_c_counter_binary_v12_0_i1]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i2] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i2
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i2}
-lappend params_list CONFIG.clockenable {true}
-lappend params_list CONFIG.multiplier_construction {Use_Mults}
-lappend params_list CONFIG.optgoal {Speed}
-lappend params_list CONFIG.outputwidthhigh {41}
-lappend params_list CONFIG.pipestages {2}
-lappend params_list CONFIG.portatype {Unsigned}
-lappend params_list CONFIG.portawidth {10}
-lappend params_list CONFIG.portbtype {Unsigned}
-lappend params_list CONFIG.portbwidth {32}
-lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
-lappend params_list CONFIG.syncclear {true}
-lappend params_list CONFIG.use_custom_output_width {true}
-
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i2]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_blk_mem_gen_i0] < 0} {
-create_ip -name blk_mem_gen -vendor xilinx.com -library ip -module_name example_blk_mem_gen_i0
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_blk_mem_gen_i0}
-lappend params_list CONFIG.algorithm {Minimum_Area}
-lappend params_list CONFIG.assume_synchronous_clk {true}
-lappend params_list CONFIG.byte_size {9}
-lappend params_list CONFIG.collision_warnings {ALL}
-lappend params_list CONFIG.disable_collision_warnings {false}
-lappend params_list CONFIG.ecc {false}
-lappend params_list CONFIG.en_safety_ckt {false}
-lappend params_list CONFIG.enable_a {Use_ENA_Pin}
-lappend params_list CONFIG.enable_b {Use_ENB_Pin}
-lappend params_list CONFIG.error_injection_type {Single_Bit_Error_Injection}
-lappend params_list CONFIG.fill_remaining_memory_locations {false}
-lappend params_list CONFIG.load_init_file {TRUE}
-lappend params_list CONFIG.memory_type {True_Dual_Port_RAM}
-lappend params_list CONFIG.operating_mode_a {WRITE_FIRST}
-lappend params_list CONFIG.operating_mode_b {READ_FIRST}
-lappend params_list CONFIG.output_reset_value_a {0}
-lappend params_list CONFIG.output_reset_value_b {0}
-lappend params_list CONFIG.pipeline_stages {0}
-lappend params_list CONFIG.primitive {8kx2}
-lappend params_list CONFIG.read_width_a {18}
-lappend params_list CONFIG.read_width_b {18}
-lappend params_list CONFIG.register_porta_output_of_memory_core {false}
-lappend params_list CONFIG.register_porta_output_of_memory_primitives {false}
-lappend params_list CONFIG.register_portb_output_of_memory_core {false}
-lappend params_list CONFIG.register_portb_output_of_memory_primitives {false}
-lappend params_list CONFIG.remaining_memory_locations {0}
-lappend params_list CONFIG.reset_type {SYNC}
-lappend params_list CONFIG.use_byte_write_enable {false}
-lappend params_list CONFIG.use_error_injection_pins {false}
-lappend params_list CONFIG.use_regcea_pin {false}
-lappend params_list CONFIG.use_regceb_pin {false}
-lappend params_list CONFIG.use_rsta_pin {false}
-lappend params_list CONFIG.use_rstb_pin {false}
-lappend params_list CONFIG.write_depth_a {65536}
-lappend params_list CONFIG.write_width_a {18}
-lappend params_list CONFIG.write_width_b {18}
-lappend params_list CONFIG.coe_file {../example_blk_mem_gen_i0_vivado.coe}
-
-set_property -dict $params_list [get_ips example_blk_mem_gen_i0]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i3] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i3
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i3}
-lappend params_list CONFIG.clockenable {true}
-lappend params_list CONFIG.multiplier_construction {Use_Mults}
-lappend params_list CONFIG.optgoal {Speed}
-lappend params_list CONFIG.outputwidthhigh {18}
-lappend params_list CONFIG.pipestages {3}
-lappend params_list CONFIG.portatype {Signed}
-lappend params_list CONFIG.portawidth {18}
-lappend params_list CONFIG.portbtype {Unsigned}
-lappend params_list CONFIG.portbwidth {1}
-lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
-lappend params_list CONFIG.syncclear {true}
-lappend params_list CONFIG.use_custom_output_width {true}
-
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i3]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i4] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i4
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i4}
-lappend params_list CONFIG.clockenable {true}
-lappend params_list CONFIG.multiplier_construction {Use_Mults}
-lappend params_list CONFIG.optgoal {Speed}
-lappend params_list CONFIG.outputwidthhigh {35}
-lappend params_list CONFIG.pipestages {3}
-lappend params_list CONFIG.portatype {Signed}
-lappend params_list CONFIG.portawidth {18}
-lappend params_list CONFIG.portbtype {Signed}
-lappend params_list CONFIG.portbwidth {18}
-lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
-lappend params_list CONFIG.syncclear {true}
-lappend params_list CONFIG.use_custom_output_width {true}
-
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i4]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i5] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i5
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i5}
-lappend params_list CONFIG.clockenable {true}
-lappend params_list CONFIG.multiplier_construction {Use_Mults}
-lappend params_list CONFIG.optgoal {Speed}
-lappend params_list CONFIG.outputwidthhigh {36}
-lappend params_list CONFIG.pipestages {3}
-lappend params_list CONFIG.portatype {Signed}
-lappend params_list CONFIG.portawidth {36}
-lappend params_list CONFIG.portbtype {Unsigned}
-lappend params_list CONFIG.portbwidth {1}
-lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
-lappend params_list CONFIG.syncclear {true}
-lappend params_list CONFIG.use_custom_output_width {true}
-
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i5]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_c_addsub_v12_0_i3] < 0} {
-create_ip -name c_addsub -version 12.0 -vendor xilinx.com -library ip -module_name example_c_addsub_v12_0_i3
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_c_addsub_v12_0_i3}
-lappend params_list CONFIG.AINIT_Value {0}
-lappend params_list CONFIG.A_Type {Signed}
-lappend params_list CONFIG.A_Width {19}
-lappend params_list CONFIG.Add_Mode {Add}
-lappend params_list CONFIG.B_Constant {false}
-lappend params_list CONFIG.B_Type {Signed}
-lappend params_list CONFIG.B_Value {0}
-lappend params_list CONFIG.B_Width {19}
-lappend params_list CONFIG.Borrow_Sense {Active_Low}
-lappend params_list CONFIG.Bypass {false}
-lappend params_list CONFIG.Bypass_CE_Priority {Bypass_Overrides_CE}
-lappend params_list CONFIG.Bypass_Sense {Active_Low}
-lappend params_list CONFIG.CE {true}
-lappend params_list CONFIG.C_In {false}
-lappend params_list CONFIG.C_Out {false}
-lappend params_list CONFIG.Implementation {Fabric}
-lappend params_list CONFIG.Latency {1}
-lappend params_list CONFIG.Out_Width {19}
-lappend params_list CONFIG.SCLR {false}
-lappend params_list CONFIG.SINIT {false}
-lappend params_list CONFIG.SINIT_Value {0}
-lappend params_list CONFIG.SSET {false}
-lappend params_list CONFIG.Sync_CE_Priority {Sync_Overrides_CE}
-lappend params_list CONFIG.Sync_Ctrl_Priority {Reset_Overrides_Set}
-
-set_property -dict $params_list [get_ips example_c_addsub_v12_0_i3]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i6] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i6
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i6}
-lappend params_list CONFIG.ccmimp {Distributed_Memory}
-lappend params_list CONFIG.clockenable {false}
-lappend params_list CONFIG.constvalue {16384}
-lappend params_list CONFIG.internaluser {0}
-lappend params_list CONFIG.multtype {Constant_Coefficient_Multiplier}
-lappend params_list CONFIG.outputwidthhigh {35}
-lappend params_list CONFIG.outputwidthlow {0}
-lappend params_list CONFIG.pipestages {0}
-lappend params_list CONFIG.portatype {Signed}
-lappend params_list CONFIG.portawidth {18}
-lappend params_list CONFIG.portbtype {Unsigned}
-lappend params_list CONFIG.portbwidth {18}
-lappend params_list CONFIG.syncclear {false}
-lappend params_list CONFIG.use_custom_output_width {true}
-
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i6]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i7] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i7
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i7}
-lappend params_list CONFIG.ccmimp {Distributed_Memory}
-lappend params_list CONFIG.clockenable {false}
-lappend params_list CONFIG.constvalue {65536}
-lappend params_list CONFIG.internaluser {0}
-lappend params_list CONFIG.multtype {Constant_Coefficient_Multiplier}
-lappend params_list CONFIG.outputwidthhigh {35}
-lappend params_list CONFIG.outputwidthlow {0}
-lappend params_list CONFIG.pipestages {0}
-lappend params_list CONFIG.portatype {Signed}
-lappend params_list CONFIG.portawidth {18}
-lappend params_list CONFIG.portbtype {Unsigned}
-lappend params_list CONFIG.portbwidth {18}
-lappend params_list CONFIG.syncclear {false}
-lappend params_list CONFIG.use_custom_output_width {true}
-
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i7]
-}
-
-
-set existingipslist [get_ips]
-if {[lsearch $existingipslist example_c_addsub_v12_0_i4] < 0} {
-create_ip -name c_addsub -version 12.0 -vendor xilinx.com -library ip -module_name example_c_addsub_v12_0_i4
-set params_list [list]
-lappend params_list CONFIG.Component_Name {example_c_addsub_v12_0_i4}
-lappend params_list CONFIG.AINIT_Value {0}
-lappend params_list CONFIG.A_Type {Signed}
-lappend params_list CONFIG.A_Width {34}
-lappend params_list CONFIG.Add_Mode {Add}
-lappend params_list CONFIG.B_Constant {false}
-lappend params_list CONFIG.B_Type {Signed}
-lappend params_list CONFIG.B_Value {0}
-lappend params_list CONFIG.B_Width {34}
-lappend params_list CONFIG.Borrow_Sense {Active_Low}
-lappend params_list CONFIG.Bypass {false}
-lappend params_list CONFIG.Bypass_CE_Priority {Bypass_Overrides_CE}
-lappend params_list CONFIG.Bypass_Sense {Active_Low}
-lappend params_list CONFIG.CE {true}
-lappend params_list CONFIG.C_In {false}
-lappend params_list CONFIG.C_Out {false}
-lappend params_list CONFIG.Implementation {Fabric}
-lappend params_list CONFIG.Latency {1}
-lappend params_list CONFIG.Out_Width {34}
-lappend params_list CONFIG.SCLR {false}
-lappend params_list CONFIG.SINIT {false}
-lappend params_list CONFIG.SINIT_Value {0}
-lappend params_list CONFIG.SSET {false}
-lappend params_list CONFIG.Sync_CE_Priority {Sync_Overrides_CE}
-lappend params_list CONFIG.Sync_Ctrl_Priority {Reset_Overrides_Set}
-
-set_property -dict $params_list [get_ips example_c_addsub_v12_0_i4]
 }
 
 
