@@ -623,17 +623,17 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_constant_cc17ba5939 is
+entity sysgen_constant_476c9987dc is
   port (
     op : out std_logic_vector((32 - 1) downto 0);
     clk : in std_logic;
     ce : in std_logic;
     clr : in std_logic);
-end sysgen_constant_cc17ba5939;
-architecture behavior of sysgen_constant_cc17ba5939
+end sysgen_constant_476c9987dc;
+architecture behavior of sysgen_constant_476c9987dc
 is
 begin
-  op <= "00000000011011010100100010100100";
+  op <= "00000000011011110110101110000100";
 end behavior;
 
 library work;
@@ -1721,6 +1721,25 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_constant_06f7260200 is
+  port (
+    op : out std_logic_vector((16 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_06f7260200;
+architecture behavior of sysgen_constant_06f7260200
+is
+begin
+  op <= "1100100100010000";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_relational_a432dce3f8 is
   port (
     a : in std_logic_vector((18 - 1) downto 0);
@@ -2069,6 +2088,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 entity axi_lite_axi_lite_interface is 
     port(
+        m17_sample_phi_w : out std_logic_vector(3 downto 0);
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
         ref_window_stop : out std_logic_vector(15 downto 0);
@@ -2154,6 +2174,7 @@ entity axi_lite_axi_lite_interface is
         rf_ref_phase : in std_logic_vector(17 downto 0);
         rf_ref_q : in std_logic_vector(17 downto 0);
         status_0 : in std_logic_vector(31 downto 0);
+        m17_sample_phase : in std_logic_vector(3 downto 0);
         axi_lite_clk : out std_logic;
         axi_lite_aclk : in std_logic;
         axi_lite_aresetn : in std_logic;
@@ -2179,6 +2200,7 @@ end axi_lite_axi_lite_interface;
 architecture structural of axi_lite_axi_lite_interface is 
 component axi_lite_axi_lite_interface_verilog is
     port(
+        m17_sample_phi_w : out std_logic_vector(3 downto 0);
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
         ref_window_stop : out std_logic_vector(15 downto 0);
@@ -2264,6 +2286,7 @@ component axi_lite_axi_lite_interface_verilog is
         rf_ref_phase : in std_logic_vector(17 downto 0);
         rf_ref_q : in std_logic_vector(17 downto 0);
         status_0 : in std_logic_vector(31 downto 0);
+        m17_sample_phase : in std_logic_vector(3 downto 0);
         axi_lite_clk : out std_logic;
         axi_lite_aclk : in std_logic;
         axi_lite_aresetn : in std_logic;
@@ -2289,6 +2312,7 @@ end component;
 begin
 inst : axi_lite_axi_lite_interface_verilog
     port map(
+    m17_sample_phi_w => m17_sample_phi_w,
     scratchpad => scratchpad,
     rf_ref_chan_sel => rf_ref_chan_sel,
     ref_window_stop => ref_window_stop,
@@ -2374,6 +2398,7 @@ inst : axi_lite_axi_lite_interface_verilog
     rf_ref_phase => rf_ref_phase,
     rf_ref_q => rf_ref_q,
     status_0 => status_0,
+    m17_sample_phase => m17_sample_phase,
     axi_lite_clk => axi_lite_clk,
     axi_lite_aclk => axi_lite_aclk,
     axi_lite_aresetn => axi_lite_aresetn,
@@ -3442,6 +3467,17 @@ entity example_xlmult is
  		  ); 
  end component;
 
+ component example_mult_gen_v12_0_i3
+    port ( 
+      b: in std_logic_vector(c_b_width - 1 downto 0);
+      p: out std_logic_vector(c_output_width - 1 downto 0);
+      clk: in std_logic;
+      ce: in std_logic;
+      sclr: in std_logic;
+      a: in std_logic_vector(c_a_width - 1 downto 0) 
+ 		  ); 
+ end component;
+
 signal tmp_a: std_logic_vector(c_a_width - 1 downto 0);
  signal conv_a: std_logic_vector(c_a_width - 1 downto 0);
  signal tmp_b: std_logic_vector(c_b_width - 1 downto 0);
@@ -3502,6 +3538,18 @@ signal tmp_a: std_logic_vector(c_a_width - 1 downto 0);
 
  comp2: if ((core_name0 = "example_mult_gen_v12_0_i2")) generate 
   core_instance2:example_mult_gen_v12_0_i2
+   port map ( 
+        a => tmp_a,
+        clk => clk,
+        ce => internal_ce,
+        sclr => internal_clr,
+        p => tmp_p,
+        b => tmp_b
+  ); 
+   end generate;
+
+ comp3: if ((core_name0 = "example_mult_gen_v12_0_i3")) generate 
+  core_instance3:example_mult_gen_v12_0_i3
    port map ( 
         a => tmp_a,
         clk => clk,

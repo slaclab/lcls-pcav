@@ -110,6 +110,29 @@ Initialize example pointer with a specifc instance of the device based device id
   @return int XST_SUCCESS if initialization is successful
 <br/>
 </p>
+<h1>void example_m17_sample_phi_w_write(example *InstancePtr, u8 Data);</h1>
+<p>
+ Write to m17_sample_phi_w gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the m17_sample_phi_w instance to operate on.<br/>
+ @param	Data is value to be written to gateway m17_sample_phi_w.<br/>
+<br/>
+ @return	None.<br/>
+<br/>
+ @note    .<br/>
+<br/>
+</p>
+<h1>u8 example_m17_sample_phi_w_read(example *InstancePtr);</h1>
+<p>
+ Read from m17_sample_phi_w gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the m17_sample_phi_w instance to operate on.<br/>
+<br/>
+ @return	u8<br/>
+
+ @note    .<br/>
+<br/>
+</p>
 <h1>void example_scratchpad_write(example *InstancePtr, u32 Data);</h1>
 <p>
  Write to scratchpad gateway of example. Assignments are LSB-justified.<br/>
@@ -1329,6 +1352,17 @@ Initialize example pointer with a specifc instance of the device based device id
  @param	InstancePtr is the status_0 instance to operate on.<br/>
 <br/>
  @return	u32<br/>
+
+ @note    .<br/>
+<br/>
+</p>
+<h1>u8 example_m17_sample_phase_read(example *InstancePtr);</h1>
+<p>
+ Read from m17_sample_phase gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the m17_sample_phase instance to operate on.<br/>
+<br/>
+ @return	u8<br/>
 
  @note    .<br/>
 <br/>

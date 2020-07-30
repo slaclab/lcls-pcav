@@ -88,7 +88,7 @@ plot(t_sig, sig_t_trg); grid on
 
 f_if_prl = f_prl-flo;
 % SIM_PRL = cos((2*pi*(f_if_prl)*(adc_t)) + (0));   % Simplified PRL signal in the adc for simulink
-sig_SIM_PRL = cos((2*pi*(f_if_prl)*(t_sig)) + (pi/3));   % Simplified PRL signal in the adc for simulink
+sig_SIM_PRL = cos((2*pi*(f_if_prl)*(t_sig)) + (0));   % Simplified PRL signal in the adc for simulink
 
 % Math representation of the IF cavity ring output 
 f_if = fc - flo;
@@ -153,7 +153,7 @@ fir_lpf = fir1(15, w_lpf);
 SYS_PRL = [t_sig', sig_SIM_PRL'];
 SYS_CAV = [t_sig', sig_SIM_cav_ring_if'];
 SYS_TRG = [t_sig', sig_t_trg'];
-
+close all;
 % abs(f_if-f_if_prl);
 % t_stop;
 

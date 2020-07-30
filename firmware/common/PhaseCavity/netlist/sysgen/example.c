@@ -10,6 +10,20 @@ int example_CfgInitialize(example *InstancePtr, example_Config *ConfigPtr) {
     return XST_SUCCESS;
 }
 #endif
+void example_m17_sample_phi_w_write(example *InstancePtr, u8 Data) {
+
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    example_WriteReg(InstancePtr->example_BaseAddress, 36, Data);
+}
+u8 example_m17_sample_phi_w_read(example *InstancePtr) {
+
+    u8 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 36);
+    return Data;
+}
 void example_scratchpad_write(example *InstancePtr, u32 Data) {
 
     Xil_AssertVoid(InstancePtr != NULL);
@@ -832,5 +846,13 @@ u32 example_status_0_read(example *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
 
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 1016);
+    return Data;
+}
+u8 example_m17_sample_phase_read(example *InstancePtr) {
+
+    u8 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 40);
     return Data;
 }

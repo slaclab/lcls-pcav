@@ -6,6 +6,7 @@
 * macros) that can be used to access the device.  The user should refer to the
 * hardware device specification for more details of the device operation.
 */ 
+#define EXAMPLE_M17_SAMPLE_PHI_W 0x24/**< m17_sample_phi_w */
 #define EXAMPLE_SCRATCHPAD 0xffc/**< scratchpad */
 #define EXAMPLE_RF_REF_CHAN_SEL 0x10/**< rf_ref_chan_sel */
 #define EXAMPLE_REF_WINDOW_STOP 0x18/**< ref_window_stop */
@@ -91,3 +92,4 @@
 #define EXAMPLE_RF_REF_PHASE 0x4/**< rf_ref_phase */
 #define EXAMPLE_RF_REF_Q 0xc/**< rf_ref_q */
 #define EXAMPLE_STATUS_0 0x3f8/**< status_0 */
+#define EXAMPLE_M17_SAMPLE_PHASE 0x28/**< m17_sample_phase */

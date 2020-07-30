@@ -95,7 +95,7 @@ table {border-collapse:collapse;
 <td class="title_table_design_cell">example</td>
 </tr>
 <tr>
-<td colspan=2 class="title_table_date_cell"><b>29-Jul-2020</b></td>
+<td colspan=2 class="title_table_date_cell"><b>30-Jul-2020</b></td>
 </tr>
 </table>
 <br>
@@ -134,13 +134,13 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">amp</td><td class="sg_cell">in</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(25 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_26_24</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out1_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(25 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_26_24</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -368,6 +368,18 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">wfvalid_7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
+<td class="sg_cell">gateway_out_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out1_x9</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out4_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out5_x7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out2_x7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out3_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
 <td class="sg_cell">gateway_out25</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">1</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out39_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
@@ -378,9 +390,17 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out9_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
+<td class="sg_cell">gateway_out_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out1_x10</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out2_x10</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">gateway_out3_x8</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
 <td class="sg_cell">gateway_out10_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(15 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_16_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out11_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out11_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out27_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -388,13 +408,13 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out29_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x9</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x10</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out8_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out9_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out1_x11</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out1_x13</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -402,9 +422,9 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out9_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out1_x12</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out1_x14</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out2_x9</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(15 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_16_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out2_x11</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(15 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_16_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out27_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -412,25 +432,25 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out29_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out3_x8</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out3_x10</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x10</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x11</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out44_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out44_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out46_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out11_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out11_x3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out19_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out19_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out20_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out3_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out3_x7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out4_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out4_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_10</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x8</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_10</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out27_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(18 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_19_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -438,33 +458,33 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out29_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out1_x9</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out1_x11</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out2_x7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out2_x9</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out3_x7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out3_x9</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out4_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out4_x7</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x8</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x9</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out1_x10</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out1_x12</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out2_x8</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(9 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_10_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out44_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out44_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out46_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out46_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out11_x3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out11_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out19_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out19_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out20_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out3_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out3_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -484,7 +504,7 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out3_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out4_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out4_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out5_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -502,9 +522,9 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out11</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out27</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out27_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out28_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out28</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out29</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -518,9 +538,9 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out2_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(15 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_16_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out27_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out27</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out28</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out28_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out29_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -538,11 +558,11 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out20</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out3_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out3_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out4_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out4_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_10</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_10</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out27_x3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(18 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_19_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -560,7 +580,7 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out4_x3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x6</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out1_x8</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -568,19 +588,19 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out44_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out46_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out46_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_16</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out11_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out11_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out19_x0</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out19_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out20_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_1_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out3_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out4_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out4_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(7 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">UFix_8_0</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_10</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_10</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out27_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(18 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_19_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -596,9 +616,9 @@ This section documents the port interface of example. All the <i>Gateway In</i> 
 <tr class="sg_row">
 <td class="sg_cell">gateway_out3_x3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out4_x2</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out4_x1</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(17 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_18_15</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
-<td class="sg_cell">gateway_out5_x3</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
+<td class="sg_cell">gateway_out5_x4</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(0 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Bool</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">gateway_out1_x5</td><td class="sg_cell">out</td><td class="sg_cell">std_logic_vector(31 downto 0)</td><td class="sg_cell">data</td><td class="sg_cell">Fix_32_32</td><td class="sg_cell">12</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -737,6 +757,8 @@ The table below documents the memory map for System Generator design :
 <table>
 <tr class="sg_row">
 <td class="sg_cell_first_row">Name</td><td class="sg_cell_first_row">Type</td><td class="sg_cell_first_row">Interface Name</td><td class="sg_cell_first_row">Address Offset</td><td class="sg_cell_first_row">Description</td></tr>
+<tr class="sg_row">
+<td class="sg_cell">m17_sample_phi_w</td><td class="sg_cell">UFix_4_0</td><td class="sg_cell"></td><td class="sg_cell">00000024</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">scratchpad</td><td class="sg_cell">UFix_32_0</td><td class="sg_cell"></td><td class="sg_cell">00000FFC</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
@@ -907,6 +929,8 @@ The table below documents the memory map for System Generator design :
 <td class="sg_cell">rf_ref_q</td><td class="sg_cell">Fix_18_17</td><td class="sg_cell"></td><td class="sg_cell">0000000C</td><td class="sg_cell"></td></tr>
 <tr class="sg_row">
 <td class="sg_cell">status_0</td><td class="sg_cell">UFix_32_0</td><td class="sg_cell"></td><td class="sg_cell">000003F8</td><td class="sg_cell"></td></tr>
+<tr class="sg_row">
+<td class="sg_cell">m17_sample_phase</td><td class="sg_cell">UFix_4_0</td><td class="sg_cell"></td><td class="sg_cell">00000028</td><td class="sg_cell"></td></tr>
 <caption class="sg_caption"><i>Table 4.</i> <b>Memory Map</b></caption>
 </table>
 </body>

@@ -73,6 +73,29 @@ int example_Initialize(example *InstancePtr, const char* InstanceName);
 int example_Release(example *InstancePtr);
 #endif
 /**
+* Write to m17_sample_phi_w gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the m17_sample_phi_w instance to operate on.
+* @param	Data is value to be written to gateway m17_sample_phi_w.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_m17_sample_phi_w_write(example *InstancePtr, u8 Data);
+/**
+* Read from m17_sample_phi_w gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the m17_sample_phi_w instance to operate on.
+*
+* @return	u8
+*
+* @note    .
+*
+*/
+u8 example_m17_sample_phi_w_read(example *InstancePtr);
+/**
 * Write to scratchpad gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the scratchpad instance to operate on.
@@ -1295,6 +1318,17 @@ int example_rf_ref_q_read(example *InstancePtr);
 *
 */
 u32 example_status_0_read(example *InstancePtr);
+/**
+* Read from m17_sample_phase gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the m17_sample_phase instance to operate on.
+*
+* @return	u8
+*
+* @note    .
+*
+*/
+u8 example_m17_sample_phase_read(example *InstancePtr);
 #ifdef __cplusplus
 }
 #endif

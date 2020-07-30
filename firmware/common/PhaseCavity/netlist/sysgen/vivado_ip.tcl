@@ -305,6 +305,28 @@ set_property -dict $params_list [get_ips example_c_counter_binary_v12_0_i0]
 
 
 set existingipslist [get_ips]
+if {[lsearch $existingipslist example_mult_gen_v12_0_i0] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i0
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i0}
+lappend params_list CONFIG.clockenable {true}
+lappend params_list CONFIG.multiplier_construction {Use_Mults}
+lappend params_list CONFIG.optgoal {Speed}
+lappend params_list CONFIG.outputwidthhigh {33}
+lappend params_list CONFIG.pipestages {3}
+lappend params_list CONFIG.portatype {Signed}
+lappend params_list CONFIG.portawidth {18}
+lappend params_list CONFIG.portbtype {Unsigned}
+lappend params_list CONFIG.portbwidth {16}
+lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
+lappend params_list CONFIG.syncclear {true}
+lappend params_list CONFIG.use_custom_output_width {true}
+
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i0]
+}
+
+
+set existingipslist [get_ips]
 if {[lsearch $existingipslist example_c_addsub_v12_0_i1] < 0} {
 create_ip -name c_addsub -version 12.0 -vendor xilinx.com -library ip -module_name example_c_addsub_v12_0_i1
 set params_list [list]
@@ -407,10 +429,10 @@ set_property -dict $params_list [get_ips example_cordic_v6_0_i1]
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i0] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i0
+if {[lsearch $existingipslist example_mult_gen_v12_0_i1] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i1
 set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i0}
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i1}
 lappend params_list CONFIG.clockenable {true}
 lappend params_list CONFIG.multiplier_construction {Use_Mults}
 lappend params_list CONFIG.optgoal {Speed}
@@ -424,7 +446,7 @@ lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
 lappend params_list CONFIG.syncclear {true}
 lappend params_list CONFIG.use_custom_output_width {true}
 
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i0]
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i1]
 }
 
 
@@ -493,10 +515,10 @@ set_property -dict $params_list [get_ips example_div_gen_v5_1_i1]
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i1] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i1
+if {[lsearch $existingipslist example_mult_gen_v12_0_i2] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i2
 set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i1}
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i2}
 lappend params_list CONFIG.clockenable {true}
 lappend params_list CONFIG.multiplier_construction {Use_Mults}
 lappend params_list CONFIG.optgoal {Speed}
@@ -510,15 +532,15 @@ lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
 lappend params_list CONFIG.syncclear {true}
 lappend params_list CONFIG.use_custom_output_width {true}
 
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i1]
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i2]
 }
 
 
 set existingipslist [get_ips]
-if {[lsearch $existingipslist example_mult_gen_v12_0_i2] < 0} {
-create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i2
+if {[lsearch $existingipslist example_mult_gen_v12_0_i3] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i3
 set params_list [list]
-lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i2}
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i3}
 lappend params_list CONFIG.clockenable {true}
 lappend params_list CONFIG.multiplier_construction {Use_Mults}
 lappend params_list CONFIG.optgoal {Speed}
@@ -532,7 +554,7 @@ lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
 lappend params_list CONFIG.syncclear {true}
 lappend params_list CONFIG.use_custom_output_width {true}
 
-set_property -dict $params_list [get_ips example_mult_gen_v12_0_i2]
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i3]
 }
 
 
