@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-07-26
+-- Last update: 2020-07-29
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -170,9 +170,7 @@ architecture mapping of AppLlrfCore is
 
    signal idiagnStrobe  : sl;
    signal idiagnSevr    : Slv2Array(31 downto 0);
-   signal diagn0data : slv(31 downto 0);
-   signal diagn0fixed: sl;
-   signal diagn0sevr : slv(1 downto 0);
+   signal diagn18       : Slv18Array(31 downto 0);
 
    signal iSigGen : slv(17 downto 0);
    signal qSigGen : slv(17 downto 0);
@@ -214,18 +212,19 @@ begin
                   probe0(5)              => debug204_valid(0),
                   probe0(37 downto  6)   => debug204_data(31 downto 0),
                   probe0(38)             => idiagnStrobe,
-                  probe0(70 downto 39)   => diagn0data,
-                  probe0(71)             => diagn0fixed,
-                  probe0(73 downto 72)   => diagn0sevr,
+                  probe0(56 downto 39)   => diagn18(0),
+                  probe0(70 downto 57)   => (others=>'0'),
+                  probe0(71)             => '0',
+                  probe0(73 downto 72)   => idiagnSevr(0),
                   probe0(91 downto 74)   => iq204.i_or_a,
                   probe0(109 downto 92)  => iq204.q_or_f,
                   probe0(110)            => af204.sync,
                   probe0(255 downto 111) => (others=>'0') );
    end generate;
 
-   diagn     (0) <= diagn0data;
-   diagnFixed(0) <= diagn0fixed;
-   idiagnSevr (0) <= diagn0sevr;
+   GEN_DIAGN : for i in 0 to 31 generate
+     diagn(i) <= resize(diagn18(i),32);
+   end generate;
    
    axiRstL <= not axiRst;
    
@@ -556,97 +555,97 @@ begin
          -- diagnostic bus input
 --       diagnclk(0)            => diagnClk,
 --         diagnsync(0)           => idiagnStrobe,
-         diag1data              => diagn0data,
-         diag1fixed(0)          => diagn0fixed,
-         diag1sevr              => diagn0sevr,
-         diag2data              => diagn(1),
+         diag1data              => diagn18   (0),
+         diag1fixed(0)          => diagnFixed(0),
+         diag1sevr              => idiagnSevr(0),
+         diag2data              => diagn18   (1),
          diag2fixed(0)          => diagnFixed(1),
          diag2sevr              => idiagnSevr(1),
-         diag3data              => diagn(2),
+         diag3data              => diagn18   (2),
          diag3fixed(0)          => diagnFixed(2),
          diag3sevr              => idiagnSevr(2),
-         diag4data              => diagn(3),
+         diag4data              => diagn18   (3),
          diag4fixed(0)          => diagnFixed(3),
          diag4sevr              => idiagnSevr(3),
-         diag5data              => diagn(4),
+         diag5data              => diagn18   (4),
          diag5fixed(0)          => diagnFixed(4),
          diag5sevr              => idiagnSevr(4),
-         diag6data              => diagn(5),
+         diag6data              => diagn18   (5),
          diag6fixed(0)          => diagnFixed(5),
          diag6sevr              => idiagnSevr(5),
-         diag7data              => diagn(6),
+         diag7data              => diagn18   (6),
          diag7fixed(0)          => diagnFixed(6),
          diag7sevr              => idiagnSevr(6),
-         diag8data              => diagn(7),
+         diag8data              => diagn18   (7),
          diag8fixed(0)          => diagnFixed(7),
          diag8sevr              => idiagnSevr(7),
-         diag9data              => diagn(8),
+         diag9data              => diagn18   (8),
          diag9fixed(0)          => diagnFixed(8),
          diag9sevr              => idiagnSevr(8),
-         diag10data              => diagn(9),
+         diag10data              => diagn18   (9),
          diag10fixed(0)          => diagnFixed(9),
          diag10sevr              => idiagnSevr(9),
-         diag11data              => diagn(10),
+         diag11data              => diagn18   (10),
          diag11fixed(0)          => diagnFixed(10),
          diag11sevr              => idiagnSevr(10),
-         diag12data              => diagn(11),
+         diag12data              => diagn18   (11),
          diag12fixed(0)          => diagnFixed(11),
          diag12sevr              => idiagnSevr(11),
-         diag13data              => diagn(12),
+         diag13data              => diagn18   (12),
          diag13fixed(0)          => diagnFixed(12),
          diag13sevr              => idiagnSevr(12),
-         diag14data              => diagn(13),
+         diag14data              => diagn18   (13),
          diag14fixed(0)          => diagnFixed(13),
          diag14sevr              => idiagnSevr(13),
-         diag15data              => diagn(14),
+         diag15data              => diagn18   (14),
          diag15fixed(0)          => diagnFixed(14),
          diag15sevr              => idiagnSevr(14),
-         diag16data              => diagn(15),
+         diag16data              => diagn18   (15),
          diag16fixed(0)          => diagnFixed(15),
          diag16sevr              => idiagnSevr(15),
-         diag17data              => diagn(16),
+         diag17data              => diagn18   (16),
          diag17fixed(0)          => diagnFixed(16),
          diag17sevr              => idiagnSevr(16),
-         diag18data              => diagn(17),
+         diag18data              => diagn18   (17),
          diag18fixed(0)          => diagnFixed(17),
          diag18sevr              => idiagnSevr(17),
-         diag19data              => diagn(18),
+         diag19data              => diagn18   (18),
          diag19fixed(0)          => diagnFixed(18),
          diag19sevr              => idiagnSevr(18),
-         diag20data              => diagn(19),
+         diag20data              => diagn18   (19),
          diag20fixed(0)          => diagnFixed(19),
          diag20sevr              => idiagnSevr(19),
-         diag21data              => diagn(20),
+         diag21data              => diagn18   (20),
          diag21fixed(0)          => diagnFixed(20),
          diag21sevr              => idiagnSevr(20),
-         diag22data              => diagn(21),
+         diag22data              => diagn18   (21),
          diag22fixed(0)          => diagnFixed(21),
          diag22sevr              => idiagnSevr(21),
-         diag23data              => diagn(22),
+         diag23data              => diagn18   (22),
          diag23fixed(0)          => diagnFixed(22),
          diag23sevr              => idiagnSevr(22),
-         diag24data              => diagn(23),
+         diag24data              => diagn18   (23),
          diag24fixed(0)          => diagnFixed(23),
          diag24sevr              => idiagnSevr(23),
-         diag25data              => diagn(24),
+         diag25data              => diagn18   (24),
          diag25fixed(0)          => diagnFixed(24),
          diag25sevr              => idiagnSevr(24),
-         diag26data              => diagn(25),
+         diag26data              => diagn18   (25),
          diag26fixed(0)          => diagnFixed(25),
          diag26sevr              => idiagnSevr(25),
-         diag27data              => diagn(26),
+         diag27data              => diagn18   (26),
          diag27fixed(0)          => diagnFixed(26),
          diag27sevr              => idiagnSevr(26),
-         diag28data              => diagn(27),
+         diag28data              => diagn18   (27),
          diag28fixed(0)          => diagnFixed(27),
          diag28sevr              => idiagnSevr(27),
-         diag29data              => diagn(28),
+         diag29data              => diagn18   (28),
          diag29fixed(0)          => diagnFixed(28),
          diag29sevr              => idiagnSevr(28),
-         diag30data              => diagn(29),
+         diag30data              => diagn18   (29),
          diag30fixed(0)          => diagnFixed(29),
          diag30sevr              => idiagnSevr(29),
-         diag31data              => diagn(30),
+         diag31data              => diagn18   (30),
          diag31fixed(0)          => diagnFixed(30),
          diag31sevr              => idiagnSevr(30),
          -- register bus
