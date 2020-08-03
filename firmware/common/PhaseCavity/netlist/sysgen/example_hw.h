@@ -6,11 +6,14 @@
 * macros) that can be used to access the device.  The user should refer to the
 * hardware device specification for more details of the device operation.
 */ 
-#define EXAMPLE_M17_SAMPLE_PHI_W 0x24/**< m17_sample_phi_w */
+#define EXAMPLE_CAV1_FREQ_EVAL_STOP 0x1d4/**< cav1_freq_eval_stop */
+#define EXAMPLE_CAV1_FREQ_EVAL_START 0x1d0/**< cav1_freq_eval_start */
+#define EXAMPLE_CAV1_REG_LATCH_PT 0x1dc/**< cav1_reg_latch_pt */
 #define EXAMPLE_SCRATCHPAD 0xffc/**< scratchpad */
 #define EXAMPLE_RF_REF_CHAN_SEL 0x10/**< rf_ref_chan_sel */
-#define EXAMPLE_REF_WINDOW_STOP 0x18/**< ref_window_stop */
-#define EXAMPLE_REF_WINDOW_START 0x14/**< ref_window_start */
+#define EXAMPLE_CAV2_REG_LATCH_PT 0x374/**< cav2_reg_latch_pt */
+#define EXAMPLE_CAV2_FREQ_EVAL_STOP 0x36c/**< cav2_freq_eval_stop */
+#define EXAMPLE_CAV2_FREQ_EVAL_START 0x368/**< cav2_freq_eval_start */
 #define EXAMPLE_CAV2_P2_WINDOW_STOP 0x350/**< cav2_p2_window_stop */
 #define EXAMPLE_CAV2_P2_WINDOW_START 0x34c/**< cav2_p2_window_start */
 #define EXAMPLE_CAV2_P2_CHAN_SEL 0x340/**< cav2_p2_chan_sel */
@@ -32,9 +35,7 @@
 #define EXAMPLE_CAV1_NCO_PHASE_RESET 0x11c/**< cav1_nco_phase_reset */
 #define EXAMPLE_CAV1_NCO_PHASE_ADJ 0x118/**< cav1_nco_phase_adj */
 #define EXAMPLE_CAV1_P1_AMP_OUT 0x100/**< cav1_p1_amp_out */
-#define EXAMPLE_CAV1_P1_COMPARISON_I 0x104/**< cav1_p1_comparison_i */
 #define EXAMPLE_CAV1_P1_COMPARISON_PHASE 0x10c/**< cav1_p1_comparison_phase */
-#define EXAMPLE_CAV1_P1_COMPARISON_Q 0x108/**< cav1_p1_comparison_q */
 #define EXAMPLE_CAV1_P1_DC_FREQ 0xf0/**< cav1_p1_dc_freq */
 #define EXAMPLE_CAV1_P1_DC_IMG 0xe4/**< cav1_p1_dc_img */
 #define EXAMPLE_CAV1_P1_DC_REAL 0xe0/**< cav1_p1_dc_real */
@@ -46,9 +47,7 @@
 #define EXAMPLE_CAV1_P1_INTEGRATED_Q 0xf8/**< cav1_p1_integrated_q */
 #define EXAMPLE_CAV1_P1_PHASE_OUT 0xfc/**< cav1_p1_phase_out */
 #define EXAMPLE_CAV1_P2_AMP_OUT 0x1cc/**< cav1_p2_amp_out */
-#define EXAMPLE_CAV1_P2_COMPARISON_I 0x1d0/**< cav1_p2_comparison_i */
 #define EXAMPLE_CAV1_P2_COMPARISON_PHASE 0x1d8/**< cav1_p2_comparison_phase */
-#define EXAMPLE_CAV1_P2_COMPARISON_Q 0x1d4/**< cav1_p2_comparison_q */
 #define EXAMPLE_CAV1_P2_DC_FREQ 0x1bc/**< cav1_p2_dc_freq */
 #define EXAMPLE_CAV1_P2_DC_IMG 0x1b0/**< cav1_p2_dc_img */
 #define EXAMPLE_CAV1_P2_DC_REAL 0x1ac/**< cav1_p2_dc_real */
@@ -60,9 +59,7 @@
 #define EXAMPLE_CAV1_P2_INTEGRATED_Q 0x1c4/**< cav1_p2_integrated_q */
 #define EXAMPLE_CAV1_P2_PHASE_OUT 0x1c8/**< cav1_p2_phase_out */
 #define EXAMPLE_CAV2_P1_AMP_OUT 0x298/**< cav2_p1_amp_out */
-#define EXAMPLE_CAV2_P1_COMPARISON_I 0x29c/**< cav2_p1_comparison_i */
 #define EXAMPLE_CAV2_P1_COMPARISON_PHASE 0x2a4/**< cav2_p1_comparison_phase */
-#define EXAMPLE_CAV2_P1_COMPARISON_Q 0x2a0/**< cav2_p1_comparison_q */
 #define EXAMPLE_CAV2_P1_DC_FREQ 0x288/**< cav2_p1_dc_freq */
 #define EXAMPLE_CAV2_P1_DC_IMG 0x27c/**< cav2_p1_dc_img */
 #define EXAMPLE_CAV2_P1_DC_REAL 0x278/**< cav2_p1_dc_real */
@@ -74,9 +71,7 @@
 #define EXAMPLE_CAV2_P1_INTEGRATED_Q 0x290/**< cav2_p1_integrated_q */
 #define EXAMPLE_CAV2_P1_PHASE_OUT 0x294/**< cav2_p1_phase_out */
 #define EXAMPLE_CAV2_P2_AMP_OUT 0x364/**< cav2_p2_amp_out */
-#define EXAMPLE_CAV2_P2_COMPARISON_I 0x368/**< cav2_p2_comparison_i */
 #define EXAMPLE_CAV2_P2_COMPARISON_PHASE 0x370/**< cav2_p2_comparison_phase */
-#define EXAMPLE_CAV2_P2_COMPARISON_Q 0x36c/**< cav2_p2_comparison_q */
 #define EXAMPLE_CAV2_P2_DC_FREQ 0x354/**< cav2_p2_dc_freq */
 #define EXAMPLE_CAV2_P2_DC_IMG 0x348/**< cav2_p2_dc_img */
 #define EXAMPLE_CAV2_P2_DC_REAL 0x344/**< cav2_p2_dc_real */
@@ -92,4 +87,3 @@
 #define EXAMPLE_RF_REF_PHASE 0x4/**< rf_ref_phase */
 #define EXAMPLE_RF_REF_Q 0xc/**< rf_ref_q */
 #define EXAMPLE_STATUS_0 0x3f8/**< status_0 */
-#define EXAMPLE_M17_SAMPLE_PHASE 0x28/**< m17_sample_phase */

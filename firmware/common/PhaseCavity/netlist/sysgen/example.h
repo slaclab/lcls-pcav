@@ -73,28 +73,74 @@ int example_Initialize(example *InstancePtr, const char* InstanceName);
 int example_Release(example *InstancePtr);
 #endif
 /**
-* Write to m17_sample_phi_w gateway of example. Assignments are LSB-justified.
+* Write to cav1_freq_eval_stop gateway of example. Assignments are LSB-justified.
 *
-* @param	InstancePtr is the m17_sample_phi_w instance to operate on.
-* @param	Data is value to be written to gateway m17_sample_phi_w.
+* @param	InstancePtr is the cav1_freq_eval_stop instance to operate on.
+* @param	Data is value to be written to gateway cav1_freq_eval_stop.
 *
 * @return	None.
 *
 * @note    .
 *
 */
-void example_m17_sample_phi_w_write(example *InstancePtr, u8 Data);
+void example_cav1_freq_eval_stop_write(example *InstancePtr, u32 Data);
 /**
-* Read from m17_sample_phi_w gateway of example. Assignments are LSB-justified.
+* Read from cav1_freq_eval_stop gateway of example. Assignments are LSB-justified.
 *
-* @param	InstancePtr is the m17_sample_phi_w instance to operate on.
+* @param	InstancePtr is the cav1_freq_eval_stop instance to operate on.
 *
-* @return	u8
+* @return	u32
 *
 * @note    .
 *
 */
-u8 example_m17_sample_phi_w_read(example *InstancePtr);
+u32 example_cav1_freq_eval_stop_read(example *InstancePtr);
+/**
+* Write to cav1_freq_eval_start gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_freq_eval_start instance to operate on.
+* @param	Data is value to be written to gateway cav1_freq_eval_start.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav1_freq_eval_start_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav1_freq_eval_start gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_freq_eval_start instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav1_freq_eval_start_read(example *InstancePtr);
+/**
+* Write to cav1_reg_latch_pt gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_reg_latch_pt instance to operate on.
+* @param	Data is value to be written to gateway cav1_reg_latch_pt.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav1_reg_latch_pt_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav1_reg_latch_pt gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav1_reg_latch_pt instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav1_reg_latch_pt_read(example *InstancePtr);
 /**
 * Write to scratchpad gateway of example. Assignments are LSB-justified.
 *
@@ -142,51 +188,74 @@ void example_rf_ref_chan_sel_write(example *InstancePtr, u8 Data);
 */
 u8 example_rf_ref_chan_sel_read(example *InstancePtr);
 /**
-* Write to ref_window_stop gateway of example. Assignments are LSB-justified.
+* Write to cav2_reg_latch_pt gateway of example. Assignments are LSB-justified.
 *
-* @param	InstancePtr is the ref_window_stop instance to operate on.
-* @param	Data is value to be written to gateway ref_window_stop.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_ref_window_stop_write(example *InstancePtr, u32 Data);
-/**
-* Read from ref_window_stop gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the ref_window_stop instance to operate on.
-*
-* @return	u32
-*
-* @note    .
-*
-*/
-u32 example_ref_window_stop_read(example *InstancePtr);
-/**
-* Write to ref_window_start gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the ref_window_start instance to operate on.
-* @param	Data is value to be written to gateway ref_window_start.
+* @param	InstancePtr is the cav2_reg_latch_pt instance to operate on.
+* @param	Data is value to be written to gateway cav2_reg_latch_pt.
 *
 * @return	None.
 *
 * @note    .
 *
 */
-void example_ref_window_start_write(example *InstancePtr, u32 Data);
+void example_cav2_reg_latch_pt_write(example *InstancePtr, u32 Data);
 /**
-* Read from ref_window_start gateway of example. Assignments are LSB-justified.
+* Read from cav2_reg_latch_pt gateway of example. Assignments are LSB-justified.
 *
-* @param	InstancePtr is the ref_window_start instance to operate on.
+* @param	InstancePtr is the cav2_reg_latch_pt instance to operate on.
 *
 * @return	u32
 *
 * @note    .
 *
 */
-u32 example_ref_window_start_read(example *InstancePtr);
+u32 example_cav2_reg_latch_pt_read(example *InstancePtr);
+/**
+* Write to cav2_freq_eval_stop gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_freq_eval_stop instance to operate on.
+* @param	Data is value to be written to gateway cav2_freq_eval_stop.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_freq_eval_stop_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_freq_eval_stop gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_freq_eval_stop instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_freq_eval_stop_read(example *InstancePtr);
+/**
+* Write to cav2_freq_eval_start gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_freq_eval_start instance to operate on.
+* @param	Data is value to be written to gateway cav2_freq_eval_start.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_freq_eval_start_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_freq_eval_start gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_freq_eval_start instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_freq_eval_start_read(example *InstancePtr);
 /**
 * Write to cav2_p2_window_stop gateway of example. Assignments are LSB-justified.
 *
@@ -659,17 +728,6 @@ u32 example_cav1_nco_phase_adj_read(example *InstancePtr);
 */
 int example_cav1_p1_amp_out_read(example *InstancePtr);
 /**
-* Read from cav1_p1_comparison_i gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_p1_comparison_i instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav1_p1_comparison_i_read(example *InstancePtr);
-/**
 * Read from cav1_p1_comparison_phase gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav1_p1_comparison_phase instance to operate on.
@@ -680,17 +738,6 @@ int example_cav1_p1_comparison_i_read(example *InstancePtr);
 *
 */
 int example_cav1_p1_comparison_phase_read(example *InstancePtr);
-/**
-* Read from cav1_p1_comparison_q gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_p1_comparison_q instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav1_p1_comparison_q_read(example *InstancePtr);
 /**
 * Read from cav1_p1_dc_freq gateway of example. Assignments are LSB-justified.
 *
@@ -813,17 +860,6 @@ int example_cav1_p1_phase_out_read(example *InstancePtr);
 */
 int example_cav1_p2_amp_out_read(example *InstancePtr);
 /**
-* Read from cav1_p2_comparison_i gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_p2_comparison_i instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav1_p2_comparison_i_read(example *InstancePtr);
-/**
 * Read from cav1_p2_comparison_phase gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav1_p2_comparison_phase instance to operate on.
@@ -834,17 +870,6 @@ int example_cav1_p2_comparison_i_read(example *InstancePtr);
 *
 */
 int example_cav1_p2_comparison_phase_read(example *InstancePtr);
-/**
-* Read from cav1_p2_comparison_q gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav1_p2_comparison_q instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav1_p2_comparison_q_read(example *InstancePtr);
 /**
 * Read from cav1_p2_dc_freq gateway of example. Assignments are LSB-justified.
 *
@@ -967,17 +992,6 @@ int example_cav1_p2_phase_out_read(example *InstancePtr);
 */
 int example_cav2_p1_amp_out_read(example *InstancePtr);
 /**
-* Read from cav2_p1_comparison_i gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p1_comparison_i instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav2_p1_comparison_i_read(example *InstancePtr);
-/**
 * Read from cav2_p1_comparison_phase gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav2_p1_comparison_phase instance to operate on.
@@ -988,17 +1002,6 @@ int example_cav2_p1_comparison_i_read(example *InstancePtr);
 *
 */
 int example_cav2_p1_comparison_phase_read(example *InstancePtr);
-/**
-* Read from cav2_p1_comparison_q gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p1_comparison_q instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav2_p1_comparison_q_read(example *InstancePtr);
 /**
 * Read from cav2_p1_dc_freq gateway of example. Assignments are LSB-justified.
 *
@@ -1121,17 +1124,6 @@ int example_cav2_p1_phase_out_read(example *InstancePtr);
 */
 int example_cav2_p2_amp_out_read(example *InstancePtr);
 /**
-* Read from cav2_p2_comparison_i gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p2_comparison_i instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav2_p2_comparison_i_read(example *InstancePtr);
-/**
 * Read from cav2_p2_comparison_phase gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the cav2_p2_comparison_phase instance to operate on.
@@ -1142,17 +1134,6 @@ int example_cav2_p2_comparison_i_read(example *InstancePtr);
 *
 */
 int example_cav2_p2_comparison_phase_read(example *InstancePtr);
-/**
-* Read from cav2_p2_comparison_q gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p2_comparison_q instance to operate on.
-*
-* @return	int
-*
-* @note    .
-*
-*/
-int example_cav2_p2_comparison_q_read(example *InstancePtr);
 /**
 * Read from cav2_p2_dc_freq gateway of example. Assignments are LSB-justified.
 *
@@ -1318,17 +1299,6 @@ int example_rf_ref_q_read(example *InstancePtr);
 *
 */
 u32 example_status_0_read(example *InstancePtr);
-/**
-* Read from m17_sample_phase gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the m17_sample_phase instance to operate on.
-*
-* @return	u8
-*
-* @note    .
-*
-*/
-u8 example_m17_sample_phase_read(example *InstancePtr);
 #ifdef __cplusplus
 }
 #endif

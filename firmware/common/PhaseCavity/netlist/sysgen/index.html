@@ -110,25 +110,71 @@ Initialize example pointer with a specifc instance of the device based device id
   @return int XST_SUCCESS if initialization is successful
 <br/>
 </p>
-<h1>void example_m17_sample_phi_w_write(example *InstancePtr, u8 Data);</h1>
+<h1>void example_cav1_freq_eval_stop_write(example *InstancePtr, u32 Data);</h1>
 <p>
- Write to m17_sample_phi_w gateway of example. Assignments are LSB-justified.<br/>
+ Write to cav1_freq_eval_stop gateway of example. Assignments are LSB-justified.<br/>
 <br/>
- @param	InstancePtr is the m17_sample_phi_w instance to operate on.<br/>
- @param	Data is value to be written to gateway m17_sample_phi_w.<br/>
+ @param	InstancePtr is the cav1_freq_eval_stop instance to operate on.<br/>
+ @param	Data is value to be written to gateway cav1_freq_eval_stop.<br/>
 <br/>
  @return	None.<br/>
 <br/>
  @note    .<br/>
 <br/>
 </p>
-<h1>u8 example_m17_sample_phi_w_read(example *InstancePtr);</h1>
+<h1>u32 example_cav1_freq_eval_stop_read(example *InstancePtr);</h1>
 <p>
- Read from m17_sample_phi_w gateway of example. Assignments are LSB-justified.<br/>
+ Read from cav1_freq_eval_stop gateway of example. Assignments are LSB-justified.<br/>
 <br/>
- @param	InstancePtr is the m17_sample_phi_w instance to operate on.<br/>
+ @param	InstancePtr is the cav1_freq_eval_stop instance to operate on.<br/>
 <br/>
- @return	u8<br/>
+ @return	u32<br/>
+
+ @note    .<br/>
+<br/>
+</p>
+<h1>void example_cav1_freq_eval_start_write(example *InstancePtr, u32 Data);</h1>
+<p>
+ Write to cav1_freq_eval_start gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the cav1_freq_eval_start instance to operate on.<br/>
+ @param	Data is value to be written to gateway cav1_freq_eval_start.<br/>
+<br/>
+ @return	None.<br/>
+<br/>
+ @note    .<br/>
+<br/>
+</p>
+<h1>u32 example_cav1_freq_eval_start_read(example *InstancePtr);</h1>
+<p>
+ Read from cav1_freq_eval_start gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the cav1_freq_eval_start instance to operate on.<br/>
+<br/>
+ @return	u32<br/>
+
+ @note    .<br/>
+<br/>
+</p>
+<h1>void example_cav1_reg_latch_pt_write(example *InstancePtr, u32 Data);</h1>
+<p>
+ Write to cav1_reg_latch_pt gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the cav1_reg_latch_pt instance to operate on.<br/>
+ @param	Data is value to be written to gateway cav1_reg_latch_pt.<br/>
+<br/>
+ @return	None.<br/>
+<br/>
+ @note    .<br/>
+<br/>
+</p>
+<h1>u32 example_cav1_reg_latch_pt_read(example *InstancePtr);</h1>
+<p>
+ Read from cav1_reg_latch_pt gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the cav1_reg_latch_pt instance to operate on.<br/>
+<br/>
+ @return	u32<br/>
 
  @note    .<br/>
 <br/>
@@ -179,46 +225,69 @@ Initialize example pointer with a specifc instance of the device based device id
  @note    .<br/>
 <br/>
 </p>
-<h1>void example_ref_window_stop_write(example *InstancePtr, u32 Data);</h1>
+<h1>void example_cav2_reg_latch_pt_write(example *InstancePtr, u32 Data);</h1>
 <p>
- Write to ref_window_stop gateway of example. Assignments are LSB-justified.<br/>
+ Write to cav2_reg_latch_pt gateway of example. Assignments are LSB-justified.<br/>
 <br/>
- @param	InstancePtr is the ref_window_stop instance to operate on.<br/>
- @param	Data is value to be written to gateway ref_window_stop.<br/>
+ @param	InstancePtr is the cav2_reg_latch_pt instance to operate on.<br/>
+ @param	Data is value to be written to gateway cav2_reg_latch_pt.<br/>
 <br/>
  @return	None.<br/>
 <br/>
  @note    .<br/>
 <br/>
 </p>
-<h1>u32 example_ref_window_stop_read(example *InstancePtr);</h1>
+<h1>u32 example_cav2_reg_latch_pt_read(example *InstancePtr);</h1>
 <p>
- Read from ref_window_stop gateway of example. Assignments are LSB-justified.<br/>
+ Read from cav2_reg_latch_pt gateway of example. Assignments are LSB-justified.<br/>
 <br/>
- @param	InstancePtr is the ref_window_stop instance to operate on.<br/>
+ @param	InstancePtr is the cav2_reg_latch_pt instance to operate on.<br/>
 <br/>
  @return	u32<br/>
 
  @note    .<br/>
 <br/>
 </p>
-<h1>void example_ref_window_start_write(example *InstancePtr, u32 Data);</h1>
+<h1>void example_cav2_freq_eval_stop_write(example *InstancePtr, u32 Data);</h1>
 <p>
- Write to ref_window_start gateway of example. Assignments are LSB-justified.<br/>
+ Write to cav2_freq_eval_stop gateway of example. Assignments are LSB-justified.<br/>
 <br/>
- @param	InstancePtr is the ref_window_start instance to operate on.<br/>
- @param	Data is value to be written to gateway ref_window_start.<br/>
+ @param	InstancePtr is the cav2_freq_eval_stop instance to operate on.<br/>
+ @param	Data is value to be written to gateway cav2_freq_eval_stop.<br/>
 <br/>
  @return	None.<br/>
 <br/>
  @note    .<br/>
 <br/>
 </p>
-<h1>u32 example_ref_window_start_read(example *InstancePtr);</h1>
+<h1>u32 example_cav2_freq_eval_stop_read(example *InstancePtr);</h1>
 <p>
- Read from ref_window_start gateway of example. Assignments are LSB-justified.<br/>
+ Read from cav2_freq_eval_stop gateway of example. Assignments are LSB-justified.<br/>
 <br/>
- @param	InstancePtr is the ref_window_start instance to operate on.<br/>
+ @param	InstancePtr is the cav2_freq_eval_stop instance to operate on.<br/>
+<br/>
+ @return	u32<br/>
+
+ @note    .<br/>
+<br/>
+</p>
+<h1>void example_cav2_freq_eval_start_write(example *InstancePtr, u32 Data);</h1>
+<p>
+ Write to cav2_freq_eval_start gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the cav2_freq_eval_start instance to operate on.<br/>
+ @param	Data is value to be written to gateway cav2_freq_eval_start.<br/>
+<br/>
+ @return	None.<br/>
+<br/>
+ @note    .<br/>
+<br/>
+</p>
+<h1>u32 example_cav2_freq_eval_start_read(example *InstancePtr);</h1>
+<p>
+ Read from cav2_freq_eval_start gateway of example. Assignments are LSB-justified.<br/>
+<br/>
+ @param	InstancePtr is the cav2_freq_eval_start instance to operate on.<br/>
 <br/>
  @return	u32<br/>
 
@@ -696,33 +765,11 @@ Initialize example pointer with a specifc instance of the device based device id
  @note    .<br/>
 <br/>
 </p>
-<h1>int example_cav1_p1_comparison_i_read(example *InstancePtr);</h1>
-<p>
- Read from cav1_p1_comparison_i gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav1_p1_comparison_i instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
 <h1>int example_cav1_p1_comparison_phase_read(example *InstancePtr);</h1>
 <p>
  Read from cav1_p1_comparison_phase gateway of example. Assignments are LSB-justified.<br/>
 <br/>
  @param	InstancePtr is the cav1_p1_comparison_phase instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
-<h1>int example_cav1_p1_comparison_q_read(example *InstancePtr);</h1>
-<p>
- Read from cav1_p1_comparison_q gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav1_p1_comparison_q instance to operate on.<br/>
 <br/>
  @return	int<br/>
 
@@ -850,33 +897,11 @@ Initialize example pointer with a specifc instance of the device based device id
  @note    .<br/>
 <br/>
 </p>
-<h1>int example_cav1_p2_comparison_i_read(example *InstancePtr);</h1>
-<p>
- Read from cav1_p2_comparison_i gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav1_p2_comparison_i instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
 <h1>int example_cav1_p2_comparison_phase_read(example *InstancePtr);</h1>
 <p>
  Read from cav1_p2_comparison_phase gateway of example. Assignments are LSB-justified.<br/>
 <br/>
  @param	InstancePtr is the cav1_p2_comparison_phase instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
-<h1>int example_cav1_p2_comparison_q_read(example *InstancePtr);</h1>
-<p>
- Read from cav1_p2_comparison_q gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav1_p2_comparison_q instance to operate on.<br/>
 <br/>
  @return	int<br/>
 
@@ -1004,33 +1029,11 @@ Initialize example pointer with a specifc instance of the device based device id
  @note    .<br/>
 <br/>
 </p>
-<h1>int example_cav2_p1_comparison_i_read(example *InstancePtr);</h1>
-<p>
- Read from cav2_p1_comparison_i gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav2_p1_comparison_i instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
 <h1>int example_cav2_p1_comparison_phase_read(example *InstancePtr);</h1>
 <p>
  Read from cav2_p1_comparison_phase gateway of example. Assignments are LSB-justified.<br/>
 <br/>
  @param	InstancePtr is the cav2_p1_comparison_phase instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
-<h1>int example_cav2_p1_comparison_q_read(example *InstancePtr);</h1>
-<p>
- Read from cav2_p1_comparison_q gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav2_p1_comparison_q instance to operate on.<br/>
 <br/>
  @return	int<br/>
 
@@ -1158,33 +1161,11 @@ Initialize example pointer with a specifc instance of the device based device id
  @note    .<br/>
 <br/>
 </p>
-<h1>int example_cav2_p2_comparison_i_read(example *InstancePtr);</h1>
-<p>
- Read from cav2_p2_comparison_i gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav2_p2_comparison_i instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
 <h1>int example_cav2_p2_comparison_phase_read(example *InstancePtr);</h1>
 <p>
  Read from cav2_p2_comparison_phase gateway of example. Assignments are LSB-justified.<br/>
 <br/>
  @param	InstancePtr is the cav2_p2_comparison_phase instance to operate on.<br/>
-<br/>
- @return	int<br/>
-
- @note    .<br/>
-<br/>
-</p>
-<h1>int example_cav2_p2_comparison_q_read(example *InstancePtr);</h1>
-<p>
- Read from cav2_p2_comparison_q gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the cav2_p2_comparison_q instance to operate on.<br/>
 <br/>
  @return	int<br/>
 
@@ -1352,17 +1333,6 @@ Initialize example pointer with a specifc instance of the device based device id
  @param	InstancePtr is the status_0 instance to operate on.<br/>
 <br/>
  @return	u32<br/>
-
- @note    .<br/>
-<br/>
-</p>
-<h1>u8 example_m17_sample_phase_read(example *InstancePtr);</h1>
-<p>
- Read from m17_sample_phase gateway of example. Assignments are LSB-justified.<br/>
-<br/>
- @param	InstancePtr is the m17_sample_phase instance to operate on.<br/>
-<br/>
- @return	u8<br/>
 
  @note    .<br/>
 <br/>

@@ -623,17 +623,17 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_constant_476c9987dc is
+entity sysgen_constant_fb6e2a12b8 is
   port (
     op : out std_logic_vector((32 - 1) downto 0);
     clk : in std_logic;
     ce : in std_logic;
     clr : in std_logic);
-end sysgen_constant_476c9987dc;
-architecture behavior of sysgen_constant_476c9987dc
+end sysgen_constant_fb6e2a12b8;
+architecture behavior of sysgen_constant_fb6e2a12b8
 is
 begin
-  op <= "00000000011011110110101110000100";
+  op <= "00000000011110101000111100010100";
 end behavior;
 
 library work;
@@ -1000,25 +1000,6 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_constant_ef05f162c4 is
-  port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_ef05f162c4;
-architecture behavior of sysgen_constant_ef05f162c4
-is
-begin
-  op <= "0000000000011101";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
 entity sysgen_constant_589172b339 is
   port (
     op : out std_logic_vector((1 - 1) downto 0);
@@ -1162,23 +1143,23 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_accum_3210400574 is
+entity sysgen_accum_34d1bd443e is
   port (
     b : in std_logic_vector((18 - 1) downto 0);
     rst : in std_logic_vector((1 - 1) downto 0);
-    q : out std_logic_vector((32 - 1) downto 0);
+    q : out std_logic_vector((26 - 1) downto 0);
     clk : in std_logic;
     ce : in std_logic;
     clr : in std_logic);
-end sysgen_accum_3210400574;
-architecture behavior of sysgen_accum_3210400574
+end sysgen_accum_34d1bd443e;
+architecture behavior of sysgen_accum_34d1bd443e
 is
   signal b_17_24: signed((18 - 1) downto 0);
   signal rst_17_27: boolean;
-  signal accum_reg_39_23: signed((32 - 1) downto 0) := "00000000000000000000000000000000";
+  signal accum_reg_39_23: signed((26 - 1) downto 0) := "00000000000000000000000000";
   signal accum_reg_39_23_rst: std_logic;
-  signal cast_49_42: signed((32 - 1) downto 0);
-  signal accum_reg_join_45_1: signed((33 - 1) downto 0);
+  signal cast_49_42: signed((26 - 1) downto 0);
+  signal accum_reg_join_45_1: signed((27 - 1) downto 0);
   signal accum_reg_join_45_1_rst: std_logic;
 begin
   b_17_24 <= std_logic_vector_to_signed(b);
@@ -1188,13 +1169,13 @@ begin
   begin
     if (clk'event and (clk = '1')) then
       if ((ce = '1') and (accum_reg_39_23_rst = '1')) then
-        accum_reg_39_23 <= "00000000000000000000000000000000";
+        accum_reg_39_23 <= "00000000000000000000000000";
       elsif (ce = '1') then 
         accum_reg_39_23 <= accum_reg_39_23 + cast_49_42;
       end if;
     end if;
   end process proc_accum_reg_39_23;
-  cast_49_42 <= s2s_cast(b_17_24, 16, 32, 16);
+  cast_49_42 <= s2s_cast(b_17_24, 16, 26, 16);
   proc_if_45_1: process (accum_reg_39_23, cast_49_42, rst_17_27)
   is
   begin
@@ -1257,6 +1238,329 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_mcode_block_d71a35a319 is
+  port (
+    i_int : in std_logic_vector((26 - 1) downto 0);
+    q_int : in std_logic_vector((26 - 1) downto 0);
+    i_int_abs : in std_logic_vector((27 - 1) downto 0);
+    q_int_abs : in std_logic_vector((27 - 1) downto 0);
+    i_norm : out std_logic_vector((37 - 1) downto 0);
+    q_norm : out std_logic_vector((37 - 1) downto 0);
+    done : out std_logic_vector((1 - 1) downto 0);
+    bit : out std_logic_vector((4 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_mcode_block_d71a35a319;
+architecture behavior of sysgen_mcode_block_d71a35a319
+is
+  signal i_int_1_62: signed((26 - 1) downto 0);
+  signal q_int_1_69: signed((26 - 1) downto 0);
+  signal i_int_abs_1_76: signed((27 - 1) downto 0);
+  signal q_int_abs_1_87: signed((27 - 1) downto 0);
+  signal cast_i_norm_23_5_rsh: signed((27 - 1) downto 0);
+  signal cast_q_norm_24_5_rsh: signed((27 - 1) downto 0);
+  signal rel_17_5: boolean;
+  signal rel_17_26: boolean;
+  signal bool_17_5: boolean;
+  signal cast_22_9: signed((28 - 1) downto 0);
+  signal rel_22_9: boolean;
+  signal cast_22_29: signed((28 - 1) downto 0);
+  signal rel_22_29: boolean;
+  signal bool_22_9: boolean;
+  signal rel_27_10: boolean;
+  signal cast_27_29: signed((28 - 1) downto 0);
+  signal rel_27_29: boolean;
+  signal bool_27_10: boolean;
+  signal rel_27_52: boolean;
+  signal cast_27_71: signed((28 - 1) downto 0);
+  signal rel_27_71: boolean;
+  signal bool_27_52: boolean;
+  signal bool_27_10_x_000000: boolean;
+  signal rel_32_10: boolean;
+  signal rel_32_29: boolean;
+  signal bool_32_10: boolean;
+  signal rel_32_51: boolean;
+  signal rel_32_70: boolean;
+  signal bool_32_51: boolean;
+  signal bool_32_10_x_000000: boolean;
+  signal rel_37_10: boolean;
+  signal rel_37_29: boolean;
+  signal bool_37_10: boolean;
+  signal rel_37_51: boolean;
+  signal rel_37_70: boolean;
+  signal bool_37_51: boolean;
+  signal bool_37_10_x_000000: boolean;
+  signal rel_42_10: boolean;
+  signal rel_42_29: boolean;
+  signal bool_42_10: boolean;
+  signal rel_42_51: boolean;
+  signal rel_42_70: boolean;
+  signal bool_42_51: boolean;
+  signal bool_42_10_x_000000: boolean;
+  signal rel_47_10: boolean;
+  signal rel_47_29: boolean;
+  signal bool_47_10: boolean;
+  signal rel_47_51: boolean;
+  signal rel_47_70: boolean;
+  signal bool_47_51: boolean;
+  signal bool_47_10_x_000000: boolean;
+  signal rel_52_10: boolean;
+  signal rel_52_29: boolean;
+  signal bool_52_10: boolean;
+  signal rel_52_51: boolean;
+  signal rel_52_70: boolean;
+  signal bool_52_51: boolean;
+  signal bool_52_10_x_000000: boolean;
+  signal rel_57_10: boolean;
+  signal rel_57_29: boolean;
+  signal bool_57_10: boolean;
+  signal rel_57_51: boolean;
+  signal rel_57_70: boolean;
+  signal bool_57_51: boolean;
+  signal bool_57_10_x_000000: boolean;
+  signal rel_62_10: boolean;
+  signal rel_62_29: boolean;
+  signal bool_62_10: boolean;
+  signal rel_62_51: boolean;
+  signal rel_62_70: boolean;
+  signal bool_62_51: boolean;
+  signal bool_62_10_x_000000: boolean;
+  signal rel_67_10: boolean;
+  signal rel_67_29: boolean;
+  signal bool_67_10: boolean;
+  signal rel_67_51: boolean;
+  signal rel_67_70: boolean;
+  signal bool_67_51: boolean;
+  signal bool_67_10_x_000000: boolean;
+  signal bit_join_17_1: unsigned((4 - 1) downto 0);
+  signal done_join_17_1: unsigned((1 - 1) downto 0);
+  signal i_norm_join_17_1: signed((37 - 1) downto 0);
+  signal q_norm_join_17_1: signed((37 - 1) downto 0);
+begin
+  i_int_1_62 <= std_logic_vector_to_signed(i_int);
+  q_int_1_69 <= std_logic_vector_to_signed(q_int);
+  i_int_abs_1_76 <= std_logic_vector_to_signed(i_int_abs);
+  q_int_abs_1_87 <= std_logic_vector_to_signed(q_int_abs);
+  cast_i_norm_23_5_rsh <= s2s_cast(i_int_1_62, 16, 27, 16);
+  cast_q_norm_24_5_rsh <= s2s_cast(q_int_1_69, 16, 27, 16);
+  rel_17_5 <= i_int_abs_1_76 <= std_logic_vector_to_signed("000000000010000000000000000");
+  rel_17_26 <= q_int_abs_1_87 <= std_logic_vector_to_signed("000000000010000000000000000");
+  bool_17_5 <= rel_17_5 and rel_17_26;
+  cast_22_9 <= s2s_cast(i_int_abs_1_76, 16, 28, 16);
+  rel_22_9 <= cast_22_9 > std_logic_vector_to_signed("0100000000000000000000000000");
+  cast_22_29 <= s2s_cast(q_int_abs_1_87, 16, 28, 16);
+  rel_22_29 <= cast_22_29 > std_logic_vector_to_signed("0100000000000000000000000000");
+  bool_22_9 <= rel_22_9 or rel_22_29;
+  rel_27_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("010000000000000000000000000");
+  cast_27_29 <= s2s_cast(i_int_abs_1_76, 16, 28, 16);
+  rel_27_29 <= cast_27_29 <= std_logic_vector_to_signed("0100000000000000000000000000");
+  bool_27_10 <= rel_27_10 and rel_27_29;
+  rel_27_52 <= q_int_abs_1_87 > std_logic_vector_to_signed("010000000000000000000000000");
+  cast_27_71 <= s2s_cast(q_int_abs_1_87, 16, 28, 16);
+  rel_27_71 <= cast_27_71 <= std_logic_vector_to_signed("0100000000000000000000000000");
+  bool_27_52 <= rel_27_52 and rel_27_71;
+  bool_27_10_x_000000 <= bool_27_10 or bool_27_52;
+  rel_32_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("001000000000000000000000000");
+  rel_32_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("010000000000000000000000000");
+  bool_32_10 <= rel_32_10 and rel_32_29;
+  rel_32_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("001000000000000000000000000");
+  rel_32_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("010000000000000000000000000");
+  bool_32_51 <= rel_32_51 and rel_32_70;
+  bool_32_10_x_000000 <= bool_32_10 or bool_32_51;
+  rel_37_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("000100000000000000000000000");
+  rel_37_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("001000000000000000000000000");
+  bool_37_10 <= rel_37_10 and rel_37_29;
+  rel_37_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("000100000000000000000000000");
+  rel_37_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("001000000000000000000000000");
+  bool_37_51 <= rel_37_51 and rel_37_70;
+  bool_37_10_x_000000 <= bool_37_10 or bool_37_51;
+  rel_42_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("000010000000000000000000000");
+  rel_42_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("000100000000000000000000000");
+  bool_42_10 <= rel_42_10 and rel_42_29;
+  rel_42_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("000010000000000000000000000");
+  rel_42_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("000100000000000000000000000");
+  bool_42_51 <= rel_42_51 and rel_42_70;
+  bool_42_10_x_000000 <= bool_42_10 or bool_42_51;
+  rel_47_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("000001000000000000000000000");
+  rel_47_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("000010000000000000000000000");
+  bool_47_10 <= rel_47_10 and rel_47_29;
+  rel_47_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("000001000000000000000000000");
+  rel_47_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("000010000000000000000000000");
+  bool_47_51 <= rel_47_51 and rel_47_70;
+  bool_47_10_x_000000 <= bool_47_10 or bool_47_51;
+  rel_52_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("000000100000000000000000000");
+  rel_52_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("000001000000000000000000000");
+  bool_52_10 <= rel_52_10 and rel_52_29;
+  rel_52_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("000000100000000000000000000");
+  rel_52_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("000001000000000000000000000");
+  bool_52_51 <= rel_52_51 and rel_52_70;
+  bool_52_10_x_000000 <= bool_52_10 or bool_52_51;
+  rel_57_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("000000010000000000000000000");
+  rel_57_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("000000100000000000000000000");
+  bool_57_10 <= rel_57_10 and rel_57_29;
+  rel_57_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("000000010000000000000000000");
+  rel_57_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("000000100000000000000000000");
+  bool_57_51 <= rel_57_51 and rel_57_70;
+  bool_57_10_x_000000 <= bool_57_10 or bool_57_51;
+  rel_62_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("000000001000000000000000000");
+  rel_62_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("000000010000000000000000000");
+  bool_62_10 <= rel_62_10 and rel_62_29;
+  rel_62_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("000000001000000000000000000");
+  rel_62_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("000000010000000000000000000");
+  bool_62_51 <= rel_62_51 and rel_62_70;
+  bool_62_10_x_000000 <= bool_62_10 or bool_62_51;
+  rel_67_10 <= i_int_abs_1_76 > std_logic_vector_to_signed("000000000100000000000000000");
+  rel_67_29 <= i_int_abs_1_76 <= std_logic_vector_to_signed("000000001000000000000000000");
+  bool_67_10 <= rel_67_10 and rel_67_29;
+  rel_67_51 <= q_int_abs_1_87 > std_logic_vector_to_signed("000000000100000000000000000");
+  rel_67_70 <= q_int_abs_1_87 <= std_logic_vector_to_signed("000000001000000000000000000");
+  bool_67_51 <= rel_67_51 and rel_67_70;
+  bool_67_10_x_000000 <= bool_67_10 or bool_67_51;
+  proc_if_17_1: process (bool_17_5, bool_22_9, bool_27_10_x_000000, bool_32_10_x_000000, bool_37_10_x_000000, bool_42_10_x_000000, bool_47_10_x_000000, bool_52_10_x_000000, bool_57_10_x_000000, bool_62_10_x_000000, bool_67_10_x_000000, cast_i_norm_23_5_rsh, cast_q_norm_24_5_rsh, i_int_1_62, q_int_1_69)
+  is
+  begin
+    if bool_17_5 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0000");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 16, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 16, 37, 27);
+    elsif bool_22_9 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("1010");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(cast_i_norm_23_5_rsh, 27, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(cast_q_norm_24_5_rsh, 27, 37, 27);
+    elsif bool_27_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("1001");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 26, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 26, 37, 27);
+    elsif bool_32_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("1000");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 25, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 25, 37, 27);
+    elsif bool_37_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0111");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 24, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 24, 37, 27);
+    elsif bool_42_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0110");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 23, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 23, 37, 27);
+    elsif bool_47_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0101");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 22, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 22, 37, 27);
+    elsif bool_52_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0100");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 21, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 21, 37, 27);
+    elsif bool_57_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0011");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 20, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 20, 37, 27);
+    elsif bool_62_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0010");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 19, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 19, 37, 27);
+    elsif bool_67_10_x_000000 then
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0010");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 18, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 18, 37, 27);
+    else 
+      bit_join_17_1 <= std_logic_vector_to_unsigned("0001");
+      done_join_17_1 <= std_logic_vector_to_unsigned("1");
+      i_norm_join_17_1 <= s2s_cast(i_int_1_62, 17, 37, 27);
+      q_norm_join_17_1 <= s2s_cast(q_int_1_69, 17, 37, 27);
+    end if;
+  end process proc_if_17_1;
+  i_norm <= signed_to_std_logic_vector(i_norm_join_17_1);
+  q_norm <= signed_to_std_logic_vector(q_norm_join_17_1);
+  done <= unsigned_to_std_logic_vector(done_join_17_1);
+  bit <= unsigned_to_std_logic_vector(bit_join_17_1);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_abs_50a30d246f is
+  port (
+    a : in std_logic_vector((26 - 1) downto 0);
+    op : out std_logic_vector((27 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_abs_50a30d246f;
+architecture behavior of sysgen_abs_50a30d246f
+is
+  signal a_16_25: signed((26 - 1) downto 0);
+  type array_type_op_mem_48_20 is array (0 to (1 - 1)) of signed((27 - 1) downto 0);
+  signal op_mem_48_20: array_type_op_mem_48_20 := (
+    0 => "000000000000000000000000000");
+  signal op_mem_48_20_front_din: signed((27 - 1) downto 0);
+  signal op_mem_48_20_back: signed((27 - 1) downto 0);
+  signal op_mem_48_20_push_front_pop_back_en: std_logic;
+  signal cast_34_28: signed((27 - 1) downto 0);
+  signal internal_ip_34_13_neg: signed((27 - 1) downto 0);
+  signal rel_31_8: boolean;
+  signal internal_ip_join_31_5: signed((27 - 1) downto 0);
+  signal internal_ip_join_28_1: signed((27 - 1) downto 0);
+begin
+  a_16_25 <= std_logic_vector_to_signed(a);
+  op_mem_48_20_back <= op_mem_48_20(0);
+  proc_op_mem_48_20: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (op_mem_48_20_push_front_pop_back_en = '1')) then
+        op_mem_48_20(0) <= op_mem_48_20_front_din;
+      end if;
+    end if;
+  end process proc_op_mem_48_20;
+  cast_34_28 <= s2s_cast(a_16_25, 16, 27, 16);
+  internal_ip_34_13_neg <=  -cast_34_28;
+  rel_31_8 <= a_16_25 >= std_logic_vector_to_signed("00000000000000000000000000");
+  proc_if_31_5: process (a_16_25, internal_ip_34_13_neg, rel_31_8)
+  is
+  begin
+    if rel_31_8 then
+      internal_ip_join_31_5 <= s2s_cast(a_16_25, 16, 27, 16);
+    else 
+      internal_ip_join_31_5 <= internal_ip_34_13_neg;
+    end if;
+  end process proc_if_31_5;
+  proc_if_28_1: process (internal_ip_join_31_5)
+  is
+  begin
+    if false then
+      internal_ip_join_28_1 <= std_logic_vector_to_signed("000000000000000000000000000");
+    else 
+      internal_ip_join_28_1 <= internal_ip_join_31_5;
+    end if;
+  end process proc_if_28_1;
+  op_mem_48_20_front_din <= internal_ip_join_28_1;
+  op_mem_48_20_push_front_pop_back_en <= '1';
+  op <= signed_to_std_logic_vector(op_mem_48_20_back);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_constant_1c061e35c5 is
   port (
     op : out std_logic_vector((16 - 1) downto 0);
@@ -1268,63 +1572,6 @@ architecture behavior of sysgen_constant_1c061e35c5
 is
 begin
   op <= "0000000000000000";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_29dfb94f3c is
-  port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_29dfb94f3c;
-architecture behavior of sysgen_constant_29dfb94f3c
-is
-begin
-  op <= "0000000000110111";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_a1c83d2ded is
-  port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_a1c83d2ded;
-architecture behavior of sysgen_constant_a1c83d2ded
-is
-begin
-  op <= "0000000001010000";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_58f3fc865e is
-  port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_58f3fc865e;
-architecture behavior of sysgen_constant_58f3fc865e
-is
-begin
-  op <= "0000000000111110";
 end behavior;
 
 library work;
@@ -1620,73 +1867,30 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_constant_9d3c6a22a6 is
+entity sysgen_relational_55569134aa is
   port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_9d3c6a22a6;
-architecture behavior of sysgen_constant_9d3c6a22a6
-is
-begin
-  op <= "0000000001011010";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_38c1c0903c is
-  port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_38c1c0903c;
-architecture behavior of sysgen_constant_38c1c0903c
-is
-begin
-  op <= "0000000000111010";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_relational_8303810cfd is
-  port (
-    a : in std_logic_vector((8 - 1) downto 0);
-    b : in std_logic_vector((16 - 1) downto 0);
-    en : in std_logic_vector((1 - 1) downto 0);
+    a : in std_logic_vector((16 - 1) downto 0);
+    b : in std_logic_vector((18 - 1) downto 0);
     op : out std_logic_vector((1 - 1) downto 0);
     clk : in std_logic;
     ce : in std_logic;
     clr : in std_logic);
-end sysgen_relational_8303810cfd;
-architecture behavior of sysgen_relational_8303810cfd
+end sysgen_relational_55569134aa;
+architecture behavior of sysgen_relational_55569134aa
 is
-  signal a_1_31: unsigned((8 - 1) downto 0);
-  signal b_1_34: unsigned((16 - 1) downto 0);
-  signal en_1_37: boolean;
+  signal a_1_31: signed((16 - 1) downto 0);
+  signal b_1_34: signed((18 - 1) downto 0);
   type array_type_op_mem_37_22 is array (0 to (1 - 1)) of boolean;
   signal op_mem_37_22: array_type_op_mem_37_22 := (
     0 => false);
   signal op_mem_37_22_front_din: boolean;
   signal op_mem_37_22_back: boolean;
   signal op_mem_37_22_push_front_pop_back_en: std_logic;
-  signal cast_22_12: unsigned((16 - 1) downto 0);
-  signal result_22_3_rel: boolean;
-  signal op_mem_shift_join_39_3: boolean;
-  signal op_mem_shift_join_39_3_en: std_logic;
+  signal cast_14_12: signed((18 - 1) downto 0);
+  signal result_14_3_rel: boolean;
 begin
-  a_1_31 <= std_logic_vector_to_unsigned(a);
-  b_1_34 <= std_logic_vector_to_unsigned(b);
-  en_1_37 <= ((en) = "1");
+  a_1_31 <= std_logic_vector_to_signed(a);
+  b_1_34 <= std_logic_vector_to_signed(b);
   op_mem_37_22_back <= op_mem_37_22(0);
   proc_op_mem_37_22: process (clk)
   is
@@ -1698,20 +1902,10 @@ begin
       end if;
     end if;
   end process proc_op_mem_37_22;
-  cast_22_12 <= u2u_cast(a_1_31, 0, 16, 0);
-  result_22_3_rel <= cast_22_12 >= b_1_34;
-  proc_if_39_3: process (en_1_37, result_22_3_rel)
-  is
-  begin
-    if en_1_37 then
-      op_mem_shift_join_39_3_en <= '1';
-    else 
-      op_mem_shift_join_39_3_en <= '0';
-    end if;
-    op_mem_shift_join_39_3 <= result_22_3_rel;
-  end process proc_if_39_3;
-  op_mem_37_22_front_din <= op_mem_shift_join_39_3;
-  op_mem_37_22_push_front_pop_back_en <= op_mem_shift_join_39_3_en;
+  cast_14_12 <= s2s_cast(a_1_31, 14, 18, 16);
+  result_14_3_rel <= cast_14_12 /= b_1_34;
+  op_mem_37_22_front_din <= result_14_3_rel;
+  op_mem_37_22_push_front_pop_back_en <= '1';
   op <= boolean_to_vector(op_mem_37_22_back);
 end behavior;
 
@@ -1788,63 +1982,46 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_inverter_60410e4e22 is
+entity sysgen_relational_9b53ed3669 is
   port (
-    ip : in std_logic_vector((1 - 1) downto 0);
+    a : in std_logic_vector((18 - 1) downto 0);
+    b : in std_logic_vector((16 - 1) downto 0);
     op : out std_logic_vector((1 - 1) downto 0);
     clk : in std_logic;
     ce : in std_logic;
     clr : in std_logic);
-end sysgen_inverter_60410e4e22;
-architecture behavior of sysgen_inverter_60410e4e22
+end sysgen_relational_9b53ed3669;
+architecture behavior of sysgen_relational_9b53ed3669
 is
-  signal ip_1_26: boolean;
-  type array_type_op_mem_22_20 is array (0 to (20 - 1)) of boolean;
-  signal op_mem_22_20: array_type_op_mem_22_20 := (
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false);
-  signal op_mem_22_20_front_din: boolean;
-  signal op_mem_22_20_back: boolean;
-  signal op_mem_22_20_push_front_pop_back_en: std_logic;
-  signal internal_ip_12_1_bitnot: boolean;
+  signal a_1_31: signed((18 - 1) downto 0);
+  signal b_1_34: signed((16 - 1) downto 0);
+  type array_type_op_mem_37_22 is array (0 to (1 - 1)) of boolean;
+  signal op_mem_37_22: array_type_op_mem_37_22 := (
+    0 => false);
+  signal op_mem_37_22_front_din: boolean;
+  signal op_mem_37_22_back: boolean;
+  signal op_mem_37_22_push_front_pop_back_en: std_logic;
+  signal cast_14_17: signed((18 - 1) downto 0);
+  signal result_14_3_rel: boolean;
 begin
-  ip_1_26 <= ((ip) = "1");
-  op_mem_22_20_back <= op_mem_22_20(19);
-  proc_op_mem_22_20: process (clk)
+  a_1_31 <= std_logic_vector_to_signed(a);
+  b_1_34 <= std_logic_vector_to_signed(b);
+  op_mem_37_22_back <= op_mem_37_22(0);
+  proc_op_mem_37_22: process (clk)
   is
     variable i: integer;
   begin
     if (clk'event and (clk = '1')) then
-      if ((ce = '1') and (op_mem_22_20_push_front_pop_back_en = '1')) then
-        for i in 19 downto 1 loop 
-          op_mem_22_20(i) <= op_mem_22_20(i-1);
-        end loop;
-        op_mem_22_20(0) <= op_mem_22_20_front_din;
+      if ((ce = '1') and (op_mem_37_22_push_front_pop_back_en = '1')) then
+        op_mem_37_22(0) <= op_mem_37_22_front_din;
       end if;
     end if;
-  end process proc_op_mem_22_20;
-  internal_ip_12_1_bitnot <= ((not boolean_to_vector(ip_1_26)) = "1");
-  op_mem_22_20_front_din <= internal_ip_12_1_bitnot;
-  op_mem_22_20_push_front_pop_back_en <= '1';
-  op <= boolean_to_vector(op_mem_22_20_back);
+  end process proc_op_mem_37_22;
+  cast_14_17 <= s2s_cast(b_1_34, 14, 18, 16);
+  result_14_3_rel <= a_1_31 /= cast_14_17;
+  op_mem_37_22_front_din <= result_14_3_rel;
+  op_mem_37_22_push_front_pop_back_en <= '1';
+  op <= boolean_to_vector(op_mem_37_22_back);
 end behavior;
 
 library work;
@@ -2067,6 +2244,71 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_inverter_60410e4e22 is
+  port (
+    ip : in std_logic_vector((1 - 1) downto 0);
+    op : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_inverter_60410e4e22;
+architecture behavior of sysgen_inverter_60410e4e22
+is
+  signal ip_1_26: boolean;
+  type array_type_op_mem_22_20 is array (0 to (20 - 1)) of boolean;
+  signal op_mem_22_20: array_type_op_mem_22_20 := (
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false);
+  signal op_mem_22_20_front_din: boolean;
+  signal op_mem_22_20_back: boolean;
+  signal op_mem_22_20_push_front_pop_back_en: std_logic;
+  signal internal_ip_12_1_bitnot: boolean;
+begin
+  ip_1_26 <= ((ip) = "1");
+  op_mem_22_20_back <= op_mem_22_20(19);
+  proc_op_mem_22_20: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (op_mem_22_20_push_front_pop_back_en = '1')) then
+        for i in 19 downto 1 loop 
+          op_mem_22_20(i) <= op_mem_22_20(i-1);
+        end loop;
+        op_mem_22_20(0) <= op_mem_22_20_front_din;
+      end if;
+    end if;
+  end process proc_op_mem_22_20;
+  internal_ip_12_1_bitnot <= ((not boolean_to_vector(ip_1_26)) = "1");
+  op_mem_22_20_front_din <= internal_ip_12_1_bitnot;
+  op_mem_22_20_push_front_pop_back_en <= '1';
+  op <= boolean_to_vector(op_mem_22_20_back);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_constant_5e1e20acbb is
   port (
     op : out std_logic_vector((42 - 1) downto 0);
@@ -2088,11 +2330,14 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 entity axi_lite_axi_lite_interface is 
     port(
-        m17_sample_phi_w : out std_logic_vector(3 downto 0);
+        cav1_freq_eval_stop : out std_logic_vector(15 downto 0);
+        cav1_freq_eval_start : out std_logic_vector(15 downto 0);
+        cav1_reg_latch_pt : out std_logic_vector(15 downto 0);
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
-        ref_window_stop : out std_logic_vector(15 downto 0);
-        ref_window_start : out std_logic_vector(15 downto 0);
+        cav2_reg_latch_pt : out std_logic_vector(15 downto 0);
+        cav2_freq_eval_stop : out std_logic_vector(15 downto 0);
+        cav2_freq_eval_start : out std_logic_vector(15 downto 0);
         cav2_p2_window_stop : out std_logic_vector(15 downto 0);
         cav2_p2_window_start : out std_logic_vector(15 downto 0);
         cav2_p2_chan_sel : out std_logic_vector(3 downto 0);
@@ -2102,7 +2347,7 @@ entity axi_lite_axi_lite_interface is
         cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
         cav2_p1_calibration_coeff : out std_logic_vector(17 downto 0);
         cav2_nco_phase_reset : out std_logic_vector(0 downto 0);
-        cav2_nco_phase_adj : out std_logic_vector(31 downto 0);
+        cav2_nco_phase_adj : out std_logic_vector(25 downto 0);
         cav1_p2_window_stop : out std_logic_vector(15 downto 0);
         cav1_p2_window_start : out std_logic_vector(15 downto 0);
         cav1_p2_chan_sel : out std_logic_vector(3 downto 0);
@@ -2112,11 +2357,9 @@ entity axi_lite_axi_lite_interface is
         cav1_p1_chan_sel : out std_logic_vector(3 downto 0);
         cav1_p1_calibration_coeff : out std_logic_vector(17 downto 0);
         cav1_nco_phase_reset : out std_logic_vector(0 downto 0);
-        cav1_nco_phase_adj : out std_logic_vector(31 downto 0);
+        cav1_nco_phase_adj : out std_logic_vector(25 downto 0);
         cav1_p1_amp_out : in std_logic_vector(17 downto 0);
-        cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p1_dc_freq : in std_logic_vector(31 downto 0);
         cav1_p1_dc_img : in std_logic_vector(17 downto 0);
         cav1_p1_dc_real : in std_logic_vector(17 downto 0);
@@ -2128,9 +2371,7 @@ entity axi_lite_axi_lite_interface is
         cav1_p1_integrated_q : in std_logic_vector(17 downto 0);
         cav1_p1_phase_out : in std_logic_vector(17 downto 0);
         cav1_p2_amp_out : in std_logic_vector(17 downto 0);
-        cav1_p2_comparison_i : in std_logic_vector(17 downto 0);
         cav1_p2_comparison_phase : in std_logic_vector(17 downto 0);
-        cav1_p2_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p2_dc_freq : in std_logic_vector(31 downto 0);
         cav1_p2_dc_img : in std_logic_vector(17 downto 0);
         cav1_p2_dc_real : in std_logic_vector(17 downto 0);
@@ -2142,9 +2383,7 @@ entity axi_lite_axi_lite_interface is
         cav1_p2_integrated_q : in std_logic_vector(17 downto 0);
         cav1_p2_phase_out : in std_logic_vector(17 downto 0);
         cav2_p1_amp_out : in std_logic_vector(17 downto 0);
-        cav2_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        cav2_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav2_p1_dc_freq : in std_logic_vector(31 downto 0);
         cav2_p1_dc_img : in std_logic_vector(17 downto 0);
         cav2_p1_dc_real : in std_logic_vector(17 downto 0);
@@ -2156,9 +2395,7 @@ entity axi_lite_axi_lite_interface is
         cav2_p1_integrated_q : in std_logic_vector(17 downto 0);
         cav2_p1_phase_out : in std_logic_vector(17 downto 0);
         cav2_p2_amp_out : in std_logic_vector(17 downto 0);
-        cav2_p2_comparison_i : in std_logic_vector(17 downto 0);
         cav2_p2_comparison_phase : in std_logic_vector(17 downto 0);
-        cav2_p2_comparison_q : in std_logic_vector(17 downto 0);
         cav2_p2_dc_freq : in std_logic_vector(31 downto 0);
         cav2_p2_dc_img : in std_logic_vector(17 downto 0);
         cav2_p2_dc_real : in std_logic_vector(17 downto 0);
@@ -2174,7 +2411,6 @@ entity axi_lite_axi_lite_interface is
         rf_ref_phase : in std_logic_vector(17 downto 0);
         rf_ref_q : in std_logic_vector(17 downto 0);
         status_0 : in std_logic_vector(31 downto 0);
-        m17_sample_phase : in std_logic_vector(3 downto 0);
         axi_lite_clk : out std_logic;
         axi_lite_aclk : in std_logic;
         axi_lite_aresetn : in std_logic;
@@ -2200,11 +2436,14 @@ end axi_lite_axi_lite_interface;
 architecture structural of axi_lite_axi_lite_interface is 
 component axi_lite_axi_lite_interface_verilog is
     port(
-        m17_sample_phi_w : out std_logic_vector(3 downto 0);
+        cav1_freq_eval_stop : out std_logic_vector(15 downto 0);
+        cav1_freq_eval_start : out std_logic_vector(15 downto 0);
+        cav1_reg_latch_pt : out std_logic_vector(15 downto 0);
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
-        ref_window_stop : out std_logic_vector(15 downto 0);
-        ref_window_start : out std_logic_vector(15 downto 0);
+        cav2_reg_latch_pt : out std_logic_vector(15 downto 0);
+        cav2_freq_eval_stop : out std_logic_vector(15 downto 0);
+        cav2_freq_eval_start : out std_logic_vector(15 downto 0);
         cav2_p2_window_stop : out std_logic_vector(15 downto 0);
         cav2_p2_window_start : out std_logic_vector(15 downto 0);
         cav2_p2_chan_sel : out std_logic_vector(3 downto 0);
@@ -2214,7 +2453,7 @@ component axi_lite_axi_lite_interface_verilog is
         cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
         cav2_p1_calibration_coeff : out std_logic_vector(17 downto 0);
         cav2_nco_phase_reset : out std_logic_vector(0 downto 0);
-        cav2_nco_phase_adj : out std_logic_vector(31 downto 0);
+        cav2_nco_phase_adj : out std_logic_vector(25 downto 0);
         cav1_p2_window_stop : out std_logic_vector(15 downto 0);
         cav1_p2_window_start : out std_logic_vector(15 downto 0);
         cav1_p2_chan_sel : out std_logic_vector(3 downto 0);
@@ -2224,11 +2463,9 @@ component axi_lite_axi_lite_interface_verilog is
         cav1_p1_chan_sel : out std_logic_vector(3 downto 0);
         cav1_p1_calibration_coeff : out std_logic_vector(17 downto 0);
         cav1_nco_phase_reset : out std_logic_vector(0 downto 0);
-        cav1_nco_phase_adj : out std_logic_vector(31 downto 0);
+        cav1_nco_phase_adj : out std_logic_vector(25 downto 0);
         cav1_p1_amp_out : in std_logic_vector(17 downto 0);
-        cav1_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav1_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        cav1_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p1_dc_freq : in std_logic_vector(31 downto 0);
         cav1_p1_dc_img : in std_logic_vector(17 downto 0);
         cav1_p1_dc_real : in std_logic_vector(17 downto 0);
@@ -2240,9 +2477,7 @@ component axi_lite_axi_lite_interface_verilog is
         cav1_p1_integrated_q : in std_logic_vector(17 downto 0);
         cav1_p1_phase_out : in std_logic_vector(17 downto 0);
         cav1_p2_amp_out : in std_logic_vector(17 downto 0);
-        cav1_p2_comparison_i : in std_logic_vector(17 downto 0);
         cav1_p2_comparison_phase : in std_logic_vector(17 downto 0);
-        cav1_p2_comparison_q : in std_logic_vector(17 downto 0);
         cav1_p2_dc_freq : in std_logic_vector(31 downto 0);
         cav1_p2_dc_img : in std_logic_vector(17 downto 0);
         cav1_p2_dc_real : in std_logic_vector(17 downto 0);
@@ -2254,9 +2489,7 @@ component axi_lite_axi_lite_interface_verilog is
         cav1_p2_integrated_q : in std_logic_vector(17 downto 0);
         cav1_p2_phase_out : in std_logic_vector(17 downto 0);
         cav2_p1_amp_out : in std_logic_vector(17 downto 0);
-        cav2_p1_comparison_i : in std_logic_vector(17 downto 0);
         cav2_p1_comparison_phase : in std_logic_vector(17 downto 0);
-        cav2_p1_comparison_q : in std_logic_vector(17 downto 0);
         cav2_p1_dc_freq : in std_logic_vector(31 downto 0);
         cav2_p1_dc_img : in std_logic_vector(17 downto 0);
         cav2_p1_dc_real : in std_logic_vector(17 downto 0);
@@ -2268,9 +2501,7 @@ component axi_lite_axi_lite_interface_verilog is
         cav2_p1_integrated_q : in std_logic_vector(17 downto 0);
         cav2_p1_phase_out : in std_logic_vector(17 downto 0);
         cav2_p2_amp_out : in std_logic_vector(17 downto 0);
-        cav2_p2_comparison_i : in std_logic_vector(17 downto 0);
         cav2_p2_comparison_phase : in std_logic_vector(17 downto 0);
-        cav2_p2_comparison_q : in std_logic_vector(17 downto 0);
         cav2_p2_dc_freq : in std_logic_vector(31 downto 0);
         cav2_p2_dc_img : in std_logic_vector(17 downto 0);
         cav2_p2_dc_real : in std_logic_vector(17 downto 0);
@@ -2286,7 +2517,6 @@ component axi_lite_axi_lite_interface_verilog is
         rf_ref_phase : in std_logic_vector(17 downto 0);
         rf_ref_q : in std_logic_vector(17 downto 0);
         status_0 : in std_logic_vector(31 downto 0);
-        m17_sample_phase : in std_logic_vector(3 downto 0);
         axi_lite_clk : out std_logic;
         axi_lite_aclk : in std_logic;
         axi_lite_aresetn : in std_logic;
@@ -2312,11 +2542,14 @@ end component;
 begin
 inst : axi_lite_axi_lite_interface_verilog
     port map(
-    m17_sample_phi_w => m17_sample_phi_w,
+    cav1_freq_eval_stop => cav1_freq_eval_stop,
+    cav1_freq_eval_start => cav1_freq_eval_start,
+    cav1_reg_latch_pt => cav1_reg_latch_pt,
     scratchpad => scratchpad,
     rf_ref_chan_sel => rf_ref_chan_sel,
-    ref_window_stop => ref_window_stop,
-    ref_window_start => ref_window_start,
+    cav2_reg_latch_pt => cav2_reg_latch_pt,
+    cav2_freq_eval_stop => cav2_freq_eval_stop,
+    cav2_freq_eval_start => cav2_freq_eval_start,
     cav2_p2_window_stop => cav2_p2_window_stop,
     cav2_p2_window_start => cav2_p2_window_start,
     cav2_p2_chan_sel => cav2_p2_chan_sel,
@@ -2338,9 +2571,7 @@ inst : axi_lite_axi_lite_interface_verilog
     cav1_nco_phase_reset => cav1_nco_phase_reset,
     cav1_nco_phase_adj => cav1_nco_phase_adj,
     cav1_p1_amp_out => cav1_p1_amp_out,
-    cav1_p1_comparison_i => cav1_p1_comparison_i,
     cav1_p1_comparison_phase => cav1_p1_comparison_phase,
-    cav1_p1_comparison_q => cav1_p1_comparison_q,
     cav1_p1_dc_freq => cav1_p1_dc_freq,
     cav1_p1_dc_img => cav1_p1_dc_img,
     cav1_p1_dc_real => cav1_p1_dc_real,
@@ -2352,9 +2583,7 @@ inst : axi_lite_axi_lite_interface_verilog
     cav1_p1_integrated_q => cav1_p1_integrated_q,
     cav1_p1_phase_out => cav1_p1_phase_out,
     cav1_p2_amp_out => cav1_p2_amp_out,
-    cav1_p2_comparison_i => cav1_p2_comparison_i,
     cav1_p2_comparison_phase => cav1_p2_comparison_phase,
-    cav1_p2_comparison_q => cav1_p2_comparison_q,
     cav1_p2_dc_freq => cav1_p2_dc_freq,
     cav1_p2_dc_img => cav1_p2_dc_img,
     cav1_p2_dc_real => cav1_p2_dc_real,
@@ -2366,9 +2595,7 @@ inst : axi_lite_axi_lite_interface_verilog
     cav1_p2_integrated_q => cav1_p2_integrated_q,
     cav1_p2_phase_out => cav1_p2_phase_out,
     cav2_p1_amp_out => cav2_p1_amp_out,
-    cav2_p1_comparison_i => cav2_p1_comparison_i,
     cav2_p1_comparison_phase => cav2_p1_comparison_phase,
-    cav2_p1_comparison_q => cav2_p1_comparison_q,
     cav2_p1_dc_freq => cav2_p1_dc_freq,
     cav2_p1_dc_img => cav2_p1_dc_img,
     cav2_p1_dc_real => cav2_p1_dc_real,
@@ -2380,9 +2607,7 @@ inst : axi_lite_axi_lite_interface_verilog
     cav2_p1_integrated_q => cav2_p1_integrated_q,
     cav2_p1_phase_out => cav2_p1_phase_out,
     cav2_p2_amp_out => cav2_p2_amp_out,
-    cav2_p2_comparison_i => cav2_p2_comparison_i,
     cav2_p2_comparison_phase => cav2_p2_comparison_phase,
-    cav2_p2_comparison_q => cav2_p2_comparison_q,
     cav2_p2_dc_freq => cav2_p2_dc_freq,
     cav2_p2_dc_img => cav2_p2_dc_img,
     cav2_p2_dc_real => cav2_p2_dc_real,
@@ -2398,7 +2623,6 @@ inst : axi_lite_axi_lite_interface_verilog
     rf_ref_phase => rf_ref_phase,
     rf_ref_q => rf_ref_q,
     status_0 => status_0,
-    m17_sample_phase => m17_sample_phase,
     axi_lite_clk => axi_lite_clk,
     axi_lite_aclk => axi_lite_aclk,
     axi_lite_aresetn => axi_lite_aresetn,
@@ -2564,16 +2788,6 @@ entity example_xladdsub is
 
  component example_c_addsub_v12_0_i0
     port ( 
-    a: in std_logic_vector(17 - 1 downto 0);
-    clk: in std_logic:= '0';
-    ce: in std_logic:= '0';
-    s: out std_logic_vector(c_output_width - 1 downto 0);
-    b: in std_logic_vector(17 - 1 downto 0) 
- 		  ); 
- end component;
-
- component example_c_addsub_v12_0_i1
-    port ( 
     a: in std_logic_vector(19 - 1 downto 0);
     clk: in std_logic:= '0';
     ce: in std_logic:= '0';
@@ -2582,7 +2796,7 @@ entity example_xladdsub is
  		  ); 
  end component;
 
- component example_c_addsub_v12_0_i2
+ component example_c_addsub_v12_0_i1
     port ( 
     a: in std_logic_vector(21 - 1 downto 0);
     clk: in std_logic:= '0';
@@ -2620,17 +2834,6 @@ begin
 
  comp1: if ((core_name0 = "example_c_addsub_v12_0_i1")) generate 
   core_instance1:example_c_addsub_v12_0_i1
-   port map ( 
-         a => full_a,
-         clk => clk,
-         ce => internal_ce,
-         s => core_s,
-         b => full_b
-  ); 
-   end generate;
-
- comp2: if ((core_name0 = "example_c_addsub_v12_0_i2")) generate 
-  core_instance2:example_c_addsub_v12_0_i2
    port map ( 
          a => full_a,
          clk => clk,
@@ -3008,67 +3211,7 @@ use IEEE.numeric_std.all;
 library work;
 use work.conv_pkg.all;
 
-entity xlcomplex_multiplier_cb8642dadceebe375ead95a91c0c2f3a is 
-  port(
-    ce:in std_logic;
-    clk:in std_logic;
-    m_axis_dout_tdata_imag:out std_logic_vector(20 downto 0);
-    m_axis_dout_tdata_real:out std_logic_vector(20 downto 0);
-    m_axis_dout_tvalid:out std_logic;
-    s_axis_a_tdata_imag:in std_logic_vector(17 downto 0);
-    s_axis_a_tdata_real:in std_logic_vector(17 downto 0);
-    s_axis_a_tvalid:in std_logic;
-    s_axis_b_tdata_imag:in std_logic_vector(25 downto 0);
-    s_axis_b_tdata_real:in std_logic_vector(25 downto 0);
-    s_axis_b_tvalid:in std_logic
-  );
-end xlcomplex_multiplier_cb8642dadceebe375ead95a91c0c2f3a; 
-
-architecture behavior of xlcomplex_multiplier_cb8642dadceebe375ead95a91c0c2f3a  is
-  component example_cmpy_v6_0_i1
-    port(
-      aclk:in std_logic;
-      aclken:in std_logic;
-      m_axis_dout_tdata:out std_logic_vector(47 downto 0);
-      m_axis_dout_tvalid:out std_logic;
-      s_axis_a_tdata:in std_logic_vector(47 downto 0);
-      s_axis_a_tvalid:in std_logic;
-      s_axis_b_tdata:in std_logic_vector(63 downto 0);
-      s_axis_b_tvalid:in std_logic
-    );
-end component;
-signal m_axis_dout_tdata_net: std_logic_vector(47 downto 0) := (others=>'0');
-signal s_axis_a_tdata_net: std_logic_vector(47 downto 0) := (others=>'0');
-signal s_axis_b_tdata_net: std_logic_vector(63 downto 0) := (others=>'0');
-begin
-  m_axis_dout_tdata_imag <= m_axis_dout_tdata_net(44 downto 24);
-  m_axis_dout_tdata_real <= m_axis_dout_tdata_net(20 downto 0);
-  s_axis_a_tdata_net(41 downto 24) <= s_axis_a_tdata_imag;
-  s_axis_a_tdata_net(17 downto 0) <= s_axis_a_tdata_real;
-  s_axis_b_tdata_net(57 downto 32) <= s_axis_b_tdata_imag;
-  s_axis_b_tdata_net(25 downto 0) <= s_axis_b_tdata_real;
-  example_cmpy_v6_0_i1_instance : example_cmpy_v6_0_i1
-    port map(
-      aclk=>clk,
-      aclken=>ce,
-      m_axis_dout_tdata=>m_axis_dout_tdata_net,
-      m_axis_dout_tvalid=>m_axis_dout_tvalid,
-      s_axis_a_tdata=>s_axis_a_tdata_net,
-      s_axis_a_tvalid=>s_axis_a_tvalid,
-      s_axis_b_tdata=>s_axis_b_tdata_net,
-      s_axis_b_tvalid=>s_axis_b_tvalid
-    );
-end behavior;
-
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-
-library work;
-use work.conv_pkg.all;
-
-entity xldds_compiler_16d60bea2edab8aa90f34944c43b828c is 
+entity xldds_compiler_bccfbee4cea02d59adc7b3443a88c30b is 
   port(
     ce:in std_logic;
     clk:in std_logic;
@@ -3076,14 +3219,14 @@ entity xldds_compiler_16d60bea2edab8aa90f34944c43b828c is
     m_axis_data_tdata_sine:out std_logic_vector(25 downto 0);
     m_axis_data_tready:in std_logic;
     m_axis_data_tvalid:out std_logic;
-    s_axis_phase_tdata_pinc:in std_logic_vector(31 downto 0);
+    s_axis_phase_tdata_pinc:in std_logic_vector(25 downto 0);
     s_axis_phase_tdata_resync:in std_logic_vector(0 downto 0);
     s_axis_phase_tready:out std_logic;
     s_axis_phase_tvalid:in std_logic
   );
-end xldds_compiler_16d60bea2edab8aa90f34944c43b828c; 
+end xldds_compiler_bccfbee4cea02d59adc7b3443a88c30b; 
 
-architecture behavior of xldds_compiler_16d60bea2edab8aa90f34944c43b828c  is
+architecture behavior of xldds_compiler_bccfbee4cea02d59adc7b3443a88c30b  is
   component example_dds_compiler_v6_0_i0
     port(
       aclk:in std_logic;
@@ -3102,7 +3245,7 @@ begin
   m_axis_data_tdata_sine <= m_axis_data_tdata_net(57 downto 32);
   m_axis_data_tdata_cosine <= m_axis_data_tdata_net(25 downto 0);
   s_axis_phase_tdata_net(32 downto 32) <= s_axis_phase_tdata_resync;
-  s_axis_phase_tdata_net(31 downto 0) <= s_axis_phase_tdata_pinc;
+  s_axis_phase_tdata_net(25 downto 0) <= s_axis_phase_tdata_pinc;
   example_dds_compiler_v6_0_i0_instance : example_dds_compiler_v6_0_i0
     port map(
       aclk=>clk,
@@ -3224,7 +3367,7 @@ use IEEE.numeric_std.all;
 library work;
 use work.conv_pkg.all;
 
-entity xldivider_generator_a3942c1330e567b9a136337d2bde719d is 
+entity xldivider_generator_5d2a2b4531260672bf0520de139327f3 is 
   port(
     a:in std_logic_vector(18 downto 0);
     a_tvalid:in std_logic;
@@ -3232,15 +3375,15 @@ entity xldivider_generator_a3942c1330e567b9a136337d2bde719d is
     b_tvalid:in std_logic;
     ce:in std_logic;
     clk:in std_logic;
-    op:out std_logic_vector(60 downto 0)
+    op:out std_logic_vector(50 downto 0)
   );
-end xldivider_generator_a3942c1330e567b9a136337d2bde719d; 
+end xldivider_generator_5d2a2b4531260672bf0520de139327f3; 
 
-architecture behavior of xldivider_generator_a3942c1330e567b9a136337d2bde719d  is
+architecture behavior of xldivider_generator_5d2a2b4531260672bf0520de139327f3  is
   component example_div_gen_v5_1_i0
     port(
       aclk:in std_logic;
-      m_axis_dout_tdata:out std_logic_vector(79 downto 0);
+      m_axis_dout_tdata:out std_logic_vector(71 downto 0);
       m_axis_dout_tvalid:out std_logic;
       s_axis_dividend_tdata:in std_logic_vector(23 downto 0);
       s_axis_dividend_tvalid:in std_logic;
@@ -3248,18 +3391,18 @@ architecture behavior of xldivider_generator_a3942c1330e567b9a136337d2bde719d  i
       s_axis_divisor_tvalid:in std_logic
     );
 end component;
-signal m_axis_dout_tdata_net: std_logic_vector(79 downto 0) := (others=>'0');
-signal m_axis_dout_tdata_shift_in_net: std_logic_vector(77 downto 0) := (others=>'0');
-signal m_axis_dout_tdata_shift_out_net: std_logic_vector(60 downto 0) := (others=>'0');
+signal m_axis_dout_tdata_net: std_logic_vector(71 downto 0) := (others=>'0');
+signal m_axis_dout_tdata_shift_in_net: std_logic_vector(67 downto 0) := (others=>'0');
+signal m_axis_dout_tdata_shift_out_net: std_logic_vector(50 downto 0) := (others=>'0');
 signal result_tvalid: std_logic := '0';
 signal s_axis_dividend_tdata_net: std_logic_vector(23 downto 0) := (others=>'0');
 signal s_axis_divisor_tdata_net: std_logic_vector(31 downto 0) := (others=>'0');
 begin
-  m_axis_dout_tdata_shift_in_net <= m_axis_dout_tdata_net(77 downto 0);
+  m_axis_dout_tdata_shift_in_net <= m_axis_dout_tdata_net(67 downto 0);
   op <= m_axis_dout_tdata_shift_out_net;
   s_axis_dividend_tdata_net(18 downto 0) <= a;
   s_axis_divisor_tdata_net(31 downto 0) <= b;
-  m_axis_dout_tdata_shift_out_net <= shift_op(m_axis_dout_tdata_shift_in_net, 61, 17, 1);
+  m_axis_dout_tdata_shift_out_net <= shift_op(m_axis_dout_tdata_shift_in_net, 51, 17, 1);
   example_div_gen_v5_1_i0_instance : example_div_gen_v5_1_i0
     port map(
       aclk=>clk,
@@ -3280,42 +3423,42 @@ use IEEE.numeric_std.all;
 library work;
 use work.conv_pkg.all;
 
-entity xldivider_generator_15059e79cd21af7038061b366327b459 is 
+entity xldivider_generator_415962ac54b22c816540c773a5ef9f99 is 
   port(
-    a:in std_logic_vector(60 downto 0);
+    a:in std_logic_vector(50 downto 0);
     a_tvalid:in std_logic;
     b:in std_logic_vector(25 downto 0);
     b_tvalid:in std_logic;
     ce:in std_logic;
     clk:in std_logic;
-    op:out std_logic_vector(93 downto 0)
+    op:out std_logic_vector(83 downto 0)
   );
-end xldivider_generator_15059e79cd21af7038061b366327b459; 
+end xldivider_generator_415962ac54b22c816540c773a5ef9f99; 
 
-architecture behavior of xldivider_generator_15059e79cd21af7038061b366327b459  is
+architecture behavior of xldivider_generator_415962ac54b22c816540c773a5ef9f99  is
   component example_div_gen_v5_1_i1
     port(
       aclk:in std_logic;
-      m_axis_dout_tdata:out std_logic_vector(95 downto 0);
+      m_axis_dout_tdata:out std_logic_vector(87 downto 0);
       m_axis_dout_tvalid:out std_logic;
-      s_axis_dividend_tdata:in std_logic_vector(63 downto 0);
+      s_axis_dividend_tdata:in std_logic_vector(55 downto 0);
       s_axis_dividend_tvalid:in std_logic;
       s_axis_divisor_tdata:in std_logic_vector(31 downto 0);
       s_axis_divisor_tvalid:in std_logic
     );
 end component;
-signal m_axis_dout_tdata_net: std_logic_vector(95 downto 0) := (others=>'0');
-signal m_axis_dout_tdata_shift_in_net: std_logic_vector(93 downto 0) := (others=>'0');
-signal m_axis_dout_tdata_shift_out_net: std_logic_vector(93 downto 0) := (others=>'0');
+signal m_axis_dout_tdata_net: std_logic_vector(87 downto 0) := (others=>'0');
+signal m_axis_dout_tdata_shift_in_net: std_logic_vector(83 downto 0) := (others=>'0');
+signal m_axis_dout_tdata_shift_out_net: std_logic_vector(83 downto 0) := (others=>'0');
 signal result_tvalid: std_logic := '0';
-signal s_axis_dividend_tdata_net: std_logic_vector(63 downto 0) := (others=>'0');
+signal s_axis_dividend_tdata_net: std_logic_vector(55 downto 0) := (others=>'0');
 signal s_axis_divisor_tdata_net: std_logic_vector(31 downto 0) := (others=>'0');
 begin
-  m_axis_dout_tdata_shift_in_net <= m_axis_dout_tdata_net(93 downto 0);
+  m_axis_dout_tdata_shift_in_net <= m_axis_dout_tdata_net(83 downto 0);
   op <= m_axis_dout_tdata_shift_out_net;
-  s_axis_dividend_tdata_net(60 downto 0) <= a;
+  s_axis_dividend_tdata_net(50 downto 0) <= a;
   s_axis_divisor_tdata_net(25 downto 0) <= b;
-  m_axis_dout_tdata_shift_out_net <= shift_op(m_axis_dout_tdata_shift_in_net, 94, 42, 0);
+  m_axis_dout_tdata_shift_out_net <= shift_op(m_axis_dout_tdata_shift_in_net, 84, 32, 0);
   example_div_gen_v5_1_i1_instance : example_div_gen_v5_1_i1
     port map(
       aclk=>clk,
