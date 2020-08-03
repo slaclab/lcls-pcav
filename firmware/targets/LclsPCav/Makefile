@@ -6,7 +6,8 @@ export GIT_BYPASS = 1
 # PRJ_VERSION = 0x00000001  Initial version based on MR LLRF
 # PRJ_VERSION = 0x00000002  Update diagnostic strobe scheme.  AppTestModel
 # PRJ_VERSION = 0x00000003  Matlab model.
-export PRJ_VERSION = 0x00000003
+# PRJ_VERSION = 0x00000004  Simulation validated.
+export PRJ_VERSION = 0x00000004
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build
