@@ -6,14 +6,17 @@
 * macros) that can be used to access the device.  The user should refer to the
 * hardware device specification for more details of the device operation.
 */ 
-#define EXAMPLE_CAV1_FREQ_EVAL_STOP 0x1d4/**< cav1_freq_eval_stop */
-#define EXAMPLE_CAV1_FREQ_EVAL_START 0x1d0/**< cav1_freq_eval_start */
-#define EXAMPLE_CAV1_REG_LATCH_PT 0x1dc/**< cav1_reg_latch_pt */
+#define EXAMPLE_WFDATA_7_SEL 0x30/**< wfdata_7_sel */
+#define EXAMPLE_WFDATA_6_SEL 0x2c/**< wfdata_6_sel */
+#define EXAMPLE_WFDATA_5_SEL 0x28/**< wfdata_5_sel */
+#define EXAMPLE_WFDATA_4_SEL 0x24/**< wfdata_4_sel */
+#define EXAMPLE_WFDATA_3_SEL 0x20/**< wfdata_3_sel */
+#define EXAMPLE_WFDATA_2_SEL 0x1c/**< wfdata_2_sel */
+#define EXAMPLE_WFDATA_1_SEL 0x18/**< wfdata_1_sel */
+#define EXAMPLE_WFDATA_0_SEL 0x14/**< wfdata_0_sel */
 #define EXAMPLE_SCRATCHPAD 0xffc/**< scratchpad */
 #define EXAMPLE_RF_REF_CHAN_SEL 0x10/**< rf_ref_chan_sel */
 #define EXAMPLE_CAV2_REG_LATCH_PT 0x374/**< cav2_reg_latch_pt */
-#define EXAMPLE_CAV2_FREQ_EVAL_STOP 0x36c/**< cav2_freq_eval_stop */
-#define EXAMPLE_CAV2_FREQ_EVAL_START 0x368/**< cav2_freq_eval_start */
 #define EXAMPLE_CAV2_P2_WINDOW_STOP 0x350/**< cav2_p2_window_stop */
 #define EXAMPLE_CAV2_P2_WINDOW_START 0x34c/**< cav2_p2_window_start */
 #define EXAMPLE_CAV2_P2_CHAN_SEL 0x340/**< cav2_p2_chan_sel */
@@ -24,6 +27,9 @@
 #define EXAMPLE_CAV2_P1_CALIBRATION_COEFF 0x2ac/**< cav2_p1_calibration_coeff */
 #define EXAMPLE_CAV2_NCO_PHASE_RESET 0x2b4/**< cav2_nco_phase_reset */
 #define EXAMPLE_CAV2_NCO_PHASE_ADJ 0x2b0/**< cav2_nco_phase_adj */
+#define EXAMPLE_CAV2_FREQ_EVAL_STOP 0x36c/**< cav2_freq_eval_stop */
+#define EXAMPLE_CAV2_FREQ_EVAL_START 0x368/**< cav2_freq_eval_start */
+#define EXAMPLE_CAV1_REG_LATCH_PT 0x1dc/**< cav1_reg_latch_pt */
 #define EXAMPLE_CAV1_P2_WINDOW_STOP 0x1b8/**< cav1_p2_window_stop */
 #define EXAMPLE_CAV1_P2_WINDOW_START 0x1b4/**< cav1_p2_window_start */
 #define EXAMPLE_CAV1_P2_CHAN_SEL 0x1a8/**< cav1_p2_chan_sel */
@@ -34,6 +40,8 @@
 #define EXAMPLE_CAV1_P1_CALIBRATION_COEFF 0x114/**< cav1_p1_calibration_coeff */
 #define EXAMPLE_CAV1_NCO_PHASE_RESET 0x11c/**< cav1_nco_phase_reset */
 #define EXAMPLE_CAV1_NCO_PHASE_ADJ 0x118/**< cav1_nco_phase_adj */
+#define EXAMPLE_CAV1_FREQ_EVAL_STOP 0x1d4/**< cav1_freq_eval_stop */
+#define EXAMPLE_CAV1_FREQ_EVAL_START 0x1d0/**< cav1_freq_eval_start */
 #define EXAMPLE_CAV1_P1_AMP_OUT 0x100/**< cav1_p1_amp_out */
 #define EXAMPLE_CAV1_P1_COMPARISON_PHASE 0x10c/**< cav1_p1_comparison_phase */
 #define EXAMPLE_CAV1_P1_DC_FREQ 0xf0/**< cav1_p1_dc_freq */
