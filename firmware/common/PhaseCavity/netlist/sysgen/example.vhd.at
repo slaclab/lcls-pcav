@@ -5778,12 +5778,12 @@ NCO1/Logical'
     'Instance' => 'down_sample37',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample37'
   },
-  'Line_33515' => {
+  'Line_33518' => {
     'CodeInstance' => 'example_struct/dsp/cav2/ddc_nco1',
     'Instance' => 'ddc_nco1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/DDC NCO1'
   },
-  'Line_33527' => {
+  'Line_33530' => {
     'CodeInstance' => 'example_struct/dsp/cav2/iq_integration1',
     'Instance' => 'iq_integration1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1'
@@ -5793,77 +5793,77 @@ NCO1/Logical'
     'Instance' => 'down_sample38',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample38'
   },
-  'Line_33576' => {
+  'Line_33579' => {
     'CodeInstance' => 'example_struct/dsp/cav2/iq_integration2',
     'Instance' => 'iq_integration2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2'
   },
-  'Line_33625' => {
+  'Line_33628' => {
     'CodeInstance' => 'example_struct/dsp/cav2/masking_n_delay1',
     'Instance' => 'masking_n_delay1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Masking_n_delay1'
   },
-  'Line_33644' => {
+  'Line_33647' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select',
     'Instance' => 'pa_select',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/PA_select'
   },
-  'Line_33657' => {
+  'Line_33660' => {
     'CodeInstance' => 'example_struct/dsp/cav2/pa_select1',
     'Instance' => 'pa_select1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/PA_select1'
   },
-  'Line_33670' => {
+  'Line_33673' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem1_x0',
     'Instance' => 'subsystem1_x0',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem1'
   },
-  'Line_33684' => {
+  'Line_33687' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem10',
     'Instance' => 'subsystem10',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem10'
   },
-  'Line_33694' => {
+  'Line_33697' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem11',
     'Instance' => 'subsystem11',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem11'
   },
-  'Line_33704' => {
+  'Line_33707' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem12',
     'Instance' => 'subsystem12',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem12'
   },
-  'Line_33714' => {
+  'Line_33717' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem3',
     'Instance' => 'subsystem3',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem3'
   },
-  'Line_33729' => {
+  'Line_33732' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem5',
     'Instance' => 'subsystem5',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem5'
   },
-  'Line_33739' => {
+  'Line_33742' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem6',
     'Instance' => 'subsystem6',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem6'
   },
-  'Line_33749' => {
+  'Line_33752' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem7',
     'Instance' => 'subsystem7',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem7'
   },
-  'Line_33759' => {
+  'Line_33762' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem8',
     'Instance' => 'subsystem8',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem8'
   },
-  'Line_33769' => {
+  'Line_33772' => {
     'CodeInstance' => 'example_struct/dsp/cav2/subsystem9',
     'Instance' => 'subsystem9',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Subsystem9'
   },
-  'Line_33779' => {
+  'Line_33782' => {
     'CodeInstance' => 'example_struct/dsp/cav2/c1p1_masking_window',
     'Instance' => 'c1p1_masking_window',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/c1p1_Masking_window'
@@ -5873,67 +5873,67 @@ NCO1/Logical'
     'Instance' => 'down_sample39',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample39'
   },
-  'Line_33790' => {
+  'Line_33793' => {
     'CodeInstance' => 'example_struct/dsp/cav2/c1p1_pa_conversion',
     'Instance' => 'c1p1_pa_conversion',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/c1p1_PA_conversion'
   },
-  'Line_33809' => {
+  'Line_33812' => {
     'CodeInstance' => 'example_struct/dsp/cav2/c1p1_pa_conversion1',
     'Instance' => 'c1p1_pa_conversion1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/c1p1_PA_conversion1'
   },
-  'Line_33828' => {
+  'Line_33831' => {
     'CodeInstance' => 'example_struct/dsp/cav2/c1p2_freq_err_module1',
     'Instance' => 'c1p2_freq_err_module1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1'
   },
-  'Line_33862' => {
+  'Line_33865' => {
     'CodeInstance' => 'example_struct/dsp/cav2/c1p2_freq_err_module2',
     'Instance' => 'c1p2_freq_err_module2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module2'
   },
-  'Line_33894' => {
+  'Line_33897' => {
     'CodeInstance' => 'example_struct/dsp/cav2/c1p2_window_wf',
     'Instance' => 'c1p2_window_wf',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/c1p2_window_wf'
   },
-  'Line_33908' => {
+  'Line_33911' => {
     'CodeInstance' => 'example_struct/dsp/cav2/c2p1_window_wf',
     'Instance' => 'c2p1_window_wf',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/c2p1_window_wf '
   },
-  'Line_33922' => {
+  'Line_33925' => {
     'CodeInstance' => 'example_struct/dsp/cav2/clock_enable_probe',
     'Instance' => 'clock_enable_probe',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Clock Enable Probe'
   },
-  'Line_33933' => {
+  'Line_33936' => {
     'CodeInstance' => 'example_struct/dsp/cav2/clock_enable_probe1',
     'Instance' => 'clock_enable_probe1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Clock Enable Probe1'
   },
-  'Line_33944' => {
+  'Line_33947' => {
     'CodeInstance' => 'example_struct/dsp/cav2/complex_multiplier_6_0',
     'Instance' => 'complex_multiplier_6_0',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Complex Multiplier 6.0 '
   },
-  'Line_33958' => {
+  'Line_33961' => {
     'CodeInstance' => 'example_struct/dsp/cav2/complex_multiplier_6_0_1',
     'Instance' => 'complex_multiplier_6_0_1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Complex Multiplier 6.0 1'
   },
-  'Line_33972' => {
+  'Line_33975' => {
     'CodeInstance' => 'example_struct/dsp/cav2/convert1',
     'Instance' => 'convert1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Convert1'
   },
-  'Line_33993' => {
+  'Line_33996' => {
     'CodeInstance' => 'example_struct/dsp/cav2/convert2',
     'Instance' => 'convert2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Convert2'
   },
-  'Line_34014' => {
+  'Line_34017' => {
     'CodeInstance' => 'example_struct/dsp/cav2/convert5',
     'Instance' => 'convert5',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Convert5'
@@ -5943,67 +5943,67 @@ NCO1/Logical'
     'Instance' => 'down_sample4',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample4'
   },
-  'Line_34035' => {
+  'Line_34038' => {
     'CodeInstance' => 'example_struct/dsp/cav2/convert6',
     'Instance' => 'convert6',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Convert6'
   },
-  'Line_34056' => {
+  'Line_34059' => {
     'CodeInstance' => 'example_struct/dsp/cav2/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Down Sample'
   },
-  'Line_34080' => {
+  'Line_34083' => {
     'CodeInstance' => 'example_struct/dsp/cav2/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Down Sample1'
   },
-  'Line_34104' => {
+  'Line_34107' => {
     'CodeInstance' => 'example_struct/dsp/cav2/down_sample3',
     'Instance' => 'down_sample3',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Down Sample3'
   },
-  'Line_34128' => {
+  'Line_34131' => {
     'CodeInstance' => 'example_struct/dsp/cav2/down_sample4',
     'Instance' => 'down_sample4',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Down Sample4'
   },
-  'Line_34152' => {
+  'Line_34155' => {
     'CodeInstance' => 'example_struct/dsp/cav2/down_sample6',
     'Instance' => 'down_sample6',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Down Sample6'
   },
-  'Line_34176' => {
+  'Line_34179' => {
     'CodeInstance' => 'example_struct/dsp/cav2/down_sample7',
     'Instance' => 'down_sample7',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Down Sample7'
   },
-  'Line_34200' => {
+  'Line_34203' => {
     'CodeInstance' => 'example_struct/dsp/cav2/logical',
     'Instance' => 'logical',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Logical'
   },
-  'Line_34209' => {
+  'Line_34212' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Register1'
   },
-  'Line_34222' => {
+  'Line_34225' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register10',
     'Instance' => 'register10',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Register10'
   },
-  'Line_34235' => {
+  'Line_34238' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register7',
     'Instance' => 'register7',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Register7'
   },
-  'Line_34248' => {
+  'Line_34251' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register8',
     'Instance' => 'register8',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Register8'
   },
-  'Line_34261' => {
+  'Line_34264' => {
     'CodeInstance' => 'example_struct/dsp/cav2/register9',
     'Instance' => 'register9',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Register9'
@@ -6013,107 +6013,112 @@ NCO1/Logical'
     'Instance' => 'down_sample40',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample40'
   },
-  'Line_34334' => {
+  'Line_34277' => {
+    'CodeInstance' => 'example_struct/dsp/cav2/counter',
+    'Instance' => 'counter',
+    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2/Counter'
+  },
+  'Line_34345' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register25',
     'Instance' => 'register25',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input/Register25'
   },
-  'Line_34347' => {
+  'Line_34358' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register26',
     'Instance' => 'register26',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input/Register26'
   },
-  'Line_34360' => {
+  'Line_34371' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register27',
     'Instance' => 'register27',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input/Register27'
   },
-  'Line_34373' => {
+  'Line_34384' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register29',
     'Instance' => 'register29',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input/Register29'
   },
-  'Line_34386' => {
+  'Line_34397' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register30',
     'Instance' => 'register30',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input/Register30'
   },
-  'Line_34399' => {
+  'Line_34410' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register31',
     'Instance' => 'register31',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input/Register31'
   },
-  'Line_34412' => {
+  'Line_34423' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input/register34',
     'Instance' => 'register34',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input/Register34'
   },
-  'Line_34480' => {
+  'Line_34491' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Constant13'
   },
-  'Line_34487' => {
+  'Line_34498' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Delay'
-  },
-  'Line_34502' => {
-    'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/delay1',
-    'Instance' => 'delay1',
-    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Delay1'
   },
   'Line_3451' => {
     'CodeInstance' => 'example_struct/axi_lite/down_sample41',
     'Instance' => 'down_sample41',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample41'
   },
-  'Line_34517' => {
+  'Line_34513' => {
+    'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/delay1',
+    'Instance' => 'delay1',
+    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Delay1'
+  },
+  'Line_34528' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/down_sample',
     'Instance' => 'down_sample',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Down Sample'
   },
-  'Line_34541' => {
+  'Line_34552' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Down Sample1'
   },
-  'Line_34565' => {
+  'Line_34576' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Register'
   },
-  'Line_34578' => {
+  'Line_34589' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Register1'
   },
-  'Line_34591' => {
+  'Line_34602' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Register2'
   },
-  'Line_34604' => {
+  'Line_34615' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Register3'
   },
-  'Line_34617' => {
+  'Line_34628' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Register6'
   },
-  'Line_34630' => {
+  'Line_34641' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Relational'
   },
-  'Line_34639' => {
+  'Line_34650' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3/Relational1'
   },
-  'Line_34693' => {
+  'Line_34704' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select/channel_select3',
     'Instance' => 'channel_select3',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select/Channel Select3'
@@ -6123,72 +6128,72 @@ NCO1/Logical'
     'Instance' => 'down_sample42',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample42'
   },
-  'Line_34759' => {
+  'Line_34770' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/constant13',
     'Instance' => 'constant13',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Constant13'
   },
-  'Line_34766' => {
+  'Line_34777' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/delay',
     'Instance' => 'delay',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Delay'
   },
-  'Line_34781' => {
+  'Line_34792' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/delay1',
     'Instance' => 'delay1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Delay1'
-  },
-  'Line_34796' => {
-    'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/down_sample',
-    'Instance' => 'down_sample',
-    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Down Sample'
   },
   'Line_348' => {
     'CodeInstance' => 'example_struct/subsystem/register24',
     'Instance' => 'register24',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem/Register24'
   },
-  'Line_34820' => {
+  'Line_34807' => {
+    'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/down_sample',
+    'Instance' => 'down_sample',
+    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Down Sample'
+  },
+  'Line_34831' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Down Sample1'
   },
-  'Line_34844' => {
+  'Line_34855' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register_x0',
     'Instance' => 'register_x0',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Register'
   },
-  'Line_34857' => {
+  'Line_34868' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register1',
     'Instance' => 'register1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Register1'
   },
-  'Line_34870' => {
+  'Line_34881' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register2',
     'Instance' => 'register2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Register2'
   },
-  'Line_34883' => {
+  'Line_34894' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register3',
     'Instance' => 'register3',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Register3'
   },
-  'Line_34896' => {
+  'Line_34907' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/register6',
     'Instance' => 'register6',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Register6'
   },
-  'Line_34909' => {
+  'Line_34920' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/relational',
     'Instance' => 'relational',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Relational'
   },
-  'Line_34918' => {
+  'Line_34929' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1/relational1',
     'Instance' => 'relational1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1/Relational1'
   },
-  'Line_34969' => {
+  'Line_34980' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select/channel_select1',
     'Instance' => 'channel_select1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select/Channel Select1'
@@ -6198,12 +6203,12 @@ NCO1/Logical'
     'Instance' => 'down_sample43',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample43'
   },
-  'Line_35050' => {
+  'Line_35061' => {
     'CodeInstance' => 'example_struct/dsp/ref/iq_select',
     'Instance' => 'iq_select',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/IQ_select'
   },
-  'Line_35064' => {
+  'Line_35075' => {
     'CodeInstance' => 'example_struct/dsp/ref/pa_select',
     'Instance' => 'pa_select',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref/PA_select'
@@ -6248,12 +6253,12 @@ NCO1/Logical'
     'Instance' => 'down_sample51',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample51'
   },
-  'Line_36698' => {
+  'Line_36712' => {
     'CodeInstance' => 'example_struct/dsp/bsa_streaming',
     'Instance' => 'bsa_streaming',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/BSA_streaming'
   },
-  'Line_36853' => {
+  'Line_36867' => {
     'CodeInstance' => 'example_struct/dsp/cav1',
     'Instance' => 'cav1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav1'
@@ -6263,7 +6268,7 @@ NCO1/Logical'
     'Instance' => 'down_sample52',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample52'
   },
-  'Line_37078' => {
+  'Line_37092' => {
     'CodeInstance' => 'example_struct/dsp/cav2',
     'Instance' => 'cav2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Cav2'
@@ -6273,147 +6278,147 @@ NCO1/Logical'
     'Instance' => 'down_sample53',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample53'
   },
-  'Line_37294' => {
+  'Line_37309' => {
     'CodeInstance' => 'example_struct/dsp/rflib_input',
     'Instance' => 'rflib_input',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/RFLib_input'
   },
-  'Line_37313' => {
+  'Line_37328' => {
     'CodeInstance' => 'example_struct/dsp/ref',
     'Instance' => 'ref',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Ref'
   },
-  'Line_37336' => {
+  'Line_37351' => {
     'CodeInstance' => 'example_struct/dsp/down_sample1',
     'Instance' => 'down_sample1',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample1'
   },
-  'Line_37360' => {
+  'Line_37375' => {
     'CodeInstance' => 'example_struct/dsp/down_sample2',
     'Instance' => 'down_sample2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample2'
-  },
-  'Line_37384' => {
-    'CodeInstance' => 'example_struct/dsp/down_sample3',
-    'Instance' => 'down_sample3',
-    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample3'
   },
   'Line_3739' => {
     'CodeInstance' => 'example_struct/axi_lite/down_sample54',
     'Instance' => 'down_sample54',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample54'
   },
-  'Line_37408' => {
+  'Line_37399' => {
+    'CodeInstance' => 'example_struct/dsp/down_sample3',
+    'Instance' => 'down_sample3',
+    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample3'
+  },
+  'Line_37423' => {
     'CodeInstance' => 'example_struct/dsp/down_sample4',
     'Instance' => 'down_sample4',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample4'
   },
-  'Line_37432' => {
+  'Line_37447' => {
     'CodeInstance' => 'example_struct/dsp/down_sample5',
     'Instance' => 'down_sample5',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample5'
   },
-  'Line_37456' => {
+  'Line_37471' => {
     'CodeInstance' => 'example_struct/dsp/down_sample6',
     'Instance' => 'down_sample6',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample6'
   },
-  'Line_37480' => {
+  'Line_37495' => {
     'CodeInstance' => 'example_struct/dsp/down_sample7',
     'Instance' => 'down_sample7',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample7'
   },
-  'Line_37504' => {
+  'Line_37519' => {
     'CodeInstance' => 'example_struct/dsp/down_sample8',
     'Instance' => 'down_sample8',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Down Sample8'
   },
-  'Line_37528' => {
+  'Line_37543' => {
     'CodeInstance' => 'example_struct/dsp/logical',
     'Instance' => 'logical',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Logical'
   },
-  'Line_37537' => {
+  'Line_37552' => {
     'CodeInstance' => 'example_struct/dsp/mux2',
     'Instance' => 'mux2',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux2'
   },
-  'Line_37547' => {
+  'Line_37562' => {
     'CodeInstance' => 'example_struct/dsp/mux3',
     'Instance' => 'mux3',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux3'
   },
-  'Line_37559' => {
+  'Line_37574' => {
     'CodeInstance' => 'example_struct/dsp/mux4',
     'Instance' => 'mux4',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux4'
   },
-  'Line_37571' => {
+  'Line_37586' => {
     'CodeInstance' => 'example_struct/dsp/mux5',
     'Instance' => 'mux5',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux5'
   },
-  'Line_37583' => {
+  'Line_37598' => {
     'CodeInstance' => 'example_struct/dsp/mux6',
     'Instance' => 'mux6',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux6'
   },
-  'Line_37595' => {
+  'Line_37610' => {
     'CodeInstance' => 'example_struct/dsp/mux7',
     'Instance' => 'mux7',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux7'
   },
-  'Line_37605' => {
+  'Line_37620' => {
     'CodeInstance' => 'example_struct/dsp/mux8',
     'Instance' => 'mux8',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux8'
-  },
-  'Line_37621' => {
-    'CodeInstance' => 'example_struct/dsp/register10',
-    'Instance' => 'register10',
-    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register10'
   },
   'Line_3763' => {
     'CodeInstance' => 'example_struct/axi_lite/down_sample55',
     'Instance' => 'down_sample55',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample55'
   },
-  'Line_37634' => {
+  'Line_37636' => {
+    'CodeInstance' => 'example_struct/dsp/register10',
+    'Instance' => 'register10',
+    'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register10'
+  },
+  'Line_37649' => {
     'CodeInstance' => 'example_struct/dsp/register11',
     'Instance' => 'register11',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register11'
   },
-  'Line_37647' => {
+  'Line_37662' => {
     'CodeInstance' => 'example_struct/dsp/register12',
     'Instance' => 'register12',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register12'
   },
-  'Line_37660' => {
+  'Line_37675' => {
     'CodeInstance' => 'example_struct/dsp/register13',
     'Instance' => 'register13',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register13'
   },
-  'Line_37673' => {
+  'Line_37688' => {
     'CodeInstance' => 'example_struct/dsp/register14',
     'Instance' => 'register14',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register14'
   },
-  'Line_37686' => {
+  'Line_37701' => {
     'CodeInstance' => 'example_struct/dsp/register15',
     'Instance' => 'register15',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register15'
   },
-  'Line_37699' => {
+  'Line_37714' => {
     'CodeInstance' => 'example_struct/dsp/register8',
     'Instance' => 'register8',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register8'
   },
-  'Line_37712' => {
+  'Line_37727' => {
     'CodeInstance' => 'example_struct/dsp/register9',
     'Instance' => 'register9',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Register9'
   },
-  'Line_37725' => {
+  'Line_37740' => {
     'CodeInstance' => 'example_struct/dsp/mux9',
     'Instance' => 'mux9',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp/Mux9'
@@ -6458,42 +6463,42 @@ NCO1/Logical'
     'Instance' => 'register27',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem/Register27'
   },
-  'Line_39306' => {
-    'CodeInstance' => 'example_struct/subsystem',
-    'Instance' => 'subsystem',
-    'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem'
-  },
   'Line_3931' => {
     'CodeInstance' => 'example_struct/axi_lite/down_sample9',
     'Instance' => 'down_sample9',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Down Sample9'
   },
-  'Line_39361' => {
+  'Line_39324' => {
+    'CodeInstance' => 'example_struct/subsystem',
+    'Instance' => 'subsystem',
+    'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem'
+  },
+  'Line_39379' => {
     'CodeInstance' => 'example_struct/subsystem2_x0',
     'Instance' => 'subsystem2_x0',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem2'
   },
-  'Line_39394' => {
+  'Line_39412' => {
     'CodeInstance' => 'example_struct/subsystem3',
     'Instance' => 'subsystem3',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem3'
   },
-  'Line_39413' => {
+  'Line_39431' => {
     'CodeInstance' => 'example_struct/subsystem4',
     'Instance' => 'subsystem4',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem4'
   },
-  'Line_39438' => {
+  'Line_39456' => {
     'CodeInstance' => 'example_struct/subsystem5',
     'Instance' => 'subsystem5',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem5'
   },
-  'Line_39493' => {
+  'Line_39511' => {
     'CodeInstance' => 'example_struct/subsystem7',
     'Instance' => 'subsystem7',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/Subsystem7'
   },
-  'Line_39526' => {
+  'Line_39544' => {
     'CodeInstance' => 'example_struct/axi_lite',
     'Instance' => 'axi_lite',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite'
@@ -6508,7 +6513,7 @@ NCO1/Logical'
     'Instance' => 'register10',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Register10'
   },
-  'Line_39708' => {
+  'Line_39726' => {
     'CodeInstance' => 'example_struct/dsp',
     'Instance' => 'dsp',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/dsp'
@@ -6533,27 +6538,27 @@ NCO1/Logical'
     'Instance' => 'register103',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Register103'
   },
-  'Line_40324' => {
-    'CodeInstance' => 'example_default_clock_driver/clockdriver_x2',
-    'Instance' => 'clockdriver_x2',
-    'SimulinkInstance' => ''
-  },
   'Line_4033' => {
     'CodeInstance' => 'example_struct/axi_lite/register104',
     'Instance' => 'register104',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Register104'
   },
-  'Line_40336' => {
+  'Line_40343' => {
+    'CodeInstance' => 'example_default_clock_driver/clockdriver_x2',
+    'Instance' => 'clockdriver_x2',
+    'SimulinkInstance' => ''
+  },
+  'Line_40355' => {
     'CodeInstance' => 'example_default_clock_driver/clockdriver_x1',
     'Instance' => 'clockdriver_x1',
     'SimulinkInstance' => ''
   },
-  'Line_40348' => {
+  'Line_40367' => {
     'CodeInstance' => 'example_default_clock_driver/clockdriver_x0',
     'Instance' => 'clockdriver_x0',
     'SimulinkInstance' => ''
   },
-  'Line_40360' => {
+  'Line_40379' => {
     'CodeInstance' => 'example_default_clock_driver/clockdriver',
     'Instance' => 'clockdriver',
     'SimulinkInstance' => ''
@@ -6583,7 +6588,7 @@ NCO1/Logical'
     'Instance' => 'register108',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Register108'
   },
-  'Line_40890' => {
+  'Line_40910' => {
     'CodeInstance' => 'axi_lite_axi_lite_interface',
     'Instance' => 'axi_lite_axi_lite_interface',
     'SimulinkInstance' => ''
@@ -6593,12 +6598,12 @@ NCO1/Logical'
     'Instance' => 'register109',
     'SimulinkInstance' => 'exampleModel_bus_axi/example/axi_lite/Register109'
   },
-  'Line_41002' => {
+  'Line_41022' => {
     'CodeInstance' => 'example_default_clock_driver',
     'Instance' => 'example_default_clock_driver',
     'SimulinkInstance' => ''
   },
-  'Line_41019' => {
+  'Line_41039' => {
     'CodeInstance' => 'example_struct',
     'Instance' => 'example_struct',
     'SimulinkInstance' => 'example'

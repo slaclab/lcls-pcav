@@ -2726,6 +2726,61 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_counter_8d0781d403 is
+  port (
+    rst : in std_logic_vector((1 - 1) downto 0);
+    op : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_counter_8d0781d403;
+architecture behavior of sysgen_counter_8d0781d403
+is
+  signal rst_1_40: boolean;
+  signal count_reg_20_23: unsigned((1 - 1) downto 0) := "0";
+  signal count_reg_20_23_rst: std_logic;
+  signal bool_44_4: boolean;
+  signal rst_limit_join_44_1: boolean;
+  signal count_reg_join_44_1: unsigned((2 - 1) downto 0);
+  signal count_reg_join_44_1_rst: std_logic;
+begin
+  rst_1_40 <= ((rst) = "1");
+  proc_count_reg_20_23: process (clk)
+  is
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (count_reg_20_23_rst = '1')) then
+        count_reg_20_23 <= "0";
+      elsif (ce = '1') then 
+        count_reg_20_23 <= count_reg_20_23 + std_logic_vector_to_unsigned("1");
+      end if;
+    end if;
+  end process proc_count_reg_20_23;
+  bool_44_4 <= rst_1_40 or false;
+  proc_if_44_1: process (bool_44_4, count_reg_20_23)
+  is
+  begin
+    if bool_44_4 then
+      count_reg_join_44_1_rst <= '1';
+    else 
+      count_reg_join_44_1_rst <= '0';
+    end if;
+    if bool_44_4 then
+      rst_limit_join_44_1 <= false;
+    else 
+      rst_limit_join_44_1 <= false;
+    end if;
+  end process proc_if_44_1;
+  count_reg_20_23_rst <= count_reg_join_44_1_rst;
+  op <= unsigned_to_std_logic_vector(count_reg_20_23);
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity axi_lite_axi_lite_interface is 
     port(
         wfdata_7_sel : out std_logic_vector(2 downto 0);
