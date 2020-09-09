@@ -642,74 +642,6 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-entity sysgen_mux_61f4768113 is
-  port (
-    sel : in std_logic_vector((2 - 1) downto 0);
-    d0 : in std_logic_vector((1 - 1) downto 0);
-    d1 : in std_logic_vector((1 - 1) downto 0);
-    d2 : in std_logic_vector((1 - 1) downto 0);
-    d3 : in std_logic_vector((1 - 1) downto 0);
-    y : out std_logic_vector((1 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_mux_61f4768113;
-architecture behavior of sysgen_mux_61f4768113
-is
-  signal sel_1_20: std_logic_vector((2 - 1) downto 0);
-  signal d0_1_24: std_logic_vector((1 - 1) downto 0);
-  signal d1_1_27: std_logic_vector((1 - 1) downto 0);
-  signal d2_1_30: std_logic_vector((1 - 1) downto 0);
-  signal d3_1_33: std_logic_vector((1 - 1) downto 0);
-  type array_type_pipe_20_22 is array (0 to (1 - 1)) of std_logic_vector((1 - 1) downto 0);
-  signal pipe_20_22: array_type_pipe_20_22 := (
-    0 => "0");
-  signal pipe_20_22_front_din: std_logic_vector((1 - 1) downto 0);
-  signal pipe_20_22_back: std_logic_vector((1 - 1) downto 0);
-  signal pipe_20_22_push_front_pop_back_en: std_logic;
-  signal unregy_join_6_1: std_logic_vector((1 - 1) downto 0);
-begin
-  sel_1_20 <= sel;
-  d0_1_24 <= d0;
-  d1_1_27 <= d1;
-  d2_1_30 <= d2;
-  d3_1_33 <= d3;
-  pipe_20_22_back <= pipe_20_22(0);
-  proc_pipe_20_22: process (clk)
-  is
-    variable i: integer;
-  begin
-    if (clk'event and (clk = '1')) then
-      if ((ce = '1') and (pipe_20_22_push_front_pop_back_en = '1')) then
-        pipe_20_22(0) <= pipe_20_22_front_din;
-      end if;
-    end if;
-  end process proc_pipe_20_22;
-  proc_switch_6_1: process (d0_1_24, d1_1_27, d2_1_30, d3_1_33, sel_1_20)
-  is
-  begin
-    case sel_1_20 is 
-      when "00" =>
-        unregy_join_6_1 <= d0_1_24;
-      when "01" =>
-        unregy_join_6_1 <= d1_1_27;
-      when "10" =>
-        unregy_join_6_1 <= d2_1_30;
-      when others =>
-        unregy_join_6_1 <= d3_1_33;
-    end case;
-  end process proc_switch_6_1;
-  pipe_20_22_front_din <= unregy_join_6_1;
-  pipe_20_22_push_front_pop_back_en <= '1';
-  y <= pipe_20_22_back;
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
 entity sysgen_logical_cfc7fd815b is
   port (
     d0 : in std_logic_vector((1 - 1) downto 0);
@@ -748,64 +680,6 @@ begin
   latency_pipe_5_26_front_din <= fully_2_1_bit;
   latency_pipe_5_26_push_front_pop_back_en <= '1';
   y <= std_logic_to_vector(latency_pipe_5_26_back);
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_mux_78e3bf8a5f is
-  port (
-    sel : in std_logic_vector((1 - 1) downto 0);
-    d0 : in std_logic_vector((18 - 1) downto 0);
-    d1 : in std_logic_vector((18 - 1) downto 0);
-    y : out std_logic_vector((18 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_mux_78e3bf8a5f;
-architecture behavior of sysgen_mux_78e3bf8a5f
-is
-  signal sel_1_20: std_logic_vector((1 - 1) downto 0);
-  signal d0_1_24: std_logic_vector((18 - 1) downto 0);
-  signal d1_1_27: std_logic_vector((18 - 1) downto 0);
-  type array_type_pipe_16_22 is array (0 to (1 - 1)) of std_logic_vector((18 - 1) downto 0);
-  signal pipe_16_22: array_type_pipe_16_22 := (
-    0 => "000000000000000000");
-  signal pipe_16_22_front_din: std_logic_vector((18 - 1) downto 0);
-  signal pipe_16_22_back: std_logic_vector((18 - 1) downto 0);
-  signal pipe_16_22_push_front_pop_back_en: std_logic;
-  signal unregy_join_6_1: std_logic_vector((18 - 1) downto 0);
-begin
-  sel_1_20 <= sel;
-  d0_1_24 <= d0;
-  d1_1_27 <= d1;
-  pipe_16_22_back <= pipe_16_22(0);
-  proc_pipe_16_22: process (clk)
-  is
-    variable i: integer;
-  begin
-    if (clk'event and (clk = '1')) then
-      if ((ce = '1') and (pipe_16_22_push_front_pop_back_en = '1')) then
-        pipe_16_22(0) <= pipe_16_22_front_din;
-      end if;
-    end if;
-  end process proc_pipe_16_22;
-  proc_switch_6_1: process (d0_1_24, d1_1_27, sel_1_20)
-  is
-  begin
-    case sel_1_20 is 
-      when "0" =>
-        unregy_join_6_1 <= d0_1_24;
-      when others =>
-        unregy_join_6_1 <= d1_1_27;
-    end case;
-  end process proc_switch_6_1;
-  pipe_16_22_front_din <= unregy_join_6_1;
-  pipe_16_22_push_front_pop_back_en <= '1';
-  y <= pipe_16_22_back;
 end behavior;
 
 library work;
@@ -940,6 +814,132 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_mux_61f4768113 is
+  port (
+    sel : in std_logic_vector((2 - 1) downto 0);
+    d0 : in std_logic_vector((1 - 1) downto 0);
+    d1 : in std_logic_vector((1 - 1) downto 0);
+    d2 : in std_logic_vector((1 - 1) downto 0);
+    d3 : in std_logic_vector((1 - 1) downto 0);
+    y : out std_logic_vector((1 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_mux_61f4768113;
+architecture behavior of sysgen_mux_61f4768113
+is
+  signal sel_1_20: std_logic_vector((2 - 1) downto 0);
+  signal d0_1_24: std_logic_vector((1 - 1) downto 0);
+  signal d1_1_27: std_logic_vector((1 - 1) downto 0);
+  signal d2_1_30: std_logic_vector((1 - 1) downto 0);
+  signal d3_1_33: std_logic_vector((1 - 1) downto 0);
+  type array_type_pipe_20_22 is array (0 to (1 - 1)) of std_logic_vector((1 - 1) downto 0);
+  signal pipe_20_22: array_type_pipe_20_22 := (
+    0 => "0");
+  signal pipe_20_22_front_din: std_logic_vector((1 - 1) downto 0);
+  signal pipe_20_22_back: std_logic_vector((1 - 1) downto 0);
+  signal pipe_20_22_push_front_pop_back_en: std_logic;
+  signal unregy_join_6_1: std_logic_vector((1 - 1) downto 0);
+begin
+  sel_1_20 <= sel;
+  d0_1_24 <= d0;
+  d1_1_27 <= d1;
+  d2_1_30 <= d2;
+  d3_1_33 <= d3;
+  pipe_20_22_back <= pipe_20_22(0);
+  proc_pipe_20_22: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (pipe_20_22_push_front_pop_back_en = '1')) then
+        pipe_20_22(0) <= pipe_20_22_front_din;
+      end if;
+    end if;
+  end process proc_pipe_20_22;
+  proc_switch_6_1: process (d0_1_24, d1_1_27, d2_1_30, d3_1_33, sel_1_20)
+  is
+  begin
+    case sel_1_20 is 
+      when "00" =>
+        unregy_join_6_1 <= d0_1_24;
+      when "01" =>
+        unregy_join_6_1 <= d1_1_27;
+      when "10" =>
+        unregy_join_6_1 <= d2_1_30;
+      when others =>
+        unregy_join_6_1 <= d3_1_33;
+    end case;
+  end process proc_switch_6_1;
+  pipe_20_22_front_din <= unregy_join_6_1;
+  pipe_20_22_push_front_pop_back_en <= '1';
+  y <= pipe_20_22_back;
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_mux_78e3bf8a5f is
+  port (
+    sel : in std_logic_vector((1 - 1) downto 0);
+    d0 : in std_logic_vector((18 - 1) downto 0);
+    d1 : in std_logic_vector((18 - 1) downto 0);
+    y : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_mux_78e3bf8a5f;
+architecture behavior of sysgen_mux_78e3bf8a5f
+is
+  signal sel_1_20: std_logic_vector((1 - 1) downto 0);
+  signal d0_1_24: std_logic_vector((18 - 1) downto 0);
+  signal d1_1_27: std_logic_vector((18 - 1) downto 0);
+  type array_type_pipe_16_22 is array (0 to (1 - 1)) of std_logic_vector((18 - 1) downto 0);
+  signal pipe_16_22: array_type_pipe_16_22 := (
+    0 => "000000000000000000");
+  signal pipe_16_22_front_din: std_logic_vector((18 - 1) downto 0);
+  signal pipe_16_22_back: std_logic_vector((18 - 1) downto 0);
+  signal pipe_16_22_push_front_pop_back_en: std_logic;
+  signal unregy_join_6_1: std_logic_vector((18 - 1) downto 0);
+begin
+  sel_1_20 <= sel;
+  d0_1_24 <= d0;
+  d1_1_27 <= d1;
+  pipe_16_22_back <= pipe_16_22(0);
+  proc_pipe_16_22: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (pipe_16_22_push_front_pop_back_en = '1')) then
+        pipe_16_22(0) <= pipe_16_22_front_din;
+      end if;
+    end if;
+  end process proc_pipe_16_22;
+  proc_switch_6_1: process (d0_1_24, d1_1_27, sel_1_20)
+  is
+  begin
+    case sel_1_20 is 
+      when "0" =>
+        unregy_join_6_1 <= d0_1_24;
+      when others =>
+        unregy_join_6_1 <= d1_1_27;
+    end case;
+  end process proc_switch_6_1;
+  pipe_16_22_front_din <= unregy_join_6_1;
+  pipe_16_22_push_front_pop_back_en <= '1';
+  y <= pipe_16_22_back;
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_mux_0edfc3d320 is
   port (
     sel : in std_logic_vector((3 - 1) downto 0);
@@ -1020,6 +1020,64 @@ begin
   pipe_28_22_front_din <= unregy_join_6_1;
   pipe_28_22_push_front_pop_back_en <= '1';
   y <= pipe_28_22_back;
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_mux_a1f42c2ba5 is
+  port (
+    sel : in std_logic_vector((1 - 1) downto 0);
+    d0 : in std_logic_vector((8 - 1) downto 0);
+    d1 : in std_logic_vector((8 - 1) downto 0);
+    y : out std_logic_vector((8 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_mux_a1f42c2ba5;
+architecture behavior of sysgen_mux_a1f42c2ba5
+is
+  signal sel_1_20: std_logic_vector((1 - 1) downto 0);
+  signal d0_1_24: std_logic_vector((8 - 1) downto 0);
+  signal d1_1_27: std_logic_vector((8 - 1) downto 0);
+  type array_type_pipe_16_22 is array (0 to (1 - 1)) of std_logic_vector((8 - 1) downto 0);
+  signal pipe_16_22: array_type_pipe_16_22 := (
+    0 => "00000000");
+  signal pipe_16_22_front_din: std_logic_vector((8 - 1) downto 0);
+  signal pipe_16_22_back: std_logic_vector((8 - 1) downto 0);
+  signal pipe_16_22_push_front_pop_back_en: std_logic;
+  signal unregy_join_6_1: std_logic_vector((8 - 1) downto 0);
+begin
+  sel_1_20 <= sel;
+  d0_1_24 <= d0;
+  d1_1_27 <= d1;
+  pipe_16_22_back <= pipe_16_22(0);
+  proc_pipe_16_22: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (pipe_16_22_push_front_pop_back_en = '1')) then
+        pipe_16_22(0) <= pipe_16_22_front_din;
+      end if;
+    end if;
+  end process proc_pipe_16_22;
+  proc_switch_6_1: process (d0_1_24, d1_1_27, sel_1_20)
+  is
+  begin
+    case sel_1_20 is 
+      when "0" =>
+        unregy_join_6_1 <= d0_1_24;
+      when others =>
+        unregy_join_6_1 <= d1_1_27;
+    end case;
+  end process proc_switch_6_1;
+  pipe_16_22_front_din <= unregy_join_6_1;
+  pipe_16_22_push_front_pop_back_en <= '1';
+  y <= pipe_16_22_back;
 end behavior;
 
 library work;
