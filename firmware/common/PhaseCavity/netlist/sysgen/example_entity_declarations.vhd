@@ -642,6 +642,44 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_constant_ee0997b77a is
+  port (
+    op : out std_logic_vector((16 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_ee0997b77a;
+architecture behavior of sysgen_constant_ee0997b77a
+is
+begin
+  op <= "0000000000001111";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_constant_7a00753764 is
+  port (
+    op : out std_logic_vector((16 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_constant_7a00753764;
+architecture behavior of sysgen_constant_7a00753764
+is
+begin
+  op <= "0000000001100100";
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_logical_cfc7fd815b is
   port (
     d0 : in std_logic_vector((1 - 1) downto 0);
@@ -2718,44 +2756,6 @@ architecture behavior of sysgen_constant_5e1e20acbb
 is
 begin
   op <= "000000000000000000000110001100110110101010";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_ee0997b77a is
-  port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_ee0997b77a;
-architecture behavior of sysgen_constant_ee0997b77a
-is
-begin
-  op <= "0000000000001111";
-end behavior;
-
-library work;
-use work.conv_pkg.all;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-entity sysgen_constant_7a00753764 is
-  port (
-    op : out std_logic_vector((16 - 1) downto 0);
-    clk : in std_logic;
-    ce : in std_logic;
-    clr : in std_logic);
-end sysgen_constant_7a00753764;
-architecture behavior of sysgen_constant_7a00753764
-is
-begin
-  op <= "0000000001100100";
 end behavior;
 
 library work;
