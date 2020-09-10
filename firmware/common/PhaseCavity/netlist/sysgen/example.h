@@ -73,6 +73,52 @@ int example_Initialize(example *InstancePtr, const char* InstanceName);
 int example_Release(example *InstancePtr);
 #endif
 /**
+* Write to cav2_p2_window_stop gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p2_window_stop instance to operate on.
+* @param	Data is value to be written to gateway cav2_p2_window_stop.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_p2_window_stop_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_p2_window_stop gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p2_window_stop instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_p2_window_stop_read(example *InstancePtr);
+/**
+* Write to cav2_p2_window_start gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p2_window_start instance to operate on.
+* @param	Data is value to be written to gateway cav2_p2_window_start.
+*
+* @return	None.
+*
+* @note    .
+*
+*/
+void example_cav2_p2_window_start_write(example *InstancePtr, u32 Data);
+/**
+* Read from cav2_p2_window_start gateway of example. Assignments are LSB-justified.
+*
+* @param	InstancePtr is the cav2_p2_window_start instance to operate on.
+*
+* @return	u32
+*
+* @note    .
+*
+*/
+u32 example_cav2_p2_window_start_read(example *InstancePtr);
+/**
 * Write to wfdata_7_sel gateway of example. Assignments are LSB-justified.
 *
 * @param	InstancePtr is the wfdata_7_sel instance to operate on.
@@ -325,52 +371,6 @@ void example_cav2_reg_latch_pt_write(example *InstancePtr, u32 Data);
 *
 */
 u32 example_cav2_reg_latch_pt_read(example *InstancePtr);
-/**
-* Write to cav2_p2_window_stop gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p2_window_stop instance to operate on.
-* @param	Data is value to be written to gateway cav2_p2_window_stop.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_cav2_p2_window_stop_write(example *InstancePtr, u32 Data);
-/**
-* Read from cav2_p2_window_stop gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p2_window_stop instance to operate on.
-*
-* @return	u32
-*
-* @note    .
-*
-*/
-u32 example_cav2_p2_window_stop_read(example *InstancePtr);
-/**
-* Write to cav2_p2_window_start gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p2_window_start instance to operate on.
-* @param	Data is value to be written to gateway cav2_p2_window_start.
-*
-* @return	None.
-*
-* @note    .
-*
-*/
-void example_cav2_p2_window_start_write(example *InstancePtr, u32 Data);
-/**
-* Read from cav2_p2_window_start gateway of example. Assignments are LSB-justified.
-*
-* @param	InstancePtr is the cav2_p2_window_start instance to operate on.
-*
-* @return	u32
-*
-* @note    .
-*
-*/
-u32 example_cav2_p2_window_start_read(example *InstancePtr);
 /**
 * Write to cav2_p2_chan_sel gateway of example. Assignments are LSB-justified.
 *

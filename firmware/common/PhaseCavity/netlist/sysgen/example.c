@@ -10,6 +10,34 @@ int example_CfgInitialize(example *InstancePtr, example_Config *ConfigPtr) {
     return XST_SUCCESS;
 }
 #endif
+void example_cav2_p2_window_stop_write(example *InstancePtr, u32 Data) {
+
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    example_WriteReg(InstancePtr->example_BaseAddress, 848, Data);
+}
+u32 example_cav2_p2_window_stop_read(example *InstancePtr) {
+
+    u32 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 848);
+    return Data;
+}
+void example_cav2_p2_window_start_write(example *InstancePtr, u32 Data) {
+
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    example_WriteReg(InstancePtr->example_BaseAddress, 844, Data);
+}
+u32 example_cav2_p2_window_start_read(example *InstancePtr) {
+
+    u32 Data;
+    Xil_AssertVoid(InstancePtr != NULL);
+
+    Data = example_ReadReg(InstancePtr->example_BaseAddress, 844);
+    return Data;
+}
 void example_wfdata_7_sel_write(example *InstancePtr, u8 Data) {
 
     Xil_AssertVoid(InstancePtr != NULL);
@@ -162,34 +190,6 @@ u32 example_cav2_reg_latch_pt_read(example *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
 
     Data = example_ReadReg(InstancePtr->example_BaseAddress, 884);
-    return Data;
-}
-void example_cav2_p2_window_stop_write(example *InstancePtr, u32 Data) {
-
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    example_WriteReg(InstancePtr->example_BaseAddress, 848, Data);
-}
-u32 example_cav2_p2_window_stop_read(example *InstancePtr) {
-
-    u32 Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_BaseAddress, 848);
-    return Data;
-}
-void example_cav2_p2_window_start_write(example *InstancePtr, u32 Data) {
-
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    example_WriteReg(InstancePtr->example_BaseAddress, 844, Data);
-}
-u32 example_cav2_p2_window_start_read(example *InstancePtr) {
-
-    u32 Data;
-    Xil_AssertVoid(InstancePtr != NULL);
-
-    Data = example_ReadReg(InstancePtr->example_BaseAddress, 844);
     return Data;
 }
 void example_cav2_p2_chan_sel_write(example *InstancePtr, u8 Data) {

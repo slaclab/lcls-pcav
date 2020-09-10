@@ -6114,22 +6114,6 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface axi_lite_s_axi_rready ClockDomain {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready Locs {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready IOStandard {}
-	dict set TopLevelPortInterface axi_lite_clk Name {axi_lite_clk}
-	dict set TopLevelPortInterface axi_lite_clk Type -
-	dict set TopLevelPortInterface axi_lite_clk ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface axi_lite_clk BinaryPoint 0
-	dict set TopLevelPortInterface axi_lite_clk Width 1
-	dict set TopLevelPortInterface axi_lite_clk DatFile {}
-	dict set TopLevelPortInterface axi_lite_clk Direction in
-	dict set TopLevelPortInterface axi_lite_clk Period 1
-	dict set TopLevelPortInterface axi_lite_clk Interface 6
-	dict set TopLevelPortInterface axi_lite_clk InterfaceName {}
-	dict set TopLevelPortInterface axi_lite_clk InterfaceString {CLOCK}
-	dict set TopLevelPortInterface axi_lite_clk ClockDomain {axi_lite}
-	dict set TopLevelPortInterface axi_lite_clk Locs {}
-	dict set TopLevelPortInterface axi_lite_clk IOStandard {}
-	dict set TopLevelPortInterface axi_lite_clk AssociatedInterfaces {axi_lite_s_axi }
-	dict set TopLevelPortInterface axi_lite_clk AssociatedResets {axi_lite_aresetn }
 	dict set TopLevelPortInterface dsp_clk Name {dsp_clk}
 	dict set TopLevelPortInterface dsp_clk Type -
 	dict set TopLevelPortInterface dsp_clk ArithmeticType xlUnsigned
@@ -6146,7 +6130,55 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface dsp_clk IOStandard {}
 	dict set TopLevelPortInterface dsp_clk AssociatedInterfaces {}
 	dict set TopLevelPortInterface dsp_clk AssociatedResets {}
+	dict set TopLevelPortInterface axi_lite_clk Name {axi_lite_clk}
+	dict set TopLevelPortInterface axi_lite_clk Type -
+	dict set TopLevelPortInterface axi_lite_clk ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface axi_lite_clk BinaryPoint 0
+	dict set TopLevelPortInterface axi_lite_clk Width 1
+	dict set TopLevelPortInterface axi_lite_clk DatFile {}
+	dict set TopLevelPortInterface axi_lite_clk Direction in
+	dict set TopLevelPortInterface axi_lite_clk Period 1
+	dict set TopLevelPortInterface axi_lite_clk Interface 6
+	dict set TopLevelPortInterface axi_lite_clk InterfaceName {}
+	dict set TopLevelPortInterface axi_lite_clk InterfaceString {CLOCK}
+	dict set TopLevelPortInterface axi_lite_clk ClockDomain {axi_lite}
+	dict set TopLevelPortInterface axi_lite_clk Locs {}
+	dict set TopLevelPortInterface axi_lite_clk IOStandard {}
+	dict set TopLevelPortInterface axi_lite_clk AssociatedInterfaces {axi_lite_s_axi }
+	dict set TopLevelPortInterface axi_lite_clk AssociatedResets {axi_lite_aresetn }
 	set MemoryMappedPort {}
+	dict set MemoryMappedPort cav2_p2_window_stop Name {cav2_p2_window_stop}
+	dict set MemoryMappedPort cav2_p2_window_stop Type UFix_16_0
+	dict set MemoryMappedPort cav2_p2_window_stop ArithmeticType xlUnsigned
+	dict set MemoryMappedPort cav2_p2_window_stop BinaryPoint 0
+	dict set MemoryMappedPort cav2_p2_window_stop Width 16
+	dict set MemoryMappedPort cav2_p2_window_stop DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_stop.dat}
+	dict set MemoryMappedPort cav2_p2_window_stop AddressOffset 848
+	dict set MemoryMappedPort cav2_p2_window_stop IconText {cav2_p2_window_stop}
+	dict set MemoryMappedPort cav2_p2_window_stop Direction in
+	dict set MemoryMappedPort cav2_p2_window_stop Period 8
+	dict set MemoryMappedPort cav2_p2_window_stop Interface 2
+	dict set MemoryMappedPort cav2_p2_window_stop InterfaceName {}
+	dict set MemoryMappedPort cav2_p2_window_stop InterfaceString {CONTROL}
+	dict set MemoryMappedPort cav2_p2_window_stop ClockDomain {axi_lite}
+	dict set MemoryMappedPort cav2_p2_window_stop Locs {}
+	dict set MemoryMappedPort cav2_p2_window_stop IOStandard {}
+	dict set MemoryMappedPort cav2_p2_window_start Name {cav2_p2_window_start}
+	dict set MemoryMappedPort cav2_p2_window_start Type UFix_16_0
+	dict set MemoryMappedPort cav2_p2_window_start ArithmeticType xlUnsigned
+	dict set MemoryMappedPort cav2_p2_window_start BinaryPoint 0
+	dict set MemoryMappedPort cav2_p2_window_start Width 16
+	dict set MemoryMappedPort cav2_p2_window_start DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_start.dat}
+	dict set MemoryMappedPort cav2_p2_window_start AddressOffset 844
+	dict set MemoryMappedPort cav2_p2_window_start IconText {cav2_p2_window_start}
+	dict set MemoryMappedPort cav2_p2_window_start Direction in
+	dict set MemoryMappedPort cav2_p2_window_start Period 8
+	dict set MemoryMappedPort cav2_p2_window_start Interface 2
+	dict set MemoryMappedPort cav2_p2_window_start InterfaceName {}
+	dict set MemoryMappedPort cav2_p2_window_start InterfaceString {CONTROL}
+	dict set MemoryMappedPort cav2_p2_window_start ClockDomain {axi_lite}
+	dict set MemoryMappedPort cav2_p2_window_start Locs {}
+	dict set MemoryMappedPort cav2_p2_window_start IOStandard {}
 	dict set MemoryMappedPort wfdata_7_sel Name {wfdata_7_sel}
 	dict set MemoryMappedPort wfdata_7_sel Type UFix_3_0
 	dict set MemoryMappedPort wfdata_7_sel ArithmeticType xlUnsigned
@@ -6323,38 +6355,6 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set MemoryMappedPort cav2_reg_latch_pt ClockDomain {axi_lite}
 	dict set MemoryMappedPort cav2_reg_latch_pt Locs {}
 	dict set MemoryMappedPort cav2_reg_latch_pt IOStandard {}
-	dict set MemoryMappedPort cav2_p2_window_stop Name {cav2_p2_window_stop}
-	dict set MemoryMappedPort cav2_p2_window_stop Type UFix_16_0
-	dict set MemoryMappedPort cav2_p2_window_stop ArithmeticType xlUnsigned
-	dict set MemoryMappedPort cav2_p2_window_stop BinaryPoint 0
-	dict set MemoryMappedPort cav2_p2_window_stop Width 16
-	dict set MemoryMappedPort cav2_p2_window_stop DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_stop.dat}
-	dict set MemoryMappedPort cav2_p2_window_stop AddressOffset 848
-	dict set MemoryMappedPort cav2_p2_window_stop IconText {cav2_p2_window_stop}
-	dict set MemoryMappedPort cav2_p2_window_stop Direction in
-	dict set MemoryMappedPort cav2_p2_window_stop Period 8
-	dict set MemoryMappedPort cav2_p2_window_stop Interface 2
-	dict set MemoryMappedPort cav2_p2_window_stop InterfaceName {}
-	dict set MemoryMappedPort cav2_p2_window_stop InterfaceString {CONTROL}
-	dict set MemoryMappedPort cav2_p2_window_stop ClockDomain {axi_lite}
-	dict set MemoryMappedPort cav2_p2_window_stop Locs {}
-	dict set MemoryMappedPort cav2_p2_window_stop IOStandard {}
-	dict set MemoryMappedPort cav2_p2_window_start Name {cav2_p2_window_start}
-	dict set MemoryMappedPort cav2_p2_window_start Type UFix_16_0
-	dict set MemoryMappedPort cav2_p2_window_start ArithmeticType xlUnsigned
-	dict set MemoryMappedPort cav2_p2_window_start BinaryPoint 0
-	dict set MemoryMappedPort cav2_p2_window_start Width 16
-	dict set MemoryMappedPort cav2_p2_window_start DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_start.dat}
-	dict set MemoryMappedPort cav2_p2_window_start AddressOffset 844
-	dict set MemoryMappedPort cav2_p2_window_start IconText {cav2_p2_window_start}
-	dict set MemoryMappedPort cav2_p2_window_start Direction in
-	dict set MemoryMappedPort cav2_p2_window_start Period 8
-	dict set MemoryMappedPort cav2_p2_window_start Interface 2
-	dict set MemoryMappedPort cav2_p2_window_start InterfaceName {}
-	dict set MemoryMappedPort cav2_p2_window_start InterfaceString {CONTROL}
-	dict set MemoryMappedPort cav2_p2_window_start ClockDomain {axi_lite}
-	dict set MemoryMappedPort cav2_p2_window_start Locs {}
-	dict set MemoryMappedPort cav2_p2_window_start IOStandard {}
 	dict set MemoryMappedPort cav2_p2_chan_sel Name {cav2_p2_chan_sel}
 	dict set MemoryMappedPort cav2_p2_chan_sel Type UFix_4_0
 	dict set MemoryMappedPort cav2_p2_chan_sel ArithmeticType xlUnsigned

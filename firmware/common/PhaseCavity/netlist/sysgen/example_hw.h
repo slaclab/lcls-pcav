@@ -6,6 +6,8 @@
 * macros) that can be used to access the device.  The user should refer to the
 * hardware device specification for more details of the device operation.
 */ 
+#define EXAMPLE_CAV2_P2_WINDOW_STOP 0x350/**< cav2_p2_window_stop */
+#define EXAMPLE_CAV2_P2_WINDOW_START 0x34c/**< cav2_p2_window_start */
 #define EXAMPLE_WFDATA_7_SEL 0x30/**< wfdata_7_sel */
 #define EXAMPLE_WFDATA_6_SEL 0x2c/**< wfdata_6_sel */
 #define EXAMPLE_WFDATA_5_SEL 0x28/**< wfdata_5_sel */
@@ -17,8 +19,6 @@
 #define EXAMPLE_SCRATCHPAD 0xffc/**< scratchpad */
 #define EXAMPLE_RF_REF_CHAN_SEL 0x10/**< rf_ref_chan_sel */
 #define EXAMPLE_CAV2_REG_LATCH_PT 0x374/**< cav2_reg_latch_pt */
-#define EXAMPLE_CAV2_P2_WINDOW_STOP 0x350/**< cav2_p2_window_stop */
-#define EXAMPLE_CAV2_P2_WINDOW_START 0x34c/**< cav2_p2_window_start */
 #define EXAMPLE_CAV2_P2_CHAN_SEL 0x340/**< cav2_p2_chan_sel */
 #define EXAMPLE_CAV2_P2_CALIBRATION_COEFF 0x378/**< cav2_p2_calibration_coeff */
 #define EXAMPLE_CAV2_P1_WINDOW_STOP 0x284/**< cav2_p1_window_stop */
