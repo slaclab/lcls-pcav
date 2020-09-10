@@ -79,8 +79,6 @@ set_false_path -through [get_pins example_struct/subsystem7/register3/synth_reg_
 set_false_path -through [get_pins example_struct/subsystem7/register30/synth_reg_inst_0/o]
 set_false_path -through [get_pins example_struct/subsystem7/register31/synth_reg_inst_0/o]
 set_false_path -through [get_pins example_struct/subsystem7/register32/synth_reg_inst_0/o]
-set_false_path -through [get_pins example_struct/subsystem7/register33/synth_reg_inst_0/o]
-set_false_path -through [get_pins example_struct/subsystem7/register34/synth_reg_inst_0/o]
 set_false_path -through [get_pins example_struct/subsystem7/register35/synth_reg_inst_0/o]
 set_false_path -through [get_pins example_struct/subsystem7/register36/synth_reg_inst_0/o]
 set_false_path -through [get_pins example_struct/subsystem7/register4/synth_reg_inst_0/o]

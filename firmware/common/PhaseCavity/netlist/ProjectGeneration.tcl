@@ -6114,22 +6114,6 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface axi_lite_s_axi_rready ClockDomain {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready Locs {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready IOStandard {}
-	dict set TopLevelPortInterface axi_lite_clk Name {axi_lite_clk}
-	dict set TopLevelPortInterface axi_lite_clk Type -
-	dict set TopLevelPortInterface axi_lite_clk ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface axi_lite_clk BinaryPoint 0
-	dict set TopLevelPortInterface axi_lite_clk Width 1
-	dict set TopLevelPortInterface axi_lite_clk DatFile {}
-	dict set TopLevelPortInterface axi_lite_clk Direction in
-	dict set TopLevelPortInterface axi_lite_clk Period 1
-	dict set TopLevelPortInterface axi_lite_clk Interface 6
-	dict set TopLevelPortInterface axi_lite_clk InterfaceName {}
-	dict set TopLevelPortInterface axi_lite_clk InterfaceString {CLOCK}
-	dict set TopLevelPortInterface axi_lite_clk ClockDomain {axi_lite}
-	dict set TopLevelPortInterface axi_lite_clk Locs {}
-	dict set TopLevelPortInterface axi_lite_clk IOStandard {}
-	dict set TopLevelPortInterface axi_lite_clk AssociatedInterfaces {axi_lite_s_axi }
-	dict set TopLevelPortInterface axi_lite_clk AssociatedResets {axi_lite_aresetn }
 	dict set TopLevelPortInterface dsp_clk Name {dsp_clk}
 	dict set TopLevelPortInterface dsp_clk Type -
 	dict set TopLevelPortInterface dsp_clk ArithmeticType xlUnsigned
@@ -6146,6 +6130,22 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface dsp_clk IOStandard {}
 	dict set TopLevelPortInterface dsp_clk AssociatedInterfaces {}
 	dict set TopLevelPortInterface dsp_clk AssociatedResets {}
+	dict set TopLevelPortInterface axi_lite_clk Name {axi_lite_clk}
+	dict set TopLevelPortInterface axi_lite_clk Type -
+	dict set TopLevelPortInterface axi_lite_clk ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface axi_lite_clk BinaryPoint 0
+	dict set TopLevelPortInterface axi_lite_clk Width 1
+	dict set TopLevelPortInterface axi_lite_clk DatFile {}
+	dict set TopLevelPortInterface axi_lite_clk Direction in
+	dict set TopLevelPortInterface axi_lite_clk Period 1
+	dict set TopLevelPortInterface axi_lite_clk Interface 6
+	dict set TopLevelPortInterface axi_lite_clk InterfaceName {}
+	dict set TopLevelPortInterface axi_lite_clk InterfaceString {CLOCK}
+	dict set TopLevelPortInterface axi_lite_clk ClockDomain {axi_lite}
+	dict set TopLevelPortInterface axi_lite_clk Locs {}
+	dict set TopLevelPortInterface axi_lite_clk IOStandard {}
+	dict set TopLevelPortInterface axi_lite_clk AssociatedInterfaces {axi_lite_s_axi }
+	dict set TopLevelPortInterface axi_lite_clk AssociatedResets {axi_lite_aresetn }
 	set MemoryMappedPort {}
 	dict set MemoryMappedPort wfdata_7_sel Name {wfdata_7_sel}
 	dict set MemoryMappedPort wfdata_7_sel Type UFix_3_0

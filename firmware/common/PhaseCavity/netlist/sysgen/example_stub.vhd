@@ -12,8 +12,8 @@ entity example_stub is
     phase : in std_logic_vector( 18-1 downto 0 );
     phaseampchannel : in std_logic_vector( 4-1 downto 0 );
     phaseampsync : in std_logic_vector( 1-1 downto 0 );
-    axi_lite_clk : in std_logic;
     dsp_clk : in std_logic;
+    axi_lite_clk : in std_logic;
     axi_lite_aresetn : in std_logic;
     axi_lite_s_axi_awaddr : in std_logic_vector( 12-1 downto 0 );
     axi_lite_s_axi_awvalid : in std_logic;
@@ -423,8 +423,8 @@ begin
     phase => phase,
     phaseampchannel => phaseampchannel,
     phaseampsync => phaseampsync,
-    axi_lite_clk => axi_lite_clk,
     dsp_clk => dsp_clk,
+    axi_lite_clk => axi_lite_clk,
     axi_lite_aresetn => axi_lite_aresetn,
     axi_lite_s_axi_awaddr => axi_lite_s_axi_awaddr,
     axi_lite_s_axi_awvalid => axi_lite_s_axi_awvalid,
