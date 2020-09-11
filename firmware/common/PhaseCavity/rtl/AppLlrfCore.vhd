@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-07-29
+-- Last update: 2020-09-11
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -193,7 +193,7 @@ architecture mapping of AppLlrfCore is
    signal r   : RegType := REG_INIT_C;
    signal rin : RegType;
    
-   constant DEBUG_C : boolean := true;
+   constant DEBUG_C : boolean := false;
 
    component ila_0
      port ( clk    : in sl;
@@ -711,7 +711,7 @@ begin
          wr_en             => debug204(i).valid,
          din(31 downto 0)  => debug204(i).data,
          -- Read Ports (rd_clk domain)
-         rd_clk            => jesdClk(0),
+         rd_clk            => jesdClk(i),
          valid             => debug185(i).valid,
          dout(31 downto 0) => debug185(i).data );
 
