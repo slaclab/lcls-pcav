@@ -711,7 +711,7 @@ begin
          wr_en             => debug204(i).valid,
          din(31 downto 0)  => debug204(i).data,
          -- Read Ports (rd_clk domain)
-         rd_clk            => jesdClk(i),
+         rd_clk            => jesdClk(i/4),
          valid             => debug185(i).valid,
          dout(31 downto 0) => debug185(i).data );
 
