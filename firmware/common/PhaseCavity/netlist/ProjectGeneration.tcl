@@ -66,7 +66,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	set SynthesisTool {Vivado}
 	set TargetDir {/u1/charliex/lcls-pcav/firmware/common/PhaseCavity/netlist}
 	set TopLevelModule {example}
-	set TopLevelSimulinkHandle 5.00037
+	set TopLevelSimulinkHandle 5.00012
 	set VHDLLib {work}
 	set TopLevelPortInterface {}
 	dict set TopLevelPortInterface phaseampsync Name {phaseampsync}
@@ -1682,7 +1682,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_0 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_0.dat}
 	dict set TopLevelPortInterface wfdata_0 IconText {wfdata_0}
 	dict set TopLevelPortInterface wfdata_0 Direction out
-	dict set TopLevelPortInterface wfdata_0 Period 12
+	dict set TopLevelPortInterface wfdata_0 Period 1
 	dict set TopLevelPortInterface wfdata_0 Interface 0
 	dict set TopLevelPortInterface wfdata_0 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_0 InterfaceString {DATA}
@@ -1697,7 +1697,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_1 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_1.dat}
 	dict set TopLevelPortInterface wfdata_1 IconText {wfdata_1}
 	dict set TopLevelPortInterface wfdata_1 Direction out
-	dict set TopLevelPortInterface wfdata_1 Period 12
+	dict set TopLevelPortInterface wfdata_1 Period 1
 	dict set TopLevelPortInterface wfdata_1 Interface 0
 	dict set TopLevelPortInterface wfdata_1 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_1 InterfaceString {DATA}
@@ -1712,7 +1712,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_2 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_2.dat}
 	dict set TopLevelPortInterface wfdata_2 IconText {wfdata_2}
 	dict set TopLevelPortInterface wfdata_2 Direction out
-	dict set TopLevelPortInterface wfdata_2 Period 12
+	dict set TopLevelPortInterface wfdata_2 Period 1
 	dict set TopLevelPortInterface wfdata_2 Interface 0
 	dict set TopLevelPortInterface wfdata_2 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_2 InterfaceString {DATA}
@@ -1727,7 +1727,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_3 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_3.dat}
 	dict set TopLevelPortInterface wfdata_3 IconText {wfdata_3}
 	dict set TopLevelPortInterface wfdata_3 Direction out
-	dict set TopLevelPortInterface wfdata_3 Period 12
+	dict set TopLevelPortInterface wfdata_3 Period 1
 	dict set TopLevelPortInterface wfdata_3 Interface 0
 	dict set TopLevelPortInterface wfdata_3 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_3 InterfaceString {DATA}
@@ -1742,7 +1742,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_4 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_4.dat}
 	dict set TopLevelPortInterface wfdata_4 IconText {wfdata_4}
 	dict set TopLevelPortInterface wfdata_4 Direction out
-	dict set TopLevelPortInterface wfdata_4 Period 12
+	dict set TopLevelPortInterface wfdata_4 Period 1
 	dict set TopLevelPortInterface wfdata_4 Interface 0
 	dict set TopLevelPortInterface wfdata_4 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_4 InterfaceString {DATA}
@@ -1757,7 +1757,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_5 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_5.dat}
 	dict set TopLevelPortInterface wfdata_5 IconText {wfdata_5}
 	dict set TopLevelPortInterface wfdata_5 Direction out
-	dict set TopLevelPortInterface wfdata_5 Period 12
+	dict set TopLevelPortInterface wfdata_5 Period 1
 	dict set TopLevelPortInterface wfdata_5 Interface 0
 	dict set TopLevelPortInterface wfdata_5 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_5 InterfaceString {DATA}
@@ -1772,7 +1772,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_6 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_6.dat}
 	dict set TopLevelPortInterface wfdata_6 IconText {wfdata_6}
 	dict set TopLevelPortInterface wfdata_6 Direction out
-	dict set TopLevelPortInterface wfdata_6 Period 12
+	dict set TopLevelPortInterface wfdata_6 Period 1
 	dict set TopLevelPortInterface wfdata_6 Interface 0
 	dict set TopLevelPortInterface wfdata_6 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_6 InterfaceString {DATA}
@@ -1787,7 +1787,7 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface wfdata_7 DatFile {examplemodel_bus_axi_example_dsp_bsa_streaming_wfdata_7.dat}
 	dict set TopLevelPortInterface wfdata_7 IconText {wfdata_7}
 	dict set TopLevelPortInterface wfdata_7 Direction out
-	dict set TopLevelPortInterface wfdata_7 Period 12
+	dict set TopLevelPortInterface wfdata_7 Period 1
 	dict set TopLevelPortInterface wfdata_7 Interface 0
 	dict set TopLevelPortInterface wfdata_7 InterfaceName {}
 	dict set TopLevelPortInterface wfdata_7 InterfaceString {DATA}
@@ -2004,6 +2004,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out13_x1 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out13_x1 Locs {}
 	dict set TopLevelPortInterface gateway_out13_x1 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x1 Name {gateway_out2_x1}
+	dict set TopLevelPortInterface gateway_out2_x1 Type Fix_18_17
+	dict set TopLevelPortInterface gateway_out2_x1 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out2_x1 BinaryPoint 17
+	dict set TopLevelPortInterface gateway_out2_x1 Width 18
+	dict set TopLevelPortInterface gateway_out2_x1 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x1 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x1 Direction out
+	dict set TopLevelPortInterface gateway_out2_x1 Period 12
+	dict set TopLevelPortInterface gateway_out2_x1 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x1 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x1 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x1 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x1 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x1 IOStandard {}
 	dict set TopLevelPortInterface gateway_out25 Name {gateway_out25}
 	dict set TopLevelPortInterface gateway_out25 Type UFix_1_0
 	dict set TopLevelPortInterface gateway_out25 ArithmeticType xlUnsigned
@@ -2019,21 +2034,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out25 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out25 Locs {}
 	dict set TopLevelPortInterface gateway_out25 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x0 Name {gateway_out4_x0}
-	dict set TopLevelPortInterface gateway_out4_x0 Type Fix_18_17
-	dict set TopLevelPortInterface gateway_out4_x0 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x0 BinaryPoint 17
-	dict set TopLevelPortInterface gateway_out4_x0 Width 18
-	dict set TopLevelPortInterface gateway_out4_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x0 Direction out
-	dict set TopLevelPortInterface gateway_out4_x0 Period 12
-	dict set TopLevelPortInterface gateway_out4_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x0 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3 Name {gateway_out3}
+	dict set TopLevelPortInterface gateway_out3 Type Fix_18_17
+	dict set TopLevelPortInterface gateway_out3 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3 BinaryPoint 17
+	dict set TopLevelPortInterface gateway_out3 Width 18
+	dict set TopLevelPortInterface gateway_out3 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3 Direction out
+	dict set TopLevelPortInterface gateway_out3 Period 12
+	dict set TopLevelPortInterface gateway_out3 Interface 0
+	dict set TopLevelPortInterface gateway_out3 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3 Locs {}
+	dict set TopLevelPortInterface gateway_out3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4 Name {gateway_out4}
+	dict set TopLevelPortInterface gateway_out4 Type Fix_18_17
+	dict set TopLevelPortInterface gateway_out4 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4 BinaryPoint 17
+	dict set TopLevelPortInterface gateway_out4 Width 18
+	dict set TopLevelPortInterface gateway_out4 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4 Direction out
+	dict set TopLevelPortInterface gateway_out4 Period 12
+	dict set TopLevelPortInterface gateway_out4 Interface 0
+	dict set TopLevelPortInterface gateway_out4 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4 Locs {}
+	dict set TopLevelPortInterface gateway_out4 IOStandard {}
 	dict set TopLevelPortInterface gateway_out5 Name {gateway_out5}
 	dict set TopLevelPortInterface gateway_out5 Type Fix_18_17
 	dict set TopLevelPortInterface gateway_out5 ArithmeticType xlSigned
@@ -2079,36 +2109,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out7 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out7 Locs {}
 	dict set TopLevelPortInterface gateway_out7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out8 Name {gateway_out8}
-	dict set TopLevelPortInterface gateway_out8 Type Fix_18_17
-	dict set TopLevelPortInterface gateway_out8 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out8 BinaryPoint 17
-	dict set TopLevelPortInterface gateway_out8 Width 18
-	dict set TopLevelPortInterface gateway_out8 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out8.dat}
-	dict set TopLevelPortInterface gateway_out8 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out8}
-	dict set TopLevelPortInterface gateway_out8 Direction out
-	dict set TopLevelPortInterface gateway_out8 Period 12
-	dict set TopLevelPortInterface gateway_out8 Interface 0
-	dict set TopLevelPortInterface gateway_out8 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out8 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out8 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out8 Locs {}
-	dict set TopLevelPortInterface gateway_out8 IOStandard {}
-	dict set TopLevelPortInterface gateway_out9_x0 Name {gateway_out9_x0}
-	dict set TopLevelPortInterface gateway_out9_x0 Type Fix_18_17
-	dict set TopLevelPortInterface gateway_out9_x0 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out9_x0 BinaryPoint 17
-	dict set TopLevelPortInterface gateway_out9_x0 Width 18
-	dict set TopLevelPortInterface gateway_out9_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out9.dat}
-	dict set TopLevelPortInterface gateway_out9_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out9}
-	dict set TopLevelPortInterface gateway_out9_x0 Direction out
-	dict set TopLevelPortInterface gateway_out9_x0 Period 12
-	dict set TopLevelPortInterface gateway_out9_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out9_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out9_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out9_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out9_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out9_x0 IOStandard {}
+	dict set TopLevelPortInterface gateway_out8_x0 Name {gateway_out8_x0}
+	dict set TopLevelPortInterface gateway_out8_x0 Type Fix_18_17
+	dict set TopLevelPortInterface gateway_out8_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out8_x0 BinaryPoint 17
+	dict set TopLevelPortInterface gateway_out8_x0 Width 18
+	dict set TopLevelPortInterface gateway_out8_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out8.dat}
+	dict set TopLevelPortInterface gateway_out8_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out8}
+	dict set TopLevelPortInterface gateway_out8_x0 Direction out
+	dict set TopLevelPortInterface gateway_out8_x0 Period 12
+	dict set TopLevelPortInterface gateway_out8_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out8_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out8_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out8_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out8_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out8_x0 IOStandard {}
+	dict set TopLevelPortInterface gateway_out9 Name {gateway_out9}
+	dict set TopLevelPortInterface gateway_out9 Type Fix_18_17
+	dict set TopLevelPortInterface gateway_out9 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out9 BinaryPoint 17
+	dict set TopLevelPortInterface gateway_out9 Width 18
+	dict set TopLevelPortInterface gateway_out9 DatFile {examplemodel_bus_axi_example_dsp_cav1_gateway_out9.dat}
+	dict set TopLevelPortInterface gateway_out9 IconText {exampleModel_bus_axi/example/dsp/Cav1/Gateway Out9}
+	dict set TopLevelPortInterface gateway_out9 Direction out
+	dict set TopLevelPortInterface gateway_out9 Period 12
+	dict set TopLevelPortInterface gateway_out9 Interface 0
+	dict set TopLevelPortInterface gateway_out9 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out9 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out9 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out9 Locs {}
+	dict set TopLevelPortInterface gateway_out9 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1 Name {gateway_out1}
 	dict set TopLevelPortInterface gateway_out1 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out1 ArithmeticType xlSigned
@@ -2154,51 +2184,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out13 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out13 Locs {}
 	dict set TopLevelPortInterface gateway_out13 IOStandard {}
-	dict set TopLevelPortInterface gateway_out14 Name {gateway_out14}
-	dict set TopLevelPortInterface gateway_out14 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out14 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out14 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out14 Width 26
-	dict set TopLevelPortInterface gateway_out14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out14.dat}
-	dict set TopLevelPortInterface gateway_out14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out14}
-	dict set TopLevelPortInterface gateway_out14 Direction out
-	dict set TopLevelPortInterface gateway_out14 Period 12
-	dict set TopLevelPortInterface gateway_out14 Interface 0
-	dict set TopLevelPortInterface gateway_out14 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out14 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out14 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out14 Locs {}
-	dict set TopLevelPortInterface gateway_out14 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x0 Name {gateway_out2_x0}
-	dict set TopLevelPortInterface gateway_out2_x0 Type Bool
-	dict set TopLevelPortInterface gateway_out2_x0 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out2_x0 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out2_x0 Width 1
-	dict set TopLevelPortInterface gateway_out2_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x0 Direction out
-	dict set TopLevelPortInterface gateway_out2_x0 Period 12
-	dict set TopLevelPortInterface gateway_out2_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4 Name {gateway_out4}
-	dict set TopLevelPortInterface gateway_out4 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out4 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out4 Width 26
-	dict set TopLevelPortInterface gateway_out4 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4 Direction out
-	dict set TopLevelPortInterface gateway_out4 Period 12
-	dict set TopLevelPortInterface gateway_out4 Interface 0
-	dict set TopLevelPortInterface gateway_out4 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4 Locs {}
-	dict set TopLevelPortInterface gateway_out4 IOStandard {}
+	dict set TopLevelPortInterface gateway_out14_x0 Name {gateway_out14_x0}
+	dict set TopLevelPortInterface gateway_out14_x0 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out14_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out14_x0 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out14_x0 Width 26
+	dict set TopLevelPortInterface gateway_out14_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out14.dat}
+	dict set TopLevelPortInterface gateway_out14_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out14}
+	dict set TopLevelPortInterface gateway_out14_x0 Direction out
+	dict set TopLevelPortInterface gateway_out14_x0 Period 12
+	dict set TopLevelPortInterface gateway_out14_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out14_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out14_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out14_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out14_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out14_x0 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2 Name {gateway_out2}
+	dict set TopLevelPortInterface gateway_out2 Type Bool
+	dict set TopLevelPortInterface gateway_out2 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out2 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out2 Width 1
+	dict set TopLevelPortInterface gateway_out2 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2 Direction out
+	dict set TopLevelPortInterface gateway_out2 Period 12
+	dict set TopLevelPortInterface gateway_out2 Interface 0
+	dict set TopLevelPortInterface gateway_out2 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2 Locs {}
+	dict set TopLevelPortInterface gateway_out2 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x0 Name {gateway_out4_x0}
+	dict set TopLevelPortInterface gateway_out4_x0 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out4_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x0 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out4_x0 Width 26
+	dict set TopLevelPortInterface gateway_out4_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x0 Direction out
+	dict set TopLevelPortInterface gateway_out4_x0 Period 12
+	dict set TopLevelPortInterface gateway_out4_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x0 IOStandard {}
 	dict set TopLevelPortInterface gateway_out5_x0 Name {gateway_out5_x0}
 	dict set TopLevelPortInterface gateway_out5_x0 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out5_x0 ArithmeticType xlSigned
@@ -2244,36 +2274,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out7_x0 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out7_x0 Locs {}
 	dict set TopLevelPortInterface gateway_out7_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out8_x0 Name {gateway_out8_x0}
-	dict set TopLevelPortInterface gateway_out8_x0 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out8_x0 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out8_x0 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out8_x0 Width 18
-	dict set TopLevelPortInterface gateway_out8_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out8.dat}
-	dict set TopLevelPortInterface gateway_out8_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out8}
-	dict set TopLevelPortInterface gateway_out8_x0 Direction out
-	dict set TopLevelPortInterface gateway_out8_x0 Period 12
-	dict set TopLevelPortInterface gateway_out8_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out8_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out8_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out8_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out8_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out8_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out9 Name {gateway_out9}
-	dict set TopLevelPortInterface gateway_out9 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out9 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out9 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out9 Width 18
-	dict set TopLevelPortInterface gateway_out9 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out9.dat}
-	dict set TopLevelPortInterface gateway_out9 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out9}
-	dict set TopLevelPortInterface gateway_out9 Direction out
-	dict set TopLevelPortInterface gateway_out9 Period 12
-	dict set TopLevelPortInterface gateway_out9 Interface 0
-	dict set TopLevelPortInterface gateway_out9 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out9 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out9 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out9 Locs {}
-	dict set TopLevelPortInterface gateway_out9 IOStandard {}
+	dict set TopLevelPortInterface gateway_out8 Name {gateway_out8}
+	dict set TopLevelPortInterface gateway_out8 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out8 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out8 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out8 Width 18
+	dict set TopLevelPortInterface gateway_out8 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out8.dat}
+	dict set TopLevelPortInterface gateway_out8 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out8}
+	dict set TopLevelPortInterface gateway_out8 Direction out
+	dict set TopLevelPortInterface gateway_out8 Period 12
+	dict set TopLevelPortInterface gateway_out8 Interface 0
+	dict set TopLevelPortInterface gateway_out8 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out8 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out8 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out8 Locs {}
+	dict set TopLevelPortInterface gateway_out8 IOStandard {}
+	dict set TopLevelPortInterface gateway_out9_x0 Name {gateway_out9_x0}
+	dict set TopLevelPortInterface gateway_out9_x0 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out9_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out9_x0 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out9_x0 Width 18
+	dict set TopLevelPortInterface gateway_out9_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_gateway_out9.dat}
+	dict set TopLevelPortInterface gateway_out9_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Gateway Out9}
+	dict set TopLevelPortInterface gateway_out9_x0 Direction out
+	dict set TopLevelPortInterface gateway_out9_x0 Period 12
+	dict set TopLevelPortInterface gateway_out9_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out9_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out9_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out9_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out9_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out9_x0 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x0 Name {gateway_out1_x0}
 	dict set TopLevelPortInterface gateway_out1_x0 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out1_x0 ArithmeticType xlSigned
@@ -2289,21 +2319,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out1_x0 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out1_x0 Locs {}
 	dict set TopLevelPortInterface gateway_out1_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x1 Name {gateway_out2_x1}
-	dict set TopLevelPortInterface gateway_out2_x1 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out2_x1 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out2_x1 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out2_x1 Width 18
-	dict set TopLevelPortInterface gateway_out2_x1 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_subsystem_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x1 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x1 Direction out
-	dict set TopLevelPortInterface gateway_out2_x1 Period 12
-	dict set TopLevelPortInterface gateway_out2_x1 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x1 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x1 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x1 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x1 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x1 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x0 Name {gateway_out2_x0}
+	dict set TopLevelPortInterface gateway_out2_x0 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out2_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out2_x0 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out2_x0 Width 18
+	dict set TopLevelPortInterface gateway_out2_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_subsystem_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x0 Direction out
+	dict set TopLevelPortInterface gateway_out2_x0 Period 12
+	dict set TopLevelPortInterface gateway_out2_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x0 IOStandard {}
 	dict set TopLevelPortInterface gateway_out22 Name {gateway_out22}
 	dict set TopLevelPortInterface gateway_out22 Type Fix_37_27
 	dict set TopLevelPortInterface gateway_out22 ArithmeticType xlSigned
@@ -2349,21 +2379,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27 Locs {}
 	dict set TopLevelPortInterface gateway_out27 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3 Name {gateway_out3}
-	dict set TopLevelPortInterface gateway_out3 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3 Width 37
-	dict set TopLevelPortInterface gateway_out3 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3 Direction out
-	dict set TopLevelPortInterface gateway_out3 Period 12
-	dict set TopLevelPortInterface gateway_out3 Interface 0
-	dict set TopLevelPortInterface gateway_out3 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3 Locs {}
-	dict set TopLevelPortInterface gateway_out3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x0 Name {gateway_out3_x0}
+	dict set TopLevelPortInterface gateway_out3_x0 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x0 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x0 Width 37
+	dict set TopLevelPortInterface gateway_out3_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x0 Direction out
+	dict set TopLevelPortInterface gateway_out3_x0 Period 12
+	dict set TopLevelPortInterface gateway_out3_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x0 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x1 Name {gateway_out4_x1}
 	dict set TopLevelPortInterface gateway_out4_x1 Type Fix_37_27
 	dict set TopLevelPortInterface gateway_out4_x1 ArithmeticType xlSigned
@@ -2454,66 +2484,66 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out13_x0 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out13_x0 Locs {}
 	dict set TopLevelPortInterface gateway_out13_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out14_x0 Name {gateway_out14_x0}
-	dict set TopLevelPortInterface gateway_out14_x0 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out14_x0 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out14_x0 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out14_x0 Width 26
-	dict set TopLevelPortInterface gateway_out14_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out14.dat}
-	dict set TopLevelPortInterface gateway_out14_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out14}
-	dict set TopLevelPortInterface gateway_out14_x0 Direction out
-	dict set TopLevelPortInterface gateway_out14_x0 Period 12
-	dict set TopLevelPortInterface gateway_out14_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out14_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out14_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out14_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out14_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out14_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2 Name {gateway_out2}
-	dict set TopLevelPortInterface gateway_out2 Type Bool
-	dict set TopLevelPortInterface gateway_out2 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out2 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out2 Width 1
-	dict set TopLevelPortInterface gateway_out2 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2 Direction out
-	dict set TopLevelPortInterface gateway_out2 Period 12
-	dict set TopLevelPortInterface gateway_out2 Interface 0
-	dict set TopLevelPortInterface gateway_out2 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2 Locs {}
-	dict set TopLevelPortInterface gateway_out2 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x16 Name {gateway_out4_x16}
-	dict set TopLevelPortInterface gateway_out4_x16 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out4_x16 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x16 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out4_x16 Width 26
-	dict set TopLevelPortInterface gateway_out4_x16 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x16 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x16 Direction out
-	dict set TopLevelPortInterface gateway_out4_x16 Period 12
-	dict set TopLevelPortInterface gateway_out4_x16 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x16 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x16 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x16 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x16 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x16 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x11 Name {gateway_out5_x11}
-	dict set TopLevelPortInterface gateway_out5_x11 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out5_x11 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x11 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out5_x11 Width 26
-	dict set TopLevelPortInterface gateway_out5_x11 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x11 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x11 Direction out
-	dict set TopLevelPortInterface gateway_out5_x11 Period 12
-	dict set TopLevelPortInterface gateway_out5_x11 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x11 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x11 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x11 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x11 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x11 IOStandard {}
+	dict set TopLevelPortInterface gateway_out14 Name {gateway_out14}
+	dict set TopLevelPortInterface gateway_out14 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out14 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out14 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out14 Width 26
+	dict set TopLevelPortInterface gateway_out14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out14.dat}
+	dict set TopLevelPortInterface gateway_out14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out14}
+	dict set TopLevelPortInterface gateway_out14 Direction out
+	dict set TopLevelPortInterface gateway_out14 Period 12
+	dict set TopLevelPortInterface gateway_out14 Interface 0
+	dict set TopLevelPortInterface gateway_out14 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out14 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out14 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out14 Locs {}
+	dict set TopLevelPortInterface gateway_out14 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x14 Name {gateway_out2_x14}
+	dict set TopLevelPortInterface gateway_out2_x14 Type Bool
+	dict set TopLevelPortInterface gateway_out2_x14 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out2_x14 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out2_x14 Width 1
+	dict set TopLevelPortInterface gateway_out2_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x14 Direction out
+	dict set TopLevelPortInterface gateway_out2_x14 Period 12
+	dict set TopLevelPortInterface gateway_out2_x14 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x14 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x14 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x14 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x14 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x14 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x11 Name {gateway_out4_x11}
+	dict set TopLevelPortInterface gateway_out4_x11 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out4_x11 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x11 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out4_x11 Width 26
+	dict set TopLevelPortInterface gateway_out4_x11 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x11 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x11 Direction out
+	dict set TopLevelPortInterface gateway_out4_x11 Period 12
+	dict set TopLevelPortInterface gateway_out4_x11 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x11 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x11 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x11 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x11 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x11 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x16 Name {gateway_out5_x16}
+	dict set TopLevelPortInterface gateway_out5_x16 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out5_x16 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x16 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out5_x16 Width 26
+	dict set TopLevelPortInterface gateway_out5_x16 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x16 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x16 Direction out
+	dict set TopLevelPortInterface gateway_out5_x16 Period 12
+	dict set TopLevelPortInterface gateway_out5_x16 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x16 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x16 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x16 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x16 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x16 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x14 Name {gateway_out6_x14}
 	dict set TopLevelPortInterface gateway_out6_x14 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out6_x14 ArithmeticType xlSigned
@@ -2574,66 +2604,66 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out9_x6 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out9_x6 Locs {}
 	dict set TopLevelPortInterface gateway_out9_x6 IOStandard {}
-	dict set TopLevelPortInterface gateway_out1_x18 Name {gateway_out1_x18}
-	dict set TopLevelPortInterface gateway_out1_x18 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out1_x18 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out1_x18 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out1_x18 Width 18
-	dict set TopLevelPortInterface gateway_out1_x18 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out1.dat}
-	dict set TopLevelPortInterface gateway_out1_x18 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out1}
-	dict set TopLevelPortInterface gateway_out1_x18 Direction out
-	dict set TopLevelPortInterface gateway_out1_x18 Period 12
-	dict set TopLevelPortInterface gateway_out1_x18 Interface 0
-	dict set TopLevelPortInterface gateway_out1_x18 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out1_x18 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out1_x18 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out1_x18 Locs {}
-	dict set TopLevelPortInterface gateway_out1_x18 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x14 Name {gateway_out2_x14}
-	dict set TopLevelPortInterface gateway_out2_x14 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out2_x14 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out2_x14 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out2_x14 Width 18
-	dict set TopLevelPortInterface gateway_out2_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x14 Direction out
-	dict set TopLevelPortInterface gateway_out2_x14 Period 12
-	dict set TopLevelPortInterface gateway_out2_x14 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x14 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x14 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x14 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x14 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x14 IOStandard {}
-	dict set TopLevelPortInterface gateway_out22_x5 Name {gateway_out22_x5}
-	dict set TopLevelPortInterface gateway_out22_x5 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out22_x5 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out22_x5 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out22_x5 Width 37
-	dict set TopLevelPortInterface gateway_out22_x5 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out22.dat}
-	dict set TopLevelPortInterface gateway_out22_x5 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out22}
-	dict set TopLevelPortInterface gateway_out22_x5 Direction out
-	dict set TopLevelPortInterface gateway_out22_x5 Period 12
-	dict set TopLevelPortInterface gateway_out22_x5 Interface 0
-	dict set TopLevelPortInterface gateway_out22_x5 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out22_x5 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out22_x5 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out22_x5 Locs {}
-	dict set TopLevelPortInterface gateway_out22_x5 IOStandard {}
-	dict set TopLevelPortInterface gateway_out24_x0 Name {gateway_out24_x0}
-	dict set TopLevelPortInterface gateway_out24_x0 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out24_x0 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out24_x0 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out24_x0 Width 26
-	dict set TopLevelPortInterface gateway_out24_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out24.dat}
-	dict set TopLevelPortInterface gateway_out24_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out24}
-	dict set TopLevelPortInterface gateway_out24_x0 Direction out
-	dict set TopLevelPortInterface gateway_out24_x0 Period 12
-	dict set TopLevelPortInterface gateway_out24_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out24_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out24_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out24_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out24_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out24_x0 IOStandard {}
+	dict set TopLevelPortInterface gateway_out1_x19 Name {gateway_out1_x19}
+	dict set TopLevelPortInterface gateway_out1_x19 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out1_x19 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out1_x19 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out1_x19 Width 18
+	dict set TopLevelPortInterface gateway_out1_x19 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out1.dat}
+	dict set TopLevelPortInterface gateway_out1_x19 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out1}
+	dict set TopLevelPortInterface gateway_out1_x19 Direction out
+	dict set TopLevelPortInterface gateway_out1_x19 Period 12
+	dict set TopLevelPortInterface gateway_out1_x19 Interface 0
+	dict set TopLevelPortInterface gateway_out1_x19 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out1_x19 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out1_x19 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out1_x19 Locs {}
+	dict set TopLevelPortInterface gateway_out1_x19 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x15 Name {gateway_out2_x15}
+	dict set TopLevelPortInterface gateway_out2_x15 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out2_x15 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out2_x15 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out2_x15 Width 18
+	dict set TopLevelPortInterface gateway_out2_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x15 Direction out
+	dict set TopLevelPortInterface gateway_out2_x15 Period 12
+	dict set TopLevelPortInterface gateway_out2_x15 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x15 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x15 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x15 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x15 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x15 IOStandard {}
+	dict set TopLevelPortInterface gateway_out22_x0 Name {gateway_out22_x0}
+	dict set TopLevelPortInterface gateway_out22_x0 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out22_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out22_x0 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out22_x0 Width 37
+	dict set TopLevelPortInterface gateway_out22_x0 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out22.dat}
+	dict set TopLevelPortInterface gateway_out22_x0 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out22}
+	dict set TopLevelPortInterface gateway_out22_x0 Direction out
+	dict set TopLevelPortInterface gateway_out22_x0 Period 12
+	dict set TopLevelPortInterface gateway_out22_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out22_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out22_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out22_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out22_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out22_x0 IOStandard {}
+	dict set TopLevelPortInterface gateway_out24_x6 Name {gateway_out24_x6}
+	dict set TopLevelPortInterface gateway_out24_x6 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out24_x6 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out24_x6 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out24_x6 Width 26
+	dict set TopLevelPortInterface gateway_out24_x6 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out24.dat}
+	dict set TopLevelPortInterface gateway_out24_x6 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out24}
+	dict set TopLevelPortInterface gateway_out24_x6 Direction out
+	dict set TopLevelPortInterface gateway_out24_x6 Period 12
+	dict set TopLevelPortInterface gateway_out24_x6 Interface 0
+	dict set TopLevelPortInterface gateway_out24_x6 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out24_x6 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out24_x6 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out24_x6 Locs {}
+	dict set TopLevelPortInterface gateway_out24_x6 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x8 Name {gateway_out27_x8}
 	dict set TopLevelPortInterface gateway_out27_x8 Type UFix_4_0
 	dict set TopLevelPortInterface gateway_out27_x8 ArithmeticType xlUnsigned
@@ -2649,21 +2679,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27_x8 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27_x8 Locs {}
 	dict set TopLevelPortInterface gateway_out27_x8 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x10 Name {gateway_out3_x10}
-	dict set TopLevelPortInterface gateway_out3_x10 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3_x10 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x10 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3_x10 Width 37
-	dict set TopLevelPortInterface gateway_out3_x10 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x10 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x10 Direction out
-	dict set TopLevelPortInterface gateway_out3_x10 Period 12
-	dict set TopLevelPortInterface gateway_out3_x10 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x10 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x10 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x10 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x10 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x10 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x11 Name {gateway_out3_x11}
+	dict set TopLevelPortInterface gateway_out3_x11 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x11 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x11 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x11 Width 37
+	dict set TopLevelPortInterface gateway_out3_x11 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration1_iq_latch_normalize1_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x11 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x11 Direction out
+	dict set TopLevelPortInterface gateway_out3_x11 Period 12
+	dict set TopLevelPortInterface gateway_out3_x11 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x11 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x11 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x11 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x11 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x11 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x17 Name {gateway_out4_x17}
 	dict set TopLevelPortInterface gateway_out4_x17 Type Fix_37_27
 	dict set TopLevelPortInterface gateway_out4_x17 ArithmeticType xlSigned
@@ -2709,21 +2739,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out6_x15 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out6_x15 Locs {}
 	dict set TopLevelPortInterface gateway_out6_x15 IOStandard {}
-	dict set TopLevelPortInterface gateway_out1_x19 Name {gateway_out1_x19}
-	dict set TopLevelPortInterface gateway_out1_x19 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out1_x19 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out1_x19 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out1_x19 Width 18
-	dict set TopLevelPortInterface gateway_out1_x19 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out1.dat}
-	dict set TopLevelPortInterface gateway_out1_x19 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out1}
-	dict set TopLevelPortInterface gateway_out1_x19 Direction out
-	dict set TopLevelPortInterface gateway_out1_x19 Period 12
-	dict set TopLevelPortInterface gateway_out1_x19 Interface 0
-	dict set TopLevelPortInterface gateway_out1_x19 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out1_x19 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out1_x19 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out1_x19 Locs {}
-	dict set TopLevelPortInterface gateway_out1_x19 IOStandard {}
+	dict set TopLevelPortInterface gateway_out1_x18 Name {gateway_out1_x18}
+	dict set TopLevelPortInterface gateway_out1_x18 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out1_x18 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out1_x18 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out1_x18 Width 18
+	dict set TopLevelPortInterface gateway_out1_x18 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out1.dat}
+	dict set TopLevelPortInterface gateway_out1_x18 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out1}
+	dict set TopLevelPortInterface gateway_out1_x18 Direction out
+	dict set TopLevelPortInterface gateway_out1_x18 Period 12
+	dict set TopLevelPortInterface gateway_out1_x18 Interface 0
+	dict set TopLevelPortInterface gateway_out1_x18 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out1_x18 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out1_x18 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out1_x18 Locs {}
+	dict set TopLevelPortInterface gateway_out1_x18 IOStandard {}
 	dict set TopLevelPortInterface gateway_out11_x8 Name {gateway_out11_x8}
 	dict set TopLevelPortInterface gateway_out11_x8 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out11_x8 ArithmeticType xlSigned
@@ -2769,21 +2799,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out14_x5 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out14_x5 Locs {}
 	dict set TopLevelPortInterface gateway_out14_x5 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x15 Name {gateway_out2_x15}
-	dict set TopLevelPortInterface gateway_out2_x15 Type Bool
-	dict set TopLevelPortInterface gateway_out2_x15 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out2_x15 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out2_x15 Width 1
-	dict set TopLevelPortInterface gateway_out2_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x15 Direction out
-	dict set TopLevelPortInterface gateway_out2_x15 Period 12
-	dict set TopLevelPortInterface gateway_out2_x15 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x15 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x15 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x15 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x15 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x15 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x16 Name {gateway_out2_x16}
+	dict set TopLevelPortInterface gateway_out2_x16 Type Bool
+	dict set TopLevelPortInterface gateway_out2_x16 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out2_x16 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out2_x16 Width 1
+	dict set TopLevelPortInterface gateway_out2_x16 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x16 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x16 Direction out
+	dict set TopLevelPortInterface gateway_out2_x16 Period 12
+	dict set TopLevelPortInterface gateway_out2_x16 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x16 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x16 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x16 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x16 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x16 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x18 Name {gateway_out4_x18}
 	dict set TopLevelPortInterface gateway_out4_x18 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out4_x18 ArithmeticType xlSigned
@@ -2829,36 +2859,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out6_x16 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out6_x16 Locs {}
 	dict set TopLevelPortInterface gateway_out6_x16 IOStandard {}
-	dict set TopLevelPortInterface gateway_out7_x7 Name {gateway_out7_x7}
-	dict set TopLevelPortInterface gateway_out7_x7 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out7_x7 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out7_x7 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out7_x7 Width 26
-	dict set TopLevelPortInterface gateway_out7_x7 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out7.dat}
-	dict set TopLevelPortInterface gateway_out7_x7 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out7}
-	dict set TopLevelPortInterface gateway_out7_x7 Direction out
-	dict set TopLevelPortInterface gateway_out7_x7 Period 12
-	dict set TopLevelPortInterface gateway_out7_x7 Interface 0
-	dict set TopLevelPortInterface gateway_out7_x7 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out7_x7 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out7_x7 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out7_x7 Locs {}
-	dict set TopLevelPortInterface gateway_out7_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out8_x8 Name {gateway_out8_x8}
-	dict set TopLevelPortInterface gateway_out8_x8 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out8_x8 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out8_x8 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out8_x8 Width 18
-	dict set TopLevelPortInterface gateway_out8_x8 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out8.dat}
-	dict set TopLevelPortInterface gateway_out8_x8 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out8}
-	dict set TopLevelPortInterface gateway_out8_x8 Direction out
-	dict set TopLevelPortInterface gateway_out8_x8 Period 12
-	dict set TopLevelPortInterface gateway_out8_x8 Interface 0
-	dict set TopLevelPortInterface gateway_out8_x8 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out8_x8 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out8_x8 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out8_x8 Locs {}
-	dict set TopLevelPortInterface gateway_out8_x8 IOStandard {}
+	dict set TopLevelPortInterface gateway_out7_x8 Name {gateway_out7_x8}
+	dict set TopLevelPortInterface gateway_out7_x8 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out7_x8 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out7_x8 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out7_x8 Width 26
+	dict set TopLevelPortInterface gateway_out7_x8 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out7.dat}
+	dict set TopLevelPortInterface gateway_out7_x8 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out7}
+	dict set TopLevelPortInterface gateway_out7_x8 Direction out
+	dict set TopLevelPortInterface gateway_out7_x8 Period 12
+	dict set TopLevelPortInterface gateway_out7_x8 Interface 0
+	dict set TopLevelPortInterface gateway_out7_x8 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out7_x8 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out7_x8 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out7_x8 Locs {}
+	dict set TopLevelPortInterface gateway_out7_x8 IOStandard {}
+	dict set TopLevelPortInterface gateway_out8_x7 Name {gateway_out8_x7}
+	dict set TopLevelPortInterface gateway_out8_x7 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out8_x7 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out8_x7 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out8_x7 Width 18
+	dict set TopLevelPortInterface gateway_out8_x7 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_gateway_out8.dat}
+	dict set TopLevelPortInterface gateway_out8_x7 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Gateway Out8}
+	dict set TopLevelPortInterface gateway_out8_x7 Direction out
+	dict set TopLevelPortInterface gateway_out8_x7 Period 12
+	dict set TopLevelPortInterface gateway_out8_x7 Interface 0
+	dict set TopLevelPortInterface gateway_out8_x7 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out8_x7 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out8_x7 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out8_x7 Locs {}
+	dict set TopLevelPortInterface gateway_out8_x7 IOStandard {}
 	dict set TopLevelPortInterface gateway_out9_x7 Name {gateway_out9_x7}
 	dict set TopLevelPortInterface gateway_out9_x7 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out9_x7 ArithmeticType xlSigned
@@ -2889,21 +2919,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out1_x20 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out1_x20 Locs {}
 	dict set TopLevelPortInterface gateway_out1_x20 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x16 Name {gateway_out2_x16}
-	dict set TopLevelPortInterface gateway_out2_x16 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out2_x16 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out2_x16 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out2_x16 Width 18
-	dict set TopLevelPortInterface gateway_out2_x16 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x16 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x16 Direction out
-	dict set TopLevelPortInterface gateway_out2_x16 Period 12
-	dict set TopLevelPortInterface gateway_out2_x16 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x16 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x16 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x16 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x16 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x16 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x17 Name {gateway_out2_x17}
+	dict set TopLevelPortInterface gateway_out2_x17 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out2_x17 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out2_x17 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out2_x17 Width 18
+	dict set TopLevelPortInterface gateway_out2_x17 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x17 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x17 Direction out
+	dict set TopLevelPortInterface gateway_out2_x17 Period 12
+	dict set TopLevelPortInterface gateway_out2_x17 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x17 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x17 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x17 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x17 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x17 IOStandard {}
 	dict set TopLevelPortInterface gateway_out22_x6 Name {gateway_out22_x6}
 	dict set TopLevelPortInterface gateway_out22_x6 Type Fix_37_27
 	dict set TopLevelPortInterface gateway_out22_x6 ArithmeticType xlSigned
@@ -2919,21 +2949,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out22_x6 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out22_x6 Locs {}
 	dict set TopLevelPortInterface gateway_out22_x6 IOStandard {}
-	dict set TopLevelPortInterface gateway_out24_x6 Name {gateway_out24_x6}
-	dict set TopLevelPortInterface gateway_out24_x6 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out24_x6 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out24_x6 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out24_x6 Width 26
-	dict set TopLevelPortInterface gateway_out24_x6 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out24.dat}
-	dict set TopLevelPortInterface gateway_out24_x6 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out24}
-	dict set TopLevelPortInterface gateway_out24_x6 Direction out
-	dict set TopLevelPortInterface gateway_out24_x6 Period 12
-	dict set TopLevelPortInterface gateway_out24_x6 Interface 0
-	dict set TopLevelPortInterface gateway_out24_x6 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out24_x6 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out24_x6 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out24_x6 Locs {}
-	dict set TopLevelPortInterface gateway_out24_x6 IOStandard {}
+	dict set TopLevelPortInterface gateway_out24_x4 Name {gateway_out24_x4}
+	dict set TopLevelPortInterface gateway_out24_x4 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out24_x4 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out24_x4 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out24_x4 Width 26
+	dict set TopLevelPortInterface gateway_out24_x4 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out24.dat}
+	dict set TopLevelPortInterface gateway_out24_x4 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out24}
+	dict set TopLevelPortInterface gateway_out24_x4 Direction out
+	dict set TopLevelPortInterface gateway_out24_x4 Period 12
+	dict set TopLevelPortInterface gateway_out24_x4 Interface 0
+	dict set TopLevelPortInterface gateway_out24_x4 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out24_x4 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out24_x4 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out24_x4 Locs {}
+	dict set TopLevelPortInterface gateway_out24_x4 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x6 Name {gateway_out27_x6}
 	dict set TopLevelPortInterface gateway_out27_x6 Type UFix_4_0
 	dict set TopLevelPortInterface gateway_out27_x6 ArithmeticType xlUnsigned
@@ -2949,51 +2979,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27_x6 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27_x6 Locs {}
 	dict set TopLevelPortInterface gateway_out27_x6 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x8 Name {gateway_out3_x8}
-	dict set TopLevelPortInterface gateway_out3_x8 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3_x8 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x8 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3_x8 Width 37
-	dict set TopLevelPortInterface gateway_out3_x8 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x8 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x8 Direction out
-	dict set TopLevelPortInterface gateway_out3_x8 Period 12
-	dict set TopLevelPortInterface gateway_out3_x8 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x8 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x8 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x8 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x8 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x8 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x13 Name {gateway_out4_x13}
-	dict set TopLevelPortInterface gateway_out4_x13 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out4_x13 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x13 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out4_x13 Width 37
-	dict set TopLevelPortInterface gateway_out4_x13 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x13 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x13 Direction out
-	dict set TopLevelPortInterface gateway_out4_x13 Period 12
-	dict set TopLevelPortInterface gateway_out4_x13 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x13 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x13 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x13 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x13 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x13 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x14 Name {gateway_out5_x14}
-	dict set TopLevelPortInterface gateway_out5_x14 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out5_x14 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x14 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out5_x14 Width 37
-	dict set TopLevelPortInterface gateway_out5_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x14 Direction out
-	dict set TopLevelPortInterface gateway_out5_x14 Period 12
-	dict set TopLevelPortInterface gateway_out5_x14 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x14 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x14 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x14 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x14 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x14 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x9 Name {gateway_out3_x9}
+	dict set TopLevelPortInterface gateway_out3_x9 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x9 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x9 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x9 Width 37
+	dict set TopLevelPortInterface gateway_out3_x9 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x9 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x9 Direction out
+	dict set TopLevelPortInterface gateway_out3_x9 Period 12
+	dict set TopLevelPortInterface gateway_out3_x9 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x9 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x9 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x9 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x9 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x9 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x14 Name {gateway_out4_x14}
+	dict set TopLevelPortInterface gateway_out4_x14 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out4_x14 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x14 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out4_x14 Width 37
+	dict set TopLevelPortInterface gateway_out4_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x14 Direction out
+	dict set TopLevelPortInterface gateway_out4_x14 Period 12
+	dict set TopLevelPortInterface gateway_out4_x14 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x14 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x14 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x14 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x14 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x14 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x13 Name {gateway_out5_x13}
+	dict set TopLevelPortInterface gateway_out5_x13 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out5_x13 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x13 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out5_x13 Width 37
+	dict set TopLevelPortInterface gateway_out5_x13 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize_subsystem_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x13 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x13 Direction out
+	dict set TopLevelPortInterface gateway_out5_x13 Period 12
+	dict set TopLevelPortInterface gateway_out5_x13 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x13 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x13 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x13 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x13 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x13 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x11 Name {gateway_out6_x11}
 	dict set TopLevelPortInterface gateway_out6_x11 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out6_x11 ArithmeticType xlSigned
@@ -3084,36 +3114,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x12 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x12 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x12 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x14 Name {gateway_out4_x14}
-	dict set TopLevelPortInterface gateway_out4_x14 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out4_x14 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x14 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out4_x14 Width 26
-	dict set TopLevelPortInterface gateway_out4_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x14 Direction out
-	dict set TopLevelPortInterface gateway_out4_x14 Period 12
-	dict set TopLevelPortInterface gateway_out4_x14 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x14 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x14 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x14 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x14 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x14 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x15 Name {gateway_out5_x15}
-	dict set TopLevelPortInterface gateway_out5_x15 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out5_x15 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x15 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out5_x15 Width 26
-	dict set TopLevelPortInterface gateway_out5_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x15 Direction out
-	dict set TopLevelPortInterface gateway_out5_x15 Period 12
-	dict set TopLevelPortInterface gateway_out5_x15 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x15 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x15 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x15 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x15 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x15 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x15 Name {gateway_out4_x15}
+	dict set TopLevelPortInterface gateway_out4_x15 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out4_x15 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x15 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out4_x15 Width 26
+	dict set TopLevelPortInterface gateway_out4_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x15 Direction out
+	dict set TopLevelPortInterface gateway_out4_x15 Period 12
+	dict set TopLevelPortInterface gateway_out4_x15 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x15 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x15 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x15 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x15 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x15 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x14 Name {gateway_out5_x14}
+	dict set TopLevelPortInterface gateway_out5_x14 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out5_x14 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x14 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out5_x14 Width 26
+	dict set TopLevelPortInterface gateway_out5_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x14 Direction out
+	dict set TopLevelPortInterface gateway_out5_x14 Period 12
+	dict set TopLevelPortInterface gateway_out5_x14 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x14 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x14 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x14 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x14 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x14 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x12 Name {gateway_out6_x12}
 	dict set TopLevelPortInterface gateway_out6_x12 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out6_x12 ArithmeticType xlSigned
@@ -3159,21 +3189,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out8_x4 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out8_x4 Locs {}
 	dict set TopLevelPortInterface gateway_out8_x4 IOStandard {}
-	dict set TopLevelPortInterface gateway_out9_x4 Name {gateway_out9_x4}
-	dict set TopLevelPortInterface gateway_out9_x4 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out9_x4 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out9_x4 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out9_x4 Width 18
-	dict set TopLevelPortInterface gateway_out9_x4 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_gateway_out9.dat}
-	dict set TopLevelPortInterface gateway_out9_x4 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Gateway Out9}
-	dict set TopLevelPortInterface gateway_out9_x4 Direction out
-	dict set TopLevelPortInterface gateway_out9_x4 Period 12
-	dict set TopLevelPortInterface gateway_out9_x4 Interface 0
-	dict set TopLevelPortInterface gateway_out9_x4 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out9_x4 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out9_x4 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out9_x4 Locs {}
-	dict set TopLevelPortInterface gateway_out9_x4 IOStandard {}
+	dict set TopLevelPortInterface gateway_out9_x5 Name {gateway_out9_x5}
+	dict set TopLevelPortInterface gateway_out9_x5 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out9_x5 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out9_x5 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out9_x5 Width 18
+	dict set TopLevelPortInterface gateway_out9_x5 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_gateway_out9.dat}
+	dict set TopLevelPortInterface gateway_out9_x5 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Gateway Out9}
+	dict set TopLevelPortInterface gateway_out9_x5 Direction out
+	dict set TopLevelPortInterface gateway_out9_x5 Period 12
+	dict set TopLevelPortInterface gateway_out9_x5 Interface 0
+	dict set TopLevelPortInterface gateway_out9_x5 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out9_x5 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out9_x5 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out9_x5 Locs {}
+	dict set TopLevelPortInterface gateway_out9_x5 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x16 Name {gateway_out1_x16}
 	dict set TopLevelPortInterface gateway_out1_x16 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out1_x16 ArithmeticType xlSigned
@@ -3204,21 +3234,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x13 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x13 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x13 IOStandard {}
-	dict set TopLevelPortInterface gateway_out22_x4 Name {gateway_out22_x4}
-	dict set TopLevelPortInterface gateway_out22_x4 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out22_x4 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out22_x4 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out22_x4 Width 37
-	dict set TopLevelPortInterface gateway_out22_x4 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out22.dat}
-	dict set TopLevelPortInterface gateway_out22_x4 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out22}
-	dict set TopLevelPortInterface gateway_out22_x4 Direction out
-	dict set TopLevelPortInterface gateway_out22_x4 Period 12
-	dict set TopLevelPortInterface gateway_out22_x4 Interface 0
-	dict set TopLevelPortInterface gateway_out22_x4 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out22_x4 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out22_x4 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out22_x4 Locs {}
-	dict set TopLevelPortInterface gateway_out22_x4 IOStandard {}
+	dict set TopLevelPortInterface gateway_out22_x5 Name {gateway_out22_x5}
+	dict set TopLevelPortInterface gateway_out22_x5 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out22_x5 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out22_x5 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out22_x5 Width 37
+	dict set TopLevelPortInterface gateway_out22_x5 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out22.dat}
+	dict set TopLevelPortInterface gateway_out22_x5 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out22}
+	dict set TopLevelPortInterface gateway_out22_x5 Direction out
+	dict set TopLevelPortInterface gateway_out22_x5 Period 12
+	dict set TopLevelPortInterface gateway_out22_x5 Interface 0
+	dict set TopLevelPortInterface gateway_out22_x5 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out22_x5 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out22_x5 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out22_x5 Locs {}
+	dict set TopLevelPortInterface gateway_out22_x5 IOStandard {}
 	dict set TopLevelPortInterface gateway_out24_x5 Name {gateway_out24_x5}
 	dict set TopLevelPortInterface gateway_out24_x5 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out24_x5 ArithmeticType xlSigned
@@ -3249,51 +3279,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27_x7 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27_x7 Locs {}
 	dict set TopLevelPortInterface gateway_out27_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x9 Name {gateway_out3_x9}
-	dict set TopLevelPortInterface gateway_out3_x9 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3_x9 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x9 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3_x9 Width 37
-	dict set TopLevelPortInterface gateway_out3_x9 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x9 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x9 Direction out
-	dict set TopLevelPortInterface gateway_out3_x9 Period 12
-	dict set TopLevelPortInterface gateway_out3_x9 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x9 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x9 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x9 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x9 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x9 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x15 Name {gateway_out4_x15}
-	dict set TopLevelPortInterface gateway_out4_x15 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out4_x15 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x15 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out4_x15 Width 37
-	dict set TopLevelPortInterface gateway_out4_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x15 Direction out
-	dict set TopLevelPortInterface gateway_out4_x15 Period 12
-	dict set TopLevelPortInterface gateway_out4_x15 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x15 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x15 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x15 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x15 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x15 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x16 Name {gateway_out5_x16}
-	dict set TopLevelPortInterface gateway_out5_x16 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out5_x16 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x16 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out5_x16 Width 37
-	dict set TopLevelPortInterface gateway_out5_x16 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x16 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x16 Direction out
-	dict set TopLevelPortInterface gateway_out5_x16 Period 12
-	dict set TopLevelPortInterface gateway_out5_x16 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x16 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x16 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x16 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x16 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x16 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x10 Name {gateway_out3_x10}
+	dict set TopLevelPortInterface gateway_out3_x10 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x10 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x10 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x10 Width 37
+	dict set TopLevelPortInterface gateway_out3_x10 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x10 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x10 Direction out
+	dict set TopLevelPortInterface gateway_out3_x10 Period 12
+	dict set TopLevelPortInterface gateway_out3_x10 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x10 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x10 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x10 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x10 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x10 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x16 Name {gateway_out4_x16}
+	dict set TopLevelPortInterface gateway_out4_x16 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out4_x16 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x16 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out4_x16 Width 37
+	dict set TopLevelPortInterface gateway_out4_x16 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x16 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x16 Direction out
+	dict set TopLevelPortInterface gateway_out4_x16 Period 12
+	dict set TopLevelPortInterface gateway_out4_x16 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x16 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x16 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x16 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x16 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x16 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x15 Name {gateway_out5_x15}
+	dict set TopLevelPortInterface gateway_out5_x15 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out5_x15 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x15 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out5_x15 Width 37
+	dict set TopLevelPortInterface gateway_out5_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_iq_integration2_iq_latch_normalize1_subsystem_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x15 Direction out
+	dict set TopLevelPortInterface gateway_out5_x15 Period 12
+	dict set TopLevelPortInterface gateway_out5_x15 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x15 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x15 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x15 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x15 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x15 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x13 Name {gateway_out6_x13}
 	dict set TopLevelPortInterface gateway_out6_x13 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out6_x13 ArithmeticType xlSigned
@@ -3354,21 +3384,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out8_x5 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out8_x5 Locs {}
 	dict set TopLevelPortInterface gateway_out8_x5 IOStandard {}
-	dict set TopLevelPortInterface gateway_out9_x5 Name {gateway_out9_x5}
-	dict set TopLevelPortInterface gateway_out9_x5 Type Bool
-	dict set TopLevelPortInterface gateway_out9_x5 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out9_x5 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out9_x5 Width 1
-	dict set TopLevelPortInterface gateway_out9_x5 DatFile {examplemodel_bus_axi_example_dsp_cav1_subsystem4_gateway_out9.dat}
-	dict set TopLevelPortInterface gateway_out9_x5 IconText {exampleModel_bus_axi/example/dsp/Cav1/Subsystem4/Gateway Out9}
-	dict set TopLevelPortInterface gateway_out9_x5 Direction out
-	dict set TopLevelPortInterface gateway_out9_x5 Period 12
-	dict set TopLevelPortInterface gateway_out9_x5 Interface 0
-	dict set TopLevelPortInterface gateway_out9_x5 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out9_x5 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out9_x5 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out9_x5 Locs {}
-	dict set TopLevelPortInterface gateway_out9_x5 IOStandard {}
+	dict set TopLevelPortInterface gateway_out9_x8 Name {gateway_out9_x8}
+	dict set TopLevelPortInterface gateway_out9_x8 Type Bool
+	dict set TopLevelPortInterface gateway_out9_x8 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out9_x8 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out9_x8 Width 1
+	dict set TopLevelPortInterface gateway_out9_x8 DatFile {examplemodel_bus_axi_example_dsp_cav1_subsystem4_gateway_out9.dat}
+	dict set TopLevelPortInterface gateway_out9_x8 IconText {exampleModel_bus_axi/example/dsp/Cav1/Subsystem4/Gateway Out9}
+	dict set TopLevelPortInterface gateway_out9_x8 Direction out
+	dict set TopLevelPortInterface gateway_out9_x8 Period 12
+	dict set TopLevelPortInterface gateway_out9_x8 Interface 0
+	dict set TopLevelPortInterface gateway_out9_x8 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out9_x8 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out9_x8 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out9_x8 Locs {}
+	dict set TopLevelPortInterface gateway_out9_x8 IOStandard {}
 	dict set TopLevelPortInterface gateway_out44_x1 Name {gateway_out44_x1}
 	dict set TopLevelPortInterface gateway_out44_x1 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out44_x1 ArithmeticType xlSigned
@@ -3444,21 +3474,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out20_x1 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out20_x1 Locs {}
 	dict set TopLevelPortInterface gateway_out20_x1 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x13 Name {gateway_out3_x13}
-	dict set TopLevelPortInterface gateway_out3_x13 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x13 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x13 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x13 Width 18
-	dict set TopLevelPortInterface gateway_out3_x13 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x13 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x13 Direction out
-	dict set TopLevelPortInterface gateway_out3_x13 Period 12
-	dict set TopLevelPortInterface gateway_out3_x13 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x13 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x13 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x13 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x13 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x13 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x14 Name {gateway_out3_x14}
+	dict set TopLevelPortInterface gateway_out3_x14 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x14 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x14 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x14 Width 18
+	dict set TopLevelPortInterface gateway_out3_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x14 Direction out
+	dict set TopLevelPortInterface gateway_out3_x14 Period 12
+	dict set TopLevelPortInterface gateway_out3_x14 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x14 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x14 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x14 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x14 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x14 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x22 Name {gateway_out4_x22}
 	dict set TopLevelPortInterface gateway_out4_x22 Type UFix_8_0
 	dict set TopLevelPortInterface gateway_out4_x22 ArithmeticType xlUnsigned
@@ -3474,21 +3504,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out4_x22 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out4_x22 Locs {}
 	dict set TopLevelPortInterface gateway_out4_x22 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x22 Name {gateway_out5_x22}
-	dict set TopLevelPortInterface gateway_out5_x22 Type Fix_32_18
-	dict set TopLevelPortInterface gateway_out5_x22 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x22 BinaryPoint 18
-	dict set TopLevelPortInterface gateway_out5_x22 Width 32
-	dict set TopLevelPortInterface gateway_out5_x22 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x22 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x22 Direction out
-	dict set TopLevelPortInterface gateway_out5_x22 Period 12
-	dict set TopLevelPortInterface gateway_out5_x22 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x22 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x22 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x22 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x22 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x22 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x23 Name {gateway_out5_x23}
+	dict set TopLevelPortInterface gateway_out5_x23 Type Fix_32_18
+	dict set TopLevelPortInterface gateway_out5_x23 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x23 BinaryPoint 18
+	dict set TopLevelPortInterface gateway_out5_x23 Width 32
+	dict set TopLevelPortInterface gateway_out5_x23 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x23 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x23 Direction out
+	dict set TopLevelPortInterface gateway_out5_x23 Period 12
+	dict set TopLevelPortInterface gateway_out5_x23 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x23 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x23 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x23 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x23 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x23 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x10 Name {gateway_out27_x10}
 	dict set TopLevelPortInterface gateway_out27_x10 Type Fix_19_15
 	dict set TopLevelPortInterface gateway_out27_x10 ArithmeticType xlSigned
@@ -3564,21 +3594,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out1_x25 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out1_x25 Locs {}
 	dict set TopLevelPortInterface gateway_out1_x25 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x20 Name {gateway_out2_x20}
-	dict set TopLevelPortInterface gateway_out2_x20 Type Bool
-	dict set TopLevelPortInterface gateway_out2_x20 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out2_x20 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out2_x20 Width 1
-	dict set TopLevelPortInterface gateway_out2_x20 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x20 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x20 Direction out
-	dict set TopLevelPortInterface gateway_out2_x20 Period 12
-	dict set TopLevelPortInterface gateway_out2_x20 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x20 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x20 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x20 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x20 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x20 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x21 Name {gateway_out2_x21}
+	dict set TopLevelPortInterface gateway_out2_x21 Type Bool
+	dict set TopLevelPortInterface gateway_out2_x21 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out2_x21 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out2_x21 Width 1
+	dict set TopLevelPortInterface gateway_out2_x21 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x21 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x21 Direction out
+	dict set TopLevelPortInterface gateway_out2_x21 Period 12
+	dict set TopLevelPortInterface gateway_out2_x21 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x21 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x21 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x21 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x21 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x21 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x15 Name {gateway_out3_x15}
+	dict set TopLevelPortInterface gateway_out3_x15 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x15 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x15 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x15 Width 18
+	dict set TopLevelPortInterface gateway_out3_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x15 Direction out
+	dict set TopLevelPortInterface gateway_out3_x15 Period 12
+	dict set TopLevelPortInterface gateway_out3_x15 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x15 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x15 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x15 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x15 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x15 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x23 Name {gateway_out4_x23}
 	dict set TopLevelPortInterface gateway_out4_x23 Type Fix_18_15
 	dict set TopLevelPortInterface gateway_out4_x23 ArithmeticType xlSigned
@@ -3594,36 +3639,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out4_x23 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out4_x23 Locs {}
 	dict set TopLevelPortInterface gateway_out4_x23 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x23 Name {gateway_out5_x23}
-	dict set TopLevelPortInterface gateway_out5_x23 Type Bool
-	dict set TopLevelPortInterface gateway_out5_x23 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out5_x23 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out5_x23 Width 1
-	dict set TopLevelPortInterface gateway_out5_x23 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x23 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x23 Direction out
-	dict set TopLevelPortInterface gateway_out5_x23 Period 12
-	dict set TopLevelPortInterface gateway_out5_x23 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x23 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x23 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x23 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x23 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x23 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x14 Name {gateway_out3_x14}
-	dict set TopLevelPortInterface gateway_out3_x14 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x14 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x14 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x14 Width 18
-	dict set TopLevelPortInterface gateway_out3_x14 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x14 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x14 Direction out
-	dict set TopLevelPortInterface gateway_out3_x14 Period 12
-	dict set TopLevelPortInterface gateway_out3_x14 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x14 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x14 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x14 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x14 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x14 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x24 Name {gateway_out5_x24}
+	dict set TopLevelPortInterface gateway_out5_x24 Type Bool
+	dict set TopLevelPortInterface gateway_out5_x24 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out5_x24 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out5_x24 Width 1
+	dict set TopLevelPortInterface gateway_out5_x24 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x24 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x24 Direction out
+	dict set TopLevelPortInterface gateway_out5_x24 Period 12
+	dict set TopLevelPortInterface gateway_out5_x24 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x24 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x24 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x24 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x24 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x24 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x26 Name {gateway_out1_x26}
 	dict set TopLevelPortInterface gateway_out1_x26 Type Fix_32_32
 	dict set TopLevelPortInterface gateway_out1_x26 ArithmeticType xlSigned
@@ -3729,21 +3759,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out20_x2 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out20_x2 Locs {}
 	dict set TopLevelPortInterface gateway_out20_x2 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x15 Name {gateway_out3_x15}
-	dict set TopLevelPortInterface gateway_out3_x15 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x15 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x15 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x15 Width 18
-	dict set TopLevelPortInterface gateway_out3_x15 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module2_freq_err1_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x15 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module2/freq_err1/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x15 Direction out
-	dict set TopLevelPortInterface gateway_out3_x15 Period 12
-	dict set TopLevelPortInterface gateway_out3_x15 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x15 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x15 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x15 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x15 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x15 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x16 Name {gateway_out3_x16}
+	dict set TopLevelPortInterface gateway_out3_x16 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x16 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x16 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x16 Width 18
+	dict set TopLevelPortInterface gateway_out3_x16 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module2_freq_err1_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x16 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module2/freq_err1/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x16 Direction out
+	dict set TopLevelPortInterface gateway_out3_x16 Period 12
+	dict set TopLevelPortInterface gateway_out3_x16 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x16 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x16 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x16 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x16 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x16 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x24 Name {gateway_out4_x24}
 	dict set TopLevelPortInterface gateway_out4_x24 Type UFix_8_0
 	dict set TopLevelPortInterface gateway_out4_x24 ArithmeticType xlUnsigned
@@ -3759,21 +3789,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out4_x24 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out4_x24 Locs {}
 	dict set TopLevelPortInterface gateway_out4_x24 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x24 Name {gateway_out5_x24}
-	dict set TopLevelPortInterface gateway_out5_x24 Type Fix_32_18
-	dict set TopLevelPortInterface gateway_out5_x24 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x24 BinaryPoint 18
-	dict set TopLevelPortInterface gateway_out5_x24 Width 32
-	dict set TopLevelPortInterface gateway_out5_x24 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module2_freq_err1_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x24 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module2/freq_err1/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x24 Direction out
-	dict set TopLevelPortInterface gateway_out5_x24 Period 12
-	dict set TopLevelPortInterface gateway_out5_x24 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x24 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x24 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x24 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x24 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x24 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x22 Name {gateway_out5_x22}
+	dict set TopLevelPortInterface gateway_out5_x22 Type Fix_32_18
+	dict set TopLevelPortInterface gateway_out5_x22 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x22 BinaryPoint 18
+	dict set TopLevelPortInterface gateway_out5_x22 Width 32
+	dict set TopLevelPortInterface gateway_out5_x22 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module2_freq_err1_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x22 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module2/freq_err1/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x22 Direction out
+	dict set TopLevelPortInterface gateway_out5_x22 Period 12
+	dict set TopLevelPortInterface gateway_out5_x22 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x22 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x22 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x22 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x22 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x22 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x9 Name {gateway_out27_x9}
 	dict set TopLevelPortInterface gateway_out27_x9 Type Fix_19_15
 	dict set TopLevelPortInterface gateway_out27_x9 ArithmeticType xlSigned
@@ -3864,21 +3894,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x18 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x18 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x18 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x11 Name {gateway_out3_x11}
-	dict set TopLevelPortInterface gateway_out3_x11 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x11 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x11 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x11 Width 18
-	dict set TopLevelPortInterface gateway_out3_x11 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module2_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x11 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module2/freq_err1/delta_phi/phase_latching/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x11 Direction out
-	dict set TopLevelPortInterface gateway_out3_x11 Period 12
-	dict set TopLevelPortInterface gateway_out3_x11 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x11 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x11 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x11 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x11 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x11 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x12 Name {gateway_out3_x12}
+	dict set TopLevelPortInterface gateway_out3_x12 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x12 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x12 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x12 Width 18
+	dict set TopLevelPortInterface gateway_out3_x12 DatFile {examplemodel_bus_axi_example_dsp_cav1_c1p2_freq_err_module2_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x12 IconText {exampleModel_bus_axi/example/dsp/Cav1/c1p2_freq_err_module2/freq_err1/delta_phi/phase_latching/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x12 Direction out
+	dict set TopLevelPortInterface gateway_out3_x12 Period 12
+	dict set TopLevelPortInterface gateway_out3_x12 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x12 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x12 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x12 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x12 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x12 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x19 Name {gateway_out4_x19}
 	dict set TopLevelPortInterface gateway_out4_x19 Type Fix_18_15
 	dict set TopLevelPortInterface gateway_out4_x19 ArithmeticType xlSigned
@@ -3939,66 +3969,6 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out6_x17 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out6_x17 Locs {}
 	dict set TopLevelPortInterface gateway_out6_x17 IOStandard {}
-	dict set TopLevelPortInterface gateway_out1_x23 Name {gateway_out1_x23}
-	dict set TopLevelPortInterface gateway_out1_x23 Type UFix_1_0
-	dict set TopLevelPortInterface gateway_out1_x23 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out1_x23 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out1_x23 Width 1
-	dict set TopLevelPortInterface gateway_out1_x23 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out1.dat}
-	dict set TopLevelPortInterface gateway_out1_x23 IconText {exampleModel_bus_axi/example/dsp/Cav2/Gateway Out1}
-	dict set TopLevelPortInterface gateway_out1_x23 Direction out
-	dict set TopLevelPortInterface gateway_out1_x23 Period 1
-	dict set TopLevelPortInterface gateway_out1_x23 Interface 0
-	dict set TopLevelPortInterface gateway_out1_x23 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out1_x23 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out1_x23 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out1_x23 Locs {}
-	dict set TopLevelPortInterface gateway_out1_x23 IOStandard {}
-	dict set TopLevelPortInterface gateway_out39 Name {gateway_out39}
-	dict set TopLevelPortInterface gateway_out39 Type Fix_18_17
-	dict set TopLevelPortInterface gateway_out39 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out39 BinaryPoint 17
-	dict set TopLevelPortInterface gateway_out39 Width 18
-	dict set TopLevelPortInterface gateway_out39 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out39.dat}
-	dict set TopLevelPortInterface gateway_out39 IconText {Gateway Out39}
-	dict set TopLevelPortInterface gateway_out39 Direction out
-	dict set TopLevelPortInterface gateway_out39 Period 12
-	dict set TopLevelPortInterface gateway_out39 Interface 0
-	dict set TopLevelPortInterface gateway_out39 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out39 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out39 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out39 Locs {}
-	dict set TopLevelPortInterface gateway_out39 IOStandard {}
-	dict set TopLevelPortInterface gateway_out40 Name {gateway_out40}
-	dict set TopLevelPortInterface gateway_out40 Type Fix_18_17
-	dict set TopLevelPortInterface gateway_out40 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out40 BinaryPoint 17
-	dict set TopLevelPortInterface gateway_out40 Width 18
-	dict set TopLevelPortInterface gateway_out40 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out40.dat}
-	dict set TopLevelPortInterface gateway_out40 IconText {Gateway Out40}
-	dict set TopLevelPortInterface gateway_out40 Direction out
-	dict set TopLevelPortInterface gateway_out40 Period 12
-	dict set TopLevelPortInterface gateway_out40 Interface 0
-	dict set TopLevelPortInterface gateway_out40 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out40 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out40 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out40 Locs {}
-	dict set TopLevelPortInterface gateway_out40 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x12 Name {gateway_out3_x12}
-	dict set TopLevelPortInterface gateway_out3_x12 Type UFix_1_0
-	dict set TopLevelPortInterface gateway_out3_x12 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out3_x12 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out3_x12 Width 1
-	dict set TopLevelPortInterface gateway_out3_x12 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x12 IconText {exampleModel_bus_axi/example/dsp/Cav2/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x12 Direction out
-	dict set TopLevelPortInterface gateway_out3_x12 Period 12
-	dict set TopLevelPortInterface gateway_out3_x12 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x12 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x12 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x12 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x12 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x12 IOStandard {}
 	dict set TopLevelPortInterface gateway_out_x4 Name {gateway_out_x4}
 	dict set TopLevelPortInterface gateway_out_x4 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out_x4 ArithmeticType xlSigned
@@ -4014,21 +3984,66 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out_x4 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out_x4 Locs {}
 	dict set TopLevelPortInterface gateway_out_x4 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x17 Name {gateway_out2_x17}
-	dict set TopLevelPortInterface gateway_out2_x17 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out2_x17 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out2_x17 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out2_x17 Width 18
-	dict set TopLevelPortInterface gateway_out2_x17 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x17 IconText {exampleModel_bus_axi/example/dsp/Cav2/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x17 Direction out
-	dict set TopLevelPortInterface gateway_out2_x17 Period 12
-	dict set TopLevelPortInterface gateway_out2_x17 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x17 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x17 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x17 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x17 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x17 IOStandard {}
+	dict set TopLevelPortInterface gateway_out1_x23 Name {gateway_out1_x23}
+	dict set TopLevelPortInterface gateway_out1_x23 Type UFix_1_0
+	dict set TopLevelPortInterface gateway_out1_x23 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out1_x23 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out1_x23 Width 1
+	dict set TopLevelPortInterface gateway_out1_x23 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out1.dat}
+	dict set TopLevelPortInterface gateway_out1_x23 IconText {exampleModel_bus_axi/example/dsp/Cav2/Gateway Out1}
+	dict set TopLevelPortInterface gateway_out1_x23 Direction out
+	dict set TopLevelPortInterface gateway_out1_x23 Period 1
+	dict set TopLevelPortInterface gateway_out1_x23 Interface 0
+	dict set TopLevelPortInterface gateway_out1_x23 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out1_x23 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out1_x23 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out1_x23 Locs {}
+	dict set TopLevelPortInterface gateway_out1_x23 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x19 Name {gateway_out2_x19}
+	dict set TopLevelPortInterface gateway_out2_x19 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out2_x19 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out2_x19 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out2_x19 Width 18
+	dict set TopLevelPortInterface gateway_out2_x19 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x19 IconText {exampleModel_bus_axi/example/dsp/Cav2/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x19 Direction out
+	dict set TopLevelPortInterface gateway_out2_x19 Period 12
+	dict set TopLevelPortInterface gateway_out2_x19 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x19 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x19 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x19 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x19 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x19 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x13 Name {gateway_out3_x13}
+	dict set TopLevelPortInterface gateway_out3_x13 Type UFix_1_0
+	dict set TopLevelPortInterface gateway_out3_x13 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out3_x13 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out3_x13 Width 1
+	dict set TopLevelPortInterface gateway_out3_x13 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x13 IconText {exampleModel_bus_axi/example/dsp/Cav2/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x13 Direction out
+	dict set TopLevelPortInterface gateway_out3_x13 Period 12
+	dict set TopLevelPortInterface gateway_out3_x13 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x13 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x13 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x13 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x13 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x13 IOStandard {}
+	dict set TopLevelPortInterface gateway_out39 Name {gateway_out39}
+	dict set TopLevelPortInterface gateway_out39 Type Fix_18_17
+	dict set TopLevelPortInterface gateway_out39 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out39 BinaryPoint 17
+	dict set TopLevelPortInterface gateway_out39 Width 18
+	dict set TopLevelPortInterface gateway_out39 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out39.dat}
+	dict set TopLevelPortInterface gateway_out39 IconText {Gateway Out39}
+	dict set TopLevelPortInterface gateway_out39 Direction out
+	dict set TopLevelPortInterface gateway_out39 Period 12
+	dict set TopLevelPortInterface gateway_out39 Interface 0
+	dict set TopLevelPortInterface gateway_out39 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out39 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out39 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out39 Locs {}
+	dict set TopLevelPortInterface gateway_out39 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x20 Name {gateway_out4_x20}
 	dict set TopLevelPortInterface gateway_out4_x20 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out4_x20 ArithmeticType xlSigned
@@ -4044,6 +4059,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out4_x20 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out4_x20 Locs {}
 	dict set TopLevelPortInterface gateway_out4_x20 IOStandard {}
+	dict set TopLevelPortInterface gateway_out40 Name {gateway_out40}
+	dict set TopLevelPortInterface gateway_out40 Type Fix_18_17
+	dict set TopLevelPortInterface gateway_out40 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out40 BinaryPoint 17
+	dict set TopLevelPortInterface gateway_out40 Width 18
+	dict set TopLevelPortInterface gateway_out40 DatFile {examplemodel_bus_axi_example_dsp_cav2_gateway_out40.dat}
+	dict set TopLevelPortInterface gateway_out40 IconText {Gateway Out40}
+	dict set TopLevelPortInterface gateway_out40 Direction out
+	dict set TopLevelPortInterface gateway_out40 Period 12
+	dict set TopLevelPortInterface gateway_out40 Interface 0
+	dict set TopLevelPortInterface gateway_out40 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out40 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out40 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out40 Locs {}
+	dict set TopLevelPortInterface gateway_out40 IOStandard {}
 	dict set TopLevelPortInterface gateway_out5_x20 Name {gateway_out5_x20}
 	dict set TopLevelPortInterface gateway_out5_x20 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out5_x20 ArithmeticType xlSigned
@@ -4134,21 +4164,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out14_x6 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out14_x6 Locs {}
 	dict set TopLevelPortInterface gateway_out14_x6 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x19 Name {gateway_out2_x19}
-	dict set TopLevelPortInterface gateway_out2_x19 Type Bool
-	dict set TopLevelPortInterface gateway_out2_x19 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out2_x19 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out2_x19 Width 1
-	dict set TopLevelPortInterface gateway_out2_x19 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x19 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x19 Direction out
-	dict set TopLevelPortInterface gateway_out2_x19 Period 12
-	dict set TopLevelPortInterface gateway_out2_x19 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x19 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x19 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x19 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x19 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x19 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x20 Name {gateway_out2_x20}
+	dict set TopLevelPortInterface gateway_out2_x20 Type Bool
+	dict set TopLevelPortInterface gateway_out2_x20 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out2_x20 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out2_x20 Width 1
+	dict set TopLevelPortInterface gateway_out2_x20 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x20 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x20 Direction out
+	dict set TopLevelPortInterface gateway_out2_x20 Period 12
+	dict set TopLevelPortInterface gateway_out2_x20 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x20 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x20 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x20 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x20 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x20 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x21 Name {gateway_out4_x21}
 	dict set TopLevelPortInterface gateway_out4_x21 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out4_x21 ArithmeticType xlSigned
@@ -4194,51 +4224,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out6_x19 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out6_x19 Locs {}
 	dict set TopLevelPortInterface gateway_out6_x19 IOStandard {}
-	dict set TopLevelPortInterface gateway_out7_x8 Name {gateway_out7_x8}
-	dict set TopLevelPortInterface gateway_out7_x8 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out7_x8 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out7_x8 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out7_x8 Width 26
-	dict set TopLevelPortInterface gateway_out7_x8 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out7.dat}
-	dict set TopLevelPortInterface gateway_out7_x8 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out7}
-	dict set TopLevelPortInterface gateway_out7_x8 Direction out
-	dict set TopLevelPortInterface gateway_out7_x8 Period 12
-	dict set TopLevelPortInterface gateway_out7_x8 Interface 0
-	dict set TopLevelPortInterface gateway_out7_x8 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out7_x8 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out7_x8 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out7_x8 Locs {}
-	dict set TopLevelPortInterface gateway_out7_x8 IOStandard {}
-	dict set TopLevelPortInterface gateway_out8_x7 Name {gateway_out8_x7}
-	dict set TopLevelPortInterface gateway_out8_x7 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out8_x7 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out8_x7 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out8_x7 Width 18
-	dict set TopLevelPortInterface gateway_out8_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out8.dat}
-	dict set TopLevelPortInterface gateway_out8_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out8}
-	dict set TopLevelPortInterface gateway_out8_x7 Direction out
-	dict set TopLevelPortInterface gateway_out8_x7 Period 12
-	dict set TopLevelPortInterface gateway_out8_x7 Interface 0
-	dict set TopLevelPortInterface gateway_out8_x7 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out8_x7 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out8_x7 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out8_x7 Locs {}
-	dict set TopLevelPortInterface gateway_out8_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out9_x8 Name {gateway_out9_x8}
-	dict set TopLevelPortInterface gateway_out9_x8 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out9_x8 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out9_x8 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out9_x8 Width 18
-	dict set TopLevelPortInterface gateway_out9_x8 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out9.dat}
-	dict set TopLevelPortInterface gateway_out9_x8 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out9}
-	dict set TopLevelPortInterface gateway_out9_x8 Direction out
-	dict set TopLevelPortInterface gateway_out9_x8 Period 12
-	dict set TopLevelPortInterface gateway_out9_x8 Interface 0
-	dict set TopLevelPortInterface gateway_out9_x8 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out9_x8 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out9_x8 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out9_x8 Locs {}
-	dict set TopLevelPortInterface gateway_out9_x8 IOStandard {}
+	dict set TopLevelPortInterface gateway_out7_x7 Name {gateway_out7_x7}
+	dict set TopLevelPortInterface gateway_out7_x7 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out7_x7 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out7_x7 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out7_x7 Width 26
+	dict set TopLevelPortInterface gateway_out7_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out7.dat}
+	dict set TopLevelPortInterface gateway_out7_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out7}
+	dict set TopLevelPortInterface gateway_out7_x7 Direction out
+	dict set TopLevelPortInterface gateway_out7_x7 Period 12
+	dict set TopLevelPortInterface gateway_out7_x7 Interface 0
+	dict set TopLevelPortInterface gateway_out7_x7 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out7_x7 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out7_x7 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out7_x7 Locs {}
+	dict set TopLevelPortInterface gateway_out7_x7 IOStandard {}
+	dict set TopLevelPortInterface gateway_out8_x8 Name {gateway_out8_x8}
+	dict set TopLevelPortInterface gateway_out8_x8 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out8_x8 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out8_x8 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out8_x8 Width 18
+	dict set TopLevelPortInterface gateway_out8_x8 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out8.dat}
+	dict set TopLevelPortInterface gateway_out8_x8 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out8}
+	dict set TopLevelPortInterface gateway_out8_x8 Direction out
+	dict set TopLevelPortInterface gateway_out8_x8 Period 12
+	dict set TopLevelPortInterface gateway_out8_x8 Interface 0
+	dict set TopLevelPortInterface gateway_out8_x8 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out8_x8 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out8_x8 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out8_x8 Locs {}
+	dict set TopLevelPortInterface gateway_out8_x8 IOStandard {}
+	dict set TopLevelPortInterface gateway_out9_x2 Name {gateway_out9_x2}
+	dict set TopLevelPortInterface gateway_out9_x2 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out9_x2 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out9_x2 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out9_x2 Width 18
+	dict set TopLevelPortInterface gateway_out9_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_gateway_out9.dat}
+	dict set TopLevelPortInterface gateway_out9_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Gateway Out9}
+	dict set TopLevelPortInterface gateway_out9_x2 Direction out
+	dict set TopLevelPortInterface gateway_out9_x2 Period 12
+	dict set TopLevelPortInterface gateway_out9_x2 Interface 0
+	dict set TopLevelPortInterface gateway_out9_x2 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out9_x2 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out9_x2 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out9_x2 Locs {}
+	dict set TopLevelPortInterface gateway_out9_x2 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x7 Name {gateway_out1_x7}
 	dict set TopLevelPortInterface gateway_out1_x7 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out1_x7 ArithmeticType xlSigned
@@ -4254,51 +4284,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out1_x7 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out1_x7 Locs {}
 	dict set TopLevelPortInterface gateway_out1_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x6 Name {gateway_out2_x6}
-	dict set TopLevelPortInterface gateway_out2_x6 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out2_x6 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out2_x6 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out2_x6 Width 18
-	dict set TopLevelPortInterface gateway_out2_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x6 Direction out
-	dict set TopLevelPortInterface gateway_out2_x6 Period 12
-	dict set TopLevelPortInterface gateway_out2_x6 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x6 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x6 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x6 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x6 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x6 IOStandard {}
-	dict set TopLevelPortInterface gateway_out22_x1 Name {gateway_out22_x1}
-	dict set TopLevelPortInterface gateway_out22_x1 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out22_x1 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out22_x1 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out22_x1 Width 37
-	dict set TopLevelPortInterface gateway_out22_x1 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out22.dat}
-	dict set TopLevelPortInterface gateway_out22_x1 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out22}
-	dict set TopLevelPortInterface gateway_out22_x1 Direction out
-	dict set TopLevelPortInterface gateway_out22_x1 Period 12
-	dict set TopLevelPortInterface gateway_out22_x1 Interface 0
-	dict set TopLevelPortInterface gateway_out22_x1 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out22_x1 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out22_x1 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out22_x1 Locs {}
-	dict set TopLevelPortInterface gateway_out22_x1 IOStandard {}
-	dict set TopLevelPortInterface gateway_out24_x2 Name {gateway_out24_x2}
-	dict set TopLevelPortInterface gateway_out24_x2 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out24_x2 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out24_x2 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out24_x2 Width 26
-	dict set TopLevelPortInterface gateway_out24_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out24.dat}
-	dict set TopLevelPortInterface gateway_out24_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out24}
-	dict set TopLevelPortInterface gateway_out24_x2 Direction out
-	dict set TopLevelPortInterface gateway_out24_x2 Period 12
-	dict set TopLevelPortInterface gateway_out24_x2 Interface 0
-	dict set TopLevelPortInterface gateway_out24_x2 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out24_x2 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out24_x2 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out24_x2 Locs {}
-	dict set TopLevelPortInterface gateway_out24_x2 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x7 Name {gateway_out2_x7}
+	dict set TopLevelPortInterface gateway_out2_x7 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out2_x7 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out2_x7 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out2_x7 Width 18
+	dict set TopLevelPortInterface gateway_out2_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x7 Direction out
+	dict set TopLevelPortInterface gateway_out2_x7 Period 12
+	dict set TopLevelPortInterface gateway_out2_x7 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x7 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x7 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x7 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x7 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x7 IOStandard {}
+	dict set TopLevelPortInterface gateway_out22_x2 Name {gateway_out22_x2}
+	dict set TopLevelPortInterface gateway_out22_x2 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out22_x2 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out22_x2 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out22_x2 Width 37
+	dict set TopLevelPortInterface gateway_out22_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out22.dat}
+	dict set TopLevelPortInterface gateway_out22_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out22}
+	dict set TopLevelPortInterface gateway_out22_x2 Direction out
+	dict set TopLevelPortInterface gateway_out22_x2 Period 12
+	dict set TopLevelPortInterface gateway_out22_x2 Interface 0
+	dict set TopLevelPortInterface gateway_out22_x2 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out22_x2 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out22_x2 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out22_x2 Locs {}
+	dict set TopLevelPortInterface gateway_out22_x2 IOStandard {}
+	dict set TopLevelPortInterface gateway_out24_x1 Name {gateway_out24_x1}
+	dict set TopLevelPortInterface gateway_out24_x1 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out24_x1 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out24_x1 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out24_x1 Width 26
+	dict set TopLevelPortInterface gateway_out24_x1 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out24.dat}
+	dict set TopLevelPortInterface gateway_out24_x1 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out24}
+	dict set TopLevelPortInterface gateway_out24_x1 Direction out
+	dict set TopLevelPortInterface gateway_out24_x1 Period 12
+	dict set TopLevelPortInterface gateway_out24_x1 Interface 0
+	dict set TopLevelPortInterface gateway_out24_x1 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out24_x1 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out24_x1 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out24_x1 Locs {}
+	dict set TopLevelPortInterface gateway_out24_x1 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x1 Name {gateway_out27_x1}
 	dict set TopLevelPortInterface gateway_out27_x1 Type UFix_4_0
 	dict set TopLevelPortInterface gateway_out27_x1 ArithmeticType xlUnsigned
@@ -4314,51 +4344,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27_x1 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27_x1 Locs {}
 	dict set TopLevelPortInterface gateway_out27_x1 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x1 Name {gateway_out3_x1}
-	dict set TopLevelPortInterface gateway_out3_x1 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3_x1 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x1 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3_x1 Width 37
-	dict set TopLevelPortInterface gateway_out3_x1 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x1 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x1 Direction out
-	dict set TopLevelPortInterface gateway_out3_x1 Period 12
-	dict set TopLevelPortInterface gateway_out3_x1 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x1 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x1 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x1 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x1 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x1 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x6 Name {gateway_out4_x6}
-	dict set TopLevelPortInterface gateway_out4_x6 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out4_x6 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x6 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out4_x6 Width 37
-	dict set TopLevelPortInterface gateway_out4_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x6 Direction out
-	dict set TopLevelPortInterface gateway_out4_x6 Period 12
-	dict set TopLevelPortInterface gateway_out4_x6 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x6 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x6 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x6 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x6 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x6 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x5 Name {gateway_out5_x5}
-	dict set TopLevelPortInterface gateway_out5_x5 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out5_x5 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x5 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out5_x5 Width 37
-	dict set TopLevelPortInterface gateway_out5_x5 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x5 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x5 Direction out
-	dict set TopLevelPortInterface gateway_out5_x5 Period 12
-	dict set TopLevelPortInterface gateway_out5_x5 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x5 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x5 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x5 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x5 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x5 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x2 Name {gateway_out3_x2}
+	dict set TopLevelPortInterface gateway_out3_x2 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x2 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x2 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x2 Width 37
+	dict set TopLevelPortInterface gateway_out3_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x2 Direction out
+	dict set TopLevelPortInterface gateway_out3_x2 Period 12
+	dict set TopLevelPortInterface gateway_out3_x2 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x2 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x2 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x2 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x2 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x2 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x5 Name {gateway_out4_x5}
+	dict set TopLevelPortInterface gateway_out4_x5 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out4_x5 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x5 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out4_x5 Width 37
+	dict set TopLevelPortInterface gateway_out4_x5 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x5 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x5 Direction out
+	dict set TopLevelPortInterface gateway_out4_x5 Period 12
+	dict set TopLevelPortInterface gateway_out4_x5 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x5 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x5 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x5 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x5 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x5 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x6 Name {gateway_out5_x6}
+	dict set TopLevelPortInterface gateway_out5_x6 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out5_x6 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x6 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out5_x6 Width 37
+	dict set TopLevelPortInterface gateway_out5_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize_subsystem_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize/Subsystem/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x6 Direction out
+	dict set TopLevelPortInterface gateway_out5_x6 Period 12
+	dict set TopLevelPortInterface gateway_out5_x6 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x6 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x6 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x6 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x6 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x6 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x6 Name {gateway_out6_x6}
 	dict set TopLevelPortInterface gateway_out6_x6 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out6_x6 ArithmeticType xlSigned
@@ -4434,51 +4464,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out14_x3 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out14_x3 Locs {}
 	dict set TopLevelPortInterface gateway_out14_x3 IOStandard {}
-	dict set TopLevelPortInterface gateway_out2_x7 Name {gateway_out2_x7}
-	dict set TopLevelPortInterface gateway_out2_x7 Type Bool
-	dict set TopLevelPortInterface gateway_out2_x7 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out2_x7 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out2_x7 Width 1
-	dict set TopLevelPortInterface gateway_out2_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out2.dat}
-	dict set TopLevelPortInterface gateway_out2_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out2}
-	dict set TopLevelPortInterface gateway_out2_x7 Direction out
-	dict set TopLevelPortInterface gateway_out2_x7 Period 12
-	dict set TopLevelPortInterface gateway_out2_x7 Interface 0
-	dict set TopLevelPortInterface gateway_out2_x7 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out2_x7 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out2_x7 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out2_x7 Locs {}
-	dict set TopLevelPortInterface gateway_out2_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x5 Name {gateway_out4_x5}
-	dict set TopLevelPortInterface gateway_out4_x5 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out4_x5 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x5 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out4_x5 Width 26
-	dict set TopLevelPortInterface gateway_out4_x5 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x5 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x5 Direction out
-	dict set TopLevelPortInterface gateway_out4_x5 Period 12
-	dict set TopLevelPortInterface gateway_out4_x5 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x5 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x5 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x5 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x5 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x5 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x6 Name {gateway_out5_x6}
-	dict set TopLevelPortInterface gateway_out5_x6 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out5_x6 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x6 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out5_x6 Width 26
-	dict set TopLevelPortInterface gateway_out5_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x6 Direction out
-	dict set TopLevelPortInterface gateway_out5_x6 Period 12
-	dict set TopLevelPortInterface gateway_out5_x6 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x6 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x6 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x6 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x6 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x6 IOStandard {}
+	dict set TopLevelPortInterface gateway_out2_x6 Name {gateway_out2_x6}
+	dict set TopLevelPortInterface gateway_out2_x6 Type Bool
+	dict set TopLevelPortInterface gateway_out2_x6 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out2_x6 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out2_x6 Width 1
+	dict set TopLevelPortInterface gateway_out2_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out2.dat}
+	dict set TopLevelPortInterface gateway_out2_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out2}
+	dict set TopLevelPortInterface gateway_out2_x6 Direction out
+	dict set TopLevelPortInterface gateway_out2_x6 Period 12
+	dict set TopLevelPortInterface gateway_out2_x6 Interface 0
+	dict set TopLevelPortInterface gateway_out2_x6 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out2_x6 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out2_x6 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out2_x6 Locs {}
+	dict set TopLevelPortInterface gateway_out2_x6 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x6 Name {gateway_out4_x6}
+	dict set TopLevelPortInterface gateway_out4_x6 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out4_x6 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x6 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out4_x6 Width 26
+	dict set TopLevelPortInterface gateway_out4_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x6 Direction out
+	dict set TopLevelPortInterface gateway_out4_x6 Period 12
+	dict set TopLevelPortInterface gateway_out4_x6 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x6 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x6 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x6 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x6 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x6 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x7 Name {gateway_out5_x7}
+	dict set TopLevelPortInterface gateway_out5_x7 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out5_x7 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x7 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out5_x7 Width 26
+	dict set TopLevelPortInterface gateway_out5_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x7 Direction out
+	dict set TopLevelPortInterface gateway_out5_x7 Period 12
+	dict set TopLevelPortInterface gateway_out5_x7 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x7 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x7 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x7 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x7 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x7 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x7 Name {gateway_out6_x7}
 	dict set TopLevelPortInterface gateway_out6_x7 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out6_x7 ArithmeticType xlSigned
@@ -4524,21 +4554,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out8_x2 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out8_x2 Locs {}
 	dict set TopLevelPortInterface gateway_out8_x2 IOStandard {}
-	dict set TopLevelPortInterface gateway_out9_x2 Name {gateway_out9_x2}
-	dict set TopLevelPortInterface gateway_out9_x2 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out9_x2 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out9_x2 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out9_x2 Width 18
-	dict set TopLevelPortInterface gateway_out9_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out9.dat}
-	dict set TopLevelPortInterface gateway_out9_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out9}
-	dict set TopLevelPortInterface gateway_out9_x2 Direction out
-	dict set TopLevelPortInterface gateway_out9_x2 Period 12
-	dict set TopLevelPortInterface gateway_out9_x2 Interface 0
-	dict set TopLevelPortInterface gateway_out9_x2 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out9_x2 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out9_x2 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out9_x2 Locs {}
-	dict set TopLevelPortInterface gateway_out9_x2 IOStandard {}
+	dict set TopLevelPortInterface gateway_out9_x3 Name {gateway_out9_x3}
+	dict set TopLevelPortInterface gateway_out9_x3 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out9_x3 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out9_x3 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out9_x3 Width 18
+	dict set TopLevelPortInterface gateway_out9_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_gateway_out9.dat}
+	dict set TopLevelPortInterface gateway_out9_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Gateway Out9}
+	dict set TopLevelPortInterface gateway_out9_x3 Direction out
+	dict set TopLevelPortInterface gateway_out9_x3 Period 12
+	dict set TopLevelPortInterface gateway_out9_x3 Interface 0
+	dict set TopLevelPortInterface gateway_out9_x3 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out9_x3 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out9_x3 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out9_x3 Locs {}
+	dict set TopLevelPortInterface gateway_out9_x3 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x9 Name {gateway_out1_x9}
 	dict set TopLevelPortInterface gateway_out1_x9 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out1_x9 ArithmeticType xlSigned
@@ -4569,36 +4599,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x8 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x8 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x8 IOStandard {}
-	dict set TopLevelPortInterface gateway_out22_x2 Name {gateway_out22_x2}
-	dict set TopLevelPortInterface gateway_out22_x2 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out22_x2 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out22_x2 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out22_x2 Width 37
-	dict set TopLevelPortInterface gateway_out22_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out22.dat}
-	dict set TopLevelPortInterface gateway_out22_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out22}
-	dict set TopLevelPortInterface gateway_out22_x2 Direction out
-	dict set TopLevelPortInterface gateway_out22_x2 Period 12
-	dict set TopLevelPortInterface gateway_out22_x2 Interface 0
-	dict set TopLevelPortInterface gateway_out22_x2 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out22_x2 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out22_x2 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out22_x2 Locs {}
-	dict set TopLevelPortInterface gateway_out22_x2 IOStandard {}
-	dict set TopLevelPortInterface gateway_out24_x3 Name {gateway_out24_x3}
-	dict set TopLevelPortInterface gateway_out24_x3 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out24_x3 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out24_x3 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out24_x3 Width 26
-	dict set TopLevelPortInterface gateway_out24_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out24.dat}
-	dict set TopLevelPortInterface gateway_out24_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out24}
-	dict set TopLevelPortInterface gateway_out24_x3 Direction out
-	dict set TopLevelPortInterface gateway_out24_x3 Period 12
-	dict set TopLevelPortInterface gateway_out24_x3 Interface 0
-	dict set TopLevelPortInterface gateway_out24_x3 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out24_x3 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out24_x3 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out24_x3 Locs {}
-	dict set TopLevelPortInterface gateway_out24_x3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out22_x3 Name {gateway_out22_x3}
+	dict set TopLevelPortInterface gateway_out22_x3 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out22_x3 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out22_x3 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out22_x3 Width 37
+	dict set TopLevelPortInterface gateway_out22_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out22.dat}
+	dict set TopLevelPortInterface gateway_out22_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out22}
+	dict set TopLevelPortInterface gateway_out22_x3 Direction out
+	dict set TopLevelPortInterface gateway_out22_x3 Period 12
+	dict set TopLevelPortInterface gateway_out22_x3 Interface 0
+	dict set TopLevelPortInterface gateway_out22_x3 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out22_x3 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out22_x3 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out22_x3 Locs {}
+	dict set TopLevelPortInterface gateway_out22_x3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out24_x2 Name {gateway_out24_x2}
+	dict set TopLevelPortInterface gateway_out24_x2 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out24_x2 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out24_x2 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out24_x2 Width 26
+	dict set TopLevelPortInterface gateway_out24_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out24.dat}
+	dict set TopLevelPortInterface gateway_out24_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out24}
+	dict set TopLevelPortInterface gateway_out24_x2 Direction out
+	dict set TopLevelPortInterface gateway_out24_x2 Period 12
+	dict set TopLevelPortInterface gateway_out24_x2 Interface 0
+	dict set TopLevelPortInterface gateway_out24_x2 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out24_x2 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out24_x2 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out24_x2 Locs {}
+	dict set TopLevelPortInterface gateway_out24_x2 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x2 Name {gateway_out27_x2}
 	dict set TopLevelPortInterface gateway_out27_x2 Type UFix_4_0
 	dict set TopLevelPortInterface gateway_out27_x2 ArithmeticType xlUnsigned
@@ -4614,21 +4644,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27_x2 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27_x2 Locs {}
 	dict set TopLevelPortInterface gateway_out27_x2 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x2 Name {gateway_out3_x2}
-	dict set TopLevelPortInterface gateway_out3_x2 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3_x2 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x2 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3_x2 Width 37
-	dict set TopLevelPortInterface gateway_out3_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x2 Direction out
-	dict set TopLevelPortInterface gateway_out3_x2 Period 12
-	dict set TopLevelPortInterface gateway_out3_x2 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x2 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x2 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x2 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x2 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x2 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x3 Name {gateway_out3_x3}
+	dict set TopLevelPortInterface gateway_out3_x3 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x3 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x3 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x3 Width 37
+	dict set TopLevelPortInterface gateway_out3_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x3 Direction out
+	dict set TopLevelPortInterface gateway_out3_x3 Period 12
+	dict set TopLevelPortInterface gateway_out3_x3 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x3 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x3 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x3 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x3 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x3 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x7 Name {gateway_out4_x7}
 	dict set TopLevelPortInterface gateway_out4_x7 Type Fix_37_27
 	dict set TopLevelPortInterface gateway_out4_x7 ArithmeticType xlSigned
@@ -4644,36 +4674,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out4_x7 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out4_x7 Locs {}
 	dict set TopLevelPortInterface gateway_out4_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x7 Name {gateway_out5_x7}
-	dict set TopLevelPortInterface gateway_out5_x7 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out5_x7 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x7 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out5_x7 Width 37
-	dict set TopLevelPortInterface gateway_out5_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x7 Direction out
-	dict set TopLevelPortInterface gateway_out5_x7 Period 12
-	dict set TopLevelPortInterface gateway_out5_x7 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x7 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x7 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x7 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x7 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out6_x3 Name {gateway_out6_x3}
-	dict set TopLevelPortInterface gateway_out6_x3 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out6_x3 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out6_x3 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out6_x3 Width 26
-	dict set TopLevelPortInterface gateway_out6_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out6.dat}
-	dict set TopLevelPortInterface gateway_out6_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out6}
-	dict set TopLevelPortInterface gateway_out6_x3 Direction out
-	dict set TopLevelPortInterface gateway_out6_x3 Period 12
-	dict set TopLevelPortInterface gateway_out6_x3 Interface 0
-	dict set TopLevelPortInterface gateway_out6_x3 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out6_x3 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out6_x3 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out6_x3 Locs {}
-	dict set TopLevelPortInterface gateway_out6_x3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x3 Name {gateway_out5_x3}
+	dict set TopLevelPortInterface gateway_out5_x3 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out5_x3 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x3 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out5_x3 Width 37
+	dict set TopLevelPortInterface gateway_out5_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x3 Direction out
+	dict set TopLevelPortInterface gateway_out5_x3 Period 12
+	dict set TopLevelPortInterface gateway_out5_x3 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x3 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x3 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x3 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x3 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out6_x2 Name {gateway_out6_x2}
+	dict set TopLevelPortInterface gateway_out6_x2 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out6_x2 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out6_x2 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out6_x2 Width 26
+	dict set TopLevelPortInterface gateway_out6_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration1_iq_latch_normalize1_subsystem_gateway_out6.dat}
+	dict set TopLevelPortInterface gateway_out6_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration1/IQ_latch_normalize1/Subsystem/Gateway Out6}
+	dict set TopLevelPortInterface gateway_out6_x2 Direction out
+	dict set TopLevelPortInterface gateway_out6_x2 Period 12
+	dict set TopLevelPortInterface gateway_out6_x2 Interface 0
+	dict set TopLevelPortInterface gateway_out6_x2 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out6_x2 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out6_x2 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out6_x2 Locs {}
+	dict set TopLevelPortInterface gateway_out6_x2 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x4 Name {gateway_out1_x4}
 	dict set TopLevelPortInterface gateway_out1_x4 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out1_x4 ArithmeticType xlSigned
@@ -4779,21 +4809,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out5_x2 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out5_x2 Locs {}
 	dict set TopLevelPortInterface gateway_out5_x2 IOStandard {}
-	dict set TopLevelPortInterface gateway_out6_x2 Name {gateway_out6_x2}
-	dict set TopLevelPortInterface gateway_out6_x2 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out6_x2 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out6_x2 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out6_x2 Width 18
-	dict set TopLevelPortInterface gateway_out6_x2 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_gateway_out6.dat}
-	dict set TopLevelPortInterface gateway_out6_x2 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Gateway Out6}
-	dict set TopLevelPortInterface gateway_out6_x2 Direction out
-	dict set TopLevelPortInterface gateway_out6_x2 Period 12
-	dict set TopLevelPortInterface gateway_out6_x2 Interface 0
-	dict set TopLevelPortInterface gateway_out6_x2 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out6_x2 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out6_x2 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out6_x2 Locs {}
-	dict set TopLevelPortInterface gateway_out6_x2 IOStandard {}
+	dict set TopLevelPortInterface gateway_out6_x3 Name {gateway_out6_x3}
+	dict set TopLevelPortInterface gateway_out6_x3 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out6_x3 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out6_x3 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out6_x3 Width 18
+	dict set TopLevelPortInterface gateway_out6_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_gateway_out6.dat}
+	dict set TopLevelPortInterface gateway_out6_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Gateway Out6}
+	dict set TopLevelPortInterface gateway_out6_x3 Direction out
+	dict set TopLevelPortInterface gateway_out6_x3 Period 12
+	dict set TopLevelPortInterface gateway_out6_x3 Interface 0
+	dict set TopLevelPortInterface gateway_out6_x3 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out6_x3 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out6_x3 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out6_x3 Locs {}
+	dict set TopLevelPortInterface gateway_out6_x3 IOStandard {}
 	dict set TopLevelPortInterface gateway_out7_x1 Name {gateway_out7_x1}
 	dict set TopLevelPortInterface gateway_out7_x1 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out7_x1 ArithmeticType xlSigned
@@ -4869,36 +4899,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x4 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x4 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x4 IOStandard {}
-	dict set TopLevelPortInterface gateway_out22_x0 Name {gateway_out22_x0}
-	dict set TopLevelPortInterface gateway_out22_x0 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out22_x0 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out22_x0 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out22_x0 Width 37
-	dict set TopLevelPortInterface gateway_out22_x0 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out22.dat}
-	dict set TopLevelPortInterface gateway_out22_x0 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out22}
-	dict set TopLevelPortInterface gateway_out22_x0 Direction out
-	dict set TopLevelPortInterface gateway_out22_x0 Period 12
-	dict set TopLevelPortInterface gateway_out22_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out22_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out22_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out22_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out22_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out22_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out24_x1 Name {gateway_out24_x1}
-	dict set TopLevelPortInterface gateway_out24_x1 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out24_x1 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out24_x1 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out24_x1 Width 26
-	dict set TopLevelPortInterface gateway_out24_x1 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out24.dat}
-	dict set TopLevelPortInterface gateway_out24_x1 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out24}
-	dict set TopLevelPortInterface gateway_out24_x1 Direction out
-	dict set TopLevelPortInterface gateway_out24_x1 Period 12
-	dict set TopLevelPortInterface gateway_out24_x1 Interface 0
-	dict set TopLevelPortInterface gateway_out24_x1 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out24_x1 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out24_x1 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out24_x1 Locs {}
-	dict set TopLevelPortInterface gateway_out24_x1 IOStandard {}
+	dict set TopLevelPortInterface gateway_out22_x1 Name {gateway_out22_x1}
+	dict set TopLevelPortInterface gateway_out22_x1 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out22_x1 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out22_x1 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out22_x1 Width 37
+	dict set TopLevelPortInterface gateway_out22_x1 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out22.dat}
+	dict set TopLevelPortInterface gateway_out22_x1 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out22}
+	dict set TopLevelPortInterface gateway_out22_x1 Direction out
+	dict set TopLevelPortInterface gateway_out22_x1 Period 12
+	dict set TopLevelPortInterface gateway_out22_x1 Interface 0
+	dict set TopLevelPortInterface gateway_out22_x1 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out22_x1 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out22_x1 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out22_x1 Locs {}
+	dict set TopLevelPortInterface gateway_out22_x1 IOStandard {}
+	dict set TopLevelPortInterface gateway_out24_x0 Name {gateway_out24_x0}
+	dict set TopLevelPortInterface gateway_out24_x0 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out24_x0 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out24_x0 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out24_x0 Width 26
+	dict set TopLevelPortInterface gateway_out24_x0 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out24.dat}
+	dict set TopLevelPortInterface gateway_out24_x0 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out24}
+	dict set TopLevelPortInterface gateway_out24_x0 Direction out
+	dict set TopLevelPortInterface gateway_out24_x0 Period 12
+	dict set TopLevelPortInterface gateway_out24_x0 Interface 0
+	dict set TopLevelPortInterface gateway_out24_x0 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out24_x0 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out24_x0 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out24_x0 Locs {}
+	dict set TopLevelPortInterface gateway_out24_x0 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x0 Name {gateway_out27_x0}
 	dict set TopLevelPortInterface gateway_out27_x0 Type UFix_4_0
 	dict set TopLevelPortInterface gateway_out27_x0 ArithmeticType xlUnsigned
@@ -4914,21 +4944,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27_x0 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27_x0 Locs {}
 	dict set TopLevelPortInterface gateway_out27_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x0 Name {gateway_out3_x0}
-	dict set TopLevelPortInterface gateway_out3_x0 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3_x0 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x0 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3_x0 Width 37
-	dict set TopLevelPortInterface gateway_out3_x0 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x0 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x0 Direction out
-	dict set TopLevelPortInterface gateway_out3_x0 Period 12
-	dict set TopLevelPortInterface gateway_out3_x0 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x0 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x0 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x0 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x0 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x0 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x1 Name {gateway_out3_x1}
+	dict set TopLevelPortInterface gateway_out3_x1 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x1 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x1 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x1 Width 37
+	dict set TopLevelPortInterface gateway_out3_x1 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x1 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x1 Direction out
+	dict set TopLevelPortInterface gateway_out3_x1 Period 12
+	dict set TopLevelPortInterface gateway_out3_x1 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x1 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x1 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x1 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x1 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x1 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x3 Name {gateway_out4_x3}
 	dict set TopLevelPortInterface gateway_out4_x3 Type Fix_37_27
 	dict set TopLevelPortInterface gateway_out4_x3 ArithmeticType xlSigned
@@ -4944,21 +4974,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out4_x3 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out4_x3 Locs {}
 	dict set TopLevelPortInterface gateway_out4_x3 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x3 Name {gateway_out5_x3}
-	dict set TopLevelPortInterface gateway_out5_x3 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out5_x3 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x3 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out5_x3 Width 37
-	dict set TopLevelPortInterface gateway_out5_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x3 Direction out
-	dict set TopLevelPortInterface gateway_out5_x3 Period 12
-	dict set TopLevelPortInterface gateway_out5_x3 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x3 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x3 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x3 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x3 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x4 Name {gateway_out5_x4}
+	dict set TopLevelPortInterface gateway_out5_x4 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out5_x4 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x4 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out5_x4 Width 37
+	dict set TopLevelPortInterface gateway_out5_x4 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize_subsystem_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x4 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize/Subsystem/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x4 Direction out
+	dict set TopLevelPortInterface gateway_out5_x4 Period 12
+	dict set TopLevelPortInterface gateway_out5_x4 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x4 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x4 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x4 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x4 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x4 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x4 Name {gateway_out6_x4}
 	dict set TopLevelPortInterface gateway_out6_x4 Type Fix_26_16
 	dict set TopLevelPortInterface gateway_out6_x4 ArithmeticType xlSigned
@@ -5064,21 +5094,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out4_x4 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out4_x4 Locs {}
 	dict set TopLevelPortInterface gateway_out4_x4 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x4 Name {gateway_out5_x4}
-	dict set TopLevelPortInterface gateway_out5_x4 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out5_x4 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x4 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out5_x4 Width 26
-	dict set TopLevelPortInterface gateway_out5_x4 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x4 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x4 Direction out
-	dict set TopLevelPortInterface gateway_out5_x4 Period 12
-	dict set TopLevelPortInterface gateway_out5_x4 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x4 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x4 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x4 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x4 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x4 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x5 Name {gateway_out5_x5}
+	dict set TopLevelPortInterface gateway_out5_x5 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out5_x5 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x5 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out5_x5 Width 26
+	dict set TopLevelPortInterface gateway_out5_x5 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x5 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x5 Direction out
+	dict set TopLevelPortInterface gateway_out5_x5 Period 12
+	dict set TopLevelPortInterface gateway_out5_x5 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x5 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x5 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x5 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x5 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x5 IOStandard {}
 	dict set TopLevelPortInterface gateway_out6_x5 Name {gateway_out6_x5}
 	dict set TopLevelPortInterface gateway_out6_x5 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out6_x5 ArithmeticType xlSigned
@@ -5124,21 +5154,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out8_x3 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out8_x3 Locs {}
 	dict set TopLevelPortInterface gateway_out8_x3 IOStandard {}
-	dict set TopLevelPortInterface gateway_out9_x3 Name {gateway_out9_x3}
-	dict set TopLevelPortInterface gateway_out9_x3 Type Fix_18_16
-	dict set TopLevelPortInterface gateway_out9_x3 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out9_x3 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out9_x3 Width 18
-	dict set TopLevelPortInterface gateway_out9_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_gateway_out9.dat}
-	dict set TopLevelPortInterface gateway_out9_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Gateway Out9}
-	dict set TopLevelPortInterface gateway_out9_x3 Direction out
-	dict set TopLevelPortInterface gateway_out9_x3 Period 12
-	dict set TopLevelPortInterface gateway_out9_x3 Interface 0
-	dict set TopLevelPortInterface gateway_out9_x3 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out9_x3 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out9_x3 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out9_x3 Locs {}
-	dict set TopLevelPortInterface gateway_out9_x3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out9_x4 Name {gateway_out9_x4}
+	dict set TopLevelPortInterface gateway_out9_x4 Type Fix_18_16
+	dict set TopLevelPortInterface gateway_out9_x4 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out9_x4 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out9_x4 Width 18
+	dict set TopLevelPortInterface gateway_out9_x4 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_gateway_out9.dat}
+	dict set TopLevelPortInterface gateway_out9_x4 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Gateway Out9}
+	dict set TopLevelPortInterface gateway_out9_x4 Direction out
+	dict set TopLevelPortInterface gateway_out9_x4 Period 12
+	dict set TopLevelPortInterface gateway_out9_x4 Interface 0
+	dict set TopLevelPortInterface gateway_out9_x4 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out9_x4 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out9_x4 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out9_x4 Locs {}
+	dict set TopLevelPortInterface gateway_out9_x4 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x13 Name {gateway_out1_x13}
 	dict set TopLevelPortInterface gateway_out1_x13 Type Fix_18_16
 	dict set TopLevelPortInterface gateway_out1_x13 ArithmeticType xlSigned
@@ -5169,36 +5199,36 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x10 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x10 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x10 IOStandard {}
-	dict set TopLevelPortInterface gateway_out22_x3 Name {gateway_out22_x3}
-	dict set TopLevelPortInterface gateway_out22_x3 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out22_x3 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out22_x3 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out22_x3 Width 37
-	dict set TopLevelPortInterface gateway_out22_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_subsystem_gateway_out22.dat}
-	dict set TopLevelPortInterface gateway_out22_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out22}
-	dict set TopLevelPortInterface gateway_out22_x3 Direction out
-	dict set TopLevelPortInterface gateway_out22_x3 Period 12
-	dict set TopLevelPortInterface gateway_out22_x3 Interface 0
-	dict set TopLevelPortInterface gateway_out22_x3 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out22_x3 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out22_x3 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out22_x3 Locs {}
-	dict set TopLevelPortInterface gateway_out22_x3 IOStandard {}
-	dict set TopLevelPortInterface gateway_out24_x4 Name {gateway_out24_x4}
-	dict set TopLevelPortInterface gateway_out24_x4 Type Fix_26_16
-	dict set TopLevelPortInterface gateway_out24_x4 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out24_x4 BinaryPoint 16
-	dict set TopLevelPortInterface gateway_out24_x4 Width 26
-	dict set TopLevelPortInterface gateway_out24_x4 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_subsystem_gateway_out24.dat}
-	dict set TopLevelPortInterface gateway_out24_x4 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out24}
-	dict set TopLevelPortInterface gateway_out24_x4 Direction out
-	dict set TopLevelPortInterface gateway_out24_x4 Period 12
-	dict set TopLevelPortInterface gateway_out24_x4 Interface 0
-	dict set TopLevelPortInterface gateway_out24_x4 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out24_x4 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out24_x4 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out24_x4 Locs {}
-	dict set TopLevelPortInterface gateway_out24_x4 IOStandard {}
+	dict set TopLevelPortInterface gateway_out22_x4 Name {gateway_out22_x4}
+	dict set TopLevelPortInterface gateway_out22_x4 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out22_x4 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out22_x4 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out22_x4 Width 37
+	dict set TopLevelPortInterface gateway_out22_x4 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_subsystem_gateway_out22.dat}
+	dict set TopLevelPortInterface gateway_out22_x4 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out22}
+	dict set TopLevelPortInterface gateway_out22_x4 Direction out
+	dict set TopLevelPortInterface gateway_out22_x4 Period 12
+	dict set TopLevelPortInterface gateway_out22_x4 Interface 0
+	dict set TopLevelPortInterface gateway_out22_x4 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out22_x4 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out22_x4 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out22_x4 Locs {}
+	dict set TopLevelPortInterface gateway_out22_x4 IOStandard {}
+	dict set TopLevelPortInterface gateway_out24_x3 Name {gateway_out24_x3}
+	dict set TopLevelPortInterface gateway_out24_x3 Type Fix_26_16
+	dict set TopLevelPortInterface gateway_out24_x3 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out24_x3 BinaryPoint 16
+	dict set TopLevelPortInterface gateway_out24_x3 Width 26
+	dict set TopLevelPortInterface gateway_out24_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_subsystem_gateway_out24.dat}
+	dict set TopLevelPortInterface gateway_out24_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out24}
+	dict set TopLevelPortInterface gateway_out24_x3 Direction out
+	dict set TopLevelPortInterface gateway_out24_x3 Period 12
+	dict set TopLevelPortInterface gateway_out24_x3 Interface 0
+	dict set TopLevelPortInterface gateway_out24_x3 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out24_x3 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out24_x3 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out24_x3 Locs {}
+	dict set TopLevelPortInterface gateway_out24_x3 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x4 Name {gateway_out27_x4}
 	dict set TopLevelPortInterface gateway_out27_x4 Type UFix_4_0
 	dict set TopLevelPortInterface gateway_out27_x4 ArithmeticType xlUnsigned
@@ -5214,21 +5244,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out27_x4 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out27_x4 Locs {}
 	dict set TopLevelPortInterface gateway_out27_x4 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x5 Name {gateway_out3_x5}
-	dict set TopLevelPortInterface gateway_out3_x5 Type Fix_37_27
-	dict set TopLevelPortInterface gateway_out3_x5 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x5 BinaryPoint 27
-	dict set TopLevelPortInterface gateway_out3_x5 Width 37
-	dict set TopLevelPortInterface gateway_out3_x5 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_subsystem_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x5 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x5 Direction out
-	dict set TopLevelPortInterface gateway_out3_x5 Period 12
-	dict set TopLevelPortInterface gateway_out3_x5 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x5 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x5 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x5 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x5 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x5 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x6 Name {gateway_out3_x6}
+	dict set TopLevelPortInterface gateway_out3_x6 Type Fix_37_27
+	dict set TopLevelPortInterface gateway_out3_x6 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x6 BinaryPoint 27
+	dict set TopLevelPortInterface gateway_out3_x6 Width 37
+	dict set TopLevelPortInterface gateway_out3_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_iq_integration2_iq_latch_normalize1_subsystem_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/IQ_integration2/IQ_latch_normalize1/Subsystem/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x6 Direction out
+	dict set TopLevelPortInterface gateway_out3_x6 Period 12
+	dict set TopLevelPortInterface gateway_out3_x6 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x6 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x6 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x6 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x6 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x6 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x10 Name {gateway_out4_x10}
 	dict set TopLevelPortInterface gateway_out4_x10 Type Fix_37_27
 	dict set TopLevelPortInterface gateway_out4_x10 ArithmeticType xlSigned
@@ -5349,51 +5379,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out20_x0 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out20_x0 Locs {}
 	dict set TopLevelPortInterface gateway_out20_x0 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x6 Name {gateway_out3_x6}
-	dict set TopLevelPortInterface gateway_out3_x6 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x6 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x6 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x6 Width 18
-	dict set TopLevelPortInterface gateway_out3_x6 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x6 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x6 Direction out
-	dict set TopLevelPortInterface gateway_out3_x6 Period 12
-	dict set TopLevelPortInterface gateway_out3_x6 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x6 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x6 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x6 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x6 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x6 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x11 Name {gateway_out4_x11}
-	dict set TopLevelPortInterface gateway_out4_x11 Type UFix_8_0
-	dict set TopLevelPortInterface gateway_out4_x11 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out4_x11 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out4_x11 Width 8
-	dict set TopLevelPortInterface gateway_out4_x11 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x11 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x11 Direction out
-	dict set TopLevelPortInterface gateway_out4_x11 Period 12
-	dict set TopLevelPortInterface gateway_out4_x11 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x11 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x11 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x11 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x11 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x11 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x12 Name {gateway_out5_x12}
-	dict set TopLevelPortInterface gateway_out5_x12 Type Fix_32_18
-	dict set TopLevelPortInterface gateway_out5_x12 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out5_x12 BinaryPoint 18
-	dict set TopLevelPortInterface gateway_out5_x12 Width 32
-	dict set TopLevelPortInterface gateway_out5_x12 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x12 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x12 Direction out
-	dict set TopLevelPortInterface gateway_out5_x12 Period 12
-	dict set TopLevelPortInterface gateway_out5_x12 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x12 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x12 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x12 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x12 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x12 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x7 Name {gateway_out3_x7}
+	dict set TopLevelPortInterface gateway_out3_x7 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x7 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x7 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x7 Width 18
+	dict set TopLevelPortInterface gateway_out3_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x7 Direction out
+	dict set TopLevelPortInterface gateway_out3_x7 Period 12
+	dict set TopLevelPortInterface gateway_out3_x7 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x7 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x7 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x7 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x7 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x7 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x12 Name {gateway_out4_x12}
+	dict set TopLevelPortInterface gateway_out4_x12 Type UFix_8_0
+	dict set TopLevelPortInterface gateway_out4_x12 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out4_x12 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out4_x12 Width 8
+	dict set TopLevelPortInterface gateway_out4_x12 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x12 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x12 Direction out
+	dict set TopLevelPortInterface gateway_out4_x12 Period 12
+	dict set TopLevelPortInterface gateway_out4_x12 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x12 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x12 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x12 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x12 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x12 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x11 Name {gateway_out5_x11}
+	dict set TopLevelPortInterface gateway_out5_x11 Type Fix_32_18
+	dict set TopLevelPortInterface gateway_out5_x11 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out5_x11 BinaryPoint 18
+	dict set TopLevelPortInterface gateway_out5_x11 Width 32
+	dict set TopLevelPortInterface gateway_out5_x11 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x11 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x11 Direction out
+	dict set TopLevelPortInterface gateway_out5_x11 Period 12
+	dict set TopLevelPortInterface gateway_out5_x11 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x11 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x11 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x11 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x11 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x11 IOStandard {}
 	dict set TopLevelPortInterface gateway_out27_x5 Name {gateway_out27_x5}
 	dict set TopLevelPortInterface gateway_out27_x5 Type Fix_19_15
 	dict set TopLevelPortInterface gateway_out27_x5 ArithmeticType xlSigned
@@ -5484,51 +5514,51 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x11 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x11 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x11 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x7 Name {gateway_out3_x7}
-	dict set TopLevelPortInterface gateway_out3_x7 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x7 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x7 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x7 Width 18
-	dict set TopLevelPortInterface gateway_out3_x7 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x7 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x7 Direction out
-	dict set TopLevelPortInterface gateway_out3_x7 Period 12
-	dict set TopLevelPortInterface gateway_out3_x7 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x7 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x7 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x7 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x7 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x7 IOStandard {}
-	dict set TopLevelPortInterface gateway_out4_x12 Name {gateway_out4_x12}
-	dict set TopLevelPortInterface gateway_out4_x12 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out4_x12 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out4_x12 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out4_x12 Width 18
-	dict set TopLevelPortInterface gateway_out4_x12 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out4.dat}
-	dict set TopLevelPortInterface gateway_out4_x12 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out4}
-	dict set TopLevelPortInterface gateway_out4_x12 Direction out
-	dict set TopLevelPortInterface gateway_out4_x12 Period 12
-	dict set TopLevelPortInterface gateway_out4_x12 Interface 0
-	dict set TopLevelPortInterface gateway_out4_x12 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out4_x12 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out4_x12 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out4_x12 Locs {}
-	dict set TopLevelPortInterface gateway_out4_x12 IOStandard {}
-	dict set TopLevelPortInterface gateway_out5_x13 Name {gateway_out5_x13}
-	dict set TopLevelPortInterface gateway_out5_x13 Type Bool
-	dict set TopLevelPortInterface gateway_out5_x13 ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface gateway_out5_x13 BinaryPoint 0
-	dict set TopLevelPortInterface gateway_out5_x13 Width 1
-	dict set TopLevelPortInterface gateway_out5_x13 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out5.dat}
-	dict set TopLevelPortInterface gateway_out5_x13 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out5}
-	dict set TopLevelPortInterface gateway_out5_x13 Direction out
-	dict set TopLevelPortInterface gateway_out5_x13 Period 12
-	dict set TopLevelPortInterface gateway_out5_x13 Interface 0
-	dict set TopLevelPortInterface gateway_out5_x13 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out5_x13 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out5_x13 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out5_x13 Locs {}
-	dict set TopLevelPortInterface gateway_out5_x13 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x8 Name {gateway_out3_x8}
+	dict set TopLevelPortInterface gateway_out3_x8 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x8 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x8 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x8 Width 18
+	dict set TopLevelPortInterface gateway_out3_x8 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x8 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x8 Direction out
+	dict set TopLevelPortInterface gateway_out3_x8 Period 12
+	dict set TopLevelPortInterface gateway_out3_x8 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x8 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x8 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x8 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x8 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x8 IOStandard {}
+	dict set TopLevelPortInterface gateway_out4_x13 Name {gateway_out4_x13}
+	dict set TopLevelPortInterface gateway_out4_x13 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out4_x13 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out4_x13 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out4_x13 Width 18
+	dict set TopLevelPortInterface gateway_out4_x13 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out4.dat}
+	dict set TopLevelPortInterface gateway_out4_x13 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out4}
+	dict set TopLevelPortInterface gateway_out4_x13 Direction out
+	dict set TopLevelPortInterface gateway_out4_x13 Period 12
+	dict set TopLevelPortInterface gateway_out4_x13 Interface 0
+	dict set TopLevelPortInterface gateway_out4_x13 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out4_x13 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out4_x13 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out4_x13 Locs {}
+	dict set TopLevelPortInterface gateway_out4_x13 IOStandard {}
+	dict set TopLevelPortInterface gateway_out5_x12 Name {gateway_out5_x12}
+	dict set TopLevelPortInterface gateway_out5_x12 Type Bool
+	dict set TopLevelPortInterface gateway_out5_x12 ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface gateway_out5_x12 BinaryPoint 0
+	dict set TopLevelPortInterface gateway_out5_x12 Width 1
+	dict set TopLevelPortInterface gateway_out5_x12 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module1_freq_err1_delta_phi_phase_latching_gateway_out5.dat}
+	dict set TopLevelPortInterface gateway_out5_x12 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module1/freq_err1/delta_phi/phase_latching/Gateway Out5}
+	dict set TopLevelPortInterface gateway_out5_x12 Direction out
+	dict set TopLevelPortInterface gateway_out5_x12 Period 12
+	dict set TopLevelPortInterface gateway_out5_x12 Interface 0
+	dict set TopLevelPortInterface gateway_out5_x12 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out5_x12 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out5_x12 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out5_x12 Locs {}
+	dict set TopLevelPortInterface gateway_out5_x12 IOStandard {}
 	dict set TopLevelPortInterface gateway_out1_x11 Name {gateway_out1_x11}
 	dict set TopLevelPortInterface gateway_out1_x11 Type Fix_32_32
 	dict set TopLevelPortInterface gateway_out1_x11 ArithmeticType xlSigned
@@ -5634,21 +5664,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out20 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out20 Locs {}
 	dict set TopLevelPortInterface gateway_out20 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x3 Name {gateway_out3_x3}
-	dict set TopLevelPortInterface gateway_out3_x3 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x3 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x3 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x3 Width 18
-	dict set TopLevelPortInterface gateway_out3_x3 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module2_freq_err1_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x3 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module2/freq_err1/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x3 Direction out
-	dict set TopLevelPortInterface gateway_out3_x3 Period 12
-	dict set TopLevelPortInterface gateway_out3_x3 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x3 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x3 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x3 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x3 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x3 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x4 Name {gateway_out3_x4}
+	dict set TopLevelPortInterface gateway_out3_x4 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x4 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x4 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x4 Width 18
+	dict set TopLevelPortInterface gateway_out3_x4 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module2_freq_err1_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x4 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module2/freq_err1/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x4 Direction out
+	dict set TopLevelPortInterface gateway_out3_x4 Period 12
+	dict set TopLevelPortInterface gateway_out3_x4 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x4 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x4 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x4 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x4 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x4 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x8 Name {gateway_out4_x8}
 	dict set TopLevelPortInterface gateway_out4_x8 Type UFix_8_0
 	dict set TopLevelPortInterface gateway_out4_x8 ArithmeticType xlUnsigned
@@ -5769,21 +5799,21 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface gateway_out2_x9 ClockDomain {dsp}
 	dict set TopLevelPortInterface gateway_out2_x9 Locs {}
 	dict set TopLevelPortInterface gateway_out2_x9 IOStandard {}
-	dict set TopLevelPortInterface gateway_out3_x4 Name {gateway_out3_x4}
-	dict set TopLevelPortInterface gateway_out3_x4 Type Fix_18_15
-	dict set TopLevelPortInterface gateway_out3_x4 ArithmeticType xlSigned
-	dict set TopLevelPortInterface gateway_out3_x4 BinaryPoint 15
-	dict set TopLevelPortInterface gateway_out3_x4 Width 18
-	dict set TopLevelPortInterface gateway_out3_x4 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module2_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
-	dict set TopLevelPortInterface gateway_out3_x4 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module2/freq_err1/delta_phi/phase_latching/Gateway Out3}
-	dict set TopLevelPortInterface gateway_out3_x4 Direction out
-	dict set TopLevelPortInterface gateway_out3_x4 Period 12
-	dict set TopLevelPortInterface gateway_out3_x4 Interface 0
-	dict set TopLevelPortInterface gateway_out3_x4 InterfaceName {}
-	dict set TopLevelPortInterface gateway_out3_x4 InterfaceString {DATA}
-	dict set TopLevelPortInterface gateway_out3_x4 ClockDomain {dsp}
-	dict set TopLevelPortInterface gateway_out3_x4 Locs {}
-	dict set TopLevelPortInterface gateway_out3_x4 IOStandard {}
+	dict set TopLevelPortInterface gateway_out3_x5 Name {gateway_out3_x5}
+	dict set TopLevelPortInterface gateway_out3_x5 Type Fix_18_15
+	dict set TopLevelPortInterface gateway_out3_x5 ArithmeticType xlSigned
+	dict set TopLevelPortInterface gateway_out3_x5 BinaryPoint 15
+	dict set TopLevelPortInterface gateway_out3_x5 Width 18
+	dict set TopLevelPortInterface gateway_out3_x5 DatFile {examplemodel_bus_axi_example_dsp_cav2_c1p2_freq_err_module2_freq_err1_delta_phi_phase_latching_gateway_out3.dat}
+	dict set TopLevelPortInterface gateway_out3_x5 IconText {exampleModel_bus_axi/example/dsp/Cav2/c1p2_freq_err_module2/freq_err1/delta_phi/phase_latching/Gateway Out3}
+	dict set TopLevelPortInterface gateway_out3_x5 Direction out
+	dict set TopLevelPortInterface gateway_out3_x5 Period 12
+	dict set TopLevelPortInterface gateway_out3_x5 Interface 0
+	dict set TopLevelPortInterface gateway_out3_x5 InterfaceName {}
+	dict set TopLevelPortInterface gateway_out3_x5 InterfaceString {DATA}
+	dict set TopLevelPortInterface gateway_out3_x5 ClockDomain {dsp}
+	dict set TopLevelPortInterface gateway_out3_x5 Locs {}
+	dict set TopLevelPortInterface gateway_out3_x5 IOStandard {}
 	dict set TopLevelPortInterface gateway_out4_x9 Name {gateway_out4_x9}
 	dict set TopLevelPortInterface gateway_out4_x9 Type Fix_18_15
 	dict set TopLevelPortInterface gateway_out4_x9 ArithmeticType xlSigned
@@ -6114,22 +6144,6 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface axi_lite_s_axi_rready ClockDomain {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready Locs {}
 	dict set TopLevelPortInterface axi_lite_s_axi_rready IOStandard {}
-	dict set TopLevelPortInterface dsp_clk Name {dsp_clk}
-	dict set TopLevelPortInterface dsp_clk Type -
-	dict set TopLevelPortInterface dsp_clk ArithmeticType xlUnsigned
-	dict set TopLevelPortInterface dsp_clk BinaryPoint 0
-	dict set TopLevelPortInterface dsp_clk Width 1
-	dict set TopLevelPortInterface dsp_clk DatFile {}
-	dict set TopLevelPortInterface dsp_clk Direction in
-	dict set TopLevelPortInterface dsp_clk Period 1
-	dict set TopLevelPortInterface dsp_clk Interface 6
-	dict set TopLevelPortInterface dsp_clk InterfaceName {}
-	dict set TopLevelPortInterface dsp_clk InterfaceString {CLOCK}
-	dict set TopLevelPortInterface dsp_clk ClockDomain {dsp}
-	dict set TopLevelPortInterface dsp_clk Locs {}
-	dict set TopLevelPortInterface dsp_clk IOStandard {}
-	dict set TopLevelPortInterface dsp_clk AssociatedInterfaces {}
-	dict set TopLevelPortInterface dsp_clk AssociatedResets {}
 	dict set TopLevelPortInterface axi_lite_clk Name {axi_lite_clk}
 	dict set TopLevelPortInterface axi_lite_clk Type -
 	dict set TopLevelPortInterface axi_lite_clk ArithmeticType xlUnsigned
@@ -6146,39 +6160,23 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set TopLevelPortInterface axi_lite_clk IOStandard {}
 	dict set TopLevelPortInterface axi_lite_clk AssociatedInterfaces {axi_lite_s_axi }
 	dict set TopLevelPortInterface axi_lite_clk AssociatedResets {axi_lite_aresetn }
+	dict set TopLevelPortInterface dsp_clk Name {dsp_clk}
+	dict set TopLevelPortInterface dsp_clk Type -
+	dict set TopLevelPortInterface dsp_clk ArithmeticType xlUnsigned
+	dict set TopLevelPortInterface dsp_clk BinaryPoint 0
+	dict set TopLevelPortInterface dsp_clk Width 1
+	dict set TopLevelPortInterface dsp_clk DatFile {}
+	dict set TopLevelPortInterface dsp_clk Direction in
+	dict set TopLevelPortInterface dsp_clk Period 1
+	dict set TopLevelPortInterface dsp_clk Interface 6
+	dict set TopLevelPortInterface dsp_clk InterfaceName {}
+	dict set TopLevelPortInterface dsp_clk InterfaceString {CLOCK}
+	dict set TopLevelPortInterface dsp_clk ClockDomain {dsp}
+	dict set TopLevelPortInterface dsp_clk Locs {}
+	dict set TopLevelPortInterface dsp_clk IOStandard {}
+	dict set TopLevelPortInterface dsp_clk AssociatedInterfaces {}
+	dict set TopLevelPortInterface dsp_clk AssociatedResets {}
 	set MemoryMappedPort {}
-	dict set MemoryMappedPort cav2_p2_window_stop Name {cav2_p2_window_stop}
-	dict set MemoryMappedPort cav2_p2_window_stop Type UFix_16_0
-	dict set MemoryMappedPort cav2_p2_window_stop ArithmeticType xlUnsigned
-	dict set MemoryMappedPort cav2_p2_window_stop BinaryPoint 0
-	dict set MemoryMappedPort cav2_p2_window_stop Width 16
-	dict set MemoryMappedPort cav2_p2_window_stop DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_stop.dat}
-	dict set MemoryMappedPort cav2_p2_window_stop AddressOffset 848
-	dict set MemoryMappedPort cav2_p2_window_stop IconText {cav2_p2_window_stop}
-	dict set MemoryMappedPort cav2_p2_window_stop Direction in
-	dict set MemoryMappedPort cav2_p2_window_stop Period 8
-	dict set MemoryMappedPort cav2_p2_window_stop Interface 2
-	dict set MemoryMappedPort cav2_p2_window_stop InterfaceName {}
-	dict set MemoryMappedPort cav2_p2_window_stop InterfaceString {CONTROL}
-	dict set MemoryMappedPort cav2_p2_window_stop ClockDomain {axi_lite}
-	dict set MemoryMappedPort cav2_p2_window_stop Locs {}
-	dict set MemoryMappedPort cav2_p2_window_stop IOStandard {}
-	dict set MemoryMappedPort cav2_p2_window_start Name {cav2_p2_window_start}
-	dict set MemoryMappedPort cav2_p2_window_start Type UFix_16_0
-	dict set MemoryMappedPort cav2_p2_window_start ArithmeticType xlUnsigned
-	dict set MemoryMappedPort cav2_p2_window_start BinaryPoint 0
-	dict set MemoryMappedPort cav2_p2_window_start Width 16
-	dict set MemoryMappedPort cav2_p2_window_start DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_start.dat}
-	dict set MemoryMappedPort cav2_p2_window_start AddressOffset 844
-	dict set MemoryMappedPort cav2_p2_window_start IconText {cav2_p2_window_start}
-	dict set MemoryMappedPort cav2_p2_window_start Direction in
-	dict set MemoryMappedPort cav2_p2_window_start Period 8
-	dict set MemoryMappedPort cav2_p2_window_start Interface 2
-	dict set MemoryMappedPort cav2_p2_window_start InterfaceName {}
-	dict set MemoryMappedPort cav2_p2_window_start InterfaceString {CONTROL}
-	dict set MemoryMappedPort cav2_p2_window_start ClockDomain {axi_lite}
-	dict set MemoryMappedPort cav2_p2_window_start Locs {}
-	dict set MemoryMappedPort cav2_p2_window_start IOStandard {}
 	dict set MemoryMappedPort wfdata_7_sel Name {wfdata_7_sel}
 	dict set MemoryMappedPort wfdata_7_sel Type UFix_3_0
 	dict set MemoryMappedPort wfdata_7_sel ArithmeticType xlUnsigned
@@ -6355,6 +6353,38 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set MemoryMappedPort cav2_reg_latch_pt ClockDomain {axi_lite}
 	dict set MemoryMappedPort cav2_reg_latch_pt Locs {}
 	dict set MemoryMappedPort cav2_reg_latch_pt IOStandard {}
+	dict set MemoryMappedPort cav2_p2_window_stop Name {cav2_p2_window_stop}
+	dict set MemoryMappedPort cav2_p2_window_stop Type UFix_16_0
+	dict set MemoryMappedPort cav2_p2_window_stop ArithmeticType xlUnsigned
+	dict set MemoryMappedPort cav2_p2_window_stop BinaryPoint 0
+	dict set MemoryMappedPort cav2_p2_window_stop Width 16
+	dict set MemoryMappedPort cav2_p2_window_stop DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_stop.dat}
+	dict set MemoryMappedPort cav2_p2_window_stop AddressOffset 848
+	dict set MemoryMappedPort cav2_p2_window_stop IconText {cav2_p2_window_stop}
+	dict set MemoryMappedPort cav2_p2_window_stop Direction in
+	dict set MemoryMappedPort cav2_p2_window_stop Period 8
+	dict set MemoryMappedPort cav2_p2_window_stop Interface 2
+	dict set MemoryMappedPort cav2_p2_window_stop InterfaceName {}
+	dict set MemoryMappedPort cav2_p2_window_stop InterfaceString {CONTROL}
+	dict set MemoryMappedPort cav2_p2_window_stop ClockDomain {axi_lite}
+	dict set MemoryMappedPort cav2_p2_window_stop Locs {}
+	dict set MemoryMappedPort cav2_p2_window_stop IOStandard {}
+	dict set MemoryMappedPort cav2_p2_window_start Name {cav2_p2_window_start}
+	dict set MemoryMappedPort cav2_p2_window_start Type UFix_16_0
+	dict set MemoryMappedPort cav2_p2_window_start ArithmeticType xlUnsigned
+	dict set MemoryMappedPort cav2_p2_window_start BinaryPoint 0
+	dict set MemoryMappedPort cav2_p2_window_start Width 16
+	dict set MemoryMappedPort cav2_p2_window_start DatFile {examplemodel_bus_axi_example_axi_lite_cav2_p2_window_start.dat}
+	dict set MemoryMappedPort cav2_p2_window_start AddressOffset 844
+	dict set MemoryMappedPort cav2_p2_window_start IconText {cav2_p2_window_start}
+	dict set MemoryMappedPort cav2_p2_window_start Direction in
+	dict set MemoryMappedPort cav2_p2_window_start Period 8
+	dict set MemoryMappedPort cav2_p2_window_start Interface 2
+	dict set MemoryMappedPort cav2_p2_window_start InterfaceName {}
+	dict set MemoryMappedPort cav2_p2_window_start InterfaceString {CONTROL}
+	dict set MemoryMappedPort cav2_p2_window_start ClockDomain {axi_lite}
+	dict set MemoryMappedPort cav2_p2_window_start Locs {}
+	dict set MemoryMappedPort cav2_p2_window_start IOStandard {}
 	dict set MemoryMappedPort cav2_p2_chan_sel Name {cav2_p2_chan_sel}
 	dict set MemoryMappedPort cav2_p2_chan_sel Type UFix_4_0
 	dict set MemoryMappedPort cav2_p2_chan_sel ArithmeticType xlUnsigned
