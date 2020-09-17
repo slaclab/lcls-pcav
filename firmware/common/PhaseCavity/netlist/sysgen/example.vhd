@@ -63,17 +63,18 @@ architecture structural of example_subsystem_x6 is
   signal c1p1_dc_freq : std_logic_vector( 32-1 downto 0 );
   signal c1p1_integ_i : std_logic_vector( 18-1 downto 0 );
   signal c1p1_integ_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
   signal c1p1_amp_out : std_logic_vector( 18-1 downto 0 );
   signal c1p1_comp_phi : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_if_phi : std_logic_vector( 18-1 downto 0 );
   signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
   signal c1p1_if_q : std_logic_vector( 18-1 downto 0 );
   signal c1p1_phi_out : std_logic_vector( 18-1 downto 0 );
   signal c1p1_dc_i : std_logic_vector( 18-1 downto 0 );
   signal c1p1_dc_q : std_logic_vector( 18-1 downto 0 );
   signal c1p1_if_phi : std_logic_vector( 18-1 downto 0 );
   signal c1p1_if_i : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_if_phi : std_logic_vector( 18-1 downto 0 );
   signal c1p2_if_i : std_logic_vector( 18-1 downto 0 );
   signal c1p2_if_q : std_logic_vector( 18-1 downto 0 );
   signal c1p2_dc_i : std_logic_vector( 18-1 downto 0 );
@@ -81,10 +82,9 @@ architecture structural of example_subsystem_x6 is
   signal c1p2_dc_freq : std_logic_vector( 32-1 downto 0 );
   signal c1p2_integ_i : std_logic_vector( 18-1 downto 0 );
   signal c1p2_integ_q : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p2_phi_out : std_logic_vector( 18-1 downto 0 );
   signal down_sample2_q_net_x0 : std_logic_vector( 32-1 downto 0 );
   signal convert9_dout_net : std_logic_vector( 18-1 downto 0 );
-  signal c1p2_amp_out : std_logic_vector( 18-1 downto 0 );
   signal c1p2_comp_phi : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x3 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
@@ -566,6 +566,7 @@ entity example_subsystem2_x1 is
   );
 end example_subsystem2_x1;
 architecture structural of example_subsystem2_x1 is 
+  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal register30_q_net : std_logic_vector( 4-1 downto 0 );
   signal register3_q_net : std_logic_vector( 16-1 downto 0 );
   signal register4_q_net : std_logic_vector( 16-1 downto 0 );
@@ -573,7 +574,7 @@ architecture structural of example_subsystem2_x1 is
   signal register32_q_net : std_logic_vector( 16-1 downto 0 );
   signal register35_q_net : std_logic_vector( 1-1 downto 0 );
   signal register36_q_net : std_logic_vector( 26-1 downto 0 );
-  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
+  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
   signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
   signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
@@ -587,7 +588,6 @@ architecture structural of example_subsystem2_x1 is
   signal c1_freq_win_stop : std_logic_vector( 16-1 downto 0 );
   signal ca_reg_latch_pt : std_logic_vector( 16-1 downto 0 );
   signal register29_q_net : std_logic_vector( 4-1 downto 0 );
-  signal register33_q_net : std_logic_vector( 16-1 downto 0 );
   signal register34_q_net : std_logic_vector( 16-1 downto 0 );
   signal register1_q_net : std_logic_vector( 18-1 downto 0 );
   signal register2_q_net : std_logic_vector( 18-1 downto 0 );
@@ -982,11 +982,11 @@ architecture structural of example_subsystem4_x8 is
   signal wfdata_7_sel_x0 : std_logic_vector( 3-1 downto 0 );
   signal register2_q_net : std_logic_vector( 4-1 downto 0 );
   signal register1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal register3_q_net : std_logic_vector( 2-1 downto 0 );
   signal ref_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal wfdata_0_sel_x0 : std_logic_vector( 1-1 downto 0 );
   signal wfdata_1_sel_x0 : std_logic_vector( 2-1 downto 0 );
   signal wfdata_2_sel_x0 : std_logic_vector( 2-1 downto 0 );
-  signal register3_q_net : std_logic_vector( 2-1 downto 0 );
   signal register4_q_net : std_logic_vector( 2-1 downto 0 );
   signal register5_q_net : std_logic_vector( 2-1 downto 0 );
   signal register6_q_net : std_logic_vector( 2-1 downto 0 );
@@ -1233,10 +1233,10 @@ architecture structural of example_subsystem5_x7 is
   signal c2p2_if_q : std_logic_vector( 18-1 downto 0 );
   signal c2p2_dc_i : std_logic_vector( 18-1 downto 0 );
   signal c2p2_dc_q : std_logic_vector( 18-1 downto 0 );
+  signal c2p2_dc_freq : std_logic_vector( 32-1 downto 0 );
   signal c2p1_if_amp : std_logic_vector( 18-1 downto 0 );
   signal c2p2_if_amp : std_logic_vector( 18-1 downto 0 );
   signal c2p1_if_phi : std_logic_vector( 18-1 downto 0 );
-  signal c2p2_dc_freq : std_logic_vector( 32-1 downto 0 );
   signal c2p2_integ_i : std_logic_vector( 18-1 downto 0 );
   signal c2p2_integ_q : std_logic_vector( 18-1 downto 0 );
   signal c2p2_phi_out : std_logic_vector( 18-1 downto 0 );
@@ -7169,6 +7169,9 @@ end example_bsa_streaming;
 architecture structural of example_bsa_streaming is 
   signal constant31_op_net : std_logic_vector( 1-1 downto 0 );
   signal constant64_op_net : std_logic_vector( 3-1 downto 0 );
+  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
+  signal register11_q_net_x14 : std_logic_vector( 18-1 downto 0 );
   signal register58_q_net : std_logic_vector( 1-1 downto 0 );
   signal register57_q_net : std_logic_vector( 1-1 downto 0 );
   signal register56_q_net : std_logic_vector( 1-1 downto 0 );
@@ -7186,9 +7189,6 @@ architecture structural of example_bsa_streaming is
   signal register73_q_net : std_logic_vector( 1-1 downto 0 );
   signal register72_q_net : std_logic_vector( 1-1 downto 0 );
   signal register71_q_net : std_logic_vector( 1-1 downto 0 );
-  signal logical_y_net : std_logic_vector( 1-1 downto 0 );
-  signal register11_q_net_x6 : std_logic_vector( 18-1 downto 0 );
-  signal register11_q_net_x14 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x4 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x9 : std_logic_vector( 18-1 downto 0 );
@@ -12050,9 +12050,9 @@ entity example_iq_latch_normalize_x2 is
   );
 end example_iq_latch_normalize_x2;
 architecture structural of example_iq_latch_normalize_x2 is 
-  signal mcode_bit_net : std_logic_vector( 4-1 downto 0 );
   signal convert9_dout_net : std_logic_vector( 18-1 downto 0 );
   signal convert4_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal mcode_bit_net : std_logic_vector( 4-1 downto 0 );
   signal mult_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
   signal convert11_dout_net : std_logic_vector( 1-1 downto 0 );
@@ -13386,8 +13386,8 @@ entity example_iq_latch_normalize_x1 is
   );
 end example_iq_latch_normalize_x1;
 architecture structural of example_iq_latch_normalize_x1 is 
-  signal convert4_dout_net : std_logic_vector( 18-1 downto 0 );
   signal convert9_dout_net : std_logic_vector( 18-1 downto 0 );
+  signal convert4_dout_net : std_logic_vector( 18-1 downto 0 );
   signal mcode_bit_net : std_logic_vector( 4-1 downto 0 );
   signal mult_p_net : std_logic_vector( 18-1 downto 0 );
   signal mult2_p_net : std_logic_vector( 18-1 downto 0 );
@@ -20341,6 +20341,7 @@ entity example_c1p2_freq_err_module1_x0 is
   );
 end example_c1p2_freq_err_module1_x0;
 architecture structural of example_c1p2_freq_err_module1_x0 is 
+  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
   signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
   signal convert5_dout_net : std_logic_vector( 18-1 downto 0 );
@@ -20365,7 +20366,6 @@ architecture structural of example_c1p2_freq_err_module1_x0 is
   signal d_ce_net : std_logic;
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
-  signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tvalid_net : std_logic;
   signal cordic_6_0_2_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal down_sample5_q_net : std_logic;
@@ -23319,8 +23319,8 @@ entity example_ddc_nco1 is
   );
 end example_ddc_nco1;
 architecture structural of example_ddc_nco1 is 
-  signal nco_sin : std_logic_vector( 26-1 downto 0 );
   signal dds_compiler_6_0_m_axis_data_tvalid_net : std_logic;
+  signal nco_sin : std_logic_vector( 26-1 downto 0 );
   signal nco_cos : std_logic_vector( 26-1 downto 0 );
   signal down_sample6_q_net : std_logic_vector( 26-1 downto 0 );
   signal register8_q_net : std_logic_vector( 1-1 downto 0 );
@@ -29138,8 +29138,8 @@ entity example_posedge_pulse_x23 is
   );
 end example_posedge_pulse_x23;
 architecture structural of example_posedge_pulse_x23 is 
-  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
+  signal delay_q_net : std_logic_vector( 1-1 downto 0 );
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
@@ -30005,9 +30005,9 @@ entity example_posedge_pulse_x12 is
   );
 end example_posedge_pulse_x12;
 architecture structural of example_posedge_pulse_x12 is 
-  signal d_clk_net : std_logic;
   signal logical_y_net : std_logic_vector( 1-1 downto 0 );
   signal delay1_q_net : std_logic_vector( 1-1 downto 0 );
+  signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal inverter1_op_net : std_logic_vector( 1-1 downto 0 );
 begin
@@ -30110,9 +30110,9 @@ entity example_c1p1_pa_conversion1 is
   );
 end example_c1p1_pa_conversion1;
 architecture structural of example_c1p1_pa_conversion1 is 
-  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
   signal addsub_s_net : std_logic_vector( 18-1 downto 0 );
   signal relational_op_net : std_logic_vector( 1-1 downto 0 );
+  signal register11_q_net_x2 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x1 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net : std_logic_vector( 18-1 downto 0 );
@@ -30132,8 +30132,8 @@ architecture structural of example_c1p1_pa_conversion1 is
   signal delay_q_net : std_logic_vector( 1-1 downto 0 );
   signal cordic_6_0_m_axis_dout_tdata_real_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_1_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
-  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal addsub1_s_net : std_logic_vector( 18-1 downto 0 );
+  signal delay2_q_net : std_logic_vector( 18-1 downto 0 );
   signal cordic_6_0_m_axis_dout_tvalid_net : std_logic;
   signal down_sample2_q_net : std_logic;
   signal cordic_6_0_1_m_axis_dout_tvalid_net : std_logic;
@@ -32208,8 +32208,8 @@ architecture structural of example_freq_err1_x1 is
   signal register2_q_net_x0 : std_logic_vector( 51-1 downto 0 );
   signal divide_op_net : std_logic_vector( 51-1 downto 0 );
   signal divide1_op_net : std_logic_vector( 84-1 downto 0 );
-  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
   signal convert_dout_net : std_logic_vector( 32-1 downto 0 );
+  signal down_sample2_q_net : std_logic_vector( 32-1 downto 0 );
   signal cordic_6_0_2_m_axis_dout_tdata_phase_net : std_logic_vector( 18-1 downto 0 );
   signal convert2_dout_net : std_logic_vector( 1-1 downto 0 );
   signal convert3_dout_net_x0 : std_logic_vector( 1-1 downto 0 );
@@ -38555,8 +38555,8 @@ architecture structural of example_struct is
   signal cav1_p1_calibration_coeff_net : std_logic_vector( 18-1 downto 0 );
   signal cav1_p1_chan_sel_net : std_logic_vector( 4-1 downto 0 );
   signal register16_q_net : std_logic_vector( 18-1 downto 0 );
-  signal register9_q_net_x0 : std_logic_vector( 32-1 downto 0 );
   signal cav1_freq_eval_start_net : std_logic_vector( 16-1 downto 0 );
+  signal register9_q_net_x0 : std_logic_vector( 32-1 downto 0 );
   signal register8_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register7_q_net_x0 : std_logic_vector( 18-1 downto 0 );
   signal register3_q_net_x1 : std_logic_vector( 18-1 downto 0 );
@@ -38954,6 +38954,7 @@ architecture structural of example_struct is
   signal d_clk_net : std_logic;
   signal q_ce_net : std_logic;
   signal ref_amp : std_logic_vector( 18-1 downto 0 );
+  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal c1p1_if_amp : std_logic_vector( 18-1 downto 0 );
   signal c1p2_if_amp : std_logic_vector( 18-1 downto 0 );
   signal c1p1_if_phi : std_logic_vector( 18-1 downto 0 );
@@ -38991,7 +38992,6 @@ architecture structural of example_struct is
   signal register11_q_net_x30 : std_logic_vector( 18-1 downto 0 );
   signal register11_q_net_x29 : std_logic_vector( 18-1 downto 0 );
   signal addsub_s_net_x1 : std_logic_vector( 18-1 downto 0 );
-  signal c1p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal c1p2_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal c1p1_win_start : std_logic_vector( 16-1 downto 0 );
   signal c1p1_win_stop : std_logic_vector( 16-1 downto 0 );
@@ -40969,6 +40969,7 @@ end example;
 architecture structural of example is 
   attribute core_generation_info : string;
   attribute core_generation_info of structural : architecture is "example,sysgen_core_2017_4,{,compilation=Synthesized Checkpoint,block_icon_display=Default,family=kintexu,part=xcku040,speed=-2-e,package=ffva1156,synthesis_language=vhdl,hdl_library=work,synthesis_strategy=Flow_PerfOptimized_high,implementation_strategy=Vivado Implementation Defaults,testbench=0,interface_doc=1,ce_clr=0,clock_period=-10,system_simulink_period=-1,waveform_viewer=1,axilite_interface=1,ip_catalog_plugin=0,hwcosim_burst_mode=0,simulation_time=3e-05,abs=16,accum=16,addsub=20,ceprobe=16,cmpy_v6_0=4,constant=138,convert=161,cordic_v6_0=12,counter=7,dds_compiler_v6_0=2,delay=122,divide=8,dsamp=134,inv=76,logical=79,mcode=8,mult=40,mux=8,register=572,relational=94,usamp=43,}";
+  signal cav1_p1_dc_freq : std_logic_vector( 32-1 downto 0 );
   signal cav1_p1_dc_img : std_logic_vector( 18-1 downto 0 );
   signal cav1_p1_dc_real : std_logic_vector( 18-1 downto 0 );
   signal cav1_p1_if_amp : std_logic_vector( 18-1 downto 0 );
@@ -41065,7 +41066,6 @@ architecture structural of example is
   signal cav1_p1_calibration_coeff : std_logic_vector( 18-1 downto 0 );
   signal cav1_p1_chan_sel : std_logic_vector( 4-1 downto 0 );
   signal cav1_p1_comparison_phase : std_logic_vector( 18-1 downto 0 );
-  signal cav1_p1_dc_freq : std_logic_vector( 32-1 downto 0 );
   signal axi_lite_clk_net : std_logic;
 begin
   axi_lite_axi_lite_interface : entity work.axi_lite_axi_lite_interface 
