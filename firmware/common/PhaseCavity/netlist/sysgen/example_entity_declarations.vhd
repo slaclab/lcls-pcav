@@ -2728,6 +2728,10 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 entity axi_lite_axi_lite_interface is 
     port(
+        cav2_p2_window_stop : out std_logic_vector(15 downto 0);
+        cav2_p2_window_start : out std_logic_vector(15 downto 0);
+        cav2_p1_window_stop : out std_logic_vector(15 downto 0);
+        cav2_p1_window_start : out std_logic_vector(15 downto 0);
         wfdata_7_sel : out std_logic_vector(2 downto 0);
         wfdata_6_sel : out std_logic_vector(0 downto 0);
         wfdata_5_sel : out std_logic_vector(0 downto 0);
@@ -2739,12 +2743,8 @@ entity axi_lite_axi_lite_interface is
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
         cav2_reg_latch_pt : out std_logic_vector(15 downto 0);
-        cav2_p2_window_stop : out std_logic_vector(15 downto 0);
-        cav2_p2_window_start : out std_logic_vector(15 downto 0);
         cav2_p2_chan_sel : out std_logic_vector(3 downto 0);
         cav2_p2_calibration_coeff : out std_logic_vector(17 downto 0);
-        cav2_p1_window_stop : out std_logic_vector(15 downto 0);
-        cav2_p1_window_start : out std_logic_vector(15 downto 0);
         cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
         cav2_p1_calibration_coeff : out std_logic_vector(17 downto 0);
         cav2_nco_phase_reset : out std_logic_vector(0 downto 0);
@@ -2842,6 +2842,10 @@ end axi_lite_axi_lite_interface;
 architecture structural of axi_lite_axi_lite_interface is 
 component axi_lite_axi_lite_interface_verilog is
     port(
+        cav2_p2_window_stop : out std_logic_vector(15 downto 0);
+        cav2_p2_window_start : out std_logic_vector(15 downto 0);
+        cav2_p1_window_stop : out std_logic_vector(15 downto 0);
+        cav2_p1_window_start : out std_logic_vector(15 downto 0);
         wfdata_7_sel : out std_logic_vector(2 downto 0);
         wfdata_6_sel : out std_logic_vector(0 downto 0);
         wfdata_5_sel : out std_logic_vector(0 downto 0);
@@ -2853,12 +2857,8 @@ component axi_lite_axi_lite_interface_verilog is
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
         cav2_reg_latch_pt : out std_logic_vector(15 downto 0);
-        cav2_p2_window_stop : out std_logic_vector(15 downto 0);
-        cav2_p2_window_start : out std_logic_vector(15 downto 0);
         cav2_p2_chan_sel : out std_logic_vector(3 downto 0);
         cav2_p2_calibration_coeff : out std_logic_vector(17 downto 0);
-        cav2_p1_window_stop : out std_logic_vector(15 downto 0);
-        cav2_p1_window_start : out std_logic_vector(15 downto 0);
         cav2_p1_chan_sel : out std_logic_vector(3 downto 0);
         cav2_p1_calibration_coeff : out std_logic_vector(17 downto 0);
         cav2_nco_phase_reset : out std_logic_vector(0 downto 0);
@@ -2956,6 +2956,10 @@ end component;
 begin
 inst : axi_lite_axi_lite_interface_verilog
     port map(
+    cav2_p2_window_stop => cav2_p2_window_stop,
+    cav2_p2_window_start => cav2_p2_window_start,
+    cav2_p1_window_stop => cav2_p1_window_stop,
+    cav2_p1_window_start => cav2_p1_window_start,
     wfdata_7_sel => wfdata_7_sel,
     wfdata_6_sel => wfdata_6_sel,
     wfdata_5_sel => wfdata_5_sel,
@@ -2967,12 +2971,8 @@ inst : axi_lite_axi_lite_interface_verilog
     scratchpad => scratchpad,
     rf_ref_chan_sel => rf_ref_chan_sel,
     cav2_reg_latch_pt => cav2_reg_latch_pt,
-    cav2_p2_window_stop => cav2_p2_window_stop,
-    cav2_p2_window_start => cav2_p2_window_start,
     cav2_p2_chan_sel => cav2_p2_chan_sel,
     cav2_p2_calibration_coeff => cav2_p2_calibration_coeff,
-    cav2_p1_window_stop => cav2_p1_window_stop,
-    cav2_p1_window_start => cav2_p1_window_start,
     cav2_p1_chan_sel => cav2_p1_chan_sel,
     cav2_p1_calibration_coeff => cav2_p1_calibration_coeff,
     cav2_nco_phase_reset => cav2_nco_phase_reset,

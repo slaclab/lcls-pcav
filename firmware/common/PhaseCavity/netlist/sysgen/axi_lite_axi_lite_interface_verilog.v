@@ -36,6 +36,10 @@
 
 `include "conv_pkg.v"
 module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C_S_AXI_ADDR_WIDTH = 12, C_S_NUM_OFFSETS = 89)(
+  output wire[15:0] cav2_p2_window_stop,
+  output wire[15:0] cav2_p2_window_start,
+  output wire[15:0] cav2_p1_window_stop,
+  output wire[15:0] cav2_p1_window_start,
   output wire[2:0] wfdata_7_sel,
   output wire[0:0] wfdata_6_sel,
   output wire[0:0] wfdata_5_sel,
@@ -47,12 +51,8 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   output wire[31:0] scratchpad,
   output wire[3:0] rf_ref_chan_sel,
   output wire[15:0] cav2_reg_latch_pt,
-  output wire[15:0] cav2_p2_window_stop,
-  output wire[15:0] cav2_p2_window_start,
   output wire[3:0] cav2_p2_chan_sel,
   output wire[17:0] cav2_p2_calibration_coeff,
-  output wire[15:0] cav2_p1_window_stop,
-  output wire[15:0] cav2_p1_window_start,
   output wire[3:0] cav2_p1_chan_sel,
   output wire[17:0] cav2_p1_calibration_coeff,
   output wire[0:0] cav2_nco_phase_reset,
@@ -184,55 +184,55 @@ assign axi_lite_s_axi_rvalid = axi_rvalid;
 assign axi_lite_s_axi_rresp  = axi_rresp;
 // map input 0
 assign slv_wire_array[0] = slv_reg_array[0];
-assign wfdata_7_sel[2:0] = slv_wire_array[0][2:0];
+assign cav2_p2_window_stop[15:0] = slv_wire_array[0][15:0];
 // map input 1
 assign slv_wire_array[1] = slv_reg_array[1];
-assign wfdata_6_sel = slv_wire_array[1][0];
+assign cav2_p2_window_start[15:0] = slv_wire_array[1][15:0];
 // map input 2
 assign slv_wire_array[2] = slv_reg_array[2];
-assign wfdata_5_sel = slv_wire_array[2][0];
+assign cav2_p1_window_stop[15:0] = slv_wire_array[2][15:0];
 // map input 3
 assign slv_wire_array[3] = slv_reg_array[3];
-assign wfdata_4_sel[1:0] = slv_wire_array[3][1:0];
+assign cav2_p1_window_start[15:0] = slv_wire_array[3][15:0];
 // map input 4
 assign slv_wire_array[4] = slv_reg_array[4];
-assign wfdata_3_sel[1:0] = slv_wire_array[4][1:0];
+assign wfdata_7_sel[2:0] = slv_wire_array[4][2:0];
 // map input 5
 assign slv_wire_array[5] = slv_reg_array[5];
-assign wfdata_2_sel[1:0] = slv_wire_array[5][1:0];
+assign wfdata_6_sel = slv_wire_array[5][0];
 // map input 6
 assign slv_wire_array[6] = slv_reg_array[6];
-assign wfdata_1_sel[1:0] = slv_wire_array[6][1:0];
+assign wfdata_5_sel = slv_wire_array[6][0];
 // map input 7
 assign slv_wire_array[7] = slv_reg_array[7];
-assign wfdata_0_sel = slv_wire_array[7][0];
+assign wfdata_4_sel[1:0] = slv_wire_array[7][1:0];
 // map input 8
 assign slv_wire_array[8] = slv_reg_array[8];
-assign scratchpad[31:0] = slv_wire_array[8][31:0];
+assign wfdata_3_sel[1:0] = slv_wire_array[8][1:0];
 // map input 9
 assign slv_wire_array[9] = slv_reg_array[9];
-assign rf_ref_chan_sel[3:0] = slv_wire_array[9][3:0];
+assign wfdata_2_sel[1:0] = slv_wire_array[9][1:0];
 // map input 10
 assign slv_wire_array[10] = slv_reg_array[10];
-assign cav2_reg_latch_pt[15:0] = slv_wire_array[10][15:0];
+assign wfdata_1_sel[1:0] = slv_wire_array[10][1:0];
 // map input 11
 assign slv_wire_array[11] = slv_reg_array[11];
-assign cav2_p2_window_stop[15:0] = slv_wire_array[11][15:0];
+assign wfdata_0_sel = slv_wire_array[11][0];
 // map input 12
 assign slv_wire_array[12] = slv_reg_array[12];
-assign cav2_p2_window_start[15:0] = slv_wire_array[12][15:0];
+assign scratchpad[31:0] = slv_wire_array[12][31:0];
 // map input 13
 assign slv_wire_array[13] = slv_reg_array[13];
-assign cav2_p2_chan_sel[3:0] = slv_wire_array[13][3:0];
+assign rf_ref_chan_sel[3:0] = slv_wire_array[13][3:0];
 // map input 14
 assign slv_wire_array[14] = slv_reg_array[14];
-assign cav2_p2_calibration_coeff[17:0] = slv_wire_array[14][17:0];
+assign cav2_reg_latch_pt[15:0] = slv_wire_array[14][15:0];
 // map input 15
 assign slv_wire_array[15] = slv_reg_array[15];
-assign cav2_p1_window_stop[15:0] = slv_wire_array[15][15:0];
+assign cav2_p2_chan_sel[3:0] = slv_wire_array[15][3:0];
 // map input 16
 assign slv_wire_array[16] = slv_reg_array[16];
-assign cav2_p1_window_start[15:0] = slv_wire_array[16][15:0];
+assign cav2_p2_calibration_coeff[17:0] = slv_wire_array[16][17:0];
 // map input 17
 assign slv_wire_array[17] = slv_reg_array[17];
 assign cav2_p1_chan_sel[3:0] = slv_wire_array[17][3:0];
@@ -398,6 +398,10 @@ assign slv_wire_array[87] = {14'h0, rf_ref_q[17:0]};
 assign slv_wire_array[88] = status_0[31:0];
   initial
   begin
+    slv_reg_array[212] = 32'd0;
+    slv_reg_array[211] = 32'd0;
+    slv_reg_array[161] = 32'd0;
+    slv_reg_array[160] = 32'd0;
     slv_reg_array[12] = 32'd0;
     slv_reg_array[11] = 32'd0;
     slv_reg_array[10] = 32'd0;
@@ -409,12 +413,8 @@ assign slv_wire_array[88] = status_0[31:0];
     slv_reg_array[1023] = 32'd0;
     slv_reg_array[4] = 32'd0;
     slv_reg_array[221] = 32'd0;
-    slv_reg_array[212] = 32'd0;
-    slv_reg_array[211] = 32'd0;
     slv_reg_array[208] = 32'd0;
     slv_reg_array[222] = 32'd0;
-    slv_reg_array[161] = 32'd0;
-    slv_reg_array[160] = 32'd0;
     slv_reg_array[157] = 32'd0;
     slv_reg_array[171] = 32'd0;
     slv_reg_array[173] = 32'd0;
@@ -438,23 +438,23 @@ assign slv_wire_array[88] = status_0[31:0];
   always @(axi_awaddr)
   begin
     case(axi_awaddr)
-      12'd48 : dec_w = 0;
-      12'd44 : dec_w = 1;
-      12'd40 : dec_w = 2;
-      12'd36 : dec_w = 3;
-      12'd32 : dec_w = 4;
-      12'd28 : dec_w = 5;
-      12'd24 : dec_w = 6;
-      12'd20 : dec_w = 7;
-      12'd4092 : dec_w = 8;
-      12'd16 : dec_w = 9;
-      12'd884 : dec_w = 10;
-      12'd848 : dec_w = 11;
-      12'd844 : dec_w = 12;
-      12'd832 : dec_w = 13;
-      12'd888 : dec_w = 14;
-      12'd644 : dec_w = 15;
-      12'd640 : dec_w = 16;
+      12'd848 : dec_w = 0;
+      12'd844 : dec_w = 1;
+      12'd644 : dec_w = 2;
+      12'd640 : dec_w = 3;
+      12'd48 : dec_w = 4;
+      12'd44 : dec_w = 5;
+      12'd40 : dec_w = 6;
+      12'd36 : dec_w = 7;
+      12'd32 : dec_w = 8;
+      12'd28 : dec_w = 9;
+      12'd24 : dec_w = 10;
+      12'd20 : dec_w = 11;
+      12'd4092 : dec_w = 12;
+      12'd16 : dec_w = 13;
+      12'd884 : dec_w = 14;
+      12'd832 : dec_w = 15;
+      12'd888 : dec_w = 16;
       12'd628 : dec_w = 17;
       12'd684 : dec_w = 18;
       12'd692 : dec_w = 19;
@@ -533,23 +533,23 @@ assign slv_wire_array[88] = status_0[31:0];
   always @(axi_araddr)
   begin
     case(axi_araddr)
-      12'd48 : dec_r = 0;
-      12'd44 : dec_r = 1;
-      12'd40 : dec_r = 2;
-      12'd36 : dec_r = 3;
-      12'd32 : dec_r = 4;
-      12'd28 : dec_r = 5;
-      12'd24 : dec_r = 6;
-      12'd20 : dec_r = 7;
-      12'd4092 : dec_r = 8;
-      12'd16 : dec_r = 9;
-      12'd884 : dec_r = 10;
-      12'd848 : dec_r = 11;
-      12'd844 : dec_r = 12;
-      12'd832 : dec_r = 13;
-      12'd888 : dec_r = 14;
-      12'd644 : dec_r = 15;
-      12'd640 : dec_r = 16;
+      12'd848 : dec_r = 0;
+      12'd844 : dec_r = 1;
+      12'd644 : dec_r = 2;
+      12'd640 : dec_r = 3;
+      12'd48 : dec_r = 4;
+      12'd44 : dec_r = 5;
+      12'd40 : dec_r = 6;
+      12'd36 : dec_r = 7;
+      12'd32 : dec_r = 8;
+      12'd28 : dec_r = 9;
+      12'd24 : dec_r = 10;
+      12'd20 : dec_r = 11;
+      12'd4092 : dec_r = 12;
+      12'd16 : dec_r = 13;
+      12'd884 : dec_r = 14;
+      12'd832 : dec_r = 15;
+      12'd888 : dec_r = 16;
       12'd628 : dec_r = 17;
       12'd684 : dec_r = 18;
       12'd692 : dec_r = 19;
@@ -668,6 +668,10 @@ assign slv_wire_array[88] = status_0[31:0];
   begin
     if ( axi_lite_aresetn == 1'b0 )
       begin
+        slv_reg_array[212] = 32'd0;
+        slv_reg_array[211] = 32'd0;
+        slv_reg_array[161] = 32'd0;
+        slv_reg_array[160] = 32'd0;
         slv_reg_array[12] = 32'd0;
         slv_reg_array[11] = 32'd0;
         slv_reg_array[10] = 32'd0;
@@ -679,12 +683,8 @@ assign slv_wire_array[88] = status_0[31:0];
         slv_reg_array[1023] = 32'd0;
         slv_reg_array[4] = 32'd0;
         slv_reg_array[221] = 32'd0;
-        slv_reg_array[212] = 32'd0;
-        slv_reg_array[211] = 32'd0;
         slv_reg_array[208] = 32'd0;
         slv_reg_array[222] = 32'd0;
-        slv_reg_array[161] = 32'd0;
-        slv_reg_array[160] = 32'd0;
         slv_reg_array[157] = 32'd0;
         slv_reg_array[171] = 32'd0;
         slv_reg_array[173] = 32'd0;
