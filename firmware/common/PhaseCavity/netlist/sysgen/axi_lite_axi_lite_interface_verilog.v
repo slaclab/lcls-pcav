@@ -45,8 +45,8 @@ module axi_lite_axi_lite_interface_verilog#(parameter C_S_AXI_DATA_WIDTH = 32, C
   output wire[0:0] wfdata_5_sel,
   output wire[1:0] wfdata_4_sel,
   output wire[1:0] wfdata_3_sel,
-  output wire[1:0] wfdata_2_sel,
-  output wire[1:0] wfdata_1_sel,
+  output wire[2:0] wfdata_2_sel,
+  output wire[2:0] wfdata_1_sel,
   output wire[0:0] wfdata_0_sel,
   output wire[31:0] scratchpad,
   output wire[3:0] rf_ref_chan_sel,
@@ -211,10 +211,10 @@ assign slv_wire_array[8] = slv_reg_array[8];
 assign wfdata_3_sel[1:0] = slv_wire_array[8][1:0];
 // map input 9
 assign slv_wire_array[9] = slv_reg_array[9];
-assign wfdata_2_sel[1:0] = slv_wire_array[9][1:0];
+assign wfdata_2_sel[2:0] = slv_wire_array[9][2:0];
 // map input 10
 assign slv_wire_array[10] = slv_reg_array[10];
-assign wfdata_1_sel[1:0] = slv_wire_array[10][1:0];
+assign wfdata_1_sel[2:0] = slv_wire_array[10][2:0];
 // map input 11
 assign slv_wire_array[11] = slv_reg_array[11];
 assign wfdata_0_sel = slv_wire_array[11][0];

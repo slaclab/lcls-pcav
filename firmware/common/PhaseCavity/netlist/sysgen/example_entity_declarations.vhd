@@ -746,6 +746,162 @@ use work.conv_pkg.all;
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+entity sysgen_mux_0094ed69d3 is
+  port (
+    sel : in std_logic_vector((3 - 1) downto 0);
+    d0 : in std_logic_vector((18 - 1) downto 0);
+    d1 : in std_logic_vector((18 - 1) downto 0);
+    d2 : in std_logic_vector((18 - 1) downto 0);
+    d3 : in std_logic_vector((18 - 1) downto 0);
+    d4 : in std_logic_vector((18 - 1) downto 0);
+    d5 : in std_logic_vector((18 - 1) downto 0);
+    y : out std_logic_vector((18 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_mux_0094ed69d3;
+architecture behavior of sysgen_mux_0094ed69d3
+is
+  signal sel_1_20: std_logic_vector((3 - 1) downto 0);
+  signal d0_1_24: std_logic_vector((18 - 1) downto 0);
+  signal d1_1_27: std_logic_vector((18 - 1) downto 0);
+  signal d2_1_30: std_logic_vector((18 - 1) downto 0);
+  signal d3_1_33: std_logic_vector((18 - 1) downto 0);
+  signal d4_1_36: std_logic_vector((18 - 1) downto 0);
+  signal d5_1_39: std_logic_vector((18 - 1) downto 0);
+  type array_type_pipe_24_22 is array (0 to (1 - 1)) of std_logic_vector((18 - 1) downto 0);
+  signal pipe_24_22: array_type_pipe_24_22 := (
+    0 => "000000000000000000");
+  signal pipe_24_22_front_din: std_logic_vector((18 - 1) downto 0);
+  signal pipe_24_22_back: std_logic_vector((18 - 1) downto 0);
+  signal pipe_24_22_push_front_pop_back_en: std_logic;
+  signal unregy_join_6_1: std_logic_vector((18 - 1) downto 0);
+begin
+  sel_1_20 <= sel;
+  d0_1_24 <= d0;
+  d1_1_27 <= d1;
+  d2_1_30 <= d2;
+  d3_1_33 <= d3;
+  d4_1_36 <= d4;
+  d5_1_39 <= d5;
+  pipe_24_22_back <= pipe_24_22(0);
+  proc_pipe_24_22: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (pipe_24_22_push_front_pop_back_en = '1')) then
+        pipe_24_22(0) <= pipe_24_22_front_din;
+      end if;
+    end if;
+  end process proc_pipe_24_22;
+  proc_switch_6_1: process (d0_1_24, d1_1_27, d2_1_30, d3_1_33, d4_1_36, d5_1_39, sel_1_20)
+  is
+  begin
+    case sel_1_20 is 
+      when "000" =>
+        unregy_join_6_1 <= d0_1_24;
+      when "001" =>
+        unregy_join_6_1 <= d1_1_27;
+      when "010" =>
+        unregy_join_6_1 <= d2_1_30;
+      when "011" =>
+        unregy_join_6_1 <= d3_1_33;
+      when "100" =>
+        unregy_join_6_1 <= d4_1_36;
+      when others =>
+        unregy_join_6_1 <= d5_1_39;
+    end case;
+  end process proc_switch_6_1;
+  pipe_24_22_front_din <= unregy_join_6_1;
+  pipe_24_22_push_front_pop_back_en <= '1';
+  y <= pipe_24_22_back;
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity sysgen_mux_ab0ca26cb3 is
+  port (
+    sel : in std_logic_vector((3 - 1) downto 0);
+    d0 : in std_logic_vector((18 - 1) downto 0);
+    d1 : in std_logic_vector((18 - 1) downto 0);
+    d2 : in std_logic_vector((18 - 1) downto 0);
+    d3 : in std_logic_vector((18 - 1) downto 0);
+    d4 : in std_logic_vector((18 - 1) downto 0);
+    d5 : in std_logic_vector((18 - 1) downto 0);
+    y : out std_logic_vector((19 - 1) downto 0);
+    clk : in std_logic;
+    ce : in std_logic;
+    clr : in std_logic);
+end sysgen_mux_ab0ca26cb3;
+architecture behavior of sysgen_mux_ab0ca26cb3
+is
+  signal sel_1_20: std_logic_vector((3 - 1) downto 0);
+  signal d0_1_24: std_logic_vector((18 - 1) downto 0);
+  signal d1_1_27: std_logic_vector((18 - 1) downto 0);
+  signal d2_1_30: std_logic_vector((18 - 1) downto 0);
+  signal d3_1_33: std_logic_vector((18 - 1) downto 0);
+  signal d4_1_36: std_logic_vector((18 - 1) downto 0);
+  signal d5_1_39: std_logic_vector((18 - 1) downto 0);
+  type array_type_pipe_24_22 is array (0 to (1 - 1)) of std_logic_vector((19 - 1) downto 0);
+  signal pipe_24_22: array_type_pipe_24_22 := (
+    0 => "0000000000000000000");
+  signal pipe_24_22_front_din: std_logic_vector((19 - 1) downto 0);
+  signal pipe_24_22_back: std_logic_vector((19 - 1) downto 0);
+  signal pipe_24_22_push_front_pop_back_en: std_logic;
+  signal unregy_join_6_1: std_logic_vector((19 - 1) downto 0);
+begin
+  sel_1_20 <= sel;
+  d0_1_24 <= d0;
+  d1_1_27 <= d1;
+  d2_1_30 <= d2;
+  d3_1_33 <= d3;
+  d4_1_36 <= d4;
+  d5_1_39 <= d5;
+  pipe_24_22_back <= pipe_24_22(0);
+  proc_pipe_24_22: process (clk)
+  is
+    variable i: integer;
+  begin
+    if (clk'event and (clk = '1')) then
+      if ((ce = '1') and (pipe_24_22_push_front_pop_back_en = '1')) then
+        pipe_24_22(0) <= pipe_24_22_front_din;
+      end if;
+    end if;
+  end process proc_pipe_24_22;
+  proc_switch_6_1: process (d0_1_24, d1_1_27, d2_1_30, d3_1_33, d4_1_36, d5_1_39, sel_1_20)
+  is
+  begin
+    case sel_1_20 is 
+      when "000" =>
+        unregy_join_6_1 <= cast(d0_1_24, 16, 19, 16, xlSigned);
+      when "001" =>
+        unregy_join_6_1 <= cast(d1_1_27, 16, 19, 16, xlSigned);
+      when "010" =>
+        unregy_join_6_1 <= cast(d2_1_30, 16, 19, 16, xlSigned);
+      when "011" =>
+        unregy_join_6_1 <= cast(d3_1_33, 16, 19, 16, xlSigned);
+      when "100" =>
+        unregy_join_6_1 <= cast(d4_1_36, 16, 19, 16, xlSigned);
+      when others =>
+        unregy_join_6_1 <= cast(d5_1_39, 15, 19, 16, xlSigned);
+    end case;
+  end process proc_switch_6_1;
+  pipe_24_22_front_din <= unregy_join_6_1;
+  pipe_24_22_push_front_pop_back_en <= '1';
+  y <= pipe_24_22_back;
+end behavior;
+
+library work;
+use work.conv_pkg.all;
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity sysgen_mux_3e8717c2bf is
   port (
     sel : in std_logic_vector((2 - 1) downto 0);
@@ -2737,8 +2893,8 @@ entity axi_lite_axi_lite_interface is
         wfdata_5_sel : out std_logic_vector(0 downto 0);
         wfdata_4_sel : out std_logic_vector(1 downto 0);
         wfdata_3_sel : out std_logic_vector(1 downto 0);
-        wfdata_2_sel : out std_logic_vector(1 downto 0);
-        wfdata_1_sel : out std_logic_vector(1 downto 0);
+        wfdata_2_sel : out std_logic_vector(2 downto 0);
+        wfdata_1_sel : out std_logic_vector(2 downto 0);
         wfdata_0_sel : out std_logic_vector(0 downto 0);
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
@@ -2851,8 +3007,8 @@ component axi_lite_axi_lite_interface_verilog is
         wfdata_5_sel : out std_logic_vector(0 downto 0);
         wfdata_4_sel : out std_logic_vector(1 downto 0);
         wfdata_3_sel : out std_logic_vector(1 downto 0);
-        wfdata_2_sel : out std_logic_vector(1 downto 0);
-        wfdata_1_sel : out std_logic_vector(1 downto 0);
+        wfdata_2_sel : out std_logic_vector(2 downto 0);
+        wfdata_1_sel : out std_logic_vector(2 downto 0);
         wfdata_0_sel : out std_logic_vector(0 downto 0);
         scratchpad : out std_logic_vector(31 downto 0);
         rf_ref_chan_sel : out std_logic_vector(3 downto 0);
@@ -4043,6 +4199,17 @@ entity example_xlmult is
  		  ); 
  end component;
 
+ component example_mult_gen_v12_0_i4
+    port ( 
+      b: in std_logic_vector(c_b_width - 1 downto 0);
+      p: out std_logic_vector(c_output_width - 1 downto 0);
+      clk: in std_logic;
+      ce: in std_logic;
+      sclr: in std_logic;
+      a: in std_logic_vector(c_a_width - 1 downto 0) 
+ 		  ); 
+ end component;
+
 signal tmp_a: std_logic_vector(c_a_width - 1 downto 0);
  signal conv_a: std_logic_vector(c_a_width - 1 downto 0);
  signal tmp_b: std_logic_vector(c_b_width - 1 downto 0);
@@ -4115,6 +4282,18 @@ signal tmp_a: std_logic_vector(c_a_width - 1 downto 0);
 
  comp3: if ((core_name0 = "example_mult_gen_v12_0_i3")) generate 
   core_instance3:example_mult_gen_v12_0_i3
+   port map ( 
+        a => tmp_a,
+        clk => clk,
+        ce => internal_ce,
+        sclr => internal_clr,
+        p => tmp_p,
+        b => tmp_b
+  ); 
+   end generate;
+
+ comp4: if ((core_name0 = "example_mult_gen_v12_0_i4")) generate 
+  core_instance4:example_mult_gen_v12_0_i4
    port map ( 
         a => tmp_a,
         clk => clk,

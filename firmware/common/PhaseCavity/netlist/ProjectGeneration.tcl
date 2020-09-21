@@ -6322,10 +6322,10 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set MemoryMappedPort wfdata_3_sel Locs {}
 	dict set MemoryMappedPort wfdata_3_sel IOStandard {}
 	dict set MemoryMappedPort wfdata_2_sel Name {wfdata_2_sel}
-	dict set MemoryMappedPort wfdata_2_sel Type UFix_2_0
+	dict set MemoryMappedPort wfdata_2_sel Type UFix_3_0
 	dict set MemoryMappedPort wfdata_2_sel ArithmeticType xlUnsigned
 	dict set MemoryMappedPort wfdata_2_sel BinaryPoint 0
-	dict set MemoryMappedPort wfdata_2_sel Width 2
+	dict set MemoryMappedPort wfdata_2_sel Width 3
 	dict set MemoryMappedPort wfdata_2_sel DatFile {examplemodel_bus_axi_example_axi_lite_wfdata_2_sel.dat}
 	dict set MemoryMappedPort wfdata_2_sel AddressOffset 28
 	dict set MemoryMappedPort wfdata_2_sel IconText {wfdata_2_sel}
@@ -6338,10 +6338,10 @@ namespace eval ::xilinx::dsp::planaheaddriver {
 	dict set MemoryMappedPort wfdata_2_sel Locs {}
 	dict set MemoryMappedPort wfdata_2_sel IOStandard {}
 	dict set MemoryMappedPort wfdata_1_sel Name {wfdata_1_sel}
-	dict set MemoryMappedPort wfdata_1_sel Type UFix_2_0
+	dict set MemoryMappedPort wfdata_1_sel Type UFix_3_0
 	dict set MemoryMappedPort wfdata_1_sel ArithmeticType xlUnsigned
 	dict set MemoryMappedPort wfdata_1_sel BinaryPoint 0
-	dict set MemoryMappedPort wfdata_1_sel Width 2
+	dict set MemoryMappedPort wfdata_1_sel Width 3
 	dict set MemoryMappedPort wfdata_1_sel DatFile {examplemodel_bus_axi_example_axi_lite_wfdata_1_sel.dat}
 	dict set MemoryMappedPort wfdata_1_sel AddressOffset 24
 	dict set MemoryMappedPort wfdata_1_sel IconText {wfdata_1_sel}

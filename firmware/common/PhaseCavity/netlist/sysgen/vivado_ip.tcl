@@ -521,4 +521,26 @@ set_property -dict $params_list [get_ips example_mult_gen_v12_0_i3]
 }
 
 
+set existingipslist [get_ips]
+if {[lsearch $existingipslist example_mult_gen_v12_0_i4] < 0} {
+create_ip -name mult_gen -version 12.0 -vendor xilinx.com -library ip -module_name example_mult_gen_v12_0_i4
+set params_list [list]
+lappend params_list CONFIG.Component_Name {example_mult_gen_v12_0_i4}
+lappend params_list CONFIG.clockenable {true}
+lappend params_list CONFIG.multiplier_construction {Use_Mults}
+lappend params_list CONFIG.optgoal {Speed}
+lappend params_list CONFIG.outputwidthhigh {18}
+lappend params_list CONFIG.pipestages {2}
+lappend params_list CONFIG.portatype {Signed}
+lappend params_list CONFIG.portawidth {18}
+lappend params_list CONFIG.portbtype {Unsigned}
+lappend params_list CONFIG.portbwidth {1}
+lappend params_list CONFIG.sclrcepriority {CE_Overrides_SCLR}
+lappend params_list CONFIG.syncclear {true}
+lappend params_list CONFIG.use_custom_output_width {true}
+
+set_property -dict $params_list [get_ips example_mult_gen_v12_0_i4]
+}
+
+
 validate_ip [get_ips]
