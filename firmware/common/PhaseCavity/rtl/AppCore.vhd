@@ -38,10 +38,8 @@ library amc_carrier_core;
 use amc_carrier_core.AmcCarrierPkg.all;
 use amc_carrier_core.AppTopPkg.all;
 
---use xil_default_lib.AppCorePkg.all;
---use xil_default_lib.AppCoreTimingPkg.all;
-library xil_default_lib;
-use xil_default_lib.AppOpts.all;
+library xil_defaultlib;
+use xil_defaultlib.AppOpts.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -70,7 +68,7 @@ entity AppCore is
       -- JESD SYNC Interface (jesdClk[1:0] domain)
       jesdSysRef          : out   slv(1 downto 0);
       jesdRxSync          : in    slv(1 downto 0);
-      jesdTxSync          : out   slv(1 downto 0);
+      jesdTxSync          : out   Slv7Array(1 downto 0);
       -- ADC/DAC/Debug Interface (jesdClk[1:0] domain)
       adcValids           : in    Slv7Array(1 downto 0);
       adcValues           : in    sampleDataVectorArray(1 downto 0, 6 downto 0);
@@ -311,7 +309,7 @@ begin
    -- LCLS ACCEL/STBY Trigger MUX
    --------------------
    GEN_TRIG_MUX : for i in (TRIG_SIZE_C/2)-1 downto 0 generate
-      U_TimingTrigMux: entity xil_default_lib.TimingTrigMux
+      U_TimingTrigMux: entity xil_defaultlib.TimingTrigMux
       generic map (
          TPD_G => TPD_G)
       port map (
@@ -361,7 +359,7 @@ begin
    ----------------
    -- SYSGEN Module
    ----------------
-   U_SysGen : entity xil_default_lib.AppLlrfCore
+   U_SysGen : entity xil_defaultlib.AppLlrfCore
       generic map (
          TPD_G                => TPD_G,
          AXI_BASE_ADDR_G      => AXI_CONFIG_C(SYSGEN_INDEX_C).baseAddr,
@@ -456,7 +454,7 @@ begin
 
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
 
-   BSSS : entity xil_default_lib.BsssWrapper
+   BSSS : entity xil_defaultlib.BsssWrapper
      generic map ( NUM_EDEFS_G => 8 )
      port map (
        -- Diagnostic data interface
@@ -518,7 +516,7 @@ begin
    -----------------------
    -- AMC BAY[0] Interface
    -----------------------
-   U_AMC0 : entity xil_default_lib.AmcMrLlrfDownConvertCore
+   U_AMC0 : entity amc_carrier_core.AmcMrLlrfDownConvertCore
       generic map (
          TPD_G            => TPD_G,
          AXI_BASE_ADDR_G  => AXI_CONFIG_C(AMC0_INDEX_C).baseAddr)
@@ -563,7 +561,7 @@ begin
    -----------------------
    -- AMC BAY[1] Interface
    -----------------------
-   U_AMC1 : entity xil_default_lib.AmcMrLlrfUpConvertCore
+   U_AMC1 : entity amc_carrier_core.AmcMrLlrfUpConvertCore
       generic map (
          TPD_G              => TPD_G,
          IODELAY_GROUP_G    => IODELAY_GROUP_C,

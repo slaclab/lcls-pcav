@@ -28,7 +28,9 @@ use surf.StdRtlPkg.all;
 
 library lcls_timing_core;
 use lcls_timing_core.TimingPkg.all;
-use xil_default_lib.AmcCarrierPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
 
 package BsssPkg is
 

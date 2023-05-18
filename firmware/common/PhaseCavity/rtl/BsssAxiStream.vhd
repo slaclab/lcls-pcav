@@ -34,9 +34,13 @@ use surf.SsiPkg.all;
 
 library lcls_timing_core;
 use lcls_timing_core.TimingPkg.all;
-use xil_default_lib.BsssPkg.all;
 use lcls_timing_core.EvrV2Pkg.all;
-use xil_default_lib.AmcCarrierPkg.all;
+
+library xil_defaultlib;
+use xil_defaultlib.BsssPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
 
 entity BsssAxiStream is
 
@@ -409,7 +413,7 @@ begin
                 dataIn  => sv,
                 dataOut => ssyncv );
 
-   U_EVENTSEL : entity xil_default_lib.BsssEventSelect
+   U_EVENTSEL : entity xil_defaultlib.BsssEventSelect
      generic map ( NUM_EDEFS_G => NUM_EDEFS_G )
      port map ( clk       => diagnosticClk,
                 rst       => diagnosticRst,

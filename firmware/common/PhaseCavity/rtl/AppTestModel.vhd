@@ -28,9 +28,11 @@ use surf.StdRtlPkg.all;
 use surf.AxiLitePkg.all;
 use surf.AxiStreamPkg.all;
 use surf.Jesd204bPkg.all;
-use xil_default_lib.AmcCarrierPkg.all;
 use surf.EthMacPkg.all;
 use surf.SsiPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
 
 entity AppTestModel is
    generic (

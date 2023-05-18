@@ -34,11 +34,15 @@ use surf.StdRtlPkg.all;
 use surf.AxiLitePkg.all;
 use surf.AxiStreamPkg.all;
 use surf.Jesd204bPkg.all;
-use xil_default_lib.AmcCarrierPkg.all;
-use xil_default_lib.AppTopPkg.all;
 use surf.EthMacPkg.all;
 use surf.SsiPkg.all;
-use xil_default_lib.LlrfPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
+use amc_carrier_core.AppTopPkg.all;
+
+library xil_defaultlib;
+use xil_defaultlib.LlrfPkg.all;
 
 entity AppLlrfCore is
    generic (
@@ -292,7 +296,7 @@ begin
    ---------------------------
    -- SYNC Inputs to Bay1 clk
    ---------------------------
-   U_SyncAdc : entity xil_default_lib.LlrfSync
+   U_SyncAdc : entity xil_defaultlib.LlrfSync
      port map (
        jesdClk     => jesdClk,
        jesdRst     => jesdRst,
@@ -308,14 +312,14 @@ begin
        dacValidIn  => dacHsValid357,
        dacIn       => dacHs357 );
 
-   U_SyncAF204 : entity xil_default_lib.DdcSync
+   U_SyncAF204 : entity xil_defaultlib.DdcSync
      port map (
        wr_clk => jesdClk2x(1),
        wr_ddc => af357,
        rd_clk => dspClk204,
        rd_ddc => af204 );
 
-   U_SyncIQ204 : entity xil_default_lib.DdcSync
+   U_SyncIQ204 : entity xil_defaultlib.DdcSync
      port map (
        wr_clk => jesdClk2x(1),
        wr_ddc => iq357,
@@ -345,7 +349,7 @@ begin
    -----------
    -- DSP Core
    -----------
-   U_LlrfDemod : entity xil_default_lib.llrfdemod
+   U_LlrfDemod : entity xil_defaultlib.llrfdemod
      port map (
        -- Clock and Resets
        dsp_clk               => jesdClk2x(1),
@@ -399,7 +403,7 @@ begin
        axi_lite_s_axi_rresp   => readSlave  (DEMOD_INDEX_C).rresp,
        axi_lite_s_axi_rvalid  => readSlave  (DEMOD_INDEX_C).rvalid );
 
-      U_SlowDacControl : entity xil_default_lib.slowdaccontrol
+      U_SlowDacControl : entity xil_defaultlib.slowdaccontrol
         port map (
          dsp_clk          => dspClk204,
 	 phaseAmpValid(0) => af204.valid,
@@ -432,7 +436,7 @@ begin
          axi_lite_s_axi_rresp   => readSlave  (PLL_INDEX_C).rresp,
          axi_lite_s_axi_rvalid  => readSlave  (PLL_INDEX_C).rvalid);
 
-      U_LlrfUpconvert : entity xil_default_lib.llrfupconvert
+      U_LlrfUpconvert : entity xil_defaultlib.llrfupconvert
         port map (
          dsp_clk          => jesdClk2x(1),
 	 amp              => af357.i_or_a,
@@ -471,7 +475,7 @@ begin
    dacSigCtrl(1).start <= (others => trigPulseSync(0));
    
    GEN_TEST : if APP_TEST_C generate
-     U_APP : entity xil_default_lib.AppTestModel
+     U_APP : entity xil_defaultlib.AppTestModel
        port map (
          clk             => dspClk204,
          rst             => dspRst204,
@@ -526,7 +530,7 @@ begin
    end generate;
 
    GEN_MODEL : if not APP_TEST_C generate
-     U_MODEL : entity xil_default_lib.example_stub
+     U_MODEL : entity xil_defaultlib.example_stub
        port map (
          dsp_clk                => dspClk204,
          ddcchannel             => iq204.channel,

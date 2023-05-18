@@ -25,15 +25,16 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-use xil_default_lib.all;
-
 library lcls_timing_core;
 use lcls_timing_core.TPGPkg.all;
+use lcls_timing_core.TimingPkg.all;
 
 library surf;
 use surf.StdRtlPkg.all;
-use lcls_timing_core.TimingPkg.all;
-use xil_default_lib.BsssPkg.all;
+
+library xil_defaultlib;
+use xil_defaultlib.all;
+use xil_defaultlib.BsssPkg.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -86,7 +87,7 @@ begin
     --
     --  Setup double wide single port ram to provide (1<<i) for i in 0 to 271,
     --
-    U_RAM : entity xil_default_lib.BsssEventRAM
+    U_RAM : entity xil_defaultlib.BsssEventRAM
       generic map ( INIT_START_G => i*48 )
       port map ( clk    => clk,
                  rst    => rst,
