@@ -7,7 +7,7 @@ export GIT_BYPASS = 1
 # PRJ_VERSION = 0x00000002  No model implementation with BSA/BLD
 # PRJ_VERSION = 0x00000003  Refactor of code
 # PRJ_VERSION = 0x00000004  Use example model from Charlie
-export PRJ_VERSION = 0x00000004
+export PRJ_VERSION = 0x02000000
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build

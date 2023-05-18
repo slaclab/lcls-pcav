@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2020-01-23
--- Last update: 2020-07-17
+-- Last update: 2023-05-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -22,13 +22,15 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-use work.StdRtlPkg.all;
-use work.AxiLitePkg.all;
-use work.AxiStreamPkg.all;
-use work.Jesd204bPkg.all;
-use work.AmcCarrierPkg.all;
-use work.EthMacPkg.all;
-use work.SsiPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiLitePkg.all;
+use surf.AxiStreamPkg.all;
+use surf.Jesd204bPkg.all;
+use xil_default_lib.AmcCarrierPkg.all;
+use surf.EthMacPkg.all;
+use surf.SsiPkg.all;
 
 entity AppTestModel is
    generic (
@@ -102,7 +104,7 @@ architecture mapping of AppTestModel is
 
 begin
 
-  U_TrigRate : entity work.SyncTrigRateVector
+  U_TrigRate : entity surf.SyncTrigRateVector
     generic map ( COMMON_CLK_G   => false,
                   ONE_SHOT_G     => true,
                   REF_CLK_FREQ_G => 156.25E+6,
@@ -120,7 +122,7 @@ begin
   trigRateOutV(2) <= muxSlVectorArray(trigRateOut, 2);
   trigRateOutV(3) <= muxSlVectorArray(trigRateOut, 3);
   
-  U_AxiLiteRegs : entity work.AxiLiteRegs
+  U_AxiLiteRegs : entity surf.AxiLiteRegs
     generic map ( NUM_WRITE_REG_G => 1,
                   NUM_READ_REG_G  => 4 )
     port map ( axiClk         => axiClk,

@@ -25,7 +25,9 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-use work.StdRtlPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
 
 entity TimingTrigSync is
    generic (
@@ -59,7 +61,7 @@ architecture rtl of TimingTrigSync is
    
 begin
 
-   U_Sync : entity work.SynchronizerOneShot
+   U_Sync : entity surf.SynchronizerOneShot
       generic map (
          TPD_G => TPD_G)
       port map (
@@ -101,7 +103,7 @@ begin
       end if;
    end process seq;
 
-   U_SyncFifo : entity work.SynchronizerFifo
+   U_SyncFifo : entity surf.SynchronizerFifo
       generic map (
          TPD_G        => TPD_G,
          DATA_WIDTH_G => 1)

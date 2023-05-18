@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2020-07-23
+-- Last update: 2023-05-18
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -23,17 +23,25 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-use work.StdRtlPkg.all;
-use work.AxiStreamPkg.all;
-use work.AxiLitePkg.all;
-use work.TimingPkg.all;
-use work.AmcCarrierPkg.all;
-use work.jesd204bpkg.all;
-use work.AppTopPkg.all;
---use work.AppCorePkg.all;
---use work.AppCoreTimingPkg.all;
-use work.EthMacPkg.all;
-use work.AppOpts.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiStreamPkg.all;
+use surf.AxiLitePkg.all;
+use surf.EthMacPkg.all;
+use surf.jesd204bpkg.all;
+
+library lcls_timing_core;
+use lcls_timing_core.TimingPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
+use amc_carrier_core.AppTopPkg.all;
+
+--use xil_default_lib.AppCorePkg.all;
+--use xil_default_lib.AppCoreTimingPkg.all;
+library xil_default_lib;
+use xil_default_lib.AppOpts.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -281,7 +289,7 @@ begin
    ---------------------
    -- AXI-Lite Crossbar
    ---------------------
-   U_XBAR : entity work.AxiLiteCrossbar
+   U_XBAR : entity surf.AxiLiteCrossbar
       generic map (
          TPD_G              => TPD_G,
          NUM_SLAVE_SLOTS_G  => 1,
@@ -303,7 +311,7 @@ begin
    -- LCLS ACCEL/STBY Trigger MUX
    --------------------
    GEN_TRIG_MUX : for i in (TRIG_SIZE_C/2)-1 downto 0 generate
-      U_TimingTrigMux: entity work.TimingTrigMux
+      U_TimingTrigMux: entity xil_default_lib.TimingTrigMux
       generic map (
          TPD_G => TPD_G)
       port map (
@@ -324,7 +332,7 @@ begin
    GEN_WAVEFORMS : for i in 1 downto 0 generate
       -- Dual port RAM accessible from axiLite
       -- waveform input to the System Generator
-      U_Waveform : entity work.AxiDualPortRam
+      U_Waveform : entity surf.AxiDualPortRam
          generic map (
             TPD_G        => TPD_G,
             --BRAM_EN_G    => true,
@@ -353,7 +361,7 @@ begin
    ----------------
    -- SYSGEN Module
    ----------------
-   U_SysGen : entity work.AppLlrfCore
+   U_SysGen : entity xil_default_lib.AppLlrfCore
       generic map (
          TPD_G                => TPD_G,
          AXI_BASE_ADDR_G      => AXI_CONFIG_C(SYSGEN_INDEX_C).baseAddr,
@@ -401,13 +409,13 @@ begin
          streamSlave    => AXI_STREAM_SLAVE_FORCE_C );
 
    GEN_LCLS_I : if APP_TIMING_MODE_C = 1 generate
-     V2FV1 : entity work.EvrV2FromV1
+     V2FV1 : entity lcls_timing_core.EvrV2FromV1
        port map ( clk       => timingClk,
                   disable   => '0',
                   timingIn  => timingBus,
                   timingOut => timingMessage );
      
-     U_Strobe : entity work.SlvDelay
+     U_Strobe : entity surf.SlvDelay
        generic map (
          TPD_G   => TPD_G,
          DELAY_G => 1 )
@@ -427,32 +435,15 @@ begin
      timingMessage       <= timingBus.message;
      timingMessageStrobe <= timingBus.strobe;
      
-     U_BLD : entity work.BldWrapper
-       generic map ( NUM_EDEFS_G => 2 )
-       port map (
-         -- Diagnostic data interface
-         diagnosticClk   => diagnClk,
-         diagnosticRst   => diagnRst,
-         diagnosticBus   => diagnBus,
-         -- AXI Lite interface
-         axilClk         => axilClk,
-         axilRst         => axilRst,
-         axilReadMaster  => axilReadMasters (BLD_INDEX_C),
-         axilReadSlave   => axilReadSlaves  (BLD_INDEX_C),
-         axilWriteMaster => axilWriteMasters(BLD_INDEX_C),
-         axilWriteSlave  => axilWriteSlaves (BLD_INDEX_C),
-         -- Timing ETH MSG Interface (axilClk domain)
-         ibEthMsgMaster  => AXI_STREAM_MASTER_INIT_C,
-         ibEthMsgSlave   => open,
-         obEthMsgMaster  => streamMaster,
-         obEthMsgSlave   => streamSlave );
-
+     streamMaster                 <= AXI_STREAM_MASTER_INIT_C;
+     axilReadSlaves (BLD_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
+     axilWriteSlaves(BLD_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
    end generate;
 
    timingMessageSlv <= toSlv(timingMessage);
 
    --  Capture timing message at full fiducial rate
-   V2FIFO : entity work.SynchronizerFifo
+   V2FIFO : entity surf.SynchronizerFifo
      generic map ( DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C )
      port map    ( rst           => diagnRst,
                    -- Write Ports (wr_clk domain)
@@ -465,7 +456,7 @@ begin
 
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
 
-   BSSS : entity work.BsssWrapper
+   BSSS : entity xil_default_lib.BsssWrapper
      generic map ( NUM_EDEFS_G => 8 )
      port map (
        -- Diagnostic data interface
@@ -491,7 +482,7 @@ begin
    
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)
    -- Clock trigger divider - LCLS II recovered timing clock*(9/100)
-   U_ClockManager : entity work.ClockManagerUltraScale
+   U_ClockManager : entity surf.ClockManagerUltraScale
      generic map (
        TPD_G              => 1 ns,
        TYPE_G             => "MMCM",
@@ -527,7 +518,7 @@ begin
    -----------------------
    -- AMC BAY[0] Interface
    -----------------------
-   U_AMC0 : entity work.AmcMrLlrfDownConvertCore
+   U_AMC0 : entity xil_default_lib.AmcMrLlrfDownConvertCore
       generic map (
          TPD_G            => TPD_G,
          AXI_BASE_ADDR_G  => AXI_CONFIG_C(AMC0_INDEX_C).baseAddr)
@@ -572,7 +563,7 @@ begin
    -----------------------
    -- AMC BAY[1] Interface
    -----------------------
-   U_AMC1 : entity work.AmcMrLlrfUpConvertCore
+   U_AMC1 : entity xil_default_lib.AmcMrLlrfUpConvertCore
       generic map (
          TPD_G              => TPD_G,
          IODELAY_GROUP_G    => IODELAY_GROUP_C,
@@ -624,7 +615,7 @@ begin
 --   ----------------
 --   -- RTM Interface
 --   ----------------
-   U_RTM : entity work.RtmDigitalDebugV2
+   U_RTM : entity amc_carrier_core.RtmDigitalDebugV2
      generic map (
        TPD_G            => TPD_G,
        REG_DOUT_EN_G    => x"FF", -- '1' = registered, '0' = unregistered

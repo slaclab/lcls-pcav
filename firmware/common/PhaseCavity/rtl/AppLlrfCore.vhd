@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-09-11
+-- Last update: 2023-05-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -28,15 +28,17 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-use work.StdRtlPkg.all;
-use work.AxiLitePkg.all;
-use work.AxiStreamPkg.all;
-use work.Jesd204bPkg.all;
-use work.AmcCarrierPkg.all;
-use work.AppTopPkg.all;
-use work.EthMacPkg.all;
-use work.SsiPkg.all;
-use work.LlrfPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiLitePkg.all;
+use surf.AxiStreamPkg.all;
+use surf.Jesd204bPkg.all;
+use xil_default_lib.AmcCarrierPkg.all;
+use xil_default_lib.AppTopPkg.all;
+use surf.EthMacPkg.all;
+use surf.SsiPkg.all;
+use xil_default_lib.LlrfPkg.all;
 
 entity AppLlrfCore is
    generic (
@@ -231,7 +233,7 @@ begin
    ---------------------
    -- AXI-Lite Crossbar
    ---------------------
-   U_XBAR : entity work.AxiLiteCrossbar
+   U_XBAR : entity surf.AxiLiteCrossbar
      generic map (
        TPD_G              => TPD_G,
        NUM_SLAVE_SLOTS_G  => 1,
@@ -249,7 +251,7 @@ begin
        mAxiReadMasters     => readMaster,
        mAxiReadSlaves      => readSlave);      
 
-   U_DSP_CLK : entity work.ClockManagerUltraScale
+   U_DSP_CLK : entity surf.ClockManagerUltraScale
      generic map (
        BANDWIDTH_G        => "HIGH",
        CLKIN_PERIOD_G     => 2.801,
@@ -267,7 +269,7 @@ begin
    ----------------------
    -- SYNC Timing pulse
    ----------------------
-   U_TimingTrigSync: entity work.SynchronizerOneShot
+   U_TimingTrigSync: entity surf.SynchronizerOneShot
      generic map (
        TPD_G         => TPD_G,
        PULSE_WIDTH_G => 1 )
@@ -277,7 +279,7 @@ begin
        dataIn    => trigPulse(0),
        dataOut   => trigPulseSync(0) );
       
-   U_TimingRstSync: entity work.SynchronizerOneShot
+   U_TimingRstSync: entity surf.SynchronizerOneShot
      generic map (
        TPD_G         => TPD_G,
        PULSE_WIDTH_G => 1 )
@@ -290,7 +292,7 @@ begin
    ---------------------------
    -- SYNC Inputs to Bay1 clk
    ---------------------------
-   U_SyncAdc : entity work.LlrfSync
+   U_SyncAdc : entity xil_default_lib.LlrfSync
      port map (
        jesdClk     => jesdClk,
        jesdRst     => jesdRst,
@@ -306,14 +308,14 @@ begin
        dacValidIn  => dacHsValid357,
        dacIn       => dacHs357 );
 
-   U_SyncAF204 : entity work.DdcSync
+   U_SyncAF204 : entity xil_default_lib.DdcSync
      port map (
        wr_clk => jesdClk2x(1),
        wr_ddc => af357,
        rd_clk => dspClk204,
        rd_ddc => af204 );
 
-   U_SyncIQ204 : entity work.DdcSync
+   U_SyncIQ204 : entity xil_default_lib.DdcSync
      port map (
        wr_clk => jesdClk2x(1),
        wr_ddc => iq357,
@@ -321,7 +323,7 @@ begin
        rd_ddc => iq204 );
 
    SYNC_DAC_LS : for i in 2 downto 0 generate
-      SYNC_DAC : entity work.SynchronizerFifo
+      SYNC_DAC : entity surf.SynchronizerFifo
          generic map (
             TPD_G        => TPD_G,
             DATA_WIDTH_G => 16)
@@ -343,7 +345,7 @@ begin
    -----------
    -- DSP Core
    -----------
-   U_LlrfDemod : entity work.llrfdemod
+   U_LlrfDemod : entity xil_default_lib.llrfdemod
      port map (
        -- Clock and Resets
        dsp_clk               => jesdClk2x(1),
@@ -397,7 +399,7 @@ begin
        axi_lite_s_axi_rresp   => readSlave  (DEMOD_INDEX_C).rresp,
        axi_lite_s_axi_rvalid  => readSlave  (DEMOD_INDEX_C).rvalid );
 
-      U_SlowDacControl : entity work.slowdaccontrol
+      U_SlowDacControl : entity xil_default_lib.slowdaccontrol
         port map (
          dsp_clk          => dspClk204,
 	 phaseAmpValid(0) => af204.valid,
@@ -430,7 +432,7 @@ begin
          axi_lite_s_axi_rresp   => readSlave  (PLL_INDEX_C).rresp,
          axi_lite_s_axi_rvalid  => readSlave  (PLL_INDEX_C).rvalid);
 
-      U_LlrfUpconvert : entity work.llrfupconvert
+      U_LlrfUpconvert : entity xil_default_lib.llrfupconvert
         port map (
          dsp_clk          => jesdClk2x(1),
 	 amp              => af357.i_or_a,
@@ -469,7 +471,7 @@ begin
    dacSigCtrl(1).start <= (others => trigPulseSync(0));
    
    GEN_TEST : if APP_TEST_C generate
-     U_APP : entity work.AppTestModel
+     U_APP : entity xil_default_lib.AppTestModel
        port map (
          clk             => dspClk204,
          rst             => dspRst204,
@@ -524,7 +526,7 @@ begin
    end generate;
 
    GEN_MODEL : if not APP_TEST_C generate
-     U_MODEL : entity work.example_stub
+     U_MODEL : entity xil_default_lib.example_stub
        port map (
          dsp_clk                => dspClk204,
          ddcchannel             => iq204.channel,
@@ -674,7 +676,7 @@ begin
      --diagnStrobe <= iq204.sync;
    end generate;
    
-   U_DIAGNSTROBE : entity work.SynchronizerOneShot
+   U_DIAGNSTROBE : entity surf.SynchronizerOneShot
      generic map (
        TPD_G         => TPD_G )
      port map (
@@ -683,7 +685,7 @@ begin
        dataOut  => idiagnStrobe );
 
    GEN_TRIG : for i in 1 downto 0 generate
-     U_TimingRstSync: entity work.SynchronizerOneShot
+     U_TimingRstSync: entity surf.SynchronizerOneShot
        generic map (
          TPD_G         => TPD_G,
          PULSE_WIDTH_G => 1 )
@@ -699,7 +701,7 @@ begin
 --     debug204(i).valid <= debug204_valid(i);
      debug204(i).valid <= r.valid;
      debug204(i).data  <= debug204_data(32*i+31 downto 32*i);
-     U_SYNC_DEBUG : entity work.SynchronizerFifo
+     U_SYNC_DEBUG : entity surf.SynchronizerFifo
        generic map (
          TPD_G             => TPD_G,
          ADDR_WIDTH_G      => 10,

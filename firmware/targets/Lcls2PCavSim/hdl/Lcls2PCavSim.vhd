@@ -23,14 +23,20 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-use work.StdRtlPkg.all;
-use work.AxiLitePkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiLitePkg.all;
 use work.AxiLiteSimPkg.all;
-use work.AxiStreamPkg.all;
-use work.TimingPkg.all;
-use work.TPGPkg.all;
-use work.TPGMiniEdefPkg.all;
-use work.AmcCarrierPkg.all;
+use surf.AxiStreamPkg.all;
+
+library lcls_timing_core;
+use lcls_timing_core.TimingPkg.all;
+use lcls_timing_core.TPGPkg.all;
+use lcls_timing_core.TPGMiniEdefPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -162,7 +168,7 @@ begin
    end process;
    scRst <= regRst;
 
-   U_SCMini : entity work.TPGMini
+   U_SCMini : entity lcls_timing_core.TPGMini
      port map ( configI    => tpgConfig,
                 txClk      => scClk,
                 txRst      => scRst,
@@ -177,7 +183,7 @@ begin
    scRx.dspErr           <= "00";
    scRx.decErr           <= "00";
    
-   U_TimingCore : entity work.TimingCore
+   U_TimingCore : entity lcls_timing_core.TimingCore
      generic map ( CLKSEL_MODE_G => "LCLSII",
                    TPGMINI_G     => false,
                    AXIL_RINGB_G  => false )
@@ -200,7 +206,7 @@ begin
                 axilWriteMaster => regWriteMaster(0),
                 axilWriteSlave  => regWriteSlave (0) );
 
-   U_CoreTrig : entity work.EvrV2CoreTriggers
+   U_CoreTrig : entity lcls_timing_core.EvrV2CoreTriggers
      generic map (
        NCHANNELS_G     => 8,
        NTRIGGERS_G     => 8,
@@ -259,7 +265,7 @@ begin
 
    timingMessageSlv <= toSlv(timingMessage);
    
-   V2FIFO : entity work.FifoAsync
+   V2FIFO : entity surf.FifoAsync
      generic map ( FWFT_EN_G     => true,
                    DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C,
                    ADDR_WIDTH_G  => 4 )
@@ -278,7 +284,7 @@ begin
    
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
 
-   BLD : entity work.BldWrapper
+   BLD : entity amc_carrier_core.BldWrapper
      generic map ( NUM_EDEFS_G => 2 )
      port map (
        -- Diagnostic data interface
@@ -298,7 +304,7 @@ begin
        obEthMsgMaster  => ibEthMsgMaster,
        obEthMsgSlave   => ibEthMsgSlave );
 
-   BSSS : entity work.BsssWrapper
+   BSSS : entity amc_carrier_core.BsssWrapper
      generic map ( NUM_EDEFS_G => 2 )
      port map (
        -- Diagnostic data interface
@@ -326,7 +332,7 @@ begin
    --
    --  Application derives diagStrobe from trigStrobe, whenever result is ready
    --
-   U_Strobe : entity work.SynchronizerOneShot
+   U_Strobe : entity surf.SynchronizerOneShot
      port map ( clk     => diagnClk,
                 dataIn  => s_trigStrobe,
                 dataOut => s_diagStrobe );
