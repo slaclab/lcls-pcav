@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-07-27
+-- Last update: 2023-07-29
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -482,6 +482,9 @@ begin
        clkO                => diagnosticClk,
        rstO                => diagnosticRst,
        dbusO               => diagnosticBus,
+       -- AXI Lite interface
+       axilClk             => axilClk,
+       axilRst             => axilRst,
        axilReadMaster      => axilReadMasters (BLD_INDEX_C),
        axilReadSlave       => axilReadSlaves  (BLD_INDEX_C),
        axilWriteMaster     => axilWriteMasters(BLD_INDEX_C),
