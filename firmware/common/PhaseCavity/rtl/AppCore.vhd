@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-05-18
+-- Last update: 2023-07-27
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -425,8 +425,6 @@ begin
          dout(0)  => timingMessageStrobe );
 
      streamMaster                 <= AXI_STREAM_MASTER_INIT_C;
-     axilReadSlaves (BLD_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
-     axilWriteSlaves(BLD_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
    end generate;
      
    GEN_LCLS_II : if APP_TIMING_MODE_C = 2 generate
@@ -434,8 +432,6 @@ begin
      timingMessageStrobe <= timingBus.strobe;
      
      streamMaster                 <= AXI_STREAM_MASTER_INIT_C;
-     axilReadSlaves (BLD_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
-     axilWriteSlaves(BLD_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
    end generate;
 
    timingMessageSlv <= toSlv(timingMessage);
@@ -474,9 +470,22 @@ begin
        obEthMsgMaster  => obBpMsgServerMaster,
        obEthMsgSlave   => obBpMsgServerSlave );
 
-   diagnosticClk <= diagnClk;
-   diagnosticRst <= diagnRst;
-   diagnosticBus <= diagnBus;
+   -- diagnosticClk <= diagnClk;
+   -- diagnosticRst <= diagnRst;
+   -- diagnosticBus <= diagnBus;
+
+   U_APP_DBUS : entity xil_defaultlib.AppDiagnBus
+     port map (
+       clk                 => diagnClk,
+       rst                 => diagnRst,
+       dbus                => diagnBus,
+       clkO                => diagnosticClk,
+       rstO                => diagnosticRst,
+       dbusO               => diagnosticBus,
+       axilReadMaster      => axilReadMasters (BLD_INDEX_C),
+       axilReadSlave       => axilReadSlaves  (BLD_INDEX_C),
+       axilWriteMaster     => axilWriteMasters(BLD_INDEX_C),
+       axilWriteSlave      => axilWriteSlaves (BLD_INDEX_C) );
    
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)
    -- Clock trigger divider - LCLS II recovered timing clock*(9/100)

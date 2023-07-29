@@ -24,7 +24,7 @@ mmio: &mmio
     AmcCarrierCore:
         <<: *AmcCarrierCore
         at:
-        offset: 0x00000000  
+          offset: 0x00000000  
     ##################################################     
     AppTop:
       <<: *AppTop
