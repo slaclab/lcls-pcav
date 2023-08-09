@@ -2,7 +2,7 @@
 -- File       : Lcls2PCav.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-05-18
+-- Last update: 2023-08-09
 -------------------------------------------------------------------------------
 -- Description: Firmware Target's Top Level
 -- 
@@ -222,9 +222,11 @@ begin
             0                 => DEV_CLK0_SEL_C,  -- AmcDwnConvt@Version2 = AB6/AB5
             1                 => DEV_CLK0_SEL_C),  -- AmcUpConvt@Version2 = M6/M5
          -- Signal Generator Generics
-         SIG_GEN_SIZE_G       => (others => 0),   -- Configured by application
-         SIG_GEN_ADDR_WIDTH_G => (others => 9),   -- Configured by application
-         SIG_GEN_LANE_MODE_G  => (others => "0000000"))  -- Configured by application
+         SIG_GEN_SIZE_G       => (0 => 0,
+                                  1 => 2),               -- I,Q for upconverter
+         SIG_GEN_ADDR_WIDTH_G => (others => 12),         -- 4096 elements
+         SIG_GEN_LANE_MODE_G  => (others => "1111111"),  -- 16 bits @
+         SIG_GEN_RAM_CLK_G    => (others => "0000000"))  -- jesdClk2x
       port map (
          ----------------------
          -- Top Level Interface

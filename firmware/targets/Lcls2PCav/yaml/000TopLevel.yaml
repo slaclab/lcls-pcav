@@ -13,21 +13,20 @@
 #include AmcCarrierDRAM.yaml
 #include AppTop.yaml
 
+
 # It is important to use the same parameters
 # for shared protocol modules (e.g., all RSSI
 # on the same port is in fact one single, shared
 # module)
 #
 connectionParameters:
-  udp: &udpParams
-    threadPriority: 80
-    numRxThreads:    4
+  udpPri:     &udpPri      80
+  udpThreads: &udpThreads   1
   rssi: &rssiParams
     retransmissionTimeoutUS: 100000
     cumulativeAckTimeoutUS:   50000
     threadPriority:             82
 
-#MMIO range, will be attached to FPGA
 mmio: &mmio
   size: 0x100000000 # 4GB of address space
   class: MMIODev
@@ -36,9 +35,9 @@ mmio: &mmio
   children:
   ########
     AmcCarrierCore:
-        <<: *AmcCarrierCore
-        at:
-          offset: 0x00000000  
+      <<: *AmcCarrierCore
+      at:
+        offset: 0x00000000  
     ##################################################     
     AppTop:
       <<: *AppTop
@@ -48,13 +47,25 @@ mmio: &mmio
         AppTopJesd:
           children:
             JesdRx:
-              instantiate: true              
+              instantiate: true    
               metadata:
-                numRxLanes: &numRxLanes 4
+                numRxLanes: &numRxLanes 6
             JesdTx:
-              instantiate: true         
+              instantiate: false
               metadata: 
-                numTxLanes: &numTxLanes 2              
+                numTxLanes: &numTxLanes 0
+        DacSigGen:
+          <<: *DacSigGen
+          at:
+            offset: 0x70000000
+            nelms: 1
+          instantiate: true
+          children:
+            Waveform:
+              children:
+                MemoryArray:
+                  at:
+                    nelms: 0x1000
         AppCore:
           children:
 #  This BLD module only found in NC PhaseCavity
@@ -68,28 +79,6 @@ mmio: &mmio
                 numEdefs: &numEdefs 8
     ################################################## 
 
-stream: &stream
-  SRP:
-    protocolVersion: SRP_UDP_NONE
-  UDP:
-    <<: *udpParams
-    port: 8194
-    numRxThreads: 2
-  RSSI:
-    <<: *rssiParams
-  stripHeader: yes
-  depack:
-    useDepack: yes
-  TDESTMux:
-    TDEST: 0x80
-
-tstream: &tstream
-  SRP:
-    protocolVersion: SRP_UDP_NONE
-  UDP:
-    port: 8197
-    pollSecs: 1
-
 strm: &strm
   size: 0x100000000 # 4GB of address space
   class: MMIODev
@@ -99,13 +88,47 @@ strm: &strm
           at:
             offset: 0x00000000      
 
+tstream: &tstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    port: 8197
+    pollSecs: 1
+
+bstream: &bstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    port: 8195
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    pollSecs: 1
+
+stream: &stream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    port: 8194
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+  RSSI: *rssiParams
+  depack:
+    useDepack: yes
+  TDESTMux:
+    stripHeader: yes
+    TDEST: 0x80
+
 bldstream: &bldstream
   SRP:
     protocolVersion: SRP_UDP_NONE
   UDP:
-    <<: *udpParams
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
     port: 8198
     pollSecs: 1
+
 NetIODev:
   ipAddr: 10.0.1.105
   class: NetIODev
@@ -117,10 +140,8 @@ NetIODev:
          SRP:
            protocolVersion: SRP_UDP_V3
          UDP:
-#           <<: *udpParams
            port: 8193
          RSSI: yes
-#           <<: *rssiParams
          depack:
            useDepack: yes
          TDESTMux:
@@ -131,10 +152,10 @@ NetIODev:
          SRP:
            protocolVersion: SRP_UDP_V3
          UDP:
-#           <<: *udpParams
            port: 8194
-         RSSI: yes
-#           <<: *rssiParams
+           numRxThreads: *udpThreads
+           threadPriority: *udpPri
+         RSSI: *rssiParams
          depack:
            useDepack: yes
          TDESTMux:
@@ -147,6 +168,10 @@ NetIODev:
        class: Field
        at:
          <<: *tstream
+     bstream:
+       class: Field
+       at:
+         <<: *bstream
      Stream0:
        class: Field
        at:

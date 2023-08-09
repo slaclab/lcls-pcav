@@ -56,6 +56,18 @@ mmio: &mmio
               instantiate: false              
               metadata: 
                 numTxLanes: &numTxLanes 0              
+        DacSigGen:
+          <<: *DacSigGen
+          at:
+            offset: 0x70000000
+            nelms: 1
+          instantiate: true
+          children:
+            Waveform:
+              children:
+                MemoryArray:
+                  at:
+                    nelms: 0x1000
         AppCore:
           children:
             BLD:
