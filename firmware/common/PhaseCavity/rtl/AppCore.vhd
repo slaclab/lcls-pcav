@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-07-29
+-- Last update: 2023-08-10
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -188,7 +188,7 @@ architecture mapping of AppCore is
    signal s_fpgaInterlock : sl := '0';
 
    -----------------Timing--------------------------
-   constant TRIG_SIZE_C : integer := 8;
+   constant TRIG_SIZE_C : integer := 6;
    signal s_trigPulse   : slv((TRIG_SIZE_C/2)-1 downto 0);
    signal s_trigStrobe  : slv((TRIG_SIZE_C/2)-1 downto 0);
    signal s_trigIndex   : slv((TRIG_SIZE_C/2)-1 downto 0);
@@ -225,7 +225,7 @@ architecture mapping of AppCore is
    signal diagnRst             : sl;
    signal diagnAck             : sl;
    signal diagnDepth           : slv(3 downto 0);
-   signal diagnBus             : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
+   signal diagnBus, diagnBusQ  : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
    signal timingMessage        : TimingMessageType;
    signal timingMessageSlv     : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
    signal timingMessageSlvO    : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
@@ -250,8 +250,10 @@ begin
                   probe0(  2 downto  1) => s_trigMode,
                   probe0(            3) => timingBus.strobe,
                   probe0( 19 downto  4) => timingTrig.trigPulse,
-                  probe0( 23 downto 20) => s_trigPulse,
-                  probe0( 27 downto 24) => s_trigStrobe,
+                  probe0( 22 downto 20) => s_trigPulse,
+                  probe0( 26 downto 24) => s_trigStrobe,
+                  probe0(           23) => '1',
+                  probe0(           27) => '1',
                   probe0(           28) => timingMessageStrobe,
                   probe0( 32 downto 29) => s_debugValids(0),
                   probe0( 36 downto 33) => s_debugValids(1),
@@ -451,7 +453,8 @@ begin
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
 
    BSSS : entity xil_defaultlib.BsssWrapper
-     generic map ( NUM_EDEFS_G => 8 )
+--     generic map ( NUM_EDEFS_G => 8 )
+     generic map ( NUM_EDEFS_G => 1 )
      port map (
        -- Diagnostic data interface
        diagnosticClk   => diagnClk,
@@ -481,7 +484,7 @@ begin
        dbus                => diagnBus,
        clkO                => diagnosticClk,
        rstO                => diagnosticRst,
-       dbusO               => diagnosticBus,
+       dbusO               => diagnBusQ,
        -- AXI Lite interface
        axilClk             => axilClk,
        axilRst             => axilRst,
@@ -489,7 +492,26 @@ begin
        axilReadSlave       => axilReadSlaves  (BLD_INDEX_C),
        axilWriteMaster     => axilWriteMasters(BLD_INDEX_C),
        axilWriteSlave      => axilWriteSlaves (BLD_INDEX_C) );
-   
+
+   U_DBUS_INSERT : entity xil_defaultlib.DiagnBusInsert
+     generic map (
+       FIFO_ADDR_WIDTH_G => 4) -- expect results within 16 us
+     port map (
+      -- Timing interface
+      timingClk       => timingClk,
+      timingRst       => timingRst,
+      timingStrobe    => timingBus.strobe,
+      timingMessage   => timingBus.message,
+      trigger         => s_trigPulse(0),  -- prompt trigger indicating diagnosticBusI
+                                          -- is expected for this timing frame
+      -- Diagnostic data interface
+      diagnosticClk   => diagnClk,
+      diagnosticRst   => diagnRst,
+      diagnosticBusI  => diagnBusQ,       -- delayed processing results;
+                                          -- timingMessage is ignored/overwritten
+      diagnosticBusO  => diagnosticBus ); -- full rate output
+
+       
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)
    -- Clock trigger divider - LCLS II recovered timing clock*(9/100)
    U_ClockManager : entity surf.ClockManagerUltraScale
@@ -662,7 +684,7 @@ begin
        -- RTM's Clock Reference
        genClkP         => genClkP,
        genClkN         => genClkN);
-   s_dOut(7 downto 0) <= s_cleanClk(0) & s_cleanClk(1) & "0" & "0" & s_trigPulse(3) & s_trigPulse(2) & s_trigPulse(1) & s_timingClk2x_locked;
+   s_dOut(7 downto 0) <= s_cleanClk(0) & s_cleanClk(1) & "0" & "0" & s_trigPulse(0) & s_trigPulse(2) & s_trigPulse(1) & s_timingClk2x_locked;
 
    --------------------
    -- Common IDELAYCTRL

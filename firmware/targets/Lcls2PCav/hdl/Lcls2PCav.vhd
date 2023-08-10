@@ -2,7 +2,7 @@
 -- File       : Lcls2PCav.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-08-09
+-- Last update: 2023-08-10
 -------------------------------------------------------------------------------
 -- Description: Firmware Target's Top Level
 -- 
@@ -328,7 +328,7 @@ begin
          DISABLE_BLD_G   => false,         -- true = doesn't build the BLD engine
          DISABLE_MPS_G   => true,         -- true = doesn't build MPS engine
          RTM_ETH_G       => false,        -- false = 10GbE over backplane
-         CORE_TRIGGERS_G => 8,
+         CORE_TRIGGERS_G => 6,
          AXIL_RINGB_G    => false,        -- false = no AxiLiteRingBuffer from TimingCore
          CLKSEL_MODE_G   => "LCLSII",
          APP_TYPE_G      => APP_NULL_TYPE_C)  -- Configured by application (refer to AmcCarrierPkg for list of all application types

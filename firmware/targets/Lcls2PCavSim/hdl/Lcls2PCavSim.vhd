@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-07-10
--- Last update: 2023-07-29
+-- Last update: 2023-08-10
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ architecture top_level_app of Lcls2PCavSim is
    signal s_trigIndex    : sl;
    signal diagnClk             : sl;
    signal diagnRst             : sl;
-   signal diagnBus             : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
+   signal diagnBus, diagnBusQ  : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
    signal diagnosticClk        : sl;
    signal diagnosticRst        : sl;
    signal diagnosticBus        : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
@@ -86,12 +86,19 @@ architecture top_level_app of Lcls2PCavSim is
    signal tpgConfig      : TPGConfigType := TPG_CONFIG_INIT_C;
    
    signal seqRst : slv(NAXI_C-1 downto 0);
-   constant trigWriteCmds   : AxiLiteWriteCmdArray(0 to 4) :=
-     ( (x"00080004",x"40000000"),
-       (x"00081104",x"00000010"),    -- delay
-       (x"00081108",x"00000010"),    -- width
-       (x"00081100",x"80010000"),    -- enable
-       (x"00080000",x"00000001")
+   constant trigWriteCmds   : AxiLiteWriteCmdArray(0 to 9) :=
+     ( (x"00080004",x"40000001"),    -- ch0 : destSel & rateSel
+       (x"00080604",x"40000000"),    -- ch6 : destSel & rateSel
+                                     -- tr1 = DSP core trigger  
+       (x"00081104",x"00000010"),    -- tr1 : delay
+       (x"00081108",x"00000010"),    -- tr1 : width
+       (x"00081100",x"80010000"),    -- tr1 : En & polarity & channel
+                                     -- tr6 = delayed timing strobe
+       (x"00081604",x"00000002"),    -- tr6 : delay
+       (x"00081608",x"00000001"),    -- tr6 : width
+       (x"00081600",x"80010006"),    -- tr6 : En & polarity & channel
+       (x"00080000",x"00000001"),    -- ch0 : enable
+       (x"00080600",x"00000001")     -- ch6 : enable
        );
    constant bsssWriteCmds   : AxiLiteWriteCmdArray(0 to 5) :=
      ( (x"00000004",x"7fffffff"),
@@ -172,6 +179,8 @@ architecture top_level_app of Lcls2PCavSim is
      phase_fi    : integer;
      phase_frac  : slv(14 downto 0);
      pindex      : slv(3 downto 0);
+     ready       : sl;
+     count       : integer;
    end record;
 
    constant REG_INIT_C : RegType := (
@@ -184,14 +193,23 @@ architecture top_level_app of Lcls2PCavSim is
      phase_f     => 0.0,
      phase_fi    => 0,
      phase_frac  => (others=>'0'),
-     pindex      => (others=>'0'));
+     pindex      => (others=>'0'),
+     ready       => '0',
+     count       => 0 );
 
+   constant DBUS_DELAY : integer := 800;
+   
    signal r    : RegType := REG_INIT_C;
    signal r_in : RegType;
    signal time0, time1 : real := 0.0;
    signal dbus2, dbus6, dbus10, dbus14, dbus16, dbus17 : slv(31 downto 0);
    signal tindex : slv(15 downto 0);
-
+   signal dbus30       : slv(15 downto 0);
+   signal dbus_pulseId : slv(15 downto 0);
+   signal dsp_trig     : sl;
+   signal dbus_trig    : sl;
+   signal dbus_strobe  : sl;
+   
    signal ibEthMsgMaster : AxiStreamMasterType;
    signal ibEthMsgSlave  : AxiStreamSlaveType := AXI_STREAM_SLAVE_FORCE_C;
    signal obEthMsgMaster : AxiStreamMasterType;
@@ -230,6 +248,7 @@ begin
      seqRst <= "0100";
      --seqRst <= "0000";
      --seqRst <= "1000";
+     tpgConfig.pulseIdWrEn <= '0';
      wait;
    end process;
    
@@ -426,7 +445,6 @@ begin
      v.strobe := r.strobe(r.strobe'left-1 downto 0) & s_diagStrobe;
      v.dbus.strobe := '0';
      if r.strobe(r.strobe'left) = '1' then
-       v.dbus := diagnBus;
        v.dbus.timingMessage := toTimingMessageType(timingMessageSlvO);
 
        v.phase_real  := event_phase(conv_integer(v.pindex(3 downto 0)));
@@ -438,6 +456,8 @@ begin
        v.pindex      := r.pindex+1;
 
        v.dbus.data(31) := resize(r.index,32);
+       v.dbus.data(30) := toTimingMessageType(timingMessageSlvO).pulseId(31 downto 0);
+
        v.dbus.data(1)  := toSlv18_15(event_refph(conv_integer(v.index( 7 downto 4))));
        v.dbus.data(2)  := toSlv18_15(event_phase(conv_integer(v.index( 3 downto  0))));
        v.dbus.data(3)  := toSlv18   (event_ampl (conv_integer(v.index( 3 downto  0))));
@@ -451,9 +471,19 @@ begin
        v.dbus.data(14) := toSlv18_15(event_phase(conv_integer(v.index( 3 downto  0))));
        v.dbus.data(15) := toSlv18   (event_ampl (conv_integer(v.index( 3 downto  0))));
        v.index := v.index+1;
-       v.dbus.strobe := '1';
+       v.ready := '1';
+       v.count := 0;
      end if;
 
+     if r.ready = '1' then
+       if r.count = DBUS_DELAY then
+         v.dbus.strobe := '1';
+         v.ready       := '0';
+       else 
+         v.count := r.count + 1;
+       end if;
+     end if;
+     
      if diagnRst = '1' then
        v := REG_INIT_C;
      end if;
@@ -482,7 +512,7 @@ begin
                 dbus  => diagnBus,
                 clkO  => diagnosticClk,
                 rstO  => diagnosticRst,
-                dbusO => diagnosticBus,
+                dbusO => diagnBusQ,
                 axilClk         => regClk,
                 axilRst         => regRst,
                 axilWriteMaster => diagnWriteMaster,
@@ -490,6 +520,23 @@ begin
                 axilReadMaster  => diagnReadMaster,
                 axilReadSlave   => diagnReadSlave );
 
+   U_DBusInsert : entity work.DiagnBusInsert
+     generic map ( FIFO_ADDR_WIDTH_G => 5 )
+     port map (
+      -- Timing interface
+      timingClk       => scClk,
+      timingRst       => scRst,
+      timingStrobe    => timingBus.strobe,
+      timingMessage   => timingBus.message,
+      trigger         => s_trigPulse,              -- prompt trigger indicating diagnosticBusI
+                                                   -- is expected for this timing frame
+      -- Diagnostic data interface
+      diagnosticClk   => diagnClk,
+      diagnosticRst   => diagnRst,
+      diagnosticBusI  => diagnBusQ,       -- delayed processing results;
+                                          -- timingMessage is ignored/overwritten
+      diagnosticBusO  => diagnosticBus ); -- full rate output
+   
    process ( diagnosticClk ) is
      variable index : slv(15 downto 0);
    begin
@@ -506,5 +553,11 @@ begin
        tindex <= index;
      end if;
    end process;
+
+   dbus30       <= diagnosticBus.data(30)(15 downto 0);
+   dbus_pulseId <= diagnosticBus.timingMessage.pulseId(15 downto 0);
+   dsp_trig     <= s_trigPulse;
+   dbus_trig    <= timingTrig.trigPulse(6);
+   dbus_strobe  <= diagnosticBus.strobe;
    
 end top_level_app;
