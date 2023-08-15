@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-08-10
+-- Last update: 2023-08-15
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -179,6 +179,12 @@ architecture mapping of AppCore is
    signal axilReadMasters  : AxiLiteReadMasterArray (NUM_AXI_MASTERS_C-1 downto 0);
    signal axilReadSlaves   : AxiLiteReadSlaveArray  (NUM_AXI_MASTERS_C-1 downto 0);
 
+   signal regClk, regRst   : sl;
+   signal regWriteMaster   : AxiLiteWriteMasterType;
+   signal regWriteSlave    : AxiLiteWriteSlaveType;
+   signal regReadMaster    : AxiLiteReadMasterType;
+   signal regReadSlave     : AxiLiteReadSlaveType;
+   
    -- Internal dac/adc signals
    signal s_dacHs        : slv(31 downto 0);
    signal s_dacLs        : Slv32Array(2 downto 0);
@@ -225,7 +231,7 @@ architecture mapping of AppCore is
    signal diagnRst             : sl;
    signal diagnAck             : sl;
    signal diagnDepth           : slv(3 downto 0);
-   signal diagnBus, diagnBusQ  : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
+   signal diagnBus, diagnBusQ, diagnBusO  : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
    signal timingMessage        : TimingMessageType;
    signal timingMessageSlv     : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
    signal timingMessageSlvO    : slv(TIMING_MESSAGE_BITS_C-1 downto 0);
@@ -234,7 +240,7 @@ architecture mapping of AppCore is
    signal streamMaster         : AxiStreamMasterType;
    signal streamSlave          : AxiStreamSlaveType;
    
-   constant DEBUG_C : boolean := true;
+   constant DEBUG_C : boolean := false;
 
    component ila_0
      port ( clk    : in sl;
@@ -245,19 +251,15 @@ begin
 
    GEN_DEBUG : if DEBUG_C generate
      U_ILA : ila_0
-       port map ( clk                   => timingClk,
-                  probe0(            0) => timingRst,
-                  probe0(  2 downto  1) => s_trigMode,
-                  probe0(            3) => timingBus.strobe,
-                  probe0( 19 downto  4) => timingTrig.trigPulse,
-                  probe0( 22 downto 20) => s_trigPulse,
-                  probe0( 26 downto 24) => s_trigStrobe,
-                  probe0(           23) => '1',
-                  probe0(           27) => '1',
-                  probe0(           28) => timingMessageStrobe,
-                  probe0( 32 downto 29) => s_debugValids(0),
-                  probe0( 36 downto 33) => s_debugValids(1),
-                  probe0(255 downto 37) => (others=>'0') );
+       port map ( clk                   => diagnClk,
+                  probe0(            0) => diagnRst,
+                  probe0(            1) => diagnBusO.strobe,
+                  probe0(            2) => diagnBusQ.strobe,
+                  probe0( 12 downto  3) => diagnBusO.timingMessage.fixedRates,
+                  probe0( 22 downto 13) => diagnBusQ.timingMessage.fixedRates,
+                  probe0( 38 downto 23) => diagnBusO.timingMessage.pulseId(15 downto 0),
+                  probe0( 54 downto 39) => diagnBusQ.timingMessage.pulseId(15 downto 0),
+                  probe0(255 downto 55) => (others=>'0') );
    end generate;
    
     -- We want to see DAC values on DaqMux
@@ -286,6 +288,48 @@ begin
    s_adcValids(0) <= adcValids(0)(5 downto 0);
    s_adcValids(1) <= adcValids(1)(5 downto 0);
 
+   diagnosticBus  <= diagnBusO;
+
+   U_AmcCorePll : entity surf.ClockManagerUltraScale
+     generic map(
+       TPD_G             => TPD_G,
+       TYPE_G            => "PLL",
+       INPUT_BUFG_G      => true,
+       FB_BUFG_G         => true,
+       RST_IN_POLARITY_G => '1',
+       NUM_CLOCKS_G      => 1,
+       -- MMCM attributes
+       BANDWIDTH_G       => "OPTIMIZED",
+       CLKIN_PERIOD_G    => 6.4,
+       DIVCLK_DIVIDE_G   => 1, 
+       CLKFBOUT_MULT_G   => 8, 
+       CLKOUT0_DIVIDE_G  => 16)
+     port map(
+       -- Clock Input
+       clkIn     => axilClk,
+       rstIn     => axilRst,
+       -- Clock Outputs
+       clkOut(0) => regClk,
+       -- Reset Outputs
+       rstOut(0) => regRst);
+
+   U_ASync : entity surf.AxiLiteAsync
+     port map (
+      -- Slave Port
+      sAxiClk         => axilClk,
+      sAxiClkRst      => axilRst,
+      sAxiReadMaster  => axilReadMaster,
+      sAxiReadSlave   => axilReadSlave,
+      sAxiWriteMaster => axilWriteMaster,
+      sAxiWriteSlave  => axilWriteSlave,
+      -- Master Port
+      mAxiClk         => regClk,
+      mAxiClkRst      => regRst,
+      mAxiReadMaster  => regReadMaster,
+      mAxiReadSlave   => regReadSlave,
+      mAxiWriteMaster => regWriteMaster,
+      mAxiWriteSlave  => regWriteSlave );
+
    ---------------------
    -- AXI-Lite Crossbar
    ---------------------
@@ -296,12 +340,12 @@ begin
          NUM_MASTER_SLOTS_G => NUM_AXI_MASTERS_C,
          MASTERS_CONFIG_G   => AXI_CONFIG_C)
       port map (
-         axiClk              => axilClk,
-         axiClkRst           => axilRst,
-         sAxiWriteMasters(0) => axilWriteMaster,
-         sAxiWriteSlaves(0)  => axilWriteSlave,
-         sAxiReadMasters(0)  => axilReadMaster,
-         sAxiReadSlaves(0)   => axilReadSlave,
+         axiClk              => regClk,
+         axiClkRst           => regRst,
+         sAxiWriteMasters(0) => regWriteMaster,
+         sAxiWriteSlaves(0)  => regWriteSlave,
+         sAxiReadMasters(0)  => regReadMaster,
+         sAxiReadSlaves(0)   => regReadSlave,
          mAxiWriteMasters    => axilWriteMasters,
          mAxiWriteSlaves     => axilWriteSlaves,
          mAxiReadMasters     => axilReadMasters,
@@ -343,8 +387,8 @@ begin
             INIT_G       => "0")
          port map (
             -- Axi clk domain
-            axiClk         => axilClk,
-            axiRst         => axilRst,
+            axiClk         => regClk,
+            axiRst         => regRst,
             axiReadMaster  => axilReadMasters (WAVEFORM_INDEX_C+i),
             axiReadSlave   => axiLReadSlaves  (WAVEFORM_INDEX_C+i),
             axiWriteMaster => axilWriteMasters(WAVEFORM_INDEX_C+i),
@@ -395,8 +439,8 @@ begin
          dacSigValues   => dacSigValues,
       
          -- AXI-Lite Port
-         axiClk         => axilClk,
-         axiRst         => axilRst,
+         axiClk         => regClk,
+         axiRst         => regRst,
          axiReadMaster  => axilReadMasters (SYSGEN_INDEX_C),
          axiReadSlave   => axilReadSlaves  (SYSGEN_INDEX_C),
          axiWriteMaster => axilWriteMasters(SYSGEN_INDEX_C),
@@ -453,21 +497,22 @@ begin
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
 
    BSSS : entity xil_defaultlib.BsssWrapper
---     generic map ( NUM_EDEFS_G => 8 )
      generic map ( NUM_EDEFS_G => 1 )
      port map (
        -- Diagnostic data interface
        diagnosticClk   => diagnClk,
        diagnosticRst   => diagnRst,
-       diagnosticBus   => diagnBus,
+       diagnosticBus   => diagnBusO,
        -- AXI Lite interface
-       axilClk         => axilClk,
-       axilRst         => axilRst,
+       axilClk         => regClk,
+       axilRst         => regRst,
        axilReadMaster  => axilReadMasters (BSSS_INDEX_C),
        axilReadSlave   => axilReadSlaves  (BSSS_INDEX_C),
        axilWriteMaster => axilWriteMasters(BSSS_INDEX_C),
        axilWriteSlave  => axilWriteSlaves (BSSS_INDEX_C),
        -- Timing ETH MSG Interface (axilClk domain)
+       ethClk          => axilClk,
+       ethRst          => axilRst,
        ibEthMsgMaster  => streamMaster,
        ibEthMsgSlave   => streamSlave,
        obEthMsgMaster  => obBpMsgServerMaster,
@@ -486,8 +531,8 @@ begin
        rstO                => diagnosticRst,
        dbusO               => diagnBusQ,
        -- AXI Lite interface
-       axilClk             => axilClk,
-       axilRst             => axilRst,
+       axilClk             => regClk,
+       axilRst             => regRst,
        axilReadMaster      => axilReadMasters (BLD_INDEX_C),
        axilReadSlave       => axilReadSlaves  (BLD_INDEX_C),
        axilWriteMaster     => axilWriteMasters(BLD_INDEX_C),
@@ -509,7 +554,7 @@ begin
       diagnosticRst   => diagnRst,
       diagnosticBusI  => diagnBusQ,       -- delayed processing results;
                                           -- timingMessage is ignored/overwritten
-      diagnosticBusO  => diagnosticBus ); -- full rate output
+      diagnosticBusO  => diagnBusO ); -- full rate output
 
        
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)
@@ -536,8 +581,8 @@ begin
        rstOut(0) => s_trigRst,
        locked    => s_trigLocked,
        -- AXI-Lite Port
-       axilClk         => axilClk,
-       axilRst         => axilRst,
+       axilClk         => regClk,
+       axilRst         => regRst,
        axilReadMaster  => AXI_LITE_READ_MASTER_INIT_C,
        axilReadSlave   => open,
        axilWriteMaster => AXI_LITE_WRITE_MASTER_INIT_C,
@@ -565,8 +610,8 @@ begin
          dacValues(1)    => s_dacLs(1)(15 downto 0),
          dacValues(2)    => s_dacLs(2)(15 downto 0),
          -- AXI-Lite Interface
-         axilClk         => axilClk,
-         axilRst         => axilRst,
+         axilClk         => regClk,
+         axilRst         => regRst,
          axilReadMaster  => axilReadMasters (AMC0_INDEX_C),
          axilReadSlave   => axilReadSlaves  (AMC0_INDEX_C),
          axilWriteMaster => axilWriteMasters(AMC0_INDEX_C),
@@ -617,8 +662,8 @@ begin
          timingTrig      => s_trigClock,
          fpgaInterlock   => s_fpgaInterlock,
          -- AXI-Lite Interface
-         axilClk         => axilClk,
-         axilRst         => axilRst,
+         axilClk         => regClk,
+         axilRst         => regRst,
          axilReadMaster  => axilReadMasters (AMC1_INDEX_C),
          axilReadSlave   => axilReadSlaves  (AMC1_INDEX_C),
          axilWriteMaster => axilWriteMasters(AMC1_INDEX_C),
@@ -669,8 +714,8 @@ begin
        cleanClkOut     => open,
        cleanClkLocked  => s_timingClk2x_locked,
        -- AXI-Lite Interface
-       axilClk         => axilClk,
-       axilRst         => axilRst,
+       axilClk         => regClk,
+       axilRst         => regRst,
        axilReadMaster  => axilReadMasters (RTM_INDEX_C),
        axilReadSlave   => axilReadSlaves  (RTM_INDEX_C),
        axilWriteMaster => axilWriteMasters(RTM_INDEX_C),

@@ -2,7 +2,7 @@
 -- File       : Lcls2PCav.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-08-10
+-- Last update: 2023-08-15
 -------------------------------------------------------------------------------
 -- Description: Firmware Target's Top Level
 -- 
@@ -324,6 +324,7 @@ begin
       generic map (
          TPD_G           => TPD_G,
          BUILD_INFO_G    => BUILD_INFO_G,
+--         DISABLE_BSA_G   => false,         -- true = doesn't build the BSA engine
          DISABLE_BSA_G   => false,         -- true = doesn't build the BSA engine
          DISABLE_BLD_G   => false,         -- true = doesn't build the BLD engine
          DISABLE_MPS_G   => true,         -- true = doesn't build MPS engine

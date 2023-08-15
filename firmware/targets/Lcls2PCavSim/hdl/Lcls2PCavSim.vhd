@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-07-10
--- Last update: 2023-08-10
+-- Last update: 2023-08-14
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -87,7 +87,7 @@ architecture top_level_app of Lcls2PCavSim is
    
    signal seqRst : slv(NAXI_C-1 downto 0);
    constant trigWriteCmds   : AxiLiteWriteCmdArray(0 to 9) :=
-     ( (x"00080004",x"40000001"),    -- ch0 : destSel & rateSel
+     ( (x"00080004",x"40000000"),    -- ch0 : destSel & rateSel
        (x"00080604",x"40000000"),    -- ch6 : destSel & rateSel
                                      -- tr1 = DSP core trigger  
        (x"00081104",x"00000010"),    -- tr1 : delay
@@ -443,8 +443,8 @@ begin
    begin
      v := r;
      v.strobe := r.strobe(r.strobe'left-1 downto 0) & s_diagStrobe;
-     v.dbus.strobe := '0';
-     if r.strobe(r.strobe'left) = '1' then
+     v.dbus.strobe := r.strobe(r.strobe'left);  -- keep it at 1MH
+     if r.strobe(r.strobe'left) = '1' and r.ready = '0' then
        v.dbus.timingMessage := toTimingMessageType(timingMessageSlvO);
 
        v.phase_real  := event_phase(conv_integer(v.pindex(3 downto 0)));
@@ -477,7 +477,7 @@ begin
 
      if r.ready = '1' then
        if r.count = DBUS_DELAY then
-         v.dbus.strobe := '1';
+--         v.dbus.strobe := '1';
          v.ready       := '0';
        else 
          v.count := r.count + 1;

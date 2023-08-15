@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-09-25
--- Last update: 2023-05-18
+-- Last update: 2023-08-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -63,6 +63,8 @@ entity BsssAxiStream is
       axilWriteMaster : in  AxiLiteWriteMasterType;
       axilWriteSlave  : out AxiLiteWriteSlaveType;
       -- Timing ETH MSG Interface (axilClk domain)
+      ethClk          : in  sl;
+      ethRst          : in  sl;
       ibEthMsgMaster  : in  AxiStreamMasterType;
       ibEthMsgSlave   : out AxiStreamSlaveType ;
       obEthMsgMaster  : out AxiStreamMasterType;
@@ -295,7 +297,7 @@ begin
    end generate;
 
    U_DIAGNCLKFREQ : entity surf.SyncClockFreq
-     generic map ( REF_CLK_FREQ_G    => 156.25E+6,
+     generic map ( REF_CLK_FREQ_G    => 78.125E+6,
                    CLK_LOWER_LIMIT_G => 180.0E+6,
                    CLK_UPPER_LIMIT_G => 220.0E+6 )
      port map ( freqOut    => diagnClkFreq,
@@ -305,7 +307,7 @@ begin
                    
    U_DIAGNSTRRATE : entity surf.SyncTrigRate
      generic map ( COMMON_CLK_G      => false,
-                   REF_CLK_FREQ_G    => 156.25E+6 )
+                   REF_CLK_FREQ_G    => 78.125E+6 )
      port map ( trigIn     => diagnosticBus.strobe,
                 trigRateOut=> diagnStrobeRate,
                 locClk     => diagnosticClk,
@@ -314,7 +316,7 @@ begin
    eventSel0Q <= eventSel(0) and eventStrobe;
    U_EVENTSELRATE : entity surf.SyncTrigRate
      generic map ( COMMON_CLK_G      => false,
-                   REF_CLK_FREQ_G    => 156.25E+6 )
+                   REF_CLK_FREQ_G    => 78.125E+6 )
      port map ( trigIn     => eventSel0Q,
                 trigRateOut=> eventSel0Rate,
                 locClk     => diagnosticClk,
@@ -337,8 +339,8 @@ begin
                 sAxisMaster  => r.master,
                 sAxisSlave   => intSlave,
                 sAxisCtrl    => intAxisCtrl,
-                mAxisClk     => axilClk,
-                mAxisRst     => axilRst,
+                mAxisClk     => ethClk,
+                mAxisRst     => ethRst,
                 mAxisMaster  => sAxisMasters(1),
                 mAxisSlave   => sAxisSlaves (1) );
    
@@ -611,8 +613,8 @@ begin
 
    U_Mux : entity surf.AxiStreamMux
      generic map ( NUM_SLAVES_G => 2 )
-     port map ( axisClk      => axilClk,
-                axisRst      => axilRst,
+     port map ( axisClk      => ethClk,
+                axisRst      => ethRst,
                 sAxisMasters => sAxisMasters,
                 sAxisSlaves  => sAxisSlaves,
                 mAxisMaster  => obEthMsgMaster,

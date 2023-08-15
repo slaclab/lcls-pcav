@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-09-25
--- Last update: 2023-05-18
+-- Last update: 2023-08-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -49,6 +49,8 @@ entity BsssWrapper is
       axilWriteMaster : in  AxiLiteWriteMasterType;
       axilWriteSlave  : out AxiLiteWriteSlaveType;
       -- Timing ETH MSG Interface (axilClk domain)
+      ethClk          : in  sl;
+      ethRst          : in  sl;
       ibEthMsgMaster  : in  AxiStreamMasterType;
       ibEthMsgSlave   : out AxiStreamSlaveType ;
       obEthMsgMaster  : out AxiStreamMasterType;
@@ -64,7 +66,7 @@ begin
     generic map ( SVC_START_G  => 0,
                   NUM_EDEFS_G  => NUM_EDEFS_G,
                   BATCH_G      => false,
-                  DEBUG_G      => true )
+                  DEBUG_G      => false )
     port map (
       -- Diagnostic data interface
       diagnosticClk   => diagnosticClk,
@@ -78,6 +80,8 @@ begin
       axilWriteMaster => axilWriteMaster,
       axilWriteSlave  => axilWriteSlave,
       -- Timing ETH MSG Interface (axilClk domain)
+      ethClk          => ethClk,
+      ethRst          => ethRst,
       ibEthMsgMaster  => ibEthMsgMaster,
       ibEthMsgSlave   => ibEthMsgSlave,
       obEthMsgMaster  => obEthMsgMaster,

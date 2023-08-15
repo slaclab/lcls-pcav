@@ -30,8 +30,20 @@ create_generated_clock -name jesd1_370MHz [get_pins {U_AppTop/U_AmcBay[1].U_Jesd
 
 create_generated_clock -name ddrClk [get_pins U_Core/U_Core/U_DdrMem/MigCore_Inst/inst/u_ddr3_infrastructure/gen_mmcme3.u_mmcme_adv_inst/CLKOUT5]
 
-#create_clock -name timingRef  -period  2.691  [get_ports {timingRefClkInP}]
-create_clock -name timingRef  -period  4.201  [get_ports {timingRefClkInP}]
+create_generated_clock -name axilClk [get_pins U_Core/U_Core/U_AmcCorePll/PllGen.U_Pll/CLKOUT0]
+create_generated_clock -name regClk [get_pins U_AppTop/U_AppCore/U_AmcCorePll/PllGen.U_Pll/CLKOUT0]
+
+create_generated_clock -name timingPhyClk [get_pins U_Core/U_Core/U_Timing/TimingGthCoreWrapper_1/LOCREF_G.TIMING_TXCLK_BUFG_GT/O]
+
+create_clock -name timingRef  -period  2.691  [get_ports {timingRefClkInP}]
+#create_clock -name timingRef  -period  4.201  [get_ports {timingRefClkInP}]
+
+create_clock -name jesdClk00 -period 5.698 [get_ports {jesdClkP[0][0]}]
+create_clock -name jesdClk01 -period 5.698 [get_ports {jesdClkP[0][1]}]
+create_clock -name jesdClk02 -period 5.698 [get_ports {jesdClkP[0][2]}]
+create_clock -name jesdClk10 -period 5.698 [get_ports {jesdClkP[1][0]}]
+create_clock -name jesdClk11 -period 5.698 [get_ports {jesdClkP[1][1]}]
+create_clock -name jesdClk12 -period 5.698 [get_ports {jesdClkP[1][2]}]
 
 set_clock_groups -asynchronous \
                  -group [get_clocks -include_generated_clocks {recTimingClk}] \
@@ -53,3 +65,8 @@ set_clock_groups -asynchronous \
 #set_clock_groups -asynchronous \
 #                 -group [get_clocks {recTimingClk}] \
 #                 -group [get_clocks -of_objects [get_pins -hier -filter {NAME =~ */U_RTM/U_PLL/PllGen.U_Pll/CLKOUT1}]]
+
+set_clock_groups -asynchronous \
+		 -group [get_clocks {axilClk}] \
+		 -group [get_clocks {regClk}] \
+		 -group [get_clocks {timingPhyClk}]
