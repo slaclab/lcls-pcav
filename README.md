@@ -28,3 +28,7 @@ $ git clone --recursive git@github.com:slaclab/lcls-pcav
 
 # How to build the Lcls2PrlMaster firmware
 This is still being figured out.
+
+# hacking your way to launching the firmware
+Followed this instruction to successfully launch simulink/sysgen 
+https://www.programmersought.com/article/56335887472/
