@@ -25,3 +25,6 @@ $ git lfs install
 ```
 $ git clone --recursive git@github.com:slaclab/lcls-pcav
 ```
+
+# How to build the Lcls2PrlMaster firmware
+This is still being figured out.
