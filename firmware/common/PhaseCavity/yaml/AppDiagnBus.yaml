@@ -1,0 +1,101 @@
+##############################################################################
+## This file is part of 'SLAC Firmware Standard Library'.
+## It is subject to the license terms in the LICENSE.txt file found in the 
+## top-level directory of this distribution and at: 
+##    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html. 
+## No part of 'SLAC Firmware Standard Library', including this file, 
+## may be copied, modified, propagated, or distributed except according to 
+## the terms contained in the LICENSE.txt file.
+##############################################################################
+#schemaversion 3.0.0
+#once AppDiagn.yaml
+
+AppDiagnBus: &AppDiagnBus
+  name: AppDiagnBus
+  description: Application Diagnostic Bus
+  size: 0x01000000
+  class: MMIODev
+  ########
+  children:
+  ########
+    ##################################################     
+    Cavity0Probe0PhaseOffset:
+      at:
+        offset: 0x00000000
+      class: IntField
+      name: Cavity0Probe0PhaseOffset
+      sizeBits: 18
+      lsBit: 0
+      mode: RW
+      description: Phase Offset (fixed point 18.15)
+    #########################################################
+    Cavity0Probe1PhaseOffset:
+      at:
+        offset: 0x00000004
+      class: IntField
+      name: Cavity0Probe1PhaseOffset
+      sizeBits: 18
+      lsBit: 0
+      mode: RW
+      description: Phase Offset (fixed point 18.15)
+    #########################################################
+    Cavity1Probe0PhaseOffset:
+      at:
+        offset: 0x00000008
+      class: IntField
+      name: Cavity1Probe0PhaseOffset
+      sizeBits: 18
+      lsBit: 0
+      mode: RW
+      description: Phase Offset (fixed point 18.15)
+    #########################################################
+    Cavity1Probe1PhaseOffset:
+      at:
+        offset: 0x0000000C
+      class: IntField
+      name: Cavity1Probe1PhaseOffset
+      sizeBits: 18
+      lsBit: 0
+      mode: RW
+      description: Phase Offset (fixed point 18.15)
+    #########################################################
+    Cavity0Probe0Weight:
+      at:
+        offset: 0x00000010
+      class: IntField
+      name: Cavity0Probe0Weight
+      sizeBits: 2
+      lsBit: 0
+      mode: RW
+      description: Weighting (0,1,2)
+    #########################################################
+    Cavity0Probe1Weight:
+      at:
+        offset: 0x00000014
+      class: IntField
+      name: Cavity0Probe1Weight
+      sizeBits: 2
+      lsBit: 0
+      mode: RW
+      description: Weighting (0,1,2)
+    #########################################################
+    Cavity1Probe0Weight:
+      at:
+        offset: 0x00000018
+      class: IntField
+      name: Cavity1Probe0Weight
+      sizeBits: 2
+      lsBit: 0
+      mode: RW
+      description: Weighting (0,1,2)
+    #########################################################
+    Cavity1Probe1Weight:
+      at:
+        offset: 0x0000001C
+      class: IntField
+      name: Cavity1Probe1Weight
+      sizeBits: 2
+      lsBit: 0
+      mode: RW
+      description: Weighting (0,1,2)
+    #########################################################

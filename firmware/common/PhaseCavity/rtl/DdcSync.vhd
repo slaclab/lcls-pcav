@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2020-04-30
+-- Last update: 2023-05-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -22,8 +22,12 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-use work.StdRtlPkg.all;
-use work.LlrfPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+
+library xil_defaultlib;
+use xil_defaultlib.LlrfPkg.all;
 
 entity DdcSync is
   generic (
@@ -39,7 +43,7 @@ architecture rtl of DdcSync is
 
 begin
 
-  U_SYNC : entity work.SynchronizerFifo
+  U_SYNC : entity surf.SynchronizerFifo
      generic map (
        TPD_G             => TPD_G,
        DATA_WIDTH_G      => 42)

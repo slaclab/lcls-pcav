@@ -1,6 +1,8 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-use work.StdRtlPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
 
 package AppOpts is
 

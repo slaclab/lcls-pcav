@@ -7,7 +7,9 @@ export GIT_BYPASS = 1
 # PRJ_VERSION = 0x00000002  No model implementation with BSA/BLD
 # PRJ_VERSION = 0x00000003  Refactor of code
 # PRJ_VERSION = 0x00000004  Use example model from Charlie
-export PRJ_VERSION = 0x00000004
+# PRJ_VERSION = 0x02000000  First update for SC using current submodules
+# PRJ_VERSION = 0x02000100  Add DiagnBusInsert module to allow sysgen to run <1MH
+export PRJ_VERSION = 0x02000100
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build
@@ -75,7 +77,8 @@ export COMMON_FILE = PhaseCavity
 #     If REMOVE_UNUSED_CODE = 0, all source code is kept after importing to Vivado project
 #     If REMOVE_UNUSED_CODE = 1, all unused source code is removed from Vivado project
 ##########################################################################################
-export REMOVE_UNUSED_CODE = 1
+#export REMOVE_UNUSED_CODE = 1
+export REMOVE_UNUSED_CODE = 0
 
 ##########################################################################################
 ############################  DO NOT EDIT THE CODE BELOW  ################################

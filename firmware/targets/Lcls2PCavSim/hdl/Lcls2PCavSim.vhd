@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-07-10
--- Last update: 2019-10-19
+-- Last update: 2024-04-09
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -22,15 +22,21 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
+use ieee.math_real.all;
 
-use work.StdRtlPkg.all;
-use work.AxiLitePkg.all;
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiLitePkg.all;
 use work.AxiLiteSimPkg.all;
-use work.AxiStreamPkg.all;
-use work.TimingPkg.all;
-use work.TPGPkg.all;
-use work.TPGMiniEdefPkg.all;
-use work.AmcCarrierPkg.all;
+use surf.AxiStreamPkg.all;
+
+library lcls_timing_core;
+use lcls_timing_core.TimingPkg.all;
+use lcls_timing_core.TPGPkg.all;
+use lcls_timing_core.TPGMiniEdefPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -64,29 +70,43 @@ architecture top_level_app of Lcls2PCavSim is
    signal s_trigIndex    : sl;
    signal diagnClk             : sl;
    signal diagnRst             : sl;
-   signal diagnBus             : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
-
+   signal diagnBus, diagnBusQ  : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
+   signal diagnosticClk        : sl;
+   signal diagnosticRst        : sl;
+   signal diagnosticBus        : DiagnosticBusType := DIAGNOSTIC_BUS_INIT_C;
+   signal diagnReadMaster      : AxiLiteReadMasterType := AXI_LITE_READ_MASTER_INIT_C;
+   signal diagnReadSlave       : AxiLiteReadSlaveType;
+   signal diagnWriteMaster     : AxiLiteWriteMasterType;
+   signal diagnWriteSlave      : AxiLiteWriteSlaveType;
+   constant diagnWriteCmds   : AxiLiteWriteCmdArray(0 to 1) :=
+     ( (x"00000020",x"00010000"),
+       (x"00000024",x"00008000")
+       );
+   
    signal tpgConfig      : TPGConfigType := TPG_CONFIG_INIT_C;
    
    signal seqRst : slv(NAXI_C-1 downto 0);
-   constant trigWriteCmds   : AxiLiteWriteCmdArray(0 to 4) :=
-     ( (x"00080004",x"40000000"),
-       (x"00081104",x"00000010"),    -- delay
-       (x"00081108",x"00000010"),    -- width
-       (x"00081100",x"80010000"),    -- enable
-       (x"00080000",x"00000001")
+   constant trigWriteCmds   : AxiLiteWriteCmdArray(0 to 9) :=
+     ( (x"00080004",x"40000001"),    -- ch0 : destSel & rateSel
+       (x"00080604",x"40000001"),    -- ch6 : destSel & rateSel
+                                     -- tr1 = DSP core trigger  
+       (x"00081104",x"00000010"),    -- tr1 : delay
+       (x"00081108",x"00000010"),    -- tr1 : width
+       (x"00081100",x"80010000"),    -- tr1 : En & polarity & channel
+                                     -- tr6 = delayed timing strobe
+       (x"00081604",x"00000742"),    -- tr6 : delay (10 us)
+       (x"00081608",x"00000001"),    -- tr6 : width
+       (x"00081600",x"80010006"),    -- tr6 : En & polarity & channel
+       (x"00080000",x"00000001"),    -- ch0 : enable
+       (x"00080600",x"00000001")     -- ch6 : enable
        );
-   constant bsssWriteCmds   : AxiLiteWriteCmdArray(0 to 5) :=
+   constant bsssWriteCmds   : AxiLiteWriteCmdArray(0 to 1) :=
      ( (x"00000004",x"7fffffff"),
-       (x"00000040",x"40000001"),
-       (x"00000044",x"80000000"),
-       (x"00000048",x"40000002"),
-       (x"0000004c",x"80000000"),
        (x"00000000",x"800003c0")
        );
 
    constant bldWriteCmds   : AxiLiteWriteCmdArray(0 to 5) :=
-     ( (x"00000004",x"70000000"),
+     ( (x"00000004",x"400f0000"),
        (x"00000040",x"40000000"),
        (x"00000044",x"8000001b"),
        (x"00000048",x"40000001"),
@@ -94,16 +114,93 @@ architecture top_level_app of Lcls2PCavSim is
        (x"00000000",x"800003c0")
        );
 
+   constant event_phase : RealArray   (0 to 15) :=
+      (1.0, 1.0,         -- +-PI 2852MHz = +-175.316 ps
+      1.0E-1, 1.0E-1, -- +-0.1PI = +-17.532 ps
+      1.0E-3, 1.0E-3, -- +-0.001PI = +-0.175 ps
+      1.0E-4, 1.0E-4, -- = +- 0.017 ps
+      3.0E-5, 3.0E-5, -- = +- 0.00526 ps
+      -1.0E-3, -1.0E-3, -- +-0.001PI = +-0.175 ps
+      -1.0E-1, -1.0E-1,
+      -1.0, -1.0 );
+
+   constant event_phase_r : RealArray ( 0 to 7 ) :=
+     (175.631, 17.532, 0.175, 0.017, 0.00526, -0.175, -17.532, -175.631);
+   
+   constant event_ampl  : IntegerArray(0 to 15) :=
+     ( 131071, -131072, 65535, -65536, 32767, -32768, 16383, -16384,
+       0, 0, 1, -1, 2, -2, 4, -4 );
+
+   constant event_refph : RealArray   (0 to 15) :=
+     ( 0.0, 1.0, -1.0, 0.5, -0.5, 0.1, -0.1, 1.0E-3, -1.0E-3, 1.0E-4, -1.0E-4, 3.0E-5, -3.0E-5, 0.0, 0.0, 0.0);
+   constant event_offph : RealArray   (0 to 15) :=
+     ( 0.0, 1.0, -1.0, 0.5, -0.5, 0.1, -0.1, 1.0E-3, -1.0E-3, 1.0E-4, -1.0E-4, 3.0E-5, -3.0E-5, 0.0, 0.0, 0.0);
+
+   function toSlv18_15(r : real) return slv is
+     variable v : slv(31 downto 0);
+     variable i : integer;
+     variable ra : real;
+   begin
+     if r < 0.0 then
+       ra := -r;
+     else
+       ra := r;
+     end if;
+     i := integer(floor(ra));
+     v(31 downto 15) := toSlv( i, 17);
+     i := integer((ra-real(i))*2**15);
+     v(14 downto  0) := toSlv( i, 15);
+     if r < 0.0 then
+       v := not v;
+       v := v + 1;
+     end if;
+     return v;
+   end function;
+   
+   function toSlv18(r : integer) return slv is
+     variable v : slv(31 downto 0);
+   begin
+     v := toSlv(r,32);
+     return v;
+   end function;
+   
    type RegType is record
-     strobe : slv(15 downto 0);
+     dbus        : DiagnosticBusType;
+     index       : slv(15 downto 0);
+     phase_real  : real;
+     phase_int   : integer;
+     phase_whole : slv(16 downto 0);
+     phase_f     : real;
+     phase_fi    : integer;
+     phase_frac  : slv(14 downto 0);
+     pindex      : slv(3 downto 0);
    end record;
 
    constant REG_INIT_C : RegType := (
-     strobe => (others=>'0') );
+     dbus        => DIAGNOSTIC_BUS_INIT_C,
+     index       => (others=>'0'),
+     phase_real  => 0.0,
+     phase_int   => 0,
+     phase_whole => (others=>'0'),
+     phase_f     => 0.0,
+     phase_fi    => 0,
+     phase_frac  => (others=>'0'),
+     pindex      => (others=>'0') );
 
+   constant DBUS_DELAY : integer := 1800;
+   
    signal r    : RegType := REG_INIT_C;
    signal r_in : RegType;
-
+   signal time0, time1 : real := 0.0;
+   signal dbus1, dbus2, dbus6, dbus10, dbus14, dbus16, dbus17 : slv(31 downto 0);
+   signal tindex : slv(15 downto 0);
+   signal dbus30       : slv(15 downto 0);
+   signal dbus_pulseId : slv(15 downto 0);
+   signal tbus_pulseId : slv(15 downto 0);
+   signal dsp_trig     : sl;
+   signal dbus_trig    : sl;
+   signal dbus_strobe  : sl;
+   
    signal ibEthMsgMaster : AxiStreamMasterType;
    signal ibEthMsgSlave  : AxiStreamSlaveType := AXI_STREAM_SLAVE_FORCE_C;
    signal obEthMsgMaster : AxiStreamMasterType;
@@ -142,6 +239,7 @@ begin
      seqRst <= "0100";
      --seqRst <= "0000";
      --seqRst <= "1000";
+     tpgConfig.pulseIdWrEn <= '0';
      wait;
    end process;
    
@@ -162,7 +260,7 @@ begin
    end process;
    scRst <= regRst;
 
-   U_SCMini : entity work.TPGMini
+   U_SCMini : entity lcls_timing_core.TPGMini
      port map ( configI    => tpgConfig,
                 txClk      => scClk,
                 txRst      => scRst,
@@ -177,9 +275,9 @@ begin
    scRx.dspErr           <= "00";
    scRx.decErr           <= "00";
    
-   U_TimingCore : entity work.TimingCore
+   U_TimingCore : entity lcls_timing_core.TimingCore
      generic map ( CLKSEL_MODE_G => "LCLSII",
-                   TPGMINI_G     => false,
+                   USE_TPGMINI_G => false,
                    AXIL_RINGB_G  => false )
      port map ( gtTxUsrClk      => scClk,
                 gtTxUsrRst      => scRst,
@@ -200,7 +298,7 @@ begin
                 axilWriteMaster => regWriteMaster(0),
                 axilWriteSlave  => regWriteSlave (0) );
 
-   U_CoreTrig : entity work.EvrV2CoreTriggers
+   U_CoreTrig : entity lcls_timing_core.EvrV2CoreTriggers
      generic map (
        NCHANNELS_G     => 8,
        NTRIGGERS_G     => 8,
@@ -259,7 +357,7 @@ begin
 
    timingMessageSlv <= toSlv(timingMessage);
    
-   V2FIFO : entity work.FifoAsync
+   V2FIFO : entity surf.FifoAsync
      generic map ( FWFT_EN_G     => true,
                    DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C,
                    ADDR_WIDTH_G  => 4 )
@@ -276,15 +374,13 @@ begin
    diagnClk <= regClk;
    diagnRst <= regRst;
    
-   diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
-
-   BLD : entity work.BldWrapper
+   BLD : entity amc_carrier_core.BldWrapper
      generic map ( NUM_EDEFS_G => 2 )
      port map (
        -- Diagnostic data interface
-       diagnosticClk   => diagnClk,
-       diagnosticRst   => diagnRst,
-       diagnosticBus   => diagnBus,
+       diagnosticClk   => diagnosticClk,
+       diagnosticRst   => diagnosticRst,
+       diagnosticBus   => diagnosticBus,
        -- AXI Lite interface
        axilClk         => regClk,
        axilRst         => regRst,
@@ -298,13 +394,13 @@ begin
        obEthMsgMaster  => ibEthMsgMaster,
        obEthMsgSlave   => ibEthMsgSlave );
 
-   BSSS : entity work.BsssWrapper
+   BSSS : entity amc_carrier_core.BsssWrapper
      generic map ( NUM_EDEFS_G => 2 )
      port map (
        -- Diagnostic data interface
-       diagnosticClk   => diagnClk,
-       diagnosticRst   => diagnRst,
-       diagnosticBus   => diagnBus,
+       diagnosticClk   => diagnosticClk,
+       diagnosticRst   => diagnosticRst,
+       diagnosticBus   => diagnosticBus,
        -- AXI Lite interface
        axilClk         => regClk,
        axilRst         => regRst,
@@ -318,7 +414,7 @@ begin
        obEthMsgMaster  => obEthMsgMaster,
        obEthMsgSlave   => obEthMsgSlave );
 
-   U_File : entity work.AxisToFile
+   U_File : entity work.AxiStreamFile
      generic map ( filename => "bsssaxis.dat" )
      port map ( axisClk    => diagnClk,
                 axisMaster => obEthMsgMaster,
@@ -326,26 +422,59 @@ begin
    --
    --  Application derives diagStrobe from trigStrobe, whenever result is ready
    --
-   U_Strobe : entity work.SynchronizerOneShot
+   U_Strobe : entity surf.SynchronizerOneShot
      port map ( clk     => diagnClk,
-                dataIn  => s_trigStrobe,
+                dataIn  => timingTrig.trigPulse(6),
                 dataOut => s_diagStrobe );
 
-   comb: process (r, s_diagStrobe, diagnBus, diagnRst) is
+   comb: process (r, s_diagStrobe, timingMessageSlvO, diagnRst) is
      variable v : RegType;
    begin
      v := r;
-     v.strobe := r.strobe(r.strobe'left-1 downto 0) & s_diagStrobe;
-     for i in 0 to 30 loop
-       diagnBus.data(i) <= toSlv(i,4) & diagnBus.timingMessage.timeStamp(27 downto 0);
-     end loop;
-     diagnBus.strobe <= r.strobe(r.strobe'left);
+     v.dbus.strobe := '0';
+     v.dbus.sevr := (others=>"11");
+
+     if s_diagStrobe = '1' then
+
+       v.phase_real  := event_phase(conv_integer(v.pindex(3 downto 0)));
+       v.phase_int   := integer(v.phase_real);
+       v.phase_whole := toSlv(v.phase_int, 17);
+       v.phase_f     := v.phase_real - real(v.phase_int);
+       v.phase_fi    := integer(v.phase_f * 2**15);
+       v.phase_frac  := toSlv(v.phase_fi, 15);
+       v.pindex      := r.pindex+1;
+
+       v.dbus.data(31) := resize(r.index,32);
+       v.dbus.data(30) := toTimingMessageType(timingMessageSlvO).pulseId(31 downto 0);
+
+       v.dbus.data(1)  := toSlv18_15(event_refph(conv_integer(v.index( 7 downto 4))));
+       v.dbus.data(2)  := toSlv18_15(event_phase(conv_integer(v.index( 3 downto  0))));
+       v.dbus.data(3)  := toSlv18   (event_ampl (conv_integer(v.index( 3 downto  0))));
+       v.index := v.index+1;
+       v.dbus.data(6)  := toSlv18_15(event_phase(conv_integer(v.index( 3 downto  0))));
+       v.dbus.data(7)  := toSlv18   (event_ampl (conv_integer(v.index( 3 downto  0))));
+       v.index := v.index+1;
+       v.dbus.data(10) := toSlv18_15(event_phase(conv_integer(v.index( 3 downto  0))));
+       v.dbus.data(11) := toSlv18   (event_ampl (conv_integer(v.index( 3 downto  0))));
+       v.index := v.index+1;
+       v.dbus.data(14) := toSlv18_15(event_phase(conv_integer(v.index( 3 downto  0))));
+       v.dbus.data(15) := toSlv18   (event_ampl (conv_integer(v.index( 3 downto  0))));
+       v.index := v.index+1;
+       v.dbus.sevr( 3 downto  1) := (others=>"00");
+       v.dbus.sevr( 7 downto  6) := (others=>"00");
+       v.dbus.sevr(11 downto 10) := (others=>"00");
+       v.dbus.sevr(15 downto 14) := (others=>"00");
+       v.dbus.sevr(31 downto 30) := (others=>"00");
+       v.dbus.strobe := '1';
+     end if;
 
      if diagnRst = '1' then
        v := REG_INIT_C;
      end if;
      
      r_in <= v;
+
+     diagnBus <= r.dbus;
    end process comb;
 
    seq: process (diagnClk) is
@@ -354,5 +483,69 @@ begin
        r <= r_in;
      end if;
    end process seq;
+
+   U_DiagnsAxi : entity work.AxiLiteWriteMasterSim
+     generic map ( CMDS => diagnWriteCmds )
+     port map ( clk    => regClk,
+                rst    => regRst,
+                master => diagnWriteMaster,
+                slave  => diagnWriteSlave ,
+                done   => open );
+   
+   U_AppDBus : entity work.AppDiagnBus
+     port map ( clk   => diagnClk,
+                rst   => diagnRst,
+                dbus  => diagnBus,
+                clkO  => diagnosticClk,
+                rstO  => diagnosticRst,
+                dbusO => diagnBusQ,
+                axilClk         => regClk,
+                axilRst         => regRst,
+                axilWriteMaster => diagnWriteMaster,
+                axilWriteSlave  => diagnWriteSlave,
+                axilReadMaster  => diagnReadMaster,
+                axilReadSlave   => diagnReadSlave );
+
+   U_DBusInsert : entity work.DiagnBusInsert
+     generic map ( FIFO_ADDR_WIDTH_G => 4 )
+     port map (
+      -- Timing interface
+      timingClk       => scClk,
+      timingRst       => scRst,
+      timingStrobe    => timingBus.strobe,
+      timingMessage   => timingBus.message,
+      trigger         => s_trigPulse,              -- prompt trigger indicating diagnosticBusI
+                                                   -- is expected for this timing frame
+      -- Diagnostic data interface
+      diagnosticClk   => diagnClk,
+      diagnosticRst   => diagnRst,
+      diagnosticBusI  => diagnBusQ,       -- delayed processing results;
+                                          -- timingMessage is ignored/overwritten
+      diagnosticBusO  => diagnosticBus ); -- full rate output
+   
+   process ( diagnosticClk ) is
+     variable index : slv(15 downto 0);
+   begin
+     if rising_edge(diagnosticClk) then
+       index := diagnosticBus.data(31)(15 downto 0);
+       time0 <= (real(conv_integer(diagnosticBus.data(2))) + real(conv_integer(diagnosticBus.data(6)))-2.0*real(conv_integer(diagnosticBus.data(1)))) * 0.5E+6 / (2852.0*65536.0);
+       time1 <= (real(conv_integer(diagnosticBus.data(10))) + real(conv_integer(diagnosticBus.data(14)))-2.0*real(conv_integer(diagnosticBus.data(1)))) * 0.5E+6 / (2852.0*65536.0);
+       dbus16 <= diagnosticBus.data(16);
+       dbus17 <= diagnosticBus.data(17);
+       dbus1  <= diagnosticBus.data(1);
+       dbus2  <= diagnosticBus.data(2);
+       dbus6  <= diagnosticBus.data(6);
+       dbus10 <= diagnosticBus.data(10);
+       dbus14 <= diagnosticBus.data(14);
+       tindex <= index;
+     end if;
+   end process;
+
+   dbus30       <= diagnosticBus.data(30)(15 downto 0);
+   dbus_pulseId <= diagnosticBus.timingMessage.pulseId(15 downto 0);
+   dsp_trig     <= s_trigPulse;
+   dbus_trig    <= timingTrig.trigPulse(6);
+   dbus_strobe  <= diagnosticBus.strobe;
+   tbus_pulseId <= timingBus.message.pulseId(15 downto 0);
    
 end top_level_app;

@@ -22,8 +22,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-use work.StdRtlPkg.all;
-use work.Jesd204bPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.Jesd204bPkg.all;
 
 entity LlrfSync is
   generic (
@@ -52,7 +54,7 @@ begin
    for i in 5 downto 0 generate
      SYNC_ADC_BAY : for j in 1 downto 0 generate
        -- Synchronize to Bay1 clk2x
-       U_Jesd32bTo16b: entity work.Jesd32bTo16b
+       U_Jesd32bTo16b: entity surf.Jesd32bTo16b
          generic map (
            TPD_G => TPD_G)
          port map (
@@ -67,7 +69,7 @@ begin
      end generate SYNC_ADC_BAY;
    end generate SYNC_ADC;
          
-   U_SYNC_DAC : entity work.Jesd16bTo32b
+   U_SYNC_DAC : entity surf.Jesd16bTo32b
       generic map (
          TPD_G => TPD_G)
       port map (

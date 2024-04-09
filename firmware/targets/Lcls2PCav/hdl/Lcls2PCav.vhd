@@ -2,7 +2,7 @@
 -- File       : Lcls2PCav.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2019-10-15
+-- Last update: 2023-08-15
 -------------------------------------------------------------------------------
 -- Description: Firmware Target's Top Level
 -- 
@@ -21,13 +21,19 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-use work.StdRtlPkg.all;
-use work.AxiStreamPkg.all;
-use work.SsiPkg.all;
-use work.AxiLitePkg.all;
-use work.TimingPkg.all;
-use work.AmcCarrierPkg.all;
-use work.AppTopPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiStreamPkg.all;
+use surf.SsiPkg.all;
+use surf.AxiLitePkg.all;
+
+library lcls_timing_core;
+use lcls_timing_core.TimingPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
+use amc_carrier_core.AppTopPkg.all;
 
 entity Lcls2PCav is
    generic (
@@ -200,7 +206,7 @@ architecture top_level of Lcls2PCav is
 
 begin
 
-   U_AppTop : entity work.AppTop
+   U_AppTop : entity amc_carrier_core.AppTop
       generic map (
          TPD_G                => TPD_G,
          MR_LCLS_APP_G        => true,  -- Configured by application         
@@ -216,9 +222,11 @@ begin
             0                 => DEV_CLK0_SEL_C,  -- AmcDwnConvt@Version2 = AB6/AB5
             1                 => DEV_CLK0_SEL_C),  -- AmcUpConvt@Version2 = M6/M5
          -- Signal Generator Generics
-         SIG_GEN_SIZE_G       => (others => 0),   -- Configured by application
-         SIG_GEN_ADDR_WIDTH_G => (others => 9),   -- Configured by application
-         SIG_GEN_LANE_MODE_G  => (others => "0000000"))  -- Configured by application
+         SIG_GEN_SIZE_G       => (0 => 0,
+                                  1 => 2),               -- I,Q for upconverter
+         SIG_GEN_ADDR_WIDTH_G => (others => 12),         -- 4096 elements
+         SIG_GEN_LANE_MODE_G  => (others => "1111111"),  -- 16 bits @
+         SIG_GEN_RAM_CLK_G    => (others => "0000000"))  -- jesdClk2x
       port map (
          ----------------------
          -- Top Level Interface
@@ -312,15 +320,16 @@ begin
          genClkP              => genClkP,
          genClkN              => genClkN);
 
-   U_Core : entity work.AmcCarrierCoreAdv
+   U_Core : entity amc_carrier_core.AmcCarrierCoreAdv
       generic map (
          TPD_G           => TPD_G,
          BUILD_INFO_G    => BUILD_INFO_G,
+--         DISABLE_BSA_G   => false,         -- true = doesn't build the BSA engine
          DISABLE_BSA_G   => false,         -- true = doesn't build the BSA engine
-         DISABLE_BLD_G   => true,         -- true = doesn't build the BLD engine
+         DISABLE_BLD_G   => false,         -- true = doesn't build the BLD engine
          DISABLE_MPS_G   => true,         -- true = doesn't build MPS engine
          RTM_ETH_G       => false,        -- false = 10GbE over backplane
-         CORE_TRIGGERS_G => 8,
+         CORE_TRIGGERS_G => 6,
          AXIL_RINGB_G    => false,        -- false = no AxiLiteRingBuffer from TimingCore
          CLKSEL_MODE_G   => "LCLSII",
          APP_TYPE_G      => APP_NULL_TYPE_C)  -- Configured by application (refer to AmcCarrierPkg for list of all application types

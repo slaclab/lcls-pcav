@@ -67,25 +67,80 @@ PcavReg: &PcavReg
       mode: RW
       description: RF Reference Selection (unsigned fixed 4.0)
     ###########################################################
-    refWindowStart:
+    # debug stream selector, waveform data selector
+    ############################################################
+    wfData0Sel:
       at:
         offset: 0x14
       class: IntField
-      name: refWindowStart
-      sizeBits: 16
+      name: wfData0Sel
+      sizeBits: 1
       lsBit: 0
       mode: RW
-      description: Integration Window Start for Reference (unsigned fixed 16.0)
-    ###########################################################
-    refWindowStop:
+      description: waveform data 0 selector
+    wfData1Sel:
       at:
         offset: 0x18
       class: IntField
-      name: refWindowStop
-      sizeBits: 16
+      name: wfData1Sel
+      sizeBits: 3
       lsBit: 0
       mode: RW
-      description: Integration Window Stop for Reference (unsigned fixed 16.0)
+      description: waveform data 1 selector
+    wfData2Sel:
+      at:
+        offset: 0x1c
+      class: IntField
+      name: wfData2Sel
+      sizeBits: 3
+      lsBit: 0
+      mode: RW
+      description: waveform data 2 selector
+    wfData3Sel:
+      at:
+        offset: 0x20
+      class: IntField
+      name: wfData3Sel
+      sizeBits: 2
+      lsBit: 0
+      mode: RW
+      description: waveform data 3 selector
+    wfData4Sel:
+      at:
+        offset: 0x24
+      class: IntField
+      name: wfData4Sel
+      sizeBits: 2
+      lsBit: 0
+      mode: RW
+      description: waveform data 4 selector
+    wfData5Sel:
+      at:
+        offset: 0x28
+      class: IntField
+      name: wfData5Sel
+      sizeBits: 1
+      lsBit: 0
+      mode: RW
+      description: waveform data 5 selector
+    wfData6Sel:
+      at:
+        offset: 0x2c
+      class: IntField
+      name: wfData6Sel
+      sizeBits: 1
+      lsBit: 0
+      mode: RW
+      description: waveform data 6 selector
+    wfData7Sel:
+      at:
+        offset: 0x30
+      class: IntField
+      name: wfData7Sel
+      sizeBits: 3
+      lsBit: 0
+      mode: RW
+      description: waveform data 7 selector
     ###########################################################
     # Cavity 1
     ###########################################################
@@ -146,20 +201,20 @@ PcavReg: &PcavReg
         offset: 0xe0
       class: IntField
       name: cav1P1DCReal
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Real part for Cavity 1, Probe 1 (fixed 21.19)
+      description: DC Real part for Cavity 1, Probe 1 (fixed 18.16)
     ###########################################################
     cav1P1DCImage:
       at:
         offset: 0xe4
       class: IntField
       name: cav1P1DCImage
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Imaginary part for Cavity 1, Probe 1 (fixed 21.19)
+      description: DC Imaginary part for Cavity 1, Probe 1 (fixed 18.16)
     ###########################################################
     cav1P1WindowStart:
       at:
@@ -186,10 +241,10 @@ PcavReg: &PcavReg
         offset: 0xf0
       class: IntField
       name: cav1P1DCFreq
-      sizeBits: 26
+      sizeBits: 32
       lsBit: 0
       mode: RO
-      description: DC Frequency for Cavity 1, Probe 1 (fixed 26.0), residual after 4.7MHz DDC
+      description: DC Frequency for Cavity 1, Probe 1 (fixed 32.18), residual after 4.7MHz DDC
     ###########################################################
     cav1P1IntegI:
       at:
@@ -199,7 +254,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated I for Cavity 1, Probe 1 (fixed 18.17)
+      description: Integrated I for Cavity 1, Probe 1 (fixed 18.16)
     ###########################################################
     cav1P1IntegQ:
       at:
@@ -209,7 +264,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated Q for Cavity 1, Probe 1 (fixed 18.17)
+      description: Integrated Q for Cavity 1, Probe 1 (fixed 18.16)
     ###########################################################
     cav1P1OutPhase:
       at:
@@ -219,7 +274,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Phase for Cavity 1, Probe 1 (fixed 18.17)
+      description: Output Phase for Cavity 1, Probe 1 (fixed 18.15)
     ###########################################################
     cav1P1OutAmpl:
       at:
@@ -229,27 +284,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Amplitude for Cavity 1, Probe 1 (fixed 18.17)
-    ###########################################################
-    cav1P1CompI:
-      at:
-        offset: 0x104
-      class: IntField
-      name: cav1P1CompI
-      sizeBits: 18
-      lsBit: 0
-      mode: RO
-      description: Comparison I for Cavity 1, Probe 1 (fixed 18.17)
-    ###########################################################
-    cav1P1CompQ:
-      at:
-        offset: 0x108
-      class: IntField
-      name: cav1P1CompQ
-      sizeBits: 18
-      lsBit: 0
-      mode: RO
-      description: Comparison Q for Cavity 1, Probe 1 (fixed 18.17)
+      description: Output Amplitude for Cavity 1, Probe 1 (fixed 18.16)
     ###########################################################
     cav1P1CompPhase:
       at:
@@ -259,27 +294,17 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Comparison Phase for Cavity 1, Probe 1 (fixed 18.17)
-    ###########################################################
-    cav1P1IfWf:
-      at:
-        offset: 0x110
-      class: IntField
-      name: cav1P1IfWf
-      sizeBits: 32
-      lsBit: 0
-      mode: RO
-      description: IF waveform (TBD, Space holder)
+      description: Comparison Phase for Cavity 1, Probe 1 (fixed 18.15)
     ###########################################################
     cav1P1CalibCoeff:
       at:
         offset: 0x114
       class: IntField
       name: cav1P1CalibCoeff
-      sizeBits: 32
+      sizeBits: 18
       lsBit: 0
       mode: RW
-      description: Calibration Coefficient (TBD)
+      description: Calibration Coefficent (phase offset) (fixed 18.17)
     ###########################################################
     # NCO
     ###########################################################
@@ -288,10 +313,10 @@ PcavReg: &PcavReg
         offset: 0x118
       class: IntField
       name: cav1NCOPhaseAdj
-      sizeBits: 29
+      sizeBits: 26
       lsBit: 0
       mode: RW
-      description: NCO Phase Adjust for Cavity 1 (unsigned fixed 29.29)
+      description: NCO Phase Adjust for Cavity 1 (Ufixed 26.26)
     ###########################################################
     # Probe 2
     ###########################################################
@@ -350,20 +375,20 @@ PcavReg: &PcavReg
         offset: 0x1ac
       class: IntField
       name: cav1P2DCReal
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Real part for Cavity 1, Probe 2 (fixed 21.19)
+      description: DC Real part for Cavity 1, Probe 2 (fixed 18.16)
     ###########################################################
     cav1P2DCImage:
       at:
         offset: 0x1b0
       class: IntField
       name: cav1P2DCImage
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Imaginary part for Cavity 1, Probe 2 (fixed 21.19)
+      description: DC Imaginary part for Cavity 1, Probe 2 (fixed 18.16)
     ###########################################################
     cav1P2WindowStart:
       at:
@@ -390,10 +415,10 @@ PcavReg: &PcavReg
         offset: 0x1bc
       class: IntField
       name: cav1P2DCFreq
-      sizeBits: 26
+      sizeBits: 32
       lsBit: 0
       mode: RO
-      description: DC Frequency for Cavity 1, Probe 2 (fixed 26.0), residual after 4.7MHz DDC
+      description: DC Frequency for Cavity 1, Probe 2 (fixed 32.18), residual after 4.7MHz DDC
     ###########################################################
     cav1P2IntegI:
       at:
@@ -403,7 +428,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated I for Cavity 1, Probe 2 (fixed 18.17)
+      description: Integrated I for Cavity 1, Probe 2 (fixed 18.16)
     ###########################################################
     cav1P2IntegQ:
       at:
@@ -413,7 +438,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated Q for Cavity 1, Probe 2 (fixed 18.17)
+      description: Integrated Q for Cavity 1, Probe 2 (fixed 18.16)
     ###########################################################
     cav1P2OutPhase:
       at:
@@ -423,7 +448,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Phase for Cavity 1, Probe 2 (fixed 18.17)
+      description: Output Phase for Cavity 1, Probe 2 (fixed 18.15)
     ###########################################################
     cav1P2OutAmpl:
       at:
@@ -433,27 +458,27 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Amplitude for Cavity 1, Probe 2 (fixed 18.17)
+      description: Output Amplitude for Cavity 1, Probe 2 (fixed 18.16)
     ###########################################################
-    cav1P2CompI:
+    cav1FreqEvalStart:
       at:
         offset: 0x1d0
       class: IntField
-      name: cav1P2CompI
-      sizeBits: 18
+      name: cav1FreqEvalStart
+      sizeBits: 16
       lsBit: 0
-      mode: RO
-      description: Comparison I for Cavity 1, Probe 2 (fixed 18.17)
+      mode: RW
+      description: Frequency Evaluation Start for Cavity 1 (Ufixed 16.0)
     ###########################################################
-    cav1P2CompQ:
+    cav1FreqEvalStop:
       at:
         offset: 0x1d4
       class: IntField
-      name: cav1P2CompQ
-      sizeBits: 18
+      name: cav1P2FreqEvalStop
+      sizeBits: 16
       lsBit: 0
-      mode: RO
-      description: Comparison Q for Cavity 1, Probe 2 (fixed 18.17)
+      mode: RW
+      description: Frequency Evaluation Stop for Cavity 1 (Ufixed 16.0)
     ###########################################################
     cav1P2CompPhase:
       at:
@@ -463,27 +488,27 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Comparison Phase for Cavity 1, Probe 2 (fixed 18.17)
+      description: Comparison Phase for Cavity 1, Probe 2 (fixed 18.15)
     ###########################################################
-    cav1P2IfWf:
+    cav1RegLatchPt:
       at:
         offset: 0x1dc
       class: IntField
-      name: cav1P2IfWf
-      sizeBits: 32
+      name: cav1RegLatchPt
+      sizeBits: 16
       lsBit: 0
-      mode: RO
-      description: IF waveform (TBD, Space holder)
+      mode: RW
+      description: Register Latch Point for Cavity1 (Ufixed 16.0)
     ###########################################################
     cav1P2CalibCoeff:
       at:
         offset: 0x1e0
       class: IntField
       name: cav1P2CalibCoeff
-      sizeBits: 32
+      sizeBits: 18
       lsBit: 0
       mode: RW
-      description: Calibration Coefficient (TBD)
+      description: Calibration Coefficient (phase offset) (fixed 18.17)
     ###########################################################
     # Cavity 2
     ###########################################################
@@ -544,20 +569,20 @@ PcavReg: &PcavReg
         offset: 0x278
       class: IntField
       name: cav2P1DCReal
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Real part for Cavity 2, Probe 1 (fixed 21.19)
+      description: DC Real part for Cavity 2, Probe 1 (fixed 18.16)
     ###########################################################
     cav2P1DCImage:
       at:
         offset: 0x27c
       class: IntField
       name: cav2P1DCImage
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Imaginary part for Cavity 2, Probe 1 (fixed 21.19)
+      description: DC Imaginary part for Cavity 2, Probe 1 (fixed 18.16)
     ###########################################################
     cav2P1WindowStart:
       at:
@@ -584,10 +609,10 @@ PcavReg: &PcavReg
         offset: 0x288
       class: IntField
       name: cav2P1DCFreq
-      sizeBits: 26
+      sizeBits: 32
       lsBit: 0
       mode: RO
-      description: DC Frequency for Cavity 2, Probe 1 (fixed 26.0), residual after 4.7MHz DDC
+      description: DC Frequency for Cavity 2, Probe 1 (fixed 32.18), residual after 4.7MHz DDC
     ###########################################################
     cav2P1IntegI:
       at:
@@ -597,7 +622,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated I for Cavity 2, Probe 1 (fixed 18.17)
+      description: Integrated I for Cavity 2, Probe 1 (fixed 18.16)
     ###########################################################
     cav2P1IntegQ:
       at:
@@ -607,7 +632,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated Q for Cavity 2, Probe 1 (fixed 18.17)
+      description: Integrated Q for Cavity 2, Probe 1 (fixed 18.16)
     ###########################################################
     cav2P1OutPhase:
       at:
@@ -617,7 +642,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Phase for Cavity 2, Probe 1 (fixed 18.17)
+      description: Output Phase for Cavity 2, Probe 1 (fixed 18.15)
     ###########################################################
     cav2P1OutAmpl:
       at:
@@ -627,27 +652,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Amplitude for Cavity 2, Probe 1 (fixed 18.17)
-    ###########################################################
-    cav2P1CompI:
-      at:
-        offset: 0x29c
-      class: IntField
-      name: cav2P1CompI
-      sizeBits: 18
-      lsBit: 0
-      mode: RO
-      description: Comparison I for Cavity 2, Probe 1 (fixed 18.17)
-    ###########################################################
-    cav2P1CompQ:
-      at:
-        offset: 0x2a0
-      class: IntField
-      name: cav2P1CompQ
-      sizeBits: 18
-      lsBit: 0
-      mode: RO
-      description: Comparison Q for Cavity 2, Probe 1 (fixed 18.17)
+      description: Output Amplitude for Cavity 2, Probe 1 (fixed 18.16)
     ###########################################################
     cav2P1CompPhase:
       at:
@@ -657,27 +662,17 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Comparison Phase for Cavity 2, Probe 1 (fixed 18.17)
-    ###########################################################
-    cav2P1IfWf:
-      at:
-        offset: 0x2a8
-      class: IntField
-      name: cav2P1IfWf
-      sizeBits: 32
-      lsBit: 0
-      mode: RO
-      description: IF waveform (TBD, Space holder)
+      description: Comparison Phase for Cavity 2, Probe 1 (fixed 18.15)
     ###########################################################
     cav2P1CalibCoeff:
       at:
         offset: 0x2ac
       class: IntField
       name: cav1P1CalibCoeff
-      sizeBits: 32
+      sizeBits: 18
       lsBit: 0
       mode: RW
-      description: Calibration Coefficient (TBD)
+      description: Calibration Coefficient (phase offset) (fixed 18.17)
     ###########################################################
     # NCO
     ###########################################################
@@ -686,10 +681,10 @@ PcavReg: &PcavReg
         offset: 0x2b0
       class: IntField
       name: cav2NCOPhaseAdj
-      sizeBits: 29
+      sizeBits: 26
       lsBit: 0
       mode: RW
-      description: NCO Phase Adjust for Cavity 2 (unsigned fixed 29.29)
+      description: NCO Phase Adjust for Cavity 2 (Ufix 26.26)
     ###########################################################
     # Probe 2
     ###########################################################
@@ -748,20 +743,20 @@ PcavReg: &PcavReg
         offset: 0x344
       class: IntField
       name: cav2P2DCReal
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Real part for Cavity 2, Probe 2 (fixed 21.19)
+      description: DC Real part for Cavity 2, Probe 2 (fixed 18.16)
     ###########################################################
     cav2P2DCImage:
       at:
         offset: 0x348
       class: IntField
       name: cav2P2DCImage
-      sizeBits: 21
+      sizeBits: 18
       lsBit: 0
       mode: RO
-      description: DC Imaginary part for Cavity 2, Probe 2 (fixed 21.19)
+      description: DC Imaginary part for Cavity 2, Probe 2 (fixed 18.16)
     ###########################################################
     cav2P2WindowStart:
       at:
@@ -788,10 +783,10 @@ PcavReg: &PcavReg
         offset: 0x354
       class: IntField
       name: cav2P2DCFreq
-      sizeBits: 26
+      sizeBits: 32
       lsBit: 0
       mode: RO
-      description: DC Frequency for Cavity 2, Probe 2 (fixed 26.0), residual after 4.7MHz DDC
+      description: DC Frequency for Cavity 2, Probe 2 (fixed 32.18), residual after 4.7MHz DDC
     ###########################################################
     cav2P2IntegI:
       at:
@@ -801,7 +796,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated I for Cavity 2, Probe 2 (fixed 18.17)
+      description: Integrated I for Cavity 2, Probe 2 (fixed 18.16)
     ###########################################################
     cav2P2IntegQ:
       at:
@@ -811,7 +806,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Integrated Q for Cavity 2, Probe 2 (fixed 18.17)
+      description: Integrated Q for Cavity 2, Probe 2 (fixed 18.16)
     ###########################################################
     cav2P2OutPhase:
       at:
@@ -821,7 +816,7 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Phase for Cavity 2, Probe 2 (fixed 18.17)
+      description: Output Phase for Cavity 2, Probe 2 (fixed 18.15)
     ###########################################################
     cav2P2OutAmpl:
       at:
@@ -831,27 +826,27 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Output Amplitude for Cavity 2, Probe 2 (fixed 18.17)
+      description: Output Amplitude for Cavity 2, Probe 2 (fixed 18.16)
     ###########################################################
-    cav2P2CompI:
+    cav2FreqEvalStart:
       at:
         offset: 0x368
       class: IntField
-      name: cav2P2CompI
-      sizeBits: 18
+      name: cav2FreqEvalStart
+      sizeBits: 16
       lsBit: 0
-      mode: RO
-      description: Comparison I for Cavity 2, Probe 2 (fixed 18.17)
+      mode: RW
+      description: Frequency Evaluation Start for Cavity 2 (fixed 16.0)
     ###########################################################
-    cav2P2CompQ:
+    cav2FreqEvalStop:
       at:
         offset: 0x36c
       class: IntField
-      name: cav2P2CompQ
-      sizeBits: 18
+      name: cav2FreqEvalStop
+      sizeBits: 16
       lsBit: 0
-      mode: RO
-      description: Comparison Q for Cavity 2, Probe 2 (fixed 18.17)
+      mode: RW
+      description: Frequency Evaluation Stop for Cavity 2 (fixed 16.0)
     ###########################################################
     cav2P2CompPhase:
       at:
@@ -861,27 +856,27 @@ PcavReg: &PcavReg
       sizeBits: 18
       lsBit: 0
       mode: RO
-      description: Comparison Phase for Cavity 2, Probe 2 (fixed 18.17)
+      description: Comparison Phase for Cavity 2, Probe 2 (fixed 18.15)
     ###########################################################
-    cav2P2IfWf:
+    cav2RegLatchPt:
       at:
         offset: 0x374
       class: IntField
-      name: cav2P2IfWf
-      sizeBits: 32
+      name: cav2RegLatchPt
+      sizeBits: 16
       lsBit: 0
-      mode: RO
-      description: IF waveform (TBD, Space holder)
+      mode: RW
+      description: Register Latch Point for Cavity 2 (Ufixed 16.0)
     ###########################################################
     cav2P2CalibCoeff:
       at:
         offset: 0x378
       class: IntField
       name: cav2P2CalibCoeff
-      sizeBits: 32
+      sizeBits: 18
       lsBit: 0
       mode: RW
-      description: Calibration Coefficient (TBD)
+      description: Calibration Coefficient (phase offset) for Cavity2, Probe2 (fixed 18.17)
     ###########################################################
     version:
       at:

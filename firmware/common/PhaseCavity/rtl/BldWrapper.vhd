@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-09-25
--- Last update: 2019-10-19
+-- Last update: 2023-05-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -24,10 +24,14 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-use work.StdRtlPkg.all;
-use work.AxiLitePkg.all;
-use work.AxiStreamPkg.all;
-use work.AmcCarrierPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiLitePkg.all;
+use surf.AxiStreamPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
 
 entity BldWrapper is
 
@@ -56,7 +60,7 @@ architecture rtl of BldWrapper is
 
 begin
 
-  U_Bsss : entity work.BsssAxiStream
+  U_Bsss : entity xil_default_lib.BsssAxiStream
     generic map ( DEBUG_G      => true,
                   SVC_START_G  => 24,
                   NUM_EDEFS_G  => NUM_EDEFS_G,

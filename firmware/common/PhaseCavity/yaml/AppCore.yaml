@@ -11,12 +11,13 @@
 #once AppCore.yaml
 #include AmcMrLlrfDownConvert.yaml
 #include AmcMrLlrfUpConvert.yaml
+#include AppDiagnBus.yaml
 #include AppLlrfCore.yaml
+#include BsssAxiStream.yaml
 #include GenericMemory.yaml
 #include ClockManager.yaml
 #include RtmDigitalDebug.yaml
 #include Si5317a.yaml
-#include BsssAxiStream.yaml
 
 AppCore: &AppCore 
   name: AppCore
@@ -93,8 +94,8 @@ AppCore: &AppCore
        at:
         offset: 0x07000000      
     ##################################################
-    BLD:
-       <<: *BsssAxiStream
+    AppDiagnBus:
+       <<: *AppDiagnBus
        at:
         offset: 0x08000000      
     ##################################################

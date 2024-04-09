@@ -13,7 +13,20 @@
 #include AmcCarrierDRAM.yaml
 #include AppTop.yaml
 
-#MMIO range, will be attached to FPGA
+
+# It is important to use the same parameters
+# for shared protocol modules (e.g., all RSSI
+# on the same port is in fact one single, shared
+# module)
+#
+connectionParameters:
+  udpPri:     &udpPri      80
+  udpThreads: &udpThreads   1
+  rssi: &rssiParams
+    retransmissionTimeoutUS: 100000
+    cumulativeAckTimeoutUS:   50000
+    threadPriority:             82
+
 mmio: &mmio
   size: 0x100000000 # 4GB of address space
   class: MMIODev
@@ -22,8 +35,8 @@ mmio: &mmio
   children:
   ########
     AmcCarrierCore:
-        <<: *AmcCarrierCore
-        at:
+      <<: *AmcCarrierCore
+      at:
         offset: 0x00000000  
     ##################################################     
     AppTop:
@@ -34,19 +47,32 @@ mmio: &mmio
         AppTopJesd:
           children:
             JesdRx:
-              instantiate: true              
+              instantiate: true    
               metadata:
                 numRxLanes: &numRxLanes 6
             JesdTx:
-              instantiate: false              
+              instantiate: false
               metadata: 
-                numTxLanes: &numTxLanes 0              
+                numTxLanes: &numTxLanes 0
+        DacSigGen:
+          <<: *DacSigGen
+          at:
+            offset: 0x70000000
+            nelms: 1
+          instantiate: true
+          children:
+            Waveform:
+              children:
+                MemoryArray:
+                  at:
+                    nelms: 0x1000
         AppCore:
           children:
-            BLD:
-              instantiate: true
-              metadata:
-                numEdefs: &numEdefs 2
+#  This BLD module only found in NC PhaseCavity
+#            BLD:
+#              instantiate: true
+#              metadata:
+#                numEdefs: &numEdefs 2
             BSSS:
               instantiate: true
               metadata:
@@ -61,7 +87,48 @@ strm: &strm
           <<: *AmcCarrierDRAM
           at:
             offset: 0x00000000      
-  
+
+tstream: &tstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    port: 8197
+    pollSecs: 1
+
+bstream: &bstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    port: 8195
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    pollSecs: 1
+
+stream: &stream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    port: 8194
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+  RSSI: *rssiParams
+  depack:
+    useDepack: yes
+  TDESTMux:
+    stripHeader: yes
+    TDEST: 0x80
+
+bldstream: &bldstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    port: 8198
+    pollSecs: 1
+
 NetIODev:
   ipAddr: 10.0.1.105
   class: NetIODev
@@ -71,9 +138,14 @@ NetIODev:
        <<: *mmio
        at:
          SRP:
-           protocolVersion: SRP_UDP_V2
+           protocolVersion: SRP_UDP_V3
          UDP:
-           port: 8192
+           port: 8193
+         RSSI: yes
+         depack:
+           useDepack: yes
+         TDESTMux:
+           TDEST: 0
      strm:
        <<: *strm
        at:
@@ -81,8 +153,70 @@ NetIODev:
            protocolVersion: SRP_UDP_V3
          UDP:
            port: 8194
-         RSSI: yes
+           numRxThreads: *udpThreads
+           threadPriority: *udpPri
+         RSSI: *rssiParams
          depack:
            useDepack: yes
          TDESTMux:
            TDEST: 4
+     bldstream:
+       class: Field
+       at:
+         <<: *bldstream
+     tstream:
+       class: Field
+       at:
+         <<: *tstream
+     bstream:
+       class: Field
+       at:
+         <<: *bstream
+     Stream0:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x80
+     Stream1:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x81
+     Stream2:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x82
+     Stream3:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x83
+     Stream4:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x84
+     Stream5:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x85
+     Stream6:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x86
+     Stream7:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x87

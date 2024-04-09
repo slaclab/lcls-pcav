@@ -5,7 +5,7 @@
 -- Author     : Matt Weaver <weaver@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2015-09-25
--- Last update: 2020-07-18
+-- Last update: 2023-08-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -24,15 +24,23 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-use work.StdRtlPkg.all;
-use work.AxiLitePkg.all;
-use work.AxiStreamPkg.all;
-use work.EthMacPkg.all;
-use work.SsiPkg.all;
-use work.TimingPkg.all;
-use work.BsssPkg.all;
-use work.EvrV2Pkg.all;
-use work.AmcCarrierPkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiLitePkg.all;
+use surf.AxiStreamPkg.all;
+use surf.EthMacPkg.all;
+use surf.SsiPkg.all;
+
+library lcls_timing_core;
+use lcls_timing_core.TimingPkg.all;
+use lcls_timing_core.EvrV2Pkg.all;
+
+library xil_defaultlib;
+use xil_defaultlib.BsssPkg.all;
+
+library amc_carrier_core;
+use amc_carrier_core.AmcCarrierPkg.all;
 
 entity BsssAxiStream is
 
@@ -55,6 +63,8 @@ entity BsssAxiStream is
       axilWriteMaster : in  AxiLiteWriteMasterType;
       axilWriteSlave  : out AxiLiteWriteSlaveType;
       -- Timing ETH MSG Interface (axilClk domain)
+      ethClk          : in  sl;
+      ethRst          : in  sl;
       ibEthMsgMaster  : in  AxiStreamMasterType;
       ibEthMsgSlave   : out AxiStreamSlaveType ;
       obEthMsgMaster  : out AxiStreamMasterType;
@@ -286,8 +296,8 @@ begin
                   probe0(255 downto 120) => (others=>'0') );
    end generate;
 
-   U_DIAGNCLKFREQ : entity work.SyncClockFreq
-     generic map ( REF_CLK_FREQ_G    => 156.25E+6,
+   U_DIAGNCLKFREQ : entity surf.SyncClockFreq
+     generic map ( REF_CLK_FREQ_G    => 78.125E+6,
                    CLK_LOWER_LIMIT_G => 180.0E+6,
                    CLK_UPPER_LIMIT_G => 220.0E+6 )
      port map ( freqOut    => diagnClkFreq,
@@ -295,18 +305,18 @@ begin
                 locClk     => axilClk,
                 refClk     => axilClk );
                    
-   U_DIAGNSTRRATE : entity work.SyncTrigRate
+   U_DIAGNSTRRATE : entity surf.SyncTrigRate
      generic map ( COMMON_CLK_G      => false,
-                   REF_CLK_FREQ_G    => 156.25E+6 )
+                   REF_CLK_FREQ_G    => 78.125E+6 )
      port map ( trigIn     => diagnosticBus.strobe,
                 trigRateOut=> diagnStrobeRate,
                 locClk     => diagnosticClk,
                 refClk     => axilClk );
 
    eventSel0Q <= eventSel(0) and eventStrobe;
-   U_EVENTSELRATE : entity work.SyncTrigRate
+   U_EVENTSELRATE : entity surf.SyncTrigRate
      generic map ( COMMON_CLK_G      => false,
-                   REF_CLK_FREQ_G    => 156.25E+6 )
+                   REF_CLK_FREQ_G    => 78.125E+6 )
      port map ( trigIn     => eventSel0Q,
                 trigRateOut=> eventSel0Rate,
                 locClk     => diagnosticClk,
@@ -318,7 +328,7 @@ begin
    sAxisMasters(0) <= ibEthMsgMaster;
    ibEthMsgSlave   <= sAxisSlaves(0);
 
-   U_FIFO : entity work.AxiStreamFifoV2
+   U_FIFO : entity surf.AxiStreamFifoV2
      generic map ( FIFO_ADDR_WIDTH_G   => 11,
                    FIFO_PAUSE_THRESH_G => 1900,
                    VALID_THOLD_G       => 0,   -- only when a full frame is ready
@@ -329,8 +339,8 @@ begin
                 sAxisMaster  => r.master,
                 sAxisSlave   => intSlave,
                 sAxisCtrl    => intAxisCtrl,
-                mAxisClk     => axilClk,
-                mAxisRst     => axilRst,
+                mAxisClk     => ethClk,
+                mAxisRst     => ethRst,
                 mAxisMaster  => sAxisMasters(1),
                 mAxisSlave   => sAxisSlaves (1) );
    
@@ -390,7 +400,7 @@ begin
    cv    <= toSlv      (c.config);
    csync <= toBldConfig(csyncv);
    
-   U_CSYNC : entity work.SynchronizerVector
+   U_CSYNC : entity surf.SynchronizerVector
      generic map ( WIDTH_G => BLD_CONFIG_BITS_C )
      port map ( clk     => diagnosticClk,
                 dataIn  => cv,
@@ -399,13 +409,13 @@ begin
    sv    <= toSlv      (r.status);
    ssync <= toBldStatus(ssyncv);
    
-   U_SSYNC : entity work.SynchronizerVector
+   U_SSYNC : entity surf.SynchronizerVector
      generic map ( WIDTH_G => BLD_STATUS_BITS_C )
      port map ( clk     => axilClk,
                 dataIn  => sv,
                 dataOut => ssyncv );
 
-   U_EVENTSEL : entity work.BsssEventSelect
+   U_EVENTSEL : entity xil_defaultlib.BsssEventSelect
      generic map ( NUM_EDEFS_G => NUM_EDEFS_G )
      port map ( clk       => diagnosticClk,
                 rst       => diagnosticRst,
@@ -601,10 +611,10 @@ begin
      end if;
    end process;
 
-   U_Mux : entity work.AxiStreamMux
+   U_Mux : entity surf.AxiStreamMux
      generic map ( NUM_SLAVES_G => 2 )
-     port map ( axisClk      => axilClk,
-                axisRst      => axilRst,
+     port map ( axisClk      => ethClk,
+                axisRst      => ethRst,
                 sAxisMasters => sAxisMasters,
                 sAxisSlaves  => sAxisSlaves,
                 mAxisMaster  => obEthMsgMaster,

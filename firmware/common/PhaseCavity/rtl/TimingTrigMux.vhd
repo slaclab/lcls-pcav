@@ -34,8 +34,10 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
-use work.StdRtlPkg.all;
-use work.AxiLitePkg.all;
+
+library surf;
+use surf.StdRtlPkg.all;
+use surf.AxiLitePkg.all;
 
 entity TimingTrigMux is
    generic (
@@ -91,7 +93,7 @@ begin
   
    -- Synchronize and detect rising edge on trigger
    GEN_TRIG : for i in 1 downto 0 generate
-      U_Sync : entity work.SynchronizerEdge
+      U_Sync : entity surf.SynchronizerEdge
       generic map (
          TPD_G     => TPD_G
       )
