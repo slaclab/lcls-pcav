@@ -2,7 +2,7 @@
 -- File       : AppDiagnBus.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2023-07-27
--- Last update: 2023-07-29
+-- Last update: 2024-04-16
 -------------------------------------------------------------------------------
 -- Description: Application Diagnostic Bus calculations
 --
@@ -194,6 +194,10 @@ begin
        when IDLE_C =>
          if dbus.strobe = '1' then
            v.dbus   := dbus;
+           --  sign extend the 18-bit outputs
+           for i in 0 to 15
+             v.dbus.data(i) := resize(dbus.data(i)(DEP_C-1 downto 0),32,dbus.data(i)(DEP_C-1));
+           end loop;
            v.dbus.strobe  := '0';
            v.phref  := signed(dbus.data(1)(DEP_C-1 downto 0)) * signed(WGT_SUM_C);
            v.ph00   := signed(csync.ph00_offset) + signed(dbus.data( 2)(DEP_C-1 downto 0));
