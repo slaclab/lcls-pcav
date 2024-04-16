@@ -808,7 +808,7 @@ begin
     gateway_out27_x3 => open,
     gateway_out28 => open,
     gateway_out29 => open,
-    gateway_out_x1 => open,,
+    gateway_out_x1 => open,
     gateway_out1_x10 => open,
     gateway_out2_x9 => open,
     gateway_out3_x5 => open,

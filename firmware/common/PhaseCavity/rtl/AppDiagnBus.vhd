@@ -195,7 +195,7 @@ begin
          if dbus.strobe = '1' then
            v.dbus   := dbus;
            --  sign extend the 18-bit outputs
-           for i in 0 to 15
+           for i in 0 to 15 loop
              v.dbus.data(i) := resize(dbus.data(i)(DEP_C-1 downto 0),32,dbus.data(i)(DEP_C-1));
            end loop;
            v.dbus.strobe  := '0';
