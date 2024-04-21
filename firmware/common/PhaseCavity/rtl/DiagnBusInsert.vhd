@@ -38,7 +38,7 @@ use lcls_timing_core.TimingPkg.all;
 library amc_carrier_core;
 use amc_carrier_core.AmcCarrierPkg.all;
 
-entity AppDiagnBus is
+entity DiagnBusInsert is
    generic (
       TPD_G             : time := 1 ns;
       FIFO_ADDR_WIDTH_G : integer := 8 );
@@ -57,9 +57,9 @@ entity AppDiagnBus is
                                                  -- timingMessage is ignored/overwritten
       diagnosticBusO  : out DiagnosticBusType ); -- full rate output
 
-end entity AppDiagnBus;
+end entity DiagnBusInsert;
 
-architecture rtl of AppDiagnBus is
+architecture rtl of DiagnBusInsert is
 
    type TRegType is record
      ready   : sl;
