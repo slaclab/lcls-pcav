@@ -7,10 +7,12 @@
 --
 --  Place the timing messages in a FIFO with a trigger marker (or absence).
 --  Initially, sink any messages until the first trigger.
---  When the first timingStrobe occurs where an input diagnBus strobe has been latched,
---  pull a timing message from the FIFO and merge with the latched diagnBus input.
---  On every timingStrobe thereafter, push a message on the FIFO and pull a message from the FIFO.
---  Merge the pulled message with the input diagnBus if a trigger marker is present.
+--  Fill the FIFO, and pull entries at the diagnostic bus rate,
+--  replacing the diagnostic bus contents with the subrate bus when an
+--  expected trigger was indicated.
+--
+--  The FIFO must be sized to cover the maximum time for the subrate bus to
+--  assert.
 --
 -------------------------------------------------------------------------------
 -- This file is part of 'LCLS2 Timing Core'.
@@ -36,7 +38,7 @@ use lcls_timing_core.TimingPkg.all;
 library amc_carrier_core;
 use amc_carrier_core.AmcCarrierPkg.all;
 
-entity DiagnBusInsert is
+entity AppDiagnBus is
    generic (
       TPD_G             : time := 1 ns;
       FIFO_ADDR_WIDTH_G : integer := 8 );
@@ -55,9 +57,9 @@ entity DiagnBusInsert is
                                                  -- timingMessage is ignored/overwritten
       diagnosticBusO  : out DiagnosticBusType ); -- full rate output
 
-end entity DiagnBusInsert;
+end entity AppDiagnBus;
 
-architecture rtl of DiagnBusInsert is
+architecture rtl of AppDiagnBus is
 
    type TRegType is record
      ready   : sl;
@@ -74,7 +76,7 @@ architecture rtl of DiagnBusInsert is
    signal tin  : TRegType;
    
    signal wren : sl;
-   signal valid, strobeD, diagnTrigger : sl;
+   signal valid, empty, strobeD, diagnTrigger : sl;
    signal diagnMessage : TimingMessageType;
    
    type RegType is record
@@ -103,7 +105,8 @@ begin
     generic map (
       FWFT_EN_G    => true,
       DATA_WIDTH_G => TIMING_MESSAGE_BITS_C+1,
-      ADDR_WIDTH_G => FIFO_ADDR_WIDTH_G
+      ADDR_WIDTH_G => FIFO_ADDR_WIDTH_G,
+      EMPTY_THRES_G => (2**FIFO_ADDR_WIDTH_G)-3
       )
     port map (
       rst       => timingRst,
@@ -114,6 +117,7 @@ begin
       rd_clk    => diagnosticClk,
       rd_en     => r.rden,
       valid     => valid,
+      prog_empty=> empty,
       dout      => diagnMessageSlv );
 
   tcomb : process ( timingRst, t, trigger, timingStrobe, timingMessage ) is
@@ -157,7 +161,7 @@ begin
       dataIn  => timingStrobe,
       dataOut => strobeD );
 
-  comb : process( diagnosticRst, r, valid, strobeD, diagnTrigger, diagnMessage, diagnosticBusI ) is
+  comb : process( diagnosticRst, r, valid, strobeD, empty, diagnTrigger, diagnMessage, diagnosticBusI ) is
     variable v : RegType;
   begin
     v := r;
@@ -167,27 +171,21 @@ begin
 
     if diagnosticBusI.strobe = '1' then
       v.triggered := '1';
-    elsif strobeD = '1' then
-      v.triggered := '0';
     end if;
       
-    if valid = '1' and strobeD = '1' then
-      if diagnTrigger = '1' then
-        if r.triggered = '1' then
-          v.rden := '1';
-          v.dbus.strobe        := '1';
-          v.dbus.data          := diagnosticBusI.data;
-          v.dbus.sevr          := diagnosticBusI.sevr;
-          v.dbus.fixed         := diagnosticBusI.fixed;
-          v.dbus.mpsIgnore     := diagnosticBusI.mpsIgnore;
-          v.dbus.timingMessage := diagnMessage;
-        end if;
+    if valid = '1' and strobeD = '1' and empty = '0' then
+      if diagnTrigger = '1' and r.triggered = '1' then
+        v.dbus.data          := diagnosticBusI.data;
+        v.dbus.sevr          := diagnosticBusI.sevr;
+        v.dbus.fixed         := diagnosticBusI.fixed;
+        v.dbus.mpsIgnore     := diagnosticBusI.mpsIgnore;
+        v.triggered          := '0';
       else
-        v.rden := '1';
         v.dbus := DIAGNOSTIC_BUS_INIT_C;
-        v.dbus.strobe        := '1';
-        v.dbus.timingMessage := diagnMessage;
       end if;
+      v.rden               := '1';
+      v.dbus.strobe        := '1';
+      v.dbus.timingMessage := diagnMessage;
     end if;
     
     if diagnosticRst = '1' then
