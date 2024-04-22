@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2023-08-15
+-- Last update: 2024-04-22
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -496,13 +496,17 @@ begin
 
    diagnBus.timingMessage <= toTimingMessageType(timingMessageSlvO);
 
+   --
+   --  This is an application-specific stream ("bstream") to maintain
+   --  consistency with the NC IOC, which predates the core BSA/BSSS/BLD support
+   --
    BSSS : entity xil_defaultlib.BsssWrapper
      generic map ( NUM_EDEFS_G => 1 )
      port map (
        -- Diagnostic data interface
        diagnosticClk   => diagnClk,
        diagnosticRst   => diagnRst,
-       diagnosticBus   => diagnBusO,
+       diagnosticBus   => diagnBusQ,
        -- AXI Lite interface
        axilClk         => regClk,
        axilRst         => regRst,
@@ -518,18 +522,18 @@ begin
        obEthMsgMaster  => obBpMsgServerMaster,
        obEthMsgSlave   => obBpMsgServerSlave );
 
-   -- diagnosticClk <= diagnClk;
-   -- diagnosticRst <= diagnRst;
+   diagnosticClk <= diagnClk;
+   diagnosticRst <= diagnRst;
    -- diagnosticBus <= diagnBus;
 
    U_APP_DBUS : entity xil_defaultlib.AppDiagnBus
      port map (
        clk                 => diagnClk,
        rst                 => diagnRst,
-       dbus                => diagnBus,
-       clkO                => diagnosticClk,
-       rstO                => diagnosticRst,
-       dbusO               => diagnBusQ,
+       dbus                => diagnBusQ,
+--       clkO                => diagnosticClk,
+--       rstO                => diagnosticRst,
+       dbusO               => diagnBusO,
        -- AXI Lite interface
        axilClk             => regClk,
        axilRst             => regRst,
@@ -552,9 +556,9 @@ begin
       -- Diagnostic data interface
       diagnosticClk   => diagnClk,
       diagnosticRst   => diagnRst,
-      diagnosticBusI  => diagnBusQ,       -- delayed processing results;
+      diagnosticBusI  => diagnBus,        -- delayed processing results;
                                           -- timingMessage is ignored/overwritten
-      diagnosticBusO  => diagnBusO ); -- full rate output
+      diagnosticBusO  => diagnBusQ ); -- full rate output
 
        
    -- Clock trigger divider - LCLS I  recovered timing clock*(3/21)
