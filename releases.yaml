@@ -1,0 +1,23 @@
+
+GitBase: ..
+
+Targets:
+  LclsPCav:
+    ImageDir: targets/LclsPCav/images
+    Extensions:
+      - mcs
+      - cpsw.tar.gz
+  Lcls2PCav:
+    ImageDir: targets/Lcls2PCav/images
+    Extensions:
+      - mcs
+      - cpsw.tar.gz
+
+Releases:
+  all:
+    Primary: True
+    Targets:
+#      - LclsPCav
+      - Lcls2PCav
+    Types:
+      - firmware
