@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2024-04-22
+-- Last update: 2025-03-03
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -290,29 +290,31 @@ begin
 
    diagnosticBus  <= diagnBusO;
 
-   U_AmcCorePll : entity surf.ClockManagerUltraScale
-     generic map(
-       TPD_G             => TPD_G,
-       TYPE_G            => "PLL",
-       INPUT_BUFG_G      => true,
-       FB_BUFG_G         => true,
-       RST_IN_POLARITY_G => '1',
-       NUM_CLOCKS_G      => 1,
-       -- MMCM attributes
-       BANDWIDTH_G       => "OPTIMIZED",
-       CLKIN_PERIOD_G    => 6.4,
-       DIVCLK_DIVIDE_G   => 1, 
-       CLKFBOUT_MULT_G   => 8, 
-       CLKOUT0_DIVIDE_G  => 16)
-     port map(
-       -- Clock Input
-       clkIn     => axilClk,
-       rstIn     => axilRst,
-       -- Clock Outputs
-       clkOut(0) => regClk,
-       -- Reset Outputs
-       rstOut(0) => regRst);
-
+   -- U_AmcCorePll : entity surf.ClockManagerUltraScale
+   --   generic map(
+   --     TPD_G             => TPD_G,
+   --     TYPE_G            => "PLL",
+   --     INPUT_BUFG_G      => true,
+   --     FB_BUFG_G         => true,
+   --     RST_IN_POLARITY_G => '1',
+   --     NUM_CLOCKS_G      => 1,
+   --     -- MMCM attributes
+   --     BANDWIDTH_G       => "OPTIMIZED",
+   --     CLKIN_PERIOD_G    => 6.4,
+   --     DIVCLK_DIVIDE_G   => 1, 
+   --     CLKFBOUT_MULT_G   => 8, 
+   --     CLKOUT0_DIVIDE_G  => 16)
+   --   port map(
+   --     -- Clock Input
+   --     clkIn     => axilClk,
+   --     rstIn     => axilRst,
+   --     -- Clock Outputs
+   --     clkOut(0) => regClk,
+   --     -- Reset Outputs
+   --     rstOut(0) => regRst);
+   regClk <= axilClk;
+   regRst <= axilRst;
+   
    U_ASync : entity surf.AxiLiteAsync
      port map (
       -- Slave Port
