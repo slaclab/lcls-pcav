@@ -280,28 +280,8 @@ architecture mapping of AppCore is
    signal streamMaster         : AxiStreamMasterType;
    signal streamSlave          : AxiStreamSlaveType;
    
-   constant DEBUG_C : boolean := false;
-
-   component ila_0
-     port ( clk    : in sl;
-            probe0 : in slv(255 downto 0) );
-   end component;
-   
 begin
 
-   GEN_DEBUG : if DEBUG_C generate
-     U_ILA : ila_0
-       port map ( clk                   => diagnClk,
-                  probe0(            0) => diagnRst,
-                  probe0(            1) => diagnBusO.strobe,
-                  probe0(            2) => diagnBusQ.strobe,
-                  probe0( 12 downto  3) => diagnBusO.timingMessage.fixedRates,
-                  probe0( 22 downto 13) => diagnBusQ.timingMessage.fixedRates,
-                  probe0( 38 downto 23) => diagnBusO.timingMessage.pulseId(15 downto 0),
-                  probe0( 54 downto 39) => diagnBusQ.timingMessage.pulseId(15 downto 0),
-                  probe0(255 downto 55) => (others=>'0') );
-   end generate;
-   
     -- We want to see DAC values on DaqMux
    dacValids <= (others => (others => '1'));
    dacValues(0,0) <= s_dacLs(0);
@@ -402,7 +382,7 @@ begin
          TPD_G              => TPD_G,
          NUM_SLAVE_SLOTS_G  => 2,
          NUM_MASTER_SLOTS_G => NUM_REG_MASTERS_C,
-         MASTERS_CONFIG_G   => AXI_CONFIG_C)
+         MASTERS_CONFIG_G   => REG_CONFIG_C)
       port map (
          axiClk              => regClk,
          axiClkRst           => regRst,
@@ -657,8 +637,8 @@ begin
        axilWriteSlave  => open
        );
 
-   axilReadSlaves  (MMCM_DRP_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
-   axilWriteSlaves (MMCM_DRP_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
+   regReadSlaves  (MMCM_DRP_INDEX_C) <= AXI_LITE_READ_SLAVE_INIT_C;
+   regWriteSlaves (MMCM_DRP_INDEX_C) <= AXI_LITE_WRITE_SLAVE_INIT_C;
    
    -----------------------
    -- AMC BAY[0] Interface
