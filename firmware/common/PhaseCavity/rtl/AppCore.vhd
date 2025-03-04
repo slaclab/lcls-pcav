@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2025-03-03
+-- Last update: 2025-03-04
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -187,31 +187,35 @@ architecture mapping of AppCore is
 
    constant RTM_INDEX_C       : natural := 0;
    constant WAVEFORM_INDEX_C  : natural := 1;
-   constant SYSGEN_INDEX_C    : natural := 2;
-   constant MMCM_DRP_INDEX_C  : natural := 3;
-   constant BSSS_INDEX_C      : natural := 4;
-   constant BLD_INDEX_C       : natural := 5;
-   constant NUM_REG_MASTERS_C : natural := 6;
+   constant WAVEFORM_INDEX2_C : natural := 2;
+   constant SYSGEN_INDEX_C    : natural := 3;
+   constant MMCM_DRP_INDEX_C  : natural := 4;
+   constant BSSS_INDEX_C      : natural := 5;
+   constant BLD_INDEX_C       : natural := 6;
+   constant NUM_REG_MASTERS_C : natural := 7;
 
    constant REG_CONFIG_C : AxiLiteCrossbarMasterConfigArray(NUM_REG_MASTERS_C-1 downto 0) := (
-     RTM_INDEX_C      => (baseAddr     => AXI_BASE_ADDR_G + x"02000000",
-                          addrBits     => 24,
-                          connectivity => x"FFFF"),
-     WAVEFORM_INDEX_C => (baseAddr     => AXI_BASE_ADDR_G + x"03000000",
-                          addrBits     => 24,
-                          connectivity => x"FFFF"),
-     SYSGEN_INDEX_C   => (baseAddr     => AXI_BASE_ADDR_G + x"04000000",
-                          addrBits     => 24,
-                          connectivity => x"FFFF"),
-     MMCM_DRP_INDEX_C => (baseAddr     => AXI_BASE_ADDR_G + x"05000000",
-                          addrBits     => 24,
-                          connectivity => x"FFFF"),
-     BSSS_INDEX_C     => (baseAddr     => AXI_BASE_ADDR_G + x"06000000",
-                          addrBits     => 24,
-                          connectivity => x"FFFF"),
-     BLD_INDEX_C      => (baseAddr     => AXI_BASE_ADDR_G + x"07000000",
-                          addrBits     => 24,
-                          connectivity => x"FFFF"));
+     RTM_INDEX_C       => (baseAddr     => AXI_BASE_ADDR_G + x"02000000",
+                           addrBits     => 24,
+                           connectivity => x"FFFF"),
+     WAVEFORM_INDEX_C  => (baseAddr     => AXI_BASE_ADDR_G + x"03000000",
+                           addrBits     => 24,
+                           connectivity => x"FFFF"),
+     WAVEFORM_INDEX2_C => (baseAddr     => AXI_BASE_ADDR_G + x"04000000",
+                           addrBits     => 24,
+                           connectivity => x"FFFF"),
+     SYSGEN_INDEX_C    => (baseAddr     => AXI_BASE_ADDR_G + x"05000000",
+                           addrBits     => 24,
+                           connectivity => x"FFFF"),
+     MMCM_DRP_INDEX_C  => (baseAddr     => AXI_BASE_ADDR_G + x"06000000",
+                           addrBits     => 24,
+                           connectivity => x"FFFF"),
+     BSSS_INDEX_C      => (baseAddr     => AXI_BASE_ADDR_G + x"07000000",
+                           addrBits     => 24,
+                           connectivity => x"FFFF"),
+     BLD_INDEX_C       => (baseAddr     => AXI_BASE_ADDR_G + x"08000000",
+                           addrBits     => 24,
+                           connectivity => x"FFFF"));
 
    signal regWriteMasters : AxiLiteWriteMasterArray(NUM_REG_MASTERS_C-1 downto 0);
    signal regWriteSlaves  : AxiLiteWriteSlaveArray (NUM_REG_MASTERS_C-1 downto 0);
