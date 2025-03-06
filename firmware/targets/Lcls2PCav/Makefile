@@ -9,7 +9,8 @@ export GIT_BYPASS = 1
 # PRJ_VERSION = 0x00000004  Use example model from Charlie
 # PRJ_VERSION = 0x02000000  First update for SC using current submodules
 # PRJ_VERSION = 0x02000100  Add DiagnBusInsert module to allow sysgen to run <1MH
-export PRJ_VERSION = 0x02000100
+# PRJ_VERSION = 0x02000200  Reduce axilClk speed for most application space
+export PRJ_VERSION = 0x02000200
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build

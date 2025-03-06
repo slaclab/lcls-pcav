@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2025-03-04
+-- Last update: 2025-03-06
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -164,7 +164,8 @@ architecture mapping of AppCore is
    constant AMC1_INDEX_C      : natural := 1;
    constant REG0_INDEX_C      : natural := 2;
    constant REG1_INDEX_C      : natural := 3;
-   constant NUM_AXI_MASTERS_C : natural := 4;
+   constant REG2_INDEX_C      : natural := 4;
+   constant NUM_AXI_MASTERS_C : natural := 5;
 
    constant AXI_CONFIG_C : AxiLiteCrossbarMasterConfigArray(NUM_AXI_MASTERS_C-1 downto 0) := (
      AMC0_INDEX_C => (baseAddr     => AXI_BASE_ADDR_G + x"00000000",
@@ -178,6 +179,9 @@ architecture mapping of AppCore is
                       connectivity => x"FFFF"),
      REG1_INDEX_C => (baseAddr     => AXI_BASE_ADDR_G + x"04000000",
                       addrBits     => 26,
+                      connectivity => x"FFFF"),
+     REG2_INDEX_C => (baseAddr     => AXI_BASE_ADDR_G + x"08000000",
+                      addrBits     => 27,
                       connectivity => x"FFFF"));
 
    signal axilWriteMasters : AxiLiteWriteMasterArray(NUM_AXI_MASTERS_C-1 downto 0);
@@ -222,10 +226,10 @@ architecture mapping of AppCore is
    signal regReadMasters  : AxiLiteReadMasterArray (NUM_REG_MASTERS_C-1 downto 0);
    signal regReadSlaves   : AxiLiteReadSlaveArray  (NUM_REG_MASTERS_C-1 downto 0);
 
-   signal regWriteMaster  : AxiLiteWriteMasterArray(1 downto 0);
-   signal regWriteSlave   : AxiLiteWriteSlaveArray (1 downto 0);
-   signal regReadMaster   : AxiLiteReadMasterArray (1 downto 0);
-   signal regReadSlave    : AxiLiteReadSlaveArray  (1 downto 0);
+   signal regWriteMaster  : AxiLiteWriteMasterArray(2 downto 0);
+   signal regWriteSlave   : AxiLiteWriteSlaveArray (2 downto 0);
+   signal regReadMaster   : AxiLiteReadMasterArray (2 downto 0);
+   signal regReadSlave    : AxiLiteReadSlaveArray  (2 downto 0);
    
    signal regClk, regRst   : sl;
    
@@ -359,7 +363,7 @@ begin
          mAxiReadSlaves      => axilReadSlaves);
 
    
-   GEN_ASYNC : for i in 0 to 1 generate
+   GEN_ASYNC : for i in 0 to 2 generate
      U_ASync : entity surf.AxiLiteAsync
        port map (
          -- Slave Port
@@ -384,7 +388,7 @@ begin
    U_REG_XBAR : entity surf.AxiLiteCrossbar
       generic map (
          TPD_G              => TPD_G,
-         NUM_SLAVE_SLOTS_G  => 2,
+         NUM_SLAVE_SLOTS_G  => 3,
          NUM_MASTER_SLOTS_G => NUM_REG_MASTERS_C,
          MASTERS_CONFIG_G   => REG_CONFIG_C)
       port map (
