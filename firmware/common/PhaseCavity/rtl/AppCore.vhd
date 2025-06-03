@@ -60,6 +60,8 @@ entity AppCore is
       jesdRst2x           : in    slv(1 downto 0);
       jesdUsrClk          : in    slv(1 downto 0);
       jesdUsrRst          : in    slv(1 downto 0);
+      appTimingClk        : out   sl;
+      appTimingRst        : out   sl;
       -- DaqMux/Trig Interface (timingClk domain)
       freezeHw            : out   slv(1 downto 0);
       timingTrig          : in    TimingTrigType;
@@ -94,6 +96,8 @@ entity AppCore is
       -- Top Level Interface
       ----------------------
       -- Timing Interface (timingClk domain)
+      recTimingClk        : in    sl;
+      recTimingRst        : in    sl;
       timingClk           : in    sl;
       timingRst           : in    sl;
       timingBus           : in    TimingBusType;
@@ -265,7 +269,9 @@ begin
    s_adcValids(1) <= adcValids(1)(5 downto 0);
 
    diagnosticBus  <= diagnBusO;
-
+   appTimingClk   <= '0';
+   appTimingRst   <= '1';
+   
    ---------------------
    -- AXI-Lite Crossbar
    ---------------------
@@ -394,6 +400,12 @@ begin
 
    timingMessageSlv <= toSlv(timingMessage);
 
+   U_DiagnRst : entity surf.RstSync
+     port map (
+       clk      => diagnClk,
+       asyncRst => timingRst,
+       syncRst  => diagnRst );
+   
    --  Capture timing message at full fiducial rate
    V2FIFO : entity surf.SynchronizerFifo
      generic map ( DATA_WIDTH_G  => TIMING_MESSAGE_BITS_C )
