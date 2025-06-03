@@ -10,7 +10,9 @@ export GIT_BYPASS = 1
 # PRJ_VERSION = 0x02000000  First update for SC using current submodules
 # PRJ_VERSION = 0x02000100  Add DiagnBusInsert module to allow sysgen to run <1MH
 # PRJ_VERSION = 0x02000200  Reduce axilClk speed for most application space
-export PRJ_VERSION = 0x02000200
+# PRJ_VERSION = 0x02010000  Trigger DaqMux on any register write to the upconverter
+#                           Update submodules.
+export PRJ_VERSION = 0x02010000
 
 ##########################################################################################
 # Applications must define if using advance AMC carrier build

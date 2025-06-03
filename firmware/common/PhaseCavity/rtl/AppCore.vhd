@@ -2,7 +2,7 @@
 -- File       : AppCore.vhd
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2017-02-04
--- Last update: 2025-03-06
+-- Last update: 2025-06-03
 -------------------------------------------------------------------------------
 -- Description: Application Core's Top Level
 --
@@ -163,7 +163,7 @@ architecture mapping of AppCore is
   constant AMC0_INDEX_C      : natural := 0;
   constant AMC1_INDEX_C      : natural := 1;
   constant RTM_INDEX_C       : natural := 2;
-  constant WAVEFORM_INDEX_C  : natural := 3;
+  --constant WAVEFORM_INDEX_C  : natural := 3;
   --constant WAVEFORM_INDEX_C  : natural := 4;
   constant SYSGEN_INDEX_C    : natural := 5;
   constant MMCM_DRP_INDEX_C  : natural := 6;
@@ -202,7 +202,8 @@ architecture mapping of AppCore is
    signal s_clkOut      : slv(15 downto 0);
    signal s_timingClk2x : sl;
    signal s_timingClk2x_locked : sl;
-
+   signal trigHwb : slv(1 downto 0);
+  
    -----------------Waveform BRAM--------------------------
    constant WF_ADDR_WIDTH_C : positive := 11; --ite(DSP_CLK_2X_G, 11, 10);  -- 2048 Samples
    constant WF_DATA_WIDTH_C : positive := 32; --ite(DSP_CLK_2X_G, 16, 32);  -- 2048 Samples
@@ -235,6 +236,8 @@ architecture mapping of AppCore is
    
 begin
 
+   trigHw <= trigHwb;
+  
     -- We want to see DAC values on DaqMux
    dacValids <= (others => (others => '1'));
    dacValues(0,0) <= s_dacLs(0);
@@ -307,32 +310,8 @@ begin
    -- IQ Axi lite BRAM waveforms
    ----------------
    GEN_WAVEFORMS : for i in 1 downto 0 generate
-      -- Dual port RAM accessible from axiLite
-      -- waveform input to the System Generator
-      U_Waveform : entity surf.AxiDualPortRam
-         generic map (
-            TPD_G        => TPD_G,
-            --BRAM_EN_G    => true,
-            --REG_EN_G     => true,
-            --MODE_G       => "write-first",
-            ADDR_WIDTH_G => WF_ADDR_WIDTH_C,
-            DATA_WIDTH_G => WF_DATA_WIDTH_C,
-            INIT_G       => "0")
-         port map (
-            -- Axi clk domain
-            axiClk         => axilClk,
-            axiRst         => axilRst,
-            axiReadMaster  => axilReadMasters (WAVEFORM_INDEX_C+i),
-            axiReadSlave   => axilReadSlaves  (WAVEFORM_INDEX_C+i),
-            axiWriteMaster => axilWriteMasters(WAVEFORM_INDEX_C+i),
-            axiWriteSlave  => axilWriteSlaves (WAVEFORM_INDEX_C+i),
-
-            -- Sysgen clk domain
-            clk  => jesdClk(1),
-            rst  => jesdRst(1),
-            en   => '1',
-            addr => s_wfAddr(i),
-            dout => s_wfData(i));
+      axilReadSlaves (WAVEFORM_INDEX_C+i) <= AXI_LITE_READ_SLAVE_EMPTY_DECERR_C;
+      axilWriteSlaves(WAVEFORM_INDEX_C+i) <= AXI_LITE_WRITE_SLAVE_EMPTY_DECERR_C;
    end generate GEN_WAVEFORMS;
 
    ----------------
@@ -362,7 +341,7 @@ begin
          diagnStrobe => diagnBus.strobe,
          rfSwitch       => s_fpgaInterlock,
          trigPulse      => s_trigPulse,
-         trigDaqOut     => trigHw,
+         trigDaqOut     => trigHwb,
          trigMode       => s_trigMode,
 
          -- DacSigCtrl
@@ -666,7 +645,8 @@ begin
        -- RTM's Clock Reference
        genClkP         => genClkP,
        genClkN         => genClkN);
-   s_dOut(7 downto 0) <= s_cleanClk(0) & s_cleanClk(1) & "0" & "0" & s_trigPulse(0) & s_trigPulse(2) & s_trigPulse(1) & s_timingClk2x_locked;
+
+   s_dOut(7 downto 0) <= s_cleanClk(0) & s_cleanClk(1) & trigHwb & s_trigPulse(0) & s_trigPulse(2) & s_trigPulse(1) & s_timingClk2x_locked;
 
    --------------------
    -- Common IDELAYCTRL

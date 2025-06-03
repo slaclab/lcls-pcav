@@ -5,7 +5,7 @@
 -- Author     : Larry Ruckman  <ruckman@slac.stanford.edu>
 -- Company    : SLAC National Accelerator Laboratory
 -- Created    : 2016-02-25
--- Last update: 2023-05-18
+-- Last update: 2025-06-03
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -138,7 +138,8 @@ architecture mapping of AppLlrfCore is
    signal af204 : DdcType;
 
    signal trigPulseSync    : slv(NUM_OF_TRIG_PULSES_G-1 downto 0);
-
+   signal trigDaqIn        : slv(1 downto 0);
+   
    signal userDacControl    : slv(15 downto 0) := (others=>'0');
    signal userdaccontrol204 : slv(15 downto 0) := (others=>'0');
    
@@ -689,6 +690,7 @@ begin
        dataOut  => idiagnStrobe );
 
    GEN_TRIG : for i in 1 downto 0 generate
+     trigDaqIn(i) <= trigPulse(2) or writeSlave (UPCONVERT_INDEX_C).bvalid;
      U_TimingRstSync: entity surf.SynchronizerOneShot
        generic map (
          TPD_G         => TPD_G,
@@ -696,7 +698,7 @@ begin
        port map (
          clk       => jesdClk(i),
          rst       => jesdRst(i),
-         dataIn    => trigPulse(2),
+         dataIn    => trigDaqIn(i),
          dataOut   => trigDaqOut(i) );
    end generate;
 
