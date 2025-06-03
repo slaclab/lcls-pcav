@@ -163,7 +163,7 @@ architecture mapping of AppCore is
   constant AMC0_INDEX_C      : natural := 0;
   constant AMC1_INDEX_C      : natural := 1;
   constant RTM_INDEX_C       : natural := 2;
-  --constant WAVEFORM_INDEX_C  : natural := 3;
+  constant WAVEFORM_INDEX_C  : natural := 3;
   --constant WAVEFORM_INDEX_C  : natural := 4;
   constant SYSGEN_INDEX_C    : natural := 5;
   constant MMCM_DRP_INDEX_C  : natural := 6;
