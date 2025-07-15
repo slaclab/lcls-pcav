@@ -1,0 +1,71 @@
+##############################################################################
+## This file is part of 'SLAC Firmware Standard Library'.
+## It is subject to the license terms in the LICENSE.txt file found in the 
+## top-level directory of this distribution and at: 
+##    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html. 
+## No part of 'SLAC Firmware Standard Library', including this file, 
+## may be copied, modified, propagated, or distributed except according to 
+## the terms contained in the LICENSE.txt file.
+##############################################################################
+#schemaversion 3.0.0
+#once AppCore.yaml
+#include AmcMrLlrfDownConvert.yaml
+#include AmcMrLlrfGen2UpConvert.yaml
+#include AppDiagnBus.yaml
+#include AppLlrfCore.yaml
+#include BsssAxiStream.yaml
+#include GenericMemory.yaml
+#include ClockManager.yaml
+#include RtmDigitalDebug.yaml
+#include Si5317a.yaml
+
+AppCore: &AppCore 
+  name: AppCore
+  description: AMC Carrier Application Core
+  size: 0x10000000
+  class: MMIODev
+  configPrio: 1
+  ########
+  children:
+  ########
+    ##################################################     
+    AmcMrLlrfDownConvert:
+      <<: *AmcMrLlrfDownConvert
+      at:
+        offset: 0x00000000      
+    ################################################## 
+    AmcMrLlrfGen2UpConvert:
+      <<: *AmcMrLlrfGen2UpConvert
+      at:
+        offset: 0x01000000      
+    ##################################################  
+    RtmDigitalDebug:
+      <<: *RtmDigitalDebug
+      at:
+        offset: 0x02000000 
+      children:     
+         Si5317a:
+            <<: *Si5317a
+            at:
+                offset: 0x00000000      
+    ##################################################      
+    Sysgen:
+       <<: *AppLlrfCore
+       at:
+        offset: 0x05000000      
+    ##################################################
+#    MMCM_DRP:
+#       <<: *ClockManager
+#       at:
+#        offset: 0x06000000      
+    ##################################################
+    BSSS:
+       <<: *BsssAxiStream
+       at:
+        offset: 0x07000000      
+    ##################################################
+    AppDiagnBus:
+       <<: *AppDiagnBus
+       at:
+        offset: 0x08000000      
+    ##################################################

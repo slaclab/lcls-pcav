@@ -11,7 +11,9 @@
 #once 000TopLevel.yaml
 #include AmcCarrierCore.yaml
 #include AmcCarrierDRAM.yaml
-#include AppTop.yaml
+#include AppTopIndependent.yaml
+#include JesdRx_6.yaml
+#include JesdTx_7.yaml
 
 
 # It is important to use the same parameters
@@ -38,41 +40,42 @@ mmio: &mmio
       <<: *AmcCarrierCore
       at:
         offset: 0x00000000  
+      children:
+        AppMps:
+          instantiate: false
     ##################################################     
     AppTop:
-      <<: *AppTop
+      <<: *AppTopIndependent
       at:
         offset: 0x80000000
       children: 
-        AppTopJesd:
+        AppTopJesd0:
           children:
             JesdRx:
-              instantiate: true    
-              metadata:
-                numRxLanes: &numRxLanes 6
-            JesdTx:
-              instantiate: false
-              metadata: 
-                numTxLanes: &numTxLanes 0
-        DacSigGen:
-          <<: *DacSigGen
-          at:
-            offset: 0x70000000
-            nelms: 1
-          instantiate: true
+              <<: *JesdRx_6
+              instantiate: true
+        AppTopJesd1:
           children:
-            Waveform:
-              children:
-                MemoryArray:
-                  at:
-                    nelms: 0x1000
+            JesdRx:
+              <<: *JesdRx_6
+              instantiate: true
+            JesdTx:
+              <<: *JesdTx_7
+              instantiate: true
+#        DacSigGen:
+#          <<: *DacSigGen
+#          at:
+#            offset: 0x70000000
+#            nelms: 1
+#          instantiate: true
+#          children:
+#            Waveform:
+#              children:
+#                MemoryArray:
+#                  at:
+#                    nelms: 0x1000
         AppCore:
           children:
-#  This BLD module only found in NC PhaseCavity
-#            BLD:
-#              instantiate: true
-#              metadata:
-#                numEdefs: &numEdefs 2
             BSSS:
               instantiate: true
               metadata:

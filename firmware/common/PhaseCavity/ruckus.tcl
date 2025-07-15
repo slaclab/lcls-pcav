@@ -9,6 +9,12 @@ loadSource -path  "$::DIR_PATH/netlist/example.dcp"
 
 loadIpCore -path "$::DIR_PATH/coregen/ila_0.xci"
 
+if { $::env(AMC_TYPE_BAY1) == "AmcMrLlrfGen2UpConvert" } {
+    loadRuckusTcl "$::DIR_PATH/yamlConfigGen2"
+} elseif { $::env(AMC_TYPE_BAY1) == "AmcMrLlrfUpConvert" } {
+    loadRuckusTcl "$::DIR_PATH/yamlConfigGen1"
+}
+
 ## Synthesis options
 set_property strategy Performance_ExplorePostRoutePhysOpt [get_runs impl_1]
 

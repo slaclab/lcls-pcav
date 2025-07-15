@@ -1,0 +1,43 @@
+############################
+## Initialize the JESD lanes
+############################
+- AppTop:
+    # Power down the sysref
+    - AppCore:
+        - AmcMrLlrfDownConvert:
+            - Lmk04828:
+              - PwrDwnSysRef: !<value> 0x1
+        - AmcMrLlrfGen2UpConvert:
+            - Lmk04828:
+              - PwrDwnSysRef: !<value> 0x1
+
+    # GTs Reset
+    - AppTopJesd0:
+        - JesdRx:
+            - ResetRxGTs: !<value> 0x1
+    - AppTopJesd1:
+        - JesdRx:
+            - ResetRxGTs: !<value> 0x1
+        - JesdTx:
+            - ResetTxGTs: !<value> 0x1
+
+    # Initilize the AMC cards
+    - AppCore:
+        - AmcMrLlrfDownConvert:
+          - InitAmcCard: !<value> 0x01
+        - AmcMrLlrfGen2UpConvert:
+          - InitAmcCard: !<value> 0x01
+          - Dac38J84:
+            - InitDac: !<value> 0x01
+            - NcoSync: !<value> 0x01
+            - ClearAlarms: !<value> 0x01
+
+    # Clear all error counters
+    - AppTopJesd0:
+        - JesdRx:
+            - ClearRxErrors: !<value> 0x1
+    - AppTopJesd1:
+        - JesdRx:
+            - ClearRxErrors: !<value> 0x1
+        - JesdTx:
+            - ClearTxStatus: !<value> 0x1

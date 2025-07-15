@@ -53,7 +53,7 @@ export AMC_TYPE_BAY0 = AmcMrLlrfDownConvert
 export AMC_INTF_BAY0 = Version2
 
 # AMC_TYPE_BAY1 & AMC_INTF_BAY1 are defined by application
-export AMC_TYPE_BAY1 = AmcMrLlrfUpConvert
+export AMC_TYPE_BAY1 = AmcMrLlrfGen2UpConvert
 #export AMC_INTF_BAY1 = Version1
 export AMC_INTF_BAY1 = Version2
 

@@ -1,0 +1,64 @@
+############################
+## This file is part of 'SLAC Firmware Standard Library'.
+## It is subject to the license terms in the LICENSE.txt file found in the
+## top-level directory of this distribution and at:
+##    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html.
+## No part of 'SLAC Firmware Standard Library', including this file,
+## may be copied, modified, propagated, or distributed except according to
+## the terms contained in the LICENSE.txt file.
+##############################################################################
+#schemaversion 3.0.0
+#once AppTestModel
+
+AppTestModel: &AppTestModel
+  class: MMIODev
+  configPrio: 1
+  description: AppTestModel Registers
+  size: 0x200
+  children:
+    #########################################################
+    TrigRateSync:
+      at:
+        offset: 0x00
+      class: IntField
+      name: TrigRateSync
+      sizeBits: 32
+      mode: RO
+      description: Sync trigger rate
+    #########################################################
+    TrigRatePASync:
+      at:
+        offset: 0x04
+      class: IntField
+      name: TrigRatePASync
+      sizeBits: 32
+      mode: RO
+      description: PA Sync trigger rate
+    #########################################################
+    TrigRateDdcSync:
+      at:
+        offset: 0x08
+      class: IntField
+      name: TrigRateDdcSync
+      sizeBits: 32
+      mode: RO
+      description: DDC Sync Trigger rate
+    ##########################################################
+    TrigRateDStrobe:
+      at:
+        offset: 0x0c
+      class: IntField
+      name: TrigRateDStrobe
+      sizeBits: 32
+      mode: RO
+      description: DStrobe trigger rate
+    ##########################################################
+    DiagnRst:
+      at:
+        offset: 0x100
+      class: IntField
+      name: DiagnRst
+      sizeBits: 1
+      mode: RW
+      description: Diagnostic bus reset
+    ###########################################################
