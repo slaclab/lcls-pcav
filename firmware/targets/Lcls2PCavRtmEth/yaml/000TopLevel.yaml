@@ -1,0 +1,225 @@
+##############################################################################
+## This file is part of 'LCLS2 Common Carrier Core'.
+## It is subject to the license terms in the LICENSE.txt file found in the 
+## top-level directory of this distribution and at: 
+##    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html. 
+## No part of 'LCLS2 Common Carrier Core', including this file, 
+## may be copied, modified, propagated, or distributed except according to 
+## the terms contained in the LICENSE.txt file.
+##############################################################################
+#schemaversion 3.0.0
+#once 000TopLevel.yaml
+#include AmcCarrierCore.yaml
+#include AmcCarrierDRAM.yaml
+#include AppTopIndependent.yaml
+#include JesdRx_6.yaml
+#include JesdTx_7.yaml
+
+
+# It is important to use the same parameters
+# for shared protocol modules (e.g., all RSSI
+# on the same port is in fact one single, shared
+# module)
+#
+connectionParameters:
+  udpPri:     &udpPri      80
+  udpThreads: &udpThreads   1
+  rssi: &rssiParams
+    retransmissionTimeoutUS: 100000
+    cumulativeAckTimeoutUS:   50000
+    threadPriority:             82
+
+mmio: &mmio
+  size: 0x100000000 # 4GB of address space
+  class: MMIODev
+  configPrio: 1
+  ########
+  children:
+  ########
+    AmcCarrierCore:
+      <<: *AmcCarrierCore
+      at:
+        offset: 0x00000000  
+      children:
+        AppMps:
+          instantiate: false
+    ##################################################     
+    AppTop:
+      <<: *AppTopIndependent
+      at:
+        offset: 0x80000000
+      children: 
+        AppTopJesd0:
+          children:
+            JesdRx:
+              <<: *JesdRx_6
+              instantiate: true
+        AppTopJesd1:
+          children:
+            JesdRx:
+              <<: *JesdRx_6
+              instantiate: true
+            JesdTx:
+              <<: *JesdTx_7
+              instantiate: true
+#        DacSigGen:
+#          <<: *DacSigGen
+#          at:
+#            offset: 0x70000000
+#            nelms: 1
+#          instantiate: true
+#          children:
+#            Waveform:
+#              children:
+#                MemoryArray:
+#                  at:
+#                    nelms: 0x1000
+        AppCore:
+          children:
+            BSSS:
+              instantiate: true
+              metadata:
+                numEdefs: &numEdefs 8
+    ################################################## 
+
+strm: &strm
+  size: 0x100000000 # 4GB of address space
+  class: MMIODev
+  children:
+      AmcCarrierDRAM:
+          <<: *AmcCarrierDRAM
+          at:
+            offset: 0x00000000      
+
+tstream: &tstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    port: 8197
+    pollSecs: 1
+
+bstream: &bstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    port: 8195
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    pollSecs: 1
+
+stream: &stream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    port: 8194
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+  RSSI: *rssiParams
+  depack:
+    useDepack: yes
+  TDESTMux:
+    stripHeader: yes
+    TDEST: 0x80
+
+bldstream: &bldstream
+  SRP:
+    protocolVersion: SRP_UDP_NONE
+  UDP:
+    numRxThreads: *udpThreads
+    threadPriority:  *udpPri
+    port: 8198
+    pollSecs: 1
+
+NetIODev:
+  ipAddr: 10.0.1.105
+  class: NetIODev
+  configPrio: 1
+  children:
+     mmio:
+       <<: *mmio
+       at:
+         SRP:
+           protocolVersion: SRP_UDP_V3
+         UDP:
+           port: 8193
+         RSSI: yes
+         depack:
+           useDepack: yes
+         TDESTMux:
+           TDEST: 0
+     strm:
+       <<: *strm
+       at:
+         SRP:
+           protocolVersion: SRP_UDP_V3
+         UDP:
+           port: 8194
+           numRxThreads: *udpThreads
+           threadPriority: *udpPri
+         RSSI: *rssiParams
+         depack:
+           useDepack: yes
+         TDESTMux:
+           TDEST: 4
+     bldstream:
+       class: Field
+       at:
+         <<: *bldstream
+     tstream:
+       class: Field
+       at:
+         <<: *tstream
+     bstream:
+       class: Field
+       at:
+         <<: *bstream
+     Stream0:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x80
+     Stream1:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x81
+     Stream2:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x82
+     Stream3:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x83
+     Stream4:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x84
+     Stream5:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x85
+     Stream6:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x86
+     Stream7:
+       class: Field
+       at:
+         <<: *stream
+         TDESTMux:
+           TDEST: 0x87

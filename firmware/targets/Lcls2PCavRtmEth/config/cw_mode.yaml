@@ -1,0 +1,11 @@
+# Set CW mode
+- AppTop:
+    - AppCore:
+        - Sysgen:
+            - LlrfUpconvert:
+                - rfEnable: !<value> 1
+                - modeSelect: !<value> 1 
+                - referenceChannel0: !<value> 0
+                - referenceChannel1: !<value> 0
+                - basebandISet: !<value> 0x7fff
+                - basebandQSet: !<value> 0
