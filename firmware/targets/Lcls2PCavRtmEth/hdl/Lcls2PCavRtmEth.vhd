@@ -335,7 +335,7 @@ begin
          TPD_G           => TPD_G,
          BUILD_INFO_G    => BUILD_INFO_G,
 --         DISABLE_BSA_G   => false,         -- true = doesn't build the BSA engine
-         DISABLE_BSA_G   => false,         -- true = doesn't build the BSA engine
+         DISABLE_BSA_G   => true,         -- true = doesn't build the BSA engine
          DISABLE_BLD_G   => false,         -- true = doesn't build the BLD engine
          DISABLE_MPS_G   => true,         -- true = doesn't build MPS engine
          RTM_ETH_G       => true,         -- false = 10GbE over backplane
